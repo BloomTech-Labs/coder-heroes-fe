@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ParentHome({ props }) {
+export default function InstructorHome({ props }) {
   return (
     <div>
       <p>Hello!</p>

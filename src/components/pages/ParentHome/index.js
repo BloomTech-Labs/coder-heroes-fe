@@ -1,1 +1,1 @@
-export { default as ParentHome } from './ParentSidebar';
+export { default as ParentHome } from './ChildrenList';

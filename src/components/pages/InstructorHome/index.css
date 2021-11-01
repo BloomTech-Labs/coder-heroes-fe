@@ -1,0 +1,21 @@
+.site-calendar-demo-card {
+  width: 450px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  margin-left: 40%;
+  margin-top: 30vh;
+}
+.site-calendar-demo-card h1 {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
+.sub-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.sub-items button {
+  width: 30%;
+}

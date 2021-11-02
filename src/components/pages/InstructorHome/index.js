@@ -1,9 +1,16 @@
 import React from 'react';
+import InstructorSidebar from './InstructorSidebar';
+import InstructorCalender from './InstructorCalender';
+import InstructorProfile from './InstructorProfile';
 
-export default function InstructorHome({ props }) {
+const InstructorHome = () => {
   return (
     <div>
-      <p>Hello!</p>
+      <InstructorSidebar />
+      <InstructorCalender />
+      <InstructorProfile />
     </div>
   );
-}
+};
+
+export default InstructorHome;

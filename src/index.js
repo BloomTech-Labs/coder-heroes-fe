@@ -21,7 +21,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import MainHeader from './components/common/Header';
 import MainFooter from './components/common/Footer';
-import instructorHome from './components/pages/InstructorHome';
+import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 
 ReactDOM.render(
@@ -51,7 +51,7 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={LandingPage} />
-        <Route path="/instructor" component={instructorHome} />
+        <Route path="/instructor" component={InstructorHome} />
         <Route path="/parent" component={ParentHome} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute

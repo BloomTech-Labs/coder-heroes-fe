@@ -7,8 +7,9 @@ import {
   EllipsisOutlined,
 } from '@ant-design/icons';
 
-function ChildrenList() {
+function ChildrenList(props) {
   const { Meta } = Card;
+  const { children } = props;
 
   return (
     <Card
@@ -20,9 +21,9 @@ function ChildrenList() {
       ]}
     >
       <Meta
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-        title="Child's Name"
-        description="This is the description"
+        avatar={<Avatar src={children.children[0].avatar} />}
+        title={children.children[0].username}
+        description={`age: ${children.children[0].age}`}
       />
     </Card>
   );

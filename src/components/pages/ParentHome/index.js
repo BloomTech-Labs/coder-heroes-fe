@@ -1,13 +1,14 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import ChildList from './ChildrenList';
 import ParentCalendar from './ParentCalendar';
 import ParentSidebar from './ParentSidebar';
+import { dummyData } from '../../../dummyData';
 
 function ParentHome() {
+  const [parentData, setParentData] = useState(dummyData);
   return (
     <div className="App">
-      <ChildList></ChildList>
+      <ChildList children={parentData}></ChildList>
       <ParentCalendar></ParentCalendar>
       <ParentSidebar></ParentSidebar>
     </div>
@@ -15,4 +16,3 @@ function ParentHome() {
 }
 
 export default ParentHome;
-

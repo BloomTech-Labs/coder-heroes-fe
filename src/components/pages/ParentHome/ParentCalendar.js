@@ -4,31 +4,66 @@ import 'antd/dist/antd.css';
 
 import { Calendar, Badge } from 'antd';
 
-function ParentCalendar() {
+function ParentCalendar(props) {
+  const { schedule } = props;
+
   function getListData(value) {
     let listData;
     switch (value.date()) {
       case 8:
         listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
+          {
+            type: 'warning',
+            content: `Class: ${schedule.courses[0].subject} Time: ${schedule.schedules[0].start_time}`,
+          },
+          {
+            type: 'success',
+            content: `Class: ${schedule.courses[1].subject} Time: ${schedule.schedules[1].start_time}`,
+          },
         ];
         break;
       case 10:
         listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-          { type: 'error', content: 'This is error event.' },
+          {
+            type: 'warning',
+            content: `Class: ${schedule.courses[2].subject} Time: ${schedule.schedules[2].start_time}`,
+          },
+          {
+            type: 'success',
+            content: `Class: ${schedule.courses[0].subject} Time: ${schedule.schedules[0].start_time}`,
+          },
+          {
+            type: 'error',
+            content: `Class: ${schedule.courses[1].subject} Time: ${schedule.schedules[1].start_time}`,
+          },
         ];
         break;
       case 15:
         listData = [
-          { type: 'warning', content: 'This is warning event' },
-          { type: 'success', content: 'This is very long usual event。。....' },
-          { type: 'error', content: 'This is error event 1.' },
-          { type: 'error', content: 'This is error event 2.' },
-          { type: 'error', content: 'This is error event 3.' },
-          { type: 'error', content: 'This is error event 4.' },
+          {
+            type: 'warning',
+            content: `Class: ${schedule.courses[2].subject} Time: ${schedule.schedules[2].start_time}`,
+          },
+          {
+            type: 'success',
+            content: `Class: ${schedule.courses[0].subject} Time: ${schedule.schedules[0].start_time}`,
+          },
+          {
+            type: 'error',
+            content: `Class: ${schedule.courses[1].subject} Time: ${schedule.schedules[1].start_time}`,
+          },
+          {
+            type: 'error',
+            content: `Class: ${schedule.courses[2].subject} Time: ${schedule.schedules[2].start_time}`,
+          },
+          {
+            type: 'error',
+            content: `Class: ${schedule.courses[0].subject} Time: ${schedule.schedules[0].start_time}`,
+          },
+          {
+            type: 'error',
+            content: `Class: ${schedule.courses[1].subject} Time: ${schedule.schedules[1].start_time}`,
+          },
         ];
         break;
       default:

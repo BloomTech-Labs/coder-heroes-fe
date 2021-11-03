@@ -6,10 +6,11 @@ import { dummyData } from '../../../dummyData';
 
 function ParentHome() {
   const [parentData, setParentData] = useState(dummyData);
+  const [scheduleData, setScheduleData] = useState(dummyData);
   return (
     <div className="App">
       <ChildrenList children={parentData}></ChildrenList>
-      <ParentCalendar></ParentCalendar>
+      <ParentCalendar schedule={scheduleData}></ParentCalendar>
       <ParentSidebar></ParentSidebar>
     </div>
   );

@@ -1,14 +1,16 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
+import { Descriptions } from 'antd';
+import './index.css';
 
 const { Meta } = Card;
 
-function InstructorProfile() {
+function InstructorProfile({ dummyData }) {
   return (
     <Card
       hoverable
-      style={{ width: 240 }}
+      style={{ width: 260 }}
       cover={
         <img
           alt="example"
@@ -17,8 +19,15 @@ function InstructorProfile() {
       }
     >
       <Button type="primary" block>
-        Instructor Info
+        <div>
+          <h3>Instructor info</h3>
+        </div>
       </Button>
+      <Descriptions>
+        <Descriptions.Item label="Raing">{`${dummyData.instructors[1].rating}`}</Descriptions.Item>
+        <Descriptions.Item label="Bio">{`${dummyData.instructors[1].bio}`}</Descriptions.Item>
+      </Descriptions>
+      ,
     </Card>
   );
 }

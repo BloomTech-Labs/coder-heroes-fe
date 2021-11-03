@@ -8,12 +8,13 @@ function ChildrenList(props) {
   const { children } = props;
 
   return (
-    <Card style={{ width: 300 }} actions={[<EditOutlined key="edit" />]}>
-      <Meta
-        title={children.children[0].username}
-        description={`age: ${children.children[0].age}`}
-      />
-    </Card>
+    <div>
+      {children.children.map(child => (
+        <Card style={{ width: 300 }} actions={[<EditOutlined key="edit" />]}>
+          <Meta title={child.username} description={`Age: ${child.age}`} />
+        </Card>
+      ))}
+    </div>
   );
 }
 export default ChildrenList;

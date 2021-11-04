@@ -8,7 +8,7 @@ const InstructorHome = () => {
     <div>
       <InstructorSidebar />
       <InstructorCalender dummyData={dummyData.courses} />
-      <InstructorProfile dummyData={dummyData.instructor} />
+      <InstructorProfile dummyData={dummyData.instructors} />
     </div>
   );
 };

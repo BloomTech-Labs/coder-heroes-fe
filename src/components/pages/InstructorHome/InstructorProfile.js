@@ -24,8 +24,8 @@ function InstructorProfile({ dummyData }) {
         </div>
       </Button>
       <Descriptions>
-        <Descriptions.Item label="Raing">{`${dummyData.instructors[1].rating}`}</Descriptions.Item>
-        <Descriptions.Item label="Bio">{`${dummyData.instructors[1].bio}`}</Descriptions.Item>
+        <Descriptions.Item label="Rating">{`${dummyData[1].rating}`}</Descriptions.Item>
+        <Descriptions.Item label="Bio">{`${dummyData[1].bio}`}</Descriptions.Item>
       </Descriptions>
       ,
     </Card>

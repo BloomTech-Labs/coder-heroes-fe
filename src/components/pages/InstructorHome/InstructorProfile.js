@@ -33,7 +33,6 @@ function InstructorProfile(props) {
           {instructor.instructor_bio}
         </Descriptions.Item>
       </Descriptions>
-      ,
     </Card>
   );
 }

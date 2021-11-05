@@ -11,9 +11,10 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import './styles/index.less';
 import 'antd/dist/antd.less';
 
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducers from './redux/reducers/index';
+import thunk from 'redux-thunk';
 
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
@@ -29,7 +30,7 @@ import MainFooter from './components/common/Footer';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 
-const store = createStore(rootReducers);
+const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

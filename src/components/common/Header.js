@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Menu } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 
-export default function MainHeader(props) {
-  const { authService, oktaAuth } = useOktaAuth();
+export default function MainHeader() {
+  const { authService, authState } = useOktaAuth();
   return (
     <div>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -12,7 +12,7 @@ export default function MainHeader(props) {
         <Menu.Item key="3">Booking</Menu.Item>
         <Menu.Item key="4">Scholarships</Menu.Item>
         <Menu.Item key="5">Contact Us (button)</Menu.Item>
-        {localStorage.getItem('okta-token-storage') != {} ? (
+        {authState.isAuthenticated ? (
           <Menu.Item
             key="6"
             onClick={() => {

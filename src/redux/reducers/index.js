@@ -1,10 +1,10 @@
-/*import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 import parentReducer from './parentReducer';
 import instructorReducer from './instructorReducer';
 
 const rootReducer = combineReducers({
-    parentReducer,
-    instructorReducer,
+  parentReducer,
+  instructorReducer,
 });
 
-export default rootReducer;*/
+export default rootReducer;

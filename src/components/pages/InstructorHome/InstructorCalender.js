@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Calendar, Badge } from 'antd';
 import './index.css';
-const InstructorCalender = ({ dummyData }) => {
-  const [courses, setCourses] = useState(dummyData);
-  const [course, setCourse] = useState();
+import { connect } from 'react-redux';
+const InstructorCalender = props => {
+  const { instructor } = props;
 
   function getListData(value) {
-    courses.map(list => {
-      setCourse(list);
-    });
     let listData;
     switch (value.date()) {
       case 8:
-        listData = [{ type: 'success', ...course }];
+        listData = [{ type: 'success', ...instructor.course_schedule }];
         break;
       case 10:
-        listData = [{ type: 'success', ...course }];
+        listData = [{ type: 'success' }];
         break;
       case 15:
-        listData = [
-          { type: 'success', ...course },
-          { type: 'success', ...course },
-        ];
+        listData = [{ type: 'success' }, { type: 'success' }];
         break;
       default:
     }
@@ -30,6 +24,7 @@ const InstructorCalender = ({ dummyData }) => {
 
   function dateCellRender(value) {
     const listData = getListData(value);
+    console.log(listData);
     return (
       <ul className="events">
         {listData.map(item => (
@@ -59,4 +54,7 @@ const InstructorCalender = ({ dummyData }) => {
   );
 };
 
-export default InstructorCalender;
+const mapStateToProps = state => {
+  return { instructor: state.instructorReducer };
+};
+export default connect(mapStateToProps)(InstructorCalender);

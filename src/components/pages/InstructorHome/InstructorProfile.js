@@ -2,11 +2,13 @@ import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
 import { Descriptions } from 'antd';
+import { connect } from 'react-redux';
 import './index.css';
 
 const { Meta } = Card;
 
-function InstructorProfile({ dummyData }) {
+function InstructorProfile(props) {
+  const { instructor } = props;
   return (
     <Card
       hoverable
@@ -24,12 +26,20 @@ function InstructorProfile({ dummyData }) {
         </div>
       </Button>
       <Descriptions>
-        <Descriptions.Item label="Rating">{`${dummyData[1].rating}`}</Descriptions.Item>
-        <Descriptions.Item label="Bio">{`${dummyData[1].bio}`}</Descriptions.Item>
+        <Descriptions.Item label="Rating">
+          {instructor.rating}
+        </Descriptions.Item>
+        <Descriptions.Item label="Bio">
+          {instructor.instructor_bio}
+        </Descriptions.Item>
       </Descriptions>
       ,
     </Card>
   );
 }
 
-export default InstructorProfile;
+const mapStateToProps = state => {
+  return { instructor: state.instructorReducer };
+};
+
+export default connect(mapStateToProps)(InstructorProfile);

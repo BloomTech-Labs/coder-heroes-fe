@@ -8,9 +8,9 @@ function ParentHome() {
   const [scheduleData, setScheduleData] = useState(dummyData);
   return (
     <div className="App">
-      <ChildrenList></ChildrenList>
+      <ChildrenList />
       <ParentCalendar schedule={scheduleData}></ParentCalendar>
-      <ParentSidebar></ParentSidebar>
+      <ParentSidebar />
     </div>
   );
 }

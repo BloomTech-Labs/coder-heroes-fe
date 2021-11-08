@@ -1,11 +1,8 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
-import { Descriptions } from 'antd';
 import { connect } from 'react-redux';
 import './index.css';
-
-const { Meta } = Card;
 
 function InstructorProfile(props) {
   const { instructor } = props;

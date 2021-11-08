@@ -25,14 +25,16 @@ function InstructorProfile(props) {
           <h3>Instructor info</h3>
         </div>
       </Button>
-      <Descriptions>
+      {/* <Descriptions>
         <Descriptions.Item label="Rating">
-          {instructor.rating}
+          
         </Descriptions.Item>
         <Descriptions.Item label="Bio">
-          {instructor.instructor_bio}
+         
         </Descriptions.Item>
-      </Descriptions>
+      </Descriptions> */}
+      <p>Rating: {instructor.rating}</p>
+      <p>Bio: {instructor.instructor_bio}</p>
     </Card>
   );
 }

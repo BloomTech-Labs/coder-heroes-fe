@@ -1,14 +1,12 @@
 .site-calendar-demo-card {
-  width: 50%;
+  width: 100%;
   border: 1px solid #f0f0f0;
   border-radius: 2px;
-  margin-left: 30%;
-  margin-top: 20vh;
 }
 .site-calendar-demo-card h1 {
   display: flex;
   justify-content: center;
-  margin: 5%;
+  margin: 2vh;
 }
 .sub-items {
   display: flex;
@@ -17,7 +15,8 @@
 }
 
 .sub-items button {
-  width: 30%;
+  width: 35%;
+  margin: 5px;
 }
 
 .events {

@@ -46,7 +46,7 @@ const InstructorCalender = props => {
         <div>
           <h1>Your Calender</h1>
           <div className="sub-items">
-            <h2>Subheader</h2>
+            {/* <h2>Subheader</h2> */}
             <button>View Button</button>
             <button>Add</button>
           </div>

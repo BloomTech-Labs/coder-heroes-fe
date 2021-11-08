@@ -3,6 +3,8 @@ import { Card } from 'antd';
 import 'antd/dist/antd.css';
 import { EditOutlined } from '@ant-design/icons';
 
+import { connect } from 'react-redux';
+
 function ChildrenList(props) {
   const { Meta } = Card;
   const { children } = props;
@@ -17,4 +19,10 @@ function ChildrenList(props) {
     </div>
   );
 }
-export default ChildrenList;
+
+const mapStateToProps = state => {
+  return {
+    children: state.parentReducer,
+  };
+};
+export default connect(mapStateToProps)(ChildrenList);

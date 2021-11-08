@@ -6,6 +6,7 @@ import {
   FileOutlined,
   TeamOutlined,
   UserOutlined,
+  MailOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -34,6 +35,9 @@ function InstructorSidebar() {
           </SubMenu>
           <Menu.Item key="9" icon={<FileOutlined />}>
             Files
+          </Menu.Item>
+          <Menu.Item key="10" icon={<MailOutlined />}>
+            Inbox
           </Menu.Item>
         </Menu>
       </Sider>

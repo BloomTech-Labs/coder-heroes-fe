@@ -7,26 +7,26 @@ import {
 } from '../actions/instructorActions';
 
 const initialState = {
-  instructor_id: 1,
-  instructor_bio: 'hh',
+  instructor_id: 3,
+  user_id: 9,
+  rating: 3,
+  approved: true,
+  approved_by: 1,
+  instructor_bio: 'I love making content for people to enjoy!',
   inbox: [],
-  course_id: [1, 2],
+  course_id: [3],
   course_schedule: [
     {
-      course_id: 1,
-      start_time: '6:00pm',
+      id: 0,
+      course_id: 3,
+      size: 12,
+      description: 'Welcome to Python!',
+      subject: 'Intro to Python',
+      start_time: '5:00pm',
       start_date: '10-10-2010',
       end_date: '10-10-2010',
-      end_time: '7:00pm',
-      location: 'Alabamma',
-    },
-    {
-      course_id: 2,
-      start_time: '7:00pm',
-      start_date: '10-10-2010',
-      end_date: '10-10-2010',
-      end_time: '8:00pm',
-      location: 'Alabamma',
+      end_time: '6:00pm',
+      location: 'https://zoom.us/my/haleyh',
     },
   ],
 };

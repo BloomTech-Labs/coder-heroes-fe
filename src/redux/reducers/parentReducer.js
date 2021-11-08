@@ -6,86 +6,82 @@ import {
 } from '../actions/parentActions';
 
 export const initialState = {
-  parents: [
-    { id: 0, user_id: 0 },
-    { id: 1, user_id: 1 },
-    { id: 2, user_id: 2 },
-  ],
+  parents: [{ user_id: 0 }, { user_id: 1 }, { user_id: 2 }],
 
   children: [
-    { id: 0, parent_id: 0, user_id: 3, username: 'Joannsson', age: 7 },
-    { id: 1, parent_id: 1, user_id: 4, username: 'Jordansdaughter', age: 9 },
-    { id: 2, parent_id: 1, user_id: 5, username: 'Jordansson', age: 12 },
+    { parent_id: 0, user_id: 3, username: 'Joannsson', age: 7 },
+    { parent_id: 1, user_id: 4, username: 'Jordansdaughter', age: 9 },
+    { parent_id: 1, user_id: 5, username: 'Jordansson', age: 12 },
   ],
 
   enrollments: [
-    { id: 0, child_id: 0, course_id: 0, completed: false },
-    { id: 1, child_id: 0, course_id: 0, completed: false },
-    { id: 2, child_id: 0, course_id: 0, completed: false },
+    { child_id: 0, course_id: 0, completed: false },
+    { child_id: 0, course_id: 0, completed: false },
+    { child_id: 0, course_id: 0, completed: false },
   ],
 
   courses: [
     {
-      id: 0,
       size: 5,
       description: 'lorem ipsup',
       subject: 'lorem ipsum',
-      prereq: '0',
     },
     {
-      id: 1,
       size: 5,
       description: 'lorem ipsup',
       subject: 'lorem ipsum',
-      prereq: '0',
     },
     {
-      id: 2,
       size: 5,
       description: 'lorem ipsup',
       subject: 'lorem ipsum',
-      prereq: '0',
     },
   ],
+
+  schedules: [
+    {
+      course_id: 1,
+      instructor_id: 1,
+    },
+    {
+      course_id: 2,
+      instructor_id: 2,
+    },
+    {
+      course_id: 3,
+      instructor_id: 3,
+    },
+  ],
+
   sessions: [
     {
-      id: 0,
-      course_id: 0,
       start_time: '5:00pm',
       start_date: '10-10-2010',
       end_date: '10-10-2010',
       end_time: '6:00pm',
-      location: 'Alabamma',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 1,
     },
     {
-      id: 1,
-      course_id: 1,
       start_time: '6:00pm',
       start_date: '10-10-2010',
       end_date: '10-10-2010',
       end_time: '7:00pm',
-      location: 'Alabamma',
-    },
-    {
-      id: 2,
-      course_id: 2,
-      start_time: '7:00pm',
-      start_date: '10-10-2010',
-      end_date: '10-10-2010',
-      end_time: '8:00pm',
-      location: 'Alabamma',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 2,
     },
   ],
 
-  inbox: [
-    { id: 0, user_id: 0 },
-    { id: 1, user_id: 3 },
-    { id: 2, user_id: 8 },
+  prereqs: [
+    { course_id: 1, precourse_id: 1 },
+    { course_id: 2, precourse_id: 2 },
+    { course_id: 3, precourse_id: 3 },
   ],
+
+  inbox: [{ user_id: 0 }, { user_id: 3 }, { user_id: 8 }],
 
   messages: [
     {
-      id: 0,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'Help with Homework?',
       read: true,
@@ -94,7 +90,6 @@ export const initialState = {
       sender_id: 1,
     },
     {
-      id: 1,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: "What's my grade?",
       read: true,
@@ -103,7 +98,6 @@ export const initialState = {
       sender_id: 1,
     },
     {
-      id: 2,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'Going to need to cancel.',
       read: false,
@@ -112,7 +106,6 @@ export const initialState = {
       sender_id: 2,
     },
     {
-      id: 3,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'Kid is sick',
       read: true,
@@ -121,7 +114,6 @@ export const initialState = {
       sender_id: 3,
     },
     {
-      id: 4,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'When is class?',
       read: false,
@@ -130,7 +122,6 @@ export const initialState = {
       sender_id: 5,
     },
     {
-      id: 5,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'Is this a yoga course?',
       read: false,
@@ -139,7 +130,6 @@ export const initialState = {
       sender_id: 7,
     },
     {
-      id: 6,
       sent_at: '2021-11-02T01:51:39+00:00',
       title: 'Where is my achievement?',
       read: false,

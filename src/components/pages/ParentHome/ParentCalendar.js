@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import 'antd/dist/antd.css';
 
-import { Calendar, Badge } from 'antd';
+import { Calendar, Badge, Modal } from 'antd';
 
 import { connect } from 'react-redux';
 
@@ -10,6 +10,7 @@ function ParentCalendar(props) {
   const { schedule } = props;
   const [course, setCourse] = useState('');
   const [time, setTime] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   function getListData(value) {
     const values = schedule.courses.map(items => {
@@ -36,13 +37,37 @@ function ParentCalendar(props) {
     return listData || [];
   }
 
+  // const handleBadgeClick = e => {
+  //   console.log(e.target.index);
+  // };
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   function dateCellRender(value) {
     const listData = getListData(value);
     return (
       <ul className="events">
-        {listData.map(item => (
+        {listData.map((item, idx) => (
           <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
+            <Badge status={item.type} text={item.content} onClick={showModal} />
+            <Modal
+              title={item.content}
+              visible={isModalVisible}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            >
+              <p>{item.content}</p>
+            </Modal>
           </li>
         ))}
       </ul>

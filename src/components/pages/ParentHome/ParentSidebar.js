@@ -12,10 +12,10 @@ function ParentSidebar() {
   return (
     <Menu
       onClick={handleClick}
-      style={{ width: 256 }}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="inline"
+      theme="dark"
     >
       <Menu.Item key="1">Overview</Menu.Item>
       <Menu.Item key="2">Progress</Menu.Item>

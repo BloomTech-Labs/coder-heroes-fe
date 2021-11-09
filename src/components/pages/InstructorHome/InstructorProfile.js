@@ -1,11 +1,8 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
-import { Descriptions } from 'antd';
 import { connect } from 'react-redux';
 import './index.css';
-
-const { Meta } = Card;
 
 function InstructorProfile(props) {
   const { instructor } = props;
@@ -25,14 +22,16 @@ function InstructorProfile(props) {
           <h3>Instructor info</h3>
         </div>
       </Button>
-      <Descriptions>
+      {/* <Descriptions>
         <Descriptions.Item label="Rating">
-          {instructor.rating}
+          
         </Descriptions.Item>
         <Descriptions.Item label="Bio">
-          {instructor.instructor_bio}
+         
         </Descriptions.Item>
-      </Descriptions>
+      </Descriptions> */}
+      <p>Rating: {instructor.rating}</p>
+      <p>Bio: {instructor.instructor_bio}</p>
     </Card>
   );
 }

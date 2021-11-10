@@ -8,6 +8,7 @@ import {
   CalendarOutlined,
   MailOutlined,
   SettingOutlined,
+  ThunderboltFilled,
 } from '@ant-design/icons';
 
 function ParentSidebar(props) {
@@ -17,30 +18,38 @@ function ParentSidebar(props) {
   };
 
   return (
-
     <div>
       <Menu
+        className="parent-dashboard-sidebar"
         onClick={handleClick}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         style={{ height: '100vh' }}
         mode="inline"
-        theme="dark"
+        theme="light"
+        color="orange"
         inlineCollapsed={collapsed}
       >
-        <Menu.Item key="1" icon={<HomeOutlined />}>
+        <Menu.Item
+          key="1"
+          className="dashboard-logo"
+          icon={<ThunderboltFilled />}
+        >
+          CoderHeroes
+        </Menu.Item>
+        <Menu.Item key="2" icon={<HomeOutlined />}>
           Dashboard
         </Menu.Item>
-        <Menu.Item key="2" icon={<TeamOutlined />}>
+        <Menu.Item key="3" icon={<TeamOutlined />}>
           Family
         </Menu.Item>
-        <Menu.Item key="3" icon={<CalendarOutlined />}>
+        <Menu.Item key="4" icon={<CalendarOutlined />}>
           Schedule
         </Menu.Item>
-        <Menu.Item key="4" icon={<MailOutlined />}>
+        <Menu.Item key="5" icon={<MailOutlined />}>
           Inbox
         </Menu.Item>
-        <Menu.Item key="5" icon={<SettingOutlined />}>
+        <Menu.Item key="6" icon={<SettingOutlined />}>
           Settings
         </Menu.Item>
       </Menu>

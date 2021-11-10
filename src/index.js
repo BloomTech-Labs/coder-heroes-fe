@@ -60,7 +60,6 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div>
-          <MainHeader />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />

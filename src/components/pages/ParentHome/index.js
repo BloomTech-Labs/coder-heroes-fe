@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import { ThunderboltFilled } from '@ant-design/icons';
+import ParentSidebar from './ParentSidebar';
 import './../../../styles/ParentStyles/index.less';
 
 function ParentHome() {
@@ -38,6 +39,7 @@ function ParentHome() {
               }}
             />
           </div>
+          <ParentSidebar />
         </Sider>
         <Content>
           <Button buttonText={'Booking'} handleClick={handleClick} />

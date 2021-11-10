@@ -43,14 +43,6 @@ const InstructorCalender = props => {
   return (
     <>
       <section className="site-calendar-demo-card">
-        <div>
-          <h1>Your Calender</h1>
-          <div className="sub-items">
-            <button>Inbox</button>
-            <button>Add</button>
-          </div>
-        </div>
-
         <Calendar dateCellRender={dateCellRender} />
       </section>
     </>

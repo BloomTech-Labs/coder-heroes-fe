@@ -4,7 +4,9 @@ import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';
 import InstructorProfile from './InstructorProfile';
 import { Layout, Row, Col } from 'antd';
-import { ThunderboltFilled } from '@ant-design/icons';
+import { ThunderboltFilled, ScheduleOutlined } from '@ant-design/icons';
+import Banner from '../../common/Banner';
+import InstructorCourseManagement from './InstructorCourseManagement';
 
 const { Content, Sider } = Layout;
 const InstructorHome = () => {
@@ -27,28 +29,23 @@ const InstructorHome = () => {
           collapsed={collapsed}
           onCollapse={onCollapse}
         >
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ThunderboltFilled
-              style={{
-                textAlign: 'center',
-                color: 'orange',
-                fontSize: '5rem',
-                padding: '25px 0px',
-              }}
-            />
-          </div>
           <InstructorSidebar />
         </Sider>
         <Layout>
           <Content>
+            <Banner />
+            <div className="banner-divs">
+              <div className="instructor-find-courses">
+                <p> {<ScheduleOutlined />} Find Courses</p>
+              </div>
+            </div>
             <Row justify="space-around" align="middle">
+              <Col span={8}>
+                <InstructorCourseManagement />
+              </Col>
               <Col span={12}>
                 <InstructorCalender />
               </Col>
-              <Col span={3}>
-                <InstructorProfile />
-              </Col>
-              <Col span={1}></Col>
             </Row>
           </Content>
         </Layout>

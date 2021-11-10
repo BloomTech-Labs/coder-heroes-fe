@@ -5,8 +5,6 @@ import '../../../styles/InstructorStyles/index.less';
 import {
   DesktopOutlined,
   ToolOutlined,
-  TeamOutlined,
-  UserOutlined,
   MailOutlined,
   HomeOutlined,
   ExportOutlined,
@@ -18,35 +16,27 @@ const { Sider } = Layout;
 
 function InstructorSidebar() {
   return (
-    <Menu defaultSelectedKeys={['dashboard']}>
+    <Menu defaultSelectedKeys={['coderheroes']}>
       <Menu.Item
-        key="dashboard"
-        icon={<HomeOutlined style={{ color: '#00cab7' }} />}
+        key="coderheroes"
+        icon={<ThunderboltOutlined />}
+        className="dashboard-logo"
       >
+        Coderheroes
+      </Menu.Item>
+      <Menu.Item key="dashboard" icon={<HomeOutlined />}>
         Dashboard
       </Menu.Item>
-      <Menu.Item
-        key="courses"
-        icon={<DesktopOutlined style={{ color: '#00cab7' }} />}
-      >
+      <Menu.Item key="courses" icon={<DesktopOutlined />}>
         Courses
       </Menu.Item>
-      <Menu.Item
-        key="mail"
-        icon={<MailOutlined style={{ color: '#00cab7' }} />}
-      >
+      <Menu.Item key="mail" icon={<MailOutlined />}>
         Mail
       </Menu.Item>
-      <Menu.Item
-        key="settings"
-        icon={<ToolOutlined style={{ color: '#00cab7' }} />}
-      >
+      <Menu.Item key="settings" icon={<ToolOutlined />}>
         Settings
       </Menu.Item>
-      <Menu.Item
-        key="logout"
-        icon={<ExportOutlined style={{ color: '#00cab7' }} />}
-      >
+      <Menu.Item key="logout" icon={<ExportOutlined />}>
         Logout
       </Menu.Item>
     </Menu>

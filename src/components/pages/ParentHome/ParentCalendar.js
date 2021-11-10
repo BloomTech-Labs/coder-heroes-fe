@@ -14,8 +14,6 @@ function ParentCalendar(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeModal, setActiveModal] = useState(0);
 
-  // console.log(schedule)
-
   function getListData(value) {
     const values = schedule.courses.map(items => {
       setCourse(items);
@@ -32,7 +30,6 @@ function ParentCalendar(props) {
 
     schedule.sessions.forEach(item => {
       let new_startDate = item.start_date.replaceAll('-', '/');
-      // let new_endDate = item.end_date.replaceAll('-', '/')
       switch (value.format('L')) {
         case new_startDate:
           listData = [
@@ -40,6 +37,7 @@ function ParentCalendar(props) {
               type: today === value.format('L') ? 'success' : 'warning',
               content:
                 item.course + ' ' + item.start_time + ' - ' + item.end_time,
+              schedule_id: item.schedule_id,
             },
           ];
           break;
@@ -50,13 +48,8 @@ function ParentCalendar(props) {
     return listData || [];
   }
 
-  // const handleBadgeClick = e => {
-  //   console.log(e.target.index);
-  // };
-
   const showModal = id => {
     setActiveModal(id);
-    // setIsModalVisible(true);
   };
 
   const handleOk = () => {
@@ -78,30 +71,30 @@ function ParentCalendar(props) {
     });
     return (
       <ul className="events">
+        {today === value.format('L') ? (
+          <div className="today"> Today</div>
+        ) : null}
         {listData.map(item => {
           return (
             <li className="cell" key={item.schedule_id}>
-              {today === value.format('L') ? (
-                <div className="today"> Today</div>
-              ) : null}
-              {console.log('inside badge', item.content)}
               <Badge
                 className="badge"
                 status={item.type}
                 text={item.content}
                 onClick={e => showModal(item.schedule_id)}
               />
-              {console.log('inside Modal', item.content)}
-              <Modal
-                className="events"
-                title={'my Title'}
-                visible={item.schedule_id === activeModal ? true : false}
-                onOk={handleOk}
-                onCancel={handleCancel}
-              >
-                <p>{item.content}</p>
-                <p>{item.schedule_id}</p>
-              </Modal>
+
+              {item.schedule_id === activeModal ? (
+                <Modal
+                  className="events"
+                  title={item.content}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                  visible={true}
+                >
+                  <p>{item.content}</p>
+                </Modal>
+              ) : null}
             </li>
           );
         })}
@@ -127,16 +120,11 @@ function ParentCalendar(props) {
 
   return (
     <>
-      {/* {console.log(time)}
-    {console.log(schedule)} */}
       <Calendar
         className="events"
-        // onChange={(value) => {
-        //   alert(`Your selected ${value.format('YYYY-MM-DD')}`)
-        // }}
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
-      />{' '}
+      />
     </>
   );
 }

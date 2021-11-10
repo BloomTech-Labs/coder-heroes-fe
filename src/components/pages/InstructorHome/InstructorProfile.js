@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-import './index.css';
+import '../../../styles/InstructorStyles/index.less';
 
 function InstructorProfile(props) {
   const { instructor } = props;

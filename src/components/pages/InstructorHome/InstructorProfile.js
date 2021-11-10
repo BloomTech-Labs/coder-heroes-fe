@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { Button } from 'antd';
 import { Descriptions } from 'antd';
 import { connect } from 'react-redux';
-import './index.css';
+import '../../../styles/index.less';
 
 const { Meta } = Card;
 

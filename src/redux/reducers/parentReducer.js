@@ -75,7 +75,7 @@ export const initialState = {
     {
       course: 'Javascript',
       start_time: '9:00pm',
-      start_date: '11-09-2021',
+      start_date: '11-10-2021',
       end_date: '11-12-2021',
       end_time: '12:00pm',
       location: 'https://zoom.us/my/john123',

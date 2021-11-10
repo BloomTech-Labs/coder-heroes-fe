@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 
-import { Calendar, Badge, Modal } from 'antd';
-
+import { Calendar, Badge, Modal, Button } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -35,8 +35,9 @@ function ParentCalendar(props) {
           listData = [
             {
               type: today === value.format('L') ? 'success' : 'warning',
-              content:
-                item.course + ' ' + item.start_time + ' - ' + item.end_time,
+              content: item.course,
+              start_time: item.start_time,
+              end_time: item.end_time,
               schedule_id: item.schedule_id,
             },
           ];
@@ -70,20 +71,19 @@ function ParentCalendar(props) {
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
     return (
-      <ul className="events">
-        {today === value.format('L') ? (
-          <div className="today"> Today</div>
-        ) : null}
+      <ul className="ulcell">
         {listData.map(item => {
           return (
             <li className="cell" key={item.schedule_id}>
-              <Badge
-                className="badge"
-                status={item.type}
-                text={item.content}
-                onClick={e => showModal(item.schedule_id)}
-              />
+              <Badge className="badge" status={item.type} text={item.content} />
 
+              <Button
+                onClick={e => showModal(item.schedule_id)}
+                type="primary"
+                shape="round"
+                icon={<InfoCircleOutlined />}
+                size={'small'}
+              ></Button>
               {item.schedule_id === activeModal ? (
                 <Modal
                   className="events"
@@ -93,6 +93,9 @@ function ParentCalendar(props) {
                   visible={true}
                 >
                   <p>{item.content}</p>
+                  <p>
+                    {item.start_time} - {item.end_time}
+                  </p>
                 </Modal>
               ) : null}
             </li>
@@ -117,11 +120,9 @@ function ParentCalendar(props) {
       </div>
     ) : null;
   }
-
   return (
     <>
       <Calendar
-        className="events"
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
       />

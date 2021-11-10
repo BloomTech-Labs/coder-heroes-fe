@@ -1,43 +1,52 @@
 import { Layout, Menu } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
+  ToolOutlined,
   TeamOutlined,
   UserOutlined,
   MailOutlined,
+  HomeOutlined,
+  ExportOutlined,
+  ThunderboltOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 function InstructorSidebar() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const onCollapse = () => {
+    if (collapsed === true) {
+      setCollapsed(false);
+    } else {
+      setCollapsed(true);
+    }
+  };
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider>
+      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
+          <Menu.Item key="coderheroes" icon={<ThunderboltOutlined />}>
+            Coderheroes
           </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
+          <Menu.Item key="dashboard" icon={<HomeOutlined />}>
+            Dashboard
           </Menu.Item>
-          <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-            <Menu.Item key="3">Tom</Menu.Item>
-            <Menu.Item key="4">Bill</Menu.Item>
-            <Menu.Item key="5">Alex</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-            <Menu.Item key="6">Team 1</Menu.Item>
-            <Menu.Item key="8">Team 2</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="9" icon={<FileOutlined />}>
-            Files
+          <Menu.Item key="courses" icon={<DesktopOutlined />}>
+            Courses
           </Menu.Item>
-          <Menu.Item key="10" icon={<MailOutlined />}>
-            Inbox
+          <Menu.Item key="mail" icon={<MailOutlined />}>
+            Mail
+          </Menu.Item>
+          <Menu.Item key="settings" icon={<ToolOutlined />}>
+            Settings
+          </Menu.Item>
+          <Menu.Item key="logout" icon={<ExportOutlined />}>
+            Logout
           </Menu.Item>
         </Menu>
       </Sider>

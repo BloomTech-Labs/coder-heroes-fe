@@ -57,7 +57,7 @@ function ParentHome() {
                 <Col span={5}>
                   <ParentResources />
                 </Col>
-                <Col span={15}>
+                <Col span={20}>
                   <ParentCalendar schedule={scheduleData} />
                 </Col>
               </Row>

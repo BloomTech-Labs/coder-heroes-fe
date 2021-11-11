@@ -76,7 +76,7 @@ function App() {
         </div>
         <Route component={NotFoundPage} />
       </Switch>
-      <MainFooter />
+      {/*<MainFooter />*/}
     </Security>
   );
 }

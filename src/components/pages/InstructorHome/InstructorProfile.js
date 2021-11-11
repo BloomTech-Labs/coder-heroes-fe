@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-import './index.css';
+import '../../../styles/InstructorStyles/index.less';
 
 function InstructorProfile(props) {
   const { instructor } = props;
@@ -22,14 +22,7 @@ function InstructorProfile(props) {
           <h3>Instructor info</h3>
         </div>
       </Button>
-      {/* <Descriptions>
-        <Descriptions.Item label="Rating">
-          
-        </Descriptions.Item>
-        <Descriptions.Item label="Bio">
-         
-        </Descriptions.Item>
-      </Descriptions> */}
+
       <p>Rating: {instructor.rating}</p>
       <p>Bio: {instructor.instructor_bio}</p>
     </Card>

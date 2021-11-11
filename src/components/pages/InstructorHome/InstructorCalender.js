@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, Badge } from 'antd';
-import './index.css';
+import '../../../styles/InstructorStyles/index.less';
 import { connect } from 'react-redux';
 const InstructorCalender = props => {
   const { instructor } = props;
@@ -43,15 +43,6 @@ const InstructorCalender = props => {
   return (
     <>
       <section className="site-calendar-demo-card">
-        <div>
-          <h1>Your Calender</h1>
-          <div className="sub-items">
-            {/* <h2>Subheader</h2> */}
-            <button>Inbox</button>
-            <button>Add</button>
-          </div>
-        </div>
-
         <Calendar dateCellRender={dateCellRender} />
       </section>
     </>

@@ -23,18 +23,18 @@ export const initialState = {
   courses: [
     {
       size: 5,
-      description: 'lorem ipsup',
-      subject: 'lorem ipsum',
+      description: 'Python Desc',
+      subject: 'Python subject',
     },
     {
       size: 5,
-      description: 'lorem ipsup',
-      subject: 'lorem ipsum',
+      description: 'JS desc',
+      subject: 'Js subject',
     },
     {
       size: 5,
-      description: 'lorem ipsup',
-      subject: 'lorem ipsum',
+      description: 'React Desc',
+      subject: 'React subject',
     },
   ],
 
@@ -55,20 +55,40 @@ export const initialState = {
 
   sessions: [
     {
-      start_time: '5:00pm',
-      start_date: '10-10-2010',
-      end_date: '10-10-2010',
+      course: 'Php',
+      start_time: '10:00pm',
+      start_date: '10-10-2021',
+      end_date: '10-10-2021',
       end_time: '6:00pm',
       location: 'https://zoom.us/my/john123',
       schedule_id: 1,
     },
     {
+      course: 'react',
       start_time: '6:00pm',
-      start_date: '10-10-2010',
-      end_date: '10-10-2010',
-      end_time: '7:00pm',
+      start_date: '11-06-2021',
+      end_date: '11-09-2021',
+      end_time: '9:00pm',
       location: 'https://zoom.us/my/john123',
       schedule_id: 2,
+    },
+    {
+      course: 'Javascript',
+      start_time: '9:00pm',
+      start_date: '11-10-2021',
+      end_date: '11-12-2021',
+      end_time: '12:00pm',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 3,
+    },
+    {
+      course: 'Python',
+      start_time: '9:00pm',
+      start_date: '12-09-2021',
+      end_date: '12-12-2021',
+      end_time: '12:00pm',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 4,
     },
   ],
 

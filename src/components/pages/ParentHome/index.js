@@ -7,6 +7,8 @@ import Button from '../../common/Button';
 import { useHistory } from 'react-router';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
+import { UserAddOutlined, ScheduleOutlined } from '@ant-design/icons';
+import Banner from '../../common/Banner';
 import { ThunderboltFilled } from '@ant-design/icons';
 import ParentSidebar from './ParentSidebar';
 import './../../../styles/ParentStyles/index.less';
@@ -28,20 +30,26 @@ function ParentHome() {
   return (
     <div className="App">
       <Layout style={{ width: '100%' }}>
-        <Sider collapsible collapsed={collapsed} onCollapse={toggleCollapsed}>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ThunderboltFilled
-              style={{
-                textAlign: 'center',
-                color: 'white',
-                fontSize: '5rem',
-                padding: '25px 0px',
-              }}
-            />
-          </div>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={toggleCollapsed}
+          theme="light"
+        >
+          <div style={{ display: 'flex', justifyContent: 'center' }}></div>
           <ParentSidebar />
         </Sider>
         <Content>
+          <Banner />
+          <div className="banner-divs">
+            <div className="enroll-child">
+              <p>{<UserAddOutlined />} Enroll Child</p>
+            </div>
+            <div className="parent-find-courses">
+              <p> {<ScheduleOutlined />} Find Courses</p>
+            </div>
+          </div>
+          <ParentCalendar schedule={scheduleData} />
           <Button buttonText={'Booking'} handleClick={handleClick} />
           <Layout>
             <Content>

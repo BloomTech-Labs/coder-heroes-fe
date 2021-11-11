@@ -1,13 +1,33 @@
 import React from 'react';
+import { Card } from 'antd';
+import '../../../styles/InstructorStyles/index.less';
+import { connect } from 'react-redux';
 
 const CourseDetails = props => {
+  console.log(props);
   const { course } = props;
   return (
     <div>
-      <h3>{course.subject}</h3>
-      <h2>{course.start_date}</h2>
+      <Card id="ant-card-course">
+        <div id="course-content">
+          <h2>{course.subject}</h2>
+          <p>
+            {course.start_date.split('-')[0]}/{course.start_date.split('-')[1]}{' '}
+            @ {course.start_time} - {course.end_time}
+          </p>
+          <p>more info here</p>
+          <p>more info here</p>
+          <button id="manage-courses-button">Manage Course Resources</button>
+        </div>
+      </Card>
     </div>
   );
 };
 
-export default CourseDetails;
+const mapStateToProps = state => {
+  return {
+    course: state.instructorReducer.selectedCourse,
+  };
+};
+
+export default connect(mapStateToProps, {})(CourseDetails);

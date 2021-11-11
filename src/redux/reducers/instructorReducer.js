@@ -4,9 +4,22 @@ import {
   GET_USER_ACTION,
   GET_COURSES_ACTION,
   GET_INBOX_ACTION,
+  SET_SELECTED_COURSE,
 } from '../actions/instructorActions';
 
 const initialState = {
+  selectedCourse: {
+    id: 100000,
+    course_id: 1000000,
+    size: 12,
+    description: 'Welcome to Python!',
+    subject: 'Please select a course!',
+    start_time: '',
+    start_date: 'more - info',
+    end_date: '11-19-2021',
+    end_time: 'here',
+    location: 'https://zoom.us/my/haleyh',
+  },
   instructor_id: 3,
   user_id: 9,
   rating: 3,
@@ -63,6 +76,8 @@ const instructorReducer = (state = initialState, action) => {
       return state;
     case GET_INBOX_ACTION:
       return state;
+    case SET_SELECTED_COURSE:
+      return { ...state, selectedCourse: action.payload };
 
     default:
       return state;

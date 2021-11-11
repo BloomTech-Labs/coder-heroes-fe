@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';
-import InstructorProfile from './InstructorProfile';
 import { Layout, Row, Col } from 'antd';
 import { ThunderboltFilled, ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
@@ -46,6 +45,7 @@ const InstructorHome = () => {
               <Col span={12}>
                 <InstructorCalender />
               </Col>
+              <Col span={1}></Col>
             </Row>
           </Content>
         </Layout>

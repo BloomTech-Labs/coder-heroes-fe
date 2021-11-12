@@ -31,7 +31,6 @@ function ParentCalendar(props) {
     // console.log(schedule.sessions);
     schedule.sessions.forEach(item => {
       let new_startDate = item.start_date.replaceAll('-', '/');
-      let oldStartDate = 0;
       switch (value.format('L')) {
         case new_startDate:
           if (
@@ -46,7 +45,6 @@ function ParentCalendar(props) {
               end_time: item.end_time,
               schedule_id: item.schedule_id,
             });
-            console.log('inside if and list is ', listData);
           } else {
             listData = [
               {
@@ -58,7 +56,6 @@ function ParentCalendar(props) {
                 schedule_id: item.schedule_id,
               },
             ];
-            console.log('list is', listData);
           }
           break;
 
@@ -117,6 +114,7 @@ function ParentCalendar(props) {
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
     newDate = newDate.replaceAll('/', '-');
+
     return (
       <ul className="ulcell">
         {listData.length > 0 && listData[0].start_date == newDate ? (

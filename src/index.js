@@ -25,8 +25,6 @@ import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
-import MainHeader from './components/common/Header';
-import MainFooter from './components/common/Footer';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 
@@ -76,7 +74,6 @@ function App() {
         </div>
         <Route component={NotFoundPage} />
       </Switch>
-      {/*<MainFooter />*/}
     </Security>
   );
 }

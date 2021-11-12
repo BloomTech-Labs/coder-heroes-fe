@@ -10,9 +10,9 @@ const InstructorCalender = props => {
   function getListData(value) {
     let listData = [];
 
-    // Here we're mapping over the dates of each course.  We keep track of the index we're looking at currently.
-    // 1. If the current day matches value.date, it must mean this course is for the day we called getListData with.
-    // 2. If the days match, we need to update listData for that day.  We grab the courses subject from course state using the index.  Indexes will always match.
+    // Here we're looping over the dates of each course.  We keep track of the index we're looking at currently.
+    // 1. If the currentCourse's day matches value.date, it must mean this course is for the day we called getListData with.
+    // 2. If the days match, we need to update listData for that day.  We build a new "listData object" using the courses id, and subject.
     // 3. Important to note listdata is spread here to include the possibility of multiple courses occuring on one day.
     instructor.course_schedule.forEach(currentCourse => {
       if (
@@ -35,7 +35,7 @@ const InstructorCalender = props => {
   }
 
   function dateCellRender(value) {
-    const listData = getListData(value); //called for each rendered cell component (42 odd times?).  Whatever is returned is rendered for that specific day.
+    const listData = getListData(value); //called for each rendered cell component the array that is returned is rendered for that specific day.
 
     function showCourseInfo(evt) {
       instructor.course_schedule.forEach(currentCourse => {
@@ -49,7 +49,6 @@ const InstructorCalender = props => {
       <ul className="events">
         {listData.map(item => (
           <li id={item.id} key={item.id} onClick={evt => showCourseInfo(evt)}>
-            {/** Need to find a better way to add onClick event.  Right now it's not properly attached to the text inside of calender.  It's slightly below it */}
             <Badge id={item.id} status={item.type} text={item.content} />
           </li>
         ))}
@@ -63,7 +62,6 @@ const InstructorCalender = props => {
         <div>
           <h1>Your Calender</h1>
           <div className="sub-items">
-            {/* <h2>Subheader</h2> */}
             <button>Inbox</button>
             <button>Create Course</button>
           </div>

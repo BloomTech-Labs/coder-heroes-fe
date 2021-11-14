@@ -15,7 +15,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducers from './redux/reducers/index';
 import thunk from 'redux-thunk';
-
+import InstructorBooking from './components/pages/InstructorBooking';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
@@ -62,6 +62,8 @@ function App() {
           <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
+          <Route path="/instructor-booking" component={InstructorBooking} />
+
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/"

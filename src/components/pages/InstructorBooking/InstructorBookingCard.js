@@ -3,7 +3,7 @@ import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
 
-function InstructorBooking() {
+function InstructorBookingCard() {
   const { Content, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(false);
 
@@ -23,9 +23,11 @@ function InstructorBooking() {
       </Sider>
       <Content>
         <Banner />
+
+        <button>Select Course</button>
       </Content>
     </Layout>
   );
 }
 
-export default InstructorBooking;
+export default InstructorBookingCard;

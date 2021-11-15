@@ -13,6 +13,7 @@ function ParentCalendar(props) {
   const [time, setTime] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeModal, setActiveModal] = useState(0);
+  const [fullProgram, setFullProgram] = useState(false);
 
   function getListData(value) {
     const values = schedule.courses.map(items => {
@@ -21,27 +22,43 @@ function ParentCalendar(props) {
 
     let arr = [];
 
-    let listData;
+    let listData = [];
     let today = new Date().toLocaleString('en-US', {
       day: '2-digit', // numeric, 2-digit
       year: 'numeric', // numeric, 2-digit
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
-
+    // console.log(schedule.sessions);
     schedule.sessions.forEach(item => {
       let new_startDate = item.start_date.replaceAll('-', '/');
       switch (value.format('L')) {
         case new_startDate:
-          listData = [
-            {
+          if (
+            listData.length > 0 &&
+            listData[0].start_date === item.start_date
+          ) {
+            listData.push({
               type: today === value.format('L') ? 'success' : 'warning',
               content: item.course,
               start_time: item.start_time,
+              start_date: item.start_date,
               end_time: item.end_time,
               schedule_id: item.schedule_id,
-            },
-          ];
+            });
+          } else {
+            listData = [
+              {
+                type: today === value.format('L') ? 'success' : 'warning',
+                content: item.course,
+                start_time: item.start_time,
+                start_date: item.start_date,
+                end_time: item.end_time,
+                schedule_id: item.schedule_id,
+              },
+            ];
+          }
           break;
+
         default:
       }
     });
@@ -53,14 +70,35 @@ function ParentCalendar(props) {
     setActiveModal(id);
   };
 
+  const showFull = date => {
+    let newDate = date._d.toLocaleString('en-US', {
+      day: '2-digit', // numeric, 2-digit
+      year: 'numeric', // numeric, 2-digit
+      month: '2-digit', // numeric, 2-digit, long, short, narrow
+    });
+    newDate = newDate.replaceAll('/', '-');
+    let newArr = schedule.sessions.filter(item => {
+      return item.start_date === newDate;
+    });
+
+    setFullProgram(newArr);
+  };
   const handleOk = () => {
     setActiveModal(0);
     setIsModalVisible(false);
   };
 
+  const handleOkFull = () => {
+    setFullProgram(false);
+  };
+
   const handleCancel = () => {
     setActiveModal(0);
     setIsModalVisible(false);
+  };
+
+  const handleCancelFull = () => {
+    setFullProgram(false);
   };
 
   function dateCellRender(value) {
@@ -70,12 +108,57 @@ function ParentCalendar(props) {
       year: 'numeric', // numeric, 2-digit
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
+    let newDate = value._d.toLocaleString('en-US', {
+      day: '2-digit', // numeric, 2-digit
+      year: 'numeric', // numeric, 2-digit
+      month: '2-digit', // numeric, 2-digit, long, short, narrow
+    });
+    newDate = newDate.replaceAll('/', '-');
+
     return (
       <ul className="ulcell">
+        {listData.length > 0 && listData[0].start_date == newDate ? (
+          <Button
+            className="fullButton"
+            onClick={e => showFull(value)}
+            type="primary"
+            shape="round"
+            icon={<InfoCircleOutlined />}
+            size={'small'}
+          >
+            Show full program
+          </Button>
+        ) : null}
+
         {listData.map(item => {
           return (
             <li className="cell" key={item.schedule_id}>
-              <Badge className="badge" status={item.type} text={item.content} />
+              {fullProgram && (
+                <Modal
+                  className="full capital"
+                  title={'Full Day Program'}
+                  onOk={handleOkFull}
+                  onCancel={handleCancelFull}
+                  visible={true}
+                >
+                  {fullProgram.map(item => {
+                    return (
+                      <>
+                        <p>{item.course}:</p>{' '}
+                        <p>
+                          {item.start_time} - {item.end_time}
+                        </p>{' '}
+                        <p>------</p>
+                      </>
+                    );
+                  })}
+                </Modal>
+              )}
+              <Badge
+                className="badge capital"
+                status={item.type}
+                text={item.content}
+              />
 
               <Button
                 onClick={e => showModal(item.schedule_id)}
@@ -86,14 +169,14 @@ function ParentCalendar(props) {
               ></Button>
               {item.schedule_id === activeModal ? (
                 <Modal
-                  className="events"
+                  className="events capital"
                   title={item.content}
                   onOk={handleOk}
                   onCancel={handleCancel}
                   visible={true}
                 >
-                  <p>{item.content}</p>
-                  <p>
+                  <p className="capital">{item.content}</p>
+                  <p className="time">
                     {item.start_time} - {item.end_time}
                   </p>
                 </Modal>

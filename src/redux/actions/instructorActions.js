@@ -5,6 +5,14 @@ export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
 export const GET_COURSES_ACTION = 'GET_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
+export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
+
+export const setSelectedCourse = course => {
+  return {
+    type: SET_SELECTED_COURSE,
+    payload: course,
+  };
+};
 
 export const getusers = () => async dispatch => {
   try {

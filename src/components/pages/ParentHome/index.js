@@ -49,6 +49,7 @@ function ParentHome() {
               <p> {<ScheduleOutlined />} Find Courses</p>
             </div>
           </div>
+
           <Button buttonText={'Booking'} handleClick={handleClick} />
           <Layout>
             <Content>
@@ -62,7 +63,6 @@ function ParentHome() {
               </Row>
             </Content>
           </Layout>
-          <ChildrenList />
         </Content>
       </Layout>
     </div>

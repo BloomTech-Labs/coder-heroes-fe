@@ -5,7 +5,6 @@ import InstructorCalender from './InstructorCalender';
 import { Layout, Row, Col } from 'antd';
 import { ThunderboltFilled, ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
-import InstructorCourseManagement from './InstructorCourseManagement';
 
 const { Content, Sider } = Layout;
 const InstructorHome = () => {
@@ -39,13 +38,9 @@ const InstructorHome = () => {
               </div>
             </div>
             <Row justify="space-around" align="middle">
-              <Col span={8}>
-                <InstructorCourseManagement />
-              </Col>
-              <Col span={12}>
+              <Col span={40}>
                 <InstructorCalender />
               </Col>
-              <Col span={1}></Col>
             </Row>
           </Content>
         </Layout>

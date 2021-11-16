@@ -1,5 +1,5 @@
-import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
+import { Menu } from 'antd';
+import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 
 import {
@@ -10,9 +10,6 @@ import {
   ExportOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
-
-const { SubMenu } = Menu;
-const { Sider } = Layout;
 
 function InstructorSidebar() {
   return (

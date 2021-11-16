@@ -5,7 +5,6 @@ import InstructorCalender from './InstructorCalender';
 import { Layout, Row, Col } from 'antd';
 import { ThunderboltFilled, ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
-import InstructorCourseManagement from './InstructorCourseManagement';
 
 const { Content, Sider } = Layout;
 const InstructorHome = () => {

@@ -21,6 +21,7 @@ const InstructorCalender = props => {
 
   function getListData(value) {
     let listData = [];
+    console.log(value.format('L'));
 
     const calendarDate = value._d.toLocaleString('en-US', {
       day: '2-digit',

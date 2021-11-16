@@ -15,7 +15,7 @@ const InstructorBookingCards = props => {
     description: 'Description: ',
   };
 
-  if (currentModalProps === false) {
+  if (currentModalProps !== false) {
     console.log('currentModalStatus not  equal to empty string');
     return (
       <InstructorBookingCardModal

@@ -9,6 +9,7 @@ import {
   MailOutlined,
   SettingOutlined,
   ThunderboltFilled,
+  ReadOutlined,
 } from '@ant-design/icons';
 
 function ParentSidebar(props) {
@@ -43,13 +44,16 @@ function ParentSidebar(props) {
         <Menu.Item key="3" icon={<TeamOutlined />}>
           Family
         </Menu.Item>
-        <Menu.Item key="4" icon={<CalendarOutlined />}>
+        <Menu.Item key="4" icon={<ReadOutlined />}>
+          Booking
+        </Menu.Item>
+        <Menu.Item key="5" icon={<CalendarOutlined />}>
           Schedule
         </Menu.Item>
-        <Menu.Item key="5" icon={<MailOutlined />}>
+        <Menu.Item key="6" icon={<MailOutlined />}>
           Inbox
         </Menu.Item>
-        <Menu.Item key="6" icon={<SettingOutlined />}>
+        <Menu.Item key="7" icon={<SettingOutlined />}>
           Settings
         </Menu.Item>
       </Menu>

@@ -27,6 +27,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
+import ParentBooking from './components/pages/ParentBooking';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/parent" component={ParentHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
 
+          <Route path="/parent-booking" component={ParentBooking} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/"

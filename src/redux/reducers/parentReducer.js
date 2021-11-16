@@ -82,13 +82,22 @@ export const initialState = {
       schedule_id: 3,
     },
     {
+      course: 'Redux',
+      start_time: '10:00pm',
+      start_date: '11-10-2021',
+      end_date: '11-12-2021',
+      end_time: '11:00pm',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 4,
+    },
+    {
       course: 'Python',
       start_time: '9:00pm',
       start_date: '12-09-2021',
       end_date: '12-12-2021',
       end_time: '12:00pm',
       location: 'https://zoom.us/my/john123',
-      schedule_id: 4,
+      schedule_id: 6,
     },
   ],
 

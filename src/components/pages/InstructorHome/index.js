@@ -38,15 +38,9 @@ const InstructorHome = () => {
                 <p> {<ScheduleOutlined />} Find Courses</p>
               </div>
             </div>
-            <Row justify="space-around" align="middle">
-              <Col span={8}>
-                <InstructorCourseManagement />
-              </Col>
-              <Col span={12}>
-                <InstructorCalender />
-              </Col>
-              <Col span={1}></Col>
-            </Row>
+            <div className="calendar">
+              <InstructorCalender />
+            </div>
           </Content>
         </Layout>
       </Layout>

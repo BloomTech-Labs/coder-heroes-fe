@@ -1,58 +1,61 @@
-import React from 'react';
-import { Calendar, Badge } from 'antd';
+import React, { useState } from 'react';
+import { Calendar, Modal } from 'antd';
 import '../../../styles/index.less';
 import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
 
 const InstructorCalender = props => {
   const { instructor } = props;
+  const [selectedCourse, setSelectedCourse] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = item => {
+    setIsModalVisible(true);
+    setSelectedCourse(item);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   function getListData(value) {
     let listData = [];
 
-    // Here we're looping over the dates of each course.  We keep track of the index we're looking at currently.
-    // 1. If the currentCourse's day matches value.date, it must mean this course is for the day we called getListData with.
-    // 2. If the days match, we need to update listData for that day.  We build a new "listData object" using the courses id, and subject.
-    // 3. Important to note listdata is spread here to include the possibility of multiple courses occuring on one day.
-    instructor.course_schedule.forEach(currentCourse => {
-      if (
-        parseInt(currentCourse.start_date.split('-')[1], 10) === value.date() &&
-        value.month() + 1 ===
-          parseInt(currentCourse.start_date.split('-')[0], 10)
-      ) {
-        //Needs to be +1 because month indexing starts at 0
-        listData = [
-          ...listData,
-          {
-            type: 'success',
-            content: currentCourse.subject,
-            id: currentCourse.id,
-          },
-        ];
+    const calendarDate = value._d.toLocaleString('en-US', {
+      day: '2-digit',
+      year: 'numeric',
+      month: '2-digit',
+    });
+
+    instructor.course_schedule.forEach(item => {
+      if (item.start_date.replaceAll('-', '/') === calendarDate) {
+        listData.push(item);
       }
     });
     return listData || [];
   }
 
   function dateCellRender(value) {
-    const listData = getListData(value); //called for each rendered cell component the array that is returned is rendered for that specific day.
-
-    function showCourseInfo(evt) {
-      instructor.course_schedule.forEach(currentCourse => {
-        if (currentCourse.id === parseInt(evt.target.id, 10)) {
-          props.setSelectedCourse(currentCourse);
-        }
-      });
-    }
-
+    const listData = getListData(value);
     return (
-      <ul className="events">
-        {listData.map(item => (
-          <li id={item.id} key={item.id} onClick={evt => showCourseInfo(evt)}>
-            <Badge id={item.id} status={item.type} text={item.content} />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul className="events">
+          {listData.map(item => (
+            <li
+              key={item.id}
+              className="list"
+              onClick={e => {
+                showModal(item);
+              }}
+            >
+              {item.start_time}
+              <br />
+              <div className="subject">{item.subject}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -65,8 +68,24 @@ const InstructorCalender = props => {
             <button>Inbox</button>
             <button>Create Course</button>
           </div>
+          <Modal
+            title="Selected Course"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <h3>{selectedCourse.description}</h3>
+            <p>Course Date: {selectedCourse.start_date}</p>
+            <p>
+              Course Time:
+              {`${selectedCourse.start_time}-${selectedCourse.end_time}`}
+            </p>
+            <p>
+              Course Location:
+              {selectedCourse.location}
+            </p>
+          </Modal>
         </div>
-
         <Calendar dateCellRender={dateCellRender} />
       </section>
     </>
@@ -74,6 +93,7 @@ const InstructorCalender = props => {
 };
 
 const mapStateToProps = state => {
+  console.log(state.instructorReducer);
   return { instructor: state.instructorReducer };
 };
 export default connect(mapStateToProps, { setSelectedCourse })(

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
+import InstructorBookingCards from './InstructorBookingCards';
 
 function InstructorBooking() {
   const { Content, Sider } = Layout;
@@ -23,6 +24,7 @@ function InstructorBooking() {
       </Sider>
       <Content>
         <Banner />
+        <InstructorBookingCards />
       </Content>
     </Layout>
   );

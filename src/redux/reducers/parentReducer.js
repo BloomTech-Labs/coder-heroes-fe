@@ -3,6 +3,7 @@ import {
   GET_COURSES_ACTION,
   GET_INBOX_ACTION,
   GET_SESSIONS_ACTION,
+  SIGNUP_COURSE_ACTION,
 } from '../actions/parentActions';
 
 export const initialState = {
@@ -209,6 +210,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         inbox: action.payload,
+      };
+    case SIGNUP_COURSE_ACTION:
+      return {
+        ...state,
+        courses: action.payload,
       };
     default:
       return state;

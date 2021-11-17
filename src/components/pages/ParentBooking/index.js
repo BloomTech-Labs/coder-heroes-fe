@@ -24,9 +24,6 @@ function ParentBooking() {
       </Sider>
       <Content>
         <Banner />
-        <div className="bookingBtn">
-          <p>Continue To Review Booking</p>
-        </div>
       </Content>
     </Layout>
   );

@@ -14,6 +14,9 @@ export const GET_SESSIONS_SUCCESS = 'GET_SESSIONS_SUCCESS';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const GET_INBOX_SUCCESS = 'GET_INBOX_SUCCESS';
 
+export const SIGNUP_COURSE_ACTION = 'SIGNUP_COURSE';
+export const SIGNUP_COURSE_SUCCESS = 'SIGNUP_SUCCESS';
+
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios
@@ -58,6 +61,20 @@ export const getInbox = dispatch => {
     })
     .then(res => {
       dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
+};
+
+export const signupForCourse = () => dispatch => {
+  dispatch({ type: SIGNUP_COURSE_ACTION });
+  axios
+    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+      crossdomain: true,
+    })
+    .then(res => {
+      dispatch({ type: SIGNUP_COURSE_ACTION, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ERROR_ACTION, payload: err });

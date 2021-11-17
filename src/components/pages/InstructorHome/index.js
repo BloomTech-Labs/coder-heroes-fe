@@ -33,13 +33,7 @@ const InstructorHome = () => {
         <Layout>
           <Content>
             <Banner />
-            <div className="banner-divs">
-              <div className="instructor-find-courses">
-                <Link to="/instructor-booking">
-                  <p> {<ScheduleOutlined />} Find Courses</p>{' '}
-                </Link>
-              </div>
-            </div>
+
             <div className="calendar">
               <InstructorCalender />
             </div>

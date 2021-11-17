@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
+import { Link } from 'react-router-dom';
 
 import {
   TeamOutlined,
@@ -14,6 +15,7 @@ import {
 
 function ParentSidebar(props) {
   const { collapsed } = props;
+
   const handleClick = e => {
     console.log('click ', e);
   };
@@ -23,7 +25,7 @@ function ParentSidebar(props) {
       <Menu
         className="parent-dashboard-sidebar"
         onClick={handleClick}
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={['2']}
         defaultOpenKeys={['sub1']}
         style={{ height: '100vh' }}
         mode="inline"
@@ -39,22 +41,14 @@ function ParentSidebar(props) {
           CoderHeroes
         </Menu.Item>
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          Dashboard
+          <Link to="/parent" className="link">
+            Dashboard
+          </Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<TeamOutlined />}>
-          Family
-        </Menu.Item>
-        <Menu.Item key="4" icon={<ReadOutlined />}>
-          Booking
-        </Menu.Item>
-        <Menu.Item key="5" icon={<CalendarOutlined />}>
-          Schedule
-        </Menu.Item>
-        <Menu.Item key="6" icon={<MailOutlined />}>
-          Inbox
-        </Menu.Item>
-        <Menu.Item key="7" icon={<SettingOutlined />}>
-          Settings
+        <Menu.Item key="3" icon={<ReadOutlined />}>
+          <Link to="/parent-booking" className="link">
+            Booking
+          </Link>
         </Menu.Item>
       </Menu>
     </div>

@@ -70,7 +70,7 @@ export const getInbox = dispatch => {
 export const signupForCourse = () => dispatch => {
   dispatch({ type: SIGNUP_COURSE_ACTION });
   axios
-    .post('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
       crossdomain: true,
     })
     .then(res => {

@@ -11,6 +11,7 @@ import { UserAddOutlined, ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
 import { ThunderboltFilled } from '@ant-design/icons';
 import ParentSidebar from './ParentSidebar';
+import AvailableCourses from './AvailableCourses';
 import './../../../styles/ParentStyles/index.less';
 
 function ParentHome() {
@@ -54,8 +55,11 @@ function ParentHome() {
           <Layout>
             <Content>
               <Row justify="space-around" align="middle">
-                <Col span={5}>
+                {/* <Col span={5}>
                   <ParentResources />
+                </Col> */}
+                <Col span={20}>
+                  <AvailableCourses />
                 </Col>
                 <Col span={20}>
                   <ParentCalendar schedule={scheduleData} />

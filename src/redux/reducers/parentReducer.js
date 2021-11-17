@@ -63,6 +63,7 @@ export const initialState = {
       location: 'https://zoom.us/my/john123',
       schedule_id: 1,
     },
+
     {
       course: 'react',
       start_time: '6:00pm',
@@ -84,7 +85,7 @@ export const initialState = {
     {
       course: 'Redux',
       start_time: '10:00pm',
-      start_date: '11-10-2021',
+      start_date: '11-22-2021',
       end_date: '11-12-2021',
       end_time: '11:00pm',
       location: 'https://zoom.us/my/john123',
@@ -93,11 +94,29 @@ export const initialState = {
     {
       course: 'Python',
       start_time: '9:00pm',
-      start_date: '12-09-2021',
+      start_date: '11-15-2021',
       end_date: '12-12-2021',
       end_time: '12:00pm',
       location: 'https://zoom.us/my/john123',
       schedule_id: 6,
+    },
+    {
+      course: 'Node js',
+      start_time: '10:00pm',
+      start_date: '11-15-2021',
+      end_date: '10-10-2021',
+      end_time: '6:00pm',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 7,
+    },
+    {
+      course: 'Html',
+      start_time: '10:00pm',
+      start_date: '11-17-2021',
+      end_date: '10-10-2021',
+      end_time: '6:00pm',
+      location: 'https://zoom.us/my/john123',
+      schedule_id: 7,
     },
   ],
 

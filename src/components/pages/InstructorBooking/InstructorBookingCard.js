@@ -19,13 +19,30 @@ const InstructorBookingCard = ({
 
   return (
     <div>
-      <Card title={<h1>{subject}</h1>}>
+      <Card className="card" title={subject}>
         <div className="instructor-booking-card">
-          <div>{start_date}</div>
-          <div>{start_time}</div>
-          <button id="btn-book" onClick={() => toggleModal()}>
-            Details
-          </button>
+          <div className="left">
+            <h2>Start Date & Time: </h2>
+            <p>
+              {start_date}
+              {start_time}
+            </p>
+            <h2>End Date & Time: </h2>
+            <p>
+              {end_date}
+              {end_time}
+            </p>
+          </div>
+          <div className="right">
+            <img
+              className="image"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              alt="woman drinking coffee"
+            ></img>
+            <button id="btn-book" onClick={() => toggleModal()}>
+              Details
+            </button>
+          </div>
         </div>
       </Card>
     </div>

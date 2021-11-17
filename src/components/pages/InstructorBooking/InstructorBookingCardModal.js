@@ -26,8 +26,8 @@ const InstructorBookingCardModal = props => {
   };
 
   return (
-    <div class="instructor-booking-card">
-      <Card>
+    <Card>
+      <div class="modal-card">
         <h1>{subject}</h1>
         <p>
           {text.when}
@@ -41,12 +41,12 @@ const InstructorBookingCardModal = props => {
           {text.description}
           {subject}
         </p>
-        <button>Book Course</button>
+        <button id="btn-book">Apply</button>
         <button className="close-modal-btn" onClick={closeModal}>
           <CloseOutlined />
         </button>
-      </Card>
-    </div>
+      </div>
+    </Card>
   );
 };
 export default InstructorBookingCardModal;

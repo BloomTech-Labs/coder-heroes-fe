@@ -12,7 +12,7 @@ function RenderHomePage(props) {
           approach components.
         </p>
         <p>
-          <Link to="/instructor">Instructor Path</Link>
+          <Link to="/instructor">Instructor Dashboard</Link>
         </p>
         <p>
           <Link to="/parent">Parent Dashboard</Link>

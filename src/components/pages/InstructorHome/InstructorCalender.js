@@ -21,7 +21,6 @@ const InstructorCalender = props => {
 
   function getListData(value) {
     let listData = [];
-    console.log(value.format('L'));
 
     const calendarDate = value._d.toLocaleString('en-US', {
       day: '2-digit',
@@ -64,7 +63,7 @@ const InstructorCalender = props => {
     <>
       <section className="site-calendar-demo-card">
         <div>
-          <h1>Your Calender</h1>
+          <h1>Your Calendar</h1>
 
           <Modal
             title="Selected Course"
@@ -91,7 +90,6 @@ const InstructorCalender = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.instructorReducer);
   return { instructor: state.instructorReducer };
 };
 export default connect(mapStateToProps, { setSelectedCourse })(

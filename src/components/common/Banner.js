@@ -43,6 +43,8 @@ function Banner() {
         </div>
       </div>
     );
+  } else {
+    return <div></div>;
   }
 }
 export default Banner;

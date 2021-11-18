@@ -44,21 +44,3 @@ describe('<RenderHomePage /> test suite', () => {
     expect(coursesButton.innerHTML).toBe('Courses');
   });
 });
-
-describe('<RenderHomePage /> test suite', () => {
-  test('render sidebar', () => {
-    const { getByText, getByTestId } = render(
-      <Provider store={store}>
-        <Router>
-          <InstructorHome />
-        </Router>
-      </Provider>
-    );
-    const sidebar = getByTestId('sider');
-    expect(sidebar).toBeInTheDocument();
-    const dashboard = getByText(/dashboard/i);
-    expect(dashboard.innerHTML).toBe('Dashboard');
-    const coursesButton = getByText(/courses/i);
-    expect(coursesButton.innerHTML).toBe('Courses');
-  });
-});

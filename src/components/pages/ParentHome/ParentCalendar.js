@@ -30,7 +30,7 @@ function ParentCalendar(props) {
     });
     // console.log(schedule.sessions);
     schedule.sessions.forEach(item => {
-      let new_startDate = item.start_date.replaceAll('-', '/');
+      let new_startDate = item.start_date.replace(/-/g, '/');
       switch (value.format('L')) {
         case new_startDate:
           if (
@@ -76,7 +76,7 @@ function ParentCalendar(props) {
       year: 'numeric', // numeric, 2-digit
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
-    newDate = newDate.replaceAll('/', '-');
+    newDate = newDate.replace(/\//g, '-');
     let newArr = schedule.sessions.filter(item => {
       return item.start_date === newDate;
     });
@@ -113,7 +113,7 @@ function ParentCalendar(props) {
       year: 'numeric', // numeric, 2-digit
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
-    newDate = newDate.replaceAll('/', '-');
+    newDate = newDate.replace(/\//g, '-');
 
     return (
       <ul className="ulcell">

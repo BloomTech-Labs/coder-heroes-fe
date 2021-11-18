@@ -1,19 +1,16 @@
 import { Menu } from 'antd';
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
-
+import { Link } from 'react-router-dom';
 import {
   DesktopOutlined,
-  ToolOutlined,
-  MailOutlined,
   HomeOutlined,
-  ExportOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
 
 function InstructorSidebar() {
   return (
-    <Menu defaultSelectedKeys={['coderheroes']}>
+    <Menu defaultSelectedKeys={['dashboard']}>
       <Menu.Item
         key="coderheroes"
         icon={<ThunderboltOutlined />}
@@ -22,19 +19,11 @@ function InstructorSidebar() {
         Coderheroes
       </Menu.Item>
       <Menu.Item key="dashboard" icon={<HomeOutlined />}>
-        Dashboard
+        <Link to="/instructor"> Dashboard</Link>
       </Menu.Item>
+
       <Menu.Item key="courses" icon={<DesktopOutlined />}>
-        Courses
-      </Menu.Item>
-      <Menu.Item key="mail" icon={<MailOutlined />}>
-        Mail
-      </Menu.Item>
-      <Menu.Item key="settings" icon={<ToolOutlined />}>
-        Settings
-      </Menu.Item>
-      <Menu.Item key="logout" icon={<ExportOutlined />}>
-        Logout
+        <Link to="/instructor-booking"> Courses</Link>
       </Menu.Item>
     </Menu>
   );

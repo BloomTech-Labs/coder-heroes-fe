@@ -65,10 +65,7 @@ const InstructorCalender = props => {
       <section className="site-calendar-demo-card">
         <div>
           <h1>Your Calender</h1>
-          <div className="sub-items">
-            <button>Inbox</button>
-            <button>Create Course</button>
-          </div>
+
           <Modal
             title="Selected Course"
             visible={isModalVisible}

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';
-import { Layout, Row, Col } from 'antd';
-import { ThunderboltFilled, ScheduleOutlined } from '@ant-design/icons';
+import { Layout } from 'antd';
+import { ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
+import { Link } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 const InstructorHome = () => {
@@ -32,11 +33,7 @@ const InstructorHome = () => {
         <Layout>
           <Content>
             <Banner />
-            <div className="banner-divs">
-              <div className="instructor-find-courses">
-                <p> {<ScheduleOutlined />} Find Courses</p>
-              </div>
-            </div>
+
             <div className="calendar">
               <InstructorCalender />
             </div>

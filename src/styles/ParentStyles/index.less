@@ -4,12 +4,12 @@
 @h3: 2.5rem;
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
+//****Banner styles (in components common folder)*****
 .dashboard-banner{
     background-color: #006C72; 
     padding: 10px 10px;
     height: 19vh;
-}    
-
+}
 .banner-conent{
     width: 40%;
     padding-left: 3rem;
@@ -27,7 +27,6 @@
             font-weight: light;
         }
     }
-
 .banner-divs{
     display:flex;
     flex-direction: row;
@@ -41,25 +40,15 @@
         }
         div:hover{
             background-color: #f2f2f2;
-        }
-        .enroll-child{
-            border: solid black 1.5px;
-            border-radius:3px 0 0 3px;
-            border-right: none;
-            background-color: white;
-        }
-        .parent-find-courses{
-            border: solid black 1.5px;
-            border-radius:0 3px 3px 0;
-            background-color: white;
         }}
 
 
-tbody td {
+//****ParentCalendar Styles****
+tbody td { 
     border-left: 4px #006c72 solid !important;
 }
 
-th {
+th { 
     color: #006c72 !important;
     font-weight: bold !important;
     text-transform: uppercase;
@@ -116,9 +105,7 @@ li {
     height: 5rem;
     border-radius: 25%;
     padding: 0.7rem;
-    text-align: center;
-
-    
+    text-align: center; 
 }
 .ulcell {
     margin-bottom: 4px;
@@ -150,6 +137,9 @@ li {
     padding-top: 8px;
     margin-top: 10px;
 }
+
+
+//****AvailableCourses styles****
 .header{
     width: 40%;
     padding-left: 24px;
@@ -203,7 +193,6 @@ li {
     width: 50%;
     text-align: center;
 }
-
 .card-container{
     display: flex;
     justify-content: flex-start;
@@ -238,10 +227,6 @@ img{
 .ant-tabs-tab{
     color: #a3a9b9;
 font-weight: bold;
-}
-
-.link{
-    color: #006C72 !important;
 }
 .ant-tabs-tab .ant-tabs-tab-active {
     color: #00cab7;

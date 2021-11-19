@@ -23,6 +23,7 @@ const InstructorHome = () => {
     <div>
       <Layout>
         <Sider
+          data-testid="sider"
           theme="light"
           collapsible
           collapsed={collapsed}
@@ -34,7 +35,7 @@ const InstructorHome = () => {
           <Content>
             <Banner />
 
-            <div className="calendar">
+            <div className="calendar" data-testid="calendar">
               <InstructorCalender />
             </div>
           </Content>

@@ -19,11 +19,11 @@ function InstructorSidebar() {
         Coderheroes
       </Menu.Item>
       <Menu.Item key="dashboard" icon={<HomeOutlined />}>
-        <Link to="/instructor"> Dashboard</Link>
+        <Link to="/instructor">Dashboard</Link>
       </Menu.Item>
 
       <Menu.Item key="courses" icon={<DesktopOutlined />}>
-        <Link to="/instructor-booking"> Courses</Link>
+        <Link to="/instructor-booking">Courses</Link>
       </Menu.Item>
     </Menu>
   );

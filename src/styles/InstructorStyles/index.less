@@ -147,18 +147,20 @@
   z-index: -1;
   font-weight: bold;
   display: flex;
-  flex-direction: row;
-  // flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .ant-card {
-    margin: 1%;
     width: 25vw;
+    .title {
+      font-size: large;
+    }
   }
+
 
   h1 {
     color: #ffad00;
-    display: flex;
   }
 
   button {
@@ -171,37 +173,45 @@
   }
 }
 .modal-container {
-  background: white;
   border-radius: 0.25rem;
   width: 100vw;
-  height: 70vh;
+  height: auto;
 
   text-align: center;
   display: grid;
-  place-items: center;
+  place-items: start;
   position: relative;
   padding: 10%;
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: flex-start;
+
   z-index: 0;
 }
 .instructor-booking-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   background: white;
   margin: 1%;
   border-radius: 0.25rem;
-  width: 20vw;
-  height: auto;
-  text-align: center;
-  display: grid;
-  place-items: center;
-  position: relative;
+  // width: 20vw;
+  // height: auto;
+  // text-align: center;
+  // display: grid;
+  // place-items: center;
+  // position: relative;
+
   #btn-book {
     width: 50%;
   }
+  .left {
+    width: 50%;
+  }
+  .right {
+    width: 50%;
+  }
 }
+
 .show-modal {
   position: fixed;
   visibility: visible;
@@ -237,8 +247,18 @@
   z-index: -1;
 }
 
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin: 1%;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
 .instructor-booking-div {
   width: 100%;
+  margin:.5%;
   background: white;
   margin: 0.5%;
 }
@@ -247,6 +267,7 @@
   position: relative !important;
   z-index: 0 !important;
 }
+
 .list {
   background-color: #006c72;
   margin: 2px;

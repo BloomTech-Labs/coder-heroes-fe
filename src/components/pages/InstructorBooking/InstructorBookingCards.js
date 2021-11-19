@@ -30,18 +30,16 @@ const InstructorBookingCards = props => {
   return (
     <>
       <div className="instructor-booking-div">
-        <div className="instructor-header">
-          <h2
-            style={{
-              fontSize: '2.5rem',
-              color: '#ffca59',
-              fontWeight: 'bold',
-              margin: '3%',
-            }}
-          >
-            Available Programs
-          </h2>
-        </div>
+        <h2
+          style={{
+            fontSize: '2.5rem',
+            color: '#ffca59',
+            fontWeight: 'bold',
+            margin: '3%',
+          }}
+        >
+          Available Programs
+        </h2>
         <div className="modal-container">
           <div className="courses-cards">
             {instructor.course_schedule.map(course => {

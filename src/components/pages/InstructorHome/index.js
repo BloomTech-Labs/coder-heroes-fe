@@ -3,9 +3,7 @@ import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';
 import { Layout } from 'antd';
-import { ScheduleOutlined } from '@ant-design/icons';
 import Banner from '../../common/Banner';
-import { Link } from 'react-router-dom';
 
 const { Content, Sider } = Layout;
 const InstructorHome = () => {

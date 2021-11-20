@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card } from 'antd';
 import '../../../styles/index.less';
 
@@ -10,7 +10,7 @@ const InstructorBookingCard = ({
   currentModalProps,
   modalHidden,
 }) => {
-  const { start_date, end_date, start_time, end_time, size, subject } = course;
+  const { start_date, end_date, start_time, end_time, subject } = course;
 
   const toggleModal = () => {
     setModalHidden(!modalHidden);

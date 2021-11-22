@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
-import { Space, Card } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'react-redux';
 import { Tabs } from 'antd';
 import ParentBookingCard from '../ParentBooking/ParentBookingCard';
@@ -22,18 +22,18 @@ const AvailableCourses = props => {
     month: '2-digit', // numeric, 2-digit, long, short, narrow
   }).replaceAll('/', '-');
   const renderTab = activeKey => {
-    if (activeKey == 1) {
+    if (activeKey === 1) {
       SetcurrentTab(courses.sessions);
     }
 
-    if (activeKey == 2) {
+    if (activeKey === 2) {
       let arr = courses.sessions.filter(item => {
         return item.start_date === today;
       });
       SetcurrentTab(arr);
     }
 
-    if (activeKey == 3) {
+    if (activeKey === 3) {
       let arr = courses.sessions.filter(item => {
         let new_startDate = item.start_date.replaceAll('-', '/');
         let newDate = Date.parse(new_startDate);

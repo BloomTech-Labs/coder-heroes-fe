@@ -23,7 +23,8 @@ const ParentBookingCard = ({ sessions }) => {
             <img
               className="image"
               src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            ></img>
+              alt="booking card"
+            />
           </div>
         </div>
         <div className="buttonWrapper">

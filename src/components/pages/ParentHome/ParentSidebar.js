@@ -4,11 +4,7 @@ import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
 
 import {
-  TeamOutlined,
   HomeOutlined,
-  CalendarOutlined,
-  MailOutlined,
-  SettingOutlined,
   ThunderboltFilled,
   ReadOutlined,
 } from '@ant-design/icons';

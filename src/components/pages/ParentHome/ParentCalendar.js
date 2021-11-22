@@ -5,22 +5,19 @@ import 'antd/dist/antd.css';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
 
 function ParentCalendar(props) {
   const { schedule } = props;
   const [course, setCourse] = useState('');
-  const [time, setTime] = useState('');
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeModal, setActiveModal] = useState(0);
   const [fullProgram, setFullProgram] = useState(false);
 
   function getListData(value) {
-    const values = schedule.courses.map(items => {
+    schedule.courses.map(items => {
       setCourse(items);
     });
-
-    let arr = [];
 
     let listData = [];
     let today = new Date().toLocaleString('en-US', {
@@ -117,7 +114,7 @@ function ParentCalendar(props) {
 
     return (
       <ul className="ulcell">
-        {listData.length > 0 && listData[0].start_date == newDate ? (
+        {listData.length > 0 && listData[0].start_date === newDate ? (
           <Button
             className="fullButton"
             onClick={e => showFull(value)}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Card } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
@@ -11,14 +11,7 @@ const InstructorBookingCardModal = props => {
     text,
   } = props;
 
-  const {
-    start_date,
-    end_date,
-    start_time,
-    end_time,
-    size,
-    subject,
-  } = currentModalProps;
+  const { start_time, size, subject } = currentModalProps;
 
   const closeModal = () => {
     setModalHidden(true);

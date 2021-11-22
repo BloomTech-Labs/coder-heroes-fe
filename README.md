@@ -44,11 +44,13 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 ### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- Antdesign for component base
+- File scaffolding to organize pages and components
+- File scaffolding to organize styles
+- React router to handle project routing
+- Okta to handle user authentication
+- Less for global and component base styles
+- Redux for global state management
 
 #### Front end deployed to `heroku` at [coderheroes](a.coderheroes.dev).
 

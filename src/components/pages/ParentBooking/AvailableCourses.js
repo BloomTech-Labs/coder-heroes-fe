@@ -9,8 +9,10 @@ const AvailableCourses = props => {
   const { TabPane } = Tabs;
   const { courses } = props;
   const [currentTab, SetcurrentTab] = useState();
+
   useEffect(() => {
     SetcurrentTab(courses.sessions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let Datetoday = new Date();
   let week = new Date();

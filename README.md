@@ -9,7 +9,7 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 ## Contributors
 
-|[<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)|[<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)|[<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)|[<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)|   
+|[<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)|[<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)|[<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)|[<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)|
 |---|---|---|---|
 |[Chelsea Ceballos](https://github.com/chelseaceballos) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chelseaceballos)|[Jie Zhang](https://github.com/Jie-chelchel) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jie-chelchel)|[Willis Li](https://github.com/WillisLi) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/WillisLi)|[Bradly Lewis](https://github.com/bradlylewis) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bradlylewis)|
 |[<img src="https://avatars.githubusercontent.com/u/80992248?v=4" width = "200" />](https://github.com/fernando817mm)|[<img src="https://avatars.githubusercontent.com/u/47357270?v=4" width = "200" />](https://github.com/muhannadbm)|[<img src="https://avatars.githubusercontent.com/u/82040208?v=4" width = "200" />](https://github.com/vasqueza91)|[<img src="https://avatars.githubusercontent.com/u/32268444?v=4" width = "200" />](https://github.com/MikeLikesCode)|
@@ -121,3 +121,51 @@ Remember that this project is licensed under the MIT license, and by submitting 
 ## Documentation
 
 See [Backend Documentation](https://github.com/BloomTech-Labs/coder-heroes-be#readme) for details on the backend of our project.
+
+## Testing your Components
+
+- You will be using [jest]() along side with [React Testing Library]() to test your application.
+- Please put all of your tests for your code in `__tests__` folder.
+- You should get into the habit of ensuring that you have coverage for your code _before submitting a pull-request_.
+
+### Running your tests
+
+- When writing tests run the command:
+  - `cd into` the root of this directory
+  - `npm test` to run your test suite
+    - _if you're prompted_ select `a` to run tests in watch mode. This will re-run your test suite when you save any file in your application.
+  - In your terminal you will see a test runner that looks something like this:
+    ![Test screenshot](https://tk-assets.lambdaschool.com/bc9ca7b9-4fce-45de-9a16-705cbec062d8_ScreenShot2020-06-25at7.52.52AM.png)
+  - When you're not actively writing tests its best to close that terminal window so that you don't keep running tests when your files are saved.
+
+### Coverage
+
+> 💡 Code coverage should be a good goal to have and a good starting place. But every application will be different.
+
+- [Kent Dodds put it nicely](https://kentcdodds.com/blog/common-testing-mistakes#mistake-number-2-100-code-coverage). Strive for solid coverage as we strive to hand you over well-tested code in which we have extreme confidence.
+
+- To run a coverage report for your application simply run `npm run coverage`.
+- You should see a print out in your console that looks like this:
+  ![code coverage](https://tk-assets.lambdaschool.com/5abec98b-2b61-483f-bd85-71002a9f755a_ScreenShot2020-06-25at7.59.14AM.png)
+
+## Data Visualization
+
+Components in folder `src/pages/ExampleDataViz` represent a pattern that you can use when working as a part of a `Hybrid Team`. When working with Data Scientists you'll need to ensure that you communicate as often as you possibly can with that team. They will be doing hard work using [`Plotly`](https://plotly.com/) to ensure that the data they're working with is charted out in a visually appealing way, however you'll need to work with them to integrate their work into the app.
+
+The `RenderDataViz.js` file demonstrates how you can pull in data from an external API, set that data on state, and then pass that data down to a `<Plot />` component. In this case, the URL for the plot component is the only prop that will be needed to send off the API call and subsequently mount the Plot components w/ the appropriate data. **Be sure to handle your errors nicely.**
+
+## Login and Authentication w/ Okta.
+
+- The `LoginContainer.js` file in `src/pages/Login` includes a widget that is provided to us by Okta.
+- This widget is the key to `user authentication and management` within your application.
+- You don't have to manage ANY users because we're letting Okta do this for us :)
+- This component is heavily documented with comments but it'd be REALLY good to read through [the docs here](https://github.com/okta/okta-signin-widget) to get a good understanding of the configuration we're doing with the widget itself.
+- You'll also want to learn a bit about how to style this widget to meet your app's concerns.
+
+## Utils
+
+- `Utils` directory is for any of the business logic that your application may need to use.
+- Simple one-off _helper_ functions that you may need can be defined in this directory.
+- Any reusable logic or handlers or config files can also be used here.
+- **REMINDER do not** check any sensitive information into git
+

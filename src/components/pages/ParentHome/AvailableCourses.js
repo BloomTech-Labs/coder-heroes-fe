@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
+// eslint-disable-next-line no-unused-vars
 import { Space, Card } from 'antd';
 import { connect } from 'react-redux';
 import { Tabs } from 'antd';
@@ -10,6 +11,7 @@ const AvailableCourses = props => {
   const [currentTab, SetcurrentTab] = useState();
   useEffect(() => {
     SetcurrentTab(courses.sessions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   let Datetoday = new Date();
   let week = new Date();
@@ -21,18 +23,18 @@ const AvailableCourses = props => {
     month: '2-digit', // numeric, 2-digit, long, short, narrow
   }).replaceAll('/', '-');
   const renderTab = activeKey => {
-    if (activeKey == 1) {
+    if (activeKey === 1) {
       SetcurrentTab(courses.sessions);
     }
 
-    if (activeKey == 2) {
+    if (activeKey === 2) {
       let arr = courses.sessions.filter(item => {
         return item.start_date === today;
       });
       SetcurrentTab(arr);
     }
 
-    if (activeKey == 3) {
+    if (activeKey === 3) {
       let arr = courses.sessions.filter(item => {
         let new_startDate = item.start_date.replaceAll('-', '/');
         let newDate = Date.parse(new_startDate);
@@ -79,6 +81,7 @@ const AvailableCourses = props => {
                       <div className="right">
                         <img
                           className="image"
+                          alt="img"
                           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                         ></img>
                       </div>
@@ -112,6 +115,7 @@ const AvailableCourses = props => {
                       <div className="right">
                         <img
                           className="image"
+                          alt="img"
                           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                         ></img>
                       </div>
@@ -145,6 +149,7 @@ const AvailableCourses = props => {
                       <div className="right">
                         <img
                           className="image"
+                          alt="img"
                           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
                         ></img>
                       </div>

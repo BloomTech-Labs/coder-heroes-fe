@@ -2,6 +2,7 @@ import RenderHomePage from '../components/pages/Home/RenderHomePage';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
+// eslint-disable-next-line no-unused-vars
 import userEvent from '@testing-library/user-event';
 
 describe('<RenderHomePage /> test suite', () => {
@@ -9,6 +10,7 @@ describe('<RenderHomePage /> test suite', () => {
     const authService = {
       logout: jest.fn(),
     };
+    // eslint-disable-next-line no-unused-vars
     const { getByText } = render(
       <Router>
         <RenderHomePage userInfo={{ name: 'Sara' }} authService={authService} />

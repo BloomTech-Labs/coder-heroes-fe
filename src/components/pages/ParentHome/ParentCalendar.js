@@ -8,16 +8,16 @@ import { connect } from 'react-redux';
 
 function ParentCalendar(props) {
   const { schedule } = props;
+  // eslint-disable-next-line no-unused-vars
   const [course, setCourse] = useState('');
 
+  // eslint-disable-next-line no-unused-vars
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activeModal, setActiveModal] = useState(0);
   const [fullProgram, setFullProgram] = useState(false);
 
   function getListData(value) {
-    schedule.courses.map(items => {
-      setCourse(items);
-    });
+    schedule.courses.map(items => setCourse(items));
 
     let listData = [];
     let today = new Date().toLocaleString('en-US', {
@@ -25,7 +25,7 @@ function ParentCalendar(props) {
       year: 'numeric', // numeric, 2-digit
       month: '2-digit', // numeric, 2-digit, long, short, narrow
     });
-    // console.log(schedule.sessions);
+
     schedule.sessions.forEach(item => {
       let new_startDate = item.start_date.replace(/-/g, '/');
       switch (value.format('L')) {
@@ -100,6 +100,7 @@ function ParentCalendar(props) {
 
   function dateCellRender(value) {
     const listData = getListData(value);
+    // eslint-disable-next-line no-unused-vars
     let today = new Date().toLocaleString('en-US', {
       day: '2-digit', // numeric, 2-digit
       year: 'numeric', // numeric, 2-digit

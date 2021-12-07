@@ -9,7 +9,7 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 ## Contributors
 
-|[<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)|[<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)|[<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)|[<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)|   
+|[<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)|[<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)|[<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)|[<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)|
 |---|---|---|---|
 |[Chelsea Ceballos](https://github.com/chelseaceballos) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chelseaceballos)|[Jie Zhang](https://github.com/Jie-chelchel) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jie-chelchel)|[Willis Li](https://github.com/WillisLi) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/WillisLi)|[Bradly Lewis](https://github.com/bradlylewis) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bradlylewis)|
 |[<img src="https://avatars.githubusercontent.com/u/80992248?v=4" width = "200" />](https://github.com/fernando817mm)|[<img src="https://avatars.githubusercontent.com/u/47357270?v=4" width = "200" />](https://github.com/muhannadbm)|[<img src="https://avatars.githubusercontent.com/u/82040208?v=4" width = "200" />](https://github.com/vasqueza91)|[<img src="https://avatars.githubusercontent.com/u/32268444?v=4" width = "200" />](https://github.com/MikeLikesCode)|
@@ -121,3 +121,6 @@ Remember that this project is licensed under the MIT license, and by submitting 
 ## Documentation
 
 See [Backend Documentation](https://github.com/BloomTech-Labs/coder-heroes-be#readme) for details on the backend of our project.
+
+## Common Directory Explanation
+Loom[https://www.loom.com/share/e304d66df57a42b4871ed82a2aa98dd1]

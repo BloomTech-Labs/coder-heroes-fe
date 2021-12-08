@@ -122,10 +122,6 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 See [Backend Documentation](https://github.com/BloomTech-Labs/coder-heroes-be#readme) for details on the backend of our project.
 
-## ParentBooking/ ParentHome Directories Explanations
+##  Home/Landing/Login/NotFound/ProfileList Directories Explanations
+Loom [https://www.loom.com/share/b096caec05d64723973075cb4d6bbd00]
 
-### ParentBooking
-Loom [https://www.loom.com/share/bf78a3e9f37a46318d12c1f2df9bb2de]
-
-### ParentHome
-Loom [https://www.loom.com/share/e05b18bcbc82483e9ec4dca9d2e3da9f]

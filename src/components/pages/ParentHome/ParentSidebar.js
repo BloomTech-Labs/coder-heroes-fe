@@ -73,3 +73,5 @@ function ParentSidebar(props) {
   );
 }
 export default ParentSidebar;
+
+// ** means that routes for "settings", "family (which is renders a list of children that belong to that parent. the endpoint might be localhost:3000/parent_id/child or something like that), Logout ( I know the logout functionality is working, I just dont know how to connect to it) are missing. Can we address that or let me know so I can remove.

@@ -1,23 +1,31 @@
 import React from 'react';
 import { Card } from 'antd';
 
-const ParentBookingCard = ({ sessions }) => {
-  const { course, start_date, start_time, end_date, end_time } = sessions;
+const ParentBookingCard = ({ booking }) => {
+  const data = [
+    { title: 'student name', text: booking.subject },
+    { title: 'course desciption', text: booking.description },
+    { title: 'first day of class', text: booking.start_date },
+    { title: 'last day of class', text: booking.end_date },
+    { title: 'time', text: `${booking.start_time} - ${booking.end_time}` },
+    { title: 'location', text: booking.location },
+    { title: 'instructor', text: booking.instructor_name },
+    { title: 'instructor rating', text: booking.instructor_rating },
+    { title: 'class size', text: booking.size },
+  ];
 
   return (
     <div>
-      <Card className="card" hoverable="true" title={course}>
+      <Card className="card" hoverable="true" title={booking.subject}>
         <div className="card-container">
           <div className="left">
-            <h2>Start Date & Time: </h2>
-
-            <p>
-              {start_date} {start_time}
-            </p>
-            <h2>End Date & Time: </h2>
-            <p>
-              {end_date} {end_time}
-            </p>
+            {data.map((itm, idx) => {
+              return (
+                <div key={idx}>
+                  {itm.title}: {itm.text}
+                </div>
+              );
+            })}
           </div>
           <div className="right">
             <img
@@ -27,9 +35,9 @@ const ParentBookingCard = ({ sessions }) => {
             />
           </div>
         </div>
-        <div className="buttonWrapper">
+        {/* <div className="buttonWrapper">
           <button>Continue Booking</button>{' '}
-        </div>
+        </div> */}
       </Card>
     </div>
   );

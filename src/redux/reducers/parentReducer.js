@@ -1,4 +1,7 @@
 import {
+  FETCH_BOOKINGS_FAILURE,
+  FETCH_BOOKINGS_START,
+  FETCH_BOOKINGS_SUCCESS,
   GET_CHILDREN_ACTION,
   GET_COURSES_ACTION,
   GET_INBOX_ACTION,
@@ -187,6 +190,84 @@ export const initialState = {
       sender_id: 1,
     },
   ],
+  bookings: {
+    isFetching: false,
+    bookings: [
+      {
+        child_id: 12,
+        child_name: 'Joe',
+        session_id: 1,
+        course_id: 1,
+        instructor_id: 1,
+        instructor_name: 'Test003',
+        instructor_rating: 2,
+        size: 15,
+        subject: 'CS101',
+        description: 'Computer Science fundamentals',
+        prereqs: null,
+        start_date: '2021-12-09T07:00:00.000Z',
+        end_date: '2022-10-10T07:00:00.000Z',
+        start_time: '17:00:00',
+        end_time: '18:00:00',
+        location: 'https://zoom.us/my/john123',
+      },
+      {
+        child_id: 12,
+        child_name: 'Joe',
+        session_id: 2,
+        course_id: 3,
+        instructor_id: 2,
+        instructor_name: 'Test006',
+        instructor_rating: 4,
+        size: 16,
+        subject: 'JavaScriptB',
+        description: 'Intermediate JavaScript.',
+        prereqs: ['JavaScriptA'],
+        start_date: '2022-10-11T07:00:00.000Z',
+        end_date: '2022-10-11T07:00:00.000Z',
+        start_time: '15:00:00',
+        end_time: '16:00:00',
+        location: 'https://zoom.us/my/john321',
+      },
+      {
+        child_id: 13,
+        child_name: 'Mark',
+        session_id: 1,
+        course_id: 1,
+        instructor_id: 1,
+        instructor_name: 'Test003',
+        instructor_rating: 2,
+        size: 15,
+        subject: 'CS101',
+        description: 'Computer Science fundamentals',
+        prereqs: null,
+        start_date: '2022-10-10T07:00:00.000Z',
+        end_date: '2022-10-10T07:00:00.000Z',
+        start_time: '17:00:00',
+        end_time: '18:00:00',
+        location: 'https://zoom.us/my/john123',
+      },
+      {
+        child_id: 13,
+        child_name: 'Mark',
+        session_id: 2,
+        course_id: 3,
+        instructor_id: 2,
+        instructor_name: 'Test006',
+        instructor_rating: 4,
+        size: 16,
+        subject: 'JavaScriptB',
+        description: 'Intermediate JavaScript.',
+        prereqs: ['JavaScriptA'],
+        start_date: '2022-10-11T07:00:00.000Z',
+        end_date: '2022-10-11T07:00:00.000Z',
+        start_time: '15:00:00',
+        end_time: '16:00:00',
+        location: 'https://zoom.us/my/john321',
+      },
+    ],
+    error: '',
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -215,6 +296,33 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         courses: action.payload,
+      };
+    case FETCH_BOOKINGS_START:
+      return {
+        ...state,
+        bookings: {
+          isFetching: true,
+          bookings: [],
+          error: '',
+        },
+      };
+    case FETCH_BOOKINGS_SUCCESS:
+      return {
+        ...state,
+        bookings: {
+          isFetching: false,
+          bookings: action.payload,
+          error: '',
+        },
+      };
+    case FETCH_BOOKINGS_FAILURE:
+      return {
+        ...state,
+        bookings: {
+          isFetching: false,
+          bookings: [],
+          error: action.payload,
+        },
       };
     default:
       return state;

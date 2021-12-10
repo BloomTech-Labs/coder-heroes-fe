@@ -17,6 +17,10 @@ export const GET_INBOX_SUCCESS = 'GET_INBOX_SUCCESS';
 export const SIGNUP_COURSE_ACTION = 'SIGNUP_COURSE';
 export const SIGNUP_COURSE_SUCCESS = 'SIGNUP_SUCCESS';
 
+export const FETCH_BOOKINGS_START = 'FETCH_BOOKINGS_START';
+export const FETCH_BOOKINGS_SUCCESS = 'FETCH_BOOKINGS_SUCCESS';
+export const FETCH_BOOKINGS_FAILURE = 'FETCH_BOOKINGS_FAILURE';
+
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios
@@ -78,5 +82,17 @@ export const signupForCourse = () => dispatch => {
     })
     .catch(err => {
       dispatch({ type: ERROR_ACTION, payload: err });
+    });
+};
+
+export const fetchBookings = () => dispatch => {
+  dispatch({ type: FETCH_BOOKINGS_START });
+  axios
+    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .then(res => {
+      dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: FETCH_BOOKINGS_FAILURE, payload: err });
     });
 };

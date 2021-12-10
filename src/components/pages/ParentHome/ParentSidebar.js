@@ -1,8 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
-import { Link } from 'react-router-dom';
-
 import {
   HomeOutlined,
   ThunderboltFilled,
@@ -12,15 +11,10 @@ import {
 function ParentSidebar(props) {
   const { collapsed } = props;
 
-  const handleClick = e => {
-    console.log('click ', e);
-  };
-
   return (
     <div>
       <Menu
         className="parent-dashboard-sidebar"
-        onClick={handleClick}
         defaultSelectedKeys={['2']}
         defaultOpenKeys={['sub1']}
         style={{ height: '100vh' }}

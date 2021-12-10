@@ -1,61 +1,33 @@
 import React from 'react';
 
+function bannerContent(title, content) {
+  return (
+    <div className="dashboard-banner">
+      <div className="banner-conent">
+        <div>
+          <h1>{title}</h1>
+        </div>
+        <div className="welcome-content">
+          <h2>{content}</h2>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Banner() {
-  if (
-    window.location.pathname === '/parent' ||
-    window.location.pathname === '/instructor'
-  ) {
-    return (
-      <div className="dashboard-banner">
-        <div className="banner-conent">
-          <div>
-            <h1>Dashboard</h1>
-          </div>
-          <div className="welcome-content">
-            <h2>Welcome back!</h2>
-          </div>
-        </div>
-      </div>
+  const path = window.location.pathname;
+  if (path === '/parent' || path === '/instructor') {
+    return bannerContent('dashboard', 'welcome back!');
+  } else if (path === '/parent-booking') {
+    return bannerContent(
+      'bookings list',
+      "view your children's reserved courses"
     );
-  } else if (window.location.pathname === '/parent-booking') {
-    return (
-      <div className="dashboard-banner">
-        <div className="banner-conent">
-          <div>
-            <h1>Booking</h1>
-          </div>
-          <div className="welcome-content">
-            <h2>Select Courses</h2>
-          </div>
-        </div>
-      </div>
-    );
-  } else if (window.location.pathname === '/instructor-booking') {
-    return (
-      <div className="dashboard-banner">
-        <div className="banner-conent">
-          <div>
-            <h1>Apply to Course</h1>
-          </div>
-          <div className="welcome-content">
-            <h2>Select Courses</h2>
-          </div>
-        </div>
-      </div>
-    );
+  } else if (path === '/instructor-booking') {
+    return bannerContent('Apply to Course', 'Select Courses');
   } else {
-    return (
-      <div className="dashboard-banner">
-        <div className="banner-conent">
-          <div>
-            <h1>Dashboard</h1>
-          </div>
-          <div className="welcome-content">
-            <h2>Welcome back!</h2>
-          </div>
-        </div>
-      </div>
-    );
+    return bannerContent('Dashboard', 'Welcome back!');
   }
 }
 export default Banner;

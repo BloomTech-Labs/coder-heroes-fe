@@ -122,6 +122,14 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 See [Backend Documentation](https://github.com/BloomTech-Labs/coder-heroes-be#readme) for details on the backend of our project.
 
+
+
+## ExampleList Directory Explanation
+[Loom] https://www.loom.com/share/686ebc35d65b45d9b2e3c63ef7848736
+
+## ExampleDataViz Directory Explanation
+[Loom] https://www.loom.com/share/1fd02cd49ea4481ebb4e3e6829af323b
+
 ## [Loom Videos]
 ##  Home/Landing/Login/NotFound/ProfileList Directories Explanations
 Loom [https://www.loom.com/share/b096caec05d64723973075cb4d6bbd00]
@@ -131,3 +139,4 @@ Loom [https://www.loom.com/share/b096caec05d64723973075cb4d6bbd00]
 Loom[https://www.loom.com/share/abb423fc7e5444a3b7f01baca244b3dd]
 ### InstructorHome
 Loom[https://www.loom.com/share/4c5f90178f17417aa206f2319bb16a39]
+

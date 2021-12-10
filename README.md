@@ -138,5 +138,13 @@ Loom [https://www.loom.com/share/b096caec05d64723973075cb4d6bbd00]
 
 ### InstructorBooking
 Loom[https://www.loom.com/share/abb423fc7e5444a3b7f01baca244b3dd]
+
 ### InstructorHome
 Loom[https://www.loom.com/share/4c5f90178f17417aa206f2319bb16a39]
+
+### ParentHome
+Loom[https://www.loom.com/share/a504cdd1f56b4751ad61c09c0d3e395b]
+
+### ParentBooking
+Loom[https://www.loom.com/share/4e67eaa920604c528bae69126b5b805f]
+

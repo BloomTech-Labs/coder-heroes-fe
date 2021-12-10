@@ -4,9 +4,12 @@ import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
 
 import {
-  HomeOutlined,
+  HomeFilled,
   ThunderboltFilled,
-  ReadOutlined,
+  CalendarFilled,
+  ToolFilled,
+  ExportOutlined,
+  HeartFilled,
 } from '@ant-design/icons';
 
 function ParentSidebar(props) {
@@ -23,7 +26,7 @@ function ParentSidebar(props) {
         onClick={handleClick}
         defaultSelectedKeys={['2']}
         defaultOpenKeys={['sub1']}
-        style={{ height: '100vh' }}
+        style={{ height: '300vh' }}
         mode="inline"
         theme="light"
         color="orange"
@@ -36,14 +39,33 @@ function ParentSidebar(props) {
         >
           CoderHeroes
         </Menu.Item>
-        <Menu.Item key="2" icon={<HomeOutlined />}>
+        <Menu.Item key="2" icon={<HomeFilled />}>
           <Link to="/parent" className="link">
             Dashboard
           </Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<ReadOutlined />}>
+        <Menu.Item key="4" icon={<HeartFilled />}>
+          <Link to="/" className="link">
+            {' '}
+            ** Family
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3" icon={<CalendarFilled />}>
           <Link to="/parent-booking" className="link">
             Booking
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="4" icon={<ToolFilled />}>
+          <Link to="/settings" className="link">
+            {' '}
+            ** Settings
+          </Link>
+        </Menu.Item>
+
+        <Menu.Item key="4" icon={<ExportOutlined />}>
+          <Link to="/logout" className="link">
+            {' '}
+            ** Logout
           </Link>
         </Menu.Item>
       </Menu>

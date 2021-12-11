@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
@@ -28,7 +27,6 @@ const ParenBookingContainer = props => {
 
   useEffect(() => {
     // when the component mounts, trigger action fetchParentBookings to get the list of bookings
-    // props.fetchParentBookings();
     SetcurrentTab(bookings);
   }, []);
 

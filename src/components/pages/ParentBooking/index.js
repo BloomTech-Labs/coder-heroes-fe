@@ -24,10 +24,6 @@ function ParentBooking() {
       </Sider>
       <Content>
         <Banner />
-        {/* not sure if this is still needed */}
-        {/* <div className="bookingBtn">
-          <p>Continue To Review Booking</p>
-        </div> */}
         <div>
           <ParenBookingContainer />
         </div>

@@ -46,7 +46,7 @@ function ParentSidebar(props) {
       >
         {/* <a href="javascript:void(0)" className="closebtn" onclick="closeNav()">&times;</a> */}
 
-        <Menu.Item key="2" className="closebtn" onclick="closeNav()">
+        <Menu.Item key="0" className="closebtn" onclick="closeNav()">
           X
         </Menu.Item>
         <Menu.Item
@@ -54,7 +54,6 @@ function ParentSidebar(props) {
           className="dashboard-logo"
           icon={<ThunderboltFilled style={{ fontSize: '150%' }} />}
         >
-          {' '}
           CoderHeroes
         </Menu.Item>
         <Menu.Item key="2" icon={<HomeFilled style={{ fontSize: '150%' }} />}>
@@ -64,7 +63,6 @@ function ParentSidebar(props) {
         </Menu.Item>
         <Menu.Item key="3" icon={<HeartFilled style={{ fontSize: '150%' }} />}>
           <Link to="/" className="link">
-            {' '}
             ** Family
           </Link>
         </Menu.Item>
@@ -78,17 +76,14 @@ function ParentSidebar(props) {
         </Menu.Item>
         <Menu.Item key="5" icon={<ToolFilled style={{ fontSize: '150%' }} />}>
           <Link to="/settings" className="link">
-            {' '}
             ** Settings
           </Link>
         </Menu.Item>
-
         <Menu.Item
           key="4"
           icon={<ExportOutlined style={{ fontSize: '150%' }} />}
         >
           <Link to="/logout" className="link">
-            {' '}
             ** Logout
           </Link>
         </Menu.Item>

@@ -5,18 +5,7 @@ import { connect } from 'react-redux';
 import { Tabs } from 'antd';
 import ParentBookingCard from './ParentBookingCard';
 import LoadingComponent from '../../common/LoadingComponent';
-
-function isDateInThisWeek(date) {
-  const todayObj = new Date();
-  const todayDate = todayObj.getDate();
-  const todayDay = todayObj.getDay();
-
-  const firstDayOfWeek = new Date(todayObj.setDate(todayDate - todayDay));
-  const lastDayOfWeek = new Date(firstDayOfWeek);
-  lastDayOfWeek.setDate(lastDayOfWeek.getDate() + 6);
-
-  return firstDayOfWeek <= new Date(date) && new Date(date) <= lastDayOfWeek;
-}
+import { isDateInThisWeek } from '../../common/dateHelpers';
 
 const tabs = [{ title: 'All' }, { title: 'Today' }, { title: 'This Week' }];
 

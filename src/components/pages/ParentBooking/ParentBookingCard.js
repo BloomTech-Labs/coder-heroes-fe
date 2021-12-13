@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
+import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/timeHelpers';
 
 const ParentBookingCard = props => {
   const {
@@ -17,9 +19,12 @@ const ParentBookingCard = props => {
   const data = [
     { title: 'student name', text: subject },
     { title: 'course desciption', text: description },
-    { title: 'first day of class', text: start_date },
-    { title: 'last day of class', text: end_date },
-    { title: 'time', text: `${start_time} - ${end_time}` },
+    { title: 'first day of class', text: dateConverter(start_date) },
+    { title: 'last day of class', text: dateConverter(end_date) },
+    {
+      title: 'time',
+      text: `${timeConverter(start_time)} - ${timeConverter(end_time)}`,
+    },
     { title: 'location', text: location },
     { title: 'instructor', text: instructor_name },
     { title: 'instructor rating', text: instructor_rating },

@@ -5,39 +5,18 @@ import InstructorCalender from './InstructorCalender';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
 
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 const InstructorHome = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const onCollapse = () => {
-    if (collapsed === true) {
-      setCollapsed(false);
-    } else {
-      setCollapsed(true);
-    }
-  };
-
   return (
     <div>
       <Layout>
-        <Sider
-          data-testid="sider"
-          theme="light"
-          collapsible
-          collapsed={collapsed}
-          onCollapse={onCollapse}
-        >
-          <InstructorSidebar />
-        </Sider>
-        <Layout>
-          <Content>
-            <Banner />
-
-            <div className="calendar" data-testid="calendar">
-              <InstructorCalender />
-            </div>
-          </Content>
-        </Layout>
+        <InstructorSidebar />
+        <Content>
+          <Banner />
+          <div className="calendar" data-testid="calendar">
+            <InstructorCalender />
+          </div>
+        </Content>
       </Layout>
     </div>
   );

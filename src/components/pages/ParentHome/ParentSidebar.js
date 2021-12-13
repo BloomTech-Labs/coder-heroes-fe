@@ -1,5 +1,5 @@
-import React from 'react';
-import { Menu } from 'antd';
+import React, { useState } from 'react';
+import { Menu, Drawer, Button, Divider } from 'antd';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
 
@@ -10,46 +10,52 @@ import {
   ToolFilled,
   ExportOutlined,
   HeartFilled,
+  MenuOutlined,
 } from '@ant-design/icons';
 
-function ParentSidebar(props) {
-  const { collapsed } = props;
+const ParentSideBar = () => {
+  // The drawer is invisible by default
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleClick = e => {
-    console.log('click ', e);
+  // trigger this function to open the drawer
+  const showDrawer = () => {
+    setIsVisible(true);
   };
 
-  /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-  function openNav() {
-    document.getElementById('parent-dashboard-sidebar').style.width = '250px';
-    document.getElementById('main').style.marginLeft = '250px';
-  }
-
-  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-  function closeNav() {
-    document.getElementById('parent-dashboard-sidebar').style.width = '0';
-    document.getElementById('main').style.marginLeft = '0';
-  }
+  // close the drawer
+  const closeDrawer = () => {
+    setIsVisible(false);
+  };
 
   return (
     <div>
-      <Menu
-        className="parent-dashboard-sidebar"
-        onClick={handleClick}
-        defaultSelectedKeys={['2']}
-        defaultOpenKeys={['sub1']}
-        style={{ height: '300vh' }}
-        mode="inline"
-        theme="light"
-        color="orange"
-        inlineCollapsed={collapsed}
-      >
-        {/* <a href="javascript:void(0)" className="closebtn" onclick="closeNav()">&times;</a> */}
+      <nav style={styles.nav}>
+        <Button shape="circle" style={styles.button} onClick={showDrawer}>
+          <MenuOutlined />
+        </Button>
+      </nav>
 
-        <Menu.Item key="0" className="closebtn" onclick="closeNav()">
-          X
-        </Menu.Item>
-        <Menu.Item
+      <Drawer
+        className="parent-dashboard-sidebar"
+        visible={isVisible}
+        onClose={closeDrawer}
+        placement="left"
+        title="My Drawer"
+      >
+        <p>Menu Item #1</p>
+        <Divider />
+        <p>Menu Item #2</p>
+        <Divider />
+        <p>Menu Item #3</p>
+        <Divider />
+        <p>Menu Item #4</p>
+        <Divider />
+        <p>Menu Item #5</p>
+        <Divider />
+        <p>Menu Item #6</p>
+        <Divider />
+        <p>Menu Item #7</p>
+        {/* <Menu.Item
           key="1"
           className="dashboard-logo"
           icon={<ThunderboltFilled style={{ fontSize: '150%' }} />}
@@ -68,8 +74,7 @@ function ParentSidebar(props) {
         </Menu.Item>
         <Menu.Item
           key="4"
-          icon={<CalendarFilled style={{ fontSize: '150%' }} />}
-        >
+          icon={<CalendarFilled style={{ fontSize: '150%' }} />}>
           <Link to="/parent-booking" className="link">
             Booking
           </Link>
@@ -86,11 +91,29 @@ function ParentSidebar(props) {
           <Link to="/logout" className="link">
             ** Logout
           </Link>
-        </Menu.Item>
-      </Menu>
+        </Menu.Item> */}
+      </Drawer>
     </div>
   );
-}
-export default ParentSidebar;
+};
+
+const styles = {
+  nav: {
+    height: 50,
+    background: '#006c72',
+    boxShadow: '0 5px 10px rgba(0, 0, 0, 0.15)',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  button: {
+    background: 'transparent',
+    border: 'none',
+    outline: 'none',
+    color: 'white',
+    fontSize: 16,
+  },
+};
+
+export default ParentSideBar;
 
 // ** means that routes for "settings", "family (which is renders a list of children that belong to that parent. the endpoint might be localhost:3000/parent_id/child or something like that), Logout ( I know the logout functionality is working, I just dont know how to connect to it) are missing. Can we address that or let me know so I can remove.

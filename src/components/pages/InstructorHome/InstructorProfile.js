@@ -4,8 +4,6 @@ import { Button } from 'antd';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 
-const { Meta } = Card;
-
 function InstructorProfile(props) {
   const { instructor } = props;
   return (

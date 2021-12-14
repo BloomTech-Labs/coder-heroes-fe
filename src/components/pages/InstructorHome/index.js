@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';

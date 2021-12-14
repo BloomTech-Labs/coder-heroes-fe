@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import InstructorCalender from '../InstructorHome/InstructorCalender';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 

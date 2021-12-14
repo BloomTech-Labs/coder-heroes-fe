@@ -3,8 +3,7 @@ import '../../../styles/index.less';
 import InstructorBookingCardModal from './InstructorBookingCardModal';
 import { connect } from 'react-redux';
 import InstructorBookingCard from './InstructorBookingCard';
-import axios from 'axios';
-import { Tabs, Card } from 'antd';
+import { Tabs } from 'antd';
 import {
   isDateInThisWeek,
   isDateToday,

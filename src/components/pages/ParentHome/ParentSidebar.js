@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Drawer, Button, Divider } from 'antd';
+import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
 
@@ -10,108 +10,55 @@ import {
   ToolFilled,
   ExportOutlined,
   HeartFilled,
-  MenuOutlined,
+  DoubleRightOutlined,
 } from '@ant-design/icons';
 
+const { Sider } = Layout;
+
 const ParentSideBar = () => {
-  // The drawer is invisible by default
-  const [isVisible, setIsVisible] = useState(false);
-
-  // trigger this function to open the drawer
-  const showDrawer = () => {
-    setIsVisible(true);
-  };
-
-  // close the drawer
-  const closeDrawer = () => {
-    setIsVisible(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const onCollapse = () => {
+    if (collapsed === true) {
+      setCollapsed(false);
+    } else {
+      setCollapsed(true);
+    }
   };
 
   return (
-    <div>
-      <nav style={styles.nav}>
-        <Button shape="circle" style={styles.button} onClick={showDrawer}>
-          <MenuOutlined />
-        </Button>
-      </nav>
-
-      <Drawer
-        className="parent-dashboard-sidebar"
-        visible={isVisible}
-        onClose={closeDrawer}
-        placement="left"
-        title="My Drawer"
-      >
-        <p>Menu Item #1</p>
-        <Divider />
-        <p>Menu Item #2</p>
-        <Divider />
-        <p>Menu Item #3</p>
-        <Divider />
-        <p>Menu Item #4</p>
-        <Divider />
-        <p>Menu Item #5</p>
-        <Divider />
-        <p>Menu Item #6</p>
-        <Divider />
-        <p>Menu Item #7</p>
-        {/* <Menu.Item
-          key="1"
+    <Sider
+      data-testid="sider"
+      theme="light"
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+    >
+      <Menu defaultSelectedKeys={['dashboard']}>
+        <Menu.Item
+          key="coderheroes"
+          icon={<ThunderboltFilled fontSize="150px" />}
           className="dashboard-logo"
-          icon={<ThunderboltFilled style={{ fontSize: '150%' }} />}
         >
-          CoderHeroes
+          Coderheroes
         </Menu.Item>
-        <Menu.Item key="2" icon={<HomeFilled style={{ fontSize: '150%' }} />}>
-          <Link to="/parent" className="link">
-            Dashboard
-          </Link>
+        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
+          <Link to="/parent">Dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<HeartFilled style={{ fontSize: '150%' }} />}>
-          <Link to="/" className="link">
-            ** Family
-          </Link>
-        </Menu.Item>
-        <Menu.Item
-          key="4"
-          icon={<CalendarFilled style={{ fontSize: '150%' }} />}>
-          <Link to="/parent-booking" className="link">
-            Booking
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="5" icon={<ToolFilled style={{ fontSize: '150%' }} />}>
-          <Link to="/settings" className="link">
-            ** Settings
-          </Link>
-        </Menu.Item>
-        <Menu.Item
-          key="4"
-          icon={<ExportOutlined style={{ fontSize: '150%' }} />}
-        >
-          <Link to="/logout" className="link">
-            ** Logout
-          </Link>
-        </Menu.Item> */}
-      </Drawer>
-    </div>
-  );
-};
 
-const styles = {
-  nav: {
-    height: 50,
-    background: '#006c72',
-    boxShadow: '0 5px 10px rgba(0, 0, 0, 0.15)',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  button: {
-    background: 'transparent',
-    border: 'none',
-    outline: 'none',
-    color: 'white',
-    fontSize: 16,
-  },
+        <Menu.Item key="courses" icon={<CalendarFilled fontSize="150px" />}>
+          <Link to="/parent-booking">Courses</Link>
+        </Menu.Item>
+
+        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
+          <Link to="/settings">Settings</Link>
+        </Menu.Item>
+
+        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
+          <Link to="/logout">Logout</Link>
+        </Menu.Item>
+      </Menu>
+    </Sider>
+  );
 };
 
 export default ParentSideBar;

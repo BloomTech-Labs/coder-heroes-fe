@@ -3,49 +3,8 @@ import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
-// import { dateConverter } from '../../common/dateHelpers';
-// import { timeConverter } from '../../common/timeHelpers';
-
-export const month = [
-  ['1', 'Jan'],
-  ['2', 'Feb'],
-  ['3', 'Mar'],
-  ['4', 'Apr'],
-  ['5', 'May'],
-  ['6', 'June'],
-  ['7', 'July'],
-  ['8', 'Aug'],
-  ['9', 'Dec'],
-  ['10', 'Oct'],
-  ['11', 'Nov'],
-  ['12', 'Dec'],
-];
-
-const dateConverter = date => {
-  const y = date.substring(0, 4);
-  const arr = month.find(item => item[0] === date.substring(5, 7));
-  const m = arr[1];
-  const d = date.substring(8, 10);
-
-  return `${m}-${d}-${y}`;
-};
-
-export const timeConverter = time => {
-  let hour = parseInt(time.substring(0, 2));
-  let minute = time.substring(3, 5);
-  if (hour === 0) {
-    return `12:${minute} AM`;
-  }
-  if (hour > 0 && hour < 12) {
-    return `${hour}:${minute} AM`;
-  }
-  if (hour === 12) {
-    return `12:${minute} PM`;
-  }
-  if (hour > 12) {
-    return `${hour - 12}:${minute} PM`;
-  }
-};
+import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/timeHelpers';
 
 const dummyAvailableCourses = [
   {

@@ -30,24 +30,26 @@ function InstructorSidebar() {
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
-      <Menu defaultSelectedKeys={['dashboard']}>
+      <div className="logo" />
+      <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
         <Menu.Item
-          key="coderheroes"
+          key="1"
           icon={<ThunderboltOutlined />}
           className="dashboard-logo"
         >
           Coderheroes
         </Menu.Item>
-        <Menu.Item key="dashboard" icon={<HomeOutlined />}>
-          <Link to="/instructor">Dashboard</Link>
+
+        <Menu.Item key="2" icon={<HomeOutlined />}>
+          <a href="/instructor">Dashboard</a>
         </Menu.Item>
 
-        <Menu.Item key="courses" icon={<DesktopOutlined />}>
-          <Link to="/instructor-booking">Courses</Link>
+        <Menu.Item key="3" icon={<DesktopOutlined />}>
+          <a href="/instructor-booking">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="add_course" icon={<PlusOutlined />}>
-          <Link to="/instructor-add-course">Add Courses</Link>
+        <Menu.Item key="4" icon={<PlusOutlined />}>
+          <a href="/instructor-add-course">Add Courses</a>
         </Menu.Item>
       </Menu>
     </Sider>

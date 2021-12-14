@@ -35,10 +35,30 @@ function Banner() {
       <div className="dashboard-banner">
         <div className="banner-conent">
           <div>
-            <h1>Apply to Course</h1>
+            <h1>Course Application</h1>
           </div>
           <div className="welcome-content">
             <h2>Select Courses</h2>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (window.location.pathname === '/instructor-booking-confirm') {
+    return (
+      <div className="dashboard-banner">
+        <div className="banner-conent">
+          <div>
+            <h1>Course Application Confirmation</h1>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (window.location.pathname === '/instructor-add-course') {
+    return (
+      <div className="dashboard-banner">
+        <div className="banner-conent">
+          <div>
+            <h1>Build Your Own Program</h1>
           </div>
         </div>
       </div>

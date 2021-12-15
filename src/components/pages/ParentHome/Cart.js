@@ -10,7 +10,6 @@ function Cart(props) {
 
   const handleCancel = booking => {
     cancelCartItem(booking);
-    // console.log(booking)
   };
 
   const handleCheckout = () => {

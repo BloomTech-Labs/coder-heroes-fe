@@ -16,8 +16,6 @@ function Cart(props) {
     return null;
   };
 
-  console.log('cart', cart);
-
   return (
     <div>
       <h3>List in Cart</h3>

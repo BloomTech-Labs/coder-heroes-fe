@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
-// eslint-disable-next-line no-unused-vars
-import { Space, Card } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'react-redux';
 import { Tabs } from 'antd';
 

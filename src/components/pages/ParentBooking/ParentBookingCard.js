@@ -1,23 +1,48 @@
 import React from 'react';
 import { Card } from 'antd';
+import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/timeHelpers';
 
-const ParentBookingCard = ({ sessions }) => {
-  const { course, start_date, start_time, end_date, end_time } = sessions;
+const ParentBookingCard = props => {
+  const {
+    subject,
+    description,
+    start_date,
+    end_date,
+    start_time,
+    end_time,
+    location,
+    instructor_name,
+    instructor_rating,
+    size,
+  } = props.booking;
+  const data = [
+    { title: 'student name', text: subject },
+    { title: 'course desciption', text: description },
+    { title: 'first day of class', text: dateConverter(start_date) },
+    { title: 'last day of class', text: dateConverter(end_date) },
+    {
+      title: 'time',
+      text: `${timeConverter(start_time)} - ${timeConverter(end_time)}`,
+    },
+    { title: 'location', text: location },
+    { title: 'instructor', text: instructor_name },
+    { title: 'instructor rating', text: instructor_rating },
+    { title: 'class size', text: size },
+  ];
 
   return (
     <div>
-      <Card className="card" hoverable="true" title={course}>
+      <Card className="card" hoverable="true" title={subject}>
         <div className="card-container">
           <div className="left">
-            <h2>Start Date & Time: </h2>
-
-            <p>
-              {start_date} {start_time}
-            </p>
-            <h2>End Date & Time: </h2>
-            <p>
-              {end_date} {end_time}
-            </p>
+            {data.map((itm, idx) => {
+              return (
+                <div key={idx}>
+                  {itm.title}: {itm.text}
+                </div>
+              );
+            })}
           </div>
           <div className="right">
             <img
@@ -26,9 +51,6 @@ const ParentBookingCard = ({ sessions }) => {
               alt="booking card"
             />
           </div>
-        </div>
-        <div className="buttonWrapper">
-          <button>Continue Booking</button>{' '}
         </div>
       </Card>
     </div>

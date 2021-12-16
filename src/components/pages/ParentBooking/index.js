@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
-import AvailableCourses from '../ParentBooking/AvailableCourses';
+import ParenBookingContainer from './ParentBookingContainer';
 
 function ParentBooking() {
   const { Content, Sider } = Layout;
@@ -10,7 +10,6 @@ function ParentBooking() {
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
-    console.log(collapsed);
   };
 
   return (
@@ -25,11 +24,8 @@ function ParentBooking() {
       </Sider>
       <Content>
         <Banner />
-        <div className="bookingBtn">
-          <p>Continue To Review Booking</p>
-        </div>
         <div>
-          <AvailableCourses></AvailableCourses>
+          <ParenBookingContainer />
         </div>
       </Content>
     </Layout>

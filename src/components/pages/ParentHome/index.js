@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ParentCalendar from './ParentCalendar';
-import { dummyData } from '../../../dummyData';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
@@ -10,11 +9,9 @@ import './../../../styles/ParentStyles/index.less';
 function ParentHome() {
   const { Content, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(false);
-  const [scheduleData, setScheduleData] = useState(dummyData);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
-    console.log(collapsed);
   };
 
   return (
@@ -35,7 +32,7 @@ function ParentHome() {
             <Content>
               <Row justify="space-around" align="middle">
                 <Col span={20}>
-                  <ParentCalendar schedule={scheduleData} />
+                  <ParentCalendar />
                 </Col>
               </Row>
             </Content>

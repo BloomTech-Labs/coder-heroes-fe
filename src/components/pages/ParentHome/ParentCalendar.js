@@ -159,12 +159,12 @@ function ParentCalendar() {
   const [activeModal, setActiveModal] = useState(0);
 
   // when the calendar mounts, get the available courses/sessions from reducer and set it to courses
-
   const today = new Date().toISOString().slice(0, 10);
   const thisMonth = new Date().toISOString().slice(0, 7);
 
   function getListData(value) {
     let listData = [];
+
     let val = value.format('YYYY-MM-DD');
 
     courses.forEach(item => {

@@ -1,61 +1,185 @@
 import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
-
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { connect } from 'react-redux';
+import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/timeHelpers';
 
-function ParentCalendar(props) {
-  const { schedule } = props;
-  const [course, setCourse] = useState('');
+const dummyAvailableCourses = [
+  {
+    session_id: 1,
+    course_id: 1,
+    instructor_id: 1,
+    instructor_name: 'Test003',
+    instructor_rating: 2,
+    size: 15,
+    subject: 'CS101',
+    description: 'Computer Science fundamentals',
+    prereqs: [],
+    start_date: '2021-12-10T07:00:00.000Z',
+    end_date: '2022-10-10T07:00:00.000Z',
+    start_time: '17:00:00',
+    end_time: '18:00:00',
+    location: 'https://zoom.us/my/john123',
+  },
+  {
+    session_id: 3,
+    course_id: 5,
+    instructor_id: 10,
+    instructor_name: 'Mark',
+    instructor_rating: 5,
+    size: 20,
+    subject: 'Fundamental Python',
+    description: 'Computer Science fundamentals',
+    prereqs: ['JavaScript', 'HTML', 'CSS'],
+    start_date: '2021-12-10T07:00:00.000Z',
+    end_date: '2022-10-10T07:00:00.000Z',
+    start_time: '17:00:00',
+    end_time: '18:00:00',
+    location: 'https://zoom.us/my/john123',
+  },
+  {
+    session_id: 2,
+    course_id: 3,
+    instructor_id: 2,
+    instructor_name: 'Test006',
+    instructor_rating: 4,
+    size: 16,
+    subject: 'JavaScriptB',
+    description: 'Intermediate JavaScript.',
+    prereqs: ['JavaScriptA'],
+    start_date: '2021-12-05T07:00:00.000Z',
+    end_date: '2022-10-11T07:00:00.000Z',
+    start_time: '15:00:00',
+    end_time: '16:00:00',
+    location: 'https://zoom.us/my/john321',
+  },
+];
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+function displayedItem(value, current, item) {
+  return {
+    type: current === value ? 'warning' : 'success',
+    session_id: item.session_id,
+    course_id: item.course_id,
+    instructor_id: item.instructor_id,
+    instructor_name: item.instructor_name,
+    instructor_rating: item.instructor_rating,
+    size: item.size,
+    subject: item.subject,
+    description: item.description,
+    prereqs: item.prereqs,
+    start_date: item.start_date,
+    end_date: item.end_date,
+    start_time: item.start_time,
+    end_time: item.end_time,
+    location: item.location,
+  };
+}
+
+function Sessions(props) {
+  const { listData, activeModal, showModal, handleCancel, handleClick } = props;
+  return (
+    <ul className="ulcell">
+      {listData.map(item => {
+        const {
+          session_id,
+          type,
+          subject,
+          description,
+          prereqs,
+          start_date,
+          end_date,
+          start_time,
+          end_time,
+          location,
+          instructor_name,
+          instructor_rating,
+        } = item;
+        return (
+          <li className="cell" key={session_id}>
+            <Badge className="badge capital" status={type} text={subject} />
+            <Button
+              onClick={() => showModal(session_id)}
+              type="primary"
+              shape="round"
+              icon={<InfoCircleOutlined />}
+              size={'small'}
+            >
+              {' '}
+              details
+            </Button>
+            {session_id === activeModal ? (
+              <Modal
+                className="events capital"
+                title={subject}
+                visible={true}
+                onCancel={handleCancel}
+                footer={[
+                  <Button key="cancel" onClick={handleCancel}>
+                    Cancel
+                  </Button>,
+                  <Button key="book" type="primary" onClick={handleClick}>
+                    Book Now!
+                  </Button>,
+                ]}
+              >
+                <div className="capital">course description: {description}</div>
+                <div>
+                  prerequisites:
+                  {prereqs.length > 0 ? (
+                    prereqs.map((itm, idx) => {
+                      return <p key={idx}>{itm}</p>;
+                    })
+                  ) : (
+                    <>N/A</>
+                  )}
+                </div>
+                <div>first day of class: {dateConverter(start_date)}</div>
+                <div>last day of class: {dateConverter(end_date)}</div>
+                <div className="time">
+                  time: {timeConverter(start_time)} - {timeConverter(end_time)}
+                </div>
+                <div>
+                  location:<a href={location}>{location}</a>
+                </div>
+                <div>instructor: {instructor_name}</div>
+                <div>instructor rating: {instructor_rating}</div>
+              </Modal>
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function ParentCalendar() {
+  const [courses, setCourses] = useState(dummyAvailableCourses);
   const [activeModal, setActiveModal] = useState(0);
-  const [fullProgram, setFullProgram] = useState(false);
+
+  // when the calendar mounts, get the available courses/sessions from reducer and set it to courses
+  const today = new Date().toISOString().slice(0, 10);
+  const thisMonth = new Date().toISOString().slice(0, 7);
 
   function getListData(value) {
-    schedule.courses.map(items => {
-      setCourse(items);
-    });
-
     let listData = [];
-    let today = new Date().toLocaleString('en-US', {
-      day: '2-digit', // numeric, 2-digit
-      year: 'numeric', // numeric, 2-digit
-      month: '2-digit', // numeric, 2-digit, long, short, narrow
-    });
-    // console.log(schedule.sessions);
-    schedule.sessions.forEach(item => {
-      let new_startDate = item.start_date.replace(/-/g, '/');
-      switch (value.format('L')) {
-        case new_startDate:
+
+    let val = value.format('YYYY-MM-DD');
+
+    courses.forEach(item => {
+      let startDate = item.start_date.slice(0, 10);
+      switch (val) {
+        case startDate:
           if (
             listData.length > 0 &&
-            listData[0].start_date === item.start_date
+            listData[0].start_date.slice(0, 10) === startDate
           ) {
-            listData.push({
-              type: today === value.format('L') ? 'success' : 'warning',
-              content: item.course,
-              start_time: item.start_time,
-              start_date: item.start_date,
-              end_time: item.end_time,
-              schedule_id: item.schedule_id,
-            });
+            listData.push(displayedItem(val, today, item));
           } else {
-            listData = [
-              {
-                type: today === value.format('L') ? 'success' : 'warning',
-                content: item.course,
-                start_time: item.start_time,
-                start_date: item.start_date,
-                end_time: item.end_time,
-                schedule_id: item.schedule_id,
-              },
-            ];
+            listData = [displayedItem(val, today, item)];
           }
           break;
-
         default:
       }
     });
@@ -67,139 +191,66 @@ function ParentCalendar(props) {
     setActiveModal(id);
   };
 
-  const showFull = date => {
-    let newDate = date._d.toLocaleString('en-US', {
-      day: '2-digit', // numeric, 2-digit
-      year: 'numeric', // numeric, 2-digit
-      month: '2-digit', // numeric, 2-digit, long, short, narrow
-    });
-    newDate = newDate.replace(/\//g, '-');
-    let newArr = schedule.sessions.filter(item => {
-      return item.start_date === newDate;
-    });
-
-    setFullProgram(newArr);
-  };
-  const handleOk = () => {
-    setActiveModal(0);
-    setIsModalVisible(false);
-  };
-
-  const handleOkFull = () => {
-    setFullProgram(false);
-  };
-
   const handleCancel = () => {
     setActiveModal(0);
-    setIsModalVisible(false);
   };
 
-  const handleCancelFull = () => {
-    setFullProgram(false);
+  const handleClick = () => {
+    return null;
   };
 
+  // value's format mm/dd/yyyy
   function dateCellRender(value) {
     const listData = getListData(value);
-    let today = new Date().toLocaleString('en-US', {
-      day: '2-digit', // numeric, 2-digit
-      year: 'numeric', // numeric, 2-digit
-      month: '2-digit', // numeric, 2-digit, long, short, narrow
-    });
-    let newDate = value._d.toLocaleString('en-US', {
-      day: '2-digit', // numeric, 2-digit
-      year: 'numeric', // numeric, 2-digit
-      month: '2-digit', // numeric, 2-digit, long, short, narrow
-    });
-    newDate = newDate.replace(/\//g, '-');
 
     return (
-      <ul className="ulcell">
-        {listData.length > 0 && listData[0].start_date === newDate ? (
-          <Button
-            className="fullButton"
-            onClick={e => showFull(value)}
-            type="primary"
-            shape="round"
-            icon={<InfoCircleOutlined />}
-            size={'small'}
-          >
-            Show full program
-          </Button>
-        ) : null}
-
-        {listData.map(item => {
-          return (
-            <li className="cell" key={item.schedule_id}>
-              {fullProgram && (
-                <Modal
-                  className="full capital"
-                  title={'Full Day Program'}
-                  onOk={handleOkFull}
-                  onCancel={handleCancelFull}
-                  visible={true}
-                >
-                  {fullProgram.map(item => {
-                    return (
-                      <>
-                        <p>{item.course}:</p>{' '}
-                        <p>
-                          {item.start_time} - {item.end_time}
-                        </p>{' '}
-                        <p>------</p>
-                      </>
-                    );
-                  })}
-                </Modal>
-              )}
-              <Badge
-                className="badge capital"
-                status={item.type}
-                text={item.content}
-              />
-
-              <Button
-                onClick={e => showModal(item.schedule_id)}
-                type="primary"
-                shape="round"
-                icon={<InfoCircleOutlined />}
-                size={'small'}
-              ></Button>
-              {item.schedule_id === activeModal ? (
-                <Modal
-                  className="events capital"
-                  title={item.content}
-                  onOk={handleOk}
-                  onCancel={handleCancel}
-                  visible={true}
-                >
-                  <p className="capital">{item.content}</p>
-                  <p className="time">
-                    {item.start_time} - {item.end_time}
-                  </p>
-                </Modal>
-              ) : null}
-            </li>
-          );
-        })}
-      </ul>
+      <Sessions
+        listData={listData}
+        activeModal={activeModal}
+        showModal={showModal}
+        handleCancel={handleCancel}
+        handleClick={handleClick}
+      />
     );
   }
 
   function getMonthData(value) {
-    if (value.month() === 8) {
-      return 1394;
-    }
+    let listData = [];
+    let val = value.format('YYYY-MM');
+
+    courses.forEach(item => {
+      let startMonth = item.start_date.slice(0, 7);
+      switch (val) {
+        case startMonth:
+          if (
+            listData.length > 0 &&
+            listData[0].start_date.slice(0, 7) === startMonth
+          ) {
+            listData.push(displayedItem(val, thisMonth, item));
+          } else {
+            listData = [displayedItem(val, thisMonth, item)];
+          }
+          break;
+        default:
+      }
+    });
+
+    return listData || [];
   }
 
   function monthCellRender(value) {
-    const num = getMonthData(value);
-    return num ? (
-      <div className="events">
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
+    const listData = getMonthData(value);
+    return listData ? (
+      <Sessions
+        listData={listData}
+        activeModal={activeModal}
+        showModal={showModal}
+        handleCancel={handleCancel}
+        handleClick={handleClick}
+      />
     ) : null;
   }
+
   return (
     <>
       <Calendar
@@ -210,10 +261,4 @@ function ParentCalendar(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    schedule: state.parentReducer,
-  };
-};
-
-export default connect(mapStateToProps)(ParentCalendar);
+export default ParentCalendar;

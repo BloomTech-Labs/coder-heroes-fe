@@ -4,6 +4,9 @@ import { Button } from 'antd';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 
+// eslint-disable-next-line no-unused-vars
+const { Meta } = Card;
+
 function InstructorProfile(props) {
   const { instructor } = props;
   return (

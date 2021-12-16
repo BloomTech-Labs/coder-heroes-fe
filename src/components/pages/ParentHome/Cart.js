@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Modal, Button } from 'antd';
 import { timeConverter } from '../../common/timeHelpers';
 import { dateConverter } from '../../common/dateHelpers';
 import { cancelCartItem } from '../../../redux/actions/parentActions';
 
 function Cart(props) {
   const { cart, cancelCartItem } = props;
+  const [showModal, setShowModal] = useState(false);
   let total = cart.reduce((prev, curr) => prev + curr.price, 0);
+
+  const handleModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const handleCancel = booking => {
     cancelCartItem(booking);
+    setShowModal(false);
   };
 
   const handleCheckout = () => {
@@ -58,15 +69,37 @@ function Cart(props) {
               <div>Location: {sessionDetail.subject}</div>
             </div>
             <div>
-              <button onClick={() => handleCancel(booking)}>
-                Cancel booking
-              </button>
-              <button onClick={handleCheckout}>Proceed to checkout</button>
+              <Button onClick={() => handleModal()}>Cancel booking</Button>
             </div>
+            {showModal ? (
+              <Modal
+                className="events capital"
+                title={'modal'}
+                visible={true}
+                onCancel={closeModal}
+                footer={[
+                  <Button
+                    key="yes"
+                    type="primary"
+                    onClick={() => handleCancel(booking)}
+                  >
+                    Yes
+                  </Button>,
+                  <Button key="no" onClick={closeModal}>
+                    No
+                  </Button>,
+                ]}
+              >
+                Are you sure you want to remove this booking?
+              </Modal>
+            ) : null}
           </div>
         );
       })}
-      <div>Total: {total}</div>
+      <Button type="primary" onClick={handleCheckout}>
+        Proceed to checkout
+      </Button>
+      <div>Total: ${total}</div>
     </div>
   );
 }

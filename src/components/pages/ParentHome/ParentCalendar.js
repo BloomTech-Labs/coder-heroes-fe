@@ -139,6 +139,7 @@ function ParentCalendar(props) {
 
   function getListData(value) {
     let listData = [];
+
     let val = value.format('YYYY-MM-DD');
 
     sessions.forEach(item => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card } from 'antd';
 import '../../../styles/index.less';
+import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/timeHelpers';
 
 const InstructorBookingCard = ({
   course,
-  text,
   setCurrentModalProps,
   setModalHidden,
-  currentModalProps,
   modalHidden,
 }) => {
   const { start_date, end_date, start_time, end_time, subject } = course;
@@ -24,13 +24,11 @@ const InstructorBookingCard = ({
           <div className="left">
             <h2>Start Date & Time: </h2>
             <p>
-              {start_date}
-              {start_time}
+              {dateConverter(start_date)},{timeConverter(start_time)}
             </p>
             <h2>End Date & Time: </h2>
             <p>
-              {end_date}
-              {end_time}
+              {dateConverter(end_date)},{timeConverter(end_time)}
             </p>
           </div>
           <div className="right">

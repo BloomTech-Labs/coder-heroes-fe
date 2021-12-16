@@ -35,3 +35,20 @@ export const dateConverter = date => {
 
   return `${m}-${d}-${y}`;
 };
+
+// check if date is today and return a boolean value to determine the today tab
+export const isDateToday = date => {
+  let today = new Date();
+  let todayDate =
+    today.getFullYear() +
+    '-' +
+    parseInt(today.getMonth() + 1) +
+    '-' +
+    today.getDate();
+  return todayDate === date.slice(0, 10);
+};
+
+// check if 1:1 session and return a boolean value to determine the 1:1 session tab
+export const isOneToOneSession = size => {
+  return size === 1;
+};

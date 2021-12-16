@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
@@ -10,10 +11,10 @@ import {
 } from '@ant-design/icons';
 
 function ParentSidebar(props) {
-  const { collapsed } = props;
+  const { collapsed, cart } = props;
 
   const handleClick = e => {
-    console.log('click ', e);
+    return null;
   };
 
   return (
@@ -46,8 +47,20 @@ function ParentSidebar(props) {
             Booking
           </Link>
         </Menu.Item>
+        <Menu.Item key="4" icon={<ReadOutlined />}>
+          <Link to="/cart" className="link">
+            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     </div>
   );
 }
-export default ParentSidebar;
+
+const mapStateToProps = state => {
+  return {
+    cart: state.parentReducer.cart,
+  };
+};
+
+export default connect(mapStateToProps)(ParentSidebar);

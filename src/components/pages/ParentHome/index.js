@@ -10,6 +10,7 @@ import './../../../styles/ParentStyles/index.less';
 function ParentHome() {
   const { Content, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [scheduleData, setScheduleData] = useState(dummyData);
 
   const toggleCollapsed = () => {

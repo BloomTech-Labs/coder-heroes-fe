@@ -8,6 +8,7 @@ const InstructorCalender = props => {
   const { instructor } = props;
   const [selectedCourse, setSelectedCourse] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   const showModal = item => {
     setIsModalVisible(true);
     setSelectedCourse(item);
@@ -81,6 +82,7 @@ const InstructorCalender = props => {
               Course Location:
               {selectedCourse.location}
             </p>
+            <p>Student List:</p>
           </Modal>
         </div>
         <Calendar dateCellRender={dateCellRender} />

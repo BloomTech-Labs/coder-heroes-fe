@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, Layout } from 'antd';
 import { connect } from 'react-redux';
+import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,6 @@ const { Sider } = Layout;
 
 const ParentSideBar = props => {
   const { cart } = props;
-
   const [collapsed, setCollapsed] = useState(false);
   const onCollapse = () => {
     if (collapsed === true) {
@@ -80,4 +79,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ParentSideBar);
-// ** means that routes for "settings", "family (which is renders a list of children that belong to that parent. the endpoint might be localhost:3000/parent_id/child or something like that), Logout ( I know the logout functionality is working, I just dont know how to connect to it) are missing. Can we address that or let me know so I can remove.

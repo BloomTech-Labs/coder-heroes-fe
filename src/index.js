@@ -31,6 +31,7 @@ import ParentBooking from './components/pages/ParentBooking';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
+import Cart from './components/pages/ParentHome/Cart';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 

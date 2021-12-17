@@ -25,3 +25,227 @@
 .link{
   color:#006C72 !important;
 }
+
+//****Landing page Styles****
+header {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #f2f2f2;
+    padding-bottom: 50px;
+}
+
+header h2,
+.landing-section h2 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.turned-logo {
+    text-align: left;
+    margin-bottom: 5px;
+    transform: rotate(-8deg);
+    color: #20c5b5;
+    font-size: 4rem;
+    text-transform: uppercase;
+    user-select: none;
+    z-index: 0;
+    position: relative;
+    top: 0px;
+    left: -110px;
+    width: 90%;
+}
+
+#header-content {
+    text-align: center;
+    height: 900px;
+    display: grid;
+    place-items: center;
+}
+
+#header-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#header-buttons a {
+    padding: 15px 20px;
+    margin: 20px;
+    color: black;
+    background-color: #f76820;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    text-transform: uppercase;
+}
+
+#header-buttons a:hover,
+#header-buttons a:focus {
+    background-color: #fb7f40;
+    transform: scale(1.1);
+    transition: 400ms;
+}
+
+.arrow {
+    border: solid rgb(102, 75, 0);
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.down {
+    transform: rotate(45deg);
+}
+
+#message {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 130%;
+    padding: 10px;
+}
+
+#message h2 {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 900px) {
+    #header-content {
+      width: 89%;
+    }
+    .turned-logo  {
+      font-size: 2.2rem;
+      left: 0px;
+      top: 0px;
+    }
+    header h2 {
+        font-size: 1.3rem;
+    }
+    #header-buttons {
+        flex-direction: column;
+    }
+}
+// landing sections
+
+ .half h2,
+ .landing-card h2 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+    text-transform: capitalize;
+}
+
+.half h3,
+.landing-card h3 {
+    font-size: 1.5rem;
+}
+
+.half p,
+.landing-card p {
+    font-size: 1.3rem;
+}
+
+.landing-page-button {
+    padding: 15px 20px;
+    margin: 20px;
+    color: black;
+    background-color: #f2ce60;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    text-transform: uppercase;
+}
+.landing-page-button:hover,
+.landing-page-button:focus {
+    background-color: #fddc77;
+    color: black;
+    transform: scale(1.1);
+    transition: 400ms;
+}
+
+.green-section {
+    background-color:#006C72;
+    color: white;
+    padding: 120px 100px;
+}
+
+.green-section h2,
+.green-section h3 {
+    color: white;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.center img {
+    width: 430px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.half {
+    width: 50%;
+    height: 100%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.landing-card {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #eeedd9;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+
+.landing-card h2,
+.landing-card h3 {
+    color: black;
+    font-weight: bold;
+}
+
+.circle-img {
+    border-radius: 50%;
+    height: 300px !important; 
+    width: 300px !important;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+    .flex-row {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .half {
+        width: 100%;
+        text-align: center;
+    }
+    .green-section {
+        padding: 20px;
+    }
+    .half h3 {
+        margin-top: 20px;
+    }
+}

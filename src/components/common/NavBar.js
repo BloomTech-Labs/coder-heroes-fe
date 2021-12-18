@@ -3,11 +3,35 @@ import React from 'react';
 export default function MainNav() {
   return (
     <nav className="mainNav">
-      <div className="nav navLogo"></div>
-      <div className="nav navOptions"></div>
-      <div className="nav navSocial"></div>
-      <div className="nav navContact"></div>
-      <div className="nav navSignup"></div>
+      <div className="nav navLogo">
+        <h1 className="navTitle">CODERHEROES</h1>
+      </div>
+      <div className="nav navOptions">
+        <a className="navLinks" href="/landing">
+          PROGRAMS
+        </a>
+        <a className="navLinks" href="/landing">
+          INSTRUCTORS
+        </a>
+        <a className="navLinks" href="/landing">
+          BOOKING
+        </a>
+        <a className="navLinks" href="/landing">
+          SCHOLARSHIPS
+        </a>
+      </div>
+      <div className="nav navSocial">
+        <a href="#.">Icon</a>
+        <a href="#.">Icon</a>
+        <a href="#.">Icon</a>
+        <a href="#.">Icon</a>
+      </div>
+      <div className="nav navContact">
+        <button>CONTACT US</button>
+      </div>
+      <div className="nav navSignup">
+        <button>SIGN UP</button>
+      </div>
     </nav>
   );
 }

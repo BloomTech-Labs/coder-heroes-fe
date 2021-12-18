@@ -67,6 +67,11 @@ const ParentSideBar = props => {
             Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="4" icon={<ReadOutlined />}>
+          <Link to="/cart" className="link">
+            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

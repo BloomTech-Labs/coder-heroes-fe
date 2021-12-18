@@ -11,7 +11,7 @@ import {
   ToolFilled,
   ExportOutlined,
   HeartFilled,
-  ReadOutlined,
+  ReadFilled,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -43,7 +43,7 @@ const ParentSideBar = props => {
         >
           Coderheroes
         </Menu.Item>
-        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
+        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="500px" />}>
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
 
@@ -59,18 +59,14 @@ const ParentSideBar = props => {
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
+        <Menu.Item key="4" icon={<ReadFilled fontSize="150px" />}>
+          <Link to="/cart" className="link">
+            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
+          </Link>
+        </Menu.Item>
+
         <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
           <Link to="/logout">Logout</Link>
-        </Menu.Item>
-        <Menu.Item key="4" icon={<ReadOutlined />}>
-          <Link to="/cart" className="link">
-            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="4" icon={<ReadOutlined />}>
-          <Link to="/cart" className="link">
-            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
-          </Link>
         </Menu.Item>
       </Menu>
     </Sider>

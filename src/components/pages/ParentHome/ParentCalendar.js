@@ -1,61 +1,12 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
-
-const dummyAvailableCourses = [
-  {
-    session_id: 1,
-    course_id: 1,
-    instructor_id: 1,
-    instructor_name: 'Test003',
-    instructor_rating: 2,
-    size: 15,
-    subject: 'CS101',
-    description: 'Computer Science fundamentals',
-    prereqs: [],
-    start_date: '2021-12-10T07:00:00.000Z',
-    end_date: '2022-10-10T07:00:00.000Z',
-    start_time: '17:00:00',
-    end_time: '18:00:00',
-    location: 'https://zoom.us/my/john123',
-  },
-  {
-    session_id: 3,
-    course_id: 5,
-    instructor_id: 10,
-    instructor_name: 'Mark',
-    instructor_rating: 5,
-    size: 20,
-    subject: 'Fundamental Python',
-    description: 'Computer Science fundamentals',
-    prereqs: ['JavaScript', 'HTML', 'CSS'],
-    start_date: '2021-12-10T07:00:00.000Z',
-    end_date: '2022-10-10T07:00:00.000Z',
-    start_time: '17:00:00',
-    end_time: '18:00:00',
-    location: 'https://zoom.us/my/john123',
-  },
-  {
-    session_id: 2,
-    course_id: 3,
-    instructor_id: 2,
-    instructor_name: 'Test006',
-    instructor_rating: 4,
-    size: 16,
-    subject: 'JavaScriptB',
-    description: 'Intermediate JavaScript.',
-    prereqs: ['JavaScriptA'],
-    start_date: '2021-12-05T07:00:00.000Z',
-    end_date: '2022-10-11T07:00:00.000Z',
-    start_time: '15:00:00',
-    end_time: '16:00:00',
-    location: 'https://zoom.us/my/john321',
-  },
-];
+import ChildForm from './ChildForm';
 
 function displayedItem(value, current, item) {
   return {
@@ -74,11 +25,21 @@ function displayedItem(value, current, item) {
     start_time: item.start_time,
     end_time: item.end_time,
     location: item.location,
+    price: item.price,
   };
 }
 
 function Sessions(props) {
-  const { listData, activeModal, showModal, handleCancel, handleClick } = props;
+  const {
+    listData,
+    activeModal,
+    showModal,
+    childInput,
+    handleCancel,
+    handleClick,
+    setActiveModal,
+  } = props;
+
   return (
     <ul className="ulcell">
       {listData.map(item => {
@@ -95,6 +56,7 @@ function Sessions(props) {
           location,
           instructor_name,
           instructor_rating,
+          price,
         } = item;
         return (
           <li className="cell" key={session_id}>
@@ -119,9 +81,19 @@ function Sessions(props) {
                   <Button key="cancel" onClick={handleCancel}>
                     Cancel
                   </Button>,
-                  <Button key="book" type="primary" onClick={handleClick}>
-                    Book Now!
-                  </Button>,
+                  <div>
+                    {childInput ? (
+                      <ChildForm
+                        session_id={session_id}
+                        price={price}
+                        setActiveModal={setActiveModal}
+                      />
+                    ) : (
+                      <Button key="book" type="primary" onClick={handleClick}>
+                        Book Now!
+                      </Button>
+                    )}
+                  </div>,
                 ]}
               >
                 <div className="capital">course description: {description}</div>
@@ -145,6 +117,7 @@ function Sessions(props) {
                 </div>
                 <div>instructor: {instructor_name}</div>
                 <div>instructor rating: {instructor_rating}</div>
+                <div>Price: ${price} </div>
               </Modal>
             ) : null}
           </li>
@@ -154,20 +127,22 @@ function Sessions(props) {
   );
 }
 
-function ParentCalendar() {
-  const [courses, setCourses] = useState(dummyAvailableCourses);
+function ParentCalendar(props) {
+  const [sessions, setSessions] = useState(props.availableSessions);
   const [activeModal, setActiveModal] = useState(0);
+  const [childInput, setChildInput] = useState(false);
 
-  // when the calendar mounts, get the available courses/sessions from reducer and set it to courses
+  // when the calendar mounts, get the available sessions from reducer and set it to sessions state
 
   const today = new Date().toISOString().slice(0, 10);
   const thisMonth = new Date().toISOString().slice(0, 7);
 
   function getListData(value) {
     let listData = [];
+
     let val = value.format('YYYY-MM-DD');
 
-    courses.forEach(item => {
+    sessions.forEach(item => {
       let startDate = item.start_date.slice(0, 10);
       switch (val) {
         case startDate:
@@ -193,10 +168,11 @@ function ParentCalendar() {
 
   const handleCancel = () => {
     setActiveModal(0);
+    setChildInput(false);
   };
 
   const handleClick = () => {
-    return null;
+    setChildInput(true);
   };
 
   // value's format mm/dd/yyyy
@@ -207,7 +183,9 @@ function ParentCalendar() {
       <Sessions
         listData={listData}
         activeModal={activeModal}
+        setActiveModal={setActiveModal}
         showModal={showModal}
+        childInput={childInput}
         handleCancel={handleCancel}
         handleClick={handleClick}
       />
@@ -218,7 +196,7 @@ function ParentCalendar() {
     let listData = [];
     let val = value.format('YYYY-MM');
 
-    courses.forEach(item => {
+    sessions.forEach(item => {
       let startMonth = item.start_date.slice(0, 7);
       switch (val) {
         case startMonth:
@@ -261,4 +239,10 @@ function ParentCalendar() {
   );
 }
 
-export default ParentCalendar;
+const mapStateToProps = state => {
+  return {
+    availableSessions: state.parentReducer.availableSessions,
+  };
+};
+
+export default connect(mapStateToProps, {})(ParentCalendar);

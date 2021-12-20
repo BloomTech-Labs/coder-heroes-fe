@@ -1,4 +1,7 @@
+import { parentDummyData } from '../../parentDummyData';
 import {
+  ADD_TO_CART,
+  CANCEL_CART_ITEM,
   FETCH_BOOKINGS_FAILURE,
   FETCH_BOOKINGS_START,
   FETCH_BOOKINGS_SUCCESS,
@@ -8,7 +11,19 @@ import {
   GET_SESSIONS_ACTION,
   SIGNUP_COURSE_ACTION,
 } from '../actions/parentActions';
-import { parentDummyData } from '../../parentDummyData';
+
+const removeCartItem = (cart, booking) => {
+  for (let i = 0; i < cart.length; i++) {
+    if (
+      cart[i].child_id === booking.child_id &&
+      cart[i].session_id === booking.session_id
+    ) {
+      cart.splice(i, 1);
+      break;
+    }
+  }
+  return cart;
+};
 
 const reducer = (state = parentDummyData, action) => {
   switch (action.type) {
@@ -63,6 +78,16 @@ const reducer = (state = parentDummyData, action) => {
           bookings: [],
           error: action.payload,
         },
+      };
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+    case CANCEL_CART_ITEM:
+      return {
+        ...state,
+        cart: removeCartItem([...state.cart], action.payload),
       };
     default:
       return state;

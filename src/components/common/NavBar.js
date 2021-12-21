@@ -21,16 +21,29 @@ export default function MainNav() {
         </a>
       </div>
       <div className="nav navSocial">
-        <a href="#.">Icon</a>
-        <a href="#.">Icon</a>
-        <a href="#.">Icon</a>
-        <a href="#.">Icon</a>
+        <a href="#." className="socialIcon">
+          Icon
+        </a>
+        <a href="#." className="socialIcon">
+          Icon
+        </a>
+        <a href="#." className="socialIcon">
+          Icon
+        </a>
+        <a href="#." className="socialIcon">
+          Icon
+        </a>
+        <a href="#." className="socialIcon">
+          Icon
+        </a>
       </div>
-      <div className="nav navContact">
-        <button>CONTACT US</button>
-      </div>
-      <div className="nav navSignup">
-        <button>SIGN UP</button>
+      <div className="navButtons">
+        <div className="nav navContact">
+          <button>CONTACT US</button>
+        </div>
+        <div className="nav navSignup">
+          <button>SIGN UP</button>
+        </div>
       </div>
     </nav>
   );

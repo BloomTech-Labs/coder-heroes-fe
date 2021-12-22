@@ -11,6 +11,7 @@ import {
   GET_SESSIONS_ACTION,
   SIGNUP_COURSE_ACTION,
 } from '../actions/parentActions';
+import { parentDummyData } from '../../parentDummyData';
 
 const removeCartItem = (cart, booking) => {
   for (let i = 0; i < cart.length; i++) {

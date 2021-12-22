@@ -17,6 +17,10 @@ import {
 
 const { Sider } = Layout;
 
+  const handleClick = e => {
+    return null;
+  };
+
 const ParentSideBar = props => {
   const { cart } = props;
   const [collapsed, setCollapsed] = useState(false);

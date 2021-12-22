@@ -70,9 +70,6 @@ function Cart(props) {
             </div>
             <div>
               <Button onClick={() => handleModal()}>Cancel booking</Button>
-              <Button type="primary" onClick={handleCheckout}>
-                Proceed to checkout
-              </Button>
             </div>
             {showModal ? (
               <Modal
@@ -99,7 +96,10 @@ function Cart(props) {
           </div>
         );
       })}
-      <div>Total: {total}</div>
+      <Button type="primary" onClick={handleCheckout}>
+        Proceed to checkout
+      </Button>
+      <div>Total: ${total}</div>
     </div>
   );
 }

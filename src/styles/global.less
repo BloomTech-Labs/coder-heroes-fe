@@ -3,7 +3,7 @@
 //****Parent and Instructor Sidebar Styles****
 .ant-menu-item{
     ant-icon{
-        color: orange;
+    color: orange;
     }
 }
 .dashboard-logo{
@@ -11,7 +11,7 @@
 }
 .ant-menu-item-selected {
     color: #fff !important;
-        background-color: rgba(0, 201, 183, 0.8) !important;
+    background-color: rgba(0, 201, 183, 0.8) !important;
   }
 .ant-menu-item-active{
     color: #006C72 !important;
@@ -25,3 +25,77 @@
 .link{
   color:#006C72 !important;
 }
+
+//****Global Footer Styles****
+#footer {
+    width: 100%;
+    background-color: #6a0c49;
+    color: white;
+    padding: 30px 0px 30px 0px;
+    z-index: 999;
+    position: absolute;
+}
+
+.footer-container {
+    width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.footer-container a:hover,
+.footer-container a:focus {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+
+.footer-section h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 1px;
+    color: white;
+}
+
+.footer-section small {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#sign-in-widget {
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 920px) {
+    .footer-container {
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+      width: 90%;
+      text-align: center;
+    }
+    .footer-section {
+      margin: 10px;
+    }
+} 

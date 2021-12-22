@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
-import { Link } from 'react-router-dom';
-
 import {
   HomeFilled,
   ThunderboltFilled,
@@ -36,6 +36,18 @@ const ParentSideBar = props => {
       onCollapse={onCollapse}
     >
       <Menu defaultSelectedKeys={['dashboard']}>
+  return (
+    <div>
+      <Menu
+        className="parent-dashboard-sidebar"
+        defaultSelectedKeys={['2']}
+        defaultOpenKeys={['sub1']}
+        style={{ height: '100vh' }}
+        mode="inline"
+        theme="light"
+        color="orange"
+        inlineCollapsed={collapsed}
+      >
         <Menu.Item
           key="coderheroes"
           icon={<ThunderboltFilled fontSize="150px" />}

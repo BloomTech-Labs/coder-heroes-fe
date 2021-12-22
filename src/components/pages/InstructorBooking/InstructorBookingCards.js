@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../../styles/index.less';
 import InstructorBookingCardModal from './InstructorBookingCardModal';
 import { connect } from 'react-redux';
@@ -16,11 +16,9 @@ const InstructorBookingCards = props => {
   const { instructor } = props;
   const [currentModalProps, setCurrentModalProps] = useState(false);
   const [modalHidden, setModalHidden] = useState(true);
-  const [currentCourses, setCurrentCourses] = useState();
-
-  useEffect(() => {
-    setCurrentCourses(instructor.course_schedule);
-  }, []);
+  const [currentCourses, setCurrentCourses] = useState(
+    instructor.course_schedule
+  );
 
   const renderTab = key => {
     if (key === '1') {

@@ -128,6 +128,7 @@ function Sessions(props) {
 }
 
 function ParentCalendar(props) {
+  // eslint-disable-next-line
   const [sessions, setSessions] = useState(props.availableSessions);
   const [activeModal, setActiveModal] = useState(0);
   const [childInput, setChildInput] = useState(false);

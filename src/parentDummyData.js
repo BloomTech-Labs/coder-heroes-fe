@@ -11,29 +11,7 @@ export const parentDummyData = {
     bio: '',
   },
 
-  cart: [
-    // {
-    //   parent_id: 10,
-    //   child_id: 1,
-    //   child_name: 'Mark',
-    //   session_id: 1,
-    //   price: 1000,
-    // },
-    // {
-    //   parent_id: 10,
-    //   child_id: 1,
-    //   child_name: 'Mark',
-    //   session_id: 17,
-    //   price: 500,
-    // },
-    // {
-    //   parent_id: 10,
-    //   child_id: 1,
-    //   child_name: 'Mark',
-    //   session_id: 30,
-    //   price: 1200,
-    // },
-  ],
+  cart: [],
 
   children: [
     { parent_id: 0, user_id: 3, username: 'Joannsson', age: 7 },

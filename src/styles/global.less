@@ -3,28 +3,50 @@
 //****Parent and Instructor Sidebar Styles****
 .ant-menu-item{
     ant-icon{
-        color: orange;
+    color: orange;
     }
 }
 .dashboard-logo{
     color: orange;
 }
 .ant-menu-item-selected {
+    color: #fff;
+    background-color: rgba(0, 201, 183, 0.8);
+
+    background-color: rgba(0, 201, 183, 0.8);
+    
     color: #fff !important;
-        background-color: rgba(0, 201, 183, 0.8) !important;
+    background-color: rgba(0, 201, 183, 0.8) !important;
   }
+
+// Parent and Instructor Sidebar Styles
+
+
 .ant-menu-item-active{
-    color: #006C72 !important;
+    background-color: #00cab7;
+    color: grey !important;
+    border-radius: 10px;
+}
+
+.ant-menu-item-active-selected::after{
+    color: red
+    color: grey;
 }
 .ant-menu-item-selected::after{
-    color:rgba(116, 0, 73, 0.8) !important;
+    color:rgba(116, 0, 73, 0.8);
 }
 .dashboard-icon {
   color: grey;
+  
 }
+
 .link{
+  color:grey;
+}
+
   color:#006C72 !important;
 }
+
 
 .mainNav{
     height: 12vh;
@@ -110,3 +132,77 @@ align-items: center;
     border: none;  
     box-shadow: 0px 0px 5px gray;
 }
+=======
+//****Global Footer Styles****
+#footer {
+    width: 100%;
+    background-color: #6a0c49;
+    color: white;
+    padding: 30px 0px 30px 0px;
+    z-index: 999;
+    position: absolute;
+}
+
+.footer-container {
+    width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.footer-container a:hover,
+.footer-container a:focus {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+
+.footer-section h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin-bottom: 1px;
+    color: white;
+}
+
+.footer-section small {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#sign-in-widget {
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 920px) {
+    .footer-container {
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+      width: 90%;
+      text-align: center;
+    }
+    .footer-section {
+      margin: 10px;
+    }
+} 

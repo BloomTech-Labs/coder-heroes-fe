@@ -28,9 +28,10 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import ParentBooking from './components/pages/ParentBooking';
-import Cart from './components/pages/ParentHome/Cart';
+import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
+import Cart from './components/pages/ParentHome/Cart';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -39,6 +40,7 @@ ReactDOM.render(
     <Router>
       <React.StrictMode>
         <App />
+        <Footer />
       </React.StrictMode>
     </Router>
     ,
@@ -61,7 +63,7 @@ function App() {
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LoginPage} />
-        <div>
+        <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />

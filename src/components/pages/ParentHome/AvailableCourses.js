@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import { connect } from 'react-redux';

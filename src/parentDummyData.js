@@ -1,5 +1,37 @@
 export const parentDummyData = {
-  parents: [{ user_id: 0 }, { user_id: 1 }, { user_id: 2 }],
+  parentProfile: {
+    parent_id: 10,
+    children: [
+      { child_id: 1, child_name: 'Mark' },
+      { child_id: 2, child_name: 'Shelly' },
+      { child_id: 3, child_name: 'John' },
+    ],
+    bio: '',
+  },
+
+  cart: [
+    {
+      parent_id: 10,
+      child_id: 1,
+      child_name: 'Mark',
+      session_id: 1,
+      price: 1000,
+    },
+    {
+      parent_id: 10,
+      child_id: 1,
+      child_name: 'Mark',
+      session_id: 17,
+      price: 500,
+    },
+    {
+      parent_id: 10,
+      child_id: 1,
+      child_name: 'Mark',
+      session_id: 30,
+      price: 1200,
+    },
+  ],
 
   children: [
     { parent_id: 0, user_id: 3, username: 'Joannsson', age: 7 },
@@ -183,8 +215,8 @@ export const parentDummyData = {
     isFetching: false,
     bookings: [
       {
-        child_id: 12,
-        child_name: 'Joe',
+        child_id: 2,
+        child_name: 'Shelly',
         session_id: 1,
         course_id: 1,
         instructor_id: 1,
@@ -257,4 +289,58 @@ export const parentDummyData = {
     ],
     error: '',
   },
+
+  availableSessions: [
+    {
+      session_id: 1,
+      course_id: 1,
+      instructor_id: 1,
+      instructor_name: 'Test003',
+      instructor_rating: 2,
+      size: 15,
+      subject: 'CS101',
+      description: 'Computer Science fundamentals',
+      prereqs: [],
+      start_date: '2021-12-10T07:00:00.000Z',
+      end_date: '2022-10-10T07:00:00.000Z',
+      start_time: '17:00:00',
+      end_time: '18:00:00',
+      location: 'https://zoom.us/my/john123',
+      price: 1000,
+    },
+    {
+      session_id: 3,
+      course_id: 5,
+      instructor_id: 10,
+      instructor_name: 'Mark',
+      instructor_rating: 5,
+      size: 20,
+      subject: 'Fundamental Python',
+      description: 'Computer Science fundamentals',
+      prereqs: ['JavaScript', 'HTML', 'CSS'],
+      start_date: '2021-12-10T07:00:00.000Z',
+      end_date: '2022-10-10T07:00:00.000Z',
+      start_time: '17:00:00',
+      end_time: '18:00:00',
+      location: 'https://zoom.us/my/john123',
+      price: 500,
+    },
+    {
+      session_id: 2,
+      course_id: 3,
+      instructor_id: 2,
+      instructor_name: 'Test006',
+      instructor_rating: 4,
+      size: 16,
+      subject: 'JavaScriptB',
+      description: 'Intermediate JavaScript.',
+      prereqs: ['JavaScriptA'],
+      start_date: '2021-12-05T07:00:00.000Z',
+      end_date: '2022-10-11T07:00:00.000Z',
+      start_time: '15:00:00',
+      end_time: '16:00:00',
+      location: 'https://zoom.us/my/john321',
+      price: 1200,
+    },
+  ],
 };

@@ -26,6 +26,8 @@ function Banner() {
     );
   } else if (path === '/instructor-booking') {
     return bannerContent('Apply to Course', 'Select Courses');
+  } else if (path === '/instructor-add-course') {
+    return bannerContent('Build Your Own Program', '');
   } else {
     return bannerContent('Dashboard', 'Welcome back!');
   }

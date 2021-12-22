@@ -7,6 +7,8 @@ export const GET_COURSES_ACTION = 'GET_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
+export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
+export const SET_ERROR = 'SET_ERROR';
 
 export const setSelectedCourse = course => {
   return {
@@ -75,4 +77,30 @@ export const addCourse = () => async dispatch => {
       payload: console.log(error),
     });
   }
+};
+
+export const addProgram = newProgram => {
+  //console.log(newProgram) I can store data here
+  return dispatch => {
+    dispatch(addNewProgram());
+    // axios.post('endpoint', newProgram)
+    //     .then(res =>{
+    //         dispatch({type: FETCH_SUCCESS, payload: res.data})
+    //     })
+    //     .catch(error=>{
+    //         dispatch({type: FETCH_FAIL, payload: error.response.data.Error})
+    //     })
+  };
+};
+
+export const addNewProgram = programs => {
+  //console.log(programs) this is undefined for now as I am not posting to endpoint
+  return {
+    type: ADD_NEW_PROGRAM,
+    payload: programs,
+  };
+};
+
+export const setError = error => {
+  return { type: SET_ERROR };
 };

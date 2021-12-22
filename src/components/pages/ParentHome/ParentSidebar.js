@@ -15,7 +15,7 @@ function ParentSidebar(props) {
   const handleClick = e => {
     return null;
   };
-  
+
   return (
     <div>
       <Menu

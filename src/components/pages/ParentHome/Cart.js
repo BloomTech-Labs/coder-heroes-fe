@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
+import { useHistory } from 'react-router-dom';
 import { Modal, Button } from 'antd';
 import { timeConverter } from '../../common/timeHelpers';
 import { dateConverter } from '../../common/dateHelpers';
 import { cancelCartItem } from '../../../redux/actions/parentActions';
 
+const dummy = [
+  { parent_id: 1, child_id: 1, session_id: 1, price: 1000 },
+  { parent_id: 1, child_id: 1, session_id: 25, price: 1050 },
+  { parent_id: 1, child_id: 2, session_id: 45, price: 900 },
+  { parent_id: 1, child_id: 3, session_id: 17, price: 1200 },
+];
+
 function Cart(props) {
-  const { cart, cancelCartItem } = props;
+  const { cancelCartItem } = props;
+  // this is for next cohort. we should use ParentReducer to get cart array instead of dummyData
+  // const { cart, cancelCartItem } = props;
+  const cart = dummy;
   const [showModal, setShowModal] = useState(false);
   let total = cart.reduce((prev, curr) => prev + curr.price, 0);
+  const [product, setProduct] = useState({
+    name: 'coderheroes',
+    price: total,
+  });
+  const history = useHistory();
 
   const handleModal = () => {
     setShowModal(true);
@@ -23,8 +40,26 @@ function Cart(props) {
     setShowModal(false);
   };
 
-  const handleCheckout = () => {
-    return null;
+  const makeToken = token => {
+    const body = {
+      token,
+      product,
+    };
+    const headers = {
+      'Content-type': 'application/json',
+    };
+
+    return fetch(`http://localhost5000/payment`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+    })
+      .then(res => {
+        // unused variable status is for next cohort. we can use status to proceed the enrollment process in BE
+        // const { status } = res;
+        history.push('/payment-success');
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -96,18 +131,20 @@ function Cart(props) {
           </div>
         );
       })}
-      <Button type="primary" onClick={handleCheckout}>
-        Proceed to checkout
-      </Button>
-      <div>Total: ${total}</div>
+      <StripeCheckout
+        stripeKey={process.env.REACT_APP_KEY}
+        token={makeToken}
+        name="Let's Finish Enrollment"
+        amount={product.price * 100}
+        billingAddress
+        zipCode
+        locale="auto"
+      >
+        <button style={{ backgroundColor: '#06d6a0' }}>CHECK OUT</button>
+      </StripeCheckout>
+      <div>Total: {total}</div>
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    cart: state.parentReducer.cart,
-  };
-};
-
-export default connect(mapStateToProps, { cancelCartItem })(Cart);
+export default connect(null, { cancelCartItem })(Cart);

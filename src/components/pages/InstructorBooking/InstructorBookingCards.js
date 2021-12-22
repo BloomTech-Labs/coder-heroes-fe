@@ -16,6 +16,11 @@ const InstructorBookingCards = props => {
   const { instructor } = props;
   const [currentModalProps, setCurrentModalProps] = useState(false);
   const [modalHidden, setModalHidden] = useState(true);
+  const [currentCourses, setCurrentCourses] = useState();
+
+  useEffect(() => {
+    setCurrentCourses(instructor.course_schedule);
+  }, [instructor.course_schedule]);
   const [currentCourses, setCurrentCourses] = useState(
     instructor.course_schedule
   );

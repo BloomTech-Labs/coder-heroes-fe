@@ -5,6 +5,8 @@ import {
   GET_INBOX_ACTION,
   SET_SELECTED_COURSE,
   ADD_COURSE_ACTION,
+  ADD_NEW_PROGRAM,
+  SET_ERROR,
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
 
@@ -28,6 +30,20 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         courses: [...state.course_schedule, newCourse],
+      };
+    case ADD_NEW_PROGRAM:
+      const newProgram = {
+        ...action.payload,
+        id: Date.now(),
+      };
+      return {
+        ...state,
+        own_programs: [...state.own_programs, newProgram],
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        errorMessage: 'Please fill in all the fields',
       };
 
     default:

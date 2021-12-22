@@ -12,27 +12,27 @@ export const parentDummyData = {
   },
 
   cart: [
-    {
-      parent_id: 10,
-      child_id: 1,
-      child_name: 'Mark',
-      session_id: 1,
-      price: 1000,
-    },
-    {
-      parent_id: 10,
-      child_id: 1,
-      child_name: 'Mark',
-      session_id: 17,
-      price: 500,
-    },
-    {
-      parent_id: 10,
-      child_id: 1,
-      child_name: 'Mark',
-      session_id: 30,
-      price: 1200,
-    },
+    // {
+    //   parent_id: 10,
+    //   child_id: 1,
+    //   child_name: 'Mark',
+    //   session_id: 1,
+    //   price: 1000,
+    // },
+    // {
+    //   parent_id: 10,
+    //   child_id: 1,
+    //   child_name: 'Mark',
+    //   session_id: 17,
+    //   price: 500,
+    // },
+    // {
+    //   parent_id: 10,
+    //   child_id: 1,
+    //   child_name: 'Mark',
+    //   session_id: 30,
+    //   price: 1200,
+    // },
   ],
 
   children: [

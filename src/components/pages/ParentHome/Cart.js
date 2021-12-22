@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { useHistory } from 'react-router-dom';
 import { Modal, Button } from 'antd';
 import { timeConverter } from '../../common/timeHelpers';
 import { dateConverter } from '../../common/dateHelpers';
-import { cancelCartItem } from '../../../redux/actions/parentActions';
-
-const dummy = [
-  { parent_id: 1, child_id: 1, session_id: 1, price: 1000 },
-  { parent_id: 1, child_id: 1, session_id: 25, price: 1050 },
-  { parent_id: 1, child_id: 2, session_id: 45, price: 900 },
-  { parent_id: 1, child_id: 3, session_id: 17, price: 1200 },
-];
+import {
+  cancelCartItem,
+  clearCart,
+} from '../../../redux/actions/parentActions';
 
 function Cart(props) {
-  const { cancelCartItem } = props;
-  // this is for next cohort. we should use ParentReducer to get cart array instead of dummyData
-  // const { cart, cancelCartItem } = props;
-  const cart = dummy;
+  const { cart, cancelCartItem, clearCart } = props;
   const [showModal, setShowModal] = useState(false);
   let total = cart.reduce((prev, curr) => prev + curr.price, 0);
   const [product, setProduct] = useState({
@@ -26,6 +19,10 @@ function Cart(props) {
     price: total,
   });
   const history = useHistory();
+
+  useEffect(() => {
+    setProduct({ ...product, price: total });
+  }, [cart]);
 
   const handleModal = () => {
     setShowModal(true);
@@ -49,14 +46,15 @@ function Cart(props) {
       'Content-type': 'application/json',
     };
 
-    return fetch(`http://localhost5000/payment`, {
+    return fetch(`http://localhost:5000/payment`, {
       method: 'POST',
       headers,
       body: JSON.stringify(body),
     })
       .then(res => {
-        // unused variable status is for next cohort. we can use status to proceed the enrollment process in BE
+        // unused variable status is for next cohort. we can use status to proceed the enrollment process in BE. after the enrollment process if finished, it will update booking array in parentReducer
         // const { status } = res;
+        clearCart();
         history.push('/payment-success');
       })
       .catch(err => console.log(err));
@@ -65,7 +63,7 @@ function Cart(props) {
   return (
     <div>
       <h3>List in Cart</h3>
-      {cart.map(booking => {
+      {cart.map((booking, index) => {
         // use axios to get session details [axios.get(URL/api/sessions/:session_id)]
         // temporarily use fake Data
         const sessionDetail = {
@@ -86,7 +84,7 @@ function Cart(props) {
         };
 
         return (
-          <div>
+          <div key={index}>
             <div>
               <div>Course: {sessionDetail.subject}</div>
               <div>Book for: {booking.child_name}</div>
@@ -147,4 +145,10 @@ function Cart(props) {
   );
 }
 
-export default connect(null, { cancelCartItem })(Cart);
+const mapStateToProps = state => {
+  return {
+    cart: state.parentReducer.cart,
+  };
+};
+
+export default connect(mapStateToProps, { cancelCartItem, clearCart })(Cart);

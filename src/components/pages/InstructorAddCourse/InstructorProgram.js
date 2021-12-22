@@ -1,5 +1,4 @@
 import React from 'react';
-import { timeConverter } from '../../common/timeHelpers';
 import { List } from 'antd';
 
 const InstructorProgram = props => {

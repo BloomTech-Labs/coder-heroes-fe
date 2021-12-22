@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addProgram, setError } from '../../../redux/actions/instructorActions';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import { Select, Space, Input, Form } from 'antd';
+import { Select, Input, Form } from 'antd';
 import { timeConverter } from '../../common/timeHelpers';
 
 const { Option } = Select;

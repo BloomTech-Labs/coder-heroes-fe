@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Layout } from 'antd';
@@ -12,14 +11,13 @@ import {
   ExportOutlined,
   HeartFilled,
   ReadFilled,
-  ReadOutlined,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
-  const handleClick = e => {
-    return null;
-  };
+const handleClick = e => {
+  return null;
+};
 
 const ParentSideBar = props => {
   const { cart } = props;
@@ -40,9 +38,6 @@ const ParentSideBar = props => {
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
-      <Menu defaultSelectedKeys={['dashboard']}>
-  return (
-    <div>
       <Menu
         className="parent-dashboard-sidebar"
         defaultSelectedKeys={['2']}
@@ -60,7 +55,6 @@ const ParentSideBar = props => {
         >
           Coderheroes
         </Menu.Item>
-        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="500px" />}>
         <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>

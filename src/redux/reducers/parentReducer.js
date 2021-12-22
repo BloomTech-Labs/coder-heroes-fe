@@ -2,6 +2,7 @@ import { parentDummyData } from '../../parentDummyData';
 import {
   ADD_TO_CART,
   CANCEL_CART_ITEM,
+  CLEAR_CART,
   FETCH_BOOKINGS_FAILURE,
   FETCH_BOOKINGS_START,
   FETCH_BOOKINGS_SUCCESS,
@@ -11,7 +12,6 @@ import {
   GET_SESSIONS_ACTION,
   SIGNUP_COURSE_ACTION,
 } from '../actions/parentActions';
-import { parentDummyData } from '../../parentDummyData';
 
 const removeCartItem = (cart, booking) => {
   for (let i = 0; i < cart.length; i++) {
@@ -89,6 +89,11 @@ const reducer = (state = parentDummyData, action) => {
       return {
         ...state,
         cart: removeCartItem([...state.cart], action.payload),
+      };
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
       };
     default:
       return state;

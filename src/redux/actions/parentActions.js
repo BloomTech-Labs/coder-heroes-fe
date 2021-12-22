@@ -17,6 +17,7 @@ export const FETCH_BOOKINGS_FAILURE = 'FETCH_BOOKINGS_FAILURE';
 
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
+export const CLEAR_CART = 'CLEAR_CART';
 
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
@@ -96,4 +97,8 @@ export const addToCart = booking => dispatch => {
 
 export const cancelCartItem = booking => dispatch => {
   return dispatch({ type: CANCEL_CART_ITEM, payload: booking });
+};
+
+export const clearCart = () => dispatch => {
+  return dispatch({ type: CLEAR_CART });
 };

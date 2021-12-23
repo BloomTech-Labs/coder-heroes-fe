@@ -58,8 +58,8 @@ export const dummyData = {
       description: 'Welcome to Python!',
       subject: 'Intro to Python',
       start_time: '15:00:00',
-      start_date: '2021-12-13T07:00:00.000Z',
-      end_date: '2021-12-13T07:00:00.000Z',
+      start_date: '2021-12-15T07:00:00.000Z',
+      end_date: '2021-12-16T07:00:00.000Z',
       end_time: '17:00:00',
       location: 'https://zoom.us/my/haleyh', // host by coderheros
       prereq: 'None',

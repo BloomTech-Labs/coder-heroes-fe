@@ -3,6 +3,7 @@ import { Calendar, Modal } from 'antd';
 import '../../../styles/index.less';
 import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
+import { dateConverter } from '../../common/dateHelpers';
 
 const InstructorCalender = props => {
   const { instructor } = props;
@@ -24,13 +25,18 @@ const InstructorCalender = props => {
     let listData = [];
 
     const calendarDate = value._d.toLocaleString('en-US', {
-      day: '2-digit',
       year: 'numeric',
       month: '2-digit',
+      day: '2-digit',
     });
 
     instructor.course_schedule.forEach(item => {
-      if (item.start_date.replaceAll('-', '/') === calendarDate) {
+      const dateFirst = item.start_date.slice(7, 10);
+      const monthFirst = item.start_date.slice(5, 7);
+      const yearFirst = item.start_date.slice(0, 4);
+      const convertedDateFromat = monthFirst + dateFirst + '-' + yearFirst;
+      //since we are getting ISO dateformat from backend, I want to transit to mm-dd-yyyy so that it could be shown
+      if (convertedDateFromat.replaceAll('-', '/') === calendarDate) {
         listData.push(item);
       }
     });
@@ -73,7 +79,11 @@ const InstructorCalender = props => {
             onCancel={handleCancel}
           >
             <h3>{selectedCourse.description}</h3>
-            <p>Course Date: {selectedCourse.start_date}</p>
+            <p>
+              Course Date:{' '}
+              {selectedCourse.start_date &&
+                dateConverter(selectedCourse.start_date)}
+            </p>
             <p>
               Course Time:
               {`${selectedCourse.start_time}-${selectedCourse.end_time}`}

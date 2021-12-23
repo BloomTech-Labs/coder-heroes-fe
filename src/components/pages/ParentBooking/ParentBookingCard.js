@@ -5,6 +5,7 @@ import { timeConverter } from '../../common/timeHelpers';
 
 const ParentBookingCard = props => {
   const {
+    child_name,
     subject,
     description,
     start_date,
@@ -13,12 +14,12 @@ const ParentBookingCard = props => {
     end_time,
     location,
     instructor_name,
-    instructor_rating,
     size,
   } = props.booking;
   const data = [
-    { title: 'student name', text: subject },
-    { title: 'course desciption', text: description },
+    { title: 'student name', text: child_name },
+    { title: 'course', text: subject },
+    { title: 'desciption', text: description },
     { title: 'first day of class', text: dateConverter(start_date) },
     { title: 'last day of class', text: dateConverter(end_date) },
     {
@@ -27,7 +28,6 @@ const ParentBookingCard = props => {
     },
     { title: 'location', text: location },
     { title: 'instructor', text: instructor_name },
-    { title: 'instructor rating', text: instructor_rating },
     { title: 'class size', text: size },
   ];
 

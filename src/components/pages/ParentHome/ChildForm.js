@@ -5,7 +5,7 @@ import { addToCart } from '../../../redux/actions/parentActions';
 
 function ChildForm(props) {
   const {
-    session_id,
+    schedule_id,
     price,
     parentProfile,
     bookings,
@@ -16,7 +16,7 @@ function ChildForm(props) {
   const [booking, setBooking] = useState({
     parent_id: '',
     child_id: '0',
-    session_id: '',
+    schedule_id: '',
     child_name: '',
     price: 0,
   });
@@ -33,7 +33,7 @@ function ChildForm(props) {
       parent_id: parentProfile.parent_id,
       child_id: parseInt(e.target.value),
       child_name: child.child_name,
-      session_id: session_id,
+      schedule_id: schedule_id,
       price: price,
     });
   };
@@ -43,13 +43,13 @@ function ChildForm(props) {
     const isAlreadyBooked = bookings.find(item => {
       return (
         item.child_id === booking.child_id &&
-        item.session_id === booking.session_id
+        item.schedule_id === booking.schedule_id
       );
     });
     const isAlreadyInCart = cart.find(item => {
       return (
         item.child_id === booking.child_id &&
-        item.session_id === booking.session_id
+        item.schedule_id === booking.schedule_id
       );
     });
     // check if the child name was not selected

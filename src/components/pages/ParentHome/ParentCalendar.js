@@ -11,7 +11,7 @@ import ChildForm from './ChildForm';
 function displayedItem(value, current, item) {
   return {
     type: current === value ? 'warning' : 'success',
-    session_id: item.session_id,
+    schedule_id: item.schedule_id,
     course_id: item.course_id,
     instructor_id: item.instructor_id,
     instructor_name: item.instructor_name,
@@ -29,7 +29,7 @@ function displayedItem(value, current, item) {
   };
 }
 
-function Sessions(props) {
+function Courses(props) {
   const {
     listData,
     activeModal,
@@ -44,7 +44,7 @@ function Sessions(props) {
     <ul className="ulcell">
       {listData.map(item => {
         const {
-          session_id,
+          schedule_id,
           type,
           subject,
           description,
@@ -59,10 +59,10 @@ function Sessions(props) {
           price,
         } = item;
         return (
-          <li className="cell" key={session_id}>
+          <li className="cell" key={schedule_id}>
             <Badge className="badge capital" status={type} text={subject} />
             <Button
-              onClick={() => showModal(session_id)}
+              onClick={() => showModal(schedule_id)}
               type="primary"
               shape="round"
               icon={<InfoCircleOutlined />}
@@ -71,7 +71,7 @@ function Sessions(props) {
               {' '}
               details
             </Button>
-            {session_id === activeModal ? (
+            {schedule_id === activeModal ? (
               <Modal
                 className="events capital"
                 title={subject}
@@ -84,7 +84,7 @@ function Sessions(props) {
                   <div>
                     {childInput ? (
                       <ChildForm
-                        session_id={session_id}
+                        schedule_id={schedule_id}
                         price={price}
                         setActiveModal={setActiveModal}
                       />
@@ -129,11 +129,11 @@ function Sessions(props) {
 
 function ParentCalendar(props) {
   // eslint-disable-next-line
-  const [sessions, setSessions] = useState(props.availableSessions);
+  const [courses, setCourses] = useState(props.availableCourses);
   const [activeModal, setActiveModal] = useState(0);
   const [childInput, setChildInput] = useState(false);
 
-  // when the calendar mounts, get the available sessions from reducer and set it to sessions state
+  // when the calendar mounts, get the available courses from reducer and set it to courses state
 
   const today = new Date().toISOString().slice(0, 10);
   const thisMonth = new Date().toISOString().slice(0, 7);
@@ -143,7 +143,7 @@ function ParentCalendar(props) {
 
     let val = value.format('YYYY-MM-DD');
 
-    sessions.forEach(item => {
+    courses.forEach(item => {
       let startDate = item.start_date.slice(0, 10);
       switch (val) {
         case startDate:
@@ -181,7 +181,7 @@ function ParentCalendar(props) {
     const listData = getListData(value);
 
     return (
-      <Sessions
+      <Courses
         listData={listData}
         activeModal={activeModal}
         setActiveModal={setActiveModal}
@@ -197,7 +197,7 @@ function ParentCalendar(props) {
     let listData = [];
     let val = value.format('YYYY-MM');
 
-    sessions.forEach(item => {
+    courses.forEach(item => {
       let startMonth = item.start_date.slice(0, 7);
       switch (val) {
         case startMonth:
@@ -220,7 +220,7 @@ function ParentCalendar(props) {
   function monthCellRender(value) {
     const listData = getMonthData(value);
     return listData ? (
-      <Sessions
+      <Courses
         listData={listData}
         activeModal={activeModal}
         showModal={showModal}
@@ -242,7 +242,7 @@ function ParentCalendar(props) {
 
 const mapStateToProps = state => {
   return {
-    availableSessions: state.parentReducer.availableSessions,
+    availableCourses: state.parentReducer.availableCourses,
   };
 };
 

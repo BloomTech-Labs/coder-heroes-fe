@@ -37,6 +37,8 @@ function Cart(props) {
     setShowModal(false);
   };
 
+  console.log(cart);
+
   const makeToken = token => {
     const body = {
       token,
@@ -63,84 +65,90 @@ function Cart(props) {
   return (
     <div>
       <h3>List in Cart</h3>
-      {cart.map((booking, index) => {
-        // use axios to get session details [axios.get(URL/api/sessions/:session_id)]
-        // temporarily use fake Data
-        const sessionDetail = {
-          session_id: 1,
-          course_id: 1,
-          instructor_id: 1,
-          instructor_name: 'Test003',
-          instructor_rating: 2,
-          size: 15,
-          subject: 'CS101',
-          description: 'Computer Science fundamentals',
-          prereqs: null,
-          start_date: '2021-12-13T07:00:00.000Z',
-          end_date: '2022-10-10T07:00:00.000Z',
-          start_time: '17:00:00',
-          end_time: '18:00:00',
-          location: 'https://zoom.us/my/john123',
-        };
+      {cart.length === 0 ? (
+        <div>You don't have any item in cart yet!</div>
+      ) : (
+        <div>
+          {cart.map((booking, index) => {
+            // use axios to get session details [axios.get(URL/api/sessions/:schedule_id)]
+            // temporarily use fake Data
+            const sessionDetail = {
+              schedule_id: 1,
+              course_id: 1,
+              instructor_id: 1,
+              instructor_name: 'Test003',
+              size: 15,
+              subject: 'CS101',
+              description: 'Computer Science fundamentals',
+              prereqs: null,
+              start_date: '2021-12-13T07:00:00.000Z',
+              end_date: '2022-10-10T07:00:00.000Z',
+              start_time: '17:00:00',
+              end_time: '18:00:00',
+              location: 'https://zoom.us/my/john123',
+            };
 
-        return (
-          <div key={index}>
-            <div>
-              <div>Course: {sessionDetail.subject}</div>
-              <div>Book for: {booking.child_name}</div>
-              <div>Instructor: {sessionDetail.instructor_name}</div>
-              <div>
-                First day of class: {dateConverter(sessionDetail.start_date)}
-              </div>
-              <div>
-                Last day of class: {dateConverter(sessionDetail.end_date)}
-              </div>
-              <div>
-                Time: {timeConverter(sessionDetail.start_time)} -{' '}
-                {timeConverter(sessionDetail.end_time)}
-              </div>
-              <div>Location: {sessionDetail.subject}</div>
-            </div>
-            <div>
-              <Button onClick={() => handleModal()}>Cancel booking</Button>
-            </div>
-            {showModal ? (
-              <Modal
-                className="events capital"
-                title={'modal'}
-                visible={true}
-                onCancel={closeModal}
-                footer={[
-                  <Button
-                    key="yes"
-                    type="primary"
-                    onClick={() => handleCancel(booking)}
+            return (
+              <div key={index}>
+                <div>
+                  <div>Course: {sessionDetail.subject}</div>
+                  <div>Book for: {booking.child_name}</div>
+                  <div>Instructor: {sessionDetail.instructor_name}</div>
+                  <div>
+                    First day of class:{' '}
+                    {dateConverter(sessionDetail.start_date)}
+                  </div>
+                  <div>
+                    Last day of class: {dateConverter(sessionDetail.end_date)}
+                  </div>
+                  <div>
+                    Time: {timeConverter(sessionDetail.start_time)} -{' '}
+                    {timeConverter(sessionDetail.end_time)}
+                  </div>
+                  <div>Location: {sessionDetail.subject}</div>
+                </div>
+                <div>
+                  <Button onClick={() => handleModal()}>Cancel booking</Button>
+                </div>
+                {showModal ? (
+                  <Modal
+                    className="events capital"
+                    title={'modal'}
+                    visible={true}
+                    onCancel={closeModal}
+                    footer={[
+                      <Button
+                        key="yes"
+                        type="primary"
+                        onClick={() => handleCancel(booking)}
+                      >
+                        Yes
+                      </Button>,
+                      <Button key="no" onClick={closeModal}>
+                        No
+                      </Button>,
+                    ]}
                   >
-                    Yes
-                  </Button>,
-                  <Button key="no" onClick={closeModal}>
-                    No
-                  </Button>,
-                ]}
-              >
-                Are you sure you want to remove this booking?
-              </Modal>
-            ) : null}
-          </div>
-        );
-      })}
-      <StripeCheckout
-        stripeKey={process.env.REACT_APP_KEY}
-        token={makeToken}
-        name="Let's Finish Enrollment"
-        amount={product.price * 100}
-        billingAddress
-        zipCode
-        locale="auto"
-      >
-        <button style={{ backgroundColor: '#06d6a0' }}>CHECK OUT</button>
-      </StripeCheckout>
-      <div>Total: {total}</div>
+                    Are you sure you want to remove this booking?
+                  </Modal>
+                ) : null}
+              </div>
+            );
+          })}
+          <div>Total: {total}</div>
+          <StripeCheckout
+            stripeKey={process.env.REACT_APP_KEY}
+            token={makeToken}
+            name="Let's Finish Enrollment"
+            amount={product.price * 100}
+            billingAddress
+            zipCode
+            locale="auto"
+          >
+            <button style={{ backgroundColor: '#06d6a0' }}>CHECK OUT</button>
+          </StripeCheckout>
+        </div>
+      )}
     </div>
   );
 }

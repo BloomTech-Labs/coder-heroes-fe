@@ -10,7 +10,7 @@ import {
   ToolFilled,
   ExportOutlined,
   HeartFilled,
-  ReadFilled,
+  ShoppingCartOutlined,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -83,9 +83,9 @@ const ParentSideBar = props => {
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<ReadFilled fontSize="150px" />}>
+        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
           <Link to="/cart" className="link">
-            Cart <span>{cart.length > 0 ? `(${cart.length})` : null}</span>
+            Cart <span>({cart.length})</span>
           </Link>
         </Menu.Item>
 

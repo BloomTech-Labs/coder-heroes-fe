@@ -1,6 +1,4 @@
 export const parentDummyData = {
-  parents: [{ user_id: 0 }, { user_id: 1 }, { user_id: 2 }],
-
   parentProfile: {
     parent_id: 10,
     children: [
@@ -23,112 +21,6 @@ export const parentDummyData = {
     { child_id: 0, course_id: 0, completed: false },
     { child_id: 0, course_id: 0, completed: false },
     { child_id: 0, course_id: 0, completed: false },
-  ],
-
-  courses: [
-    {
-      size: 5,
-      description: 'Python Desc',
-      subject: 'Python subject',
-    },
-    {
-      size: 5,
-      description: 'JS desc',
-      subject: 'Js subject',
-    },
-    {
-      size: 5,
-      description: 'React Desc',
-      subject: 'React subject',
-    },
-  ],
-
-  schedules: [
-    {
-      course_id: 1,
-      instructor_id: 1,
-    },
-    {
-      course_id: 2,
-      instructor_id: 2,
-    },
-    {
-      course_id: 3,
-      instructor_id: 3,
-    },
-  ],
-
-  sessions: [
-    {
-      course: 'Php',
-      start_time: '10:00pm',
-      start_date: '10-10-2021',
-      end_date: '10-10-2021',
-      end_time: '6:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 1,
-    },
-
-    {
-      course: 'react',
-      start_time: '6:00pm',
-      start_date: '11-06-2021',
-      end_date: '11-09-2021',
-      end_time: '9:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 2,
-    },
-    {
-      course: 'Javascript',
-      start_time: '9:00pm',
-      start_date: '11-10-2021',
-      end_date: '11-12-2021',
-      end_time: '12:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 3,
-    },
-    {
-      course: 'Redux',
-      start_time: '10:00pm',
-      start_date: '11-22-2021',
-      end_date: '11-12-2021',
-      end_time: '11:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 4,
-    },
-    {
-      course: 'Python',
-      start_time: '9:00pm',
-      start_date: '11-15-2021',
-      end_date: '12-12-2021',
-      end_time: '12:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 6,
-    },
-    {
-      course: 'Node js',
-      start_time: '10:00pm',
-      start_date: '11-15-2021',
-      end_date: '10-10-2021',
-      end_time: '6:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 7,
-    },
-    {
-      course: 'Html',
-      start_time: '10:00pm',
-      start_date: '11-17-2021',
-      end_date: '10-10-2021',
-      end_time: '6:00pm',
-      location: 'https://zoom.us/my/john123',
-      schedule_id: 7,
-    },
-  ],
-
-  prereqs: [
-    { course_id: 1, precourse_id: 1 },
-    { course_id: 2, precourse_id: 2 },
-    { course_id: 3, precourse_id: 3 },
   ],
 
   inbox: [{ user_id: 0 }, { user_id: 3 }, { user_id: 8 }],
@@ -197,11 +89,10 @@ export const parentDummyData = {
       {
         child_id: 2,
         child_name: 'Shelly',
-        session_id: 1,
+        schedule_id: 1,
         course_id: 1,
         instructor_id: 1,
         instructor_name: 'Test003',
-        instructor_rating: 2,
         size: 15,
         subject: 'CS101',
         description: 'Computer Science fundamentals',
@@ -215,11 +106,10 @@ export const parentDummyData = {
       {
         child_id: 12,
         child_name: 'Joe',
-        session_id: 2,
+        schedule_id: 2,
         course_id: 3,
         instructor_id: 2,
         instructor_name: 'Test006',
-        instructor_rating: 4,
         size: 16,
         subject: 'JavaScriptB',
         description: 'Intermediate JavaScript.',
@@ -233,11 +123,10 @@ export const parentDummyData = {
       {
         child_id: 13,
         child_name: 'Mark',
-        session_id: 1,
+        schedule_id: 1,
         course_id: 1,
         instructor_id: 1,
         instructor_name: 'Test003',
-        instructor_rating: 2,
         size: 15,
         subject: 'CS101',
         description: 'Computer Science fundamentals',
@@ -251,11 +140,10 @@ export const parentDummyData = {
       {
         child_id: 13,
         child_name: 'Mark',
-        session_id: 2,
+        schedule_id: 2,
         course_id: 3,
         instructor_id: 2,
         instructor_name: 'Test006',
-        instructor_rating: 4,
         size: 16,
         subject: 'JavaScriptB',
         description: 'Intermediate JavaScript.',
@@ -270,13 +158,12 @@ export const parentDummyData = {
     error: '',
   },
 
-  availableSessions: [
+  availableCourses: [
     {
-      session_id: 1,
+      schedule_id: 1,
       course_id: 1,
       instructor_id: 1,
       instructor_name: 'Test003',
-      instructor_rating: 2,
       size: 15,
       subject: 'CS101',
       description: 'Computer Science fundamentals',
@@ -289,11 +176,10 @@ export const parentDummyData = {
       price: 1000,
     },
     {
-      session_id: 3,
+      schedule_id: 3,
       course_id: 5,
       instructor_id: 10,
       instructor_name: 'Mark',
-      instructor_rating: 5,
       size: 20,
       subject: 'Fundamental Python',
       description: 'Computer Science fundamentals',
@@ -306,11 +192,10 @@ export const parentDummyData = {
       price: 500,
     },
     {
-      session_id: 2,
+      schedule_id: 2,
       course_id: 3,
       instructor_id: 2,
       instructor_name: 'Test006',
-      instructor_rating: 4,
       size: 16,
       subject: 'JavaScriptB',
       description: 'Intermediate JavaScript.',

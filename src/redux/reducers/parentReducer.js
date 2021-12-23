@@ -17,7 +17,7 @@ const removeCartItem = (cart, booking) => {
   for (let i = 0; i < cart.length; i++) {
     if (
       cart[i].child_id === booking.child_id &&
-      cart[i].session_id === booking.session_id
+      cart[i].schedule_id === booking.schedule_id
     ) {
       cart.splice(i, 1);
       break;
@@ -31,7 +31,7 @@ const reducer = (state = parentDummyData, action) => {
     case GET_COURSES_ACTION:
       return {
         ...state,
-        courses: action.payload,
+        availableCourses: action.payload,
       };
     case GET_CHILDREN_ACTION:
       return {

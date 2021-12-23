@@ -189,9 +189,23 @@ Loom[https://www.loom.com/share/abb423fc7e5444a3b7f01baca244b3dd]
 ### InstructorHome
 Loom[https://www.loom.com/share/4c5f90178f17417aa206f2319bb16a39]
 
-### ParentHome
-Loom[https://www.loom.com/share/a504cdd1f56b4751ad61c09c0d3e395b]
+### Parent Dashboard
+Loom[https://www.loom.com/share/5250dabcfb8f40d6bae9b363118fc910]
 
-### ParentBooking
-Loom[https://www.loom.com/share/4e67eaa920604c528bae69126b5b805f]
+### Parent Bookings
+Loom[https://www.loom.com/share/20a4917f86de4cbd9499f41d34061706] (part 1)
+Loom[https://www.loom.com/share/b6648c95d4b74b3aa2e3b153f3a410fe] (part 2)
+
+### Parent Calendar
+Loom[https://www.loom.com/share/ad3fcdce651c4e8381781df08e40d7b1] (part 1)
+Loom[https://www.loom.com/share/8b94d91bcacc47f7ad082d26eab1f94a] (part 2)
+Loom[https://www.loom.com/share/689ff99c6838454483724f7f281f8241] (part 3)
+Loom[https://www.loom.com/share/42e6893185c44a5cbd64b3ba3a90faff] (part 4)
+Loom[https://www.loom.com/share/d0f2ee9de7e6439280c826560c36393b] (part 5)
+Loom[https://www.loom.com/share/a47320e57c9f46f88e6ee14d5a8563bb] (part 6)
+Loom[https://www.loom.com/share/70db70523b7e45a0852c6f39eb29261e] (part 7)
+Loom[https://www.loom.com/share/ba15e1a16e174d25a39db4ee01a013fc] (part 8)
+Loom[https://www.loom.com/share/a6eb1260c8ce45adad1d38a4c9b42686] (part 9)
+
+
 

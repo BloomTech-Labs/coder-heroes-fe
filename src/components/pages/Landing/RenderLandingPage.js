@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function RenderLandingPage(props) {
   return (
     <div>
       <header>
         <div id="header-content">
-          <div>
-            <h1 className="turned-logo">coderheroes</h1>
+          <div style={{ marginTop: '200px' }}>
             <h1>Coding is a superpower.</h1>
             <h2>
               Through a love of teaching and technology,<br></br> we empower
@@ -92,19 +90,6 @@ function RenderLandingPage(props) {
           </div>
         </div>
       </section>
-
-      {/* <div>
-      <h1>Welcome to Labs Basic SPA</h1>
-      <div>
-        <p>
-          This is an example of how we'd like for you to approach page/routable
-          components.
-        </p>
-        <p>
-          <Link to="/example-list">Example List of Items</Link>
-        </p>
-      </div>
-    </div> */}
     </div>
   );
 }

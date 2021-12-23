@@ -33,6 +33,10 @@ header {
     place-items: center;
     background-color: #f2f2f2;
     padding-bottom: 50px;
+    background-image: url(../Images/CoderHeroes-bg-img.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header h2,
@@ -47,26 +51,16 @@ header h1 {
     margin-bottom: 4px;
 }
 
-.turned-logo {
-    text-align: left;
-    margin-bottom: 5px;
-    transform: rotate(-8deg);
-    color: #20c5b5;
-    font-size: 4rem;
-    text-transform: uppercase;
-    user-select: none;
-    z-index: 0;
-    position: relative;
-    top: 0px;
-    left: -110px;
-    width: 90%;
-}
-
 #header-content {
     text-align: center;
     height: 900px;
     display: grid;
     place-items: center;
+}
+
+#header-content h1,
+#header-content h2 {
+    color: #3b0e2b;
 }
 
 #header-buttons {
@@ -97,7 +91,7 @@ header h1 {
 }
 
 .arrow {
-    border: solid rgb(102, 75, 0);
+    border: solid rgb(46, 34, 0);
     border-width: 0 4px 4px 0;
     display: inline-block;
     padding: 10px;
@@ -113,6 +107,10 @@ header h1 {
     text-align: center;
     font-size: 130%;
     padding: 10px;
+}
+
+#message * {
+    color: #3b0e2b;
 }
 
 #message h2 {
@@ -247,5 +245,8 @@ header h1 {
     }
     .half h3 {
         margin-top: 20px;
+    }
+    .center img {
+        width: 90%;
     }
 }

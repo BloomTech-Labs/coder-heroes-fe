@@ -72,7 +72,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
-          <Link to="/logout">Logout</Link>
+          <Link to="/landing">Logout</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>

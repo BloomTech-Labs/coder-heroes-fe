@@ -12,6 +12,7 @@ import {
   HeartFilled,
   ShoppingCartOutlined,
 } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
@@ -22,6 +23,7 @@ const handleClick = e => {
 const ParentSideBar = props => {
   const { cart } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -71,8 +73,12 @@ const ParentSideBar = props => {
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
-        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
-          <Link to="/logout">Logout</Link>
+        <Menu.Item 
+          key="logout" 
+          icon={<ExportOutlined fontSize="150px" />}
+          onClick={() => {authService.logout();}}
+          >
+            <Link to="/logout">Logout</Link>
         </Menu.Item>
 
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
@@ -89,7 +95,11 @@ const ParentSideBar = props => {
           </Link>
         </Menu.Item>
 
-        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
+        <Menu.Item 
+        key="logout" 
+        icon={<ExportOutlined fontSize="150px" />}
+        onClick={() => {authService.logout();}}
+        >
           <Link to="/logout">Logout</Link>
         </Menu.Item>
       </Menu>

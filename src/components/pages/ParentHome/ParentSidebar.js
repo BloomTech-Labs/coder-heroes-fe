@@ -63,17 +63,6 @@ const ParentSideBar = props => {
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
 
-        {/* <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
-          <Link to="/family">Family</Link>
-        </Menu.Item>
-
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
-          <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
-          <Link to="/logout">Logout</Link>
-        </Menu.Item> */}
 
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>

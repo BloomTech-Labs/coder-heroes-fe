@@ -16,9 +16,6 @@ import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
-const handleClick = e => {
-  return null;
-};
 
 const ParentSideBar = props => {
   const { cart } = props;

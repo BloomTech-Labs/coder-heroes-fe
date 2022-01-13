@@ -1,19 +1,22 @@
 import { Menu } from 'antd';
 import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
+import { Link } from 'react-router-dom';
 import {
   DesktopOutlined,
   HomeOutlined,
   ThunderboltOutlined,
   PlusOutlined,
+  ExportOutlined
 } from '@ant-design/icons';
 import { Layout } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
 function InstructorSidebar() {
   const [collapsed, setCollapsed] = useState(false);
-
+  const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -49,6 +52,13 @@ function InstructorSidebar() {
 
         <Menu.Item key="4" icon={<PlusOutlined />}>
           <a href="/instructor-add-course">Add Courses</a>
+        </Menu.Item>
+
+        <Menu.Item 
+          key="logout" 
+          onClick={() => {authService.logout();}} 
+          icon={<ExportOutlined fontSize="150px" />}>
+            <Link to="/logout">Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

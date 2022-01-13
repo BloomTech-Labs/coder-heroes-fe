@@ -63,7 +63,7 @@ const ParentSideBar = props => {
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
 
-        <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
+        {/* <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>
         </Menu.Item>
 
@@ -73,14 +73,10 @@ const ParentSideBar = props => {
 
         <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
           <Link to="/logout">Logout</Link>
-        </Menu.Item>
+        </Menu.Item> */}
 
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>
-        </Menu.Item>
-
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
-          <Link to="/settings">Settings</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
@@ -88,6 +84,11 @@ const ParentSideBar = props => {
             Cart <span>({cart.length})</span>
           </Link>
         </Menu.Item>
+        
+        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
+          <Link to="/settings">Settings</Link>
+        </Menu.Item>
+
 
         <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
           <Link to="/logout">Logout</Link>

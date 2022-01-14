@@ -57,15 +57,12 @@ const ParentSideBar = props => {
         <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
-
         <Menu.Item key="courses" icon={<CalendarFilled fontSize="150px" />}>
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
-
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>
         </Menu.Item>
-
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>
@@ -74,16 +71,8 @@ const ParentSideBar = props => {
           key="logout" 
           icon={<ExportOutlined fontSize="150px" />}
           onClick={() => {authService.logout();}}
-          >
-            <Link to="/logout">Logout</Link>
-        </Menu.Item>
-
-        <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
-          <Link to="/family">Family</Link>
-        </Menu.Item>
-
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
-          <Link to="/settings">Settings</Link>
+        >
+          <Link to="/landing">Logout</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
@@ -91,19 +80,10 @@ const ParentSideBar = props => {
             Cart <span>({cart.length})</span>
           </Link>
         </Menu.Item>
-
-        <Menu.Item 
-        key="logout" 
-        icon={<ExportOutlined fontSize="150px" />}
-        onClick={() => {authService.logout();}}
-        >
-          <Link to="/logout">Logout</Link>
-        </Menu.Item>
-      </Menu>
+        </Menu>
     </Sider>
   );
 };
-
 const mapStateToProps = state => {
   return {
     cart: state.parentReducer.cart,
@@ -111,3 +91,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ParentSideBar);
+
+
+

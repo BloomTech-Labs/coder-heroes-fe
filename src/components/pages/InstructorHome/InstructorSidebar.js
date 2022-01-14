@@ -58,7 +58,7 @@ function InstructorSidebar() {
           key="logout" 
           onClick={() => {authService.logout();}} 
           icon={<ExportOutlined fontSize="150px" />}>
-            <Link to="/logout">Logout</Link>
+            <Link to="/landing">Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -5,13 +5,6 @@ import Button from '../../common/Button';
 function RenderLandingPage(props) {
   return (
     <div className="landing-container">
-      {/* <h1>Welcome to Labs Basic SPA</h1> */}
-      {/* <div> */}
-      {/* <p>
-          This is an example of how we'd like for you to approach page/routable
-          components.
-        </p> */}
-
       {/* Main text container */}
       <div className="landing-main-container">
         <div className="landing-main-text">
@@ -39,8 +32,7 @@ function RenderLandingPage(props) {
         <h3>
           {' '}
           We choose to navigate to Covid-19 landscape with innovation, and
-          launched the first-ever coding program for kids with a
-          BUY-ONE-GIVE-ONE CHARITABLE MODEL{' '}
+          launched the first-ever coding program for kids with a{' '}
         </h3>
         <h1>BUY-ONE-GIVE-ONE CHARITABLE MODEL </h1>
       </div>
@@ -68,7 +60,6 @@ function RenderLandingPage(props) {
           ></Button>
         </div>
       </div>
-      <p></p>
     </div>
   );
 }

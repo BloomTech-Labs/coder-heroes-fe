@@ -18,7 +18,7 @@ function RenderLandingPage(props) {
           <h1>Coding is a superpower.</h1>
           <h3>
             {' '}
-            Through a love of teachin g and technology, we empower youth to
+            Through a love of teaching and technology, we empower youth to
             change the world with their ideas.{' '}
           </h3>
         </div>
@@ -64,12 +64,10 @@ function RenderLandingPage(props) {
           </div>
           <Button
             classType="landing-second-container-btn"
-            className="landing-second-container-btn"
             buttonText="VISIT WEBSITE"
           ></Button>
         </div>
       </div>
-      <p></p>
     </div>
   );
 }

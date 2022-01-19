@@ -44,6 +44,10 @@ function InstructorSidebar() {
         </Menu.Item>
 
         <Menu.Item key="3" icon={<DesktopOutlined />}>
+          <a href="/news-feed">News Feed</a>
+        </Menu.Item>
+
+        <Menu.Item key="3" icon={<DesktopOutlined />}>
           <a href="/instructor-booking">Courses</a>
         </Menu.Item>
 

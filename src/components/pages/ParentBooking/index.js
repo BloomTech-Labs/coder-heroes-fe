@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
-import ParenBookingContainer from './ParentBookingContainer';
+import ParentBookingContainer from './ParentBookingContainer';
 
 function ParentBooking() {
   const { Content, Sider } = Layout;
@@ -25,7 +25,7 @@ function ParentBooking() {
       <Content>
         <Banner />
         <div>
-          <ParenBookingContainer />
+          <ParentBookingContainer />
         </div>
       </Content>
     </Layout>

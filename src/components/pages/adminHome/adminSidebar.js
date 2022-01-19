@@ -54,6 +54,15 @@ function AdminSidebar() {
           <a href="#">Analytics</a>
         </Menu.Item>
 
+        {/*should only appear if user is SuperAdmin*/}
+        {/*role not yet observable. Can set role:localStorage.setItem("role":"super_admin")*/}
+        {localStorage.getItem('role') === 'super_admin' && (
+          <Menu.Item key="5" icon={<UserOutlined />}>
+            <a href="#">Users(*SA*)</a>
+          </Menu.Item>
+        )}
+
+        {/*erase when above code is functional*/}
         <Menu.Item key="5" icon={<UserOutlined />}>
           <a href="#">Users(*SA*)</a>
         </Menu.Item>

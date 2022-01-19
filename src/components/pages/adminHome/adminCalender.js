@@ -70,7 +70,7 @@ const AdminCalender = props => {
     <>
       <section className="site-calendar-demo-card">
         <div>
-          <h1>Your Calendar</h1>
+          <h1>Calendar</h1>
 
           <Modal
             title="Selected Course"

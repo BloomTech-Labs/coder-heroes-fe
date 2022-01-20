@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-import { Layout } from 'antd';
+import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
-  const { Content, Sider } = Layout;
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
   return (
-    <Layout>
-      <Banner />
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={toggleCollapsed}
-        theme="light"
-      ></Sider>
+    <div className="family-page-container">
       <ParentSidebar />
-    </Layout>
+      <div className="family-page-content">
+        <Banner />
+        <div className="profile-card-container">
+          <div className="profile-details">
+            <h1>Profile</h1>
+            <h1>Username</h1>
+            <h1>Password</h1>
+          </div>
+          <div className="profile-data">
+            <div>_____</div>
+            <div>_____</div>
+            <div>_____</div>
+          </div>
+        </div>
+        <h1 className="students-section-title">Students</h1>
+        <div className="student-card-container">
+          <div className="student-details"></div>
+        </div>
+      </div>
+    </div>
   );
 };
 

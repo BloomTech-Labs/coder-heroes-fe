@@ -239,7 +239,6 @@ img {
 //****FamilyPage styles****
 .family-page-container {
   display: flex;
-  flex-direction: row;
 }
 
 .family-page-content {
@@ -248,8 +247,9 @@ img {
 }
 
 .students-section-title {
+  font-size: @h3;
   color: #fed636;
-  margin: 2em;
+  margin: 0.5em;
 }
 
 .profile-card-container {
@@ -259,27 +259,55 @@ img {
   border-radius: 15px;
   margin: 2em 0 0 2em;
   height: 5em;
-  width: 40em;
+  width: 80em;
 }
 
 .student-card-container {
   border: 1px solid black;
   border-radius: 15px;
   margin: 0 0 2em 2em;
-  height: 10em;
-  width: 40em;
+  height: 15em;
+  width: 80em;
 }
 
 .profile-details {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   margin: 1em 8em 0 1em;
 }
 
 .profile-data {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   margin: 0 11em 0 1em;
+}
+
+.between-profile-students {
+  display: flex;
+  margin-left: 1em;
+  justify-content: space-between;
+}
+
+.family-page-button {
+  margin: 2em;
+  padding: 0.5em 0 0.5em 0;
+  height: 3em;
+  width: 20em;
+  border-radius: 30px;
+  color: #ffffff;
+  background-color: #2e3646;
+  border: none;
+  box-shadow: 2px 2px 2px 2px #000000;
+}
+
+.student-card-name {
+  margin: 1em 0 0 1em;
+}
+
+.student-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1em 0 0 1em;
+  padding-right: 16em;
 }

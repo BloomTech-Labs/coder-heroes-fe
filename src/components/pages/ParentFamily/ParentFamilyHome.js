@@ -21,9 +21,26 @@ const ParentFamilyHome = () => {
             <div>_____</div>
           </div>
         </div>
-        <h1 className="students-section-title">Students</h1>
+        <div className="between-profile-students">
+          <h1 className="students-section-title">Students</h1>
+          <button className="family-page-button">Create New Student</button>
+        </div>
         <div className="student-card-container">
-          <div className="student-details"></div>
+          <h1 className="student-card-name">
+            <strong>Student Name: _____</strong>
+          </h1>
+          <div className="student-details">
+            <h1>Email Address: _____</h1>
+            <h1>Age: _____</h1>
+            <h1>Current Courses: _____</h1>
+            <h1> Past Courses: _____</h1>
+          </div>
+          <button className="family-page-button">
+            Current Courses Details
+          </button>
+          <button className="family-page-button">
+            Add/Change Prerequisites
+          </button>
         </div>
       </div>
     </div>

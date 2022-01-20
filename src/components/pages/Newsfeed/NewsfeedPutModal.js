@@ -18,7 +18,7 @@ const NewsfeedPutModal =()=>{
               [e.target.name]: e.target.value,
             });    
       };
-
+      console.log('git changes')
       const handleEdit =()=>{
         // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
         axios.put('Insertlinkhere',formValue)

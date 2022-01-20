@@ -37,10 +37,11 @@ const InstructorNewsfeed =()=>{
       };
     return(
         <div className='newsfeedForm_container'>
-            <div className='newsfeedForm_header'>
-            <h1>Create  New Post</h1><h2>x</h2>
-            </div>
-        <Form onFinish={handleSubmit}>
+                <div className='newsfeedForm_header'>
+                    <h1>Create  New Post</h1>
+                    <h2>x</h2>
+                </div>
+            <Form onFinish={handleSubmit}>
                 <div className='newsfeedForm_input_container'>
                     <Form.Item
                         name={['Post Title']}
@@ -52,17 +53,28 @@ const InstructorNewsfeed =()=>{
                         <Input name='link' onChange={handleChange}/>
                     </Form.Item>
                 </div>
-            <div className='newsfeedForm_inputfield'>
-            
-            <Form.Item name={['user', 'introduction']} label="Post Contents:"></Form.Item>
-            <Input.TextArea  name='description'  onChange={handleChange} className='newsfeedForm_inputfield_textarea' />
-            </div>
-            <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                <Button className='newsfeedForm_submit_button' type="primary" shape='round' htmlType="submit">
-                    Submit
-                </Button>
-            </Form.Item>
-        </Form>
+                <div className='newsfeedForm_inputfield'>
+                    <Form.Item 
+                        name={['Post Contents']} 
+                        label="Post Contents:"
+                    />
+                    <Input.TextArea  
+                        name='description'  
+                        onChange={handleChange} 
+                        className='newsfeedForm_inputfield_textarea' 
+                    />
+                </div>
+                <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+                    <Button 
+                        className='newsfeedForm_submit_button' 
+                        type="primary" 
+                        shape='round' 
+                        htmlType="submit"
+                    >
+                        Submit
+                    </Button>
+                </Form.Item>
+            </Form>
         </div>
     );
 };

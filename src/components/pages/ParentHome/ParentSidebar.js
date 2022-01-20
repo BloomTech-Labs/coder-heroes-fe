@@ -12,16 +12,15 @@ import {
   HeartFilled,
   ShoppingCartOutlined,
 } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
-const handleClick = e => {
-  return null;
-};
 
 const ParentSideBar = props => {
   const { cart } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -58,20 +57,21 @@ const ParentSideBar = props => {
         <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
-
         <Menu.Item key="courses" icon={<CalendarFilled fontSize="150px" />}>
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
-
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>
         </Menu.Item>
-
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
-        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
+        <Menu.Item 
+          key="logout" 
+          icon={<ExportOutlined fontSize="150px" />}
+          onClick={() => {authService.logout();}}
+        >
           <Link to="/landing">Logout</Link>
         </Menu.Item>
 
@@ -84,7 +84,6 @@ const ParentSideBar = props => {
     </Sider>
   );
 };
-
 const mapStateToProps = state => {
   return {
     cart: state.parentReducer.cart,

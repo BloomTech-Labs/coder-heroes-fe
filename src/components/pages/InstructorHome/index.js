@@ -4,7 +4,7 @@ import InstructorSidebar from './InstructorSidebar';
 import InstructorCalender from './InstructorCalender';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
-
+import InstructorNewsfeed from '../Newsfeed/InstructorNewsfeed'
 const { Content } = Layout;
 const InstructorHome = () => {
   return (
@@ -14,6 +14,7 @@ const InstructorHome = () => {
         <Content>
           <Banner />
           <div className="calendar" data-testid="calendar">
+      <InstructorNewsfeed/>
             <InstructorCalender />
           </div>
         </Content>

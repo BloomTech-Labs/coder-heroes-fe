@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import '../../../styles/InstructorStyles/index.less';
 
-const InstructorNewsfeed =()=>{
+const NewsfeedPostModal =()=>{
     let navigate = useHistory();
     const [formValue, setformValue] = useState({
         link: '',
@@ -79,4 +79,4 @@ const InstructorNewsfeed =()=>{
     );
 };
 
-export default InstructorNewsfeed;
+export default NewsfeedPostModal;

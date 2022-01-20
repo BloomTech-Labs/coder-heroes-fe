@@ -47,11 +47,11 @@ function InstructorSidebar() {
           <a href="/news-feed">News Feed</a>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<DesktopOutlined />}>
+        <Menu.Item key="4" icon={<DesktopOutlined />}>
           <a href="/instructor-booking">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<PlusOutlined />}>
+        <Menu.Item key="5" icon={<PlusOutlined />}>
           <a href="/instructor-add-course">Add Courses</a>
         </Menu.Item>
       </Menu>

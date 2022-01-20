@@ -19,29 +19,30 @@ const NewsfeedPutModal =()=>{
             });    
       };
 
-      const handleSubmit =()=>{
+      const handleEdit =()=>{
         // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
-        axios.post('Insertlinkhere',formValue)
+        axios.put('Insertlinkhere',formValue)
         .then(resp=>{
             navigate('/instructor');
         })
         .catch(err=>{console.log(err);});
       };
-    const layout = {
-        labelCol: {
-          span: 800,
-        },
-        wrapperCol: {
-          span: 10,
-        },
+      const handleDelete =()=>{
+        // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
+        axios.delete('Insertlinkhere',/* postid? */)
+        .then(resp=>{
+            navigate('/instructor');
+        })
+        .catch(err=>{console.log(err);});
       };
+   
     return(
         <div className='newsfeedForm_container'>
                 <div className='newsfeedForm_header'>
                     <h1>Create  New Post</h1>
                     <h2>x</h2>
                 </div>
-            <Form onFinish={handleSubmit}>
+            <Form>
                 <div className='newsfeedForm_input_container'>
                     <Form.Item
                         name={['Post Title']}
@@ -71,6 +72,7 @@ const NewsfeedPutModal =()=>{
                             type="primary" 
                             shape='round' 
                             htmlType="submit"
+                            onClick={handleEdit}
                         >
                             Save Changes
                         </Button>
@@ -79,6 +81,7 @@ const NewsfeedPutModal =()=>{
                             type="primary" 
                             shape='round' 
                             htmlType="submit"
+                            onClick={handleDelete}
                         >
                             Delete
                         </Button>

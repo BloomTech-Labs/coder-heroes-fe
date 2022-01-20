@@ -10,7 +10,7 @@ const ParentFamilyHome = () => {
       <div className="family-page-content">
         <Banner />
         <div className="profile-card-container">
-          <div className="profile-details">
+          <div className="profile-details-headers">
             <h1>Profile</h1>
             <h1>Username</h1>
             <h1>Password</h1>
@@ -30,17 +30,21 @@ const ParentFamilyHome = () => {
             <strong>Student Name: _____</strong>
           </h1>
           <div className="student-details">
-            <h1>Email Address: _____</h1>
-            <h1>Age: _____</h1>
-            <h1>Current Courses: _____</h1>
-            <h1> Past Courses: _____</h1>
+            <div className="student-details-sides">
+              <h1>Email Address: _____</h1>
+              <h1>Current Courses: _____</h1>
+              <button className="family-page-button">
+                Current Courses Details
+              </button>
+            </div>
+            <div className="student-details-sides">
+              <h1>Age: _____</h1>
+              <h1> Past Courses: _____</h1>
+              <button className="family-page-button">
+                Add/Change Prerequisites
+              </button>
+            </div>
           </div>
-          <button className="family-page-button">
-            Current Courses Details
-          </button>
-          <button className="family-page-button">
-            Add/Change Prerequisites
-          </button>
         </div>
       </div>
     </div>

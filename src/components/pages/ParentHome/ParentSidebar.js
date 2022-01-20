@@ -80,7 +80,7 @@ const ParentSideBar = props => {
             Cart <span>({cart.length})</span>
           </Link>
         </Menu.Item>
-        </Menu>
+      </Menu>
     </Sider>
   );
 };

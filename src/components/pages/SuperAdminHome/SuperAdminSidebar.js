@@ -54,11 +54,15 @@ function AdminSidebar() {
           <a href="#">Analytics</a>
         </Menu.Item>
 
-        <Menu.Item key="5" icon={<DesktopOutlined />}>
+        <Menu.Item key="5" icon={<UserOutlined />}>
+          <a href="#">Manage Users</a>
+        </Menu.Item>
+
+        <Menu.Item key="6" icon={<DesktopOutlined />}>
           <a href="#">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<PlusOutlined />}>
+        <Menu.Item key="7" icon={<PlusOutlined />}>
           <a href="#">Add Courses</a>
         </Menu.Item>
       </Menu>

@@ -4,7 +4,6 @@ import '../../../styles/InstructorStyles/index.less';
 import { connect } from 'react-redux';
 
 const CourseDetails = props => {
-  //state attached to instructor dummy data
   console.log(props);
   const { course } = props;
   return (

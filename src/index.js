@@ -10,6 +10,7 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
+import Header from './components/pages/Login/Header';
 
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -33,6 +34,7 @@ import InstructorApplyConfirm from './components/pages/InstructorBooking/Instruc
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import NavBar from './components/common/NavBar';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -62,6 +64,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <NavBar />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>

@@ -8,7 +8,6 @@ import Banner from '../../common/Banner';
 const { Content } = Layout;
 
 export default function NewsFeed() {
-  console.log('newsFeed is here');
   return (
     <div>
       <Layout>

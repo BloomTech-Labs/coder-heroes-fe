@@ -35,7 +35,6 @@ export default function News() {
     <div>
       {newsfeed.map(news => {
         const { title, link, description, time } = news;
-        console.log(link);
         return (
           <div>
             <a href={link}>

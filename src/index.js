@@ -28,6 +28,7 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import ParentBooking from './components/pages/ParentBooking';
+import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
@@ -40,6 +41,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
+        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>

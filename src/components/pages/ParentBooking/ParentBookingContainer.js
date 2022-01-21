@@ -9,7 +9,7 @@ import { isDateInThisWeek } from '../../common/dateHelpers';
 
 const tabs = [{ title: 'All' }, { title: 'Today' }, { title: 'This Week' }];
 
-const ParenBookingContainer = props => {
+const ParentBookingContainer = props => {
   const { TabPane } = Tabs;
   const { bookings, isFetching, error } = props.bookings;
   const [currentTab, SetcurrentTab] = useState(null);
@@ -73,4 +73,4 @@ const ParenBookingContainer = props => {
 
 const mapStateToProps = state => ({ bookings: state.parentReducer.bookings });
 
-export default connect(mapStateToProps)(ParenBookingContainer);
+export default connect(mapStateToProps)(ParentBookingContainer);

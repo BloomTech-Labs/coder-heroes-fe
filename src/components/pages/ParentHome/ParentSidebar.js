@@ -11,6 +11,7 @@ import {
   ExportOutlined,
   HeartFilled,
   ShoppingCartOutlined,
+  ReadOutlined,
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
@@ -67,16 +68,8 @@ const ParentSideBar = props => {
           <Link to="/family">Family</Link>
         </Menu.Item>
 
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
-          <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item key="logout" icon={<ExportOutlined fontSize="150px" />}>
-          <Link to="/logout">Logout</Link>
-        </Menu.Item>
-
-        <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
-          <Link to="/family">Family</Link>
+        <Menu.Item key="3" icon={<ReadOutlined />}>
+          <a href="/parent-news-feed">News Feed</a>
         </Menu.Item>
 
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>

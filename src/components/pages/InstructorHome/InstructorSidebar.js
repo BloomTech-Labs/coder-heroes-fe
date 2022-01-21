@@ -45,7 +45,7 @@ function InstructorSidebar() {
         </Menu.Item>
 
         <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/news-feed">News Feed</a>
+          <a href="/instructor-news-feed">News Feed</a>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<DesktopOutlined />}>

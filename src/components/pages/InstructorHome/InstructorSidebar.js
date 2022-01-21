@@ -7,7 +7,8 @@ import {
   HomeOutlined,
   ThunderboltOutlined,
   PlusOutlined,
-  ExportOutlined
+  ExportOutlined,
+  ReadOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
@@ -46,19 +47,26 @@ function InstructorSidebar() {
           <a href="/instructor">Dashboard</a>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<DesktopOutlined />}>
+        <Menu.Item key="3" icon={<ReadOutlined />}>
+          <a href="/news-feed">News Feed</a>
+        </Menu.Item>
+
+        <Menu.Item key="4" icon={<DesktopOutlined />}>
           <a href="/instructor-booking">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<PlusOutlined />}>
+        <Menu.Item key="5" icon={<PlusOutlined />}>
           <a href="/instructor-add-course">Add Courses</a>
         </Menu.Item>
 
-        <Menu.Item 
-          key="logout" 
-          onClick={() => {authService.logout();}} 
-          icon={<ExportOutlined fontSize="150px" />}>
-            <Link to="/landing">Logout</Link>
+        <Menu.Item
+          key="logout"
+          onClick={() => {
+            authService.logout();
+          }}
+          icon={<ExportOutlined fontSize="150px" />}
+        >
+          <Link to="/landing">Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
-import '../../../styles/InstructorStyles/index.less';
+import '../../../styles/index.less';
 import NewsContainer from './NewsContainer';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import Banner from '../../common/Banner';
@@ -9,7 +9,7 @@ const { Content } = Layout;
 
 export default function NewsFeed() {
   return (
-    <div>
+    <div className="news-feed-page">
       <Layout>
         <InstructorSidebar />
         <Content>

@@ -28,9 +28,11 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import ParentBooking from './components/pages/ParentBooking';
+import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
+import NewsFeed from './components/pages/NewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -41,6 +43,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
+        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>
@@ -75,6 +78,7 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
+
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -89,6 +93,8 @@ function App() {
             exact
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
+
+          <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`https://coder-heroes-api.herokuapp.com/parent/${id}/children`)
+      .then(res => {
+        const familyData = res.data;
+        console.log(familyData);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="family-page-container">
       <ParentSidebar />

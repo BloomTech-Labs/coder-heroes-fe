@@ -5,237 +5,446 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
 //****Banner styles (in components common folder)*****
-.dashboard-banner{
-    background-color: #006C72; 
-    padding: 10px 10px;
-    height: 19vh;
+.dashboard-banner {
+  background-color: #006c72;
+  padding: 10px 10px;
+  height: 19vh;
 }
-.banner-conent{
-    width: 40%;
-    padding-left: 3rem;
-    font-family: 'Ubuntu', sans-serif;
-        h1{
-            font-weight: bold;
-            font-size: @h3;
-            margin-bottom: 0;
-            color: #00cab7;
-        }
-        h2{
-            font-size: 1.5rem;
-            color: #fff;
-            font-weight: light;
-        }
-    }
-.banner-divs{
-    display:flex;
-    flex-direction: row;
-        div{
-            padding: 15px 20px 5px 20px;
-            position:relative;
-            margin-top:-30px;
-            margin-bottom: 20px;
-            left:40%;
-            transition: 0.5s
-        }
-        div:hover{
-            background-color: #f2f2f2;
-        }}
-
+.banner-conent {
+  width: 40%;
+  padding-left: 3rem;
+  font-family: 'Ubuntu', sans-serif;
+  h1 {
+    font-weight: bold;
+    font-size: @h3;
+    margin-bottom: 0;
+    color: #00cab7;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: light;
+  }
+}
+.banner-divs {
+  display: flex;
+  flex-direction: row;
+  div {
+    padding: 15px 20px 5px 20px;
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    left: 40%;
+    transition: 0.5s;
+  }
+  div:hover {
+    background-color: #f2f2f2;
+  }
+}
 
 //****ParentCalendar Styles****
-tbody td { 
-    border-left: 4px #006c72 solid !important;
+tbody td {
+  border-left: 4px #006c72 solid !important;
 }
 
-th { 
-    color: #006c72 !important;
-    font-weight: bold !important;
-    text-transform: uppercase;
-    text-align: center !important;
-    font-size: 1.2rem;
+th {
+  color: #006c72 !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  text-align: center !important;
+  font-size: 1.2rem;
 }
 
 .ant-picker-cell {
-    border-right: 4px #006c72 solid !important;
+  border-right: 4px #006c72 solid !important;
 }
 .ant-picker-cell-in-view .ant-picker-calendar-date-value {
-    color: #006c72;
-    font-weight: bold;
+  color: #006c72;
+  font-weight: bold;
 }
-.time{
-    font-size: 1rem;
+.time {
+  font-size: 1rem;
 }
-.capital{
-    text-transform: capitalize;
+.capital {
+  text-transform: capitalize;
 }
 .ant-picker-cell-inner {
-    border-right: 1px solid;
+  border-right: 1px solid;
 }
 
-.badge{
-    background-color: #daf4ff;
-    
+.badge {
+  background-color: #daf4ff;
 }
 .anticon-info-circle {
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 .badge span {
-    color: #4ccaff;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #4ccaff;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .ant-btn-round.ant-btn-icon-only {
-    width: 75%;
-    background-color: #4ccaff;
-    border: none;
-    font-weight: bold;
+  width: 75%;
+  background-color: #4ccaff;
+  border: none;
+  font-weight: bold;
 }
 svg {
-    font-weight: bold;
+  font-weight: bold;
 }
 button {
-    width: 75%;
+  width: 75%;
 }
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 .cell {
-    background-color: #daf4ff;
-    height: 5rem;
-    border-radius: 25%;
-    padding: 0.7rem;
-    text-align: center; 
+  background-color: #daf4ff;
+  height: 5rem;
+  border-radius: 25%;
+  padding: 0.7rem;
+  text-align: center;
 }
 .ulcell {
-    margin-bottom: 4px;
-    text-align: center;
-    width: 100%;
-
+  margin-bottom: 4px;
+  text-align: center;
+  width: 100%;
 }
-.fullButton{
-    margin-bottom: 4px;
-    width: 100%;
+.fullButton {
+  margin-bottom: 4px;
+  width: 100%;
 }
 .events {
-    background-color: #daf4ff;
-    border-radius: 25%;
-    overflow: unset;
-    margin-bottom: 0;
-
+  background-color: #daf4ff;
+  border-radius: 25%;
+  overflow: unset;
+  margin-bottom: 0;
 }
 
 .notes-month {
-    background-color: black;
+  background-color: black;
 }
 
-.bookingBtn{
-    border: solid black 2px;
-    border-radius: 3px;
-    width: 20%;
-    text-align: center;
-    padding-top: 8px;
-    margin-top: 10px;
+.bookingBtn {
+  border: solid black 2px;
+  border-radius: 3px;
+  width: 20%;
+  text-align: center;
+  padding-top: 8px;
+  margin-top: 10px;
 }
-
 
 //****AvailableCourses styles****
-.header{
-    width: 40%;
-    padding-left: 24px;
+.header {
+  width: 40%;
+  padding-left: 24px;
 }
 .flex {
-    display: flex;
-    width: 90%;
-    justify-content: flex-start;
-    flex-flow: row wrap;
+  display: flex;
+  width: 90%;
+  justify-content: flex-start;
+  flex-flow: row wrap;
 }
-.flex:hover{
-    box-shadow: 0px 0px;
+.flex:hover {
+  box-shadow: 0px 0px;
 }
-.flex h2{
-    font-weight: bold;
-    color:#929292;
+.flex h2 {
+  font-weight: bold;
+  color: #929292;
 }
-.flex p{
-    color:#929292;
+.flex p {
+  color: #929292;
 }
-.flex button{
-    background-color: #00cab7;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 2rem;
-    width: 35%;
-    padding: 0.4rem;
-    margin-right: 2rem;
-    box-shadow: 1px 3px 6px #7b7575;}
-.card{
-    margin-right: 1.5rem;
-    width: 48%;
-    margin-top: 1rem;
-    border-radius: 2rem;
+.flex button {
+  background-color: #00cab7;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  width: 35%;
+  padding: 0.4rem;
+  margin-right: 2rem;
+  box-shadow: 1px 3px 6px #7b7575;
 }
-.buttonWrapper{
-    display: flex;
-    flex-direction: row-reverse;
+.card {
+  margin-right: 1.5rem;
+  width: 48%;
+  margin-top: 1rem;
+  border-radius: 2rem;
 }
-
-.ant-card-head-title{
-    font-weight: bold;
-    text-transform: capitalize;
+.buttonWrapper {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-.left{
-    width: 50%
+.ant-card-head-title {
+  font-weight: bold;
+  text-transform: capitalize;
 }
-.right{
-    width: 50%;
-    text-align: center;
+
+.left {
+  width: 50%;
 }
-.card-container{
-    display: flex;
-    justify-content: flex-start;
-    flex-flow: row wrap;
-    margin-bottom: 1rem;
+.right {
+  width: 50%;
+  text-align: center;
 }
-img{
-    width: inherit;
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  margin-bottom: 1rem;
+}
+img {
+  width: inherit;
 }
 
 .ant-card-body {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-.ant-tabs-nav-wrap{
-    padding-left: 28px;
-
+.ant-tabs-nav-wrap {
+  padding-left: 28px;
 }
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: #00cab7;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #00cab7;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .ant-tabs-tab .ant-tabs-tab-active {
-    color: #00cab7;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #00cab7;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .ant-tabs-tab:hover {
-    color: #00cab7;
+  color: #00cab7;
 }
-.ant-tabs-tab{
-    color: #a3a9b9;
-font-weight: bold;
+.ant-tabs-tab {
+  color: #a3a9b9;
+  font-weight: bold;
 }
 .ant-tabs-tab .ant-tabs-tab-active {
-    color: #00cab7;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #00cab7;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .ant-tabs-tab:hover {
-    color: #00cab7;
+  color: #00cab7;
 }
-.ant-tabs-tab{
-    color: #a3a9b9;
-font-weight: bold;
+.ant-tabs-tab {
+  color: #a3a9b9;
+  font-weight: bold;
+}
+
+//****FamilyPage styles****
+.family-page-container {
+  display: flex;
+}
+
+.family-page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.students-section-title {
+  font-size: @h3;
+  color: #fed636;
+  margin: 0.5em;
+}
+
+.profile-card-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 2em 0 0 2em;
+  height: 5em;
+  width: 80em;
+}
+
+.student-card-container {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 0 0 2em 2em;
+  height: 15em;
+  width: 80em;
+}
+
+.profile-details-headers {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5em 9em 0 1em;
+}
+
+.profile-data {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 11em 1em 1em;
+}
+
+.between-profile-students {
+  display: flex;
+  margin-left: 1em;
+  justify-content: space-between;
+}
+
+.family-page-button {
+  margin: 2em 2em 2em 0;
+  padding: 0.5em 0 0.5em 0;
+  height: 3em;
+  width: 20em;
+  border-radius: 30px;
+  color: #ffffff;
+  background-color: #2e3646;
+  border: none;
+  box-shadow: 2px 2px 2px 2px #000000;
+}
+
+.student-card-name {
+  margin: 1em 0 0 1em;
+}
+
+.student-details {
+  display: flex;
+}
+
+.student-details-sides {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1em 0 0 1em;
+  padding-right: 16em;
+}
+
+// Landing page container ---------
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    height: 200vh;
+    width: 100vw;
+    background:skyblue;
+}
+
+// Landing main container
+.landing-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80vh;
+    // border: red solid 2px;
+}
+
+// Landing page main-text
+.landing-main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-main-container h1 {
+    font-size: 1.8rem;
+}
+
+.landing-main-container h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    text-align: center;
+    overflow-wrap: break-word;
+    inline-size: 600px;
+    margin: 2rem 0;
+    width: 30rem;
+}
+
+// Button styles
+.landing-button-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
+
+.btn {
+    cursor: pointer;
+    width: 11rem;
+    height: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+    background: #F26602;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn:hover {
+    filter: brightness(95%);
+    color: white;
+}
+
+
+// Landing second container
+.landing-second-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5rem;
+    // border: red solid 2px;
+}
+
+.landing-second-container-img {
+    height: 15rem;
+    width: 25rem;
+    margin-left: 0;
+}
+
+.landing-second-container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30rem;
+    width: 30rem;
+    margin-left: 25rem;
+}
+
+.landing-second-container-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-second-container-text h3 {
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+.landing-second-container-text h1 {
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.8rem;
+}
+
+.landing-second-container-text p {
+    color: whitesmoke;
+    font-size: 1rem;
+
+}
+
+.landing-second-container-btn {
+    width: 8rem;
+    height: 2.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+    background: #FBC740;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
 }

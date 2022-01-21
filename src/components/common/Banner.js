@@ -28,6 +28,8 @@ function Banner() {
     return bannerContent('Apply to Course', 'Select Courses');
   } else if (path === '/instructor-add-course') {
     return bannerContent('Build Your Own Program', '');
+  } else if (path === '/family') {
+    return bannerContent('Family', '');
   } else if (path === '/instuctor-news-feed' || path === '/parent-news-feed') {
     return bannerContent('News Feed');
   } else {

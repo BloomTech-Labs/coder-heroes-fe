@@ -35,6 +35,7 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsFeed from './components/pages/NewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -83,6 +84,7 @@ function App() {
             component={InstructorAddCourse}
           />
           <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}

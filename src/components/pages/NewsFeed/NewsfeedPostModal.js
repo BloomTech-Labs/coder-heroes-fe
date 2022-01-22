@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 
 const NewsfeedPostModal = () => {
-  let navigate = useHistory();
+  let history = useHistory();
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
@@ -18,17 +18,26 @@ const NewsfeedPostModal = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const token=JSON.parse(localStorage.getItem('okta-token-storage'));
 
+  const config = {
+    headers: { Authorization: `Bearer ${token.idToken.value}` }
+};
   const handleSubmit = () => {
     // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
+    // console.log(token.idToken.value);
+
     axios
-      .post('Insertlinkhere', formValue)
+      .post('https://coder-heroes-api.herokuapp.com/news', formValue,config)
       .then(resp => {
-        navigate('/instructor');
+        console.log(resp);
+        history.push('/');
       })
       .catch(err => {
         console.log(err);
       });
+
+
   };
   const layout = {
     labelCol: {

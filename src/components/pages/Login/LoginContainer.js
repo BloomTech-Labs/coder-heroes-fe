@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+import '../../../styles/signin.less';
 
 import { config } from '../../../utils/oktaConfig';
+import { isContainer } from 'plotly.js/lib/carpet';
+
+import Header from './Header.js';
 
 const LoginContainer = () => {
   useEffect(() => {
@@ -21,7 +25,7 @@ const LoginContainer = () => {
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
-          'primaryauth.title': 'Welcome to Labs Basic SPA Please sign in',
+          'primaryauth.title': 'WELCOME BACK',
           // change title for your app
         },
       },

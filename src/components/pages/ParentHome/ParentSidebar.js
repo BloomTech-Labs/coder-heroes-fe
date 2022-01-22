@@ -16,7 +16,6 @@ import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
-
 const ParentSideBar = props => {
   const { cart } = props;
   const [collapsed, setCollapsed] = useState(false);
@@ -67,10 +66,12 @@ const ParentSideBar = props => {
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
-        <Menu.Item 
-          key="logout" 
+        <Menu.Item
+          key="logout"
           icon={<ExportOutlined fontSize="150px" />}
-          onClick={() => {authService.logout();}}
+          onClick={() => {
+            authService.logout();
+          }}
         >
           <Link to="/landing">Logout</Link>
         </Menu.Item>

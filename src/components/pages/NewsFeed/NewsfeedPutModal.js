@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 
 const NewsfeedPutModal = () => {
-  const passedInNewsIdValue=6;
+  const passedInNewsIdValue=13;
   let history = useHistory();
   const [formValue, setformValue] = useState({
     link: '',
@@ -31,7 +31,8 @@ const NewsfeedPutModal = () => {
       .put(`https://coder-heroes-api.herokuapp.com/news/${passedInNewsIdValue}`, formValue, config)
       .then(resp => {
         console.log(resp);
-        history.push('/news-feed');
+        window.location.reload();
+        // history.push('/news-feed');
         //will need to add close form function or maybe even delete edit success msg
       })
       .catch(err => {
@@ -43,7 +44,9 @@ const NewsfeedPutModal = () => {
     axios
       .delete(`https://coder-heroes-api.herokuapp.com/news/${passedInNewsIdValue}`, config)
       .then(resp => {
-        history.push('/news-feed');
+        console.log(resp);
+        window.location.reload();
+        // history.push('/news-feed');
         //will need to add close form function or maybe even delete edit success msg
       })
       .catch(err => {

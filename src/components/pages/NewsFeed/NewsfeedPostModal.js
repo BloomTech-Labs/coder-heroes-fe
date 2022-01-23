@@ -29,7 +29,8 @@ const NewsfeedPostModal = () => {
       .post('https://coder-heroes-api.herokuapp.com/news', formValue,config)
       .then(resp => {
         console.log(resp);
-        history.push('/news-feed');
+        window.location.reload();
+        // history.push('/news-feed');
       })
       .catch(err => {
         console.log(err);

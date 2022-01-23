@@ -5,7 +5,8 @@ import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 
 const NewsfeedPutModal = () => {
-  let navigate = useHistory();
+  const passedInNewsIdValue=6;
+  let history = useHistory();
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
@@ -23,13 +24,15 @@ const NewsfeedPutModal = () => {
   const config = {
     headers: { Authorization: `Bearer ${token.idToken.value}` }
   };
-  
+
   const handleEdit = () => {
     // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
     axios
-      .put('Insertlinkhere', formValue)
+      .put(`https://coder-heroes-api.herokuapp.com/news/${passedInNewsIdValue}`, formValue, config)
       .then(resp => {
-        navigate('/instructor');
+        console.log(resp);
+        history.push('/news-feed');
+        //will need to add close form function or maybe even delete edit success msg
       })
       .catch(err => {
         console.log(err);
@@ -38,9 +41,10 @@ const NewsfeedPutModal = () => {
   const handleDelete = () => {
     // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
     axios
-      .delete('Insertlinkhere' /* postid? */)
+      .delete(`https://coder-heroes-api.herokuapp.com/news/${passedInNewsIdValue}`, config)
       .then(resp => {
-        navigate('/instructor');
+        history.push('/news-feed');
+        //will need to add close form function or maybe even delete edit success msg
       })
       .catch(err => {
         console.log(err);
@@ -50,7 +54,7 @@ const NewsfeedPutModal = () => {
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
-        <h1>Create New Post</h1>
+        <h1>Edit/Delete Post</h1>
         <h2>x</h2>
       </div>
       <Form>

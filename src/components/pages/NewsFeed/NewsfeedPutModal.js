@@ -19,6 +19,11 @@ const NewsfeedPutModal = () => {
     });
   };
 
+  const token=JSON.parse(localStorage.getItem('okta-token-storage'));
+  const config = {
+    headers: { Authorization: `Bearer ${token.idToken.value}` }
+  };
+  
   const handleEdit = () => {
     // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
     axios

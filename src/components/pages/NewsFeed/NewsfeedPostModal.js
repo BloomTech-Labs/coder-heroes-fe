@@ -18,15 +18,13 @@ const NewsfeedPostModal = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const token=JSON.parse(localStorage.getItem('okta-token-storage'));
 
+  const token=JSON.parse(localStorage.getItem('okta-token-storage'));
   const config = {
     headers: { Authorization: `Bearer ${token.idToken.value}` }
-};
-  const handleSubmit = () => {
-    // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
-    // console.log(token.idToken.value);
+  };
 
+  const handleSubmit = () => {
     axios
       .post('https://coder-heroes-api.herokuapp.com/news', formValue,config)
       .then(resp => {
@@ -39,14 +37,7 @@ const NewsfeedPostModal = () => {
 
 
   };
-  const layout = {
-    labelCol: {
-      span: 8,
-    },
-    wrapperCol: {
-      span: 10,
-    },
-  };
+  
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
@@ -70,7 +61,7 @@ const NewsfeedPostModal = () => {
             className="newsfeedForm_inputfield_textarea"
           />
         </div>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <div className="newsfeedForm_submit_button_container">
           <Button
             className="newsfeedForm_submit_button"
             type="primary"
@@ -79,7 +70,7 @@ const NewsfeedPostModal = () => {
           >
             Submit
           </Button>
-        </Form.Item>
+          </div>
       </Form>
     </div>
   );

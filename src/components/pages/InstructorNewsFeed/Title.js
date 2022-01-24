@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Title() {
+export default function Title({ setPostOptions }) {
   return (
     <div>
       <div className="news-feed-title-container-instructor">
@@ -8,7 +8,13 @@ export default function Title() {
           <h1>News Feed</h1>
         </div>
         <div id="create-news-button">
-          <button>Create Post</button>
+          <button
+            onClick={() => {
+              setPostOptions('createNewPost');
+            }}
+          >
+            Create Post
+          </button>
         </div>
       </div>
     </div>

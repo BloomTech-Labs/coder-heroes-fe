@@ -71,7 +71,7 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
-          <Route exact path="/landing" component={LandingPage} />
+          <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />

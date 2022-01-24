@@ -34,7 +34,7 @@ export default function InstructorNewsFeed() {
           <InstructorSidebar />
           <Content>
             <Banner />
-            <NewsfeedPutModal />
+            <NewsfeedPutModal setPostOptions={setPostOptions} />
           </Content>
         </Layout>
       </div>
@@ -46,7 +46,7 @@ export default function InstructorNewsFeed() {
           <InstructorSidebar />
           <Content>
             <Banner />
-            <NewsfeedPostModal />
+            <NewsfeedPostModal setPostOptions={setPostOptions} />
           </Content>
         </Layout>
       </div>

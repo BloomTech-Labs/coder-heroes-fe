@@ -10,7 +10,6 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
-import Header from './components/pages/Login/Header';
 
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';

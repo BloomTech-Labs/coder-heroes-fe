@@ -12,6 +12,8 @@ const { Content } = Layout;
 
 export default function InstructorNewsFeed() {
   const [postOptions, setPostOptions] = useState('newsFeed');
+  const [postID, setPostId] = useState(1);
+
   // newsFeed, editDelete, createNewPost
   console.log('changes state', postOptions);
   if (postOptions === 'newsFeed') {
@@ -22,7 +24,10 @@ export default function InstructorNewsFeed() {
           <Content>
             <Banner />
             <Title setPostOptions={setPostOptions} />
-            <NewsContainer setPostOptions={setPostOptions} />
+            <NewsContainer
+              setPostId={setPostId}
+              setPostOptions={setPostOptions}
+            />
           </Content>
         </Layout>
       </div>
@@ -34,7 +39,7 @@ export default function InstructorNewsFeed() {
           <InstructorSidebar />
           <Content>
             <Banner />
-            <NewsfeedPutModal setPostOptions={setPostOptions} />
+            <NewsfeedPutModal postID={postID} setPostOptions={setPostOptions} />
           </Content>
         </Layout>
       </div>

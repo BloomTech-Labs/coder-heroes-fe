@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
 
 export default function NewsfeedPutModal(props) {
-  const { setPostOptions, key } = props;
+  const { setPostOptions, postID } = props;
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
@@ -26,7 +26,7 @@ export default function NewsfeedPutModal(props) {
   const handleEdit = () => {
     axios
       .put(
-        `https://coder-heroes-api.herokuapp.com/news/${props.newsfeed_id}`,
+        `https://coder-heroes-api.herokuapp.com/news/${postID}`,
         formValue,
         config
       )
@@ -40,10 +40,7 @@ export default function NewsfeedPutModal(props) {
   };
   const handleDelete = () => {
     axios
-      .delete(
-        `https://coder-heroes-api.herokuapp.com/news/${props.newsfeed_id}`,
-        config
-      )
+      .delete(`https://coder-heroes-api.herokuapp.com/news/${postID}`, config)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -53,8 +50,7 @@ export default function NewsfeedPutModal(props) {
   };
 
   return (
-    <div key={key} className="newsfeedForm_container">
-      {console.log('thisaset', props)}
+    <div key={postID} className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Edit/Delete Post</h1>
         <h2

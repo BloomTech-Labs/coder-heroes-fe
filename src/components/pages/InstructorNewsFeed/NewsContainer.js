@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../../styles/index.less';
 
-export default function NewsContainer({ setPostOptions }) {
+export default function NewsContainer({ setPostId, setPostOptions }) {
   const [newsfeed, setNewsFeed] = useState([]);
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('okta-token-storage'));
@@ -35,6 +35,7 @@ export default function NewsContainer({ setPostOptions }) {
               <button
                 className="edit-button"
                 onClick={() => {
+                  setPostId(newsfeed_id);
                   setPostOptions('editDelete');
                 }}
               >

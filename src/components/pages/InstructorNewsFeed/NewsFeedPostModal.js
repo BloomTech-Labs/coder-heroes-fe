@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 
-const NewsfeedPostModal = () => {
-  let history = useHistory();
+const NewsfeedPostModal = ({ setPostOptions }) => {
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
@@ -29,8 +27,7 @@ const NewsfeedPostModal = () => {
       .post('https://coder-heroes-api.herokuapp.com/news', formValue, config)
       .then(resp => {
         console.log(resp);
-        // window.location.reload();
-        history.push('/news-feed');
+        setPostOptions('newsFeed');
       })
       .catch(err => {
         console.log(err);
@@ -41,7 +38,13 @@ const NewsfeedPostModal = () => {
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Create New Post</h1>
-        <h2>x</h2>
+        <h2
+          onClick={() => {
+            setPostOptions('newsFeed');
+          }}
+        >
+          x
+        </h2>
       </div>
       <Form onFinish={handleSubmit}>
         <div className="newsfeedForm_input_container">

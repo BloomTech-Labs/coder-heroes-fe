@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 
-const NewsfeedPutModal = props => {
-  const { setOpenModal, key, setNewsFeed } = props;
-  let history = useHistory();
-
+export default function NewsfeedPutModal(props) {
+  const { setPostOptions, key } = props;
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
@@ -35,9 +32,7 @@ const NewsfeedPutModal = props => {
       )
       .then(resp => {
         console.log(resp);
-        // window.location.reload();
-        history.push('/news-feed');
-        //will need to add close form function or maybe even delete edit success msg
+        setPostOptions('newsFeed');
       })
       .catch(err => {
         console.log(err);
@@ -50,10 +45,7 @@ const NewsfeedPutModal = props => {
         config
       )
       .then(resp => {
-        console.log(resp);
-        // window.location.reload();
-        history.push('/news-feed');
-        //will need to add close form function or maybe even delete edit success msg
+        setPostOptions('newsFeed');
       })
       .catch(err => {
         console.log(err);
@@ -67,7 +59,7 @@ const NewsfeedPutModal = props => {
         <h1>Edit/Delete Post</h1>
         <h2
           onClick={() => {
-            setOpenModal(false);
+            setPostOptions('newsFeed');
           }}
         >
           x
@@ -115,6 +107,4 @@ const NewsfeedPutModal = props => {
       </Form>
     </div>
   );
-};
-
-export default NewsfeedPutModal;
+}

@@ -4,6 +4,9 @@ Please include a summary of the change and which issue is fixed. Please also inc
 
 Fixes # (issue)
 
+## Loom Video
+
+Please paste a link here of a quick loom video walking through what you did in your PR .
 
 ## Type of change
 

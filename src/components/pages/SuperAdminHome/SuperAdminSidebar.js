@@ -1,23 +1,22 @@
 import { Menu } from 'antd';
 import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
-import { Link } from 'react-router-dom';
 import {
   DesktopOutlined,
   HomeOutlined,
   ThunderboltOutlined,
   PlusOutlined,
-  ExportOutlined,
-  ReadOutlined,
+  BellOutlined,
+  CalculatorOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
-function InstructorSidebar() {
+function AdminSidebar() {
   const [collapsed, setCollapsed] = useState(false);
-  const { authService } = useOktaAuth();
+
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -44,35 +43,31 @@ function InstructorSidebar() {
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/instructor">Dashboard</a>
+          <a href="#">Dashboard</a>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/news-feed">News Feed</a>
+        <Menu.Item key="3" icon={<BellOutlined />}>
+          <a href="#">Notifications</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<DesktopOutlined />}>
-          <a href="/instructor-booking">Courses</a>
+        <Menu.Item key="4" icon={<CalculatorOutlined />}>
+          <a href="#">Analytics</a>
         </Menu.Item>
 
-        <Menu.Item key="5" icon={<PlusOutlined />}>
-          <a href="/instructor-add-course">Add Courses</a>
+        <Menu.Item key="5" icon={<UserOutlined />}>
+          <a href="#">Manage Users</a>
         </Menu.Item>
 
-        <Menu.Item
-          key="logout"
-          onClick={() => {
-            authService.logout();
-          }}
-          icon={<ExportOutlined fontSize="150px" />}
-        >
+        <Menu.Item key="6" icon={<DesktopOutlined />}>
+          <a href="#">Courses</a>
+        </Menu.Item>
 
-          <Link>Logout</Link>
-
+        <Menu.Item key="7" icon={<PlusOutlined />}>
+          <a href="#">Add Courses</a>
         </Menu.Item>
       </Menu>
     </Sider>
   );
 }
 
-export default InstructorSidebar;
+export default AdminSidebar;

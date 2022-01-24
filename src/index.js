@@ -10,6 +10,7 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
+import Header from './components/pages/Login/Header';
 
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -28,11 +29,14 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import ParentBooking from './components/pages/ParentBooking';
+import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
+import NewsFeed from './components/pages/NewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -40,6 +44,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
+        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>
@@ -62,6 +67,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
+      <NavBar />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
@@ -74,11 +80,13 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
+
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
           <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
@@ -87,6 +95,8 @@ function App() {
             exact
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
+
+          <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

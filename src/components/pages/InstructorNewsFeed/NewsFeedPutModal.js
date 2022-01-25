@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
 
 export default function NewsfeedPutModal(props) {
   const { setPostOptions, postID } = props;
+  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+  const config = {
+    headers: { Authorization: `Bearer ${token.idToken.value}` },
+  };
   const [formValue, setformValue] = useState({
     link: '',
     description: '',
     title: '',
   });
-
+  
+  useEffect(()=>{
+    axios
+      .get(`https://coder-heroes-api.herokuapp.com/news/${postID}`, config)
+      .then(resp => {
+        setformValue({
+          ...formValue,
+          link:resp.data.link,
+          description:resp.data.description,
+          title: resp.data.title
+        });
+      })
+      .catch(err => {
+        console.log('error fetching newsfeed');
+      });
+  },[]);
   const handleChange = e => {
     setformValue({
       ...formValue,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
   };
 
   const handleEdit = () => {
@@ -31,7 +45,6 @@ export default function NewsfeedPutModal(props) {
         config
       )
       .then(resp => {
-        console.log(resp);
         setPostOptions('newsFeed');
       })
       .catch(err => {
@@ -63,19 +76,20 @@ export default function NewsfeedPutModal(props) {
       </div>
       <Form>
         <div className="newsfeedForm_input_container">
-          <Form.Item name={['Post Title']} label="Post Title:">
-            <Input name="title" onChange={handleChange} />
+          <Form.Item label="Post Title:">
+            <Input name="title" value={formValue.title} onChange={handleChange} />
           </Form.Item>
-          <Form.Item name={['link']} label="Author Name:">
-            <Input name="link" onChange={handleChange} />
+          <Form.Item  label="Link:">
+            <Input name="link" value={formValue.link} onChange={handleChange} />
           </Form.Item>
         </div>
         <div className="newsfeedForm_inputfield">
-          <Form.Item name={['Post Contents']} label="Post Contents:" />
+          <Form.Item  label="Post Contents:" />
           <Input.TextArea
             name="description"
             onChange={handleChange}
             className="newsfeedForm_inputfield_textarea"
+            value={formValue.description}
           />
         </div>
         <div className="newsfeedForm_editDeleteButton_container">

@@ -15,7 +15,6 @@ export default function InstructorNewsFeed() {
   const [postID, setPostId] = useState(1);
 
   // newsFeed, editDelete, createNewPost
-  console.log('changes state', postOptions);
   if (postOptions === 'newsFeed') {
     return (
       <div className="news-feed-page">

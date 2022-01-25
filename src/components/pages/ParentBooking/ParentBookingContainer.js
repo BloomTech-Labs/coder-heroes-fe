@@ -62,8 +62,8 @@ const ParentBookingContainer = props => {
               </Card.Grid>
             </TabPane>
           ))}
-          <TabPane tab="1:1 Sessions" key="3">
-            1:1 Sessions
+          <TabPane tab="My Courses" key="3">
+            My Courses
           </TabPane>
         </Tabs>
       )}

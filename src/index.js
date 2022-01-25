@@ -93,7 +93,7 @@ function App() {
             exact
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
-
+          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

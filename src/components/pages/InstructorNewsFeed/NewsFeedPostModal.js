@@ -51,7 +51,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
           <Form.Item name={['Post Title']} label="Post Title:">
             <Input name="title" onChange={handleChange} />
           </Form.Item>
-          <Form.Item name={['link']} label="Author Name:">
+          <Form.Item name={['link']} label="Link:">
             <Input name="link" onChange={handleChange} />
           </Form.Item>
         </div>

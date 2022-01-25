@@ -67,7 +67,7 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>

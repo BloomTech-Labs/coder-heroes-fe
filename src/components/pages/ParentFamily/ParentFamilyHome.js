@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
+import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
-  const { id } = useParams();
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/${id}/children`)
+      .get(`https://coder-heroes-api.herokuapp.com/parent/1/children`)
       .then(res => {
         const familyData = res.data;
-        console.log(familyData);
+        console.log('FAMILYDATA: ', familyData);
       })
       .catch(err => {
         console.log(err);
@@ -39,7 +40,12 @@ const ParentFamilyHome = () => {
         </div>
         <div className="between-profile-students">
           <h1 className="students-section-title">Students</h1>
-          <button className="family-page-button">Create New Student</button>
+          <button
+            className="family-page-button"
+            onClick={() => setModal(!modal)}
+          >
+            Create New Student
+          </button>
         </div>
         <div className="student-card-container">
           <h1 className="student-card-name">
@@ -62,6 +68,7 @@ const ParentFamilyHome = () => {
             </div>
           </div>
         </div>
+        {modal && <CreateNewStudent setModal={setModal} />}
       </div>
     </div>
   );

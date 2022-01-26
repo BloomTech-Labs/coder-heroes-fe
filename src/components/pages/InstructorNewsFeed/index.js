@@ -12,48 +12,33 @@ const { Content } = Layout;
 
 export default function InstructorNewsFeed() {
   const [postOptions, setPostOptions] = useState('newsFeed');
-  const [postID, setPostId] = useState(1);
-
-  // newsFeed, editDelete, createNewPost
-  if (postOptions === 'newsFeed') {
-    return (
-      <div className="news-feed-page">
-        <Layout>
-          <InstructorSidebar />
-          <Content>
-            <Banner />
-            <Title setPostOptions={setPostOptions} />
-            <NewsContainer
-              setPostId={setPostId}
-              setPostOptions={setPostOptions}
-            />
-          </Content>
-        </Layout>
-      </div>
-    );
-  } else if (postOptions === 'editDelete') {
-    return (
-      <div className="news-feed-page">
-        <Layout>
-          <InstructorSidebar />
-          <Content>
-            <Banner />
-            <NewsfeedPutModal postID={postID} setPostOptions={setPostOptions} />
-          </Content>
-        </Layout>
-      </div>
-    );
-  } else {
-    return (
-      <div className="news-feed-page">
-        <Layout>
-          <InstructorSidebar />
-          <Content>
-            <Banner />
-            <NewsfeedPostModal setPostOptions={setPostOptions} />
-          </Content>
-        </Layout>
-      </div>
-    );
-  }
+  const [postID, setPostId] = useState(0);
+  
+  return (
+    <div className="news-feed-page">
+      <Layout>
+        <InstructorSidebar />
+        <Content>
+          <Banner />
+          {/* depending on the postOptions state it will conditional render components newsFeed, editDelete, createNewPost*/}
+          {postOptions==='newsFeed'?
+            <div>
+              <Title setPostOptions={setPostOptions} />
+              <NewsContainer
+                setPostId={setPostId}
+                setPostOptions={setPostOptions}
+              />  
+            </div>:''}
+          {postOptions==='editDelete'?
+            <div>
+               <NewsfeedPutModal postID={postID} setPostOptions={setPostOptions} />
+            </div>:''}
+          {postOptions==='createNewPost'?
+            <div>
+               <NewsfeedPostModal setPostOptions={setPostOptions} />
+            </div>:''}
+        </Content>
+      </Layout>
+    </div>
+  );
 }

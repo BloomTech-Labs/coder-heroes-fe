@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import {connect} from 'react-redux';
 import '../../../styles/index.less';
-
-export default function NewsContainer({ setPostId, setPostOptions }) {
-  const [newsfeed, setNewsFeed] = useState([]);
+import {getNewsFeeds} from '../../../redux/actions/instructorActions';
+function NewsContainer(props) {
+  const { setPostId, setPostOptions, newsfeed,dispatch }=props;
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('okta-token-storage'));
     const config = {
       headers: { Authorization: `Bearer ${token.idToken.value}` },
     };
-    axios
-      .get('https://coder-heroes-api.herokuapp.com/news', config)
-      .then(resp => {
-        setNewsFeed(resp.data);
-      })
-      .catch(err => {
-        console.log('error fetching axios call');
-      });
-  }, []);
+    dispatch(getNewsFeeds(config));
+  }, [dispatch]);
+
   return (
     <div className="news-container">
       {newsfeed.map(news => {
@@ -25,7 +19,7 @@ export default function NewsContainer({ setPostId, setPostOptions }) {
         return (
           <div className="news-card" key={newsfeed_id}>
             <div className="title-container">
-              <h1>{title} </h1>
+              <h1>{title}</h1>
             </div>
             <div className="description">
               <h3>{description}</h3>
@@ -48,3 +42,7 @@ export default function NewsContainer({ setPostId, setPostOptions }) {
     </div>
   );
 }
+const mapStateToProps = state => {
+  return { newsfeed: state.instructorReducer.newsfeed };
+};
+export default connect(mapStateToProps)(NewsContainer);

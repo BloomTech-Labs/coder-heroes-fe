@@ -9,7 +9,7 @@ export default function NewsfeedPutModal(props) {
   const config = {
     headers: { Authorization: `Bearer ${token.idToken.value}` },
   };
-  const [formValue, setformValue] = useState({
+  const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
@@ -19,8 +19,8 @@ export default function NewsfeedPutModal(props) {
     axios
       .get(`https://coder-heroes-api.herokuapp.com/news/${postID}`, config)
       .then(resp => {
-        setformValue({
-          ...formValue,
+        setFormValues({
+          ...formValues,
           link:resp.data.link,
           description:resp.data.description,
           title: resp.data.title
@@ -31,8 +31,8 @@ export default function NewsfeedPutModal(props) {
       });
   },[]);
   const handleChange = e => {
-    setformValue({
-      ...formValue,
+    setFormValues({
+      ...formValues,
       [e.target.name]: e.target.value,
     });
   };
@@ -41,7 +41,7 @@ export default function NewsfeedPutModal(props) {
     axios
       .put(
         `https://coder-heroes-api.herokuapp.com/news/${postID}`,
-        formValue,
+        formValues,
         config
       )
       .then(resp => {
@@ -77,10 +77,10 @@ export default function NewsfeedPutModal(props) {
       <Form>
         <div className="newsfeedForm_input_container">
           <Form.Item label="Post Title:">
-            <Input name="title" value={formValue.title} onChange={handleChange} />
+            <Input name="title" value={formValues.title} onChange={handleChange} />
           </Form.Item>
           <Form.Item  label="Link:">
-            <Input name="link" value={formValue.link} onChange={handleChange} />
+            <Input name="link" value={formValues.link} onChange={handleChange} />
           </Form.Item>
         </div>
         <div className="newsfeedForm_inputfield">
@@ -89,7 +89,7 @@ export default function NewsfeedPutModal(props) {
             name="description"
             onChange={handleChange}
             className="newsfeedForm_inputfield_textarea"
-            value={formValue.description}
+            value={formValues.description}
           />
         </div>
         <div className="newsfeedForm_editDeleteButton_container">

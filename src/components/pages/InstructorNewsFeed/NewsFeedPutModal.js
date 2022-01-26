@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
-
+import { CloseOutlined } from '@ant-design/icons';
 export default function NewsfeedPutModal(props) {
   const { setPostOptions, postID } = props;
   const token = JSON.parse(localStorage.getItem('okta-token-storage'));
@@ -66,13 +66,10 @@ export default function NewsfeedPutModal(props) {
     <div key={postID} className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Edit/Delete Post</h1>
-        <h2
+        <CloseOutlined  
           onClick={() => {
             setPostOptions('newsFeed');
-          }}
-        >
-          x
-        </h2>
+          }}/>
       </div>
       <Form>
         <div className="newsfeedForm_input_container">

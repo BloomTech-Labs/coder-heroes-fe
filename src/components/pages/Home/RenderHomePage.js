@@ -14,6 +14,9 @@ function RenderHomePage(props) {
           <button>
             <Link to="/parent">Parent Dashboard</Link>
           </button>
+          <button>
+            <Link to="/admin">Admin Dashboard</Link>
+          </button>
         </div>
       </div>
     </div>

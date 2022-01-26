@@ -39,13 +39,13 @@ const ages = ['3-6', '7-10', '10-15'];
 
 const InstructorAddCourseCards = props => {
   const [classData, setClassData] = useState({
+    course_type_id: '',
     size: '',
     open_seats_remaining: '',
-    course_type_id: '',
     instructor_id: '',
-    start_time: '',
     start_date: '',
     end_date: '',
+    start_time: '',
     end_time: '',
     location: '',
   });
@@ -75,8 +75,8 @@ const InstructorAddCourseCards = props => {
           layout="horizontal"
           onChange={handleChange}
         >
-          <Form.Item label="Select">
-            <label htmlFor="subject">Subject: </label>
+          <Form.Item>
+            <label htmlFor="courseType">Course Type: </label>
             <Select
               onChange={value => {
                 setClassData({
@@ -90,20 +90,9 @@ const InstructorAddCourseCards = props => {
               ))}
             </Select>
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="other">Subject Not Listed? </label>
-            <Input value={classData.other} name="other" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="description">Description: </label>
-            <Input value={classData.description} name="description" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="prereq">Prerequisite: </label>
-            <Input value={classData.prerequisite} name="prerequisite" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="size">Class Size: </label>
+            <label htmlFor="classSize">Class Size: </label>
             <Select
               onChange={value => {
                 setClassData({
@@ -117,22 +106,8 @@ const InstructorAddCourseCards = props => {
               ))}
             </Select>
           </Form.Item>
-          <Form.Item>
-            <label htmlFor="age">Age Group: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  age: value,
-                });
-              }}
-            >
-              {ages.map(age => (
-                <Option value={age}>{age}</Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item>
+
+          {/* <Form.Item>
             <label htmlFor="sessions">Total Sessions: </label>
             <Select
               onChange={value => {
@@ -147,6 +122,7 @@ const InstructorAddCourseCards = props => {
               ))}
             </Select>
           </Form.Item>
+
           <Form.Item>
             <label htmlFor="duration">Course Duration: </label>
             <Select
@@ -161,9 +137,10 @@ const InstructorAddCourseCards = props => {
                 <Option value={duration}>{duration}</Option>
               ))}
             </Select>
-          </Form.Item>
+          </Form.Item> */}
+
           <Form.Item>
-            <label htmlFor="date">Preferred Date: </label>
+            <label htmlFor="startDate">Start Date: </label>
             <Select
               onChange={value => {
                 setClassData({
@@ -177,8 +154,14 @@ const InstructorAddCourseCards = props => {
               ))}
             </Select>
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="time">Preferred Time: </label>
+            <label htmlFor="endDate">End Date: </label>
+            <Input value={classData.end_date} name="end_date" />
+          </Form.Item>
+
+          <Form.Item>
+            <label htmlFor="startTime">Start Time: </label>
             <Select
               onChange={value => {
                 setClassData({
@@ -192,6 +175,17 @@ const InstructorAddCourseCards = props => {
               ))}
             </Select>
           </Form.Item>
+
+          <Form.Item>
+            <label htmlFor="endTime">End Time: </label>
+            <Input value={classData.end_time} name="end_time" />
+          </Form.Item>
+
+          <Form.Item>
+            <label htmlFor="location">Location: </label>
+            <Input value={classData.location} name="location" />
+          </Form.Item>
+
           {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button onClick={handleSubmit}>Submit!</button>

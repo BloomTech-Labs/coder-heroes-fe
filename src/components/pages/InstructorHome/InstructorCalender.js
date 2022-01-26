@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Calendar, Modal } from 'antd';
+import { Calendar, Modal, Badge, Button } from 'antd';
 import '../../../styles/index.less';
+import '../../../styles/InstructorStyles/calenderStyle.less';
 import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
 import { dateConverter } from '../../common/dateHelpers';
+
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const InstructorCalender = props => {
   const { instructor } = props;
@@ -46,7 +49,7 @@ const InstructorCalender = props => {
   function dateCellRender(value) {
     const listData = getListData(value);
     return (
-      <div>
+      <div className="calendar-card">
         <ul className="events">
           {listData.map(item => (
             <li
@@ -56,9 +59,26 @@ const InstructorCalender = props => {
                 showModal(item);
               }}
             >
-              {item.start_time}
-              <br />
-              <div className="subject">{item.subject}</div>
+              {/* {item.start_time} */}
+
+              {/* <div className="subject">{item.subject}</div>{' '} */}
+              {/* <div className=" info-button"></div> */}
+
+              <Badge
+                className="badge-capital"
+                status={'success'}
+                text={item.subject}
+              />
+              <Button
+                onClick={() => showModal(item)}
+                type="primary"
+                shape="round"
+                icon={<InfoCircleOutlined />}
+                size={'small'}
+              >
+                {' '}
+                details
+              </Button>
             </li>
           ))}
         </ul>
@@ -72,7 +92,7 @@ const InstructorCalender = props => {
         <div>
           <h1>Your Calendar</h1>
 
-          <Modal
+          <Modal //the pop up when i click on the course in the calender
             title="Selected Course"
             visible={isModalVisible}
             onOk={handleOk}

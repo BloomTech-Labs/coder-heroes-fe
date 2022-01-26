@@ -3,6 +3,22 @@ import { Card } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
+import axios from 'axios';
+// [POST]   | /course/ | Contains fields: `description`, `subject`, and  `prereq`. Returns the event object with the specified `subject`.
+// const handleClick = () => {
+
+//   axios.post('/course/', {
+//     description: 'Fred',
+//     subject: 'Flintstone'
+
+//   })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+// }
 
 const ParentBookingCard = props => {
   const {

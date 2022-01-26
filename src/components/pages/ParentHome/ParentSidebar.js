@@ -81,7 +81,7 @@ const ParentSideBar = props => {
             authService.logout();
           }}
         >
-          <Link to="/landing">Logout</Link>
+          <Link>Logout</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>

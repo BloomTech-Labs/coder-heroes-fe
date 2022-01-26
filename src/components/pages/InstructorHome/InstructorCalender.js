@@ -59,11 +59,6 @@ const InstructorCalender = props => {
                 showModal(item);
               }}
             >
-              {/* {item.start_time} */}
-
-              {/* <div className="subject">{item.subject}</div>{' '} */}
-              {/* <div className=" info-button"></div> */}
-
               <Badge
                 className="badge-capital"
                 status={'success'}

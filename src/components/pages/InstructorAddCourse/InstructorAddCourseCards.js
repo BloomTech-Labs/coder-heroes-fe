@@ -9,32 +9,17 @@ const { Option } = Select;
 
 //below are the options for "new program" details to map from in the return section
 const classSize = ['1', '2-5', '6-10', '10-15'];
-const durations = ['45 min', '60 min', '90 min'];
-const dates = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
-const times = [
-  '08:00:00',
-  '09:00:00',
-  '10:00:00',
-  '11:00:00',
-  '12:00:00',
-  '13:00:00',
-  '14:00:00',
-  '15:00:00',
-  '16:00:00',
-  '17:00:00',
-  '18:00:00',
-  '19:00:00',
-];
-const sessions = ['1', '2', '3', '4', '5', '6', '7', '8'];
-const ages = ['3-6', '7-10', '10-15'];
+// const durations = ['45 min', '60 min', '90 min'];
+// const ages = ['3-6', '7-10', '10-15'];
+// const dates = [
+//   'Monday',
+//   'Tuesday',
+//   'Wednesday',
+//   'Thursday',
+//   'Friday',
+//   'Saturday',
+//   'Sunday',
+// ];
 
 const InstructorAddCourseCards = props => {
   const [classData, setClassData] = useState({

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
+import { CloseOutlined } from '@ant-design/icons';
 
 const NewsfeedPostModal = ({ setPostOptions }) => {
   const [formValues, setFormValues] = useState({
@@ -37,13 +38,10 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Create New Post</h1>
-        <h2
+        <CloseOutlined  
           onClick={() => {
             setPostOptions('newsFeed');
-          }}
-        >
-          x
-        </h2>
+          }}/>
       </div>
       <Form onFinish={handleSubmit}>
         <div className="newsfeedForm_input_container">

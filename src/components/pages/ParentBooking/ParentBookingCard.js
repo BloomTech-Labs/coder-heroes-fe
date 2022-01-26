@@ -5,19 +5,6 @@ import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 import axios from 'axios';
 
-const handleClick = e => {
-  e.preventDefault();
-
-  axios
-    .post('/:id/enrollments')
-    .then(function(response) {
-      console.log(response);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-};
-
 const ParentBookingCard = props => {
   const {
     child_name,
@@ -67,7 +54,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
-        <Button buttonText="ADD" handleClick={handleClick()}></Button>
+        <Button buttonText="ADD"></Button>
       </Card>
     </div>
   );

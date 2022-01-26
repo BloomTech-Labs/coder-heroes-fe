@@ -67,7 +67,6 @@ const ParentSideBar = props => {
         <Menu.Item key="3" icon={<ReadOutlined />}>
           <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
-
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>

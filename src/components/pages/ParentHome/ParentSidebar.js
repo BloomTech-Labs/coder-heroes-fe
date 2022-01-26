@@ -64,7 +64,7 @@ const ParentSideBar = props => {
           <Link to="/family">Family</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/parent-news-feed">News Feed</a>
+          <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
 
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>

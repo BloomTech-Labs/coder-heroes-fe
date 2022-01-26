@@ -141,23 +141,12 @@ const InstructorAddCourseCards = props => {
 
           <Form.Item>
             <label htmlFor="startTime">Start Time: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  times: value,
-                });
-              }}
-            >
-              {times.map(time => (
-                <Option value={time}>{timeConverter(time)}</Option>
-              ))}
-            </Select>
+            <Input type="time" value={classData.start_time} name="start_time" />
           </Form.Item>
 
           <Form.Item>
             <label htmlFor="endTime">End Time: </label>
-            <Input value={classData.end_time} name="end_time" />
+            <Input type="time" value={classData.end_time} name="end_time" />
           </Form.Item>
 
           <Form.Item>

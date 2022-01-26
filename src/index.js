@@ -10,7 +10,6 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
-import Header from './components/pages/Login/Header';
 
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -67,7 +66,6 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      <NavBar />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
@@ -95,7 +93,7 @@ function App() {
             exact
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
-
+          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

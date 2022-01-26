@@ -39,16 +39,15 @@ const ages = ['3-6', '7-10', '10-15'];
 
 const InstructorAddCourseCards = props => {
   const [state, setState] = useState({
-    subject: '',
-    other: '',
-    description: '',
-    prerequisite: '',
-    classSize: '',
-    age: '',
-    session: '',
-    duration: '',
-    dates: '',
-    times: '',
+    size: '',
+    open_seats_remaining: '',
+    course_type_id: '',
+    instructor_id: '',
+    start_time: '',
+    start_date: '',
+    end_date: '',
+    end_time: '',
+    location: '',
   });
 
   const handleChange = e => {

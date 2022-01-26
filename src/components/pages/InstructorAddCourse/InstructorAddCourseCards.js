@@ -8,7 +8,6 @@ import { timeConverter } from '../../common/timeHelpers';
 const { Option } = Select;
 
 //below are the options for "new program" details to map from in the return section
-const subjects = ['Python', 'Java', 'C++', 'JavaScript'];
 const classSize = ['1', '2-5', '6-10', '10-15'];
 const durations = ['45 min', '60 min', '90 min'];
 const dates = [
@@ -77,17 +76,8 @@ const InstructorAddCourseCards = props => {
         >
           <Form.Item>
             <label htmlFor="courseType">Course Type: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  subject: value,
-                });
-              }}
-            >
-              {subjects.map(subject => (
-                <Option value={subject}>{subject}</Option>
-              ))}
+            <Select>
+              {/* make an api call to course-types endpoint to get the options for this field*/}
             </Select>
           </Form.Item>
 

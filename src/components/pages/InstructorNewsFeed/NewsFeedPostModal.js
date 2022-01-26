@@ -26,7 +26,6 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     axios
       .post('https://coder-heroes-api.herokuapp.com/news', formValue, config)
       .then(resp => {
-        console.log(resp);
         setPostOptions('newsFeed');
       })
       .catch(err => {

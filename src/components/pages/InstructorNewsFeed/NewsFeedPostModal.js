@@ -4,15 +4,15 @@ import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
 
 const NewsfeedPostModal = ({ setPostOptions }) => {
-  const [formValue, setformValue] = useState({
+  const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
   });
 
   const handleChange = e => {
-    setformValue({
-      ...formValue,
+    setFormValues({
+      ...formValues,
       [e.target.name]: e.target.value,
     });
   };
@@ -24,7 +24,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
 
   const handleSubmit = () => {
     axios
-      .post('https://coder-heroes-api.herokuapp.com/news', formValue, config)
+      .post('https://coder-heroes-api.herokuapp.com/news', formValues, config)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -47,15 +47,15 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
       </div>
       <Form onFinish={handleSubmit}>
         <div className="newsfeedForm_input_container">
-          <Form.Item name={['Post Title']} label="Post Title:">
+          <Form.Item label="Post Title:">
             <Input name="title" onChange={handleChange} />
           </Form.Item>
-          <Form.Item name={['link']} label="Link:">
+          <Form.Item label="Link:">
             <Input name="link" onChange={handleChange} />
           </Form.Item>
         </div>
         <div className="newsfeedForm_inputfield">
-          <Form.Item name={['Post Contents']} label="Post Contents:" />
+          <Form.Item label="Post Contents:" />
           <Input.TextArea
             name="description"
             onChange={handleChange}

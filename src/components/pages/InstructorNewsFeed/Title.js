@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function Title({ setPostOptions }) {
   return (
-    <div>
       <div className="news-feed-title-container-instructor">
         <div id="news-feed-title">
           <h1>News Feed</h1>
@@ -17,6 +16,5 @@ export default function Title({ setPostOptions }) {
           </button>
         </div>
       </div>
-    </div>
   );
 }

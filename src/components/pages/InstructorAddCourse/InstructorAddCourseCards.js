@@ -75,7 +75,7 @@ const InstructorAddCourseCards = props => {
           layout="horizontal"
           onChange={handleChange}
         >
-          <Form.Item lable="Select">
+          <Form.Item label="Select">
             <label htmlFor="subject">Subject: </label>
             <Select
               onChange={value => {
@@ -89,7 +89,6 @@ const InstructorAddCourseCards = props => {
                 <Option value={subject}>{subject}</Option>
               ))}
             </Select>
-            {/* {state.subject === "Other" && <input type="text" />} */}
           </Form.Item>
           <Form.Item>
             <label htmlFor="other">Subject Not Listed? </label>

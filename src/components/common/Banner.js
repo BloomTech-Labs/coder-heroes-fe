@@ -30,6 +30,8 @@ function Banner() {
     return bannerContent('Build Your Own Program', '');
   } else if (path === '/family') {
     return bannerContent('Family', '');
+  } else if (path === '/news-feed') {
+    return bannerContent('News Feed');
   } else {
     return bannerContent('Dashboard', 'Welcome back!');
   }

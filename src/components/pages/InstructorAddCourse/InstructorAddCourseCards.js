@@ -38,7 +38,7 @@ const sessions = ['1', '2', '3', '4', '5', '6', '7', '8'];
 const ages = ['3-6', '7-10', '10-15'];
 
 const InstructorAddCourseCards = props => {
-  const [state, setState] = useState({
+  const [classData, setClassData] = useState({
     size: '',
     open_seats_remaining: '',
     course_type_id: '',
@@ -51,15 +51,15 @@ const InstructorAddCourseCards = props => {
   });
 
   const handleChange = e => {
-    setState({
-      ...state,
+    setClassData({
+      ...classData,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.addProgram(state);
+    props.addProgram(classData);
   };
 
   return (
@@ -79,8 +79,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="subject">Subject: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   subject: value,
                 });
               }}
@@ -92,22 +92,22 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
           <Form.Item>
             <label htmlFor="other">Subject Not Listed? </label>
-            <Input value={state.other} name="other" />
+            <Input value={classData.other} name="other" />
           </Form.Item>
           <Form.Item>
             <label htmlFor="description">Description: </label>
-            <Input value={state.description} name="description" />
+            <Input value={classData.description} name="description" />
           </Form.Item>
           <Form.Item>
             <label htmlFor="prereq">Prerequisite: </label>
-            <Input value={state.prerequisite} name="prerequisite" />
+            <Input value={classData.prerequisite} name="prerequisite" />
           </Form.Item>
           <Form.Item>
             <label htmlFor="size">Class Size: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   classSize: value,
                 });
               }}
@@ -121,8 +121,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="age">Age Group: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   age: value,
                 });
               }}
@@ -136,8 +136,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="sessions">Total Sessions: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   session: value,
                 });
               }}
@@ -151,8 +151,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="duration">Course Duration: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   duration: value,
                 });
               }}
@@ -166,8 +166,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="date">Preferred Date: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   dates: value,
                 });
               }}
@@ -181,8 +181,8 @@ const InstructorAddCourseCards = props => {
             <label htmlFor="time">Preferred Time: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
+                setClassData({
+                  ...classData,
                   times: value,
                 });
               }}

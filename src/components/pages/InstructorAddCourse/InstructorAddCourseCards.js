@@ -131,23 +131,12 @@ const InstructorAddCourseCards = props => {
 
           <Form.Item>
             <label htmlFor="startDate">Start Date: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  dates: value,
-                });
-              }}
-            >
-              {dates.map(date => (
-                <Option value={date}>{date}</Option>
-              ))}
-            </Select>
+            <Input type="date" value={classData.start_date} name="start_date" />
           </Form.Item>
 
           <Form.Item>
             <label htmlFor="endDate">End Date: </label>
-            <Input value={classData.end_date} name="end_date" />
+            <Input type="date" value={classData.end_date} name="end_date" />
           </Form.Item>
 
           <Form.Item>

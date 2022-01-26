@@ -3,7 +3,6 @@ import { addProgram, setError } from '../../../redux/actions/instructorActions';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Select, Input, Form } from 'antd';
-import { timeConverter } from '../../common/timeHelpers';
 
 const { Option } = Select;
 
@@ -154,7 +153,7 @@ const mapStateToProps = state => {
     errorMessage: state.errorMessage,
   };
 };
-//export default InstructorAddCourseCards
+
 export default connect(mapStateToProps, { addProgram, setError })(
   InstructorAddCourseCards
 );

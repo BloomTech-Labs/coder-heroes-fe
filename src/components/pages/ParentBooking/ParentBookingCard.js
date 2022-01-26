@@ -4,21 +4,19 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 import axios from 'axios';
-// [POST]   | /course/ | Contains fields: `description`, `subject`, and  `prereq`. Returns the event object with the specified `subject`.
-// const handleClick = () => {
 
-//   axios.post('/course/', {
-//     description: 'Fred',
-//     subject: 'Flintstone'
+const handleClick = e => {
+  e.preventDefault();
 
-//   })
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-// }
+  axios
+    .post('/:id/enrollments')
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
 const ParentBookingCard = props => {
   const {
@@ -69,7 +67,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
-        <Button buttonText="ADD"></Button>
+        <Button buttonText="ADD" handleClick={handleClick()}></Button>
       </Card>
     </div>
   );

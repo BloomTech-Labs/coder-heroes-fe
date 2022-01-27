@@ -286,6 +286,7 @@ img {
   display: flex;
   margin-left: 1em;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .family-page-button {
@@ -298,6 +299,7 @@ img {
   background-color: #2e3646;
   border: none;
   box-shadow: 2px 2px 2px 2px #000000;
+  cursor: pointer;
 }
 
 .student-card-name {
@@ -318,133 +320,166 @@ img {
 
 // Landing page container ---------
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    height: 200vh;
-    width: 100vw;
-    background:skyblue;
+  display: flex;
+  flex-direction: column;
+  height: 200vh;
+  width: 100vw;
+  background: skyblue;
 }
 
 // Landing main container
 .landing-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    height: 80vh;
-    // border: red solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80vh;
+  // border: red solid 2px;
 }
 
 // Landing page main-text
 .landing-main-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-main-container h1 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .landing-main-container h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 1rem;
-    text-align: center;
-    overflow-wrap: break-word;
-    inline-size: 600px;
-    margin: 2rem 0;
-    width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  inline-size: 600px;
+  margin: 2rem 0;
+  width: 30rem;
 }
 
 // Button styles
 .landing-button-container {
-    display: flex;
-    flex-direction: row;
-    margin-left: 25rem;
-    margin-right: 25rem;
+  display: flex;
+  flex-direction: row;
+  margin-left: 25rem;
+  margin-right: 25rem;
 }
 
 .btn {
-    cursor: pointer;
-    width: 11rem;
-    height: 3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
-    background: #F26602;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
+  cursor: pointer;
+  width: 11rem;
+  height: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+  background: #f26602;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .btn:hover {
-    filter: brightness(95%);
-    color: white;
+  filter: brightness(95%);
+  color: white;
 }
-
 
 // Landing second container
 .landing-second-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 5rem;
-    // border: red solid 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5rem;
+  // border: red solid 2px;
 }
 
 .landing-second-container-img {
-    height: 15rem;
-    width: 25rem;
-    margin-left: 0;
+  height: 15rem;
+  width: 25rem;
+  margin-left: 0;
 }
 
 .landing-second-container-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 30rem;
-    width: 30rem;
-    margin-left: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30rem;
+  width: 30rem;
+  margin-left: 25rem;
 }
 
 .landing-second-container-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .landing-second-container-text h3 {
-    color: whitesmoke;
-    font-weight: bolder;
-    font-size: 1.1rem;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 1.1rem;
 }
 
 .landing-second-container-text h1 {
-    color: whitesmoke;
-    font-weight: bolder;
-    font-size: 1.8rem;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 1.8rem;
 }
 
 .landing-second-container-text p {
-    color: whitesmoke;
-    font-size: 1rem;
-
+  color: whitesmoke;
+  font-size: 1rem;
 }
 
 .landing-second-container-btn {
-    width: 8rem;
-    height: 2.3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
-    background: #FBC740;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
+  width: 8rem;
+  height: 2.3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+  background: #fbc740;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+}
+.create-new-student-modal {
+  position: absolute;
+  border: 1px solid black;
+  background: #ffffff;
+  height: 35em;
+  width: 30em;
+  margin: 5em 10em 10em 10em;
+  top: 5em;
+  left: 40%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.create-new-student-title {
+  margin: 1em;
+}
+
+.exit {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  margin: -2em 0 0 18em;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+}
+
+.create-new-student-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
 }

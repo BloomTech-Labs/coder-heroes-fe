@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
+import { CloseOutlined } from '@ant-design/icons';
 
 const CreateNewStudent = props => {
   // const [checked, setChecked] = useState([]);
@@ -21,9 +22,7 @@ const CreateNewStudent = props => {
   return (
     <div className="create-new-student-modal">
       <h2 className="create-new-student-title">Create New Student</h2>
-      <div className="exit" onClick={() => props.setModal(false)}>
-        X
-      </div>
+      <CloseOutlined className="exit" onClick={() => props.setModal(false)} />
       <form className="create-new-student-form">
         <label>
           Student Name:

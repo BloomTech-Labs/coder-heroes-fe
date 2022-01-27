@@ -19,7 +19,7 @@ function RenderLandingPage(props) {
           className="cloudbg"
           style={{ backgroundImage: `url(${background})` }}
         >
-          <img src={logo} />
+          <img src={logo} alt="CoderHeroes Text in Turquoise" />
           <div className="landing-main-text">
             <h1>Coding is a superpower.</h1>
             <h3>
@@ -56,8 +56,16 @@ function RenderLandingPage(props) {
 
       {/* Second text container */}
       <div className="landing-second-container">
-        <img className="landing-second-container-orange" src={ocloud} />
-        <img className="class" src={students} />
+        <img
+          className="landing-second-container-orange"
+          src={ocloud}
+          alt="Orange Cloud"
+        />
+        <img
+          className="class"
+          src={students}
+          alt="class full of smiling students"
+        />
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
             <h3>GIVE BACK TO THE COMMUNITY.</h3>
@@ -79,7 +87,11 @@ function RenderLandingPage(props) {
       </div>
       {/* Third text container */}
       <div className="landing-third-container">
-        <img className="landing-third-container-green" src={gcloud} />
+        <img
+          className="landing-third-container-green"
+          src={gcloud}
+          alt="Green Cloud"
+        />
         <div className="landing-third-container-text">
           <div className="description">
             <p>
@@ -101,7 +113,11 @@ function RenderLandingPage(props) {
           </div>
         </div>
 
-        <img className="landing-third-container-pic" src={profile} />
+        <img
+          className="landing-third-container-pic"
+          src={profile}
+          alt="Brianne Smiling"
+        />
       </div>
     </div>
   );

@@ -4,15 +4,14 @@ import axios from 'axios';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
+
 export default function NewsfeedPutModal(props) {
   const { authState } = useOktaAuth();
-  console.log('this is auth state',authState);
   const { setPostOptions, postID } = props;
-  const token = authState.idToken;
-  console.log(typeof token);
-  // const config = {
-  //   headers: { Authorization: `Bearer ${token.idToken.value}` },
-  // };
+  const token = {
+    headers: getAuthHeader(authState),
+  };
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',

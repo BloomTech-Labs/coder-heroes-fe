@@ -18,16 +18,16 @@ const days = [
 
 const initialClassDataState = {
   course_type_id: '',
+  day: '', //needs to be added to backend
   size: '',
-  day: '',
-  open_seats_remaining: '',
-  instructor_id: '',
-  start_date: '',
-  end_date: '',
   start_time: '',
   end_time: '',
+  start_date: '',
+  end_date: '',
+  sessions: '', //needs to be added to backend
   location: '',
-  sessions: '',
+  open_seats_remaining: '',
+  instructor_id: '',
 };
 
 const InstructorAddCourseCards = props => {
@@ -38,7 +38,6 @@ const InstructorAddCourseCards = props => {
       ...classData,
       [e.target.name]: e.target.value,
     });
-    console.log(classData);
   };
 
   const handleSubmit = e => {
@@ -46,6 +45,7 @@ const InstructorAddCourseCards = props => {
     setClassData({
       ...classData,
       open_seats_remaining: classData.size,
+      instructor_id: 1, //change to id of current logged in instructor once we connect redux
     });
     props.addProgram(classData);
     setClassData(initialClassDataState);
@@ -67,7 +67,7 @@ const InstructorAddCourseCards = props => {
           <Form.Item>
             <label htmlFor="courseType">Course Type: </label>
             <Select>
-              {/* make an api call to course-types endpoint to get the options for this field*/}
+              {/* we need to create an endpoint with an instructor's approved courses for this */}
             </Select>
           </Form.Item>
 
@@ -93,13 +93,13 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="sessions">Total Sessions: </label>
-            <Input
-              type="number"
-              value={classData.sessions}
-              name="sessions"
-              min="1"
-            />
+            <label htmlFor="startTime">Start Time: </label>
+            <Input type="time" value={classData.start_time} name="start_time" />
+          </Form.Item>
+
+          <Form.Item>
+            <label htmlFor="endTime">End Time: </label>
+            <Input type="time" value={classData.end_time} name="end_time" />
           </Form.Item>
 
           <Form.Item>
@@ -113,19 +113,20 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="startTime">Start Time: </label>
-            <Input type="time" value={classData.start_time} name="start_time" />
+            <label htmlFor="sessions">Total Sessions: </label>
+            <Input
+              type="number"
+              value={classData.sessions}
+              name="sessions"
+              min="1"
+            />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="endTime">End Time: </label>
-            <Input type="time" value={classData.end_time} name="end_time" />
-          </Form.Item>
-
-          <Form.Item>
-            <label htmlFor="location">Location: </label>
+            <label htmlFor="classLink">Class Zoom Link: </label>
             <Input value={classData.location} name="location" />
           </Form.Item>
+          {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}
 
           {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>

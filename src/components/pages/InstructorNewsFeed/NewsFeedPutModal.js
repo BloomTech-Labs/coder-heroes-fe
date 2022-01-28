@@ -27,7 +27,7 @@ export default function NewsfeedPutModal(props) {
         });
       })
       .catch(err => {
-        console.log('error fetching newsfeed');
+        console.error(err);
       });
   },[]);
   const handleChange = e => {

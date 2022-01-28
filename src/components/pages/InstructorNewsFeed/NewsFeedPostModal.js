@@ -30,7 +30,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
         setPostOptions('newsFeed');
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   };
 

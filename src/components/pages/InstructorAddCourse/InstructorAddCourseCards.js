@@ -79,7 +79,7 @@ const InstructorAddCourseCards = props => {
               onChange={value => {
                 setClassData({
                   ...classData,
-                  days: value,
+                  day: value,
                 });
               }}
             >

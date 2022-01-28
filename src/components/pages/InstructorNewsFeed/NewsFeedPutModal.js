@@ -3,11 +3,14 @@ import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
+
 export default function NewsfeedPutModal(props) {
+  const { authState } = useOktaAuth();
   const { setPostOptions, postID } = props;
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
+  const token = {
+    headers: getAuthHeader(authState),
   };
   const [formValues, setFormValues] = useState({
     link: '',
@@ -17,7 +20,7 @@ export default function NewsfeedPutModal(props) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URI}/news/${postID}`, config)
+      .get(`${process.env.REACT_APP_API_URI}/news/${postID}`, token)
       .then(resp => {
         setFormValues({
           ...formValues,
@@ -39,7 +42,7 @@ export default function NewsfeedPutModal(props) {
 
   const handleEdit = () => {
     axios
-      .put(`${process.env.REACT_APP_API_URI}news/${postID}`, formValues, config)
+      .put(`${process.env.REACT_APP_API_URI}news/${postID}`, formValues, token)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -49,7 +52,7 @@ export default function NewsfeedPutModal(props) {
   };
   const handleDelete = () => {
     axios
-      .delete(`${process.env.REACT_APP_API_URI}news/${postID}`, config)
+      .delete(`${process.env.REACT_APP_API_URI}news/${postID}`, token)
       .then(resp => {
         setPostOptions('newsFeed');
       })

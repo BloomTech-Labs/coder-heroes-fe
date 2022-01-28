@@ -1,8 +1,8 @@
 import React from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table } from 'antd';
 import '../../../styles/ParentStyles/index.less';
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 
 const data = [
   {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
@@ -22,7 +21,6 @@ const ParentFamilyHome = () => {
       .then(res => {
         const familyData = res.data;
         setStudentInfo(familyData);
-        console.log(res.data);
       })
       .catch(err => {
         console.log(`error fetching axios call`);

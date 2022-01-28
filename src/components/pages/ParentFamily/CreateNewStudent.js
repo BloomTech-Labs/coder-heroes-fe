@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
 
@@ -12,7 +11,6 @@ const CreateNewStudent = props => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(newStudentInfo);
 
   return (
     <div className="create-new-student-modal">

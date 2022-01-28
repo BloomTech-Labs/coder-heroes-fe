@@ -106,10 +106,10 @@ export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = (config) =>dispatch => {
+export const getNewsFeeds = (token) =>dispatch => {
   try {
     axios.get(
-      'https://coder-heroes-api.herokuapp.com/news', config
+      'https://coder-heroes-api.herokuapp.com/news', token
     )
     .then(resp=>{
       dispatch({

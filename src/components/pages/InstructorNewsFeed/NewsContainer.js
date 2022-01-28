@@ -3,14 +3,16 @@ import {connect} from 'react-redux';
 import '../../../styles/index.less';
 import {getNewsFeeds} from '../../../redux/actions/instructorActions';
 import IndividualNews from './IndividualNews';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
 function NewsContainer(props) {
   const { setPostId, setPostOptions, newsfeed, dispatch }=props;
+  const { authState } = useOktaAuth();
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-    const config = {
-      headers: { Authorization: `Bearer ${token.idToken.value}` },
+    const token = {
+      headers: getAuthHeader(authState),
     };
-    dispatch(getNewsFeeds(config));
+    dispatch(getNewsFeeds(token));
   }, [dispatch]);
 
   return (

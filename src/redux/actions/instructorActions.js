@@ -106,10 +106,10 @@ export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = config => dispatch => {
+export const getNewsFeeds = token => dispatch => {
   try {
     axios
-      .get(`${process.env.REACT_APP_API_URI}/news`, config)
+      .get(`${process.env.REACT_APP_API_URI}/news`, token)
       .then(resp => {
         dispatch({
           type: GET_NEWSFEEDS,

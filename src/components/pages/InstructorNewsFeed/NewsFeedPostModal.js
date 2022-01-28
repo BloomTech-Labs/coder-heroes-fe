@@ -3,8 +3,14 @@ import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import '../../../styles/InstructorStyles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
 
 const NewsfeedPostModal = ({ setPostOptions }) => {
+  const { authState } = useOktaAuth();
+  const token = {
+    headers: getAuthHeader(authState)
+  };
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',
@@ -18,14 +24,9 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     });
   };
 
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
-  };
-
   const handleSubmit = () => {
     axios
-      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, config)
+      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, token)
       .then(resp => {
         setPostOptions('newsFeed');
       })

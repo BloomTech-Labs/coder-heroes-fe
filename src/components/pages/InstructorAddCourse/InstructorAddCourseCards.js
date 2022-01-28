@@ -20,6 +20,8 @@ const initialClassDataState = {
   course_type_id: '',
   day: '', //needs to be added to backend
   size: '',
+  min_age: '', //needs to be added to backend
+  max_age: '', //needs to be added to backend
   start_time: '',
   end_time: '',
   start_date: '',
@@ -65,14 +67,14 @@ const InstructorAddCourseCards = props => {
           onChange={handleChange}
         >
           <Form.Item>
-            <label htmlFor="courseType">Course Type: </label>
+            <label for="courseType">Course Type: </label>
             <Select>
               {/* we need to create an endpoint with an instructor's approved courses for this */}
             </Select>
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="day">Day: </label>
+            <label for="day">Day: </label>
             <Select
               onChange={value => {
                 setClassData({
@@ -88,32 +90,54 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="classSize">Class Size: </label>
+            <label for="classSize">Class Size: </label>
             <Input type="number" value={classData.size} name="size" min="1" />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="startTime">Start Time: </label>
+            <label for="minAge">Minimum Student Age: </label>
+            <Input
+              type="number"
+              value={classData.min_age}
+              name="min_age"
+              min="4"
+              max="100"
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <label for="maxAge">Maximum Student Age: </label>
+            <Input
+              type="number"
+              value={classData.max_age}
+              name="max_age"
+              min="4"
+              max="100"
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <label for="startTime">Start Time: </label>
             <Input type="time" value={classData.start_time} name="start_time" />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="endTime">End Time: </label>
+            <label for="endTime">End Time: </label>
             <Input type="time" value={classData.end_time} name="end_time" />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="startDate">Start Date: </label>
+            <label for="startDate">Start Date: </label>
             <Input type="date" value={classData.start_date} name="start_date" />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="endDate">End Date: </label>
+            <label for="endDate">End Date: </label>
             <Input type="date" value={classData.end_date} name="end_date" />
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="sessions">Total Sessions: </label>
+            <label for="sessions">Total Sessions: </label>
             <Input
               type="number"
               value={classData.sessions}
@@ -123,7 +147,7 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="classLink">Class Zoom Link: </label>
+            <label for="classLink">Class Zoom Link: </label>
             <Input value={classData.location} name="location" />
           </Form.Item>
           {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}

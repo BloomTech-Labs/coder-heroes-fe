@@ -70,7 +70,6 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
-          <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -89,11 +88,11 @@ function App() {
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
-            path="/"
-            exact
+            path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
-          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
+          {/* The above route exists for developmental purposes */}
+          <SecureRoute exact path="/" component={LandingPage} />
           <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

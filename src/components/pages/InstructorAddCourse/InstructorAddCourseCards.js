@@ -16,31 +16,39 @@ const days = [
   'Sunday',
 ];
 
+const initialClassDataState = {
+  course_type_id: '',
+  size: '',
+  day: '',
+  open_seats_remaining: '',
+  instructor_id: '',
+  start_date: '',
+  end_date: '',
+  start_time: '',
+  end_time: '',
+  location: '',
+  sessions: '',
+};
+
 const InstructorAddCourseCards = props => {
-  const [classData, setClassData] = useState({
-    course_type_id: '',
-    size: '',
-    day: '',
-    open_seats_remaining: '',
-    instructor_id: '',
-    start_date: '',
-    end_date: '',
-    start_time: '',
-    end_time: '',
-    location: '',
-    sessions: '',
-  });
+  const [classData, setClassData] = useState(initialClassDataState);
 
   const handleChange = e => {
     setClassData({
       ...classData,
       [e.target.name]: e.target.value,
     });
+    console.log(classData);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    setClassData({
+      ...classData,
+      open_seats_remaining: classData.size,
+    });
     props.addProgram(classData);
+    setClassData(initialClassDataState);
   };
 
   return (

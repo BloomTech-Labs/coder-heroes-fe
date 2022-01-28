@@ -6,24 +6,21 @@ import { Select, Input, Form } from 'antd';
 
 const { Option } = Select;
 
-//below are the options for "new program" details to map from in the return section
-const classSize = ['1', '2-5', '6-10', '10-15'];
-// const durations = ['45 min', '60 min', '90 min'];
-// const ages = ['3-6', '7-10', '10-15'];
-// const dates = [
-//   'Monday',
-//   'Tuesday',
-//   'Wednesday',
-//   'Thursday',
-//   'Friday',
-//   'Saturday',
-//   'Sunday',
-// ];
+const days = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
 
 const InstructorAddCourseCards = props => {
   const [classData, setClassData] = useState({
     course_type_id: '',
     size: '',
+    day: '',
     open_seats_remaining: '',
     instructor_id: '',
     start_date: '',
@@ -31,6 +28,7 @@ const InstructorAddCourseCards = props => {
     start_time: '',
     end_time: '',
     location: '',
+    sessions: '',
   });
 
   const handleChange = e => {
@@ -66,52 +64,35 @@ const InstructorAddCourseCards = props => {
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="classSize">Class Size: </label>
+            <label htmlFor="day">Day: </label>
             <Select
               onChange={value => {
                 setClassData({
                   ...classData,
-                  classSize: value,
+                  days: value,
                 });
               }}
             >
-              {classSize.map(classSize => (
-                <Option value={classSize}>{classSize}</Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          {/* <Form.Item>
-            <label htmlFor="sessions">Total Sessions: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  session: value,
-                });
-              }}
-            >
-              {sessions.map(session => (
-                <Option value={session}>{session}</Option>
+              {days.map(day => (
+                <Option value={day}>{day}</Option>
               ))}
             </Select>
           </Form.Item>
 
           <Form.Item>
-            <label htmlFor="duration">Course Duration: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  duration: value,
-                });
-              }}
-            >
-              {durations.map(duration => (
-                <Option value={duration}>{duration}</Option>
-              ))}
-            </Select>
-          </Form.Item> */}
+            <label htmlFor="classSize">Class Size: </label>
+            <Input type="number" value={classData.size} name="size" min="1" />
+          </Form.Item>
+
+          <Form.Item>
+            <label htmlFor="sessions">Total Sessions: </label>
+            <Input
+              type="number"
+              value={classData.sessions}
+              name="sessions"
+              min="1"
+            />
+          </Form.Item>
 
           <Form.Item>
             <label htmlFor="startDate">Start Date: </label>

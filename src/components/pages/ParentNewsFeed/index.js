@@ -4,7 +4,7 @@ import '../../../styles/index.less';
 import NewsContainer from './NewsContainer';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
-
+import TitleParentNewsFeed from './TitleParentNewsFeed';
 const { Content } = Layout;
 
 export default function ParentNewsFeed() {
@@ -14,9 +14,7 @@ export default function ParentNewsFeed() {
         <ParentSidebar />
         <Content>
           <Banner />
-          <div className="news-feed-title-container">
-            <h1 className="news-feed-title">News Feed</h1>
-          </div>
+          <TitleParentNewsFeed />
           <NewsContainer />
         </Content>
       </Layout>

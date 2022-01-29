@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../styles/index.less';
+import IndividualNewsParent from './IndividualNewsParent';
 
 export default function NewsContainer() {
   const newsfeed = [
@@ -33,23 +34,21 @@ export default function NewsContainer() {
     },
   ];
   return (
-    <div className="news-container">
-      {newsfeed.map(news => {
-        const { title, link, description, id } = news;
-        return (
-          <div className="news-card" key={id}>
-            <div className="title-container">
-              <h1>{title} title</h1>
-            </div>
-            <div className="description">
-              <h3>{description}</h3>
-            </div>
-            <div className="button-container">
-              <a href={link}>Link</a>
-            </div>
-          </div>
-        );
-      })}
+    <div>
+      <div className="news-container">
+        {newsfeed.map(news => {
+          const { title, link, description, id } = news;
+          return (
+            <IndividualNewsParent
+              key={id}
+              title={title}
+              link={link}
+              description={description}
+              newsfeed_id={id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

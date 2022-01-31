@@ -1,67 +1,67 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
+import { CloseOutlined } from '@ant-design/icons';
 
-const NewsfeedPostModal = () => {
-  let navigate = useHistory();
-  const [formValue, setformValue] = useState({
+const NewsfeedPostModal = ({ setPostOptions }) => {
+  const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
   });
 
   const handleChange = e => {
-    setformValue({
-      ...formValue,
+    setFormValues({
+      ...formValues,
       [e.target.name]: e.target.value,
     });
   };
 
+  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+  const config = {
+    headers: { Authorization: `Bearer ${token.idToken.value}` },
+  };
+
   const handleSubmit = () => {
-    // e.preventDefault(); i guess we dont need it ? I will remove comment when making final pull request
     axios
-      .post('Insertlinkhere', formValue)
+      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, config)
       .then(resp => {
-        navigate('/instructor');
+        setPostOptions('newsFeed');
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   };
-  const layout = {
-    labelCol: {
-      span: 8,
-    },
-    wrapperCol: {
-      span: 10,
-    },
-  };
+
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Create New Post</h1>
-        <h2>x</h2>
+        <CloseOutlined
+          onClick={() => {
+            setPostOptions('newsFeed');
+          }}
+        />
       </div>
       <Form onFinish={handleSubmit}>
         <div className="newsfeedForm_input_container">
-          <Form.Item name={['Post Title']} label="Post Title:">
+          <Form.Item label="Post Title:">
             <Input name="title" onChange={handleChange} />
           </Form.Item>
-          <Form.Item name={['link']} label="Author Name:">
+          <Form.Item label="Link:">
             <Input name="link" onChange={handleChange} />
           </Form.Item>
         </div>
         <div className="newsfeedForm_inputfield">
-          <Form.Item name={['Post Contents']} label="Post Contents:" />
+          <Form.Item label="Post Contents:" />
           <Input.TextArea
             name="description"
             onChange={handleChange}
             className="newsfeedForm_inputfield_textarea"
           />
         </div>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <div className="newsfeedForm_submit_button_container">
           <Button
             className="newsfeedForm_submit_button"
             type="primary"
@@ -70,7 +70,7 @@ const NewsfeedPostModal = () => {
           >
             Submit
           </Button>
-        </Form.Item>
+        </div>
       </Form>
     </div>
   );

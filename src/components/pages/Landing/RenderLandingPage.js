@@ -1,7 +1,6 @@
 import ButtonGroup from 'antd/lib/button/button-group';
 import { DownOutlined } from '@ant-design/icons';
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Button from '../../common/Button';
 import background from '../../../img/cloud-bg.jpg';
 import logo from '../../../img/coderheroes-logo.svg';

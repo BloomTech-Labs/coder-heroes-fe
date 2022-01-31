@@ -45,7 +45,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>

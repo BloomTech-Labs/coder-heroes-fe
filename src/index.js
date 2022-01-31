@@ -10,7 +10,6 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
-import Header from './components/pages/Login/Header';
 
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -33,7 +32,9 @@ import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
-import NewsFeed from './components/pages/NewsFeed';
+import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
+import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -66,7 +67,6 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      <NavBar />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
@@ -79,7 +79,6 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -94,8 +93,13 @@ function App() {
             exact
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
-
-          <SecureRoute path="/news-feed" component={NewsFeed} />
+          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
+          <SecureRoute
+            path="/instructor-news-feed"
+            component={InstructorNewsFeed}
+          />
+          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

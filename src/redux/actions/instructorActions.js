@@ -9,6 +9,7 @@ export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
+export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
 
 export const setSelectedCourse = course => {
   return {
@@ -103,4 +104,23 @@ export const addNewProgram = programs => {
 
 export const setError = error => {
   return { type: SET_ERROR };
+};
+
+export const getNewsFeeds = config => dispatch => {
+  try {
+    axios
+      .get(`${process.env.REACT_APP_API_URI}/news`, config)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEEDS,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: console.log(error),
+    });
+  }
 };

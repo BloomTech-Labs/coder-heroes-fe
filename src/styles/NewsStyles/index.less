@@ -1,0 +1,170 @@
+//---------------------  News Feed styles  --------------------------
+
+.news-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-card {
+  width: 80%;
+  height: 250px;
+  margin: 0 0 20px 0;
+  padding: 15px;
+  border: black solid 1px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.title-container {
+  width: 100%;
+  height: 20%;
+  font-size: 1.5rem;
+}
+.description {
+  height: 50%;
+  width: 90%;
+  margin: 1.2% 0;
+}
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 20%;
+  width: 90%;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    width: 25%;
+    height: 30px;
+    margin: 0 10%;
+    border: black solid 1px;
+    border-radius: 15px;
+    color: #ffffff;
+    background-color: #2e3646;
+  }
+  a:hover {
+    box-shadow: 0.25em 0.25em 0.5em black;
+    margin-top: -0.1em;
+  }
+  button {
+    text-decoration: none;
+    width: 25%;
+    height: 30px;
+    margin: 0 10%;
+    border: black solid 1px;
+    border-radius: 15px;
+    color: #ffffff;
+    background-color: #2e3646;
+  }
+  button:hover {
+    box-shadow: 0.25em 0.25em 0.5em black;
+    margin-top: -0.1em;
+  }
+}
+.news-feed-title-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: -6%;
+}
+.news-feed-title-container-instructor {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 3rem;
+  margin-left: 10%;
+
+  #news-feed-title {
+    display: flex;
+    justify-content: flex-start;
+  }
+  #create-news-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      font-size: 1rem;
+      height: 2rem;
+      width: 15rem;
+      text-decoration: none;
+      border-radius: 15px;
+      background-color: #2e3646;
+      color: #ffffff;
+    }
+  }
+}
+.newsfeedForm_container {
+  border: solid black 1px;
+  background-color: white;
+  padding: 2% 4%;
+  width: 800px;
+  margin: 50px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+.newsfeedForm_submit_button_container {
+  display: flex;
+  justify-content: center;
+}
+.newsfeedForm_submit_button {
+  margin-top: 15px;
+  width: 120px;
+  background-color: black !important;
+}
+
+.newsfeedForm_input_container {
+  width: 70%;
+}
+
+.newsfeedForm_inputfield {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.newsfeedForm_inputfield_textarea {
+  height: 150px !important;
+  margin-top: -20px !important;
+}
+
+.newsfeedForm_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.newsfeedForm_header h2 {
+  font-size: x-large;
+  line-height: 0;
+}
+
+.newsfeedForm_editDeleteButton {
+  width: fit-content;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+}
+.newsfeedForm_edit_button {
+  width: 120px;
+  background-color: black !important;
+}
+.newsfeedForm_delete_button {
+  width: 120px;
+  background-color: black !important;
+}
+.newsfeedForm_editDeleteButton_container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}

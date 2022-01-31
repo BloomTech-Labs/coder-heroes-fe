@@ -37,7 +37,7 @@ export default function AdminAddCoursesForm(props) {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log('checking if git switch worked');
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>

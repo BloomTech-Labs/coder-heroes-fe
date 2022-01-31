@@ -25,7 +25,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
 
   const handleSubmit = () => {
     axios
-      .post('https://coder-heroes-api.herokuapp.com/news', formValues, config)
+      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, config)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -38,10 +38,11 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Create New Post</h1>
-        <CloseOutlined  
+        <CloseOutlined
           onClick={() => {
             setPostOptions('newsFeed');
-          }}/>
+          }}
+        />
       </div>
       <Form onFinish={handleSubmit}>
         <div className="newsfeedForm_input_container">

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
-import AdminSidebar from './AdminSidebar';
-import AdminCalender from './AdminCalender';
+import AdminSidebar from './adminSidebar';
+import AdminCalender from './adminCalender';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
 

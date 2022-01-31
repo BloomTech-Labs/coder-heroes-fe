@@ -27,7 +27,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
-import AdminHome from './components/pages/AdminHome';
+import AdminHome from './components/pages/adminHome';
 import ParentBooking from './components/pages/ParentBooking';
 import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';

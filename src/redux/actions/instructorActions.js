@@ -106,19 +106,17 @@ export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = (config) =>dispatch => {
+export const getNewsFeeds = config => dispatch => {
   try {
-    axios.get(
-      'https://coder-heroes-api.herokuapp.com/news', config
-    )
-    .then(resp=>{
-      dispatch({
-        type: GET_NEWSFEEDS,
-        payload: resp.data,
-      });
+    axios
+      .get(`${process.env.REACT_APP_API_URI}/news`, config)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEEDS,
+          payload: resp.data,
+        });
       })
-    .catch(err=>console.log(err));
-   
+      .catch(err => console.log(err));
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,

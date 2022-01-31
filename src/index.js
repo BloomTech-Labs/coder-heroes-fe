@@ -27,6 +27,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
+import AdminHome from './components/pages/adminHome';
 import ParentBooking from './components/pages/ParentBooking';
 import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
@@ -74,6 +75,7 @@ function App() {
           <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
+          <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
             path="/instructor-booking-confirm"

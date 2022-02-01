@@ -20,26 +20,14 @@ function NewsContainer(props) {
       {newsfeed.map(news => {
         const { title, link, description, newsfeed_id } = news;
         return (
-          <div className="news-card" key={newsfeed_id}>
-            <div className="title-container">
-              <h1>{title}</h1>
-            </div>
-            <div className="description">
-              <h3>{description}</h3>
-            </div>
-            <div className="button-container">
-              <a href={link}>Link</a>
-              <button
-                className="edit-button"
-                onClick={() => {
-                  setPostId(newsfeed_id);
-                  setPostOptions('editDelete');
-                }}
-              >
-                Edit/Delete Post
-              </button>
-            </div>
-          </div>
+          <IndividualNews
+            key={newsfeed_id}
+            setPostOptions={setPostOptions}  
+            setPostId={setPostId}
+            title={title} 
+            link={link} 
+            description={description} 
+            newsfeed_id={newsfeed_id}/>        
         );
       })}
     </div>

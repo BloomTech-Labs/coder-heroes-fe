@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
-import '../../../styles/InstructorStyles/index.less';
+import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';

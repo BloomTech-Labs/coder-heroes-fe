@@ -319,6 +319,7 @@ img {
   padding-right: 16em;
 }
 
+// Create New Student Modal
 .create-new-student-modal {
   position: absolute;
   border: 1px solid black;
@@ -338,6 +339,16 @@ img {
 
 .create-new-student-title {
   margin: 1em;
+}
+
+.create-new-student-exit {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  margin: -2em 0 0 18em;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
 }
 
 .exit {
@@ -360,6 +371,26 @@ img {
   display: flex;
   justify-content: center;
 }
+
+// Current Courses Details Modal
+.current-courses-details-modal {
+  position: absolute;
+  z-index: 3;
+  top: 15em;
+  left: 20%;
+}
+
+.current-courses-details-exit {
+  font-size: 20px;
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  z-index: 4;
+  top: 11em;
+  left: 75%;
+  cursor: pointer;
+}
+
 //**Landing Page Styles**//
 
 // Landing page container ---------
@@ -388,6 +419,7 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  height: 80vh;
   height: 280rem;  
 }
 
@@ -479,6 +511,12 @@ img {
   justify-content: space-between;
   background: #156a70;
   height: 200vh;
+}
+
+.landing-second-container-img {
+  height: 15rem;
+  width: 25rem;
+  margin-left: 0;
 }
 
 //Orange cloud styles

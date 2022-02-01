@@ -18,6 +18,7 @@ const ParentBookingCard = props => {
     instructor_name,
     size,
   } = props.booking;
+
   const data = [
     { title: 'student name', text: child_name },
     { title: 'course', text: subject },
@@ -54,7 +55,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
-        <Button buttonText="ADD"></Button>
+        <Button buttonText="ADD"> </Button>
       </Card>
     </div>
   );

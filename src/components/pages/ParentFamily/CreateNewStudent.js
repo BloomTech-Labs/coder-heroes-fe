@@ -2,8 +2,18 @@ import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 
+
 const CreateNewStudent = props => {
+  const [newStudentInfo, setNewStudentInfo] = useState();
   // const [checked, setChecked] = useState([]);
+
+  const handleChange = e => {
+    e.preventDefault();
+    setNewStudentInfo({
+      ...newStudentInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // const handleChange = (id, e) => {
   //     e.preventDefault();
@@ -26,7 +36,7 @@ const CreateNewStudent = props => {
       <form className="create-new-student-form">
         <label>
           Student Name:
-          <input type="text" name="student-name"></input>
+          <input type="text" name="username" onChange={handleChange}></input>
         </label>
         <br />
         <label>

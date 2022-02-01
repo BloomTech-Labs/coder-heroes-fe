@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  FacebookOutlined,
+  TwitterOutlined,
+  InstagramOutlined,
+  YoutubeOutlined,
+  LinkedinOutlined,
+} from '@ant-design/icons';
 
 export default function MainNav() {
   return (
@@ -21,20 +28,29 @@ export default function MainNav() {
         </a>
       </div>
       <div className="nav navSocial">
-        <a href="#." className="socialIcon">
-          Icon
+        <a href="https://www.facebook.com/coderheroes." className="socialIcon">
+          <FacebookOutlined />
         </a>
-        <a href="#." className="socialIcon">
-          Icon
+        <a href="https://twitter.com/coderheroes." className="socialIcon">
+          <TwitterOutlined />
         </a>
-        <a href="#." className="socialIcon">
-          Icon
+        <a
+          href="https://www.instagram.com/coderheroes/."
+          className="socialIcon"
+        >
+          <InstagramOutlined />
         </a>
-        <a href="#." className="socialIcon">
-          Icon
+        <a
+          href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+          className="socialIcon"
+        >
+          <YoutubeOutlined />
         </a>
-        <a href="#." className="socialIcon">
-          Icon
+        <a
+          href="https://www.linkedin.com/company/coderheroes/."
+          className="socialIcon"
+        >
+          <LinkedinOutlined />
         </a>
       </div>
       <div className="navButtons">

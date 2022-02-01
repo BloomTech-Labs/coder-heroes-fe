@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
 import { dateConverter } from '../../common/dateHelpers';
 
-const AdminCalender = props => {
+const AdminCalendar = props => {
   const { instructor } = props;
   const [selectedCourse, setSelectedCourse] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -104,4 +104,4 @@ const AdminCalender = props => {
 const mapStateToProps = state => {
   return { instructor: state.instructorReducer };
 };
-export default connect(mapStateToProps, { setSelectedCourse })(AdminCalender);
+export default connect(mapStateToProps, { setSelectedCourse })(AdminCalendar);

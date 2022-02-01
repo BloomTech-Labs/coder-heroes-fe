@@ -93,4 +93,5 @@ export const dummyData = {
       prereq: 'None',
     },
   ],
+  newsfeed:[]
 };

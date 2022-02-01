@@ -27,12 +27,15 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
+import AdminHome from './components/pages/adminHome';
 import ParentBooking from './components/pages/ParentBooking';
 import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
-import NewsFeed from './components/pages/NewsFeed';
+import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
+import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -43,7 +46,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>
@@ -73,12 +75,12 @@ function App() {
           <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
+          <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -94,7 +96,12 @@ function App() {
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
-          <SecureRoute path="/news-feed" component={NewsFeed} />
+          <SecureRoute
+            path="/instructor-news-feed"
+            component={InstructorNewsFeed}
+          />
+          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

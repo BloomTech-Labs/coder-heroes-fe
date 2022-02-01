@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router';
+import React, { useState } from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
-  const [studentInfo, setStudentInfo] = useState(null);
   const [modal, setModal] = useState(false);
 
   // useEffect(() => {

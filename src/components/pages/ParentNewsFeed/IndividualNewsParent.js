@@ -11,10 +11,10 @@ function IndividualNewsParent(props) {
         setShowNewsFeedModal(!showNewsFeedModal);
       }}
     >
-      <div className="title-container">
+      <div className="news-title-container">
         <h1>{title}</h1>
       </div>
-      <div className="description">
+      <div className="news_description">
         <h3>{description}</h3>
       </div>
       <div className="button-container">

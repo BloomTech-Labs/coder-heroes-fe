@@ -45,102 +45,112 @@
 //   color:#006C72 !important;
 // }
 
-.mainNav{
-    height: 12vh;
-    width: 100%;
-    background: #FFAD00;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 0%;
-    position: sticky;
-    top: 0;
-    z-index: 3;
+.mainNav {
+  height: 12vh;
+  width: 100%;
+  background: #ffad00;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
-.navLogo{
-    width: 20%;
-    display: flex;
-    align-items: center;
+.navLogo {
+  width: 20%;
+  display: flex;
+  align-items: center;
 }
-.navTitle{
-    margin: 0%;
-    font-size: 2rem;
-    align-items: center;
-    font-weight: bold;
-    color: rgb(58, 9, 42);
-}
-
-.navOptions{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 40%;
-}
-.navLinks{
-    color: rgb(58, 9, 42);
-    font-weight: bold;
-    font-size: 1rem;
-}
-.navLinks:hover{
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-thickness: 10px;
-
+.navTitle {
+  margin: 0%;
+  font-size: 2rem;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(58, 9, 42);
 }
 
-.navButtons{
-width: 20%;
-display: flex;
-justify-content: space-evenly;
-align-items: center;
+.navOptions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+  margin-right: 2rem;
+}
+.navLinks {
+  color: rgb(58, 9, 42);
+  font-weight: bold;
+  font-size: 1rem;
+}
+.navLinks:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 10px;
 }
 
-.navSocial{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 10%;
-    height: auto;
+.navButtons {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.navContact{
-    width:70%;
-    font-size: 1rem;
+.navSocial {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+  height: auto;
+  margin-right: 4rem;
 }
 
-.navSignup{
-    width:55%;
-    font-size: 1rem;
+.socialIcon {
+  font-size: 2rem;
+  margin: .7rem;
+  color: rgb(58, 9, 42);
 }
 
-.navSignup button{
-    background: #EDEED7;
-    color: #006C72;
-    font-weight: bold;
-    height: 5.5vh;
-    border-radius: 5%;
-    border: none;
-    box-shadow: 0px 0px 5px gray;
+.socialIcon:hover{
+    color: white;
 }
-.navContact button{
-    background: #EDEED7;
-    color: #006C72;
-    font-weight: bold;
-    height: 5.5vh;
-    border-radius: 5%;
-    border: none;
-    box-shadow: 0px 0px 5px gray;
+
+.navContact {
+  width: 70%;
+  font-size: 1rem;
+}
+
+.navSignup {
+  width: 55%;
+  font-size: 1rem;
+}
+
+.navSignup button {
+  background: #edeed7;
+  color: #006c72;
+  font-weight: bold;
+  height: 5.5vh;
+  border-radius: 5%;
+  border: none;
+  box-shadow: 0px 0px 5px gray;
+}
+.navContact button {
+  background: #edeed7;
+  color: #006c72;
+  font-weight: bold;
+  height: 5.5vh;
+  border-radius: 5%;
+  border: none;
+  box-shadow: 0px 0px 5px gray;
 }
 //****Global Footer Styles****
 #footer {
-    width: 100%;
-    background-color: #6a0c49;
-    color: white;
-    padding: 30px 0px 30px 0px;
-    z-index: 999;
-    position: absolute;
-    
+  width: 100%;
+  background-color: #6a0c49;
+  color: white;
+  padding: 30px 0px 30px 0px;
+  z-index: 999;
+  position: absolute;
 }
 
 .footer-container {
@@ -154,6 +164,7 @@ align-items: center;
 .footer-container a {
   color: white;
   text-decoration: none;
+  font-weight: normal;
   font-size: 1.1rem;
 }
 
@@ -170,6 +181,14 @@ align-items: center;
   padding-bottom: 10px;
 }
 
+.footer-section h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 1px;
+    color: white;
+}
+
 .footer-section h2 {
   font-weight: bold;
   text-transform: uppercase;
@@ -181,6 +200,17 @@ align-items: center;
 .footer-section small {
   margin-top: 10px;
   font-size: 1rem;
+}
+
+.footerSocial {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer-socialIcon{
+   font-size: 2rem;
 }
 
 .social-links {

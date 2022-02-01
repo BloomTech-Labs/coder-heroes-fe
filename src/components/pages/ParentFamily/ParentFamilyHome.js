@@ -4,9 +4,6 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import { useParams } from 'react-router';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
-import CreateNewStudent from './CreateNewStudent';
 import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 

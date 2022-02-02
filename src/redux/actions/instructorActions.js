@@ -1,6 +1,6 @@
 // Declare Actions
 import axios from 'axios';
-
+import axiosWithAuth from '../../utils/axiosWithAuth';//waiting for PR130
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
 export const GET_COURSES_ACTION = 'GET_COURSES';
@@ -108,6 +108,19 @@ export const setError = error => {
 
 export const getNewsFeeds = token => dispatch => {
   try {
+     //if the Pull request #130 get merged in you can use this axioswithAuth to make axios call instead of using straight axios
+    //I had to make my own axioswithauth.js file since PR130 was not merged yet, but I made the path for the file same so it will work
+    // but be sure to double check the import path for axiosWithAuth() after merge
+    /* axiosWithAuth()
+      .get('/news')
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEEDS,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err)); */
+    //axioswithauth code ends here
     axios
       .get(`${process.env.REACT_APP_API_URI}/news`, token)
       .then(resp => {

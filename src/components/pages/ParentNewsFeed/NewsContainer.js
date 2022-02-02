@@ -1,38 +1,21 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import '../../../styles/index.less';
 import IndividualNewsParent from './IndividualNewsParent';
+import { connect } from 'react-redux';
+import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
 
-export default function NewsContainer() {
-  const newsfeed = [
-    {
-      id: '1',
-      title: 'first',
-      link: 'news-feed',
-      description: 'this is a description',
-      time: '12:21',
-    },
-    {
-      id: '2',
-      title: 'second',
-      link: 'news-feed',
-      description: 'this is a  second',
-      time: '12:22',
-    },
-    {
-      id: '3',
-      title: 'third',
-      link: 'news-feed',
-      description: 'this is a third',
-      time: '12:23',
-    },
-    {
-      id: '4',
-      title: 'fourth',
-      link: 'news-feed',
-      description: 'this is a fourth',
-      time: '12:24',
-    },
-  ];
+function NewsContainer(props) {
+  const {newsfeed, dispatch}=props;
+  const { authState } = useOktaAuth();
+  useEffect(() => {
+    const token = {
+      headers: getAuthHeader(authState),
+    };
+    dispatch(getNewsFeedsParent(token));
+  }, [dispatch]);
+
   return (
     <div>
       <div className="news-container">
@@ -52,3 +35,7 @@ export default function NewsContainer() {
     </div>
   );
 }
+const mapStateToProps = state => {
+  return { newsfeed: state.parentReducer.newsfeed };
+};
+export default connect(mapStateToProps)(NewsContainer);

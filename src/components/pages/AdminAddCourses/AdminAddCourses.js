@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../../styles/index.less';
 import { Input, Form } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
 
 export default function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState({
@@ -9,10 +11,14 @@ export default function AdminAddCoursesForm(props) {
     description: '',
     prereq: '',
   });
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
+  const { authState } = useOktaAuth();
+  const token = {
+    headers: getAuthHeader(authState),
   };
+  // JSON.parse(localStorage.getItem('okta-token-storage'));
+  // const config = {
+  //   headers: { Authorization: `Bearer ${token.idToken.value}` },
+  // };
   const body = {
     ...formValues,
     subject: formValues.subject,
@@ -21,7 +27,7 @@ export default function AdminAddCoursesForm(props) {
   };
   function handleSubmit(e) {
     axios
-      .post(`https://coder-heroes-api.herokuapp.com/course-types`, body, config)
+      .post(`https://coder-heroes-api.herokuapp.com/course-types`, body, token)
       .then(resp => {
         console.log('axiosCall', resp);
       })
@@ -39,11 +45,9 @@ export default function AdminAddCoursesForm(props) {
   };
 
   return (
-    <div>
+    <div className="add-courses-form-container">
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 style={{ marginTop: 30, fontSize: 20 }}>
-          You can submit new course below!
-        </h1>
+        <h1 style={{ marginTop: 30, fontSize: 20 }}>Submit New Program:</h1>
       </div>
       <section style={{ display: 'flex', justifyContent: 'center' }}>
         <Form
@@ -66,7 +70,9 @@ export default function AdminAddCoursesForm(props) {
 
           {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button onClick={handleSubmit}>Submit!</button>
+            <button className="course-submit-button" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </Form>
       </section>

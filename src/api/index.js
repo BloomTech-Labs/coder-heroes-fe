@@ -49,4 +49,4 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+export { sleep, getExampleData, getProfileData, getDSData, getAuthHeader };

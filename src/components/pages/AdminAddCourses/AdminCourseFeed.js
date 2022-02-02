@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../../../styles/index.less';
 
 export default function AdminCourseFeed() {
   const [courses, setCourses] = useState([]);
@@ -21,16 +22,21 @@ export default function AdminCourseFeed() {
 
   return (
     <div>
-      {courses.map(course => {
-        const { subject, description, prereq } = course;
-        return (
-          <div>
-            <h1>{subject}</h1>
-            <h2>{description}</h2>
-            <h3>{prereq}</h3>
-          </div>
-        );
-      })}
+      <h1 style={{ marginTop: 30, marginLeft: 30, fontSize: 20 }}>
+        Already Submitted Programs:
+      </h1>
+      <div className="admin-course-feed-container">
+        {courses.map(course => {
+          const { subject, description, prereq } = course;
+          return (
+            <div className="submitted-course-container">
+              <h1>Subject: {subject}</h1>
+              <h2>Description: {description}</h2>
+              <h3>Prerequisites: {prereq}</h3>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

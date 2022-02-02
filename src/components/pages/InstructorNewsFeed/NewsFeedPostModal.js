@@ -1,32 +1,54 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import axios from 'axios';
+import axios from 'axios'; // (this line of code can be deleted after PR130 get merged to the main branch)
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
-import { getAuthHeader } from '../../../api/index';
-
+import { useOktaAuth } from '@okta/okta-react';  // (this line of code can be deleted after PR130 get merged to the main branch)
+import { getAuthHeader } from '../../../api/index'; // (this line of code can be deleted after PR130 get merged to the main branch)
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 const NewsfeedPostModal = ({ setPostOptions }) => {
-  const { authState } = useOktaAuth();
-  const token = {
-    headers: getAuthHeader(authState)
-  };
+  // (this code can be deleted after PR130 get merged to the main branch)
+  // const { authState } = useOktaAuth(); 
+  // const token = {
+  //   headers: getAuthHeader(authState)
+  // };
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
   });
-
+  const {link,description,title}=formValues;
+  function ValidateNewsFeedFormButton(){
+    if (link.trim() && description.trim() && title.trim()){
+      return <Button
+      className="newsfeedForm_submit_button"
+      type="primary"
+      shape="round"
+      htmlType="submit"
+    >
+      Submit
+    </Button>;
+    } else {
+      return <Button
+      className="newsfeedForm_submit_button"
+      type="primary"
+      shape="round"
+      htmlType="submit"
+      disabled
+    >
+      Complete the Form
+    </Button>;
+    };
+  };
   const handleChange = e => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = () => {
-    axios
-      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, token)
+    axiosWithAuth()
+      .post(`/news`, formValues)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -34,6 +56,17 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
         console.error(err);
       });
   };
+  // (this code can be deleted after PR130 get merged to the main branch)
+  // const handleSubmit = () => {
+  //   axios
+  //     .post(`${process.env.REACT_APP_API_URI}/news`, formValues, token)
+  //     .then(resp => {
+  //       setPostOptions('newsFeed');
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // };
 
   return (
     <div className="newsfeedForm_container">
@@ -63,14 +96,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
           />
         </div>
         <div className="newsfeedForm_submit_button_container">
-          <Button
-            className="newsfeedForm_submit_button"
-            type="primary"
-            shape="round"
-            htmlType="submit"
-          >
-            Submit
-          </Button>
+          <ValidateNewsFeedFormButton/>
         </div>
       </Form>
     </div>

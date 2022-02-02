@@ -3,17 +3,17 @@ import '../../../styles/index.less';
 import IndividualNewsParent from './IndividualNewsParent';
 import { connect } from 'react-redux';
 import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
-import { useOktaAuth } from '@okta/okta-react';
-import { getAuthHeader } from '../../../api/index';
+import { useOktaAuth } from '@okta/okta-react';//this line can be deleted after PR130 merge
+import { getAuthHeader } from '../../../api/index'; //this line can be deleted after PR130 merge
 
 function NewsContainer(props) {
   const {newsfeed, dispatch}=props;
-  const { authState } = useOktaAuth();
+  const { authState } = useOktaAuth(); //this line can be deleted after PR130 merge
   useEffect(() => {
-    const token = {
-      headers: getAuthHeader(authState),
-    };
-    dispatch(getNewsFeedsParent(token));
+    const token = {//this line can be deleted after PR130 merge
+      headers: getAuthHeader(authState),//this line can be deleted after PR130 merge
+    };//this line can be deleted after PR130 merge
+    dispatch(getNewsFeedsParent(token)); //token can be removed from param
   }, [dispatch]);
 
   return (

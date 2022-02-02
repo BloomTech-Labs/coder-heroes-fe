@@ -4,8 +4,11 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 import axios from 'axios';
+import { useOktaAuth } from '@okta/okta-react';
+import { getAuthHeader } from '../../../api/index';
 
 const ParentBookingCard = props => {
+  // child_name, child_id, course_id, description, end_date, end_time, instructor_id, instructor_name, location, prereqs, schedule_id, size, start_date ,start_time, subject
   const {
     child_name,
     subject,
@@ -17,7 +20,28 @@ const ParentBookingCard = props => {
     location,
     instructor_name,
     size,
+    course_id,
+    child_id,
   } = props.booking;
+
+  const { authState } = useOktaAuth();
+  console.log(props);
+
+  const handleClick = e => {
+    axios
+      .post(
+        `http://localhost:8080/children/${child_id}/enrollments`,
+        course_id,
+        {
+          header: {
+            idToken: authState.idToken,
+          },
+        }
+      )
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   const data = [
     { title: 'student name', text: child_name },
     { title: 'course', text: subject },
@@ -54,7 +78,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
-        <Button buttonText="ADD"></Button>
+        <Button buttonText="ADD" handleClick={handleClick}></Button>
       </Card>
     </div>
   );

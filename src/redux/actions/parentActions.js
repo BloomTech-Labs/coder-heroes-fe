@@ -19,6 +19,7 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 
+export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios
@@ -101,4 +102,23 @@ export const cancelCartItem = booking => dispatch => {
 
 export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
+};
+
+export const getNewsFeedsParent = token => dispatch => {
+  try {
+    axios
+      .get(`${process.env.REACT_APP_API_URI}/news`, token)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEEDS_PARENT,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: console.log(error),
+    });
+  }
 };

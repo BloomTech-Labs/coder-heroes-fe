@@ -109,6 +109,7 @@ export const getNewsFeedsParent = token => dispatch => {
   try {
     //if the Pull request #130 get merged in you can use this axioswithAuth to make axios call instead of using straight axios
     //I had to make my own axioswithauth.js file since PR130 was not merged yet, but I made the path for the file same so it will work
+    //and token can be removed from export const getNewsFeedsParent = ()=>dispatch=>{...
     // but be sure to double check the import path for axiosWithAuth() after merge
     /* axiosWithAuth()
       .get('/news')

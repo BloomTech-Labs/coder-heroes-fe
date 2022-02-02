@@ -11,6 +11,7 @@ import {
   ExportOutlined,
   HeartFilled,
   ShoppingCartOutlined,
+  ReadOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -62,6 +63,9 @@ const ParentSideBar = props => {
         <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
           <Link to="/family">Family</Link>
         </Menu.Item>
+        <Menu.Item key="3" icon={<ReadOutlined />}>
+          <Link to="/parent-news-feed">News Feed</Link>
+        </Menu.Item>
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>
@@ -73,7 +77,7 @@ const ParentSideBar = props => {
             authService.logout();
           }}
         >
-          <Link to="/landing">Logout</Link>
+          <Link>Logout</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>

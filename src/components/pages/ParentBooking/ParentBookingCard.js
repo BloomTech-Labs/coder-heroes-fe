@@ -4,8 +4,6 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 import axios from 'axios';
-import { useOktaAuth } from '@okta/okta-react';
-import { getAuthHeader } from '../../../api/index';
 
 const ParentBookingCard = props => {
   // child_name, child_id, course_id, description, end_date, end_time, instructor_id, instructor_name, location, prereqs, schedule_id, size, start_date ,start_time, subject
@@ -21,20 +19,19 @@ const ParentBookingCard = props => {
     instructor_name,
     size,
     course_id,
-    child_id,
   } = props.booking;
 
-  const { authState } = useOktaAuth();
-  console.log(props);
+  const token = localStorage.getItem('okta-token-storage');
+  const parsedToken = JSON.parse(token);
 
   const handleClick = e => {
     axios
       .post(
-        `http://localhost:8080/children/${child_id}/enrollments`,
-        course_id,
+        `http://localhost:8080/children/1/enrollments`,
+        { child_id: 1, class_id: course_id, completed: true },
         {
-          header: {
-            idToken: authState.idToken,
+          headers: {
+            Authorization: 'Bearer ' + parsedToken.idToken.value,
           },
         }
       )

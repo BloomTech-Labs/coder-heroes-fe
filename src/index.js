@@ -45,6 +45,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
+        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>
@@ -71,7 +72,6 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
-          <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
           <Route path="/admin" component={AdminHome} />
@@ -89,12 +89,12 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
+          <SecureRoute exact path="/" component={LandingPage} />
           <SecureRoute
-            path="/"
-            exact
+            path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
-          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
+          {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute
             path="/instructor-news-feed"
             component={InstructorNewsFeed}

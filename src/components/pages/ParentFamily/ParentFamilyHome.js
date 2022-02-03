@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
+import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
   const [modal, setModal] = useState(false);
+  const [modal2, setModal2] = useState(false);
 
-  // useEffect(() => {
-  //   const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token.idToken.value}` },
-  //   };
-  //   axios
-  //     .get(`https://coder-heroes-api.herokuapp.com/parent/1/children`, config)
-  //     .then(res => {
-  //       const familyData = res.data;
-  //       setStudentInfo(familyData);
-  //       console.log(res.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(`error fetching axios call`);
-  //     });
-  // }, []);
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
+    const config = {
+      headers: { Authorization: `Bearer ${token.idToken.value}` },
+    };
+    axios
+      .get(`https://coder-heroes-api.herokuapp.com/parent/1/children`, config)
+      .then(res => {
+        const familyData = res.data;
+        setStudentInfo(familyData);
+      })
+      .catch(err => {
+        console.log(`error fetching axios call`);
+      });
+  }, []);
 
   return (
     <div className="family-page-container">
@@ -52,18 +54,23 @@ const ParentFamilyHome = () => {
         </div>
         <div className="student-card-container">
           <h1 className="student-card-name">
-            <strong>Student Username: ____</strong>
+            <strong>
+              Student Username: {studentInfo ? studentInfo[0].username : ''}
+            </strong>
           </h1>
           <div className="student-details">
             <div className="student-details-sides">
               <h1>Email Address: _____</h1>
               <h1>Current Courses: _____</h1>
-              <button className="family-page-button">
+              <button
+                className="family-page-button"
+                onClick={() => setModal2(!modal2)}
+              >
                 Current Courses Details
               </button>
             </div>
             <div className="student-details-sides">
-              <h1>Age: ____</h1>
+              <h1>Age: {studentInfo ? studentInfo[0].age : ''}</h1>
               <h1> Past Courses: _____</h1>
               <button className="family-page-button">
                 Add/Change Prerequisites
@@ -72,6 +79,7 @@ const ParentFamilyHome = () => {
           </div>
         </div>
         {modal && <CreateNewStudent setModal={setModal} />}
+        {modal2 && <CurrentCoursesDetails setModal={setModal2} />}
       </div>
     </div>
   );

@@ -5,12 +5,6 @@ import { List } from 'antd';
 
 const InstructorProgramList = props => {
   const { programs } = props;
-  console.log(props.programs.own_programs);
-  //const [currentProgram, setCurrentProgram] = useState(props.programs.own_programs);
-  //console.log(currentProgram)
-  // useEffect(() => {
-  //     setCurrentProgram(programs.own_programs);
-  //     }, []);
 
   return (
     <div>

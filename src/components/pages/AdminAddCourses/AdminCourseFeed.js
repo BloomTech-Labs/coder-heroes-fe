@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosWithAuth from '../../../utils/oktaConfig';
 import '../../../styles/index.less';
 
 export default function AdminCourseFeed() {
@@ -9,7 +9,7 @@ export default function AdminCourseFeed() {
     headers: { Authorization: `Bearer ${token.idToken.value}` },
   };
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get(`https://coder-heroes-api.herokuapp.com/course-types`, config)
       .then(resp => {
         console.log('use effect', resp.data);

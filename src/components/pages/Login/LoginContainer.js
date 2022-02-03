@@ -4,9 +4,6 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '../../../styles/signin.less';
 
 import { config } from '../../../utils/oktaConfig';
-import { isContainer } from 'plotly.js/lib/carpet';
-
-import Header from './Header.js';
 
 const LoginContainer = () => {
   useEffect(() => {

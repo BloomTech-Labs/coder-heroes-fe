@@ -30,11 +30,11 @@ export default function InstructorNewsFeed() {
               />  
             </div>:''}
           {postOptions==='editDelete'?
-            <div>
+            <div className='newsfeed_put_post_form_container'>
                <NewsfeedPutModal postID={postID} setPostOptions={setPostOptions} />
             </div>:''}
           {postOptions==='createNewPost'?
-            <div>
+            <div className='newsfeed_put_post_form_container'>
                <NewsfeedPostModal setPostOptions={setPostOptions} />
             </div>:''}
         </Content>

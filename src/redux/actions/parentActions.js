@@ -105,24 +105,10 @@ export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
 };
 
-export const getNewsFeedsParent = token => dispatch => {
+export const getNewsFeedsParent = () => dispatch => {
   try {
-    //if the Pull request #130 get merged in you can use this axioswithAuth to make axios call instead of using straight axios
-    //I had to make my own axioswithauth.js file since PR130 was not merged yet, but I made the path for the file same so it will work
-    //and token can be removed from export const getNewsFeedsParent = ()=>dispatch=>{...
-    // but be sure to double check the import path for axiosWithAuth() after merge
-    /* axiosWithAuth()
+    axiosWithAuth()
       .get('/news')
-      .then(resp => {
-        dispatch({
-          type: GET_NEWSFEEDS_PARENT,
-          payload: resp.data,
-        });
-      })
-      .catch(err => console.log(err)); */
-    //axioswithauth code ends here
-    axios
-      .get(`${process.env.REACT_APP_API_URI}/news`, token)
       .then(resp => {
         dispatch({
           type: GET_NEWSFEEDS_PARENT,

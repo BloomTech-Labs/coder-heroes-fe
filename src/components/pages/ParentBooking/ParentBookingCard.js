@@ -2,6 +2,8 @@ import React from 'react';
 import { Card } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
+import { Button } from '../../common';
+
 
 const ParentBookingCard = props => {
   const {
@@ -52,6 +54,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
+        <Button buttonText="ADD"></Button>
       </Card>
     </div>
   );

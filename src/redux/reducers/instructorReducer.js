@@ -7,6 +7,7 @@ import {
   ADD_COURSE_ACTION,
   ADD_NEW_PROGRAM,
   SET_ERROR,
+  GET_NEWSFEEDS
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
 
@@ -45,7 +46,12 @@ const instructorReducer = (state = initialState, action) => {
         ...state,
         errorMessage: 'Please fill in all the fields',
       };
-
+    case GET_NEWSFEEDS:
+      //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
+        return {
+          ...state,
+          newsfeed:action.payload
+        };  
     default:
       return state;
   }

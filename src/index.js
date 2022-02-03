@@ -38,7 +38,7 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-
+import NavBar from './components/common/NavBar';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(

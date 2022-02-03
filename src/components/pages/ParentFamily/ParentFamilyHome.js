@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
-import CreateNewStudent from './CreateNewStudent';
-import { useParams } from 'react-router';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
@@ -11,7 +7,6 @@ import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
-  const [studentInfo, setStudentInfo] = useState(null);
   const [modal, setModal] = useState(false);
   const [modal2, setModal2] = useState(false);
 

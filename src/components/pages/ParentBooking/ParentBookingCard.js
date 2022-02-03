@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
-import axios from 'axios';
+
 
 const ParentBookingCard = props => {
   const {

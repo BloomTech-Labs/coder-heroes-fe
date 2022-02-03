@@ -1,31 +1,46 @@
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
-import axios from 'axios';
-import '../../../styles/InstructorStyles/index.less';
+import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 const NewsfeedPostModal = ({ setPostOptions }) => {
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
   });
-
+  const {link,description,title}=formValues;
+  function ValidateNewsFeedFormButton(){
+    if (link.trim() && description.trim() && title.trim()){
+      return <Button
+      className="newsfeedForm_submit_button"
+      type="primary"
+      shape="round"
+      htmlType="submit"
+    >
+      Submit
+    </Button>;
+    } else {
+      return <Button
+      className="newsfeedForm_submit_button"
+      type="primary"
+      shape="round"
+      htmlType="submit"
+      disabled
+    >
+      Complete the Form
+    </Button>;
+    };
+  };
   const handleChange = e => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
-
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
-  };
-
   const handleSubmit = () => {
-    axios
-      .post(`${process.env.REACT_APP_API_URI}/news`, formValues, config)
+    axiosWithAuth()
+      .post(`/news`, formValues)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -33,7 +48,6 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
         console.error(err);
       });
   };
-
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
@@ -62,18 +76,10 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
           />
         </div>
         <div className="newsfeedForm_submit_button_container">
-          <Button
-            className="newsfeedForm_submit_button"
-            type="primary"
-            shape="round"
-            htmlType="submit"
-          >
-            Submit
-          </Button>
+          <ValidateNewsFeedFormButton/>
         </div>
       </Form>
     </div>
   );
 };
-
 export default NewsfeedPostModal;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
@@ -8,6 +8,7 @@ import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
+  const [studentInfo, setStudentInfo] = useState(null);
   const [modal, setModal] = useState(false);
   const [modal2, setModal2] = useState(false);
 

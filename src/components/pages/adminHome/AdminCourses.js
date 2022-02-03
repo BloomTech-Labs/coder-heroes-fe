@@ -1,13 +1,13 @@
 import React from 'react';
 import AdminSidebar from '../AdminHome/AdminSidebar';
-import AdminAddCoursesForm from './AdminAddCourses';
+import AdminCourseFeed from '../../pages/AdminAddCourses/AdminCourseFeed';
 import '../../../styles/index.less';
-export default function AdminAddCourses() {
+export default function AdminCourses() {
   return (
     <div className="admin-courses-container">
       <AdminSidebar />
       <div className="add-courses-container">
-        <AdminAddCoursesForm />
+        <AdminCourseFeed />
       </div>
     </div>
   );

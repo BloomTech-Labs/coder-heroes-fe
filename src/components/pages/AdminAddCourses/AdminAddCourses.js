@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../../../styles/index.less';
 import { Input, Form } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
-import { getAuthHeader } from '../../../api/index';
 
 export default function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState({
@@ -11,23 +9,20 @@ export default function AdminAddCoursesForm(props) {
     description: '',
     prereq: '',
   });
-  const { authState } = useOktaAuth();
-  const token = {
-    headers: getAuthHeader(authState),
+  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+  const config = {
+    headers: { Authorization: `Bearer ${token.idToken.value}` },
   };
-  // JSON.parse(localStorage.getItem('okta-token-storage'));
-  // const config = {
-  //   headers: { Authorization: `Bearer ${token.idToken.value}` },
-  // };
   const body = {
     ...formValues,
     subject: formValues.subject,
     description: formValues.description,
     prereq: formValues.prereq,
   };
+
   function handleSubmit(e) {
     axios
-      .post(`https://coder-heroes-api.herokuapp.com/course-types`, body, token)
+      .post(`https://coder-heroes-api.herokuapp.com/course-types`, body, config)
       .then(resp => {
         console.log('axiosCall', resp);
       })
@@ -64,7 +59,7 @@ export default function AdminAddCoursesForm(props) {
             <Input value={formValues.description} name="description" />
           </Form.Item>
           <Form.Item>
-            <label htmlFor="prereq">Prerequisite: </label>
+            <label htmlFor="prereq">Prerequisites: </label>
             <Input value={formValues.prereq} name="prereq" />
           </Form.Item>
 

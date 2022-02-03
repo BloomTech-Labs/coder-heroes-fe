@@ -29,6 +29,7 @@ import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddCourses/';
+import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
@@ -98,6 +99,7 @@ function App() {
           />
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
+          <SecureRoute path="/admin-courses" component={AdminCourses} />
           <SecureRoute path="/news-feed" component={NewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

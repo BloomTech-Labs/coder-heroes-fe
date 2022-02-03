@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import '../../../styles/index.less';
 import {getNewsFeeds} from '../../../redux/actions/instructorActions';
 import IndividualNews from './IndividualNews';
-
 function NewsContainer(props) {
   const { setPostId, setPostOptions, newsfeed, dispatch }=props;
   useEffect(() => {

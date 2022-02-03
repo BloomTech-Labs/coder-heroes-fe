@@ -12,6 +12,7 @@ export default function NewsfeedPutModal(props) {
     title: '',
   });
 
+  // (this code will be usable after PR130 get merged to the main branch)
   useEffect(() => {
     axiosWithAuth()
       .get(`/news/${postID}`)

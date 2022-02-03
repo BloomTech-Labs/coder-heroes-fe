@@ -4,6 +4,11 @@ import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 const NewsfeedPostModal = ({ setPostOptions }) => {
+  // (this code can be deleted after PR130 get merged to the main branch)
+  // const { authState } = useOktaAuth(); 
+  // const token = {
+  //   headers: getAuthHeader(authState)
+  // };
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',
@@ -48,6 +53,17 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
         console.error(err);
       });
   };
+  // (this code can be deleted after PR130 get merged to the main branch)
+  // const handleSubmit = () => {
+  //   axios
+  //     .post(`${process.env.REACT_APP_API_URI}/news`, formValues, token)
+  //     .then(resp => {
+  //       setPostOptions('newsFeed');
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // };
 
   return (
     <div className="newsfeedForm_container">

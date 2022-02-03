@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import axios from 'axios';
-import '../../../styles/InstructorStyles/index.less';
+import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 import { getAuthHeader } from '../../../api/index';
@@ -42,7 +42,7 @@ export default function NewsfeedPutModal(props) {
 
   const handleEdit = () => {
     axios
-      .put(`${process.env.REACT_APP_API_URI}news/${postID}`, formValues, token)
+      .put(`${process.env.REACT_APP_API_URI}/news/${postID}`, formValues, token)
       .then(resp => {
         setPostOptions('newsFeed');
       })
@@ -52,7 +52,7 @@ export default function NewsfeedPutModal(props) {
   };
   const handleDelete = () => {
     axios
-      .delete(`${process.env.REACT_APP_API_URI}news/${postID}`, token)
+      .delete(`${process.env.REACT_APP_API_URI}/news/${postID}`, token)
       .then(resp => {
         setPostOptions('newsFeed');
       })

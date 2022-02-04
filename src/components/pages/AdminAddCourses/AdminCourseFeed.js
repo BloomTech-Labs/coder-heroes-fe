@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axiosWithAuth from '../../../utils/oktaConfig';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 import '../../../styles/index.less';
 
 export default function AdminCourseFeed() {
   const [courses, setCourses] = useState([]);
-  const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  const config = {
-    headers: { Authorization: `Bearer ${token.idToken.value}` },
-  };
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://coder-heroes-api.herokuapp.com/course-types`, config)
+      .get(`/course-types`)
       .then(resp => {
         console.log('use effect', resp.data);
         setCourses(resp.data);

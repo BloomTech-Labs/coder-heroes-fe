@@ -110,6 +110,7 @@ li {
   text-align: center;
   width: 100%;
 }
+
 .fullButton {
   margin-bottom: 4px;
   width: 100%;
@@ -244,207 +245,435 @@ img {
 .family-page-content {
   display: flex;
   flex-direction: column;
-}
-
-.students-section-title {
-  font-size: @h3;
-  color: #fed636;
-  margin: 0.5em;
+  width: 100%;
 }
 
 .profile-card-container {
   display: flex;
+  justify-content: center;
+}
+
+.profile-card-containers {
+  display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  justify-content: flex-end;
+  align-items: center;
   border-radius: 15px;
-  margin: 2em 0 0 2em;
-  height: 5em;
-  width: 80em;
+  margin: 2em 2em 0 2em;
+  height: 30em;
+  width: 23em;
+  background-color: #fff;
 }
 
-.student-card-container {
+.profile-card-containers:hover {
+  background-color: #096a70;
+  color: white;
+  cursor: pointer;
+}
+
+.profile-avatars {
+  margin-top: 2rem;
+  height: 16rem;
+  width: 13rem;
   border: 1px solid black;
-  border-radius: 15px;
-  margin: 0 0 2em 2em;
-  height: 15em;
-  width: 80em;
+  border-radius: 99%;
 }
 
-.profile-details-headers {
+.profile-select-titles {
   display: flex;
-  justify-content: space-between;
-  margin: 0.5em 9em 0 1em;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 48px;
 }
 
-.profile-data {
+.profile-select-logout-container {
   display: flex;
-  justify-content: space-between;
-  margin: 0 11em 1em 1em;
+  justify-content: center;
 }
 
-.between-profile-students {
-  display: flex;
-  margin-left: 1em;
-  justify-content: space-between;
+.profile-select-button {
+  margin: 1em 0 2em 0;
+  padding: 0.5em 0 0.5em 0;
+  height: 3em;
+  width: 15em;
+  border-radius: 30px;
+  color: #096a70;
+  background-color: #fff;
+  border: none;
+  box-shadow: 2px 2px 2px 2px #999999;
+  font-size: 16px;
 }
 
-.family-page-button {
-  margin: 2em 2em 2em 0;
+.profile-select-button:hover {
+  background-color: #faac02;
+  color: #3b0e2b;
+  box-shadow: 2px 2px 2px 2px #999999;
+  cursor: pointer;
+}
+
+.family-page-logout-button {
+  margin: 2em 0 2em 0;
   padding: 0.5em 0 0.5em 0;
   height: 3em;
   width: 20em;
   border-radius: 30px;
-  color: #ffffff;
-  background-color: #2e3646;
+  color: #6a0c49;
+  background-color: #fff;
   border: none;
-  box-shadow: 2px 2px 2px 2px #000000;
+  box-shadow: 2px 2px 2px 2px #999999;
+  font-size: 24px;
 }
 
-.student-card-name {
-  margin: 1em 0 0 1em;
+.family-page-logout-button:hover {
+  background-color: #6a0c49;
+  color: white;
+  cursor: pointer;
 }
 
-.student-details {
-  display: flex;
-}
-
-.student-details-sides {
+// Create New Student Modal
+.create-new-student-modal {
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #ffffff;
+  height: 35em;
+  width: 30em;
+  margin: 5em 10em 10em 10em;
+  top: 5em;
+  left: 40%;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 1em 0 0 1em;
-  padding-right: 16em;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
+
+.create-new-student-title {
+  margin: 1em;
+}
+
+.create-new-student-exit {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+  margin: -2em 0 0 18em;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+}
+
+.exit {
+  display: flex !important;
+  justify-content: flex-end !important;
+  font-size: 20px !important;
+  margin: -2em 0 0 18em !important;
+  height: 2em !important;
+  width: 2em !important;
+  cursor: pointer !important;
+}
+
+.create-new-student-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.create-new-student-submit {
+  display: flex;
+  justify-content: center;
+}
+
+// Current Courses Details Modal
+.current-courses-details-modal {
+  position: absolute;
+  z-index: 3;
+  top: 15em;
+  left: 20%;
+}
+
+.current-courses-details-exit {
+  font-size: 20px;
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  z-index: 4;
+  top: 11em;
+  left: 75%;
+  cursor: pointer;
+}
+
+//**Landing Page Styles**//
 
 // Landing page container ---------
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    height: 200vh;
-    width: 100vw;
-    background:skyblue;
+  display: flex;
+  flex-direction: column;
+  height: 200vh;
+  width: 100vw;
+  background: skyblue;
+}
+// Landing main container
+
+// Cloud background image //
+.cloudbg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
 }
 
-// Landing main container
 .landing-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    height: 80vh;
-    // border: red solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80vh;
+  // border: red solid 2px;
 }
 
 // Landing page main-text
 .landing-main-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-main-container h1 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
+  // border: red solid 2px;
+  margin-top: 6.25rem;
+  margin-bottom: 6.25rem;
+}
+
+.secondtext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bogotext {
+  margin-bottom: 5rem;
+}
+
+.landing-main-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3b0e2c;
+}
+
+.landing-main-container img {
+  transform: rotate(-1deg);
+  width: 65rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rem;
+}
+
+.landing-main-container h1 {
+  font-size: 1.8rem;
 }
 
 .landing-main-container h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 1rem;
-    text-align: center;
-    overflow-wrap: break-word;
-    inline-size: 600px;
-    margin: 2rem 0;
-    width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  inline-size: 600px;
+  margin: 2rem 0;
+  width: 30rem;
 }
 
 // Button styles
 .landing-button-container {
-    display: flex;
-    flex-direction: row;
-    margin-left: 25rem;
-    margin-right: 25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  margin-bottom: 2rem;
 }
 
 .btn {
-    cursor: pointer;
-    width: 11rem;
-    height: 3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
-    background: #F26602;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
+  cursor: pointer;
+  width: 11rem;
+  height: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+  background: #f26602;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .btn:hover {
-    filter: brightness(95%);
-    color: white;
+  filter: brightness(95%);
+  color: white;
 }
-
 
 // Landing second container
 .landing-second-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 5rem;
-    // border: red solid 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #156a70;
+  height: 200vh;
+  margin-top: 5rem;
+  // border: red solid 2px;
 }
 
 .landing-second-container-img {
-    height: 15rem;
-    width: 25rem;
-    margin-left: 0;
+  height: 15rem;
+  width: 25rem;
+  margin-left: 0;
+}
+
+//Orange cloud styles
+.landing-second-container-orange {
+  height: 40rem;
+  margin-left: -5rem;
+  margin-top: -5rem;
+  position: relative;
+}
+
+.class {
+  margin-top: 4rem;
+  margin-left: 0;
+  position: absolute;
+  height: 25rem;
+  width: auto;
+  border-radius: 0.938rem;
 }
 
 .landing-second-container-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 30rem;
-    width: 30rem;
-    margin-left: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30rem;
+  width: 30rem;
+  margin-right: 25rem;
+  margin-top: 5rem;
+  margin-left: 25rem;
 }
 
 .landing-second-container-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 37.5rem;
 }
 
 .landing-second-container-text h3 {
-    color: whitesmoke;
-    font-weight: bolder;
-    font-size: 1.1rem;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 1.1rem;
 }
 
 .landing-second-container-text h1 {
-    color: whitesmoke;
-    font-weight: bolder;
-    font-size: 1.8rem;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 1.8rem;
 }
 
 .landing-second-container-text p {
-    color: whitesmoke;
-    font-size: 1rem;
-
+  color: whitesmoke;
+  font-size: 1rem;
 }
 
 .landing-second-container-btn {
-    width: 8rem;
-    height: 2.3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
-    background: #FBC740;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
+  width: 8rem;
+  height: 2.3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: black;
+  background: #fbc740;
+  border: none;
+  border-radius: 0.313rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.landing-third-container {
+  display: flex;
+  width: 100vw;
+  background: #156a70;
+}
+
+.landing-third-container-text {
+  position: absolute;
+  padding-top: 6.25rem;
+  padding-left: 12.5rem;
+  margin-top: -3rem;
+}
+
+.description {
+  display: flex;
+  height: 12rem;
+  width: 38rem;
+  margin-left: 50rem;
+  color: #3b0e2c;
+  font-size: 1rem;
+  background-color: #eeedd9;
+  border-radius: 1.875rem;
+  border: black 0.031rem solid;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 1.875rem;
+  padding-top: 1.25rem;
+}
+
+.brianne {
+  display: flex;
+  flex-direction: column;
+  height: 8rem;
+  width: 30rem;
+  margin-top: 1.25rem;
+  margin-left: 50rem;
+  padding-left: 1.875rem;
+  color: #3b0e2c;
+  font-size: 1rem;
+  background-color: #eeedd9;
+  border: black 0.031rem solid;
+  border-radius: 2.4rem;
+  font-size: 0.938rem;
+  font-weight: bold;
+}
+
+.landing-third-container-green {
+  margin-bottom: 10rem;
+  height: 37rem;
+  margin-left: 40rem;
+  margin-top: -7rem;
+  position: relative;
+}
+
+.brianne h1 {
+  color: #3b0e2c;
+  font-size: 1.875rem;
+  font-weight: bold;
+  padding-top: 0.625rem;
+  text-shadow: 0.031rem 0.031rem #000000;
+}
+
+.brianne p {
+  padding-top: 0;
+}
+
+.landing-third-container-pic {
+  height: 18rem;
+  width: auto;
+  margin-top: 3.125rem;
+  position: absolute;
+  margin-left: 42.5rem;
+  margin-top: 6rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
 }

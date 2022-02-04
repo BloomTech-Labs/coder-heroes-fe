@@ -1,5 +1,12 @@
 import React from 'react';
 import { Layout } from 'antd';
+import {
+  FacebookOutlined,
+  TwitterOutlined,
+  InstagramOutlined,
+  YoutubeOutlined,
+  LinkedinOutlined,
+} from '@ant-design/icons';
 
 const { Footer } = Layout;
 
@@ -29,12 +36,38 @@ export default function MainFooter({ props }) {
           </div>
 
           <div style={{ textAlign: 'center' }} className="footer-section">
-            <h2>Coderheroes</h2>
-            <div className="social-links">
-              <a href="#.">Icon</a>
-              <a href="#.">Icon</a>
-              <a href="#.">Icon</a>
-              <a href="#.">Icon</a>
+            <h1>Coderheroes</h1>
+            <div className="footerSocial">
+              <a
+                href="https://www.facebook.com/coderheroes."
+                className="footer-socialIcon"
+              >
+                <FacebookOutlined />
+              </a>
+              <a
+                href="https://twitter.com/coderheroes."
+                className="footer-socialIcon"
+              >
+                <TwitterOutlined />
+              </a>
+              <a
+                href="https://www.instagram.com/coderheroes/."
+                className="footer-socialIcon"
+              >
+                <InstagramOutlined />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+                className="footer-socialIcon"
+              >
+                <YoutubeOutlined />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/coderheroes/."
+                className="footer-socialIcon"
+              >
+                <LinkedinOutlined />
+              </a>
             </div>
             <small>Copyright &#169; 2020 coderheroes Inc.</small>
           </div>

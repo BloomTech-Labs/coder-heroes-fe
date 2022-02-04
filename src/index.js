@@ -31,15 +31,16 @@ import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddCourses/';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
-import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
-import NewsFeed from './components/pages/NewsFeed';
+import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
+import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-
+import NavBar from './components/common/NavBar';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -73,7 +74,6 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
-          <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
           <Route path="/admin" component={AdminHome} />
@@ -82,7 +82,6 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -92,15 +91,22 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
+          <SecureRoute exact path="/" component={LandingPage} />
           <SecureRoute
-            path="/"
-            exact
+            path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           <SecureRoute path="/news-feed" component={NewsFeed} />
+          {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute
+            path="/instructor-news-feed"
+            component={InstructorNewsFeed}
+          />
+          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

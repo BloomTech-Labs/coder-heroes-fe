@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
-import AdminSidebar from './adminSidebar';
+import AdminSidebar from './AdminSidebar';
 import AdminCalendar from './adminCalendar';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';

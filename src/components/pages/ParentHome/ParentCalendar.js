@@ -4,8 +4,8 @@ import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
+import { dateConverter } from '../../common/DateHelpers';
+import { timeConverter } from '../../common/TimeHelpers';
 import ChildForm from './ChildForm';
 
 function displayedItem(value, current, item) {

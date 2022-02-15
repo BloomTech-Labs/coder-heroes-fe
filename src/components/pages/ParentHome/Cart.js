@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { useHistory } from 'react-router-dom';
 import { Modal, Button } from 'antd';
-import { timeConverter } from '../../common/timeHelpers';
-import { dateConverter } from '../../common/dateHelpers';
+import { timeConverter } from '../../common/TimeHelpers';
+import { dateConverter } from '../../common/DateHelpers';
 import {
   cancelCartItem,
   clearCart,

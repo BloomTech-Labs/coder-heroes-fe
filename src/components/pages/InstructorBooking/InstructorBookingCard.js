@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card } from 'antd';
 import '../../../styles/index.less';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
+import { dateConverter } from '../../common/DateHelpers';
+import { timeConverter } from '../../common/TimeHelpers';
 
 const InstructorBookingCard = ({
   course,

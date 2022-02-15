@@ -4,7 +4,7 @@ import '../../../styles/index.less';
 import '../../../styles/InstructorStyles/calenderStyle.less';
 import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
-import { dateConverter } from '../../common/dateHelpers';
+import { dateConverter } from '../../common/DateHelpers';
 
 import { InfoCircleOutlined } from '@ant-design/icons';
 

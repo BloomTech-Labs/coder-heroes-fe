@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
+import { dateConverter } from '../../common/DateHelpers';
+import { timeConverter } from '../../common/TimeHelpers';
 
 const InstructorBookingCardModal = props => {
   const { currentModalProps, setCurrentModalProps, setModalHidden } = props;

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card } from 'antd';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
+import { dateConverter } from '../../common/DateHelpers';
+import { timeConverter } from '../../common/TimeHelpers';
 import { Button } from '../../common';
-
 
 const ParentBookingCard = props => {
   const {

@@ -3,7 +3,7 @@ import { Calendar, Modal } from 'antd';
 import '../../../styles/index.less';
 import { connect } from 'react-redux';
 import { setSelectedCourse } from '../../../redux/actions/instructorActions';
-import { dateConverter } from '../../common/dateHelpers';
+import { dateConverter } from '../../common/DateHelpers';
 
 const AdminCalendar = props => {
   const { instructor } = props;

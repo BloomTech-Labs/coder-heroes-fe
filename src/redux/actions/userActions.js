@@ -1,7 +1,6 @@
 import axiosWithAuth from '../../utils/axiosWithAuth';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 
-//thunk action
 export const getCurrentUser = oktaID => dispatch => {
   axiosWithAuth()
     .get(`/profiles/${oktaID}`)

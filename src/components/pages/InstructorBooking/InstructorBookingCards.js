@@ -8,7 +8,7 @@ import {
   isDateInThisWeek,
   isDateToday,
   isOneToOneSession,
-} from '../../common/DateHelpers';
+} from '../../common/dateHelpers';
 
 const { TabPane } = Tabs;
 

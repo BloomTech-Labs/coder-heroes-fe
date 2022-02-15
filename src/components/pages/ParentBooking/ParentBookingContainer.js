@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Tabs } from 'antd';
 import ParentBookingCard from './ParentBookingCard';
 import LoadingComponent from '../../common/LoadingComponent';
-import { isDateInThisWeek } from '../../common/DateHelpers';
+import { isDateInThisWeek } from '../../common/dateHelpers';
 
 const tabs = [{ title: 'All' }, { title: 'Today' }, { title: 'This Week' }];
 

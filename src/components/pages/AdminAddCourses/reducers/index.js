@@ -40,7 +40,6 @@ const reducer = (state = initialState, action) => {
         class: [
           ...state.class,
           {
-            class_id: action.payload.class_id,
             class_name: action.payload.class_name,
             class_subject: action.payload.class_subject,
             class_desc: action.payload.class_desc_test,
@@ -52,3 +51,5 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

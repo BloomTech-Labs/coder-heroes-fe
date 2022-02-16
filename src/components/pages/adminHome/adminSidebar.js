@@ -59,11 +59,11 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="6" icon={<PlusOutlined />}>
-          <a href="/admin-add-course">Add Courses</a>
+          <a href="!#">Add Courses</a>
         </Menu.Item>
 
         <Menu.Item key="7" icon={<FormOutlined />}>
-          <a href="/admin-add-course">Edit Classes</a>
+          <a href="/admin-add-course">Edit Programs</a>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -58,7 +58,7 @@ export default function MainNav() {
           <button>CONTACT US</button>
         </div>
         <div className="nav navSignup">
-          <button>SIGN UP</button>
+          <button>LOGIN</button>
         </div>
       </div>
     </nav>

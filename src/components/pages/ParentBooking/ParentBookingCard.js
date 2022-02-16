@@ -4,7 +4,6 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 
-
 const ParentBookingCard = props => {
   const {
     child_name,

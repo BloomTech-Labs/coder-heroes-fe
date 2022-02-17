@@ -23,6 +23,7 @@ const LoginContainer = () => {
       i18n: {
         en: {
           'primaryauth.title': 'WELCOME BACK',
+          'primaryauth.submit': 'Login',
           // change title for your app
         },
       },

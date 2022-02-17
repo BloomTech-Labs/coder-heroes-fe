@@ -1,0 +1,149 @@
+@bg1: #eeedd9;
+@bg2: #1e6a70;
+@bg3: #9fb222;
+@bg4: #f2c35f;
+@btnBg1: #f2ce60;
+@btnBg2: #f66721;
+@extra: #eec0b5;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
+
+.flex-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.instructor-landing-wrapper {
+  min-height: 100vh;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.instructor-landing-topSection-topContent {
+  background-color: @bg1;
+  padding: 4rem 0 2rem 6rem;
+}
+.instructor-landing-topSection-form {
+  margin-top: 2.5rem !important;
+}
+.instructor-landing-topSection-input {
+  width: 50% !important;
+}
+.instructor-landing-topSection-input > input::placeholder {
+  color: #485b63 !important;
+}
+.custom-btn {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: black;
+  background-color: @btnBg1;
+  width: 120px;
+  height: 42px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 0.1s ease-in;
+}
+.custom-btn:hover {
+  background-color: #fdc312;
+}
+
+@media screen and (max-width: 1200px) {
+  .instructor-landing-topSection-input {
+    width: 40% !important;
+  }
+}
+@media screen and (max-width: 940px) {
+  .instructor-landing-topSection-input {
+    width: 30% !important;
+  }
+  .instructor-landing-topSection-topContent {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 785px) {
+  .instructor-landing-topSection-topContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .instructor-landing-topSection-formBtn {
+    width: 250px;
+    margin-top: 20px;
+  }
+}
+.instructor-landing-topSection-bottomContent {
+  background-color: #fff;
+  display: flex;
+  padding: 4rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.instructor-landing-topSection-bottomContent-info {
+  margin: 1rem 2.2rem;
+  padding: 0 3rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.custom-btn2 {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: black;
+  background-color: @btnBg1;
+  width: 180px;
+  height: 56px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.custom-btn2:hover {
+  background-color: #fdc312;
+}
+
+.info-circle-icon {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: @bg2;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//TODO: media queries for responsive design for the bottom part of SearchInstructors
+
+.instructor-landing-mid-content {
+  display: flex;
+  background-color: @bg2;
+  padding: 4rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.instructor-landing-mid-info {
+  margin: 1rem 2.2rem;
+  padding: 0 3rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.info-circle-icon2 {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #eeedd9;
+  border: 1px solid white;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

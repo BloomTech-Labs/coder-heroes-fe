@@ -31,7 +31,7 @@ function AdminAddCoursesForm(props) {
   //   prereq: formValues.prereq,
   // };
 
-  async function handleSubmit() {
+  function handleSubmit() {
     // waiting for backend to implement this and reducer / actions
     //
     // axios
@@ -73,20 +73,23 @@ function AdminAddCoursesForm(props) {
   };
 
   const addPrereq = e => {
-    placeHolder.push(formPreReqs);
-    buildString(formPreReqs);
+    if (formPreReqs.prereq.length !== 0) {
+      placeHolder.push(formPreReqs.prereq);
+      buildString(formPreReqs);
+    }
   };
 
   const clearPrereq = () => {
-    setFormPreReqs('');
+    setFormPreReqs({ prereq: [] });
     placeHolder = [];
     array_string = '';
     document.getElementById('prereq-render').innerHTML = array_string;
   };
 
   const buildString = item => {
-    array_string = array_string + ' ' + item.prereq;
-    document.getElementById('prereq-render').innerHTML = array_string;
+    let arrayText = placeHolder.join(', ');
+    console.log(placeHolder);
+    document.getElementById('prereq-render').innerHTML = arrayText;
   };
 
   return (

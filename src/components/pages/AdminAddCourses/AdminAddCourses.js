@@ -3,24 +3,21 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { addClass } from './actions';
 import '../../../styles/index.less';
-import { Input, Form } from 'antd';
+import { Input, Form, Card } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 const initialFormValues = {
   class_name: '',
   subject: '',
   description: '',
-  prereq: '',
 };
 
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formPreReqs, setFormPreReqs] = useState({ prereqs: [] });
+  const [formPreReqs, setFormPreReqs] = useState({ prereq: [] });
   let placeHolder = [];
+  let array_string = '';
 
-  useEffect(() => {
-    console.log(formValues);
-  }, [formValues]);
   // const token = JSON.parse(localStorage.getItem('okta-token-storage'));
   // const config = {
   //   headers: { Authorization: `Bearer ${token.idToken.value}` },
@@ -32,7 +29,7 @@ function AdminAddCoursesForm(props) {
   //   prereq: formValues.prereq,
   // };
 
-  const handleSubmit = e => {
+  async function handleSubmit() {
     // waiting for backend to implement this
     // axios
     //   .post(`https://coder-heroes-api.herokuapp.com/course_types`, body, config)
@@ -43,8 +40,6 @@ function AdminAddCoursesForm(props) {
     //     console.error(err);
     //   });
 
-    e.preventDefault();
-
     // PROBLEM IS HERE
     // setFormValues({
     //   ...formValues,
@@ -54,15 +49,20 @@ function AdminAddCoursesForm(props) {
     //   prereq: [12312,23423,234234,234234]
     // });
 
-    setFormValues({
+    const merged = {
       ...formValues,
       prereq: placeHolder,
-    });
+    };
+    console.log(merged);
 
-    setFormPreReqs(initialFormValues);
-    setFormPreReqs([]);
+    addClass(merged);
+
+    setFormValues(initialFormValues);
+    setFormPreReqs('');
     placeHolder = [];
-  };
+    array_string = '';
+    document.getElementById('prereq-render').innerHTML = array_string;
+  }
 
   const handleChange = e => {
     if (e.target.name !== 'prereq') {
@@ -80,6 +80,19 @@ function AdminAddCoursesForm(props) {
 
   const addPrereq = e => {
     placeHolder.push(formPreReqs);
+    buildString(formPreReqs);
+  };
+
+  const clearPrereq = () => {
+    setFormPreReqs('');
+    placeHolder = [];
+    array_string = '';
+    document.getElementById('prereq-render').innerHTML = array_string;
+  };
+
+  const buildString = item => {
+    array_string = array_string + ' ' + item.prereq;
+    document.getElementById('prereq-render').innerHTML = array_string;
   };
 
   return (
@@ -131,14 +144,29 @@ function AdminAddCoursesForm(props) {
                 name="prereq"
               />
             </Form.Item>
-            <button
-              style={{ width: '30%', height: 25 }}
-              className="prereq_add_button"
-              onClick={addPrereq}
-            >
-              Add
-            </button>
+            <div style={{ display: 'block' }} className="buttons_div">
+              <button
+                style={{ width: '50%', height: 25 }}
+                className="prereq_add_button"
+                onClick={addPrereq}
+              >
+                Add
+              </button>
+              <button
+                style={{ width: '50%', height: 25 }}
+                className="prereq_add_button"
+                onClick={clearPrereq}
+              >
+                Clear
+              </button>
+            </div>
           </div>
+          <Card
+            style={{ width: '100%', marginBottom: '7.5%', maxHeight: '100%' }}
+            bodyStyle={{ maxHeight: 100, overflow: 'auto' }}
+          >
+            <p id="prereq-render"></p>
+          </Card>
           {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button className="course-submit-button" onClick={handleSubmit}>

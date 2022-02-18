@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import {getNewsFeeds} from '../../../redux/actions/instructorActions';
+import { getNewsFeeds } from '../../../redux/actions/instructorActions';
 function NewsContainer(props) {
-  const { setPostId, setPostOptions, newsfeed, dispatch }=props;
+  const { setPostId, setPostOptions, newsfeed, dispatch } = props;
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem('okta-token-storage'));
     const config = {

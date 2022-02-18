@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../../../styles/ParentStyles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 
-
 const CreateNewStudent = props => {
   const [newStudentInfo, setNewStudentInfo] = useState();
   // const [checked, setChecked] = useState([]);

@@ -4,9 +4,6 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import { useParams } from 'react-router';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
-import CreateNewStudent from './CreateNewStudent';
 import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 
@@ -36,7 +33,27 @@ const ParentFamilyHome = () => {
       <ParentSidebar />
       <div className="family-page-content">
         <Banner />
+        <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
+          <strong>PICK A PROFILE TO ACCESS</strong>
+        </div>
         <div className="profile-card-container">
+          <div className="profile-card-containers">
+            <div className="profile-avatars"></div>
+            <div className="profile-select-titles">Parent Name</div>
+            <button className="profile-select-button">VIEW ACCOUNT</button>
+          </div>
+          <div className="profile-card-containers">
+            <div className="profile-avatars"></div>
+            <div className="profile-select-titles">Student Name</div>
+            <button className="profile-select-button">VIEW ACCOUNT</button>
+          </div>
+        </div>
+        <div className="profile-select-logout-container">
+          <button className="family-page-logout-button">
+            LOG OUT OF SHARED ACCOUNT
+          </button>
+        </div>
+        {/* <div className="profile-card-container">
           <div className="profile-details-headers">
             <h1>Profile</h1>
             <h1>Username</h1>
@@ -85,6 +102,8 @@ const ParentFamilyHome = () => {
         </div>
         {modal && <CreateNewStudent setModal={setModal} />}
         {modal2 && <CurrentCoursesDetails setModal={setModal2} />}
+          </div> */}
+        {/* </div> */}
       </div>
     </div>
   );

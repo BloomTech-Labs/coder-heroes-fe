@@ -27,9 +27,10 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
-import AdminHome from './components/pages/adminHome';
+import AdminHome from './components/pages/AdminHome';
+import AdminAddCourses from './components/pages/AdminAddCourses/';
+import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
-import NavBar from './components/common/NavBar';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
@@ -39,13 +40,15 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-
+import NavBar from './components/common/NavBar';
+// import Newfeed from './components/pages/n';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
+        <NavBar />
         <App />
         <Footer />
       </React.StrictMode>
@@ -72,7 +75,6 @@ function App() {
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
-          <Route path="/landing" component={LandingPage} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
           <Route path="/admin" component={AdminHome} />
@@ -90,12 +92,15 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
+          <SecureRoute exact path="/" component={LandingPage} />
           <SecureRoute
-            path="/"
-            exact
+            path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
+          <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
+          <SecureRoute path="/admin-courses" component={AdminCourses} />
+          {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute
             path="/instructor-news-feed"
             component={InstructorNewsFeed}

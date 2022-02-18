@@ -13,21 +13,23 @@ import { dummyData } from '../../dummyData';
 
 const initialState = dummyData;
 const instructorReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case GET_COURSES_ACTION:
       return {
         ...state,
-        classes: action.payload,
+        classes: payload,
       };
     case GET_USER_ACTION:
       return state;
     case GET_INBOX_ACTION:
       return state;
     case SET_SELECTED_COURSE:
-      return { ...state, selectedCourse: action.payload };
+      return { ...state, selectedCourse: payload };
     case ADD_COURSE_ACTION:
       const newCourse = {
-        ...action.payload,
+        ...payload,
         id: Date.now(),
       };
       return {
@@ -36,7 +38,7 @@ const instructorReducer = (state = initialState, action) => {
       };
     case ADD_NEW_PROGRAM:
       const newProgram = {
-        ...action.payload,
+        ...payload,
         id: Date.now(),
       };
       return {
@@ -46,13 +48,13 @@ const instructorReducer = (state = initialState, action) => {
     case SET_ERROR:
       return {
         ...state,
-        errorMessage: action.payload,
+        errorMessage: payload,
       };
     case GET_NEWSFEEDS:
       //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
       return {
         ...state,
-        newsfeed: action.payload,
+        newsfeed: payload,
       };
     default:
       return state;

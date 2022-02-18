@@ -31,7 +31,7 @@ export const getusers = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -41,7 +41,6 @@ export const getCourses = () => async dispatch => {
     const res = await axiosWithAuth().get(
       `${process.env.REACT_APP_API_URI}/class-instances`
     );
-    console.log(res);
     dispatch({
       type: GET_COURSES_ACTION,
       payload: res.data,
@@ -64,7 +63,7 @@ export const getInbox = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -79,7 +78,7 @@ export const addCourse = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -124,7 +123,7 @@ export const getNewsFeeds = config => dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };

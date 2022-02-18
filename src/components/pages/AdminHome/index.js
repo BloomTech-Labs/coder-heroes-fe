@@ -1,21 +1,23 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import AdminSidebar from './AdminSidebar';
-import AdminCalender from './AdminCalender';
+import AdminCalendar from './AdminCalendar';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
 
 const { Content } = Layout;
-const adminHome = () => {
+
+const AdminHome = () => {
+  console.log('im in admin');
   return (
     <div>
       <Layout>
-        <AdminSidebar />
         <Content>
           <Banner />
+          <AdminSidebar />
           <div className="calendar" data-testid="calendar">
-            {/*Calendaer still set to Instructor Props*/}
-            <AdminCalender />
+            {/*Calendar still set to Instructor Props*/}
+            <AdminCalendar />
           </div>
         </Content>
       </Layout>
@@ -23,4 +25,4 @@ const adminHome = () => {
   );
 };
 
-export default adminHome;
+export default AdminHome;

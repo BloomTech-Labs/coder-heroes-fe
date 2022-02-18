@@ -3,15 +3,10 @@ import { addProgram, setError } from '../../../redux/actions/instructorActions';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Select, Input, Form } from 'antd';
-import { timeConverter } from '../../common/timeHelpers';
 
 const { Option } = Select;
 
-//below are the options for "new program" details to map from in the return section
-const subjects = ['Python', 'Java', 'C++', 'JavaScript'];
-const classSize = ['1', '2-5', '6-10', '10-15'];
-const durations = ['45 min', '60 min', '90 min'];
-const dates = [
+const days = [
   'Monday',
   'Tuesday',
   'Wednesday',
@@ -20,47 +15,42 @@ const dates = [
   'Saturday',
   'Sunday',
 ];
-const times = [
-  '08:00:00',
-  '09:00:00',
-  '10:00:00',
-  '11:00:00',
-  '12:00:00',
-  '13:00:00',
-  '14:00:00',
-  '15:00:00',
-  '16:00:00',
-  '17:00:00',
-  '18:00:00',
-  '19:00:00',
-];
-const sessions = ['1', '2', '3', '4', '5', '6', '7', '8'];
-const ages = ['3-6', '7-10', '10-15'];
+
+const initialClassDataState = {
+  course_type_id: '',
+  day: '', //needs to be added to backend
+  size: '',
+  min_age: '', //needs to be added to backend
+  max_age: '', //needs to be added to backend
+  start_time: '',
+  end_time: '',
+  start_date: '',
+  end_date: '',
+  sessions: '', //needs to be added to backend
+  location: '',
+  open_seats_remaining: '',
+  instructor_id: '',
+};
 
 const InstructorAddCourseCards = props => {
-  const [state, setState] = useState({
-    subject: '',
-    other: '',
-    description: '',
-    prerequisite: '',
-    classSize: '',
-    age: '',
-    session: '',
-    duration: '',
-    dates: '',
-    times: '',
-  });
+  const [classData, setClassData] = useState(initialClassDataState);
 
   const handleChange = e => {
-    setState({
-      ...state,
+    setClassData({
+      ...classData,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.addProgram(state);
+    setClassData({
+      ...classData,
+      open_seats_remaining: classData.size,
+      instructor_id: 1, //change to id of current logged in instructor once we connect redux
+    });
+    props.addProgram(classData);
+    setClassData(initialClassDataState);
   };
 
   return (
@@ -76,124 +66,92 @@ const InstructorAddCourseCards = props => {
           layout="horizontal"
           onChange={handleChange}
         >
-          <Form.Item lable="Select">
-            <label htmlFor="subject">Subject: </label>
+          <Form.Item>
+            <label for="courseType">Course Type: </label>
+            <Select>
+              {/* we need to create an endpoint with an instructor's approved courses for this */}
+            </Select>
+          </Form.Item>
+
+          <Form.Item>
+            <label for="day">Day: </label>
             <Select
               onChange={value => {
-                setState({
-                  ...state,
-                  subject: value,
+                setClassData({
+                  ...classData,
+                  day: value,
                 });
               }}
             >
-              {subjects.map(subject => (
-                <Option value={subject}>{subject}</Option>
-              ))}
-            </Select>
-            {/* {state.subject === "Other" && <input type="text" />} */}
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="other">Subject Not Listed? </label>
-            <Input value={state.other} name="other" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="description">Description: </label>
-            <Input value={state.description} name="description" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="prereq">Prerequisite: </label>
-            <Input value={state.prerequisite} name="prerequisite" />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="size">Class Size: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  classSize: value,
-                });
-              }}
-            >
-              {classSize.map(classSize => (
-                <Option value={classSize}>{classSize}</Option>
+              {days.map(day => (
+                <Option value={day}>{day}</Option>
               ))}
             </Select>
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="age">Age Group: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  age: value,
-                });
-              }}
-            >
-              {ages.map(age => (
-                <Option value={age}>{age}</Option>
-              ))}
-            </Select>
+            <label for="classSize">Class Size: </label>
+            <Input type="number" value={classData.size} name="size" min="1" />
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="sessions">Total Sessions: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  session: value,
-                });
-              }}
-            >
-              {sessions.map(session => (
-                <Option value={session}>{session}</Option>
-              ))}
-            </Select>
+            <label for="minAge">Minimum Student Age: </label>
+            <Input
+              type="number"
+              value={classData.min_age}
+              name="min_age"
+              min="4"
+              max="100"
+            />
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="duration">Course Duration: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  duration: value,
-                });
-              }}
-            >
-              {durations.map(duration => (
-                <Option value={duration}>{duration}</Option>
-              ))}
-            </Select>
+            <label for="maxAge">Maximum Student Age: </label>
+            <Input
+              type="number"
+              value={classData.max_age}
+              name="max_age"
+              min="4"
+              max="100"
+            />
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="date">Preferred Date: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  dates: value,
-                });
-              }}
-            >
-              {dates.map(date => (
-                <Option value={date}>{date}</Option>
-              ))}
-            </Select>
+            <label for="startTime">Start Time: </label>
+            <Input type="time" value={classData.start_time} name="start_time" />
           </Form.Item>
+
           <Form.Item>
-            <label htmlFor="time">Preferred Time: </label>
-            <Select
-              onChange={value => {
-                setState({
-                  ...state,
-                  times: value,
-                });
-              }}
-            >
-              {times.map(time => (
-                <Option value={time}>{timeConverter(time)}</Option>
-              ))}
-            </Select>
+            <label for="endTime">End Time: </label>
+            <Input type="time" value={classData.end_time} name="end_time" />
           </Form.Item>
+
+          <Form.Item>
+            <label for="startDate">Start Date: </label>
+            <Input type="date" value={classData.start_date} name="start_date" />
+          </Form.Item>
+
+          <Form.Item>
+            <label for="endDate">End Date: </label>
+            <Input type="date" value={classData.end_date} name="end_date" />
+          </Form.Item>
+
+          <Form.Item>
+            <label for="sessions">Total Sessions: </label>
+            <Input
+              type="number"
+              value={classData.sessions}
+              name="sessions"
+              min="1"
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <label for="classLink">Class Zoom Link: </label>
+            <Input value={classData.location} name="location" />
+          </Form.Item>
+          {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}
+
           {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button onClick={handleSubmit}>Submit!</button>
@@ -209,7 +167,7 @@ const mapStateToProps = state => {
     errorMessage: state.errorMessage,
   };
 };
-//export default InstructorAddCourseCards
+
 export default connect(mapStateToProps, { addProgram, setError })(
   InstructorAddCourseCards
 );

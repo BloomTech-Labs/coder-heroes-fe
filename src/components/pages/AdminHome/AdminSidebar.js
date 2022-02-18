@@ -8,7 +8,6 @@ import {
   PlusOutlined,
   BellOutlined,
   CalculatorOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
 
@@ -43,23 +42,23 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="#">Dashboard</a>
+          <a href="/admin">Dashboard</a>
         </Menu.Item>
 
         <Menu.Item key="3" icon={<BellOutlined />}>
-          <a href="#">Notifications</a>
+          <a href="!#">Notifications</a>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<CalculatorOutlined />}>
-          <a href="#">Analytics</a>
+          <a href="!#">Analytics</a>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<DesktopOutlined />}>
-          <a href="#">Courses</a>
+          <a href="/admin-courses">Courses</a>
         </Menu.Item>
 
         <Menu.Item key="6" icon={<PlusOutlined />}>
-          <a href="#">Add Courses</a>
+          <a href="/admin-add-course">Add Courses</a>
         </Menu.Item>
       </Menu>
     </Sider>

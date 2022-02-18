@@ -9,7 +9,7 @@ export const fetchClasses = () => dispatch => {
   console.log('dispatched test');
 
   dispatch(startFetch());
-
+  // waiting for backend to implement this and reducer / actions
   // axios.get('backend...')
   //     .then(resp => {
   //         dispatch(successFetch(resp.data));
@@ -33,6 +33,8 @@ export const failFetch = error => {
 };
 
 export const addClass = item => {
+  // waiting for backend to implement this and reducer / actions
+  //
   // axios.post("backend...", item)
   //     .then (resp =>{
   //         console.log('post success', resp);

@@ -18,6 +18,8 @@ function AdminAddCoursesForm(props) {
   let placeHolder = [];
   let array_string = '';
 
+  // waiting for backend to implement this and reducer / actions
+  //
   // const token = JSON.parse(localStorage.getItem('okta-token-storage'));
   // const config = {
   //   headers: { Authorization: `Bearer ${token.idToken.value}` },
@@ -30,7 +32,8 @@ function AdminAddCoursesForm(props) {
   // };
 
   async function handleSubmit() {
-    // waiting for backend to implement this
+    // waiting for backend to implement this and reducer / actions
+    //
     // axios
     //   .post(`https://coder-heroes-api.herokuapp.com/course_types`, body, config)
     //   .then(resp => {
@@ -39,15 +42,6 @@ function AdminAddCoursesForm(props) {
     //   .catch(err => {
     //     console.error(err);
     //   });
-
-    // PROBLEM IS HERE
-    // setFormValues({
-    //   ...formValues,
-    //   class_name: formValues.class_name,
-    //   subject: formValues.subject,
-    //   description: 'random description',
-    //   prereq: [12312,23423,234234,234234]
-    // });
 
     const merged = {
       ...formValues,

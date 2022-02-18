@@ -1,5 +1,6 @@
 // Declare Actions
 import axios from 'axios';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
@@ -37,7 +38,10 @@ export const getusers = () => async dispatch => {
 
 export const getCourses = () => async dispatch => {
   try {
-    const res = await axios.get(`https://dummyapi.io/data/v1/post?limit=10`);
+    const res = await axiosWithAuth().get(
+      `${process.env.REACT_APP_API_URI}/class-instances`
+    );
+    console.log(res);
     dispatch({
       type: GET_COURSES_ACTION,
       payload: res.data,
@@ -45,7 +49,7 @@ export const getCourses = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };

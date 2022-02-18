@@ -7,16 +7,18 @@ import {
   ADD_COURSE_ACTION,
   ADD_NEW_PROGRAM,
   SET_ERROR,
-  GET_NEWSFEEDS
+  GET_NEWSFEEDS,
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
 
 const initialState = dummyData;
-
 const instructorReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COURSES_ACTION:
-      return state;
+      return {
+        ...state,
+        classes: action.payload,
+      };
     case GET_USER_ACTION:
       return state;
     case GET_INBOX_ACTION:
@@ -44,14 +46,14 @@ const instructorReducer = (state = initialState, action) => {
     case SET_ERROR:
       return {
         ...state,
-        errorMessage: 'Please fill in all the fields',
+        errorMessage: action.payload,
       };
     case GET_NEWSFEEDS:
       //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
-        return {
-          ...state,
-          newsfeed:action.payload
-        };  
+      return {
+        ...state,
+        newsfeed: action.payload,
+      };
     default:
       return state;
   }

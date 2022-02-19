@@ -2,7 +2,7 @@ import {
   GET_CHILDREN_ACTION,
   GET_CHILDREN_SUCCESS,
   GET_COURSES_SUCCESS,
-  GET_COURSE_ACTION,
+  GET_COURSES_ACTION,
 } from '../actions/childAction';
 
 const initialState = {
@@ -18,7 +18,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COURSE_ACTION:
+    case GET_COURSES_ACTION:
       return {
         ...state,
         courses: action.payload,

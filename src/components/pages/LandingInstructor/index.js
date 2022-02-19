@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchInstructors from './SearchInstructors';
 import HowItWorks from './HowItWorks';
+import Testimonials from './Testimonials';
 import '../../../styles/index.less';
 import {
   Row,
@@ -20,8 +21,7 @@ const LandingInstructor = () => {
     <Layout className="instructor-landing-wrapper">
       <SearchInstructors />
       <HowItWorks />
-      <Layout className="instructor-landing-middleSection"></Layout>
-      <Layout className="instructor-landing-bottomSection"></Layout>
+      <Testimonials />
     </Layout>
   );
 };

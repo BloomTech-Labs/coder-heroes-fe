@@ -1,7 +1,7 @@
 //import actions
 import {
   GET_USER_ACTION,
-  GET_COURSES_ACTION,
+  GET_INSTRUCTOR_CLASSES,
   GET_INBOX_ACTION,
   SET_SELECTED_COURSE,
   ADD_COURSE_ACTION,
@@ -16,7 +16,7 @@ const instructorReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_COURSES_ACTION:
+    case GET_INSTRUCTOR_CLASSES:
       return {
         ...state,
         classes: payload,

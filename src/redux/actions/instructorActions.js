@@ -4,7 +4,7 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
-export const GET_COURSES_ACTION = 'GET_COURSES';
+export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
@@ -38,11 +38,9 @@ export const getusers = () => async dispatch => {
 
 export const getCourses = () => async dispatch => {
   try {
-    const res = await axiosWithAuth().get(
-      `${process.env.REACT_APP_API_URI}/class-instances`
-    );
+    const res = await axiosWithAuth().get(`/class-instances`);
     dispatch({
-      type: GET_COURSES_ACTION,
+      type: GET_INSTRUCTOR_CLASSES,
       payload: res.data,
     });
   } catch (error) {

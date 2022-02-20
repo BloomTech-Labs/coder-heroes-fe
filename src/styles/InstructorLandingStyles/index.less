@@ -4,204 +4,201 @@
 @btnBg1: #f2ce60;
 @btnBg2: #f66721;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap');
 
-.flex-mid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.instructor-landing-wrapper {
+.il__wrapper {
   min-height: 100vh;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-.instructor-landing-topSection-topContent {
-  background-color: @bg1;
-  padding: 4rem 0 2rem 6rem;
+.il__heading {
+  font-family: 'Staatliches', 'cursive';
 }
-.instructor-landing-topSection-form {
-  margin-top: 2.5rem !important;
-}
-.instructor-landing-topSection-input {
-  width: 50% !important;
-}
-.instructor-landing-topSection-input > input::placeholder {
-  color: #485b63 !important;
-}
-.custom-btn {
+.il__browseBtn {
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: black;
   background-color: @btnBg1;
-  width: 120px;
-  height: 42px;
-  border: none;
-  border-radius: 5px;
-  margin-left: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  transition: 0.15s ease-in;
-}
-.custom-btn:hover {
-  background-color: #fdc312;
-}
-
-@media screen and (max-width: 1200px) {
-  .instructor-landing-topSection-input {
-    width: 40% !important;
-  }
-}
-@media screen and (max-width: 940px) {
-  .instructor-landing-topSection-input {
-    width: 30% !important;
-  }
-  .instructor-landing-topSection-topContent {
-    padding: 2rem;
-  }
-}
-@media screen and (max-width: 785px) {
-  .instructor-landing-topSection-topContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .instructor-landing-topSection-formBtn {
-    width: 250px;
-    margin-top: 20px;
-  }
-}
-.instructor-landing-topSection-bottomContent {
-  background-color: #fff;
-  display: flex;
-  padding: 4rem;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.instructor-landing-topSection-bottomContent-info {
-  margin: 1rem 2.2rem;
-  padding: 0 3rem;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.custom-btn2 {
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.8rem;
-  color: black;
-  background-color: @btnBg1;
-  width: 180px;
+  width: 200px;
   height: 56px;
   border: none;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: 0.15s ease-in;
 }
-.custom-btn2:hover {
+.il__browseBtn:hover {
   background-color: #fdc312;
 }
+.il__top {
+  .il__top__topContent {
+    background-color: @bg1;
 
-.info-circle-icon {
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: @bg2;
-  height: 100px;
-  width: 100px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    .il__top__topContent__container {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin: 3rem 0;
+    }
+    .il__top__topContent__main {
+      min-width: 1100px;
+    }
+    .il__top__form {
+      margin-top: 2.5rem !important;
+    }
+    .il__top__input {
+      width: 50% !important;
+    }
+    .il__top__input > input::placeholder {
+      color: #485b63 !important;
+    }
+    .il__top__formBtn {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: black;
+      background-color: @btnBg1;
+      width: 120px;
+      height: 42px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 5px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transition: 0.15s ease-in;
+    }
+    .il__top__formBtn:hover {
+      background-color: #fdc312;
+    }
+  }
+  .il__top__bottomContent {
+    background-color: #fff;
+    display: flex;
+    padding: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .il__top__bottomContent__info {
+      margin: 1rem 2.2rem;
+      padding: 0 1.2rem;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .il__top__bottomContent__info__iconCircle {
+      cursor: pointer;
+      border-radius: 50%;
+      background-color: @bg2;
+      height: 100px;
+      width: 100px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s ease-in;
+    }
+    .il__top__bottomContent__info__iconCircle:hover {
+      transform: scale(1.1);
+    }
+  }
 }
-//TODO: media queries for responsive design for the bottom part of SearchInstructors
 
-.instructor-landing-mid-content {
+.il__mid {
   display: flex;
   background-color: @bg2;
   padding: 4rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.instructor-landing-mid-info {
-  margin: 1rem 2.2rem;
-  padding: 0 1rem;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.info-circle-icon2 {
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: #eeedd9;
-  border: 2px solid white;
-  height: 150px;
-  width: 150px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.info-circle-icon3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #9fb222;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  color: white;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
+
+  .il__mid__info {
+    margin: 1rem 2.2rem;
+    padding: 0 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .il__mid__info__contentCircle {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #eeedd9;
+    border: 2px solid white;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.3s ease-in;
+  }
+  .il__mid__info__stepCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9fb222;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+  }
+  .il__mid__info__contentCircle:hover {
+    transform: scale(1.1);
+  }
 }
 
 .il__bottom {
   background-color: @bg3;
 
-  .left-container {
+  .il__bottom__leftContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.5rem 0;
   }
-  .instructor-landing-bottom-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .instructor-landing-bottom-leftCircle {
-    height: 500px;
-    width: 500px;
+  .il__bottom__leftCircle {
+    height: 550px;
+    width: 550px;
     border-radius: 50%;
     background-color: #f2c35f;
     padding: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2rem 0 2rem 4rem;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
       0px 3px 1px -2px rgba(0, 0, 0, 0.12), 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
   }
-  .custom-btn3 {
+  .il__bottom__leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .il__bottom__findInsBtn {
     cursor: pointer;
-    font-weight: bold;
-    font-size: 0.8rem;
+    font-weight: 500;
+    font-size: 1rem;
     color: white;
     background-color: @btnBg2;
-    width: 180px;
+    width: 210px;
     height: 46px;
     border: none;
     border-radius: 5px;
     margin: 1rem 0;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transition: 0.15s ease-in;
+    overflow: 'hidden';
+    white-space: 'nowrap';
   }
-  .custom-btn3:hover {
+  .il__bottom__findInsBtn:hover {
     background-color: #fd732e;
   }
   .il__grid__container {
@@ -210,7 +207,8 @@
     align-items: center;
     justify-content: center;
     padding: 1.6rem;
-    margin: 1.2rem 1.4rem;
+    margin: 4.5rem 4.4rem 0 0;
+    transform: scale(1.2);
 
     .il__grid__toprow {
       display: flex;
@@ -227,7 +225,7 @@
     .il__grid__item > img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
     }
   }
 }

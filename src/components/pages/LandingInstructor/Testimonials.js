@@ -16,9 +16,9 @@ const Testimonials = () => {
     <Content className="il__bottom">
       <Row gutter={16}>
         <Col span={12}>
-          <div className="left-container">
-            <div className="instructor-landing-bottom-leftCircle">
-              <div className="instructor-landing-bottom-left">
+          <div className="il__bottom__leftContainer">
+            <div className="il__bottom__leftCircle">
+              <div className="il__bottom__leftContent">
                 <Title
                   style={{
                     color: '#263E47',
@@ -41,7 +41,9 @@ const Testimonials = () => {
                   great friends, and building skills and values to last a
                   lifetime.{' '}
                 </Text>
-                <button className="custom-btn3">FIND AN INSTRUCTOR</button>
+                <button className="il__bottom__findInsBtn">
+                  FIND AN INSTRUCTOR
+                </button>
               </div>
             </div>
           </div>

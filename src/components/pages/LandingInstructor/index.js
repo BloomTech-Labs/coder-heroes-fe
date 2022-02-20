@@ -3,22 +3,11 @@ import SearchInstructors from './SearchInstructors';
 import HowItWorks from './HowItWorks';
 import Testimonials from './Testimonials';
 import '../../../styles/index.less';
-import {
-  Row,
-  Col,
-  Typography,
-  Avatar,
-  Input,
-  Select,
-  Button,
-  Card,
-  Layout,
-  Form,
-} from 'antd';
+import { Layout } from 'antd';
 
 const LandingInstructor = () => {
   return (
-    <Layout className="instructor-landing-wrapper">
+    <Layout className="il__wrapper">
       <SearchInstructors />
       <HowItWorks />
       <Testimonials />

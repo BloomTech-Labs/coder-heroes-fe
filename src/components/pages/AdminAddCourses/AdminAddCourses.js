@@ -3,8 +3,13 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { addClass } from './actions';
 import '../../../styles/index.less';
-import { Input, Form, Card } from 'antd';
+import { Input, Form, Card, Affix } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+
+let placeHolder = [];
+let array_string = '';
+let program_list = [];
+let formPrerequisite = '';
 
 const initialFormValues = {
   class_name: '',
@@ -14,9 +19,7 @@ const initialFormValues = {
 
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formPreReqs, setFormPreReqs] = useState({ prereq: [] });
-  let placeHolder = [];
-  let array_string = '';
+  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
 
   // waiting for backend to implement this and reducer / actions
   //
@@ -49,33 +52,34 @@ function AdminAddCoursesForm(props) {
     };
     console.log(merged);
 
-    addClass(merged);
-
+    program_list.push(addClass(merged).payload);
     setFormValues(initialFormValues);
-    setFormPreReqs('');
-    placeHolder = [];
-    array_string = '';
-    document.getElementById('prereq-render').innerHTML = array_string;
+    clearPrereq();
   }
 
   const handleChange = e => {
     if (e.target.name !== 'prereq') {
+      console.log(formValues);
       setFormValues({
         ...formValues,
         [e.target.name]: e.target.value,
       });
     } else if (e.target.name === 'prereq') {
+      console.log(formPreReqs);
       setFormPreReqs({
         ...formPreReqs,
         [e.target.name]: e.target.value,
       });
+      console.log('formPreReq:', formPrerequisite);
     }
   };
 
   const addPrereq = e => {
     if (formPreReqs.prereq.length !== 0) {
-      placeHolder.push(formPreReqs.prereq);
-      buildString(formPreReqs);
+      formPrerequisite = formPreReqs.prereq;
+      placeHolder.push(formPrerequisite);
+      buildString(formPrerequisite);
+      console.log(placeHolder);
     }
   };
 
@@ -88,12 +92,14 @@ function AdminAddCoursesForm(props) {
 
   const buildString = item => {
     let arrayText = placeHolder.join(', ');
-    console.log(placeHolder);
     document.getElementById('prereq-render').innerHTML = arrayText;
   };
 
   return (
-    <div className="add-courses-form-container">
+    <div
+      className="add-courses-form-container"
+      style={{ border: '1px solid black' }}
+    >
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <h1 style={{ marginTop: 30, fontSize: 20 }}>Submit New Program:</h1>
       </div>
@@ -164,12 +170,13 @@ function AdminAddCoursesForm(props) {
           >
             <p id="prereq-render"></p>
           </Card>
-          {props.errorMessage && <div>Error: {props.errorMessage}</div>}
+
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <button className="course-submit-button" onClick={handleSubmit}>
               Submit
             </button>
           </div>
+          {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
         </Form>
       </section>
     </div>

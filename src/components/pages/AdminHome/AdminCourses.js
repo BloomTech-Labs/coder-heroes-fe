@@ -1,7 +1,8 @@
 import React from 'react';
-import AdminSidebar from '../AdminHome/AdminSidebar';
-import AdminCourseFeed from '../../pages/AdminAddCourses/AdminCourseFeed';
+import AdminSidebar from './AdminSidebar';
+import AdminCourseFeed from '../AdminAddCourses/AdminCourseFeed';
 import '../../../styles/index.less';
+
 export default function AdminCourses() {
   return (
     <div className="admin-courses-container">

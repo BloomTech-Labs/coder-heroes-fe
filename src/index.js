@@ -41,7 +41,7 @@ import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
-// import Newfeed from './components/pages/n';
+
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -72,6 +72,7 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
+        <Route exact path="/" component={LandingPage} />
         <Route path="/login" component={LoginPage} />
         <div style={{ minHeight: '100vh' }}>
           <Route path="/implicit/callback" component={LoginCallback} />
@@ -92,7 +93,6 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
-          <SecureRoute exact path="/" component={LandingPage} />
           <SecureRoute
             path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}

@@ -1,9 +1,33 @@
+.input-focus() {
+  border: @input-focused-border;
+  box-shadow: @input-focused-box-shadow;
+}
+
 #okta-sign-in.auth-container {
   &.main-container {
     background-color: #096a70;
     min-width: 30rem;
     padding: 0 1rem;
     border-radius: 0.5rem;
+
+    .o-form-button-bar,
+    .okta-form-input-field,
+    .custom-checkbox {
+      &.focused-input {
+        box-shadow: none;
+      }
+    }
+
+    .okta-form-input-field {
+      border: 1px solid @border-color-base;
+      transition: box-shadow 0.1s ease-in-out;
+      &.focused-input {
+        .input-focus();
+      }
+      &:hover {
+        border: 2px solid #21c5b5;
+      }
+    }
   }
 
   .okta-form-title {
@@ -26,7 +50,8 @@
     }
   }
 
-  input[type='submit'] {
+  input[type='submit'],
+  input[type='button'] {
     color: #fff;
 
     &:hover {
@@ -38,7 +63,9 @@
     background: #199c8f;
     border: none;
     border-radius: 8px;
-    transition: 0.2s;
+    transition: background 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: border 0.1s ease-in-out;
 
     &:hover {
       background: #263d47;
@@ -46,7 +73,7 @@
 
     &:focus {
       background: #263d47;
-      border-radius: 8px;
+      .input-focus();
     }
   }
 
@@ -65,9 +92,12 @@
 
 #okta-sign-in {
   .o-form {
-    .button-bar:focus {
-      border: none;
+    .button-bar {
+      &:focus {
+        border: none;
+      }
     }
+
     .o-form-label,
     input,
     label,

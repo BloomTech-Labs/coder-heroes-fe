@@ -9,6 +9,7 @@
 .il__wrapper {
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box !important;
 }
 .il__heading {
   font-family: 'Staatliches', 'cursive';
@@ -35,19 +36,37 @@
 
     .il__top__topContent__container {
       display: flex;
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      margin: 3rem 0;
+      justify-content: center;
     }
     .il__top__topContent__main {
-      min-width: 1100px;
+      display: flex;
+      padding: 2.5rem;
+      margin-left: 7.5rem;
+      width: 80%;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .il__top__topContent__heading {
+      color: #263e47;
+      font-size: 3.4rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: ease all 0.5s;
+    }
+    .il__top__topContent__text {
+      font-size: 1.4rem;
+      font-weight: 500;
+      width: 500px;
+      transition: all 0.3s ease;
     }
     .il__top__form {
       margin-top: 2.5rem !important;
     }
     .il__top__input {
-      width: 50% !important;
+      width: 40% !important;
     }
     .il__top__input > input::placeholder {
       color: #485b63 !important;
@@ -69,14 +88,43 @@
     .il__top__formBtn:hover {
       background-color: #fdc312;
     }
+    @media screen and (max-width: 1193px) {
+      .il__top__topContent__main {
+        align-items: center;
+        margin-left: 0;
+      }
+      .il__top__form {
+        text-align: center;
+      }
+      .il__top__formBtn {
+        width: 100%;
+        align-self: center;
+        margin-top: 1rem;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .il__top__topContent__heading {
+        font-size: 2.8rem;
+      }
+      .il__top__topContent__text {
+        font-size: 1.1rem;
+        font-weight: 500;
+        width: 400px;
+      }
+      .il__top__input {
+        width: 100% !important;
+      }
+    }
   }
+
   .il__top__bottomContent {
     background-color: #fff;
     display: flex;
-    padding: 4rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 2rem;
+
     .il__top__bottomContent__info {
       margin: 1rem 2.2rem;
       padding: 0 1.2rem;
@@ -84,7 +132,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+    }
+    .il__top__bottomContent__info__text {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 250px;
     }
 
     .il__top__bottomContent__info__iconCircle {
@@ -108,10 +161,38 @@
 .il__mid {
   display: flex;
   background-color: @bg2;
-  padding: 4rem;
+  padding: 2rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  .il__mid__heading {
+    color: white;
+    font-size: 3.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: ease all 0.5s;
+  }
+  .il__mid__info__text {
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    font-size: 1.1rem;
+    width: 250px;
+  }
+  @media screen and (max-width: 991px) {
+    .il__mid__info__text {
+      width: 350px;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .il__mid__heading {
+      font-size: 2.9rem;
+    }
+  }
 
   .il__mid__info {
     margin: 1rem 2.2rem;
@@ -156,23 +237,30 @@
 
 .il__bottom {
   background-color: @bg3;
+  .il__bottom__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all ease-in;
+  }
 
   .il__bottom__leftContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem 0;
+    margin-right: 2rem;
   }
   .il__bottom__leftCircle {
-    height: 550px;
-    width: 550px;
+    aspect-ratio: 1;
+    max-width: 650px;
+    max-height: 650px;
+    margin: 2rem 0;
     border-radius: 50%;
     background-color: #f2c35f;
-    padding: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0 2rem 4rem;
+    overflow: hidden;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
       0px 3px 1px -2px rgba(0, 0, 0, 0.12), 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
   }
@@ -206,26 +294,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.6rem;
-    margin: 4.5rem 4.4rem 0 0;
-    transform: scale(1.2);
+    margin-top: 4rem;
+    // transform: scale(1.1);
+  }
 
-    .il__grid__toprow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .il__grid__bottomrow {
-      display: flex;
-    }
-    .il__grid__item {
-      border: 5px solid black;
-      margin: 0 1.2rem 1.2rem 0;
-    }
-    .il__grid__item > img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
+  .il__grid__toprow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .il__grid__bottomrow {
+    display: flex;
+  }
+  .il__grid__item {
+    border: 5px solid black;
+    margin: 0 1.2rem 1.2rem 0;
+  }
+  .il__grid__item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
   }
 }

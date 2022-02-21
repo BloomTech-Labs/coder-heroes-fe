@@ -16,18 +16,10 @@ const SearchInstructors = () => {
       <Content className="il__top__topContent">
         <div className="il__top__topContent__container">
           <div className="il__top__topContent__main">
-            <Title
-              className="il__heading"
-              style={{
-                fontSize: '3.4rem',
-                color: '#263E47',
-                fontWeight: '500',
-                letterSpacing: '2px',
-              }}
-            >
+            <Title className="il__heading il__top__topContent__heading">
               ONLINE CODER INSTRUCTORS
             </Title>
-            <Text style={{ fontSize: '1.4rem', fontWeight: '500' }}>
+            <Text className="il__top__topContent__text">
               Proven Instructors to help your student
               <br />
               get personalized support in coding.
@@ -70,19 +62,17 @@ const SearchInstructors = () => {
                     <Option value="weekends">Weekends</Option>
                   </Select>
                 </Item>
-                <Item>
-                  <button className="il__top__formBtn" type="submit">
-                    FIND TUTOR
-                  </button>
-                </Item>
+                <button className="il__top__formBtn" type="submit">
+                  FIND TUTOR
+                </button>
               </Input.Group>
             </Form>
           </div>
         </div>
       </Content>
       <Content className="il__top__bottomContent">
-        <Row gutter={16}>
-          <Col span={8}>
+        <Row>
+          <Col xs={24} lg={8}>
             <div className="il__top__bottomContent__info">
               <div className="il__top__bottomContent__info__iconCircle">
                 <StudentIcon style={{ color: 'white', fontSize: 100 }} />
@@ -98,20 +88,14 @@ const SearchInstructors = () => {
               >
                 STUDENTS FIRST
               </Title>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                }}
-              >
+              <Text className="il__top__bottomContent__info__text">
                 We believe all students deserve to have access to quality
                 instructors that teach code and lifelong skills. We put students
                 at the forefront of our mission.
               </Text>
             </div>
           </Col>
-          <Col span={8}>
+          <Col xs={24} lg={8}>
             <div className="il__top__bottomContent__info">
               <div className="il__top__bottomContent__info__iconCircle">
                 <TeacherIcon style={{ color: 'white', fontSize: 100 }} />
@@ -127,19 +111,13 @@ const SearchInstructors = () => {
               >
                 QUALITY INSTRUCTION
               </Title>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                }}
-              >
+              <Text className="il__top__bottomContent__info__text">
                 Our super tutors offer quality instruction at a wide variety of
                 skill sets, age ranges, and formats. We make coding fun!
               </Text>
             </div>
           </Col>
-          <Col span={8}>
+          <Col xs={24} lg={8}>
             <div className="il__top__bottomContent__info">
               <div className="il__top__bottomContent__info__iconCircle">
                 <CalendarIcon style={{ color: 'white', fontSize: 100 }} />
@@ -155,20 +133,14 @@ const SearchInstructors = () => {
               >
                 AVAILABLE SCHEDULING
               </Title>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                }}
-              >
+              <Text className="il__top__bottomContent__info__text">
                 Online tutors are available to help your student receive
                 guidance to fit your schedule and preferences.
               </Text>
             </div>
           </Col>
         </Row>
-        <Row gutter={16}>
+        <Row>
           <Col span={8}>
             <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
           </Col>

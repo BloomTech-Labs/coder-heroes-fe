@@ -11,36 +11,22 @@ const { Title, Text } = Typography;
 const HowItWorks = () => {
   return (
     <Content className="il__mid">
-      <Row gutter={6}>
+      <Row>
         <Col span={24}>
-          <Title
-            className="il__heading"
-            style={{
-              color: 'white',
-              fontSize: '3.4rem',
-              fontWeight: '500',
-              letterSpacing: '2px',
-            }}
-          >
+          <Title className="il__heading il__mid__heading">
             HOW CODERHEROES WORKS
           </Title>
         </Col>
       </Row>
       <Row gutter={6}>
-        <Col span={8}>
+        <Col xs={24} lg={8}>
           <div className="il__mid__info">
             <div className="il__mid__info__stepCircle">1</div>
             <Title
               style={{
                 fontSize: '1.4rem',
-                color: 'white',
-                textAlign: 'center',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                fontWeight: '500',
-                letterSpacing: '1px',
               }}
-              className="il__heading"
+              className="il__heading il__mid__heading"
             >
               WHAT KIND OF HELP DO YOU NEED?
             </Title>
@@ -48,34 +34,20 @@ const HowItWorks = () => {
               <img src={girlCoder} alt="girl coder" />
             </div>
 
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: '500',
-                color: 'white',
-                fontSize: '1.1rem',
-              }}
-            >
-              We believe all students deserve to have access to quality
-              instructors that teach code and lifelong skills. We put students
-              at the forefront of our mission.
+            <Text className="il__mid__info__text">
+              Are you interested in CoderCamp? Need a CoderSitter? Hoping to try
+              CoderYoga? Find the right program for you.
             </Text>
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={24} lg={8}>
           <div className="il__mid__info">
             <div className="il__mid__info__stepCircle">2</div>
             <Title
               style={{
                 fontSize: '1.4rem',
-                color: 'white',
-                textAlign: 'center',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                fontWeight: '500',
-                letterSpacing: '1px',
               }}
-              className="il__heading"
+              className="il__heading il__mid__heading"
             >
               FIND AN INSTRUCTOR
             </Title>
@@ -83,33 +55,20 @@ const HowItWorks = () => {
               <img src={cHeroes} alt="kids coding" />
             </div>
 
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: '500',
-                color: 'white',
-                fontSize: '1.1rem',
-              }}
-            >
-              Our super tutors offer quality instruction at a wide variety of
-              skill sets, age ranges, and formats. We make coding fun!
+            <Text className="il__mid__info__text">
+              We will match you with the best coding instructors who are ready
+              to help you learn at any level.
             </Text>
           </div>
         </Col>
-        <Col span={8}>
+        <Col xs={24} lg={8}>
           <div className="il__mid__info">
             <div className="il__mid__info__stepCircle">3</div>
             <Title
               style={{
                 fontSize: '1.4rem',
-                color: 'white',
-                textAlign: 'center',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                fontWeight: '500',
-                letterSpacing: '1px',
               }}
-              className="il__heading"
+              className="il__heading il__mid__heading"
             >
               LEARN AT A LESSON
             </Title>
@@ -117,21 +76,14 @@ const HowItWorks = () => {
               <img src={kidsComp} alt="more kids coding" />
             </div>
 
-            <Text
-              style={{
-                textAlign: 'center',
-                fontWeight: '500',
-                color: 'white',
-                fontSize: '1.1rem',
-              }}
-            >
-              Online tutors are available to help your student receive guidance
-              to fit your schedule and preferences.
+            <Text className="il__mid__info__text">
+              Learn together in a virtual synchronous live lesson space, with
+              asynchronous resources to learn at your pace.
             </Text>
           </div>
         </Col>
       </Row>
-      <Row gutter={6}>
+      <Row>
         <Col span={8}>
           <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
         </Col>

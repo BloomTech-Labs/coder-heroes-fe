@@ -11,7 +11,7 @@ const { Content } = Layout;
 export default function InstructorNewsFeed() {
   const [postOptions, setPostOptions] = useState('newsFeed');
   const [postID, setPostId] = useState(0);
-  
+
   return (
     <div className="news-feed-page">
       <Layout>
@@ -19,7 +19,7 @@ export default function InstructorNewsFeed() {
         <Content>
           <Banner />
           {/* depending on the postOptions state it will conditional render components newsFeed, editDelete, createNewPost*/}
-          {postOptions==='newsFeed'?
+          {postOptions === 'newsFeed' ? (
             <div>
               <Title setPostOptions={setPostOptions} />
               <NewsContainer

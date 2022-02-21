@@ -27,7 +27,9 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
-import AdminHome from './components/pages/adminHome';
+import AdminHome from './components/pages/AdminHome';
+import AdminAddCourses from './components/pages/AdminAddCourses/';
+import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
@@ -39,6 +41,7 @@ import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
+// import Newfeed from './components/pages/n';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -94,6 +97,9 @@ function App() {
             path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
+          {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
+          <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
+          <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute
             path="/instructor-news-feed"

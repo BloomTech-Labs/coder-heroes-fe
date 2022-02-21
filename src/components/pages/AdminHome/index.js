@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
-import AdminSidebar from './adminSidebar';
-import AdminCalendar from './adminCalendar';
+import AdminSidebar from './AdminSidebar';
+import AdminCalendar from './AdminCalendar';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
 
@@ -24,4 +24,5 @@ const AdminHome = () => {
     </div>
   );
 };
+
 export default AdminHome;

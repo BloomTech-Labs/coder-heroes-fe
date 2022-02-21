@@ -17,7 +17,7 @@ const ParentBookingContainer = props => {
   useEffect(() => {
     // when the component mounts, trigger action fetchParentBookings to get the list of bookings
     setCurrentTab(bookings);
-  }, [bookings]);
+  }, []); // eslint-disable-line
 
   const renderTab = key => {
     if (key === '0') {

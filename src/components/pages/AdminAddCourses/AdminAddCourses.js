@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { addClass } from './actions';
+import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';
 import { Input, Form, Card, Affix } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
@@ -52,7 +52,7 @@ function AdminAddCoursesForm(props) {
     };
     console.log(merged);
 
-    program_list.push(addClass(merged).payload);
+    program_list.push(props.addClass(merged).payload);
     setFormValues(initialFormValues);
     clearPrereq();
   }
@@ -98,7 +98,7 @@ function AdminAddCoursesForm(props) {
   return (
     <div
       className="add-courses-form-container"
-      style={{ border: '1px solid black' }}
+      style={{ border: '1px solid black', height: '75vh' }}
     >
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <h1 style={{ marginTop: 30, fontSize: 20 }}>Submit New Program:</h1>
@@ -184,8 +184,9 @@ function AdminAddCoursesForm(props) {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    errorMessage: state.errorMessage,
+    program_list: state.program_list,
   };
 };
 

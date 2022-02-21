@@ -1,15 +1,12 @@
-import { START_FETCH, SUCCESS_FETCH, FAIL_FETCH, ADD_CLASS } from '../actions';
+import {
+  START_FETCH,
+  SUCCESS_FETCH,
+  FAIL_FETCH,
+  ADD_CLASS,
+} from '../actions/adminActions';
 
 export const initialState = {
-  class: [
-    {
-      class_id: 'class_id_test',
-      class_name: 'class_name_test',
-      class_subject: 'class_subject_test',
-      class_desc: 'class_desc_test',
-      class_prereq_list: ['req1', 'req2', 'req3'],
-    },
-  ],
+  class: [],
   isLoading: false,
   error: 'class_test_error',
 };
@@ -41,9 +38,9 @@ const reducer = (state = initialState, action) => {
           ...state.class,
           {
             class_name: action.payload.class_name,
-            class_subject: action.payload.class_subject,
-            class_desc: action.payload.class_desc_test,
-            class_prereq_list: action.payload.class_prereq_list,
+            class_subject: action.payload.subject,
+            class_desc: action.payload.description,
+            class_prereq_list: action.payload.prereq,
           },
         ],
       };

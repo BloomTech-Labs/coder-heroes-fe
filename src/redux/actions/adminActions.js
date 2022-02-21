@@ -43,6 +43,6 @@ export const addClass = item => {
   //         console.log('fail post:', resp);
   //     });
   //     return({type:ADD_CLASS, payload:item});
-  console.log('addClass test:', item);
+
   return { type: ADD_CLASS, payload: item };
 };

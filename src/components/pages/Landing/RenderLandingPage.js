@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
-import ButtonGroup from 'antd/lib/button/button-group';
 import { DownOutlined } from '@ant-design/icons';
 import Button from '../../common/Button';
 import background from '../../../img/cloud-bg.jpg';

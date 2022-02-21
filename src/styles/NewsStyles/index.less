@@ -1,5 +1,4 @@
 //---------------------  News Feed styles  --------------------------
-
 .news-container {
   width: 100%;
   height: 100%;
@@ -8,7 +7,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .news-card {
   width: 80%;
   height: 250px;
@@ -21,12 +19,12 @@
   align-items: center;
   background-color: white;
 }
-.title-container {
-  width: 100%;
+.news-title-container {
+  width: 90%;
   height: 20%;
   font-size: 1.5rem;
 }
-.description {
+.news_description {
   height: 50%;
   width: 90%;
   margin: 1.2% 0;
@@ -75,7 +73,6 @@
   display: flex;
   justify-content: center;
   font-size: 3rem;
-  margin-bottom: -6%;
 }
 .news-feed-title-container-instructor {
   width: 80%;
@@ -84,7 +81,6 @@
   justify-content: space-between;
   font-size: 3rem;
   margin-left: 10%;
-
   #news-feed-title {
     display: flex;
     justify-content: flex-start;
@@ -93,7 +89,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     button {
       font-size: 1rem;
       height: 2rem;
@@ -120,15 +115,15 @@
   justify-content: center;
 }
 .newsfeedForm_submit_button {
+  color: white !important;
   margin-top: 15px;
-  width: 120px;
+  width: 160px;
   background-color: black !important;
 }
 
 .newsfeedForm_input_container {
   width: 70%;
 }
-
 .newsfeedForm_inputfield {
   display: flex;
   flex-direction: column;
@@ -138,17 +133,14 @@
   height: 150px !important;
   margin-top: -20px !important;
 }
-
 .newsfeedForm_header {
   display: flex;
   justify-content: space-between;
 }
-
 .newsfeedForm_header h2 {
   font-size: x-large;
   line-height: 0;
 }
-
 .newsfeedForm_editDeleteButton {
   width: fit-content;
   display: flex !important;
@@ -167,4 +159,14 @@
   margin-top: 30px;
   display: flex;
   justify-content: flex-end;
+}
+
+.news_card_modal .ant-modal-close {
+  display:flex;
+  justify-content: flex-end;
+}
+
+.newsfeed_put_post_form_container {
+  display: flex;
+  justify-content: center;
 }

@@ -93,7 +93,6 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
-          <SecureRoute path="/landing" component={LandingPage} />
           <SecureRoute
             path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}

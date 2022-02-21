@@ -1,6 +1,8 @@
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCurrentUser } from '../../../redux/actions/userActions';
 import ButtonGroup from 'antd/lib/button/button-group';
 import { DownOutlined } from '@ant-design/icons';
-import React from 'react';
 import Button from '../../common/Button';
 import background from '../../../img/cloud-bg.jpg';
 import logo from '../../../img/coderheroes-logo.svg';
@@ -10,6 +12,17 @@ import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 
 function RenderLandingPage(props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem('okta-token-storage')) {
+      const { sub } = JSON.parse(
+        localStorage.getItem('okta-token-storage')
+      ).idToken.claims;
+
+      dispatch(getCurrentUser(sub));
+    }
+  }, [dispatch]);
+
   return (
     <div className="landing-container">
       {/* Main text container */}

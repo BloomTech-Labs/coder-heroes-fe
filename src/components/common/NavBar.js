@@ -5,27 +5,31 @@ import {
   InstagramOutlined,
   YoutubeOutlined,
   LinkedinOutlined,
+  ThunderboltOutlined,
 } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 export default function MainNav() {
   return (
     <nav className="mainNav">
       <div className="nav navLogo">
-        <h1 className="navTitle">CODERHEROES</h1>
+        <Link to="/">
+          <h1 className="navTitle">{<ThunderboltOutlined />}CODERHEROES</h1>
+        </Link>
       </div>
       <div className="nav navOptions">
-        <a className="navLinks" href="/landing">
+        <Link className="navLinks" to="/">
           PROGRAMS
-        </a>
-        <a className="navLinks" href="/landing">
+        </Link>
+        <Link className="navLinks" to="/instructor">
           INSTRUCTORS
-        </a>
-        <a className="navLinks" href="/landing">
+        </Link>
+        <Link className="navLinks" to="/parent-booking">
           BOOKING
-        </a>
-        <a className="navLinks" href="/landing">
+        </Link>
+        <Link className="navLinks" to="/">
           SCHOLARSHIPS
-        </a>
+        </Link>
       </div>
       <div className="nav navSocial">
         <a href="https://www.facebook.com/coderheroes." className="socialIcon">
@@ -58,7 +62,9 @@ export default function MainNav() {
           <button>CONTACT US</button>
         </div>
         <div className="nav navSignup">
-          <button>SIGN UP</button>
+          <Link to="/login">
+            <button>SIGN UP</button>
+          </Link>
         </div>
       </div>
     </nav>

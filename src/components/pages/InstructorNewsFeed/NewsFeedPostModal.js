@@ -9,29 +9,33 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     description: '',
     title: '',
   });
-  const {link,description,title}=formValues;
-  function ValidateNewsFeedFormButton(){
-    if (link.trim() && description.trim() && title.trim()){
-      return <Button
-      className="newsfeedForm_submit_button"
-      type="primary"
-      shape="round"
-      htmlType="submit"
-    >
-      Submit
-    </Button>;
+  const { link, description, title } = formValues;
+  function ValidateNewsFeedFormButton() {
+    if (link.trim() && description.trim() && title.trim()) {
+      return (
+        <Button
+          className="newsfeedForm_submit_button"
+          type="primary"
+          shape="round"
+          htmlType="submit"
+        >
+          Submit
+        </Button>
+      );
     } else {
-      return <Button
-      className="newsfeedForm_submit_button"
-      type="primary"
-      shape="round"
-      htmlType="submit"
-      disabled
-    >
-      Complete the Form
-    </Button>;
-    };
-  };
+      return (
+        <Button
+          className="newsfeedForm_submit_button"
+          type="primary"
+          shape="round"
+          htmlType="submit"
+          disabled
+        >
+          Complete the Form
+        </Button>
+      );
+    }
+  }
   const handleChange = e => {
     setFormValues({
       ...formValues,
@@ -76,7 +80,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
           />
         </div>
         <div className="newsfeedForm_submit_button_container">
-          <ValidateNewsFeedFormButton/>
+          <ValidateNewsFeedFormButton />
         </div>
       </Form>
     </div>

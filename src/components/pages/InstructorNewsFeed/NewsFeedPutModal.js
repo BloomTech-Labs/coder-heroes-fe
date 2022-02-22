@@ -26,7 +26,7 @@ export default function NewsfeedPutModal(props) {
       .catch(err => {
         console.error(err);
       });
-  }, []);
+  }, []); // eslint-disable-line
   const handleChange = e => {
     setFormValues({
       ...formValues,

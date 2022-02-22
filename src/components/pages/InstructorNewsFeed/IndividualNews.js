@@ -36,7 +36,12 @@ function IndividualNews(props) {
           Edit/Delete Post
         </button>
       </div>
-      <Modal className='news_card_modal' title={title} visible={showNewsFeedModal} footer={null}>
+      <Modal
+        className="news_card_modal"
+        title={title}
+        visible={showNewsFeedModal}
+        footer={null}
+      >
         <p>{description}</p>
       </Modal>
     </div>

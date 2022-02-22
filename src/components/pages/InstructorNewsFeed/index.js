@@ -25,16 +25,28 @@ export default function InstructorNewsFeed() {
               <NewsContainer
                 setPostId={setPostId}
                 setPostOptions={setPostOptions}
-              />  
-            </div>:''}
-          {postOptions==='editDelete'?
-            <div className='newsfeed_put_post_form_container'>
-               <NewsfeedPutModal postID={postID} setPostOptions={setPostOptions} />
-            </div>:''}
-          {postOptions==='createNewPost'?
-            <div className='newsfeed_put_post_form_container'>
-               <NewsfeedPostModal setPostOptions={setPostOptions} />
-            </div>:''}
+              />
+            </div>
+          ) : (
+            ''
+          )}
+          {postOptions === 'editDelete' ? (
+            <div className="newsfeed_put_post_form_container">
+              <NewsfeedPutModal
+                postID={postID}
+                setPostOptions={setPostOptions}
+              />
+            </div>
+          ) : (
+            ''
+          )}
+          {postOptions === 'createNewPost' ? (
+            <div className="newsfeed_put_post_form_container">
+              <NewsfeedPostModal setPostOptions={setPostOptions} />
+            </div>
+          ) : (
+            ''
+          )}
         </Content>
       </Layout>
     </div>

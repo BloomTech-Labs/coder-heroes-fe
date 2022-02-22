@@ -29,7 +29,7 @@ const InstructorBookingCards = props => {
 
   useEffect(() => {
     setCurrentCourses(instructor.course_schedule);
-  }, []);
+  }, [instructor.course_schedule]);
 
   const renderTab = key => {
     if (key === '1') {

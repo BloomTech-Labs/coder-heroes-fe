@@ -34,7 +34,8 @@ function AdminAddCoursesForm(props) {
   //   prereq: formValues.prereq,
   // };
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     // waiting for backend to implement this and reducer / actions
     //
     // axios

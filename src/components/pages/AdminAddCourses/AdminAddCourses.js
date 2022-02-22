@@ -50,7 +50,6 @@ function AdminAddCoursesForm(props) {
       ...formValues,
       prereq: placeHolder,
     };
-    console.log(merged);
 
     program_list.push(props.addClass(merged).payload);
     setFormValues(initialFormValues);
@@ -59,18 +58,15 @@ function AdminAddCoursesForm(props) {
 
   const handleChange = e => {
     if (e.target.name !== 'prereq') {
-      console.log(formValues);
       setFormValues({
         ...formValues,
         [e.target.name]: e.target.value,
       });
     } else if (e.target.name === 'prereq') {
-      console.log(formPreReqs);
       setFormPreReqs({
         ...formPreReqs,
         [e.target.name]: e.target.value,
       });
-      console.log('formPreReq:', formPrerequisite);
     }
   };
 
@@ -79,7 +75,6 @@ function AdminAddCoursesForm(props) {
       formPrerequisite = formPreReqs.prereq;
       placeHolder.push(formPrerequisite);
       buildString(formPrerequisite);
-      console.log(placeHolder);
     }
   };
 
@@ -184,7 +179,6 @@ function AdminAddCoursesForm(props) {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     program_list: state.program_list,
   };

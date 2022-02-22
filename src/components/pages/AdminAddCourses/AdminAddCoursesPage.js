@@ -7,10 +7,7 @@ import TextArea from 'antd/lib/input/TextArea';
 import AdminAddCourses from './AdminAddCourses';
 import AdminAddCoursesList from './AdminAddCoursesList';
 
-// import AdminCoursesCards from '/'
-
 function AdminCourses(props) {
-  console.log(props);
   return (
     <div className="admin-add-courses-page" style={{ display: 'flex' }}>
       <div className="admin-add-courses-left">

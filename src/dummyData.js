@@ -94,4 +94,5 @@ export const dummyData = {
     },
   ],
   newsfeed: [],
+  classes: [],
 };

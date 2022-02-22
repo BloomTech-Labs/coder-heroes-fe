@@ -1,9 +1,10 @@
 // Declare Actions
 import axios from 'axios';
 import axiosWithAuth from '../../utils/axiosWithAuth';
+
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
-export const GET_COURSES_ACTION = 'GET_COURSES';
+export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
@@ -28,21 +29,21 @@ export const getusers = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
 export const getCourses = () => async dispatch => {
   try {
-    const res = await axios.get(`https://dummyapi.io/data/v1/post?limit=10`);
+    const res = await axiosWithAuth().get(`/class-instances`);
     dispatch({
-      type: GET_COURSES_ACTION,
+      type: GET_INSTRUCTOR_CLASSES,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -56,7 +57,7 @@ export const getInbox = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -70,7 +71,7 @@ export const addCourse = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };
@@ -112,7 +113,7 @@ export const getNewsFeeds = () => dispatch => {
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
-      payload: console.log(error),
+      payload: error.message,
     });
   }
 };

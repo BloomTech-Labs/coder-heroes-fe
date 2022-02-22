@@ -3,6 +3,8 @@ import {
   SUCCESS_FETCH,
   FAIL_FETCH,
   ADD_CLASS,
+  DEL_CLASS,
+  EDIT_CLASS,
 } from '../actions/adminActions';
 
 export const initialState = {
@@ -10,6 +12,8 @@ export const initialState = {
   isLoading: false,
   error: 'class_test_error',
 };
+
+// isEditingClass boolean to check if edits, goes into edit mode
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -43,6 +47,18 @@ const reducer = (state = initialState, action) => {
             class_prereq_list: action.payload.prereq,
           },
         ],
+      };
+    case DEL_CLASS:
+      return {
+        ...state,
+        class: state.class.splice(action.payload, 1),
+      };
+    case EDIT_CLASS:
+      const newArray = [...state.class];
+      newArray[action.index] = action.payload;
+      return {
+        ...state,
+        class: newArray,
       };
     default:
       return state;

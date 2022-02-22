@@ -11,7 +11,7 @@ function AdminCourses(props) {
   return (
     <div className="admin-add-courses-page" style={{ display: 'flex' }}>
       <div className="admin-add-courses-left">
-        <AdminAddCourses />
+        <AdminAddCourses editClass={props.changeClass} />
       </div>
       <div className="admin-add-courses-right">
         <AdminAddCoursesList />

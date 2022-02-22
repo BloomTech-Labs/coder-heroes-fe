@@ -181,7 +181,7 @@ function AdminAddCoursesForm(props) {
 
 const mapStateToProps = state => {
   return {
-    program_list: state.program_list,
+    program_list: state.adminReducers.class,
   };
 };
 

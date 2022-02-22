@@ -2,17 +2,19 @@ import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Card, Button } from 'antd';
 import React, { useState } from 'react';
+import { delClass, editClass } from '../../../redux/actions/adminActions';
 
 function AdminAddCoursesCard(props) {
   const { program, program_list } = props;
   let text = program.class_prereq_list.join(', ');
-  console.log(props);
 
   const deleteClass = e => {
     e.preventDefault();
-    document.getElementById('course_' + e.target.id).remove();
-    program_list.splice(e.target.id, 1);
+    document.getElementById('course_' + e.target.id).style.display = 'none';
+    delClass(e.target.id);
   };
+
+  const sendIndex = e => {};
 
   return (
     <div id={'course_' + props.id}>
@@ -26,6 +28,7 @@ function AdminAddCoursesCard(props) {
         id={props.id}
         style={{ width: '25%', height: 25 }}
         className="edit_program"
+        onClick={sendIndex}
       >
         Edit
       </button>
@@ -47,4 +50,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(AdminAddCoursesCard);
+export default connect(mapStateToProps, { editClass })(AdminAddCoursesCard);

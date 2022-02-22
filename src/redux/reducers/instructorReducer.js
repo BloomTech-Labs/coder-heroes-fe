@@ -1,7 +1,7 @@
 //import actions
 import {
   GET_USER_ACTION,
-  GET_COURSES_ACTION,
+  GET_INSTRUCTOR_CLASSES,
   GET_INBOX_ACTION,
   SET_SELECTED_COURSE,
   ADD_COURSE_ACTION,
@@ -12,20 +12,24 @@ import {
 import { dummyData } from '../../dummyData';
 
 const initialState = dummyData;
-
 const instructorReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_COURSES_ACTION:
-      return state;
+  const { type, payload } = action;
+
+  switch (type) {
+    case GET_INSTRUCTOR_CLASSES:
+      return {
+        ...state,
+        classes: payload,
+      };
     case GET_USER_ACTION:
       return state;
     case GET_INBOX_ACTION:
       return state;
     case SET_SELECTED_COURSE:
-      return { ...state, selectedCourse: action.payload };
+      return { ...state, selectedCourse: payload };
     case ADD_COURSE_ACTION:
       const newCourse = {
-        ...action.payload,
+        ...payload,
         id: Date.now(),
       };
       return {
@@ -34,7 +38,7 @@ const instructorReducer = (state = initialState, action) => {
       };
     case ADD_NEW_PROGRAM:
       const newProgram = {
-        ...action.payload,
+        ...payload,
         id: Date.now(),
       };
       return {
@@ -44,13 +48,13 @@ const instructorReducer = (state = initialState, action) => {
     case SET_ERROR:
       return {
         ...state,
-        errorMessage: 'Please fill in all the fields',
+        errorMessage: payload,
       };
     case GET_NEWSFEEDS:
       //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
       return {
         ...state,
-        newsfeed: action.payload,
+        newsfeed: payload,
       };
     default:
       return state;

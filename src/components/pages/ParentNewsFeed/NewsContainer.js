@@ -1,11 +1,11 @@
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../../../styles/index.less';
 import IndividualNewsParent from './IndividualNewsParent';
 import { connect } from 'react-redux';
 import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
 
 function NewsContainer(props) {
-  const {newsfeed, dispatch}=props;
+  const { newsfeed, dispatch } = props;
   useEffect(() => {
     dispatch(getNewsFeedsParent());
   }, [dispatch]);

@@ -208,5 +208,5 @@ export const parentDummyData = {
       price: 1200,
     },
   ],
-  newsfeed:[]
+  newsfeed: [],
 };

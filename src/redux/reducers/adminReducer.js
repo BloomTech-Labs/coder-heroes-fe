@@ -10,6 +10,7 @@ import {
 export const initialState = {
   class: [],
   isLoading: false,
+  isEditing: false,
   error: 'class_test_error',
 };
 
@@ -59,6 +60,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         class: newArray,
+        isEditing: true,
       };
     default:
       return state;

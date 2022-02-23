@@ -36,6 +36,7 @@ function AdminAddCoursesForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     // waiting for backend to implement this and reducer / actions
     //
     // axios

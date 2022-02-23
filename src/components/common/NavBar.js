@@ -88,7 +88,7 @@ export default function MainNav() {
         </div>
         <div
           className={`nav navSignup ${
-            localStorage.getItem('okta-token-storage') ? 'hide' : ''
+            localStorage.getItem('okta-token-storage') ? 'navSignup__hide' : ''
           }`}
         >
           <NavLink to="/login">

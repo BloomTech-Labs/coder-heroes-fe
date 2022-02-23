@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '../../../styles/signin.less';
@@ -6,6 +7,8 @@ import '../../../styles/signin.less';
 import { config } from '../../../utils/oktaConfig';
 
 const LoginContainer = () => {
+  let history = useHistory();
+
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
@@ -14,6 +17,10 @@ const LoginContainer = () => {
       clientId,
       redirectUri,
       registration: {
+        click: function() {
+          history.push('/register');
+          widget.remove();
+        },
         // there is more we can do to handle some errors here.
       },
       features: {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
-import '../../../styles/signin.less';
+import '../../../styles/login.less';
 
 import { config } from '../../../utils/oktaConfig';
 

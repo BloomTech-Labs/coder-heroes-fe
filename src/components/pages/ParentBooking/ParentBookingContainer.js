@@ -12,16 +12,16 @@ const tabs = [{ title: 'All' }, { title: 'Today' }, { title: 'This Week' }];
 const ParentBookingContainer = props => {
   const { TabPane } = Tabs;
   const { bookings, isFetching, error } = props.bookings;
-  const [currentTab, SetcurrentTab] = useState(null);
+  const [currentTab, setCurrentTab] = useState(null);
 
   useEffect(() => {
     // when the component mounts, trigger action fetchParentBookings to get the list of bookings
-    SetcurrentTab(bookings);
-  }, []);
+    setCurrentTab(bookings);
+  }, []); // eslint-disable-line
 
   const renderTab = key => {
     if (key === '0') {
-      SetcurrentTab(bookings);
+      setCurrentTab(bookings);
     }
 
     if (key === '1') {
@@ -31,7 +31,7 @@ const ParentBookingContainer = props => {
         const startDate = item.start_date.substring(0, 10);
         return startDate === today;
       });
-      SetcurrentTab(arr);
+      setCurrentTab(arr);
     }
 
     if (key === '2') {
@@ -39,7 +39,7 @@ const ParentBookingContainer = props => {
         const date = item.start_date;
         return isDateInThisWeek(date);
       });
-      SetcurrentTab(arr);
+      setCurrentTab(arr);
     }
   };
 

@@ -11,6 +11,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Sider } = Layout;
 
@@ -43,27 +44,27 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="#">Dashboard</a>
+          <Link to="#">Dashboard</Link>
         </Menu.Item>
 
         <Menu.Item key="3" icon={<BellOutlined />}>
-          <a href="#">Notifications</a>
+          <Link to="#">Notifications</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<CalculatorOutlined />}>
-          <a href="#">Analytics</a>
+          <Link to="#">Analytics</Link>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<UserOutlined />}>
-          <a href="#">Manage Users</a>
+          <Link to="#">Manage Users</Link>
         </Menu.Item>
 
         <Menu.Item key="6" icon={<DesktopOutlined />}>
-          <a href="#">Courses</a>
+          <Link to="#">Courses</Link>
         </Menu.Item>
 
         <Menu.Item key="7" icon={<PlusOutlined />}>
-          <a href="#">Add Courses</a>
+          <Link to="#">Add Courses</Link>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -11,6 +11,7 @@ import {
   GET_INBOX_ACTION,
   GET_SESSIONS_ACTION,
   SIGNUP_COURSE_ACTION,
+  GET_NEWSFEEDS_PARENT,
 } from '../actions/parentActions';
 
 const removeCartItem = (cart, booking) => {
@@ -94,6 +95,12 @@ const reducer = (state = parentDummyData, action) => {
       return {
         ...state,
         cart: [],
+      };
+    case GET_NEWSFEEDS_PARENT:
+      //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
+      return {
+        ...state,
+        newsfeed: action.payload,
       };
     default:
       return state;

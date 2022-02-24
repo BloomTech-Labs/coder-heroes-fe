@@ -1,16 +1,16 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-import CreateNewStudent from './CreateNewStudent';
-import { useParams } from 'react-router';
-import CurrentCoursesDetails from './CurrentCoursesDetails';
+// import CreateNewStudent from './CreateNewStudent';
+// import { useParams } from 'react-router';
+// import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
 
 const ParentFamilyHome = () => {
-  const [studentInfo, setStudentInfo] = useState(null);
-  const [modal, setModal] = useState(false);
-  const [modal2, setModal2] = useState(false);
+  const [studentInfo, setStudentInfo] = useState(null); //eslint-disable-line
+  // const [modal, setModal] = useState(false);
+  // const [modal2, setModal2] = useState(false);
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem(`okta-token-storage`));

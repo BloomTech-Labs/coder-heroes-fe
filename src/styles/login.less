@@ -1,0 +1,126 @@
+.input-focus() {
+  border: @input-focused-border;
+  box-shadow: @input-focused-box-shadow;
+}
+
+#sign-in-widget {
+  display: flex;
+  background-color: @primary-bg-color;
+  #okta-sign-in.auth-container.no-beacon {
+    border-radius: 6px;
+    display: flex;
+    font-family: @body-font-family;
+    margin: auto;
+    min-height: 600px;
+    border: none;
+    background-color: @form-bg-color;
+    h2 {
+      text-align: left;
+      font-family: @header-font-family;
+      color: #fff;
+      font-size: xx-large;
+      letter-spacing: 1px;
+    }
+    a.link {
+      &:link {
+        color: #fff;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      &:visited {
+        color: #fff;
+      }
+    }
+    .okta-form-input-error {
+      color: #fff;
+      font-weight: bold;
+      .error-16-small:before {
+        color: @error-color;
+      }
+    }
+  }
+  .okta-sign-in-header.auth-header {
+    display: none;
+  }
+  .o-form {
+    .button-bar {
+      &:focus {
+        border: none;
+      }
+    }
+    .o-form-label,
+    input,
+    label,
+    textarea {
+      font-size: 18px;
+      color: #fff;
+    }
+  }
+  .auth-content {
+    flex: auto;
+    align-self: center;
+    justify-self: center;
+    padding-top: 60px;
+    .o-form-button-bar,
+    .okta-form-input-field,
+    .custom-checkbox {
+      &.focused-input {
+        box-shadow: none;
+      }
+    }
+    form {
+      input {
+        &:focus {
+          .input-focus();
+        }
+      }
+    }
+    .button {
+      background: #199c8f;
+      border: none;
+      border-radius: 8px;
+      transition: box-shadow 0.2s ease-in-out;
+      transition: border 0.1s ease-in-out;
+      transition: background 0.2s ease-in-out;
+      &:hover {
+        background: #263d47;
+      }
+      &:focus {
+        background: #263d47;
+        .input-focus();
+      }
+    }
+    .registration-container {
+      .content-container {
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+        .registration-label {
+          color: #fff;
+        }
+        .registration-link {
+          margin-left: 2px;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #sign-in-widget {
+    #okta-sign-in.auth-container.no-beacon {
+      display: flex;
+      width: 100%;
+      margin: 0px;
+      flex: auto;
+      border-radius: 0px;
+      .auth-content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  }
+}

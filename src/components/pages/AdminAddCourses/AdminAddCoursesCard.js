@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Card, Button, Modal, Form, Input } from 'antd';
-import React, { useState } from 'react';
-import { delClass, editClass } from '../../../redux/actions/adminActions';
+import React, { useState, useEffect } from 'react';
+import {
+  delClass,
+  editClass,
+  failFetch,
+} from '../../../redux/actions/adminActions';
 import TextArea from 'antd/lib/input/TextArea';
 
 let placeHolder = [];
-let array_string = '';
+let clear_string = '';
 let program_list = [];
 let formPrerequisite = '';
 
@@ -20,13 +24,13 @@ function AdminAddCoursesCard(props) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-  const { program, program_list } = props;
+  const { program } = props;
   let text = program.class_prereq_list.join(', ');
 
   const deleteClass = e => {
     e.preventDefault();
     document.getElementById('course_' + e.target.id).style.display = 'none';
-    delClass(e.target.id);
+    props.delClass(program.class_id);
   };
 
   const showModal = () => {
@@ -34,11 +38,29 @@ function AdminAddCoursesCard(props) {
   };
 
   const handleOk = e => {
-    editClass(e.target.id);
+    const merged = {
+      ...formValues,
+      class_prereq_list: placeHolder,
+      class_id: program.class_id,
+    };
+
+    document.getElementById('pnum1_' + program.class_id).innerHTML =
+      'Class Name: ' + merged.class_name;
+    document.getElementById('pnum2_' + program.class_id).innerHTML =
+      'Class Name: ' + merged.subject;
+    document.getElementById('pnum3_' + program.class_id).innerHTML =
+      'Class Name: ' + merged.description;
+    document.getElementById('pnum4_' + program.class_id).innerHTML =
+      'Class Name: ' + merged.class_prereq_list;
+
+    props.editClass(merged);
+    setFormValues(initialFormValues);
+    clearPrereq();
     setModalVisible(false);
   };
 
   const handleCancel = () => {
+    clearPrereq();
     setModalVisible(false);
   };
 
@@ -56,7 +78,7 @@ function AdminAddCoursesCard(props) {
     }
   };
 
-  const addPrereq = e => {
+  const addPrereq = () => {
     if (formPreReqs.prereq.length !== 0) {
       formPrerequisite = formPreReqs.prereq;
       placeHolder.push(formPrerequisite);
@@ -67,25 +89,41 @@ function AdminAddCoursesCard(props) {
   const clearPrereq = () => {
     setFormPreReqs({ prereq: [] });
     placeHolder = [];
-    array_string = '';
-    document.getElementById('edit-prereq-render').innerHTML = array_string;
+    clear_string = '';
+    document.getElementById(
+      'edit-prereq-render_' + +program.class_id
+    ).innerHTML = clear_string;
   };
 
-  const buildString = item => {
+  const buildString = () => {
     let arrayText = placeHolder.join(', ');
-    document.getElementById('edit-prereq-render').innerHTML = arrayText;
+    document.getElementById(
+      'edit-prereq-render_' + +program.class_id
+    ).innerHTML = arrayText;
   };
 
   return (
-    <div id={'course_' + props.id}>
-      <Card style={{ border: '1px dotted black' }}>
-        <p>Class Name: {program.class_name}</p>
-        <p>Class Subject: {program.class_subject}</p>
-        <p>Class Description: {program.class_desc}</p>
-        <p>Class Prerequisites: {text}</p>
+    <div id={'course_' + program.class_id}>
+      <Card
+        style={{
+          overflowX: 'hidden',
+          wordBreak: 'break-all',
+          maxWidth: '100%',
+          display: 'flex',
+          border: '1px dotted black',
+        }}
+      >
+        <p id={'pnum1_' + program.class_id}>Class Name: {program.class_name}</p>
+        <p id={'pnum2_' + program.class_id}>
+          Class Subject: {program.class_subject}
+        </p>
+        <p id={'pnum3_' + program.class_id}>
+          Class Description: {program.class_desc}
+        </p>
+        <p id={'pnum4_' + program.class_id}>Class Prerequisites: {text}</p>
       </Card>
       <button
-        id={props.id}
+        id={program.class_id}
         style={{ width: '25%', height: 25 }}
         className="edit_program"
         onClick={showModal}
@@ -95,10 +133,11 @@ function AdminAddCoursesCard(props) {
       <Modal
         title={'Edit ' + program.class_name}
         visible={isModalVisible}
+        onCancel={handleCancel}
         footer={[
           <div style={{ display: 'flex' }}>
             <Button
-              id={props.id}
+              id={program.class_id}
               onClick={handleOk}
               key="submit"
               htmlType="submit"
@@ -146,7 +185,7 @@ function AdminAddCoursesCard(props) {
             }}
             className="prereq-split-container"
           >
-            <Form.Item style={{ width: '65%' }}>
+            <Form.Item style={{ width: '70%' }}>
               <label htmlFor="prereq">Prerequisites: </label>
               <Input
                 onChange={handleChange}
@@ -154,33 +193,36 @@ function AdminAddCoursesCard(props) {
                 name="prereq"
               />
             </Form.Item>
-            <div style={{ display: 'block' }} className="buttons_div">
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
+            <div
+              style={{ width: '25%', display: 'flex' }}
+              className="buttons_div"
+            >
+              <Button
+                className="button_submit_edit"
+                style={{ width: '100%', height: 25 }}
                 onClick={addPrereq}
               >
                 Add
-              </button>
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
+              </Button>
+              <Button
+                className="button_cancel_edit"
+                style={{ width: '100%', height: 25 }}
                 onClick={clearPrereq}
               >
                 Clear
-              </button>
+              </Button>
             </div>
           </div>
           <Card
             style={{ width: '100%', marginBottom: '7.5%', maxHeight: '100%' }}
             bodyStyle={{ maxHeight: 100, overflow: 'auto' }}
           >
-            <p id="edit-prereq-render"></p>
+            <p id={'edit-prereq-render_' + +program.class_id}></p>
           </Card>
         </Form>
       </Modal>
       <button
-        id={props.id}
+        id={program.class_id}
         style={{ width: '25%', height: 25 }}
         className="delete_program"
         onClick={deleteClass}
@@ -197,4 +239,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { editClass })(AdminAddCoursesCard);
+export default connect(mapStateToProps, { delClass, editClass })(
+  AdminAddCoursesCard
+);

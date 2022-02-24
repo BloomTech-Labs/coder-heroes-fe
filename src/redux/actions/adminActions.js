@@ -2,15 +2,16 @@ import axios from 'axios';
 
 export const START_FETCH = 'START_FETCH';
 export const SUCCESS_FETCH = 'SUCESS_FETCH';
-export const FAIL_FETCH = 'FAIL FETCH';
+export const FAIL_FETCH = 'FAIL_FETCH';
 export const ADD_CLASS = 'ADD_CLASS';
-export const DEL_CLASS = 'DEL_CLASS';
+export const DELETE_CLASS = 'DELETE_CLASS';
 export const EDIT_CLASS = 'EDIT_CLASS';
 
 export const fetchClasses = () => dispatch => {
   console.log('dispatched test');
 
   dispatch(startFetch());
+
   // waiting for backend to implement this and reducer / actions
   // axios.get('backend...')
   //     .then(resp => {
@@ -34,14 +35,12 @@ export const failFetch = error => {
   return { type: FAIL_FETCH, payload: error };
 };
 
-export const delClass = index => {
-  return { type: DEL_CLASS, payload: index };
+export const delClass = item => {
+  return { type: DELETE_CLASS, payload: item };
 };
 
-export const editClass = (changedClass, index) => {
-  console.log(changedClass);
-  console.log(index);
-  return { type: EDIT_CLASS, payload: { changedClass, index } };
+export const editClass = item => {
+  return { type: EDIT_CLASS, payload: item };
 };
 
 export const addClass = item => {

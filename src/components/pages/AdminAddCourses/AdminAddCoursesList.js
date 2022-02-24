@@ -7,17 +7,6 @@ import AdminAddCoursesCard from './AdminAddCoursesCard';
 function adminCoursesList(props) {
   const { program_list } = props;
 
-  // const deleteClass = (course_id) => {
-  //   // program_list.splice(e.target.id, 1);
-  //   // console.log(program_list);
-  //   program_list.splice(course_id, 1);
-  //   console.log(program_list);
-  // };
-
-  // const editClass = (e) => {
-  //   console.log(e.target.id);
-  // };
-
   return (
     <div
       className="add-courses-form-container"
@@ -31,7 +20,11 @@ function adminCoursesList(props) {
       <List>
         {program_list.map((program, index) => {
           return (
-            <AdminAddCoursesCard key={index} id={index} program={program} />
+            <AdminAddCoursesCard
+              key={program.class_id}
+              id={index}
+              program={program}
+            />
           );
         })}
       </List>

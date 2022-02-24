@@ -3,18 +3,15 @@ import {
   SUCCESS_FETCH,
   FAIL_FETCH,
   ADD_CLASS,
-  DEL_CLASS,
+  DELETE_CLASS,
   EDIT_CLASS,
 } from '../actions/adminActions';
 
 export const initialState = {
   class: [],
   isLoading: false,
-  isEditing: false,
   error: 'class_test_error',
 };
-
-// isEditingClass boolean to check if edits, goes into edit mode
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,8 +31,16 @@ const reducer = (state = initialState, action) => {
     case FAIL_FETCH:
       return {
         ...state,
-        isLoading: false,
         error: action.payload,
+      };
+    case DELETE_CLASS:
+      const classIndex = state.class.findIndex(
+        item => item.class_id === action.payload
+      );
+      state.class.splice(classIndex, 1);
+      return {
+        ...state,
+        class: state.class,
       };
     case ADD_CLASS:
       return {
@@ -46,21 +51,19 @@ const reducer = (state = initialState, action) => {
             class_subject: action.payload.subject,
             class_desc: action.payload.description,
             class_prereq_list: action.payload.prereq,
+            class_id: Date.now(),
           },
         ],
       };
-    case DEL_CLASS:
-      return {
-        ...state,
-        class: state.class.splice(action.payload, 1),
-      };
     case EDIT_CLASS:
-      const newArray = [...state.class];
-      newArray[action.index] = action.payload;
+      const classIndexEdit = state.class.findIndex(
+        item => item.class_id === action.payload.class_id
+      );
+      state.class[classIndexEdit] = action.payload;
+
       return {
         ...state,
-        class: newArray,
-        isEditing: true,
+        class: state.class,
       };
     default:
       return state;

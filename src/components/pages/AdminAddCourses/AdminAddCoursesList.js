@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import { Card, List } from 'antd';
+import { List } from 'antd';
 import AdminAddCoursesCard from './AdminAddCoursesCard';
 
 function adminCoursesList(props) {

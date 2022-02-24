@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';
-import { Input, Form, Card, Affix } from 'antd';
+import { Input, Form, Card } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 let placeHolder = [];

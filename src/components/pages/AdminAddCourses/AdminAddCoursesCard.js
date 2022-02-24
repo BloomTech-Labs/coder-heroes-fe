@@ -1,17 +1,12 @@
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Card, Button, Modal, Form, Input } from 'antd';
-import React, { useState, useEffect } from 'react';
-import {
-  delClass,
-  editClass,
-  failFetch,
-} from '../../../redux/actions/adminActions';
+import React, { useState } from 'react';
+import { delClass, editClass } from '../../../redux/actions/adminActions';
 import TextArea from 'antd/lib/input/TextArea';
 
 let placeHolder = [];
 let clear_string = '';
-let program_list = [];
 let formPrerequisite = '';
 
 const initialFormValues = {
@@ -25,7 +20,7 @@ function AdminAddCoursesCard(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
   const { program } = props;
-  const [currentProgram, setCurrentProgram] = useState(program);
+
   let text = program.class_prereq_list.join(', ');
 
   const deleteClass = e => {
@@ -104,12 +99,13 @@ function AdminAddCoursesCard(props) {
     ).innerHTML = arrayText;
   };
 
-  console.log(program);
-
   return (
     <div id={'course_' + program.class_id}>
       <Card
         style={{
+          overflowX: 'hidden',
+          wordBreak: 'break-all',
+          maxWidth: '100%',
           display: 'flex',
           border: '1px dotted black',
         }}
@@ -132,7 +128,7 @@ function AdminAddCoursesCard(props) {
         Edit
       </button>
       <Modal
-        title={'Edit ' + program.class_name}
+        title={'Edit Program'}
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={[

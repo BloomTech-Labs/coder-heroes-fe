@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
-import '../../../styles/signin.less';
+import '../../../styles/login.less';
 
 import { config } from '../../../utils/oktaConfig';
 
 const LoginContainer = () => {
+  let history = useHistory();
+
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
@@ -14,15 +17,24 @@ const LoginContainer = () => {
       clientId,
       redirectUri,
       registration: {
+        click: function() {
+          history.push('/register');
+          widget.remove();
+        },
         // there is more we can do to handle some errors here.
       },
-      features: { registration: false },
+      features: {
+        registration: true,
+      },
       // turning this feature on allows your widget to use Okta for user registration
       logo: 'path-to-your-logo',
       // add your custom logo to your signing/register widget here.
       i18n: {
         en: {
+          // Labels
           'primaryauth.title': 'WELCOME BACK',
+          'primaryauth.submit': 'Login',
+          'registration.signup.text': 'Register here',
           // change title for your app
         },
       },

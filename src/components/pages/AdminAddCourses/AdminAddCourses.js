@@ -93,10 +93,7 @@ function AdminAddCoursesForm(props) {
   };
 
   return (
-    <div
-      className="add-courses-form-container"
-      style={{ border: '1px solid black', height: '75vh' }}
-    >
+    <div className="add-courses-form-container" style={{ height: '75vh' }}>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <h1 style={{ marginTop: 30, fontSize: 20 }}>Submit New Program:</h1>
       </div>

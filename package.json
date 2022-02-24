@@ -19,6 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-stripe-checkout": "^2.6.3",
+    "react-test-renderer": "^17.0.2",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.0"
   },
@@ -77,7 +78,7 @@
     "@storybook/react": "^5.3.19",
     "@storybook/storybook-deployer": "^2.8.6",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^10.2.1",
+    "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^7.2.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react-hooks": "^4.0.4",
@@ -90,6 +91,7 @@
     "lint-staged": "^10.2.11",
     "prettier-eslint-cli": "^5.0.0",
     "prompts": "^2.3.2",
+    "redux-mock-store": "^1.5.4",
     "yaml": "^1.10.0"
   }
 }

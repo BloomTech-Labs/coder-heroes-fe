@@ -48,8 +48,8 @@ const reducer = (state = initialState, action) => {
           ...state.class,
           {
             class_name: action.payload.class_name,
-            class_subject: action.payload.subject,
-            class_desc: action.payload.description,
+            class_subject: action.payload.class_subject,
+            class_desc: action.payload.class_desc,
             class_prereq_list: action.payload.prereq,
             class_id: Date.now(),
           },

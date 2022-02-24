@@ -13,8 +13,8 @@ let formPrerequisite = '';
 
 const initialFormValues = {
   class_name: '',
-  subject: '',
-  description: '',
+  class_subject: '',
+  class_desc: '',
 };
 
 function AdminAddCoursesForm(props) {
@@ -114,8 +114,8 @@ function AdminAddCoursesForm(props) {
             <label htmlFor="other">Subject: </label>
             <Input
               onChange={handleChange}
-              value={formValues.subject}
-              name="subject"
+              value={formValues.class_subject}
+              name="class_subject"
             />
           </Form.Item>
           <Form.Item>
@@ -124,8 +124,8 @@ function AdminAddCoursesForm(props) {
               onChange={handleChange}
               type="text"
               style={{ height: 100, resize: 'none' }}
-              value={formValues.description}
-              name="description"
+              value={formValues.class_desc}
+              name="class_desc"
             />
           </Form.Item>
           <div

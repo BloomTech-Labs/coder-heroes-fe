@@ -16,8 +16,8 @@ let formPrerequisite = '';
 
 const initialFormValues = {
   class_name: '',
-  subject: '',
-  description: '',
+  class_subject: '',
+  class_desc: '',
 };
 
 function AdminAddCoursesCard(props) {
@@ -25,6 +25,7 @@ function AdminAddCoursesCard(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
   const { program } = props;
+  const [currentProgram, setCurrentProgram] = useState(program);
   let text = program.class_prereq_list.join(', ');
 
   const deleteClass = e => {
@@ -43,15 +44,16 @@ function AdminAddCoursesCard(props) {
       class_prereq_list: placeHolder,
       class_id: program.class_id,
     };
+    console.log(props.program_list);
 
     document.getElementById('pnum1_' + program.class_id).innerHTML =
       'Class Name: ' + merged.class_name;
     document.getElementById('pnum2_' + program.class_id).innerHTML =
-      'Class Name: ' + merged.subject;
+      'Class Subject: ' + merged.subject;
     document.getElementById('pnum3_' + program.class_id).innerHTML =
-      'Class Name: ' + merged.description;
+      'Class Description: ' + merged.description;
     document.getElementById('pnum4_' + program.class_id).innerHTML =
-      'Class Name: ' + merged.class_prereq_list;
+      'Class Prerequisites: ' + merged.class_prereq_list;
 
     props.editClass(merged);
     setFormValues(initialFormValues);
@@ -102,13 +104,12 @@ function AdminAddCoursesCard(props) {
     ).innerHTML = arrayText;
   };
 
+  console.log(program);
+
   return (
     <div id={'course_' + program.class_id}>
       <Card
         style={{
-          overflowX: 'hidden',
-          wordBreak: 'break-all',
-          maxWidth: '100%',
           display: 'flex',
           border: '1px dotted black',
         }}

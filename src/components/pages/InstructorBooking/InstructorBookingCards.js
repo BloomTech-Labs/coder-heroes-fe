@@ -10,6 +10,9 @@ import {
   isOneToOneSession,
 } from '../../common/dateHelpers';
 
+import { getCourses } from '../../../redux/actions/instructorActions';
+import { useDispatch } from 'react-redux';
+
 const { TabPane } = Tabs;
 
 const InstructorBookingCards = props => {
@@ -18,9 +21,15 @@ const InstructorBookingCards = props => {
   const [modalHidden, setModalHidden] = useState(true);
   const [currentCourses, setCurrentCourses] = useState();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCourses());
+  }, [dispatch]);
+
   useEffect(() => {
     setCurrentCourses(instructor.course_schedule);
-  }, []);
+  }, [instructor.course_schedule]);
 
   const renderTab = key => {
     if (key === '1') {

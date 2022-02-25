@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
-
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const ParentBookingCard = props => {
   const {
@@ -17,11 +17,23 @@ const ParentBookingCard = props => {
     location,
     instructor_name,
     size,
+    course_id,
   } = props.booking;
+
+  const handleClick = e => {
+    axiosWithAuth()
+      .post(
+        '/children/1/enrollments', // TODO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
+        { child_id: 1, class_id: course_id, completed: true }
+      )
+      .then(res => console.log(res)) // TODO: Let's perform some action with this result.
+      .catch(err => console.log(`message: ${err.message}`));
+  };
+
   const data = [
     { title: 'student name', text: child_name },
     { title: 'course', text: subject },
-    { title: 'desciption', text: description },
+    { title: 'description', text: description },
     { title: 'first day of class', text: dateConverter(start_date) },
     { title: 'last day of class', text: dateConverter(end_date) },
     {
@@ -54,7 +66,7 @@ const ParentBookingCard = props => {
             />
           </div>
         </div>
-        <Button buttonText="ADD"></Button>
+        <Button buttonText="ADD" handleClick={handleClick}></Button>
       </Card>
     </div>
   );

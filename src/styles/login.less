@@ -1,39 +1,39 @@
 .input-focus() {
-  border: @input-focused-border;
-  box-shadow: @input-focused-box-shadow;
+  border: @input__border--focus;
+  box-shadow: @input__box-shadow--focus;
 }
 
 #sign-in-widget {
   display: flex;
-  background-color: @primary-bg-color;
+  background-color: @body__bg;
   #okta-sign-in.auth-container.no-beacon {
-    border-radius: 6px;
+    border-radius: @btn__border-radius;
     display: flex;
-    font-family: @body-font-family;
+    font-family: @text__font-family;
     margin: auto;
     min-height: 600px;
     border: none;
-    background-color: @form-bg-color;
+    background-color: @body__bg--blue;
     h2 {
       text-align: left;
-      font-family: @header-font-family;
-      color: #fff;
+      font-family: @text__font-family--header;
+      color: @text__color--white;
       font-size: xx-large;
       letter-spacing: 1px;
     }
     a.link {
       &:link {
-        color: #fff;
+        color: @text__color--white;
         &:focus {
           box-shadow: none;
         }
       }
       &:visited {
-        color: #fff;
+        color: @text__color--white;
       }
     }
     .okta-form-input-error {
-      color: #fff;
+      color: @text__color--white;
       font-weight: bold;
       .error-16-small:before {
         color: @error-color;
@@ -54,7 +54,7 @@
     label,
     textarea {
       font-size: 18px;
-      color: #fff;
+      color: @text__color--white;
     }
   }
   .auth-content {
@@ -77,17 +77,21 @@
       }
     }
     .button {
-      background: #199c8f;
+      background: @btn__bg--blue;
+      color: @text__color--black;
       border: none;
-      border-radius: 8px;
+      border-radius: @btn__border-radius;
+      font-weight: 600;
       transition: box-shadow 0.2s ease-in-out;
       transition: border 0.1s ease-in-out;
       transition: background 0.2s ease-in-out;
       &:hover {
-        background: #263d47;
+        background: darken(@btn__bg--blue, 30%);
+        color: @text__color--white;
       }
       &:focus {
-        background: #263d47;
+        background: darken(@btn__bg--blue, 30%);
+        color: @text__color--white;
         .input-focus();
       }
     }
@@ -97,11 +101,11 @@
         padding-right: 0px;
         text-align: center;
         .registration-label {
-          color: #fff;
+          color: @text__color--white;
         }
         .registration-link {
           margin-left: 2px;
-          color: #fff;
+          color: @text__color--white;
           font-weight: bold;
         }
       }

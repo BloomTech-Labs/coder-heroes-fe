@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -7,95 +7,156 @@ import {
   LinkedinOutlined,
   ThunderboltFilled,
 } from '@ant-design/icons';
+import { Drawer } from 'antd';
+import {
+  ProfileIcon,
+  HamburgerMenuIcon,
+  TeacherIcon,
+  StudentIcon,
+} from '../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
-export default function MainNav() {
+const Navbar = () => {
+  const [visible, setVisible] = useState(false);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
   return (
-    <nav className="mainNav">
-      <div className="nav navLogo">
-        <NavLink to="/">
-          <h1 className="navTitle">
-            {
-              <ThunderboltFilled
-                style={{ color: '#EEEDD9', fontSize: '2rem' }}
-              />
-            }{' '}
-            CODERHEROES
-          </h1>
-        </NavLink>
-      </div>
-      <div className="nav navOptions">
-        <NavLink className="navLinks" to="/">
-          PROGRAMS
-        </NavLink>
-        <NavLink className="navLinks" to="/browse-instructors">
-          INSTRUCTORS
-        </NavLink>
-        <NavLink className="navLinks" to="/parent-booking">
-          BOOKING
-        </NavLink>
-        <NavLink className="navLinks" to="/">
-          SCHOLARSHIPS
-        </NavLink>
-      </div>
-      <div className="nav navSocial">
-        <a
-          href="https://www.facebook.com/coderheroes."
-          className="socialIcon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FacebookOutlined />
-        </a>
-        <a
-          href="https://twitter.com/coderheroes."
-          className="socialIcon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <TwitterOutlined />
-        </a>
-        <a
-          href="https://www.instagram.com/coderheroes/."
-          className="socialIcon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <InstagramOutlined />
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
-          className="socialIcon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <YoutubeOutlined />
-        </a>
-        <a
-          href="https://www.linkedin.com/company/coderheroes/."
-          className="socialIcon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedinOutlined />
-        </a>
-      </div>
-      <div className="navButtons">
-        <div className="nav navContact">
+    <div className="navbar__container">
+      <nav className="navbar__mainNav">
+        <div className="navbar__logo">
           <NavLink to="/">
-            <button>CONTACT US</button>
+            <h1 className="navbar__navTitle">
+              {
+                <ThunderboltFilled
+                  style={{ color: '#EEEDD9', fontSize: '1.8rem' }}
+                />
+              }{' '}
+              CODERHEROES
+            </h1>
           </NavLink>
         </div>
-        <div
-          className={`nav navSignup ${
-            localStorage.getItem('okta-token-storage') ? 'navSignup__hide' : ''
-          }`}
-        >
+        <div className="navbar__links">
+          <NavLink className="navbar__navLink" to="/">
+            PROGRAMS
+          </NavLink>
+          <NavLink className="navbar__navLink" to="/browse-instructors">
+            INSTRUCTORS
+          </NavLink>
+          <NavLink className="navbar__navLink" to="/parent-booking">
+            BOOKING
+          </NavLink>
+          <NavLink className="navbar__navLink" to="/">
+            SCHOLARSHIPS
+          </NavLink>
+        </div>
+        <div className="navbar__socials">
+          <div className="navbar__socials__cont">
+            <a
+              href="https://www.facebook.com/coderheroes."
+              className="navbar__socialLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FacebookOutlined />
+            </a>
+            <a
+              href="https://twitter.com/coderheroes."
+              className="navbar__socialLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TwitterOutlined />
+            </a>
+            <a
+              href="https://www.instagram.com/coderheroes/."
+              className="navbar__socialLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramOutlined />
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+              className="navbar__socialLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YoutubeOutlined />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/coderheroes/."
+              className="navbar__socialLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinOutlined />
+            </a>
+          </div>
+        </div>
+        <div className="navbar__btns">
+          <NavLink to="/">
+            <button className="navbar__btn navbar__contact">CONTACT US</button>
+          </NavLink>
           <NavLink to="/login">
-            <button>LOGIN</button>
+            <button
+              className={`navbar__btn navbar__login ${
+                localStorage.getItem('okta-token-storage') ? 'navbar__hide' : ''
+              }`}
+            >
+              LOGIN
+            </button>
           </NavLink>
+          {localStorage.getItem('okta-token-storage') && (
+            <NavLink to="/my-dashboard">
+              <div className="navbar__profile">
+                <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
+              </div>
+            </NavLink>
+          )}
         </div>
-      </div>
-    </nav>
+        <div className="navbar__hamburgerMenu">
+          <HamburgerMenuIcon style={{ color: 'white' }} onClick={showDrawer} />
+          <Drawer
+            title="CoderHeroes"
+            placement="right"
+            onClose={onClose}
+            visible={visible}
+            style={{}}
+          >
+            {localStorage.getItem('okta-token-storage') && (
+              <NavLink to="/my-dashboard">
+                <div className="navbar__profile">
+                  <ProfileIcon style={{ color: 'black', fontSize: 15 }} /> My
+                  Profile
+                </div>
+              </NavLink>
+            )}
+            <NavLink className="navbar__navLink" to="/">
+              <TeacherIcon style={{ color: 'black', fontSize: 15 }} /> Programs
+              We Offer
+            </NavLink>
+            <br />
+            <NavLink className="navbar__navLink" to="/browse-instructors">
+              <StudentIcon style={{ color: 'black', fontSize: 15 }} />
+              Check Out Our Instructors
+            </NavLink>
+            <br />
+            <NavLink className="navbar__navLink" to="/parent-booking">
+              Need Booking?
+            </NavLink>
+            <br />
+            <NavLink className="navbar__navLink" to="/">
+              Scholarship Opporitunities
+            </NavLink>
+          </Drawer>
+        </div>
+      </nav>
+    </div>
   );
-}
+};
+
+export default Navbar;

@@ -43,7 +43,7 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
-const store = createStore(rootReducers, applyMiddleware(thunk));
+export const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

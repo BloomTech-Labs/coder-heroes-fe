@@ -17,23 +17,43 @@ function bannerContent(title, content) {
 
 function Banner() {
   const path = window.location.pathname;
-  if (path === '/parent' || path === '/instructor') {
-    return bannerContent('dashboard', 'welcome back!');
-  } else if (path === '/parent-booking') {
-    return bannerContent(
-      'bookings list',
-      "view your children's reserved courses"
-    );
-  } else if (path === '/instructor-booking') {
-    return bannerContent('Apply to Course', 'Select Courses');
-  } else if (path === '/instructor-add-course') {
-    return bannerContent('Build Your Own Program', '');
-  } else if (path === '/family') {
-    return bannerContent('Family', '');
-  } else if (path === '/instuctor-news-feed' || path === '/parent-news-feed') {
-    return bannerContent('News Feed');
-  } else {
-    return bannerContent('Dashboard', 'Welcome back!');
+  switch (path) {
+    case path === '/parent' || path === '/instructor':
+      return bannerContent('dashboard', 'welcome back!');
+    case path === '/parent-booking':
+      return bannerContent(
+        'bookings list',
+        "view your children's reserved courses"
+      );
+    case path === '/instructor-booking':
+      return bannerContent('Apply to Course', 'Select Courses');
+    case path === '/instructor-add-course':
+      return bannerContent('Build Your Own Program', '');
+    case path === '/family':
+      return bannerContent('Family', '');
+    case path === '/instuctor-news-feed' || path === '/parent-news-feed':
+      return bannerContent('News Feed');
+    default:
+      return bannerContent('Dashboard', 'Welcome back!');
   }
+
+  // if (path === '/parent' || path === '/instructor') {
+  //   return bannerContent('dashboard', 'welcome back!');
+  // } else if (path === '/parent-booking') {
+  //   return bannerContent(
+  //     'bookings list',
+  //     "view your children's reserved courses"
+  //   );
+  // } else if (path === '/instructor-booking') {
+  //   return bannerContent('Apply to Course', 'Select Courses');
+  // } else if (path === '/instructor-add-course') {
+  //   return bannerContent('Build Your Own Program', '');
+  //  } else if (path === '/family') {
+  //   return bannerContent('Family', '');
+  // } else if (path === '/instuctor-news-feed' || path === '/parent-news-feed') {
+  //   return bannerContent('News Feed');
+  // } else {
+  //   return bannerContent('Dashboard', 'Welcome back!');
+  // }
 }
 export default Banner;

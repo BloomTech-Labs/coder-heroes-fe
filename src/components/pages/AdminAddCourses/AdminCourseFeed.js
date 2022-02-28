@@ -6,7 +6,7 @@ export default function AdminCourseFeed() {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     axiosWithAuth()
-      .get(`/course-types`)
+      .get(`/course_types`)
       .then(resp => {
         console.log('use effect', resp.data);
         setCourses(resp.data);

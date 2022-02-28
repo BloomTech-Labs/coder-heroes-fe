@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
@@ -7,9 +7,8 @@ import '../../../styles/login.less';
 import { config } from '../../../utils/oktaConfig';
 
 const LoginContainer = () => {
-  let history = useHistory();
-
-  useEffect(() => {
+  const history = useHistory();
+  const loadWidget = useCallback(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
     const widget = new OktaSignIn({
@@ -19,7 +18,6 @@ const LoginContainer = () => {
       registration: {
         click: function() {
           history.push('/register');
-          widget.remove();
         },
         // there is more we can do to handle some errors here.
       },
@@ -58,7 +56,15 @@ const LoginContainer = () => {
         throw err;
       }
     );
-  }, []);
+    return widget;
+  }, [history]);
+
+  useEffect(() => {
+    const widget = loadWidget();
+    return () => {
+      widget.remove();
+    };
+  }, [loadWidget]);
 
   return <div id="sign-in-widget" />;
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -11,10 +12,7 @@ import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
 import './styles/index.less';
 import 'antd/dist/antd.less';
 
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducers from './redux/reducers/index';
-import thunk from 'redux-thunk';
+import store from './store';
 import InstructorBooking from './components/pages/InstructorBooking';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
@@ -43,7 +41,6 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
-const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -28,9 +28,8 @@ describe('Course Details is a connected React-Redux Component', () => {
       <CourseDetails />
     </Provider>
   );
-  it('Manage Course Resources button works without errors', () => {
+  it('renders "Manage Course Resources" button', () => {
     const button = getByText(/Manage Course Resources/i);
-    userEvent.click(button);
 
     expect(button.textContent).toBe('Manage Course Resources');
   });

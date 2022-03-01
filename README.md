@@ -2,22 +2,29 @@
 
 For the steps on how to work with this repository [please see here](https://docs.labs.lambdaschool.com/labs-spa-starter/)
 
-
 # CoderHeroes
 
 You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/login).
 
 ## Contributors
 
-|[<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)|[<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)|[<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)|[<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)|
-|---|---|---|---|
-|[Chelsea Ceballos](https://github.com/chelseaceballos) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chelseaceballos)|[Jie Zhang](https://github.com/Jie-chelchel) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jie-chelchel)|[Willis Li](https://github.com/WillisLi) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/WillisLi)|[Bradly Lewis](https://github.com/bradlylewis) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bradlylewis)|
-|[<img src="https://avatars.githubusercontent.com/u/80992248?v=4" width = "200" />](https://github.com/fernando817mm)|[<img src="https://avatars.githubusercontent.com/u/47357270?v=4" width = "200" />](https://github.com/muhannadbm)|[<img src="https://avatars.githubusercontent.com/u/82040208?v=4" width = "200" />](https://github.com/vasqueza91)|[<img src="https://avatars.githubusercontent.com/u/32268444?v=4" width = "200" />](https://github.com/MikeLikesCode)|
-|[Fernando Martinez](https://github.com/fernando817mm) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/fernando817mm)|[Muhannad Bani Almarje](https://github.com/muhannadbm) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/muhannadbm)|[Alejandro Vasquez](https://github.com/vasqueza91) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vasqueza91)|[Michael Guerrero](https://github.com/MikeLikesCode) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MikeLikesCode)|
-|[<img src="https://avatars.githubusercontent.com/u/81542563?v=4" width = "200" />](https://github.com/andrewskr90)|[<img src="https://avatars.githubusercontent.com/u/39386788?v=4" width = "200" />](https://github.com/Rodgers31)|[<img src="https://avatars.githubusercontent.com/u/85185709?v=4" width = "200" />](https://github.com/cn8817)|[<img src="https://avatars.githubusercontent.com/u/65091914?v=4" width = "200" />](https://github.com/CptHappyHands)|
-|[Kyle Andrews](https://github.com/andrewskr90) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/andrewskr90)|[Rodgers Otieno](https://github.com/Rodgers31) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Rodgers31)|[Christine Nguyen](https://github.com/cn8817) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cn8817)|[Andrew Cummings](https://github.com/CptHappyHands) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/CptHappyHands)|
-|[<img src="https://avatars.githubusercontent.com/u/14983694?v=4" width = "200" />](https://github.com/JoeyMBrown)||||
-|[Joseph Brown](https://github.com/JoeyMBrown) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JoeyMBrown)||||
+| [<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/chelseaceballos)                              | [<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/Jie-chelchel)                            | [<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/WillisLi)                            | [<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/bradlylewis)                              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Chelsea Ceballos](https://github.com/chelseaceballos) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chelseaceballos) | [Jie Zhang](https://github.com/Jie-chelchel) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jie-chelchel)         | [Willis Li](https://github.com/WillisLi) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/WillisLi)             | [Bradly Lewis](https://github.com/bradlylewis) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bradlylewis)         |
+| [<img src="https://avatars.githubusercontent.com/u/80992248?v=4" width = "200" />](https://github.com/fernando817mm)                                | [<img src="https://avatars.githubusercontent.com/u/47357270?v=4" width = "200" />](https://github.com/muhannadbm)                              | [<img src="https://avatars.githubusercontent.com/u/82040208?v=4" width = "200" />](https://github.com/vasqueza91)                          | [<img src="https://avatars.githubusercontent.com/u/32268444?v=4" width = "200" />](https://github.com/MikeLikesCode)                            |
+| [Fernando Martinez](https://github.com/fernando817mm) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/fernando817mm)    | [Muhannad Bani Almarje](https://github.com/muhannadbm) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/muhannadbm) | [Alejandro Vasquez](https://github.com/vasqueza91) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vasqueza91) | [Michael Guerrero](https://github.com/MikeLikesCode) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/MikeLikesCode) |
+| [<img src="https://avatars.githubusercontent.com/u/81542563?v=4" width = "200" />](https://github.com/andrewskr90)                                  | [<img src="https://avatars.githubusercontent.com/u/39386788?v=4" width = "200" />](https://github.com/Rodgers31)                               | [<img src="https://avatars.githubusercontent.com/u/85185709?v=4" width = "200" />](https://github.com/cn8817)                              | [<img src="https://avatars.githubusercontent.com/u/65091914?v=4" width = "200" />](https://github.com/CptHappyHands)                            |
+| [Kyle Andrews](https://github.com/andrewskr90) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/andrewskr90)             | [Rodgers Otieno](https://github.com/Rodgers31) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Rodgers31)          | [Christine Nguyen](https://github.com/cn8817) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cn8817)          | [Andrew Cummings](https://github.com/CptHappyHands) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/CptHappyHands)  |
+| [<img src="https://avatars.githubusercontent.com/u/14983694?v=4" width = "200" />](https://github.com/JoeyMBrown)                                   |                                                                                                                                                |                                                                                                                                            |                                                                                                                                                 |
+| [Joseph Brown](https://github.com/JoeyMBrown) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JoeyMBrown)               |                                                                                                                                                |                                                                                                                                            |                                                                                                                                                 |
+
+| [<img src="https://avatars.githubusercontent.com/u/78114013?v=4" width = "200" />](https://github.com/natecheney-dev)                           | [<img src="https://avatars.githubusercontent.com/u/84593843?v=4" width = "200" />](https://github.com/ModupeD)                               | [<img src="https://avatars.githubusercontent.com/u/42555076?v=4" width = "200" />](https://github.com/19jlevitre)                          | [<img src="https://avatars.githubusercontent.com/u/83714912?v=4" width = "200" />](https://github.com/waylonturbes)                                    |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Nathan Cheney](https://github.com/natecheney-dev) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chelseaceballos) | [Modupe D](https://github.com/ModupeD) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ModupeD)                  | [Cheyenne Bowman](https://github.com/Cheyenneb96) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Cheyenneb96) | [Priscila Monteiro](https://github.com/PriscilaMonteiro) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/PriscilaMonteiro) |
+| [<img src="https://avatars.githubusercontent.com/u/80992248?v=4" width = "200" />](https://github.com/mcmillanj)                                | [<img src="https://avatars.githubusercontent.com/u/47357270?v=4" width = "200" />](https://github.com/mark-escosura)                         | [<img src="https://avatars.githubusercontent.com/u/82040208?v=4" width = "200" />](https://github.com/RoseGabriely)                        | [<img src="https://avatars.githubusercontent.com/u/32268444?v=4" width = "200" />](https://github.com/krisf451)                                        |
+| [Therman Mcmillan](https://github.com/mcmillanj) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mcmillanj)         | [Mark Escosura](https://github.com/mark-escosura) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mark-escosura) | [Rose Gabriely](https://github.com/RoseGabriely) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/RoseGabriely) | [Kristian Fulkerson](https://github.com/krisf451) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/krisf451)                |
+| [<img src="https://avatars.githubusercontent.com/u/81542563?v=4" width = "200" />](https://github.com/seanmp3)                                  | [<img src="https://avatars.githubusercontent.com/u/39386788?v=4" width = "200" />](https://github.com/Rodgers31)                             | [<img src="https://avatars.githubusercontent.com/u/85185709?v=4" width = "200" />](https://github.com/PriscilaMonteiro)                    | [<img                                                                                                                                                  |
+| [Sean Mahan](https://github.com/seanmp3) [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/seanmp3)                   |                                                                                                                                              |                                                                                                                                            |                                                                                                                                                        |
 
 <br>
 <br>
@@ -56,7 +63,6 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 #### [Back end](https://github.com/BloomTech-Labs/coder-heroes-be) built using:
 
-
 - Docker
 - Node.js
 - Express
@@ -66,13 +72,14 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 ## Authentication API here
 
-For authentication we're hitting Okta.  The Okta flow can be found here: [OktaFlow](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#grant-type-flow).  We're very early stages in using Okta.  Right now users cannot self-register accounts need to be created on Okta by an administrator (from Lambda).  Logging in does work with pre-defined accounts.
+For authentication we're hitting Okta. The Okta flow can be found here: [OktaFlow](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#grant-type-flow). We're very early stages in using Okta. Right now users cannot self-register accounts need to be created on Okta by an administrator (from Lambda). Logging in does work with pre-defined accounts.
 
 ## Payment API here
 
 We we're planning on implementing Stripe for payments - however this is a future feature that we have not started implementing yet.
 
 ## Misc API here
+
 No misc API's currently being used.
 
 # Installation Instructions
@@ -170,33 +177,44 @@ The `RenderDataViz.js` file demonstrates how you can pull in data from an extern
 - **REMINDER do not** check any sensitive information into git
 
 ## Common Directory Explanation
+
 Loom[https://www.loom.com/share/e304d66df57a42b4871ed82a2aa98dd1]
 
 ## ExampleList Directory Explanation
+
 [Loom] https://www.loom.com/share/686ebc35d65b45d9b2e3c63ef7848736
 
 ## ExampleDataViz Directory Explanation
+
 [Loom] https://www.loom.com/share/1fd02cd49ea4481ebb4e3e6829af323b
 
 ## [Loom Videos]
-##  Home/Landing/Login/NotFound/ProfileList Directories Explanations
+
+## Home/Landing/Login/NotFound/ProfileList Directories Explanations
+
 Loom [https://www.loom.com/share/b096caec05d64723973075cb4d6bbd00]
+
 ## InstructorBooking/ InstructorHome directories explanation
 
 ### InstructorBooking
+
 Loom[https://www.loom.com/share/abb423fc7e5444a3b7f01baca244b3dd]
 
 ### InstructorHome
+
 Loom[https://www.loom.com/share/4c5f90178f17417aa206f2319bb16a39]
 
 ### Parent Dashboard
+
 Loom[https://www.loom.com/share/5250dabcfb8f40d6bae9b363118fc910]
 
 ### Parent Bookings
+
 Loom[https://www.loom.com/share/20a4917f86de4cbd9499f41d34061706] (part 1)
 Loom[https://www.loom.com/share/b6648c95d4b74b3aa2e3b153f3a410fe] (part 2)
 
 ### Parent Calendar
+
 Loom[https://www.loom.com/share/ad3fcdce651c4e8381781df08e40d7b1] (part 1)
 Loom[https://www.loom.com/share/8b94d91bcacc47f7ad082d26eab1f94a] (part 2)
 Loom[https://www.loom.com/share/689ff99c6838454483724f7f281f8241] (part 3)
@@ -206,6 +224,3 @@ Loom[https://www.loom.com/share/a47320e57c9f46f88e6ee14d5a8563bb] (part 6)
 Loom[https://www.loom.com/share/70db70523b7e45a0852c6f39eb29261e] (part 7)
 Loom[https://www.loom.com/share/ba15e1a16e174d25a39db4ee01a013fc] (part 8)
 Loom[https://www.loom.com/share/a6eb1260c8ce45adad1d38a4c9b42686] (part 9)
-
-
-

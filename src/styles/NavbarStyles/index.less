@@ -1,182 +1,188 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap');
 
-.navbar__container {
+.navbar__mainNav {
   display: flex;
   background-color: #feae28;
-  height: 10vh;
-
+  min-height: 98px;
   padding: 0 0.6rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat';
+  overflow: hidden;
+  transition: 0.1s all ease-out;
 
-  .navbar__mainNav {
-    width: 100%;
+  .navbar__logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-family: 'Montserrat';
-    overflow: hidden;
-    transition: 0.1s all ease-out;
+    width: 22%;
 
-    .navbar__logo {
-      display: flex;
+    .navbar__navTitle {
+      margin: 0 0 0 1.5rem;
+      font-size: 1.95rem;
+      letter-spacing: 1px;
       align-items: center;
-      width: 22%;
-
-      .navbar__navTitle {
-        margin: 0 0 0 1.5rem;
-        font-size: 1.95rem;
-        letter-spacing: 1px;
-        align-items: center;
-        color: #3b0e2b;
-        font-family: 'Staatliches', 'cursive';
-        overflow: hidden;
-        white-space: nowrap;
-        transition: 0.2s all ease-in;
-      }
-      @media screen and (max-width: 1220px) {
-        .navbar__navTitle {
-          margin: 0;
-        }
-      }
-    }
-
-    .navbar__links {
-      display: flex;
-      width: 40%;
-      justify-content: space-evenly;
-      margin-left: 0.6rem;
-
-      .navbar__navLink {
-        color: #3b0e2b;
-        font-size: 0.95rem;
-        font-weight: 600;
-        transition: 0.1s all ease-in;
-      }
-      .navbar__navLink:hover {
-        color: #fff;
-        text-decoration: underline;
-        text-decoration-thickness: 10px;
-      }
-      @media screen and (max-width: 1220px) {
-        .navbar__navLink {
-          font-size: 0.85rem;
-        }
-      }
-    }
-    @media screen and (max-width: 1070px) {
-      .navbar__links {
-        width: 50%;
-        justify-content: space-between;
-      }
-    }
-
-    .navbar__socials {
-      display: flex;
-      width: 15%;
-      justify-content: space-evenly;
+      color: #3b0e2b;
+      font-family: 'Staatliches', 'cursive';
+      overflow: hidden;
+      white-space: nowrap;
       transition: 0.2s all ease-in;
-
-      .navbar__socials__cont {
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-      }
-
-      .navbar__socialLink {
-        font-size: 1.7rem;
-        color: #3b0e2b;
-        transition: 0.1s all ease-in;
-      }
-      .navbar__socialLink:hover {
-        color: white;
-      }
-      @media screen and (max-width: 1100px) {
-        .navbar__socialLink {
-          margin-right: 0;
-          font-size: 1.5rem;
-        }
+    }
+    @media screen and (max-width: 1220px) {
+      .navbar__navTitle {
+        margin: 0;
       }
     }
-    @media screen and (max-width: 1070px) {
-      .navbar__socials {
-        display: none;
+  }
+
+  .navbar__links {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    margin-left: 0.6rem;
+
+    .navbar__navLink {
+      color: #3b0e2b;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: 0.1s all ease-in;
+    }
+    .navbar__navLink:hover {
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 10px;
+    }
+    @media screen and (max-width: 1220px) {
+      .navbar__navLink {
+        font-size: 0.85rem;
       }
     }
+  }
+  @media screen and (max-width: 1070px) {
+    .navbar__links {
+      width: 50%;
+      justify-content: space-between;
+    }
+  }
 
-    .navbar__btns {
+  .navbar__socials {
+    display: flex;
+    width: 15%;
+    justify-content: space-evenly;
+    transition: 0.2s all ease-in;
+
+    .navbar__socials__cont {
       display: flex;
-      width: 18%;
-      align-items: center;
+      width: 100%;
       justify-content: space-evenly;
-      margin-left: 1.5rem;
-
-      .navbar__btn {
-        background: #edeed7;
-        color: #006c72;
-        font-weight: 600;
-        height: 4.6vh;
-        border-radius: 7%;
-        border: none;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: 0.1s all ease-in;
-      }
-      .navbar__btn:hover {
-        color: #edeed7;
-        background-color: #006c72;
-      }
-      .navbar__contact {
-        width: 120px;
-      }
-      .navbar__login {
-        width: 80px;
-      }
-      .navbar__hide {
-        display: none;
-      }
-      .navbar__profile {
-        height: 4.6vh;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #eeedd9;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        transition: 0.2s ease-in;
-      }
-      .navbar__profile:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
-
-      @media screen and (max-width: 1220px) {
-        .navbar__btn {
-          font-size: 0.8rem;
-          width: 105px;
-        }
-      }
-      @media screen and (max-width: 900px) {
-        .navbar__btn {
-          background-color: red;
-        }
-      }
     }
 
-    .navbar__hamburgerMenu {
+    .navbar__socialLink {
+      font-size: 1.7rem;
+      color: #3b0e2b;
+      transition: 0.1s all ease-in;
+    }
+    .navbar__socialLink:hover {
+      color: white;
+    }
+    @media screen and (max-width: 1100px) {
+      .navbar__socialLink {
+        margin-right: 0;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media screen and (max-width: 1070px) {
+    .navbar__socials {
       display: none;
     }
+  }
 
-    @media screen and (max-width: 900px) {
-      .navbar__btns {
-        display: none;
+  .navbar__btns {
+    display: flex;
+    width: 18%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 1.5rem;
+
+    .navbar__btn {
+      background: #edeed7;
+      color: #006c72;
+      font-weight: 600;
+      min-height: 38px;
+      border-radius: 7%;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.1s all ease-in;
+      margin: 0 0.2rem;
+    }
+    .navbar__btn:hover {
+      color: #edeed7;
+      background-color: #006c72;
+    }
+    .navbar__contact {
+      width: 120px;
+    }
+    .navbar__login {
+      width: 80px;
+    }
+    .navbar__hide {
+      display: none;
+    }
+    .navbar__profile {
+      min-height: 38px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #eeedd9;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      transition: 0.2s ease-in;
+    }
+    .navbar__profile:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 1220px) {
+      .navbar__contact {
+        font-size: 0.8rem;
+        width: 105px;
       }
-      .navbar__links {
-        display: none;
-      }
-      .navbar__hamburgerMenu {
-        display: block;
+      .navbar__login {
+        font-size: 0.8rem;
+        width: 70px;
+        margin-right: 1rem;
       }
     }
+    @media screen and (max-width: 900px) {
+      .navbar__btn {
+        background-color: red;
+      }
+    }
+  }
+
+  .navbar__hamburgerMenu {
+    display: none;
+  }
+
+  @media screen and (max-width: 900px) {
+    .navbar__btns {
+      display: none;
+    }
+    .navbar__links {
+      display: none;
+    }
+    .navbar__hamburgerMenu {
+      display: block;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .navbar__mainNav {
+    padding: 0 2rem;
   }
 }

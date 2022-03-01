@@ -15,9 +15,10 @@ export const EDIT_CLASS = 'EDIT_CLASS';
 // };
 // const body = {
 //   ...formValues,
-//   subject: formValues.subject,
-//   description: formValues.description,
-//   prereq: formValues.prereq,
+//   class_name: formValues.class_name,
+//   class_subject: formValues.class_subject,
+//   class_desc: formValues.class_desc,
+//   class_prereq_list: formValues.prereq,
 // };
 
 // waiting for backend to implement this and reducer / actions

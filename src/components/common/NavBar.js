@@ -9,13 +9,14 @@ import {
   HomeOutlined,
   SnippetsOutlined,
   AliwangwangOutlined,
+  FormOutlined,
+  BankOutlined,
+  UserSwitchOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu } from 'antd';
 import {
   ProfileIcon,
   HamburgerMenuIcon,
-  TeacherIcon,
-  StudentIcon,
 } from '../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
@@ -147,13 +148,13 @@ const Navbar = () => {
             <Menu.Item key="2" icon={<SnippetsOutlined />}>
               <NavLink to="/">Programs</NavLink>
             </Menu.Item>
-            <Menu.Item key="3" icon={<SnippetsOutlined />}>
+            <Menu.Item key="3" icon={<UserSwitchOutlined />}>
               <NavLink to="/browse-instructors">Instructors</NavLink>
             </Menu.Item>
-            <Menu.Item key="4" icon={<SnippetsOutlined />}>
+            <Menu.Item key="4" icon={<FormOutlined />}>
               <NavLink to="/parent-booking">Booking</NavLink>
             </Menu.Item>
-            <Menu.Item key="5" icon={<SnippetsOutlined />}>
+            <Menu.Item key="5" icon={<BankOutlined />}>
               <NavLink to="/">Scholarships</NavLink>
             </Menu.Item>
             <SubMenu

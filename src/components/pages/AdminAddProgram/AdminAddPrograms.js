@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';

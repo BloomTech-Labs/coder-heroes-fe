@@ -8,7 +8,6 @@ import Banner from '../../common/Banner';
 const { Content } = Layout;
 
 const AdminHome = () => {
-  console.log('im in admin');
   return (
     <div>
       <Layout>

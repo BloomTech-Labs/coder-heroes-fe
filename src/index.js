@@ -28,7 +28,7 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
 import AdminHome from './components/pages/AdminHome';
-import AdminAddCourses from './components/pages/AdminAddCourses/';
+import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import Footer from './components/common/Footer';

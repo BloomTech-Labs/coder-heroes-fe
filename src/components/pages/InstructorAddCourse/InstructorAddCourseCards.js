@@ -22,7 +22,7 @@ const days = [
 ];
 
 const initialClassDataState = {
-  course_type_id: '',
+  course_type: '',
   day: '', //needs to be added to backend
   size: '',
   min_age: '', //needs to be added to backend
@@ -38,7 +38,7 @@ const initialClassDataState = {
 };
 
 const initialClassDataStateFormErrors = {
-  course_type_id: '',
+  course_type: '',
   day: '',
   size: '',
   min_age: '',
@@ -49,8 +49,6 @@ const initialClassDataStateFormErrors = {
   end_date: '',
   sessions: '',
   location: '',
-  open_seats_remaining: '',
-  instructor_id: '',
 };
 
 const InstructorAddCourseCards = props => {
@@ -101,32 +99,22 @@ const InstructorAddCourseCards = props => {
         <Form
           wrapperCol={{ span: 50 }}
           layout="horizontal"
+          className="iadc__form"
           errors={formErrors}
           onChange={handleChange}
         >
           <Form.Item>
             <label for="courseType">Course Type: </label>
-            <Select placeholder="Select a course">
+            <Select placeholder="Select a course" name="course_type">
               {courses.map(course => (
                 <Option value={course}>{course}</Option>
               ))}
-
-              {/* we need to create an endpoint with an instructor's approved courses for this */}
             </Select>
           </Form.Item>
 
           <Form.Item>
             <label for="day">Day: </label>
-            <Select
-              onChange={value => {
-                setClassData({
-                  ...classData,
-                  day: value,
-                });
-              }}
-              name="day"
-              placeholder="Select a day"
-            >
+            <Select name="day" placeholder="Select a day">
               {days.map(day => (
                 <Option value={day}>{day}</Option>
               ))}
@@ -142,15 +130,7 @@ const InstructorAddCourseCards = props => {
               min="1"
               placeholder="Determine class size"
             />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.size}
-            </span>
+            <span className="iadc__errors">{formErrors.size}</span>
           </Form.Item>
 
           <Form.Item>
@@ -163,15 +143,7 @@ const InstructorAddCourseCards = props => {
               min="4"
               max="100"
             />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.min_age}
-            </span>
+            <span className="iadc__errors">{formErrors.min_age}</span>
           </Form.Item>
 
           <Form.Item>
@@ -184,71 +156,31 @@ const InstructorAddCourseCards = props => {
               min="4"
               max="100"
             />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.max_age}
-            </span>
+            <span className="iadc__errors">{formErrors.max_age}</span>
           </Form.Item>
 
           <Form.Item>
             <label for="startTime">Start Time: </label>
             <Input type="time" value={classData.start_time} name="start_time" />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.start_time}
-            </span>
+            <span className="iadc__errors">{formErrors.start_time}</span>
           </Form.Item>
 
           <Form.Item>
             <label for="endTime">End Time: </label>
             <Input type="time" value={classData.end_time} name="end_time" />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.end_time}
-            </span>
+            <span className="iadc__errors">{formErrors.end_time}</span>
           </Form.Item>
 
           <Form.Item>
             <label for="startDate">Start Date: </label>
             <Input type="date" value={classData.start_date} name="start_date" />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.start_date}
-            </span>
+            <span className="iadc__errors">{formErrors.start_date}</span>
           </Form.Item>
 
           <Form.Item>
             <label for="endDate">End Date: </label>
             <Input type="date" value={classData.end_date} name="end_date" />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.end_date}
-            </span>
+            <span className="iadc__errors">{formErrors.end_date}</span>
           </Form.Item>
 
           <Form.Item>
@@ -260,15 +192,7 @@ const InstructorAddCourseCards = props => {
               name="sessions"
               min="1"
             />
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {formErrors.sessions}
-            </span>
+            <span className="iadc__errors">{formErrors.sessions}</span>
           </Form.Item>
 
           <Form.Item>
@@ -279,24 +203,15 @@ const InstructorAddCourseCards = props => {
               placeholder="Zoom Link goes here!"
             />
           </Form.Item>
-          <span
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {formErrors.location}
-          </span>
+          <span className="iadc__errors">{formErrors.location}</span>
           {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}
-
-          {props.errorMessage && <div>Error: {props.errorMessage}</div>}
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button
               style={{ marginBottom: '1rem' }}
               type="primary"
               htmlType="submit"
               onClick={handleSubmit}
+              disabled={disabled}
             >
               Submit!
             </Button>

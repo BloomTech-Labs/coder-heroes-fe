@@ -44,7 +44,10 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .date()
     .min(new Date(), 'Please choose a future date')
     .required('You must specify a start date'),
-  end_date: yup.date().required('Must input a valid end date'),
+  end_date: yup
+    .date()
+    .min(yup.ref('start_date'), 'end date must come after start date')
+    .required('Must input a valid end date'),
   sessions: yup
     .number()
     .integer('Number must be a whole value')

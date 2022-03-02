@@ -22,25 +22,31 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .min(2, 'Class size must have at least 2 students'),
   min_age: yup
     .number()
-    .lessThan(18, 'Must be 17 years or younger')
-    .moreThan(6, 'Must be 7 years or older')
+    .moreThan(6, 'must be at least 7')
+    .lessThan(18, 'must be less than 18')
     .typeError('You must specify a minimum age')
     .required('You must specify a minimum age'),
   max_age: yup
     .number()
-    .lessThan(18, 'Must be 17 years or younger')
-    .moreThan(6, `Must be 7 years or older`)
-    // .moreThan(min_age, `Must be older than ${min_age}`)
+    .moreThan(7, 'must be older than min')
+    .lessThan(18, 'must be less that 18')
     .typeError('You must specify a maximum age')
     .required('You must specify a maximum age'),
   start_time: yup.string().required('Must input valid start time'),
-  end_time: yup.string().required('Must input valid end time'),
+  end_time: yup
+    .string()
+    .min(yup.ref('start_time'), 'end time must come after start time')
+    .required('Must input valid end time'),
   start_date: yup.date().required('You must specify a start date'),
-  end_date: yup.date().required('You must specify an end date'),
+  end_date: yup
+    .date()
+    .min(yup.ref('start_date'), 'end date must come after start date')
+    .required('You must specify an end date'),
   sessions: yup
     .number()
     .integer('Number must be a whole value')
     .min(1, 'Must have at least 1 session')
+    .typeError('Must set sessions')
     .required('Set sessions'),
   location: yup
     .string()

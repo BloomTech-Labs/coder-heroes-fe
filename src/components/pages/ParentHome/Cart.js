@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import StripeCheckout from 'react-stripe-checkout';
-import { useHistory } from 'react-router-dom';
+import StripeCheckoutButton from '../Stripe/StripeCheckoutButton';
+// import { useHistory } from 'react-router-dom';
 import { Modal, Button } from 'antd';
 import { timeConverter } from '../../common/timeHelpers';
 import { dateConverter } from '../../common/dateHelpers';
 import {
+  addToCart,
   cancelCartItem,
   clearCart,
 } from '../../../redux/actions/parentActions';
 
 function Cart(props) {
-  const { cart, cancelCartItem, clearCart } = props;
+  const { cart, cancelCartItem } = props; //clearCart needed in deconstructor
   const [showModal, setShowModal] = useState(false);
   let total = cart.reduce((prev, curr) => prev + curr.price, 0);
   const [product, setProduct] = useState({
     name: 'coderheroes',
     price: total,
   });
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     setProduct({ ...product, price: total });
-  }, [product, total]);
+  }, [total]);
 
   const handleModal = () => {
     setShowModal(true);
@@ -36,37 +37,23 @@ function Cart(props) {
     cancelCartItem(booking);
     setShowModal(false);
   };
+  //do not delete will use some for credit card and coarses to added to cart
 
-  console.log(cart);
-
-  const makeToken = token => {
-    const body = {
-      token,
-      product,
-    };
-    const headers = {
-      'Content-type': 'application/json',
-    };
-
-    return fetch(`http://localhost:5000/payment`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(body),
-    })
-      .then(res => {
-        // unused variable status is for next cohort. we can use status to proceed the enrollment process in BE. after the enrollment process if finished, it will update booking array in parentReducer
-        // const { status } = res;
-        clearCart();
-        history.push('/payment-success');
-      })
-      .catch(err => console.log(err));
-  };
+  // const handleAddtoCart = booking => {
+  //   addToCart(booking);
+  //   setShowModal(false);
+  // };
 
   return (
     <div>
       <h3>List in Cart</h3>
       {cart.length === 0 ? (
-        <div>You don't have any item in cart yet!</div>
+        <div>
+          <div>You don't have any item in cart yet!</div>
+          {/* //move this total and stripCheckoutButton  code under it to bottom of return for cart */}
+          <div>Total: ${total}</div>
+          <StripeCheckoutButton price={total} />
+        </div>
       ) : (
         <div>
           {cart.map((booking, index) => {
@@ -135,20 +122,9 @@ function Cart(props) {
               </div>
             );
           })}
-          <div>Total: {total}</div>
-          <StripeCheckout
-            stripeKey={process.env.REACT_APP_KEY}
-            token={makeToken}
-            name="Let's Finish Enrollment"
-            amount={product.price * 100}
-            billingAddress
-            zipCode
-            locale="auto"
-          >
-            <button style={{ backgroundColor: '#06d6a0' }}>CHECK OUT</button>
-          </StripeCheckout>
         </div>
       )}
+      )
     </div>
   );
 }
@@ -159,4 +135,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { cancelCartItem, clearCart })(Cart);
+export default connect(mapStateToProps, {
+  addToCart,
+  cancelCartItem,
+  clearCart,
+})(Cart);

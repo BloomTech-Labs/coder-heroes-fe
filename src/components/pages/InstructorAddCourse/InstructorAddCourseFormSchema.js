@@ -1,7 +1,10 @@
 import * as yup from 'yup';
 
 const InstructorAddCourseFormSchema = yup.object().shape({
-  course_type_id: yup.string().required('Please select a course'),
+  course_type_id: yup
+    .string()
+    .oneOf(['Javascript', 'HTML', 'CSS'])
+    .required('Please select a course'),
   day: yup
     .string()
     .oneOf([
@@ -16,10 +19,10 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .required('Please select a day'),
   size: yup
     .number()
-    .typeError('You must specify a class size')
-    .required('You must specify a class size')
+    .min(2, 'Class size must have at least 2 students')
     .integer('Number must be a whole value')
-    .min(2, 'Class size must have at least 2 students'),
+    .typeError('You must specify a class size')
+    .required('You must specify a class size'),
   min_age: yup
     .number()
     .moreThan(6, 'must be at least 7')
@@ -37,8 +40,11 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .string()
     .min(yup.ref('start_time'), 'end time must come after start time')
     .required('Must input valid end time'),
-  start_date: yup.date().required('You must specify a start date'),
-  end_date: yup.date().required('You must specify an end date'),
+  start_date: yup
+    .date()
+    .min(new Date(), 'Please choose a future date')
+    .required('You must specify a start date'),
+  end_date: yup.date().required('Must input a valid end date'),
   sessions: yup
     .number()
     .integer('Number must be a whole value')

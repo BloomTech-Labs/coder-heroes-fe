@@ -8,7 +8,7 @@ const { Footer } = Layout;
 function MainFooter() {
   return (
     <>
-      {/* Dispaly for Desktop */}
+      {/* Dispaly for Desktop (is hidden at 900px screen width or below) */}
       <Footer
         className="desktop-footer"
         style={{
@@ -18,7 +18,7 @@ function MainFooter() {
       >
         <DesktopFooter />
       </Footer>
-      {/* Display for Mobile */}
+      {/* Display for Mobile (only visible when screen width is below 900px) */}
       <Footer
         className="mobile-footer"
         style={{

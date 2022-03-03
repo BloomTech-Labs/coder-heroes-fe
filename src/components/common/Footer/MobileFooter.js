@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Typography, Divider, AutoComplete } from 'antd';
+import { Row, Col, Typography, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   FacebookOutlined,
@@ -14,10 +14,78 @@ const { Title } = Typography;
 function MobileFooter() {
   return (
     <div className="footer-content">
-      <Row>
-        <Col span={12}></Col>
-        <Col span={12}></Col>
-        <Col span={24}></Col>
+      <Row justify="space-between">
+        <Col>
+          <Title
+            className="title"
+            style={{ color: '#ffffff', fontWeight: '400' }}
+            level={3}
+          >
+            Services
+          </Title>
+          <div>
+            <ul>
+              <li>
+                <Link className="footer__nav-link footer__text">FAQ</Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">Site Map</Link>
+              </li>
+            </ul>
+          </div>
+        </Col>
+        <Col>
+          <Title
+            className="title"
+            style={{ color: '#ffffff', fontWeight: '400' }}
+            level={3}
+          >
+            About
+          </Title>
+          <div>
+            <ul>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  About CoderHeroes
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Press Inquiries
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </Col>
+        <Col span={24}>
+          <Title
+            className="title"
+            style={{ color: '#ffffff', fontWeight: '400' }}
+            level={3}
+          >
+            Contact
+          </Title>
+          <div>
+            <ul>
+              <li className="footer__text">brianne@coderheroes.com</li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Find a Program
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </Col>
       </Row>
       <Divider style={{ color: '#ffffff' }} />
       <Row>

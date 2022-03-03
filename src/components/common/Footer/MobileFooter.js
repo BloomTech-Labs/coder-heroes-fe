@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Typography, Divider } from 'antd';
+import { Row, Col, Typography, Divider, AutoComplete } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   FacebookOutlined,
@@ -21,19 +21,19 @@ function MobileFooter() {
       </Row>
       <Divider style={{ color: '#ffffff' }} />
       <Row>
-        <Col span={24} style={{ display: 'flex', justifyContent: 'center' }}>
-          <Title
-            className="footer__copyright"
-            style={{
-              color: '#ffffff',
-              marginBottom: '10px',
-              fontWeight: '400',
-            }}
-            level={1}
-          >
-            © 2022 CoderHeroes
-          </Title>
-        </Col>
+        <Title
+          className="footer__title--copyright"
+          style={{
+            color: '#ffffff',
+            fontSize: '36px',
+            margin: 'auto',
+            marginBottom: '10px',
+            fontWeight: '400',
+          }}
+          level={1}
+        >
+          © 2022 CoderHeroes
+        </Title>
       </Row>
       <Row
         style={{

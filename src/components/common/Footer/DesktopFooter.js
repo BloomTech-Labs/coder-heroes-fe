@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Typography } from 'antd';
+import { Row, Col, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   FacebookOutlined,
@@ -9,17 +9,11 @@ import {
   LinkedinOutlined,
 } from '@ant-design/icons';
 
-const { Footer } = Layout;
 const { Title } = Typography;
 
-function MainFooter() {
+function DesktopFooter() {
   return (
-    <Footer
-      style={{
-        padding: '40px',
-        backgroundColor: '#6A0C49',
-      }}
-    >
+    <>
       <Row
         justify="space-between"
         style={{ maxWidth: '1100px', margin: '0 auto' }}
@@ -171,13 +165,16 @@ function MainFooter() {
               />
             </a>
           </Row>
-          <span className="footer__text" aria-label="copyright">
+          <span
+            className="footer__text"
+            aria-label="CoderHeroes copyright 2022"
+          >
             Copyright © 2022 Coderheroes Inc.
           </span>
         </Col>
       </Row>
-    </Footer>
+    </>
   );
 }
 
-export default MainFooter;
+export default DesktopFooter;

@@ -10,3 +10,15 @@
   font-size: @text__font-size--h5;
   font-weight: 600;
 }
+.mobile-footer {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .desktop-footer {
+    display: none;
+  }
+  .mobile-footer {
+    display: block;
+  }
+}

@@ -12,6 +12,8 @@ import {
   FormOutlined,
   BankOutlined,
   UserSwitchOutlined,
+  LoginOutlined,
+  ContactsOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
 import {
@@ -149,21 +151,29 @@ const Navbar = () => {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
+              {!localStorage.getItem('okta-token-storage') && (
+                <Menu.Item key="3" icon={<LoginOutlined />}>
+                  <NavLink to="/login">Login</NavLink>
+                </Menu.Item>
+              )}
               {localStorage.getItem('okta-token-storage') && (
                 <Menu.Item key="99" icon={<ProfileIcon />}>
                   <NavLink to="/dev">My Dashboard</NavLink>
                 </Menu.Item>
               )}
-              <Menu.Item key="2" icon={<SnippetsOutlined />}>
+              <Menu.Item key="2" icon={<ContactsOutlined />}>
+                <NavLink to="/">Contact Us</NavLink>
+              </Menu.Item>
+              <Menu.Item key="4" icon={<SnippetsOutlined />}>
                 <NavLink to="/">Programs</NavLink>
               </Menu.Item>
-              <Menu.Item key="3" icon={<UserSwitchOutlined />}>
+              <Menu.Item key="5" icon={<UserSwitchOutlined />}>
                 <NavLink to="/browse-instructors">Instructors</NavLink>
               </Menu.Item>
-              <Menu.Item key="4" icon={<FormOutlined />}>
+              <Menu.Item key="6" icon={<FormOutlined />}>
                 <NavLink to="/parent-booking">Booking</NavLink>
               </Menu.Item>
-              <Menu.Item key="5" icon={<BankOutlined />}>
+              <Menu.Item key="7" icon={<BankOutlined />}>
                 <NavLink to="/">Scholarships</NavLink>
               </Menu.Item>
               <SubMenu
@@ -171,7 +181,7 @@ const Navbar = () => {
                 icon={<AliwangwangOutlined />}
                 title="Social Links"
               >
-                <Menu.Item key="6" icon={<FacebookOutlined />}>
+                <Menu.Item key="8" icon={<FacebookOutlined />}>
                   <a
                     href="https://www.facebook.com/coderheroes."
                     className="navbar__socialLink"
@@ -181,7 +191,7 @@ const Navbar = () => {
                     Facebook
                   </a>
                 </Menu.Item>
-                <Menu.Item key="7" icon={<TwitterOutlined />}>
+                <Menu.Item key="8" icon={<TwitterOutlined />}>
                   <a
                     href="https://twitter.com/coderheroes."
                     className="navbar__socialLink"
@@ -191,7 +201,7 @@ const Navbar = () => {
                     Twitter
                   </a>
                 </Menu.Item>
-                <Menu.Item key="8" icon={<InstagramOutlined />}>
+                <Menu.Item key="9" icon={<InstagramOutlined />}>
                   <a
                     href="https://www.instagram.com/coderheroes/."
                     className="navbar__socialLink"
@@ -201,7 +211,7 @@ const Navbar = () => {
                     Instagram
                   </a>
                 </Menu.Item>
-                <Menu.Item key="9" icon={<YoutubeOutlined />}>
+                <Menu.Item key="10" icon={<YoutubeOutlined />}>
                   <a
                     href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
                     className="navbar__socialLink"
@@ -211,7 +221,7 @@ const Navbar = () => {
                     Youtube
                   </a>
                 </Menu.Item>
-                <Menu.Item key="10" icon={<LinkedinOutlined />}>
+                <Menu.Item key="11" icon={<LinkedinOutlined />}>
                   <a
                     href="https://www.linkedin.com/company/coderheroes/."
                     className="navbar__socialLink"

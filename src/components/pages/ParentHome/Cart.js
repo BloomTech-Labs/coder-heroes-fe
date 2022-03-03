@@ -14,7 +14,8 @@ import {
 function Cart(props) {
   const { cart, cancelCartItem } = props; //clearCart needed in deconstructor
   const [showModal, setShowModal] = useState(false);
-  let total = cart.reduce((prev, curr) => prev + curr.price, 0);
+  //let total = cart.reduce((prev, curr) => prev + curr.price, 0);
+  let total = 100; // this is hard coated so do not use ,use only the the let total=cart line
   const [product, setProduct] = useState({
     name: 'coderheroes',
     price: total,
@@ -49,7 +50,7 @@ function Cart(props) {
       <h3>List in Cart</h3>
       {cart.length === 0 ? (
         <div>
-          <div>You don't have any item in cart yet!</div>
+          {/* <div>You don't have any item in cart yet!</div> */}
           {/* //move this total and stripCheckoutButton  code under it to bottom of return for cart */}
           <div>Total: ${total}</div>
           <StripeCheckoutButton price={total} />

@@ -13,7 +13,7 @@ const { Title } = Typography;
 
 function MobileFooter() {
   return (
-    <>
+    <div className="footer-content">
       <Row>
         <Col span={12}></Col>
         <Col span={12}></Col>
@@ -98,7 +98,7 @@ function MobileFooter() {
           />
         </a>
       </Row>
-    </>
+    </div>
   );
 }
 

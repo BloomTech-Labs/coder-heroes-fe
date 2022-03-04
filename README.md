@@ -73,13 +73,14 @@ You can find the deployed project at [CoderHeroes](https://a.coderheroes.dev/log
 
 ## Authentication API here
 
-For authentication we're using Okta.  The Okta flow can be found here: [OktaFlow](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#grant-type-flow). 
+For authentication we're using Okta. The Okta flow can be found here: [OktaFlow](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/#grant-type-flow).
 
 ## Payment API here
 
 We are currently working on implementing Stripe for payment processing. The documentation for Stripe can be found here: [Stripe](https://stripe.com/docs/api).
 
 ## Misc API here
+
 No misc API's currently being used.
 
 # Installation Instructions
@@ -169,7 +170,3 @@ See [Backend Documentation](https://github.com/BloomTech-Labs/coder-heroes-be#re
 - Simple one-off _helper_ functions that you may need can be defined in this directory.
 - Any reusable logic or handlers or config files can also be used here.
 - **REMINDER do not** check any sensitive information into git
-
-
-
-

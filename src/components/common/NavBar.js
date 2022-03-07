@@ -25,7 +25,7 @@ export default function MainNav() {
         </NavLink>
       </div>
       <div className="nav navOptions">
-        <NavLink className="navLinks" to="/">
+        <NavLink className="navLinks" to="/browse-programs">
           PROGRAMS
         </NavLink>
         <NavLink className="navLinks" to="/browse-instructors">

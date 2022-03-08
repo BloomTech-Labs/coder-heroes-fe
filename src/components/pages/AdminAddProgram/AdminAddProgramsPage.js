@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import { Input, Form, Card, Affix } from 'antd';
-import TextArea from 'antd/lib/input/TextArea';
-import AdminAddCourses from './AdminAddCourses';
-import AdminAddCoursesList from './AdminAddCoursesList';
+
+import AdminAddCourses from './AdminAddPrograms';
+import AdminAddCoursesList from './AdminAddProgramsList';
 
 function AdminCourses(props) {
   return (

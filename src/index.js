@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Layout } from 'antd';
 import {
   BrowserRouter as Router,
   Route,
@@ -49,12 +50,13 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Navbar />
-        <App />
-        <Footer />
+        <Layout style={{ minHeight: '100vh' }}>
+          <NavBar />
+          <App />
+          <Footer />
+        </Layout>
       </React.StrictMode>
     </Router>
-    ,
   </Provider>,
   document.getElementById('root')
 );
@@ -72,10 +74,10 @@ function App() {
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />
-        <div style={{ minHeight: '100vh' }}>
+      <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/login" component={LoginPage} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
@@ -112,9 +114,9 @@ function App() {
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
-        </div>
-        <Route component={NotFoundPage} />
-      </Switch>
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Layout.Content>
     </Security>
   );
 }

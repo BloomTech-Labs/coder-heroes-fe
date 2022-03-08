@@ -7,11 +7,12 @@ import CoderSitters from './CoderSitters';
 import CoderYoga from './CoderYoga';
 
 // styling
+import '../../../styles/ProgramsLandingStyles/index.less';
 import { Layout } from 'antd';
 
 export default function LandingPrograms() {
   return (
-    <Layout>
+    <Layout className="pl__na__wrapper">
       <ExplorePrograms />
       <CoderCamp />
       <CoderSitters />

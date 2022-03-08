@@ -36,13 +36,12 @@ import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
-import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import Navbar from './components/common/Navbar';
-// import Newfeed from './components/pages/n';
+import NavBar from './components/common/NavBar';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -109,7 +108,7 @@ function App() {
             path="/instructor-news-feed"
             component={InstructorNewsFeed}
           />
-          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

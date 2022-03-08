@@ -7,6 +7,31 @@ export const ADD_CLASS = 'ADD_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 export const EDIT_CLASS = 'EDIT_CLASS';
 
+// waiting for backend to implement this and reducer / actions
+//
+// const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+// const config = {
+//   headers: { Authorization: `Bearer ${token.idToken.value}` },
+// };
+// const body = {
+//   ...formValues,
+//   class_name: formValues.class_name,
+//   class_subject: formValues.class_subject,
+//   class_desc: formValues.class_desc,
+//   class_prereq_list: formValues.prereq,
+// };
+
+// waiting for backend to implement this and reducer / actions
+//
+// axios
+//   .post(`https://coder-heroes-api.herokuapp.com/course_types`, body, config)
+//   .then(resp => {
+//     console.log('axiosCall', resp);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
+
 export const fetchClasses = () => dispatch => {
   console.log('dispatched test');
 

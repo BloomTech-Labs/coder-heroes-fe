@@ -12,6 +12,7 @@
     "antd": "^4.4.3",
     "axios": "^0.21.1",
     "craco-less": "^1.17.0",
+    "formik": "^2.2.9",
     "plotly.js": "^1.54.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,7 +22,8 @@
     "react-scripts": "3.4.1",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.0"
+    "redux-thunk": "^2.4.0",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "craco start",

@@ -41,7 +41,7 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import Navbar from './components/common/Navbar';
+import NavBar from './components/common/NavBar';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));

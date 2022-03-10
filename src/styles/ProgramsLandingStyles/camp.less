@@ -8,8 +8,21 @@
   .pl__na__second__left {
     display: flex;
     justify-content: flex-start;
-    width: 40%;
-    border: red solid 1px;
+    width: 45%;
+
+    .pl__na__second__left__container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .pl__na__second__left__image__container {
+      .pl__na__second__left__kid {
+        transform: translate(
+          -170px,
+          -15%
+        ); // this is one way to move assets around (questions? research!)
+      }
+    }
   }
 
   .pl__na__second__right {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Layout, List, Typography } from 'antd';
 import { CaretRightFilled } from '@ant-design/icons';
-
+// import curiousKid from '../../../styles/ProgramsLandingStyles/assets/curious-kid-laptop.png';
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
 export default function CoderCamp() {
+  // skills data
   const skills = [
     'Idea Generation',
     'Project Management',
@@ -20,7 +21,16 @@ export default function CoderCamp() {
       <Layout>
         <Content>
           <div className="pl__na__second__container">
-            <div className="pl__na__second__left">border</div>
+            <div className="pl__na__second__left">
+              <div className="pl__na__second__left__image__container">
+                {/* BLOCKER:If anyone has experience with rendering images, please take on this part of the project.*/}
+                {/* <img
+                  className="pl__na__second__left__kid"
+                  src={curiousKid} // located inside styles/ProgramsLandingStyles/assets
+                  alt="peach star"
+                /> */}
+              </div>
+            </div>
             <div className="pl__na__second__right">
               <div className="pl__na__second__right__container">
                 <Title className="pl__na__heading pl__na__second__heading">

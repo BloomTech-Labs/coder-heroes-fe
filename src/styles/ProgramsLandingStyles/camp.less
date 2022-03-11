@@ -3,7 +3,7 @@
 .pl__na__second__container {
   background-color: @body__bg--green;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   .pl__na__second__left {
     display: flex;
@@ -16,18 +16,22 @@
     }
 
     .pl__na__second__left__image__container {
-      .pl__na__second__left__kid {
-        transform: translate(
-          -170px,
-          -15%
-        ); // this is one way to move assets around (questions? research!)
+      width: 55rem;
+      height: 50rem;
+
+      .pl__na__second__left__pink__border {
+        transform: translate(-0px, -10%);
+      }
+      .pl__na__second__left__kid__coder {
+        transform: translate(144px, -150%);
+        width: 38rem;
       }
     }
   }
 
   .pl__na__second__right {
     display: flex;
-    width: 35%;
+    width: 40rem;
     margin-top: 4rem;
 
     .pl__na__second__right__container {
@@ -60,17 +64,19 @@
         font-weight: 400;
         color: #263d47;
       }
+
       .pl__na__second__skills_list__container {
         display: flex;
         justify-content: center;
         margin-left: 2rem;
       }
+
       .pl__na__second__skills_list {
         font-family: @text__font-family;
         font-size: @text__font-size--h4;
         font-weight: 400;
         line-height: 1;
-        width: 100%;
+        width: 30rem;
       }
 
       .pl__na__top__button__container {

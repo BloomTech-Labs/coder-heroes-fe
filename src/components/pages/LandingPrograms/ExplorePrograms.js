@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Typography } from 'antd';
-
+import lightBulbs from '../../../styles/ProgramsLandingStyles/assets/lightbulbs.png';
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
@@ -13,6 +13,7 @@ export default function ExplorePrograms() {
             <Title className="pl__na__heading pl__na__top__heading">
               PROGRAMS
             </Title>
+            <div> </div>
             <Title className="pl__na__top__sub__heading">
               Explore the possibilities!
             </Title>
@@ -30,6 +31,16 @@ export default function ExplorePrograms() {
               <button className="pl__na__top__button" type="submit">
                 VOLUNTEER
               </button>
+            </div>
+          </div>
+          <div>
+            <div className="pl__na__top__right__image__container">
+              {/* BLOCKER:If anyone has experience with rendering images, please take on this part of the project.*/}
+              <img
+                className="pl__na__top__right__light__bulbs"
+                src={lightBulbs} // located inside styles/ProgramsLandingStyles/assets
+                alt="peach star"
+              />
             </div>
           </div>
         </div>

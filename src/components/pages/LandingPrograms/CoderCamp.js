@@ -1,8 +1,13 @@
 import React from 'react';
 import { Layout, List, Typography } from 'antd';
-import { CaretRightFilled } from '@ant-design/icons';
+import {
+  CaretRightFilled,
+  LeftOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import pinkBorder from '../../../styles/ProgramsLandingStyles/assets/burstwborder.png';
 import kidCoder from '../../../styles/ProgramsLandingStyles/assets/laptop-png-transparent-1.png';
+import fatherAndSon from '../../../styles/ProgramsLandingStyles/assets/father&son.jpeg';
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
@@ -68,6 +73,44 @@ export default function CoderCamp() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        {/* Testimonials */}
+        <div className="pl__na__testimonials__container">
+          <div>
+            <LeftOutlined style={{ color: '#fefefe', fontSize: '62px' }} />
+          </div>
+          {/* Image Section */}
+          <div>
+            <img
+              className="pl__na__third__father__son"
+              src={fatherAndSon}
+              alt="Father and Son Testimony"
+            />
+          </div>
+          {/* Text sections */}
+          <div>
+            {/* Testimony Section */}
+            <div className="pl__testimony__section__one">
+              <Text className="pl__na__testimony__text__container">
+                "Our child was fortunate enough to earn his right to be a
+                <br />
+                student and he has thrived, learned and enjoyed every single
+                <br />
+                minute of this amazing program!"
+              </Text>
+            </div>
+            {/* Parent Name Section */}
+            <div className="pl__testimony__section__two">
+              <Text className="pl__na__testimony__name__container">
+                David
+                <br />
+                CoderHeroes Parent
+              </Text>
+            </div>
+          </div>
+          <div>
+            <RightOutlined style={{ color: '#fefefe', fontSize: '62px' }} />
           </div>
         </div>
       </Content>

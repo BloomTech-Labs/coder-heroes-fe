@@ -111,7 +111,7 @@
 .pl__na__testimonials__container {
   align-items: center;
   justify-content: space-evenly;
-  height: 40vh;
+  min-height: 60vh;
   background-color: @body__bg--green;
   display: flex;
 }
@@ -126,14 +126,15 @@
 }
 
 .pl__testimony__section__one {
-  background-color: #fdfcd9;
+  background-color: @body__bg--concrete;
   padding: 2rem;
   border-radius: 10px;
 }
 
 // Testimony Text Container
 .pl__na__testimony__text__container {
-  font-size: 1.3rem;
+  font-size: @text__font-size--h5;
+  font-family: @text__font-family;
   font-weight: 350;
   font-style: italic;
   color: #000;
@@ -141,7 +142,7 @@
 
 // Section 2
 .pl__testimony__section__two {
-  background-color: #fdfcd9;
+  background-color: @body__bg--concrete;
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1.5rem;
@@ -150,7 +151,8 @@
 
 // Testimony Name Container
 .pl__na__testimony__name__container {
-  font-size: 1.5rem;
+  font-size: @text__line-height--h5;
   font-weight: 700;
   color: #000000;
+  font-family: @text__font-family--header;
 }

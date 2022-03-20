@@ -75,6 +75,8 @@ export default function CoderCamp() {
             </div>
           </div>
         </div>
+
+        {/* Testimonials */}
         {/* Testimonials */}
         <div className="pl__na__testimonials__container">
           <div>
@@ -113,6 +115,10 @@ export default function CoderCamp() {
             <RightOutlined style={{ color: '#fefefe', fontSize: '62px' }} />
           </div>
         </div>
+
+        {/* CoderSitters */}
+        {/* CoderSitters */}
+        <div className="pl__na__codersitters__container"></div>
       </Content>
     </Layout>
   );

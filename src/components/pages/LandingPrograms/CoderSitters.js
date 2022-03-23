@@ -11,7 +11,6 @@ export default function CoderSitters() {
         <div className="pl__na__top__sitter__container">
           {/* CODERSITTERS TITLE */}
           <Title className="pl__na__sitter__title">CODERSITTERS</Title>
-          <div> </div>
           {/* CODERSITTERS INTRO PARAGRAPH */}
           <Text className="pl__na__intro__text">
             Parents get their needed
@@ -40,17 +39,18 @@ export default function CoderSitters() {
             </Text>
           </div>
           {/* AGE */}
-          <div>
-            <Text className="pl__na__age__container">Ages 6 and Up.</Text>
+          <div className="pl__na__age__container">
+            <Text className="pl__na__age">Ages 6 and Up.</Text>
           </div>
 
           {/* BUTTON */}
-          <div className="pl__na__sitter__container">
+          <div className="pl__na__button__container">
             <button className="pl__na__sitter__button" type="submit">
               Learn More
             </button>
           </div>
         </div>
+
         <div>
           <div className="pl__na__image__container">
             <img

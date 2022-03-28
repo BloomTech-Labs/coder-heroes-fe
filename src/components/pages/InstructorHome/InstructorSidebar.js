@@ -47,7 +47,7 @@ function InstructorSidebar() {
         </Menu.Item>
 
         <Menu.Item key="5" icon={<PlusOutlined />}>
-          <a href="/instructor-add-course">Messages</a>
+          <a href="/messages">Messages</a>
         </Menu.Item>
 
         <Menu.Item

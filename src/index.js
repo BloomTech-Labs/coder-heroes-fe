@@ -35,7 +35,6 @@ import ParentBooking from './components/pages/ParentBooking';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
-import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
@@ -43,6 +42,7 @@ import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
+import Messages from './components/pages/Messages/Messages';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -106,10 +106,7 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
-          <SecureRoute
-            path="/instructor-news-feed"
-            component={InstructorNewsFeed}
-          />
+          <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />

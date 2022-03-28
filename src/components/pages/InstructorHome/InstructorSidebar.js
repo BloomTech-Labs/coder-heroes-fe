@@ -42,10 +42,6 @@ function InstructorSidebar() {
           <a href="/instructor-all-classes">Classes</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<DesktopOutlined />}>
-          <a href="/instructor-booking">Class</a>
-        </Menu.Item>
-
         <Menu.Item key="5" icon={<PlusOutlined />}>
           <a href="/messages">Messages</a>
         </Menu.Item>

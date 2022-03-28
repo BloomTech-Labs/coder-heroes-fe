@@ -10,8 +10,8 @@ const InstructorHome = () => {
   return (
     <div>
       <Layout>
+        <InstructorSidebar />
         <Content>
-          <InstructorSidebar />
           <Banner />
           <div className="calendar" data-testid="calendar">
             <InstructorCalender />

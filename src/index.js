@@ -42,6 +42,7 @@ import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
+import AllClasses from './components/pages/InstructorHome/AllClassesView';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -109,11 +110,12 @@ function App() {
             path="/instructor-news-feed"
             component={InstructorNewsFeed}
           />
-          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
+          <SecureRoute path="/instructor-all-classes" component={AllClasses} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

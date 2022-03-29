@@ -2,9 +2,11 @@ import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout } from 'antd';
+import { connect } from 'react-redux';
 
 const { Content } = Layout;
-const AllClasses = () => {
+const AllClasses = props => {
+  console.log('props', props);
   return (
     <>
       <Layout>
@@ -17,4 +19,10 @@ const AllClasses = () => {
   );
 };
 
-export default AllClasses;
+const mapStateToProps = state => {
+  return {
+    classes: state.instructorReducer.classes,
+  };
+};
+
+export default connect(mapStateToProps, {})(AllClasses);

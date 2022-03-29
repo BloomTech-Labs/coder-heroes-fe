@@ -53,7 +53,7 @@ function InstructorSidebar() {
           }}
           icon={<ExportOutlined fontSize="150px" />}
         >
-          <Link>Logout</Link>
+          <Link to="/">Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

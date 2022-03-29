@@ -43,6 +43,7 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
+import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -97,6 +98,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
+          <Route path="/classroom" component={Classroom} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/dev"

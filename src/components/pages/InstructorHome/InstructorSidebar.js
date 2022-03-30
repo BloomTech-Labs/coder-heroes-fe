@@ -39,11 +39,11 @@ function InstructorSidebar() {
         </Menu.Item>
 
         <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/instructor-all-classes">Classes</a>
+          <a href="/instructor-all-classes">Courses</a>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ReadOutlined />}>
-          <a href="/classroom">Class</a>
+          <a href="/classroom">Course</a>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<PlusOutlined />}>

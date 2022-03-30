@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
-import '../../../styles/InstructorStyles/index.less';
-import { Layout, Typography } from 'antd';
+import '../../../styles/ClassroomStyles/index.less';
+import { Card, Button, Layout, Typography, Row } from 'antd';
 import StudentCard from './StudentCard';
 const { Content } = Layout;
 const { Title } = Typography;
 
-const arrayOfStudents = [
+const students = [
   {
     id: 'a24efb',
     name: 'Margery',
@@ -64,18 +64,23 @@ const arrayOfStudents = [
 ];
 
 const Classroom = () => {
-  const [students, setStudent] = useState(arrayOfStudents);
   return (
     <>
       <Layout>
         <InstructorSidebar />
         <Content>
-          <Title className="clasroom__title">Classroom</Title>
+          <Title className="classroom__title">Classroom</Title>
           <div className="classroom__students">
             {students.map(student => (
               <StudentCard student={student} />
             ))}
           </div>
+          <Row justify="start">
+            <Card className="classroom__feedback__summary"></Card>
+            <Button className="classroom_feedback__button">
+              GIVE FEEDBACK
+            </Button>
+          </Row>
         </Content>
       </Layout>
     </>

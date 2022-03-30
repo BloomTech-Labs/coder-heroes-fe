@@ -6,17 +6,9 @@ const { Meta } = Card;
 const StudentCard = ({ student }) => {
   return (
     <>
-      <Card
-        className="student__card"
-        style={{
-          width: 250,
-          margin: '2rem',
-          borderRadius: '10px',
-        }}
-        hoverable
-        bordered
-      >
+      <Card className="student__card" hoverable>
         <Meta
+          className="student__info"
           avatar={
             <Badge count={21} className="student__card__badge">
               <Avatar
@@ -27,11 +19,6 @@ const StudentCard = ({ student }) => {
             </Badge>
           }
           title={student.name}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
         />
       </Card>
     </>

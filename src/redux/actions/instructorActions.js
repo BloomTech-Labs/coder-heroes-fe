@@ -8,7 +8,7 @@ export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
-export const ADD_NEW_COURSE = 'ADD_NEW_PROGRAM';
+export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
 export const setSelectedCourse = course => {
@@ -91,7 +91,7 @@ export const addProgram = newProgram => {
 export const addNewProgram = programs => {
   //console.log(programs) this is undefined for now as I am not posting to endpoint
   return {
-    type: ADD_NEW_COURSE,
+    type: ADD_NEW_PROGRAM,
     payload: programs,
   };
 };

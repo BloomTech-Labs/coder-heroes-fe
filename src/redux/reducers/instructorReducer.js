@@ -5,7 +5,7 @@ import {
   GET_INBOX_ACTION,
   SET_SELECTED_COURSE,
   ADD_COURSE_ACTION,
-  ADD_NEW_COURSE,
+  ADD_NEW_PROGRAM,
   SET_ERROR,
   GET_NEWSFEEDS,
 } from '../actions/instructorActions';
@@ -36,7 +36,7 @@ const instructorReducer = (state = initialState, action) => {
         ...state,
         courses: [...state.course_schedule, newCourse],
       };
-    case ADD_NEW_COURSE:
+    case ADD_NEW_PROGRAM:
       const newProgram = {
         ...payload,
         id: Date.now(),

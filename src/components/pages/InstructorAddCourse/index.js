@@ -11,16 +11,14 @@ import InstructorProgramList from './InstructorProgramList';
 const { Content } = Layout;
 const InstructorAddCourse = () => {
   return (
-    <div>
-      <Layout>
-        <InstructorSidebar />
-        <Content>
-          <Banner />
-          <InstructorProgramList />
-          <InstructorAddCourseCards />
-        </Content>
-      </Layout>
-    </div>
+    <Layout>
+      <InstructorSidebar />
+      <Content>
+        <Banner />
+        <InstructorProgramList />
+        <InstructorAddCourseCards />
+      </Content>
+    </Layout>
   );
 };
 

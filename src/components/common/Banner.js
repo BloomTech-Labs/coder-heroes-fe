@@ -3,7 +3,7 @@ import React from 'react';
 function bannerContent(title, content) {
   return (
     <div className="dashboard-banner">
-      <div className="banner-conent">
+      <div className="banner-content">
         <div>
           <h1>{title}</h1>
         </div>
@@ -27,7 +27,7 @@ function Banner() {
   } else if (path === '/instructor-booking') {
     return bannerContent('Apply to Course', 'Select Courses');
   } else if (path === '/instructor-add-course') {
-    return bannerContent('Build Your Own Program', '');
+    return bannerContent('Create Your Own Course', '');
   } else if (path === '/family') {
     return bannerContent('Family', '');
   } else if (path === '/instuctor-news-feed' || path === '/parent-news-feed') {

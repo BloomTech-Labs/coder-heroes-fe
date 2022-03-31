@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; // eslint-disable-line
 
 export const START_FETCH = 'START_FETCH';
 export const SUCCESS_FETCH = 'SUCESS_FETCH';

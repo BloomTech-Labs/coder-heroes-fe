@@ -4,7 +4,7 @@ import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-export default function NewsfeedPutModal(props) {
+export default function NewsFeedPutModal(props) {
   const { setPostOptions, postID } = props;
   const [formValues, setFormValues] = useState({
     link: '',

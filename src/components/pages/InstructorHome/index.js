@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
-import InstructorCalender from './InstructorCalender';
+// import InstructorCalender from './InstructorCalender';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
 
@@ -14,7 +14,7 @@ const InstructorHome = () => {
           <InstructorSidebar />
           <Banner />
           <div className="calendar" data-testid="calendar">
-            <InstructorCalender />
+            {/* <InstructorCalender /> */}
           </div>
         </Content>
       </Layout>

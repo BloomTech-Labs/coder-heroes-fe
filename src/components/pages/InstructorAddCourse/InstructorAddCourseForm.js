@@ -115,7 +115,7 @@ const InstructorAddCourseForm = props => {
           onChange={handleChange}
         >
           <Form.Item>
-            <label for="courseType">Course Type: </label>
+            <label for="courseType">Program Type: </label>
             <Select placeholder="Select a course" name="course_type">
               {programs.map(course => (
                 <Option value={course}>{course}</Option>

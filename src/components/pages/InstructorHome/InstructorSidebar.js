@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import { Link } from 'react-router-dom';
 import {
-  // DesktopOutlined,
   HomeOutlined,
   PlusOutlined,
   ExportOutlined,

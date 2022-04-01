@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import { Link } from 'react-router-dom';
 import {
-  // DesktopOutlined,
   HomeOutlined,
   PlusOutlined,
   ExportOutlined,
@@ -34,12 +33,12 @@ function InstructorSidebar() {
     >
       <div className="logo" />
       <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/instructor-all-classes">Overview</a>
+        <Menu.Item key="2" icon={<HomeOutlined />}>
+          <a href="/instructor">Overview</a>
         </Menu.Item>
 
-        <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/instructor">Courses</a>
+        <Menu.Item key="3" icon={<ReadOutlined />}>
+          <a href="/instructor-all-classes">Courses</a>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ReadOutlined />}>

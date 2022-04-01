@@ -51,7 +51,7 @@ const initialClassDataStateFormErrors = {
   location: '',
 };
 
-const InstructorAddCourseCards = props => {
+const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
@@ -90,8 +90,18 @@ const InstructorAddCourseCards = props => {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 style={{ marginTop: 30, fontSize: 20 }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <h1
+          style={{
+            marginTop: 30,
+            fontSize: 20,
+          }}
+        >
           You can submit new program below!
         </h1>
       </div>
@@ -229,5 +239,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { addProgram, setError })(
-  InstructorAddCourseCards
+  InstructorAddCourseForm
 );

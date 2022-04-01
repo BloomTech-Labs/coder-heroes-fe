@@ -3,10 +3,10 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
-import InstructorAddCourseCards from './InstructorAddCourseCards';
+import InstructorAddedCoursesList from './InstructorAddedCoursesList';
 import { Layout } from 'antd';
 import Banner from '../../common/Banner';
-import InstructorProgramList from './InstructorProgramList';
+import InstructorAddCourseForm from './InstructorAddCourseForm';
 
 const { Content } = Layout;
 const InstructorAddCourse = () => {
@@ -15,8 +15,8 @@ const InstructorAddCourse = () => {
       <InstructorSidebar />
       <Content>
         <Banner />
-        <InstructorProgramList />
-        <InstructorAddCourseCards />
+        <InstructorAddedCoursesList />
+        <InstructorAddCourseForm />
       </Content>
     </Layout>
   );

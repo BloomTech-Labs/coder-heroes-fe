@@ -1,5 +1,3 @@
-// This 'Add Course' funcitonality should only appear on instructor sidebar
-
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
@@ -15,7 +13,7 @@ const InstructorAddCourse = () => {
       <InstructorSidebar />
       <Content>
         <Banner />
-        <InstructorAddedCoursesList />
+
         <InstructorAddCourseForm />
       </Content>
     </Layout>

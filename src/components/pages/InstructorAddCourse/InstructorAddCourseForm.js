@@ -9,7 +9,7 @@ import schema from './InstructorAddCourseFormSchema';
 const { Option } = Select;
 
 //dummy data
-const courses = ['Javascript', 'HTML', 'CSS'];
+const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
 
 const days = [
   'Monday',
@@ -39,6 +39,7 @@ const initialClassDataState = {
 
 const initialClassDataStateFormErrors = {
   course_type: '',
+  course_name: '',
   day: '',
   size: '',
   min_age: '',
@@ -116,10 +117,19 @@ const InstructorAddCourseForm = props => {
           <Form.Item>
             <label for="courseType">Course Type: </label>
             <Select placeholder="Select a course" name="course_type">
-              {courses.map(course => (
+              {programs.map(course => (
                 <Option value={course}>{course}</Option>
               ))}
             </Select>
+          </Form.Item>
+
+          <Form.Item>
+            <label for="classLink">Course Name: </label>
+            <Input
+              value={classData.course_name}
+              name="location"
+              placeholder="Course name goes here!"
+            />
           </Form.Item>
 
           <Form.Item>

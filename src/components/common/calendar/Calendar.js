@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './styles/App.css';
+// import './styles/App.css';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';
-import CalendarModal from './components/CalendarModal';
+import CalendarModal from './CalendarModal';
 
 const initialValues = [
   {

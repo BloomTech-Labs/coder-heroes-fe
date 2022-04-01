@@ -13,7 +13,9 @@ const InstructorAddCourse = () => {
       <InstructorSidebar />
       <Content>
         <Banner />
-
+        {/* not necessary to have the added course list unless it is an 
+        option for instructor to see? maybe a link at the bottom to see pending/approved programs?
+        <InstructorAddedCoursesList /> */}
         <InstructorAddCourseForm />
       </Content>
     </Layout>

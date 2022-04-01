@@ -103,7 +103,7 @@ const InstructorAddCourseForm = props => {
             fontSize: 20,
           }}
         >
-          You can submit new program below!
+          You can submit a new course below!
         </h1>
       </div>
       <section style={{ display: 'flex', justifyContent: 'center' }}>

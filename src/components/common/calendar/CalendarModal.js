@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
 
-export default function ScheduleModal(props) {
+export default function CalendarModal(props) {
   const { isModalVisible, setIsModalVisible, eventsArr, setEventsArr } = props;
 
   const [form] = Form.useForm();

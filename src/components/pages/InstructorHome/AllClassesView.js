@@ -1,10 +1,13 @@
 import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
+import ClassCard from './ClassCard';
 import '../../../styles/InstructorStyles/index.less';
-import { Layout } from 'antd';
+import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
+import { dummyData } from '../../../dummyData';
 
 const { Content } = Layout;
+const { Title } = Typography;
 const AllClasses = props => {
   console.log('props', props);
   return (
@@ -12,7 +15,12 @@ const AllClasses = props => {
       <Layout>
         <InstructorSidebar />
         <Content>
-          <h3>This is where all the classes will show up</h3>
+          <Title className="class__title">Classes</Title>
+          <div className="class__subject">
+            {dummyData.own_programs.map(courses => (
+              <ClassCard courses={courses} />
+            ))}
+          </div>
         </Content>
       </Layout>
     </>

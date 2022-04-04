@@ -36,6 +36,8 @@ import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
+import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
@@ -110,6 +112,11 @@ function App() {
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
+          <SecureRoute
+            path="/instructor-news-feed"
+            component={InstructorNewsFeed}
+          />
+          <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

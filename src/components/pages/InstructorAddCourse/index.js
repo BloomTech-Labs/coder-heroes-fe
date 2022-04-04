@@ -13,8 +13,8 @@ const InstructorAddCourse = () => {
       <InstructorSidebar />
       <Content>
         <Banner />
-        {/* <InstructorAddedCoursesList /> */}
         <InstructorAddCourseForm />
+        <InstructorAddedCoursesList />
       </Content>
     </Layout>
   );

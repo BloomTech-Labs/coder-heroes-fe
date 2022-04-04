@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { addProgram, setError } from '../../../redux/actions/instructorActions';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import { Select, Input, Form, Button } from 'antd';
+import { Select, Input, Form, Button, Space, Modal } from 'antd';
 import schema from './InstructorAddCourseFormSchema';
 
 const { Option } = Select;
@@ -88,6 +88,13 @@ const InstructorAddCourseForm = props => {
   useEffect(() => {
     schema.isValid(classData).then(valid => setDisabled(!valid));
   }, [classData]);
+
+  function success() {
+    Modal.success({
+      content: 'You have successfully created a course!',
+      title: 'Congratulations!',
+    });
+  }
 
   return (
     <div>
@@ -225,16 +232,19 @@ const InstructorAddCourseForm = props => {
           </Form.Item>
           <span className="iadc__errors">{formErrors.location}</span>
           {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}
+
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Button
-              style={{ marginBottom: '1rem' }}
-              type="primary"
-              htmlType="submit"
-              onClick={handleSubmit}
-              disabled={disabled}
-            >
-              Submit!
-            </Button>
+            <Space>
+              <Button
+                style={{ marginBottom: '1rem' }}
+                type="primary"
+                htmlType="submit"
+                onClick={success}
+                disabled={!disabled}
+              >
+                Submit!
+              </Button>
+            </Space>
           </div>
         </Form>
       </section>

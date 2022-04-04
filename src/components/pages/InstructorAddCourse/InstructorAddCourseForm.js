@@ -74,6 +74,7 @@ const InstructorAddCourseForm = props => {
     });
   };
 
+  //will add handleSubmit after conditional rendering with success modal
   const handleSubmit = e => {
     e.preventDefault();
     setClassData({

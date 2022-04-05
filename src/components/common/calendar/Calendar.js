@@ -134,6 +134,7 @@ function CalendarApp() {
       style={{
         display: 'block',
         padding: 30,
+        position: 'relative',
       }}
     >
       <Button onClick={() => showScheduleModal()}>Add Event</Button>

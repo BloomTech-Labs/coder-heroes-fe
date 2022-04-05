@@ -151,7 +151,11 @@ function CalendarApp() {
         <p>
           {event ? `Event Name: ${event.content}` : 'Something went wrong.'}
         </p>
-        <p>{event ? `Time: ${event.time}` : 'Something went wrong.'}</p>
+        <p>
+          {event
+            ? `Time: ${event.time ? event.time : 'All day'}`
+            : 'Something went wrong.'}
+        </p>
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>

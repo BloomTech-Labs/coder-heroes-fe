@@ -17,14 +17,12 @@ export default function CalendarModal(props) {
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    console.log('Success:', values);
     setEventsArr([...eventsArr, newEvent]);
     setIsModalVisible(false);
     form.resetFields();
   };
 
   const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
   };
 
   return (

@@ -94,7 +94,7 @@ export const dummyData = {
     },
   ],
   newsfeed: [],
-  classes: [
+  courses: [
     {
       class_name: 'App Building Fundamentals',
       class_description:

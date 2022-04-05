@@ -43,7 +43,7 @@ import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
-import AllClasses from './components/pages/InstructorHome/AllClassesView';
+import AllCourses from './components/pages/InstructorHome/AllCoursesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
@@ -100,8 +100,9 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
-          <Route path="/classroom" component={Classroom} />
+
           {/* any of the routes you need secured should be registered as SecureRoutes */}
+          <SecureRoute path="/classroom" component={Classroom} />
           <SecureRoute
             path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
@@ -121,7 +122,7 @@ function App() {
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
-          <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+          <SecureRoute path="/instructor-all-classes" component={AllCourses} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

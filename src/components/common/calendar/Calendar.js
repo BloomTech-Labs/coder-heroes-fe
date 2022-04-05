@@ -75,7 +75,7 @@ function CalendarApp() {
     let listData = [];
     let dateValue = value.format('DD/MM/YYYY'); // you can parse value in every format you want
 
-    events.map(e => {
+    events.forEach(e => {
       if (e.date === dateValue) {
         listData.push(e);
       }

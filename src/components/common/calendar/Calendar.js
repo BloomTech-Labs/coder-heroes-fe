@@ -11,42 +11,49 @@ const initialValues = [
     type: 'warning',
     content: 'This is warning event.',
     details: 'Test information 1',
+    time: '12:00 PM',
   },
   {
     date: '15/03/2022',
     type: 'success',
     content: 'This is usual event.',
     details: 'Test information 2',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 1.',
     details: 'Test information 3',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 2.',
     details: 'Test information 4',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 3.',
     details: 'Test information 5',
+    time: '12:00 PM',
   },
   {
     date: '12/04/2022',
     type: 'success',
     content: 'This is usual event1.',
     details: 'Test information 6',
+    time: '12:00 PM',
   },
   {
     date: '12/04/2022',
     type: 'success',
     content: 'This is usual event2.',
     details: 'Test information 7',
+    time: '12:00 PM',
   },
 ];
 
@@ -86,7 +93,7 @@ function CalendarApp() {
     let listData = [];
     let dateValue = value.format('DD/MM/YYYY'); // you can parse value in every format you want
 
-    events.map(e => {
+    events.forEach(e => {
       if (e.date === dateValue) {
         listData.push(e);
       }
@@ -100,7 +107,7 @@ function CalendarApp() {
     return (
       <ul className="events">
         {listData.map(item => (
-          <span
+          <p
             key={item.content}
             className={
               item.type === 'success'
@@ -112,11 +119,11 @@ function CalendarApp() {
           >
             <Badge
               status={item.type}
-              text={item.content}
+              text={item.content + ' ' + item.time}
               onClick={() => showModal(item)}
             />
             <br />
-          </span>
+          </p>
         ))}
       </ul>
     );

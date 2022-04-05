@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-// import './styles/App.css';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';
 import CalendarModal from './CalendarModal';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const initialValues = [
   {

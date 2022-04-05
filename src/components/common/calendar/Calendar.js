@@ -54,15 +54,6 @@ function CalendarApp() {
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState(initialValues);
 
-  // ****** will update with endpoint once db endpoint is built ******
-  // useEffect(() => {
-  //     axiosWithAuth.get('/')
-  //         .then(events => {
-  //             setEventsArr(events)
-  //         })
-  //         .catch(err => console.error(err))
-  // }, []);
-
   const showModal = value => {
     setEvent(value);
     setIsModalVisible(true);

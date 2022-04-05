@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './styles/App.css';
+import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';
 import CalendarModal from './CalendarModal';
@@ -136,7 +136,6 @@ function CalendarApp() {
         padding: 30,
       }}
     >
-      <h4>Ant Design Scheduling App Testbed</h4>
       <Button onClick={() => showScheduleModal()}>Schedule an Event</Button>
       <Calendar
         fullscreen={true}

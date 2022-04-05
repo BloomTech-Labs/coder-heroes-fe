@@ -100,7 +100,16 @@ function CalendarApp() {
     return (
       <ul className="events">
         {listData.map(item => (
-          <span key={item.content}>
+          <span
+            key={item.content}
+            className={
+              item.type === 'success'
+                ? 'success-class-event'
+                : item.type === 'warning'
+                ? 'warning-class-event'
+                : 'error-class-event'
+            }
+          >
             <Badge
               status={item.type}
               text={item.content}

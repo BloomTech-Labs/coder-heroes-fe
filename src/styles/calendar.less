@@ -44,15 +44,39 @@ ul {
 }
 
 .ant-badge-not-a-wrapper {
-  background-color: rgba(0, 202, 183, 0.25) !important;
   text-align: center;
-  padding: 2% !important;
-  width: 100%;
-  margin-bottom: 2% !important;
+  margin-top: 5% !important;
+  padding: 4px 16px !important;
+  width: 100% !important;
+  .ant-badge-status-text {
+    color: black !important;
+    margin-left: 0 !important;
+  }
+}
+.ant-badge-not-a-wrapper:nth-of-type(1){
+    margin-top: 0 !important;
 }
 
-.ant-badge-status-dot.ant-badge-status-success {
-  display: none;
+.success-class-event,
+.warning-class-event,
+.error-class-event {
+  border-radius: 9999px !important;
+}
+
+.success-class-event {
+  background-color: rgba(0, 202, 183, 0.25) !important;
+}
+
+.warning-class-event {
+  background-color: #faad14 !important;
+}
+
+.error-class-event {
+  background-color: salmon !important;
+}
+
+.ant-badge-status-dot {
+  display: none !important;
 }
 
 .ant-picker-calendar {

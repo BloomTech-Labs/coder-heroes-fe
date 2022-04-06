@@ -29,8 +29,9 @@ const days = [
   'Sunday',
 ];
 
-const initialClassDataState = {
-  course_type: '',
+const initialCourseDataState = {
+  course_name: '',
+  program_type: '',
   day: '', //needs to be added to backend
   size: '',
   min_age: '', //needs to be added to backend
@@ -45,7 +46,7 @@ const initialClassDataState = {
   instructor_id: '',
 };
 
-const initialClassDataStateFormErrors = {
+const initialCourseDataStateFormErrors = {
   course_type: '',
   course_name: '',
   day: '',
@@ -61,8 +62,10 @@ const initialClassDataStateFormErrors = {
 };
 
 const InstructorAddCourseForm = props => {
-  const [classData, setClassData] = useState(initialClassDataState);
-  const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
+  const [courseData, setCourseData] = useState(initialCourseDataState);
+  const [formErrors, setFormErrors] = useState(
+    initialCourseDataStateFormErrors
+  );
   const [disabled, setDisabled] = useState(true);
 
   const validate = (name, value) => {
@@ -76,26 +79,26 @@ const InstructorAddCourseForm = props => {
   const handleChange = e => {
     const { name, value } = e.target;
     validate(name, value);
-    setClassData({
-      ...classData,
+    setCourseData({
+      ...courseData,
       [name]: value,
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setClassData({
-      ...classData,
-      open_seats_remaining: classData.size,
+    setCourseData({
+      ...courseData,
+      open_seats_remaining: courseData.size,
       instructor_id: 1, //change to id of current logged in instructor once we connect redux
     });
-    props.addProgram(classData);
-    setClassData(initialClassDataState);
+    props.addProgram(courseData);
+    setCourseData(initialCourseDataState);
   };
 
   useEffect(() => {
-    schema.isValid(classData).then(valid => setDisabled(!valid));
-  }, [classData]);
+    schema.isValid(courseData).then(valid => setDisabled(!valid));
+  }, [courseData]);
 
   return (
     <Layout>
@@ -107,7 +110,7 @@ const InstructorAddCourseForm = props => {
               <Title className="iac__title">Add New Course</Title>
               <Text className="iac__intro">
                 Enter the required information below to Create a new Course. You
-                can handleChange
+                can change
                 <br />
                 it anytime you want.
               </Text>
@@ -136,17 +139,17 @@ const InstructorAddCourseForm = props => {
                 <Form.Item>
                   <label for="classLink">Course Name</label>
                   <Input
-                    value={classData.course_name}
-                    name="location"
+                    value={courseData.course_name}
+                    name="course_name"
                     placeholder="Enter Course Name here"
                   />
                 </Form.Item>
                 {/* Program Type */}
                 <Form.Item>
-                  <label for="courseType">Program Type</label>
-                  <Select placeholder="Select a Program" name="course_type">
-                    {programs.map(course => (
-                      <Option value={course}>{course}</Option>
+                  <label for="programType">Program Type</label>
+                  <Select placeholder="Select a Program" name="program_type">
+                    {programs.map(program => (
+                      <Option value={program}>{program}</Option>
                     ))}
                   </Select>
                 </Form.Item>
@@ -175,7 +178,7 @@ const InstructorAddCourseForm = props => {
                   <label for="classSize">Class Size</label>
                   <Input
                     type="number"
-                    value={classData.size}
+                    value={courseData.size}
                     name="size"
                     min="1"
                     placeholder="Select a Class Size"
@@ -188,7 +191,7 @@ const InstructorAddCourseForm = props => {
                   <Input
                     type="number"
                     placeholder="Set Total Sessions"
-                    value={classData.sessions}
+                    value={courseData.sessions}
                     name="sessions"
                     min="1"
                   />
@@ -213,7 +216,7 @@ const InstructorAddCourseForm = props => {
                     <Input
                       prefix={<CalendarOutlined />}
                       type="date"
-                      value={classData.start_date}
+                      value={courseData.start_date}
                       name="start_date"
                     />
                     <span className="iadc__errors">
@@ -226,7 +229,7 @@ const InstructorAddCourseForm = props => {
                     <Input
                       prefix={<CalendarOutlined />}
                       type="date"
-                      value={classData.end_date}
+                      value={courseData.end_date}
                       name="end_date"
                     />
                     <span className="iadc__errors">{formErrors.end_date}</span>
@@ -248,7 +251,7 @@ const InstructorAddCourseForm = props => {
                     <Input
                       prefix={<ClockCircleOutlined />}
                       type="time"
-                      value={classData.start_time}
+                      value={courseData.start_time}
                       name="start_time"
                     />
                     <span className="iadc__errors">
@@ -261,7 +264,7 @@ const InstructorAddCourseForm = props => {
                     <Input
                       prefix={<ClockCircleOutlined />}
                       type="time"
-                      value={classData.end_time}
+                      value={courseData.end_time}
                       name="end_time"
                     />
                     <span className="iadc__errors">{formErrors.end_time}</span>
@@ -284,7 +287,7 @@ const InstructorAddCourseForm = props => {
                   <Input
                     type="number"
                     placeholder="Set minimum number of students"
-                    value={classData.min_age}
+                    value={courseData.min_age}
                     name="min_age"
                     min="4"
                     max="100"
@@ -297,7 +300,7 @@ const InstructorAddCourseForm = props => {
                   <Input
                     type="number"
                     placeholder="Set maximum number of students"
-                    value={classData.max_age}
+                    value={courseData.max_age}
                     name="max_age"
                     min="4"
                     max="100"
@@ -308,7 +311,7 @@ const InstructorAddCourseForm = props => {
                 <Form.Item>
                   <label for="classLink">Class Zoom Link: </label>
                   <Input
-                    value={classData.location}
+                    value={courseData.location}
                     name="location"
                     placeholder="Zoom Link goes here!"
                   />

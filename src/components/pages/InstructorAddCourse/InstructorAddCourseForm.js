@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { addProgram, setError } from '../../../redux/actions/instructorActions';
+import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Select, Input, Form, Button, Layout, Typography } from 'antd';
@@ -112,6 +113,14 @@ const InstructorAddCourseForm = props => {
               </Text>
             </div>
           </div>
+          {/* Horizontal Line */}
+          <div
+            style={{
+              borderTop: '3px solid #FEAD2A ',
+              marginTop: 20,
+              marginBottom: 20,
+            }}
+          ></div>
           {/* Form Div Container */}
           <div className="iac__forms">
             <div className="iac__first__form__section">
@@ -119,7 +128,7 @@ const InstructorAddCourseForm = props => {
               <Form
                 wrapperCol={{ span: 50 }}
                 layout="horizontal"
-                className="iadc__first__form"
+                className="iac__first__form"
                 errors={formErrors}
                 onChange={handleChange}
               >
@@ -148,7 +157,7 @@ const InstructorAddCourseForm = props => {
               <Form
                 wrapperCol={{ span: 50 }}
                 layout="horizontal"
-                className="iadc__first__form"
+                className="iac__second__form"
                 errors={formErrors}
                 onChange={handleChange}
               >
@@ -194,7 +203,7 @@ const InstructorAddCourseForm = props => {
                 <Form
                   wrapperCol={{ span: 50 }}
                   layout="horizontal"
-                  className="iadc__first__form"
+                  className="iac__third__left__form"
                   errors={formErrors}
                   onChange={handleChange}
                 >
@@ -229,7 +238,7 @@ const InstructorAddCourseForm = props => {
                 <Form
                   wrapperCol={{ span: 50 }}
                   layout="horizontal"
-                  className="iadc__first__form"
+                  className="iac__third__right__form"
                   errors={formErrors}
                   onChange={handleChange}
                 >
@@ -265,7 +274,7 @@ const InstructorAddCourseForm = props => {
               <Form
                 wrapperCol={{ span: 50 }}
                 layout="horizontal"
-                className="iadc__first__form"
+                className="iac__fourth__form"
                 errors={formErrors}
                 onChange={handleChange}
               >
@@ -310,13 +319,14 @@ const InstructorAddCourseForm = props => {
           {/* Submit Button */}
           <div className="iac__submit">
             <Button
-              style={{ marginBottom: '1rem' }}
               type="primary"
               htmlType="submit"
+              className="submitButton"
               onClick={handleSubmit}
               disabled={disabled}
             >
-              Create New Course <PlusOutlined />
+              Create New Course
+              <PlusOutlined />
             </Button>
           </div>
         </div>

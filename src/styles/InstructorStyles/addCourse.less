@@ -1,19 +1,107 @@
-// Instructor Add Course Styling
+// <------ Instructor Add Course ------>
 
+// Content -- Section Wrap
+.iac__section__wrap {
+    font-family:  @text__font-family;
+    background-color: #fbfbfb;
+    padding: 2rem 4rem 2rem 4rem;
+    
+    // IAC Container
+    .iac__container {
+        display: flex;
+        justify-content: space-between;
+    }
 
+    // Title / Top Container
+    .iac__title {
+        font-size: @text__font-size--h1;
+        font-family: @text__font-family--header;
+        font-weight: 300;
+    }
 
-// .instructor-h1 {
-//     margin-bottom: 10;
-//     font-size: 20;
-//     display: flex;
-//     justify-content: center;
-//     align-self: center;
-//   }
-  
-//   .instructor-list {
-//     display: flex;
-//     flex-direction: row;
-//     width: 20vw;
-//     align-items: center;
-//     justify-content: space-between;
-//   } 
+    // Intro
+    .iac__intro {
+        font-size: @text__font-size--h5;
+        line-height: @text__line-height--h5;
+    }
+
+    // <---- Form Divs ---->
+    
+    // First Form Section
+    .iac__first__form__section {
+        display: flex;
+        justify-content: space-between;
+
+        .iac__first__form {
+            display: flex;
+            min-width: 10vw;
+            justify-content: space-between;
+        }
+        
+        .label {
+            font-size: @text__font-size--h5;
+            font-weight: 500;
+        }
+    }
+
+    // Second Form Section
+    .iac__second__form__section {
+        display: flex;
+        justify-content: space-between;
+
+        .iac__second__form {
+            display: flex;
+            min-width: 10vw;
+            justify-content: space-between;
+            margin-right: 4rem;
+        }
+    }
+
+    // Third Form Section
+    .iac__third__form__section {
+        display: flex;
+        justify-content: space-between;
+
+        .iac__third__left__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+        }
+
+        .iac__third__right__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+        }
+    }
+
+    // Fourth Form Section
+    .iac__fourth__form__section {
+        display: flex;
+        justify-content: space-between;
+
+        .iac__fourth__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+        }
+    }
+
+    // Submit Button
+    .iac__submit {
+        display: flex;
+        align-self: center;
+
+        .submitButton {
+            width: 20vw;
+            border-radius: 1rem;
+            height: 3rem;
+            color: @text__color--black;
+            font-size: @text__font-size--h4;
+            font-family: @text__font-family; 
+            font-weight: 700;
+            background-color: #ffbb4d;
+            align-items: center;
+        }
+    }
+}

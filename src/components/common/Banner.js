@@ -32,6 +32,8 @@ function Banner() {
     return bannerContent('Family', '');
   } else if (path === '/instuctor-news-feed' || path === '/parent-news-feed') {
     return bannerContent('News Feed');
+  } else if (path === '/classroom') {
+    return bannerContent('Classroom');
   } else {
     return bannerContent('Dashboard', 'Welcome back!');
   }

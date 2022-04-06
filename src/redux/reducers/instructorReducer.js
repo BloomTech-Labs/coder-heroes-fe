@@ -8,6 +8,7 @@ import {
   ADD_NEW_PROGRAM,
   SET_ERROR,
   GET_NEWSFEEDS,
+  GET_STATS,
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
 
@@ -55,6 +56,11 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         newsfeed: payload,
+      };
+    case GET_STATS: // need to adjust when data science gets involved (how are they passing the data in?)
+      return {
+        ...state,
+        value: action.payload,
       };
     default:
       return state;

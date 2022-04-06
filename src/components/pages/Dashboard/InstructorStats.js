@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import {
@@ -7,11 +7,12 @@ import {
   ReadOutlined,
   DollarOutlined,
 } from '@ant-design/icons';
+import { getStats } from '../../../redux/actions/instructorActions';
 
 const initialValues = [
   {
     icon: <UserOutlined />,
-    title: 'Total Students',
+    title: 'My Students',
     value: 0,
   },
   {
@@ -40,14 +41,9 @@ function InstructorStats() {
   const { Meta } = Card;
   const [stats, setStats] = useState(initialValues);
 
-  function getStats() {
-    // axiosWithAuth()
-    // 	.then(res => {
-    // 		setStats(res.data);
-    // 	}
-    // 	)
-    // 	.catch(err => console.error(err));
-  }
+  useEffect(() => {
+    setStats(getStats());
+  });
 
   return (
     <>

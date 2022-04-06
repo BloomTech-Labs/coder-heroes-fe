@@ -11,6 +11,7 @@ export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
+export const GET_STATS = 'GET_STATS';
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
@@ -106,6 +107,25 @@ export const getNewsFeeds = () => dispatch => {
       .then(resp => {
         dispatch({
           type: GET_NEWSFEEDS,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const getStats = () => dispatch => {
+  try {
+    axiosWithAuth()
+      // .get(URL);
+      .then(resp => {
+        dispatch({
+          type: GET_STATS,
           payload: resp.data,
         });
       })

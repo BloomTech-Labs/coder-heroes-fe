@@ -102,7 +102,6 @@ function CalendarApp() {
   }, []);
 
   function dateCellRender(value) {
-    // console.log(eventsArr);
     const listData = getListData(value, eventsArr);
     return (
       <ul className="events">

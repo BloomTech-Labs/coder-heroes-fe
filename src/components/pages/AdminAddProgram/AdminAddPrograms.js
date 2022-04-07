@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';
@@ -21,32 +21,8 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
 
-  // waiting for backend to implement this and reducer / actions
-  //
-  // const token = JSON.parse(localStorage.getItem('okta-token-storage'));
-  // const config = {
-  //   headers: { Authorization: `Bearer ${token.idToken.value}` },
-  // };
-  // const body = {
-  //   ...formValues,
-  //   subject: formValues.subject,
-  //   description: formValues.description,
-  //   prereq: formValues.prereq,
-  // };
-
   function handleSubmit(e) {
     e.preventDefault();
-
-    // waiting for backend to implement this and reducer / actions
-    //
-    // axios
-    //   .post(`https://coder-heroes-api.herokuapp.com/course_types`, body, config)
-    //   .then(resp => {
-    //     console.log('axiosCall', resp);
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
 
     const merged = {
       ...formValues,
@@ -72,7 +48,7 @@ function AdminAddCoursesForm(props) {
     }
   };
 
-  const addPrereq = e => {
+  const addPrereq = () => {
     if (formPreReqs.prereq.length !== 0) {
       formPrerequisite = formPreReqs.prereq;
       placeHolder.push(formPrerequisite);
@@ -87,7 +63,7 @@ function AdminAddCoursesForm(props) {
     document.getElementById('prereq-render').innerHTML = array_string;
   };
 
-  const buildString = item => {
+  const buildString = () => {
     let arrayText = placeHolder.join(', ');
     document.getElementById('prereq-render').innerHTML = arrayText;
   };

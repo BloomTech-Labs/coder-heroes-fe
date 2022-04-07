@@ -9,8 +9,6 @@ const StripeCheckoutButton = ({ price }) => {
     'pk_test_51KW2lbBKjoE9XTUg0egVFw0BOv1qLHRAalJAI0tzcCrPQZiuT33aJjmlKJkDp0FrfvbcY6JR2Pl7I2tSukYUyQTk00OSmOo3M2';
 
   const onToken = token => {
-    // axiosWithAuth().post('/payments/payments', {
-
     axios({
       url: `payments/payments`,
       method: 'post',
@@ -20,7 +18,10 @@ const StripeCheckoutButton = ({ price }) => {
       },
     })
       .then(response => {
-        alert('payment successful', response.data);
+        alert(
+          'Payment successful ,you will receive a receipt in your email',
+          response.data
+        );
         console.log(response.data);
       })
       .catch(error => {

@@ -1,0 +1,31 @@
+.footer__nav-link {
+  &:hover {
+    color: @text__color--white;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+.footer__text {
+  color: @text__color--white;
+  font-size: @text__font-size--h5;
+  font-weight: 600;
+}
+.footer__title--copyright {
+  font-family: @text__font-family--header;
+}
+.footer-content {
+  max-width: 500px;
+  margin: auto;
+}
+.mobile-footer {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .desktop-footer {
+    display: none;
+  }
+  .mobile-footer {
+    display: block;
+  }
+}

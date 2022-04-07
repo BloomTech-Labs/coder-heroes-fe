@@ -33,7 +33,7 @@ function AdminAddCoursesCard(props) {
     setModalVisible(true);
   };
 
-  const handleOk = e => {
+  const handleOk = () => {
     const merged = {
       ...formValues,
       class_prereq_list: placeHolder,

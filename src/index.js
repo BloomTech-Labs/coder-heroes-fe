@@ -44,7 +44,6 @@ import NavBar from './components/common/NavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
-// import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 

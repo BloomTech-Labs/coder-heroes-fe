@@ -63,6 +63,15 @@ function CalendarApp() {
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState([]);
 
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/calendar-events/user')
+      .then(res => {
+        setEventsArr(res.data.events);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
   const showModal = value => {
     setEvent(value);
     setIsModalVisible(true);
@@ -91,15 +100,6 @@ function CalendarApp() {
 
     return listData || [];
   }
-
-  useEffect(() => {
-    axiosWithAuth()
-      .get('/calendar-events/user')
-      .then(res => {
-        setEventsArr(res.data.events);
-      })
-      .catch(err => console.error(err));
-  }, []);
 
   function dateCellRender(value) {
     const listData = getListData(value, eventsArr);

@@ -1,49 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
+import '../../../styles/InstructorStyles/statsStyle.less';
 import { Card } from 'antd';
 import {
   UserOutlined,
   BarChartOutlined,
-  ReadOutlined,
   DollarOutlined,
 } from '@ant-design/icons';
 import { getStats } from '../../../redux/actions/instructorActions';
 
 const initialValues = [
   {
-    icon: <UserOutlined />,
+    icon: <UserOutlined style={{ color: '#F79E1B' }} />,
     title: 'My Students',
     value: 0,
   },
   {
-    icon: <BarChartOutlined />,
+    icon: <BarChartOutlined style={{ color: '#F79E1B' }} />,
     title: 'Active Course',
     value: 0,
   },
   {
-    icon: <ReadOutlined />,
-    title: 'Total Course',
-    value: 0,
-  },
-  {
-    icon: <BarChartOutlined />,
+    icon: <BarChartOutlined style={{ color: '#F79E1B' }} />,
     title: 'Completed Course',
     value: 0,
   },
   {
-    icon: <DollarOutlined />,
+    icon: <DollarOutlined style={{ color: '#F79E1B' }} />,
     title: 'Total Earnings',
     value: '$' + '0',
   },
 ];
 
 function InstructorStats() {
-  const { Meta } = Card;
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {
     setStats(getStats());
-  });
+  }, []);
 
   return (
     <>
@@ -51,11 +45,11 @@ function InstructorStats() {
         {stats.map(stat => {
           return (
             <Card id="ant-card-stat">
-              <Meta
-                avatar={stat.icon}
-                title={stat.title}
-                description={stat.value}
-              />
+              <div class="stat-icon-wrapper">{stat.icon}</div>
+              <div class="stat-content">
+                <p>{stat.title}</p>
+                <h5>{stat.value}</h5>
+              </div>
             </Card>
           );
         })}

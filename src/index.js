@@ -46,7 +46,7 @@ import NavBar from './components/common/NavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
-// import Newfeed from './components/pages/n';
+import InstructorDashboard from './components/pages/Dashboard/Index';
 import LandingInstructor from './components/pages/LandingInstructor';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -95,6 +95,7 @@ function App() {
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
+          <Route path="/instructor-dashboard" component={InstructorDashboard} />
           <Route path="/parent-booking" component={ParentBooking} />
           <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />

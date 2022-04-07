@@ -3,7 +3,6 @@ import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';
 import CalendarModal from './CalendarModal';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const initialValues = [
   {
@@ -62,15 +61,6 @@ function CalendarApp() {
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState(initialValues);
-
-  // ****** will update with endpoint once db endpoint is built ******
-  // useEffect(() => {
-  //     axiosWithAuth.get('/')
-  //         .then(events => {
-  //             setEventsArr(events)
-  //         })
-  //         .catch(err => console.error(err))
-  // }, []);
 
   const showModal = value => {
     setEvent(value);

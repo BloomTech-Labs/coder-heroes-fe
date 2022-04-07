@@ -1,21 +1,17 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
-// import InstructorCalender from './InstructorCalender';
 import CalendarApp from '../../common/calendar/Calendar';
 import { Layout } from 'antd';
-import Banner from '../../common/Banner';
 
 const { Content } = Layout;
 const InstructorHome = () => {
   return (
     <div>
       <Layout>
+        <InstructorSidebar />
         <Content>
-          <InstructorSidebar />
-          <Banner />
           <div className="calendar" data-testid="calendar">
-            {/* <InstructorCalender /> */}
             <CalendarApp />
           </div>
         </Content>

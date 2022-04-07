@@ -28,7 +28,7 @@ export default function CalendarModal(props) {
   return (
     <>
       <Modal
-        title="Schedule a Meeting"
+        title="Add Event"
         visible={isModalVisible}
         onCancel={handleCancel}
         getContainer={false}
@@ -56,7 +56,7 @@ export default function CalendarModal(props) {
           <Form.Item
             label="Date"
             name="date"
-            rules={[{ required: true, message: 'Please pick a time!' }]}
+            rules={[{ required: true, message: 'Please pick a date!' }]}
           >
             <DatePicker />
           </Form.Item>

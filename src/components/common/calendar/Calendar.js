@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';
 import CalendarModal from './CalendarModal';
@@ -9,42 +10,49 @@ const initialValues = [
     type: 'warning',
     content: 'This is warning event.',
     details: 'Test information 1',
+    time: '12:00 PM',
   },
   {
     date: '15/03/2022',
     type: 'success',
     content: 'This is usual event.',
     details: 'Test information 2',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 1.',
     details: 'Test information 3',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 2.',
     details: 'Test information 4',
+    time: '12:00 PM',
   },
   {
     date: '16/03/2022',
     type: 'error',
     content: 'This is error event 3.',
     details: 'Test information 5',
+    time: '12:00 PM',
   },
   {
     date: '12/04/2022',
     type: 'success',
     content: 'This is usual event1.',
     details: 'Test information 6',
+    time: '12:00 PM',
   },
   {
     date: '12/04/2022',
     type: 'success',
     content: 'This is usual event2.',
     details: 'Test information 7',
+    time: '12:00 PM',
   },
 ];
 
@@ -89,14 +97,23 @@ function CalendarApp() {
     return (
       <ul className="events">
         {listData.map(item => (
-          <span key={item.content}>
+          <p
+            key={item.content}
+            className={
+              item.type === 'success'
+                ? 'success-class-event'
+                : item.type === 'warning'
+                ? 'warning-class-event'
+                : 'error-class-event'
+            }
+          >
             <Badge
               status={item.type}
-              text={item.content}
+              text={item.content + ' ' + item.time}
               onClick={() => showModal(item)}
             />
             <br />
-          </span>
+          </p>
         ))}
       </ul>
     );
@@ -123,10 +140,10 @@ function CalendarApp() {
       style={{
         display: 'block',
         padding: 30,
+        position: 'relative',
       }}
     >
-      <h4>Ant Design Scheduling App Testbed</h4>
-      <Button onClick={() => showScheduleModal()}>Schedule an Event</Button>
+      <Button onClick={() => showScheduleModal()}>Add Event</Button>
       <Calendar
         fullscreen={true}
         dateCellRender={dateCellRender}
@@ -141,7 +158,11 @@ function CalendarApp() {
         <p>
           {event ? `Event Name: ${event.content}` : 'Something went wrong.'}
         </p>
-        <p>{event ? `Time: ${event.time}` : 'Something went wrong.'}</p>
+        <p>
+          {event
+            ? `Time: ${event.time ? event.time : 'All day'}`
+            : 'Something went wrong.'}
+        </p>
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>

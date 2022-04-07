@@ -136,6 +136,7 @@ const InstructorAddCourseForm = props => {
                       value={classData.course_name}
                       name="location"
                       placeholder="Enter Course Name here"
+                      className="course__name"
                     />
                   </Form.Item>
                 </div>
@@ -143,7 +144,11 @@ const InstructorAddCourseForm = props => {
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item>
                     <label for="courseType">Program Type</label>
-                    <Select placeholder="Select a Program" name="course_type">
+                    <Select
+                      placeholder="Select a Program"
+                      name="course_type"
+                      className="program__type"
+                    >
                       {programs.map(course => (
                         <Option value={course}>{course}</Option>
                       ))}
@@ -165,7 +170,11 @@ const InstructorAddCourseForm = props => {
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item>
                     <label for="day">Day</label>
-                    <Select name="day" placeholder="Select a day">
+                    <Select
+                      name="day"
+                      placeholder="Select a day"
+                      className="day"
+                    >
                       {days.map(day => (
                         <Option value={day}>{day}</Option>
                       ))}
@@ -182,6 +191,7 @@ const InstructorAddCourseForm = props => {
                       name="size"
                       min="1"
                       placeholder="Select a Class Size"
+                      className="class__size"
                     />
                     <span className="iadc__errors">{formErrors.size}</span>
                   </Form.Item>
@@ -196,6 +206,7 @@ const InstructorAddCourseForm = props => {
                       value={classData.sessions}
                       name="sessions"
                       min="1"
+                      className="total__sessions"
                     />
                     <span className="iadc__errors">{formErrors.sessions}</span>
                   </Form.Item>
@@ -214,7 +225,7 @@ const InstructorAddCourseForm = props => {
                   onChange={handleChange}
                 >
                   {/* Start Date */}
-                  <div style={{ marginRight: '5rem' }}>
+                  <div style={{ marginRight: '4rem' }}>
                     <Form.Item>
                       <label for="startDate">Start Date</label>
                       <Input
@@ -222,6 +233,7 @@ const InstructorAddCourseForm = props => {
                         type="date"
                         value={classData.start_date}
                         name="start_date"
+                        className="start__date"
                       />
                       <span className="iadc__errors">
                         {formErrors.start_date}
@@ -229,7 +241,7 @@ const InstructorAddCourseForm = props => {
                     </Form.Item>
                   </div>
                   {/* End Date */}
-                  <div style={{ marginRight: '5rem' }}>
+                  <div style={{ marginRight: '4rem' }}>
                     <Form.Item>
                       <label for="endDate">End Date</label>
                       <Input
@@ -237,6 +249,7 @@ const InstructorAddCourseForm = props => {
                         type="date"
                         value={classData.end_date}
                         name="end_date"
+                        className="end__date"
                       />
                       <span className="iadc__errors">
                         {formErrors.end_date}
@@ -255,7 +268,7 @@ const InstructorAddCourseForm = props => {
                   onChange={handleChange}
                 >
                   {/* Start Time */}
-                  <div style={{ marginRight: '5rem' }}>
+                  <div style={{ marginRight: '4rem' }}>
                     <Form.Item>
                       <label for="startTime">Start Time</label>
                       <Input
@@ -263,6 +276,7 @@ const InstructorAddCourseForm = props => {
                         type="time"
                         value={classData.start_time}
                         name="start_time"
+                        className="start__time"
                       />
                       <span className="iadc__errors">
                         {formErrors.start_time}
@@ -270,7 +284,7 @@ const InstructorAddCourseForm = props => {
                     </Form.Item>
                   </div>
                   {/* End Time */}
-                  <div style={{ marginRight: '5rem' }}>
+                  <div>
                     <Form.Item>
                       <label for="endTime">End Time</label>
                       <Input
@@ -278,6 +292,7 @@ const InstructorAddCourseForm = props => {
                         type="time"
                         value={classData.end_time}
                         name="end_time"
+                        className="end__time"
                       />
                       <span className="iadc__errors">
                         {formErrors.end_time}
@@ -307,6 +322,7 @@ const InstructorAddCourseForm = props => {
                       name="min_age"
                       min="4"
                       max="100"
+                      className="min__age"
                     />
                     <span className="iadc__errors">{formErrors.min_age}</span>
                   </Form.Item>
@@ -322,18 +338,20 @@ const InstructorAddCourseForm = props => {
                       name="max_age"
                       min="4"
                       max="100"
+                      className="max__age"
                     />
                     <span className="iadc__errors">{formErrors.max_age}</span>
                   </Form.Item>
                 </div>
                 {/* Zoom Link */}
-                <div style={{ marginRight: '5rem' }}>
+                <div>
                   <Form.Item>
                     <label for="classLink">Class Zoom Link: </label>
                     <Input
                       value={classData.location}
                       name="location"
                       placeholder="Zoom Link goes here!"
+                      className="zoom__link"
                     />
                   </Form.Item>
                 </div>

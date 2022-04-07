@@ -9,7 +9,7 @@ import schema from './InstructorAddCourseFormSchema';
 const { Option } = Select;
 
 //dummy data
-const courses = ['Javascript', 'HTML', 'CSS'];
+const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
 
 const days = [
   'Monday',
@@ -39,6 +39,7 @@ const initialClassDataState = {
 
 const initialClassDataStateFormErrors = {
   course_type: '',
+  course_name: '',
   day: '',
   size: '',
   min_age: '',
@@ -51,7 +52,7 @@ const initialClassDataStateFormErrors = {
   location: '',
 };
 
-const InstructorAddCourseCards = props => {
+const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
@@ -90,9 +91,19 @@ const InstructorAddCourseCards = props => {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 style={{ marginTop: 30, fontSize: 20 }}>
-          You can submit new program below!
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <h1
+          style={{
+            marginTop: 30,
+            fontSize: 20,
+          }}
+        >
+          You can submit a new course below!
         </h1>
       </div>
       <section style={{ display: 'flex', justifyContent: 'center' }}>
@@ -104,12 +115,21 @@ const InstructorAddCourseCards = props => {
           onChange={handleChange}
         >
           <Form.Item>
-            <label for="courseType">Course Type: </label>
+            <label for="courseType">Program Type: </label>
             <Select placeholder="Select a course" name="course_type">
-              {courses.map(course => (
+              {programs.map(course => (
                 <Option value={course}>{course}</Option>
               ))}
             </Select>
+          </Form.Item>
+
+          <Form.Item>
+            <label for="classLink">Course Name: </label>
+            <Input
+              value={classData.course_name}
+              name="location"
+              placeholder="Course name goes here!"
+            />
           </Form.Item>
 
           <Form.Item>
@@ -229,5 +249,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { addProgram, setError })(
-  InstructorAddCourseCards
+  InstructorAddCourseForm
 );

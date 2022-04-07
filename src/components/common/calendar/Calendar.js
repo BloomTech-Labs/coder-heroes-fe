@@ -159,6 +159,7 @@ function CalendarApp() {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        className="calendar-event-modal"
       >
         <p>
           {event ? `Event Name: ${event.content}` : 'Something went wrong.'}

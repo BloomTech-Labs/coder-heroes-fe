@@ -10,7 +10,7 @@ function CalendarApp() {
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState([]);
-  const [newEventFlag, setNewEventFlag] = useState(false);
+  const [eventFlag, setEventFlag] = useState(false);
 
   useEffect(() => {
     axiosWithAuth()
@@ -19,8 +19,8 @@ function CalendarApp() {
         setEventsArr(res.data.events);
       })
       .catch(err => console.error(err));
-    return () => setNewEventFlag(false);
-  }, [newEventFlag]);
+    return () => setEventFlag(false);
+  }, [eventFlag]);
 
   const showModal = value => {
     setEvent(value);
@@ -33,6 +33,16 @@ function CalendarApp() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const handleDelete = () => {
+    axiosWithAuth()
+      .delete(`/calendar-events/${event.event_id}`)
+      .then(() => {
+        setEventFlag(true);
+        setIsModalVisible(false);
+      })
+      .catch(err => console.error(err));
   };
 
   const showScheduleModal = () => {
@@ -69,7 +79,10 @@ function CalendarApp() {
             <Badge
               status={item.type}
               text={item.content + ' ' + item.time}
-              onClick={() => showModal(item)}
+              onClick={() => {
+                console.log(item);
+                showModal(item);
+              }}
             />
             <br />
           </p>
@@ -125,6 +138,9 @@ function CalendarApp() {
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>
+        <Button onClick={handleDelete} className="delete-event-btn">
+          Delete Event
+        </Button>
       </Modal>
       <CalendarModal
         isModalVisible={isScheduleModalVisible}
@@ -133,7 +149,7 @@ function CalendarApp() {
         setEventsArr={setEventsArr}
         handleOk={handleOk}
         handleCancel={handleCancel}
-        setNewEventFlag={setNewEventFlag}
+        setNewEventFlag={setEventFlag}
       />
     </div>
   );

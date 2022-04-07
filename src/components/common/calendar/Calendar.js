@@ -143,7 +143,12 @@ function CalendarApp() {
         position: 'relative',
       }}
     >
-      <Button onClick={() => showScheduleModal()}>Add Event</Button>
+      <Button
+        className="calendar-event-button"
+        onClick={() => showScheduleModal()}
+      >
+        Add Event
+      </Button>
       <Calendar
         fullscreen={true}
         dateCellRender={dateCellRender}

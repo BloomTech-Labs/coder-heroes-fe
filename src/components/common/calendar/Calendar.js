@@ -5,58 +5,6 @@ import { Calendar, Modal, Badge, Button } from 'antd';
 import CalendarModal from './CalendarModal';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-const initialValues = [
-  {
-    date: '15/03/2022',
-    type: 'warning',
-    content: 'This is warning event.',
-    details: 'Test information 1',
-    time: '12:00 PM',
-  },
-  {
-    date: '15/03/2022',
-    type: 'success',
-    content: 'This is usual event.',
-    details: 'Test information 2',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 1.',
-    details: 'Test information 3',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 2.',
-    details: 'Test information 4',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 3.',
-    details: 'Test information 5',
-    time: '12:00 PM',
-  },
-  {
-    date: '12/04/2022',
-    type: 'success',
-    content: 'This is usual event1.',
-    details: 'Test information 6',
-    time: '12:00 PM',
-  },
-  {
-    date: '12/04/2022',
-    type: 'success',
-    content: 'This is usual event2.',
-    details: 'Test information 7',
-    time: '12:00 PM',
-  },
-];
-
 function CalendarApp() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
@@ -71,7 +19,8 @@ function CalendarApp() {
         setEventsArr(res.data.events);
       })
       .catch(err => console.error(err));
-  }, []);
+    return () => setNewEventFlag(false);
+  }, [newEventFlag]);
 
   const showModal = value => {
     setEvent(value);
@@ -184,6 +133,7 @@ function CalendarApp() {
         setEventsArr={setEventsArr}
         handleOk={handleOk}
         handleCancel={handleCancel}
+        setNewEventFlag={setNewEventFlag}
       />
     </div>
   );

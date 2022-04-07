@@ -3,7 +3,7 @@ import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 export default function CalendarModal(props) {
-  const { isModalVisible, setIsModalVisible, eventsArr, setEventsArr } = props;
+  const { isModalVisible, setIsModalVisible, setNewEventFlag } = props;
 
   const [form] = Form.useForm();
 
@@ -20,7 +20,7 @@ export default function CalendarModal(props) {
     };
     axiosWithAuth()
       .post('/calendar-events', newEvent)
-      .then(res => console.log(res))
+      .then(() => setNewEventFlag(true))
       .catch(err => console.error(err));
     setIsModalVisible(false);
     form.resetFields();

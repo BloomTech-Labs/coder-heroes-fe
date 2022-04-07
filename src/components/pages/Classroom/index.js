@@ -53,7 +53,6 @@ const students = [
 
 const Classroom = () => {
   return (
-    <>
       <Layout>
         <InstructorSidebar />
         <Content>
@@ -80,7 +79,6 @@ const Classroom = () => {
           </Row>
         </Content>
       </Layout>
-    </>
   );
 };
 

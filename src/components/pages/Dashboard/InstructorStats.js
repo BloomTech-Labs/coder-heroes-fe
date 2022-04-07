@@ -11,24 +11,24 @@ import { getStats } from '../../../redux/actions/instructorActions';
 
 const initialValues = [
   {
-    icon: <UserOutlined style={{ color: '#F79E1B' }} />,
+    icon: <UserOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
     title: 'My Students',
     value: 0,
   },
   {
-    icon: <BarChartOutlined style={{ color: '#F79E1B' }} />,
+    icon: <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
     title: 'Active Course',
     value: 0,
   },
   {
-    icon: <BarChartOutlined style={{ color: '#F79E1B' }} />,
+    icon: <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
     title: 'Completed Course',
     value: 0,
   },
   {
-    icon: <DollarOutlined style={{ color: '#F79E1B' }} />,
+    icon: <DollarOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
     title: 'Total Earnings',
-    value: '$' + '0',
+    value: '$' + 0,
   },
 ];
 
@@ -36,7 +36,7 @@ function InstructorStats() {
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {
-    setStats(getStats());
+    // setStats(getStats()); // ENABLE WHEN READY TO CONNECT STATS TO STATE
   }, []);
 
   return (
@@ -48,7 +48,7 @@ function InstructorStats() {
               <div class="stat-icon-wrapper">{stat.icon}</div>
               <div class="stat-content">
                 <p>{stat.title}</p>
-                <h5>{stat.value}</h5>
+                <h3>{stat.value}</h3>
               </div>
             </Card>
           );

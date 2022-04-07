@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout } from 'antd';
-import InstructorSidebar from './InstructorSidebar';
+import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import InstructorStats from './InstructorStats';
 
 const { Content } = Layout;

@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import '../../../styles/InstructorStyles/index.less';
 import { Link } from 'react-router-dom';
 import {
-  DesktopOutlined,
   HomeOutlined,
-  ThunderboltOutlined,
   PlusOutlined,
   ExportOutlined,
   ReadOutlined,
@@ -35,28 +33,25 @@ function InstructorSidebar() {
     >
       <div className="logo" />
       <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item
-          key="1"
-          icon={<ThunderboltOutlined />}
-          className="dashboard-logo"
-        >
-          Coderheroes
+        {/* need to add the route to instructor dashboard but instructor-dashboard is psuedo code for now */}
+        <Menu.Item key="1" icon={<HomeOutlined />}>
+          <a href="/instructor-dashboard">Dashboard</a>
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/instructor">Dashboard</a>
+          <a href="/instructor">Overview</a>
         </Menu.Item>
 
         <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/instructor-news-feed">News Feed</a>
+          <a href="/instructor-all-classes">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<DesktopOutlined />}>
-          <a href="/instructor-booking">Courses</a>
+        <Menu.Item key="4" icon={<ReadOutlined />}>
+          <a href="/classroom">Course</a>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<PlusOutlined />}>
-          <a href="/instructor-add-course">Add Courses</a>
+          <a href="/messages">Messages</a>
         </Menu.Item>
 
         <Menu.Item
@@ -66,7 +61,7 @@ function InstructorSidebar() {
           }}
           icon={<ExportOutlined fontSize="150px" />}
         >
-          <Link>Logout</Link>
+          <Link to="/">Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

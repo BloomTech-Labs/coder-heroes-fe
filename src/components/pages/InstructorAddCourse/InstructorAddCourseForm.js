@@ -6,11 +6,7 @@ import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { Select, Input, Form, Button, Layout, Typography } from 'antd';
 import schema from './InstructorAddCourseFormSchema';
-import {
-  CalendarOutlined,
-  ClockCircleOutlined,
-  PlusOutlined,
-} from '@ant-design/icons';
+import { CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const { Content } = Layout;
@@ -133,23 +129,27 @@ const InstructorAddCourseForm = props => {
                 onChange={handleChange}
               >
                 {/* Course Name */}
-                <Form.Item>
-                  <label for="classLink">Course Name</label>
-                  <Input
-                    value={classData.course_name}
-                    name="location"
-                    placeholder="Enter Course Name here"
-                  />
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item className="form__one">
+                    <label for="classLink">Course Name</label>
+                    <Input
+                      value={classData.course_name}
+                      name="location"
+                      placeholder="Enter Course Name here"
+                    />
+                  </Form.Item>
+                </div>
                 {/* Program Type */}
-                <Form.Item>
-                  <label for="courseType">Program Type</label>
-                  <Select placeholder="Select a Program" name="course_type">
-                    {programs.map(course => (
-                      <Option value={course}>{course}</Option>
-                    ))}
-                  </Select>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="courseType">Program Type</label>
+                    <Select placeholder="Select a Program" name="course_type">
+                      {programs.map(course => (
+                        <Option value={course}>{course}</Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
               </Form>
             </div>
             {/* Second Form Section */}
@@ -162,38 +162,44 @@ const InstructorAddCourseForm = props => {
                 onChange={handleChange}
               >
                 {/* Day */}
-                <Form.Item>
-                  <label for="day">Day</label>
-                  <Select name="day" placeholder="Select a day">
-                    {days.map(day => (
-                      <Option value={day}>{day}</Option>
-                    ))}
-                  </Select>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="day">Day</label>
+                    <Select name="day" placeholder="Select a day">
+                      {days.map(day => (
+                        <Option value={day}>{day}</Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
                 {/* Class Size */}
-                <Form.Item>
-                  <label for="classSize">Class Size</label>
-                  <Input
-                    type="number"
-                    value={classData.size}
-                    name="size"
-                    min="1"
-                    placeholder="Select a Class Size"
-                  />
-                  <span className="iadc__errors">{formErrors.size}</span>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="classSize">Class Size</label>
+                    <Input
+                      type="number"
+                      value={classData.size}
+                      name="size"
+                      min="1"
+                      placeholder="Select a Class Size"
+                    />
+                    <span className="iadc__errors">{formErrors.size}</span>
+                  </Form.Item>
+                </div>
                 {/* Total Sessions */}
-                <Form.Item>
-                  <label for="sessions">Total Sessions</label>
-                  <Input
-                    type="number"
-                    placeholder="Set Total Sessions"
-                    value={classData.sessions}
-                    name="sessions"
-                    min="1"
-                  />
-                  <span className="iadc__errors">{formErrors.sessions}</span>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="sessions">Total Sessions</label>
+                    <Input
+                      type="number"
+                      placeholder="Set Total Sessions"
+                      value={classData.sessions}
+                      name="sessions"
+                      min="1"
+                    />
+                    <span className="iadc__errors">{formErrors.sessions}</span>
+                  </Form.Item>
+                </div>
               </Form>
             </div>
             {/* Third Form Section */}
@@ -208,29 +214,35 @@ const InstructorAddCourseForm = props => {
                   onChange={handleChange}
                 >
                   {/* Start Date */}
-                  <Form.Item>
-                    <label for="startDate">Start Date</label>
-                    <Input
-                      prefix={<CalendarOutlined />}
-                      type="date"
-                      value={classData.start_date}
-                      name="start_date"
-                    />
-                    <span className="iadc__errors">
-                      {formErrors.start_date}
-                    </span>
-                  </Form.Item>
+                  <div style={{ marginRight: '5rem' }}>
+                    <Form.Item>
+                      <label for="startDate">Start Date</label>
+                      <Input
+                        prefix={<CalendarOutlined />}
+                        type="date"
+                        value={classData.start_date}
+                        name="start_date"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.start_date}
+                      </span>
+                    </Form.Item>
+                  </div>
                   {/* End Date */}
-                  <Form.Item>
-                    <label for="endDate">End Date</label>
-                    <Input
-                      prefix={<CalendarOutlined />}
-                      type="date"
-                      value={classData.end_date}
-                      name="end_date"
-                    />
-                    <span className="iadc__errors">{formErrors.end_date}</span>
-                  </Form.Item>
+                  <div style={{ marginRight: '5rem' }}>
+                    <Form.Item>
+                      <label for="endDate">End Date</label>
+                      <Input
+                        prefix={<CalendarOutlined />}
+                        type="date"
+                        value={classData.end_date}
+                        name="end_date"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.end_date}
+                      </span>
+                    </Form.Item>
+                  </div>
                 </Form>
               </div>
               {/* Right Section */}
@@ -243,29 +255,35 @@ const InstructorAddCourseForm = props => {
                   onChange={handleChange}
                 >
                   {/* Start Time */}
-                  <Form.Item>
-                    <label for="startTime">Start Time</label>
-                    <Input
-                      prefix={<ClockCircleOutlined />}
-                      type="time"
-                      value={classData.start_time}
-                      name="start_time"
-                    />
-                    <span className="iadc__errors">
-                      {formErrors.start_time}
-                    </span>
-                  </Form.Item>
+                  <div style={{ marginRight: '5rem' }}>
+                    <Form.Item>
+                      <label for="startTime">Start Time</label>
+                      <Input
+                        prefix={<ClockCircleOutlined />}
+                        type="time"
+                        value={classData.start_time}
+                        name="start_time"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.start_time}
+                      </span>
+                    </Form.Item>
+                  </div>
                   {/* End Time */}
-                  <Form.Item>
-                    <label for="endTime">End Time</label>
-                    <Input
-                      prefix={<ClockCircleOutlined />}
-                      type="time"
-                      value={classData.end_time}
-                      name="end_time"
-                    />
-                    <span className="iadc__errors">{formErrors.end_time}</span>
-                  </Form.Item>
+                  <div style={{ marginRight: '5rem' }}>
+                    <Form.Item>
+                      <label for="endTime">End Time</label>
+                      <Input
+                        prefix={<ClockCircleOutlined />}
+                        type="time"
+                        value={classData.end_time}
+                        name="end_time"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.end_time}
+                      </span>
+                    </Form.Item>
+                  </div>
                 </Form>
               </div>
             </div>
@@ -279,40 +297,46 @@ const InstructorAddCourseForm = props => {
                 onChange={handleChange}
               >
                 {/* Minimum Age */}
-                <Form.Item>
-                  <label for="minAge">Minimum Student Age</label>
-                  <Input
-                    type="number"
-                    placeholder="Set minimum number of students"
-                    value={classData.min_age}
-                    name="min_age"
-                    min="4"
-                    max="100"
-                  />
-                  <span className="iadc__errors">{formErrors.min_age}</span>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="minAge">Minimum Student Age</label>
+                    <Input
+                      type="number"
+                      placeholder="Set minimum number of students"
+                      value={classData.min_age}
+                      name="min_age"
+                      min="4"
+                      max="100"
+                    />
+                    <span className="iadc__errors">{formErrors.min_age}</span>
+                  </Form.Item>
+                </div>
                 {/* Maximum Age */}
-                <Form.Item>
-                  <label for="maxAge">Maximum Student Age</label>
-                  <Input
-                    type="number"
-                    placeholder="Set maximum number of students"
-                    value={classData.max_age}
-                    name="max_age"
-                    min="4"
-                    max="100"
-                  />
-                  <span className="iadc__errors">{formErrors.max_age}</span>
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="maxAge">Maximum Student Age</label>
+                    <Input
+                      type="number"
+                      placeholder="Set maximum number of students"
+                      value={classData.max_age}
+                      name="max_age"
+                      min="4"
+                      max="100"
+                    />
+                    <span className="iadc__errors">{formErrors.max_age}</span>
+                  </Form.Item>
+                </div>
                 {/* Zoom Link */}
-                <Form.Item>
-                  <label for="classLink">Class Zoom Link: </label>
-                  <Input
-                    value={classData.location}
-                    name="location"
-                    placeholder="Zoom Link goes here!"
-                  />
-                </Form.Item>
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="classLink">Class Zoom Link: </label>
+                    <Input
+                      value={classData.location}
+                      name="location"
+                      placeholder="Zoom Link goes here!"
+                    />
+                  </Form.Item>
+                </div>
               </Form>
             </div>
           </div>
@@ -324,9 +348,9 @@ const InstructorAddCourseForm = props => {
               className="submitButton"
               onClick={handleSubmit}
               disabled={disabled}
+              style={{ alignContent: 'center' }}
             >
               Create New Course
-              <PlusOutlined />
             </Button>
           </div>
         </div>

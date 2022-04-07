@@ -82,8 +82,7 @@ function CalendarApp() {
 
   function getListData(value, events) {
     let listData = [];
-    let dateValue = value.format('DD/MM/YYYY'); // you can parse value in every format you want
-
+    let dateValue = value.format('MM/DD/YYYY'); // you can parse value in every format you want
     events.forEach(e => {
       if (e.date === dateValue) {
         listData.push(e);
@@ -103,6 +102,7 @@ function CalendarApp() {
   }, []);
 
   function dateCellRender(value) {
+    // console.log(eventsArr);
     const listData = getListData(value, eventsArr);
     return (
       <ul className="events">

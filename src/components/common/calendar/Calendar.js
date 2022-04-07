@@ -62,6 +62,7 @@ function CalendarApp() {
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState([]);
+  const [newEventFlag, setNewEventFlag] = useState(false);
 
   useEffect(() => {
     axiosWithAuth()

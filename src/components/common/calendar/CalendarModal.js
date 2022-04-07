@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 export default function CalendarModal(props) {
   const { isModalVisible, setIsModalVisible, eventsArr, setEventsArr } = props;
@@ -13,17 +14,19 @@ export default function CalendarModal(props) {
   const onFinish = values => {
     const newEvent = {
       ...values,
-      date: values.date.format('DD/MM/YYYY'),
+      date: values.date.format('MM/DD/YYYY'),
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    setEventsArr([...eventsArr, newEvent]);
+    axiosWithAuth()
+      .post('/calendar-events', newEvent)
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
     setIsModalVisible(false);
     form.resetFields();
   };
 
-  const onFinishFailed = errorInfo => {
-  };
+  const onFinishFailed = errorInfo => {};
 
   return (
     <>

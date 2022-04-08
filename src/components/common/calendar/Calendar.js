@@ -61,6 +61,7 @@ function CalendarApp() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setShowEditEventForm(false);
   };
 
   const handleEdit = () => {
@@ -82,6 +83,7 @@ function CalendarApp() {
       })
       .catch(err => console.error(err));
     form.resetFields();
+    setShowEditEventForm(false);
   };
 
   const handleDelete = () => {

@@ -23,17 +23,20 @@ function CalendarApp() {
   const [showEventEditForm, setShowEditEventForm] = useState(false);
 
   // eventFlag toggled to trigger useEffect when event is added or deleted
-  const [eventFlag, setEventFlag] = useState(false);
+  const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
   useEffect(() => {
-    axiosWithAuth()
-      .get('/calendar-events/user')
-      .then(res => {
-        setEventsArr(res.data.events);
-      })
-      .catch(err => console.error(err));
-    return () => setEventFlag(false);
+    console.log('hit');
+    if (eventFlag) {
+      axiosWithAuth()
+        .get('/calendar-events/user')
+        .then(res => {
+          setEventsArr(res.data.events);
+        })
+        .catch(err => console.error(err));
+    }
+    setEventFlag(false);
   }, [eventFlag]);
 
   useEffect(() => {
@@ -246,7 +249,7 @@ function CalendarApp() {
         setEventsArr={setEventsArr}
         handleOk={handleOk}
         handleCancel={handleCancel}
-        setNewEventFlag={setEventFlag}
+        setEventFlag={setEventFlag}
       />
     </div>
   );

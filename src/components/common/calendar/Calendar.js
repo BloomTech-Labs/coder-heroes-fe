@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
-import { Calendar, Modal, Badge, Button } from 'antd';
+import {
+  Calendar,
+  Modal,
+  Badge,
+  Button,
+  Form,
+  Input,
+  DatePicker,
+  TimePicker,
+} from 'antd';
+import moment from 'moment';
 import CalendarModal from './CalendarModal';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
@@ -10,6 +20,9 @@ function CalendarApp() {
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState([]);
+  const [showEventEditForm, setShowEditEventForm] = useState(false);
+
+  // eventFlag toggled to trigger useEffect when event is added or deleted
   const [eventFlag, setEventFlag] = useState(false);
 
   useEffect(() => {
@@ -33,6 +46,26 @@ function CalendarApp() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const handleEdit = () => {
+    setShowEditEventForm(true);
+  };
+
+  // edit event form submission handler
+  const onFinish = values => {
+    axiosWithAuth()
+      .put(`/calendar-events/${event.event_id}`, {
+        ...values,
+        type: 'success',
+        date: values.date.format('MM/DD/YYYY'),
+        time: values.time.format('h:mm A'),
+      })
+      .then(() => {
+        setEventFlag(true);
+        setIsModalVisible(false);
+      })
+      .catch(err => console.error(err));
   };
 
   const handleDelete = () => {
@@ -138,6 +171,65 @@ function CalendarApp() {
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>
+        <button onClick={handleEdit}>Edit Event</button>
+        {showEventEditForm && (
+          <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            onFinish={onFinish}
+            autoComplete="off"
+          >
+            <Form.Item
+              label="Event Title"
+              name="content"
+              rules={[
+                { required: true, message: 'Please input an event title!' },
+              ]}
+            >
+              <Input defaultValue={event.content} />
+            </Form.Item>
+            <Form.Item
+              label="Date"
+              name="date"
+              rules={[{ required: true, message: 'Please pick a date!' }]}
+            >
+              <DatePicker
+                defaultValue={moment(event.date, 'MM/DD/YYYY')}
+                format={'MM/DD/YYYY'}
+              />
+            </Form.Item>
+            <Form.Item
+              label="Time"
+              name="time"
+              rules={[{ required: true, message: 'Please pick a time!' }]}
+            >
+              <TimePicker
+                use12Hours
+                format="h:mm A"
+                minuteStep={15}
+                defaultValue={moment(event.time, 'h:mm A')}
+              />
+            </Form.Item>
+            <Form.Item
+              label="Details"
+              name="details"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input this event's details!",
+                },
+              ]}
+            >
+              <Input defaultValue={event.details} />
+            </Form.Item>
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        )}
         <Button onClick={handleDelete} className="delete-event-btn">
           Delete Event
         </Button>

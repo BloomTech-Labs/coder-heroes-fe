@@ -27,7 +27,6 @@ function CalendarApp() {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    console.log('hit');
     if (eventFlag) {
       axiosWithAuth()
         .get('/calendar-events/user')

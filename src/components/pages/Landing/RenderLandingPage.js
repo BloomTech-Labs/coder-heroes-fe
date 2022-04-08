@@ -9,17 +9,19 @@ import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
+import { useOktaAuth } from '@okta/okta-react';
 
 function RenderLandingPage(props) {
+  const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (localStorage.getItem('okta-token-storage')) {
-      const { sub } = JSON.parse(
-        localStorage.getItem('okta-token-storage')
-      ).idToken.claims;
-
-      dispatch(getCurrentUser(sub));
+    if (authState.isAuthenticated) {
+      authService.getUser().then(parsedJWT => {
+        const profile_id = parsedJWT.sub;
+        dispatch(getCurrentUser(profile_id));
+      });
     }
+    console.log(authState);
   }, [dispatch]);
 
   return (

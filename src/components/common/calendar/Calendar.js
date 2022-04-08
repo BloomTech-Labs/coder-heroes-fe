@@ -24,6 +24,7 @@ function CalendarApp() {
 
   // eventFlag toggled to trigger useEffect when event is added or deleted
   const [eventFlag, setEventFlag] = useState(false);
+  const [form] = Form.useForm();
 
   useEffect(() => {
     axiosWithAuth()
@@ -34,6 +35,17 @@ function CalendarApp() {
       .catch(err => console.error(err));
     return () => setEventFlag(false);
   }, [eventFlag]);
+
+  useEffect(() => {
+    if (event) {
+      form.setFieldsValue({
+        content: event.content,
+        details: event.details,
+        date: moment(event.date, 'MM/DD/YYYY'),
+        time: moment(event.time, 'h:mm A'),
+      });
+    }
+  }, [event, form, showEventEditForm]);
 
   const showModal = value => {
     setEvent(value);
@@ -66,6 +78,7 @@ function CalendarApp() {
         setIsModalVisible(false);
       })
       .catch(err => console.error(err));
+    form.resetFields();
   };
 
   const handleDelete = () => {
@@ -113,7 +126,6 @@ function CalendarApp() {
               status={item.type}
               text={item.content + ' ' + item.time}
               onClick={() => {
-                console.log(item);
                 showModal(item);
               }}
             />
@@ -179,6 +191,7 @@ function CalendarApp() {
             wrapperCol={{ span: 16 }}
             onFinish={onFinish}
             autoComplete="off"
+            form={form}
           >
             <Form.Item
               label="Event Title"
@@ -187,29 +200,21 @@ function CalendarApp() {
                 { required: true, message: 'Please input an event title!' },
               ]}
             >
-              <Input defaultValue={event.content} />
+              <Input />
             </Form.Item>
             <Form.Item
               label="Date"
               name="date"
               rules={[{ required: true, message: 'Please pick a date!' }]}
             >
-              <DatePicker
-                defaultValue={moment(event.date, 'MM/DD/YYYY')}
-                format={'MM/DD/YYYY'}
-              />
+              <DatePicker format={'MM/DD/YYYY'} />
             </Form.Item>
             <Form.Item
               label="Time"
               name="time"
               rules={[{ required: true, message: 'Please pick a time!' }]}
             >
-              <TimePicker
-                use12Hours
-                format="h:mm A"
-                minuteStep={15}
-                defaultValue={moment(event.time, 'h:mm A')}
-              />
+              <TimePicker use12Hours format="h:mm A" minuteStep={15} />
             </Form.Item>
             <Form.Item
               label="Details"
@@ -221,7 +226,7 @@ function CalendarApp() {
                 },
               ]}
             >
-              <Input defaultValue={event.details} />
+              <Input />
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">

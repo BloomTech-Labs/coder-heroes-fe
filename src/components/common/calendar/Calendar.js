@@ -188,7 +188,7 @@ function CalendarApp() {
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>
         <button onClick={handleEdit}>Edit Event</button>
-        {showEventEditForm && (
+        {showEditEventForm && (
           <Form
             name="basic"
             labelCol={{ span: 8 }}

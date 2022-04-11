@@ -3,6 +3,7 @@ import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+
 const NewsfeedPostModal = ({ setPostOptions }) => {
   const [formValues, setFormValues] = useState({
     link: '',

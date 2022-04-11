@@ -20,7 +20,7 @@ function CalendarApp() {
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
   const [eventsArr, setEventsArr] = useState([]);
-  const [showEventEditForm, setShowEditEventForm] = useState(false);
+  const [showEditEventForm, setShowEditEventForm] = useState(false);
 
   // eventFlag toggled to trigger useEffect when event is added or deleted
   const [eventFlag, setEventFlag] = useState(true);

@@ -35,7 +35,8 @@ export const getusers = () => async dispatch => {
 };
 export const getCourses = () => async dispatch => {
   try {
-    const res = await axiosWithAuth().get(`/profile_id`);
+    const res = await axiosWithAuth().get(`/courses`);
+    console.log('res', res);
     dispatch({
       type: GET_INSTRUCTOR_CLASSES,
       payload: res.data,

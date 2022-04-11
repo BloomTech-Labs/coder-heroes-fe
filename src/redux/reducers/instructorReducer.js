@@ -19,7 +19,7 @@ const instructorReducer = (state = initialState, action) => {
     case GET_INSTRUCTOR_CLASSES:
       return {
         ...state,
-        classes: payload,
+        courses: payload,
       };
     case GET_USER_ACTION:
       return state;

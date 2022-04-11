@@ -9,7 +9,7 @@ const CourseCard = props => {
   return (
     <>
       <Link to="/classroom">
-        {/* <Card className="course__card" hoverable>
+        <Card className="course__card" hoverable>
           <Meta
             className="course__info"
             avatar={
@@ -17,10 +17,9 @@ const CourseCard = props => {
                 <Avatar size={128} className="course__card__image" />
               </Badge>
             }
-            title={courses.subject}
+            title={props.course.course_name}
           />
-        </Card> */}
-        <h2>Here!!!</h2>
+        </Card>
       </Link>
     </>
   );

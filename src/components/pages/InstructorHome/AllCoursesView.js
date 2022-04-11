@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InstructorSidebar from './InstructorSidebar';
 import CourseCard from './CourseCard';
 import '../../../styles/InstructorStyles/index.less';
@@ -6,12 +6,12 @@ import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
 import { dummyData } from '../../../dummyData';
 import { getCourses } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 const AllCourses = props => {
-  console.log('props', props);
   return (
     <>
       <Layout>
@@ -19,10 +19,9 @@ const AllCourses = props => {
         <Content>
           <Title className="class__title">Courses</Title>
           <div className="class__subject">
-            {/* {dummyData.own_programs.map(courses => (
-              <CourseCard courses={courses} />
-            ))} */}
-            <p>hodere</p>
+            {props.courses.map(course => (
+              <CourseCard course={course} />
+            ))}
           </div>
         </Content>
       </Layout>
@@ -30,14 +29,10 @@ const AllCourses = props => {
   );
 };
 
-// const mapStateToProps = state => {
-//   return {
-//     courses: state.instructorReducer.courses,
-//   };
-// };
 const mapStateToProps = state => {
-  console.log('state', state);
-  return null;
+  return {
+    courses: state.instructorReducer.courses,
+  };
 };
 
 export default connect(mapStateToProps, { getCourses })(AllCourses);

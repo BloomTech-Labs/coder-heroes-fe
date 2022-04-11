@@ -3,6 +3,7 @@ import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
 
 const NewsfeedPostModal = ({ setPostOptions }) => {
   const [formValues, setFormValues] = useState({
@@ -43,8 +44,10 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
       [e.target.name]: e.target.value,
     });
   };
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const handleSubmit = () => {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .post(`/news`, formValues)
       .then(resp => {
         setPostOptions('newsFeed');

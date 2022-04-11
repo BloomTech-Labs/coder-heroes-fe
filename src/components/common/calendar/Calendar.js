@@ -63,7 +63,7 @@ function CalendarApp() {
     setShowEditEventForm(false);
   };
 
-  const handleEdit = () => {
+  const toggleShowEditEventForm = () => {
     setShowEditEventForm(true);
   };
 
@@ -187,7 +187,7 @@ function CalendarApp() {
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>
-        <button onClick={handleEdit}>Edit Event</button>
+        <button onClick={toggleShowEditEventForm}>Edit Event</button>
         {showEditEventForm && (
           <Form
             name="basic"

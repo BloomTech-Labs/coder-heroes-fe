@@ -47,7 +47,7 @@ function CalendarApp() {
         time: moment(event.time, 'h:mm A'),
       });
     }
-  }, [event, form, showEventEditForm]);
+  }, [event, form, showEditEventForm]);
 
   const showModal = value => {
     setEvent(value);

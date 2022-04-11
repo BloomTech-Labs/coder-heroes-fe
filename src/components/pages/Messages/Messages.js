@@ -2,14 +2,17 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 
 const { Content, Sider, Header } = Layout;
+
+const dummyConversations = ['Jim', 'Anna', 'Ray'];
 const Messages = props => {
   return (
     <Layout>
       <Sider>
         <Header>Conversations</Header>
         <Menu style={{ width: 256 }} mode="inline">
-          <Menu.Item>Jim</Menu.Item>
-          <Menu.Item>Anna</Menu.Item>
+          {dummyConversations.map(conversation => {
+            return <Menu.Item>{conversation}</Menu.Item>;
+          })}
         </Menu>
       </Sider>
       <Layout>

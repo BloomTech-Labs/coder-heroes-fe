@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
+import socketIOClient from 'socket.io-client';
 
 const { Content, Sider, Header } = Layout;
 

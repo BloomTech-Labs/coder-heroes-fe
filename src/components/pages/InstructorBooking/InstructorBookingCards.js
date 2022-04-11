@@ -27,7 +27,7 @@ const InstructorBookingCards = props => {
   const { idToken } = authState;
   useEffect(() => {
     dispatch(getCourses(idToken));
-  }, [dispatch]);
+  }, [dispatch, idToken]);
 
   useEffect(() => {
     setCurrentCourses(instructor.course_schedule);

@@ -4,7 +4,6 @@ import ClassCard from './ClassCard';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { dummyData } from '../../../dummyData';
 import { getCourses } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -16,7 +15,7 @@ const AllClasses = props => {
 
   useEffect(() => {
     getCourses(idToken);
-  }, []);
+  }, [idToken]);
 
   console.log('props', props);
 

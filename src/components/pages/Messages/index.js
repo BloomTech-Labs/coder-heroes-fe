@@ -1,20 +1,21 @@
 import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
+import Messages from './Messages';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
-const Messages = () => {
+const MessagesPage = () => {
   return (
     <>
       <Layout>
         <InstructorSidebar />
         <Content>
-          <h3>This is where all the Messages will show up</h3>
+          <Messages />
         </Content>
       </Layout>
     </>
   );
 };
 
-export default Messages;
+export default MessagesPage;

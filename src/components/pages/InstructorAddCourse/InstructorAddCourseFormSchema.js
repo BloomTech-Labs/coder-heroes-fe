@@ -57,7 +57,7 @@ const InstructorAddCourseFormSchema = yup.object().shape({
       [
         'Monday',
         'Tuesday',
-        'Wednasday',
+        'Wednesday',
         'Thursday',
         'Friday',
         'Saturday',
@@ -67,15 +67,15 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     ),
   course_type: yup
     .string()
-    .typeError('Must select a course')
+    .typeError('Must select a program')
     .oneOf(
       ['CoderYoga', 'CoderCamp', 'CoderSitters'],
       'Please select a Course'
     ),
   course_name: yup
     .string()
-    .min(5, 'Too Short! Has to be More than 5 words')
-    .max(50, 'Too Long! Has to be less than 50 words')
+    .min(5, 'Too Short! Has to be More than 5 characters')
+    .max(50, 'Too Long! Has to be less than 50 characters')
     .required('Course Name is Required')
     .typeError('Course Name is required'),
 });

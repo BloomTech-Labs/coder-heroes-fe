@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { addProgram, setError } from '../../../redux/actions/instructorActions';
+import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
-import { Select, Input, Form, Button } from 'antd';
+import { Select, Input, Form, Button, Layout, Typography, Modal } from 'antd';
 import schema from './InstructorAddCourseFormSchema';
+import { CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
+const { Content } = Layout;
+const { Title, Text } = Typography;
 
 //dummy data
 const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
@@ -74,6 +78,7 @@ const InstructorAddCourseForm = props => {
     });
   };
 
+  //will add handleSubmit after conditional rendering with success modal
   const handleSubmit = e => {
     e.preventDefault();
     setClassData({
@@ -89,156 +94,294 @@ const InstructorAddCourseForm = props => {
     schema.isValid(classData).then(valid => setDisabled(!valid));
   }, [classData]);
 
+  function success() {
+    Modal.success({
+      content: 'You have successfully created a course!',
+      title: 'Congratulations!',
+    });
+  }
+
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <h1
-          style={{
-            marginTop: 30,
-            fontSize: 20,
-          }}
-        >
-          You can submit a new course below!
-        </h1>
-      </div>
-      <section style={{ display: 'flex', justifyContent: 'center' }}>
-        <Form
-          wrapperCol={{ span: 50 }}
-          layout="horizontal"
-          className="iadc__form"
-          errors={formErrors}
-          onChange={handleChange}
-        >
-          <Form.Item>
-            <label for="courseType">Program Type: </label>
-            <Select placeholder="Select a course" name="course_type">
-              {programs.map(course => (
-                <Option value={course}>{course}</Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="classLink">Course Name: </label>
-            <Input
-              value={classData.course_name}
-              name="location"
-              placeholder="Course name goes here!"
-            />
-          </Form.Item>
-
-          <Form.Item>
-            <label for="day">Day: </label>
-            <Select name="day" placeholder="Select a day">
-              {days.map(day => (
-                <Option value={day}>{day}</Option>
-              ))}
-            </Select>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="classSize">Class Size: </label>
-            <Input
-              type="number"
-              value={classData.size}
-              name="size"
-              min="1"
-              placeholder="Determine class size"
-            />
-            <span className="iadc__errors">{formErrors.size}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="minAge">Minimum Student Age: </label>
-            <Input
-              type="number"
-              placeholder="Set minimum number of students"
-              value={classData.min_age}
-              name="min_age"
-              min="4"
-              max="100"
-            />
-            <span className="iadc__errors">{formErrors.min_age}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="maxAge">Maximum Student Age: </label>
-            <Input
-              type="number"
-              placeholder="Set maximum number of students"
-              value={classData.max_age}
-              name="max_age"
-              min="4"
-              max="100"
-            />
-            <span className="iadc__errors">{formErrors.max_age}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="startTime">Start Time: </label>
-            <Input type="time" value={classData.start_time} name="start_time" />
-            <span className="iadc__errors">{formErrors.start_time}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="endTime">End Time: </label>
-            <Input type="time" value={classData.end_time} name="end_time" />
-            <span className="iadc__errors">{formErrors.end_time}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="startDate">Start Date: </label>
-            <Input type="date" value={classData.start_date} name="start_date" />
-            <span className="iadc__errors">{formErrors.start_date}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="endDate">End Date: </label>
-            <Input type="date" value={classData.end_date} name="end_date" />
-            <span className="iadc__errors">{formErrors.end_date}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="sessions">Total Sessions: </label>
-            <Input
-              type="number"
-              placeholder="Set Total Sessions"
-              value={classData.sessions}
-              name="sessions"
-              min="1"
-            />
-            <span className="iadc__errors">{formErrors.sessions}</span>
-          </Form.Item>
-
-          <Form.Item>
-            <label for="classLink">Class Zoom Link: </label>
-            <Input
-              value={classData.location}
-              name="location"
-              placeholder="Zoom Link goes here!"
-            />
-          </Form.Item>
-          <span className="iadc__errors">{formErrors.location}</span>
-          {/* The above input could be changed in the future to have radio buttons that choose between in person and virtual options */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <Layout>
+      <Content className="iac__section__wrap">
+        <div>
+          <div className="iac__container">
+            {/* Title / Top Container */}
+            <div className="iac__top__container">
+              <Title className="iac__title">Add New Course</Title>
+              <Text className="iac__intro">
+                Enter the required information below to Create a new Course. You
+                can handleChange
+                <br />
+                it anytime you want.
+              </Text>
+            </div>
+          </div>
+          {/* Horizontal Line */}
+          <div
+            style={{
+              borderTop: '3px solid #FEAD2A ',
+              marginTop: 20,
+              marginBottom: 20,
+            }}
+          ></div>
+          {/* Form Div Container */}
+          <div className="iac__forms">
+            <div className="iac__first__form__section">
+              {/* Form Starts Here */}
+              <Form
+                wrapperCol={{ span: 50 }}
+                layout="horizontal"
+                className="iac__first__form"
+                errors={formErrors}
+                onChange={handleChange}
+              >
+                {/* Course Name */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item className="form__one">
+                    <label for="classLink">Course Name</label>
+                    <Input
+                      value={classData.course_name}
+                      name="location"
+                      placeholder="Enter Course Name here"
+                      className="course__name"
+                    />
+                  </Form.Item>
+                </div>
+                {/* Program Type */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="courseType">Program Type</label>
+                    <Select
+                      placeholder="Select a Program"
+                      name="course_type"
+                      className="program__type"
+                    >
+                      {programs.map(course => (
+                        <Option value={course}>{course}</Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
+              </Form>
+            </div>
+            {/* Second Form Section */}
+            <div className="iac__second__form__section">
+              <Form
+                wrapperCol={{ span: 50 }}
+                layout="horizontal"
+                className="iac__second__form"
+                errors={formErrors}
+                onChange={handleChange}
+              >
+                {/* Day */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="day">Day</label>
+                    <Select
+                      name="day"
+                      placeholder="Select a day"
+                      className="day"
+                    >
+                      {days.map(day => (
+                        <Option value={day}>{day}</Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                </div>
+                {/* Class Size */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="classSize">Class Size</label>
+                    <Input
+                      type="number"
+                      value={classData.size}
+                      name="size"
+                      min="1"
+                      placeholder="Select a Class Size"
+                      className="class__size"
+                    />
+                    <span className="iadc__errors">{formErrors.size}</span>
+                  </Form.Item>
+                </div>
+                {/* Total Sessions */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="sessions">Total Sessions</label>
+                    <Input
+                      type="number"
+                      placeholder="Set Total Sessions"
+                      value={classData.sessions}
+                      name="sessions"
+                      min="1"
+                      className="total__sessions"
+                    />
+                    <span className="iadc__errors">{formErrors.sessions}</span>
+                  </Form.Item>
+                </div>
+              </Form>
+            </div>
+            {/* Third Form Section */}
+            <div className="iac__third__form__section">
+              {/* Left Section */}
+              <div className="iac__left">
+                <Form
+                  wrapperCol={{ span: 50 }}
+                  layout="horizontal"
+                  className="iac__third__left__form"
+                  errors={formErrors}
+                  onChange={handleChange}
+                >
+                  {/* Start Date */}
+                  <div style={{ marginRight: '4rem' }}>
+                    <Form.Item>
+                      <label for="startDate">Start Date</label>
+                      <Input
+                        prefix={<CalendarOutlined />}
+                        type="date"
+                        value={classData.start_date}
+                        name="start_date"
+                        className="start__date"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.start_date}
+                      </span>
+                    </Form.Item>
+                  </div>
+                  {/* End Date */}
+                  <div style={{ marginRight: '4rem' }}>
+                    <Form.Item>
+                      <label for="endDate">End Date</label>
+                      <Input
+                        prefix={<CalendarOutlined />}
+                        type="date"
+                        value={classData.end_date}
+                        name="end_date"
+                        className="end__date"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.end_date}
+                      </span>
+                    </Form.Item>
+                  </div>
+                </Form>
+              </div>
+              {/* Right Section */}
+              <div className="iac__right">
+                <Form
+                  wrapperCol={{ span: 50 }}
+                  layout="horizontal"
+                  className="iac__third__right__form"
+                  errors={formErrors}
+                  onChange={handleChange}
+                >
+                  {/* Start Time */}
+                  <div style={{ marginRight: '4rem' }}>
+                    <Form.Item>
+                      <label for="startTime">Start Time</label>
+                      <Input
+                        prefix={<ClockCircleOutlined />}
+                        type="time"
+                        value={classData.start_time}
+                        name="start_time"
+                        className="start__time"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.start_time}
+                      </span>
+                    </Form.Item>
+                  </div>
+                  {/* End Time */}
+                  <div>
+                    <Form.Item>
+                      <label for="endTime">End Time</label>
+                      <Input
+                        prefix={<ClockCircleOutlined />}
+                        type="time"
+                        value={classData.end_time}
+                        name="end_time"
+                        className="end__time"
+                      />
+                      <span className="iadc__errors">
+                        {formErrors.end_time}
+                      </span>
+                    </Form.Item>
+                  </div>
+                </Form>
+              </div>
+            </div>
+            {/* Fourth Form Section */}
+            <div className="iac__fourth__form__section">
+              <Form
+                wrapperCol={{ span: 50 }}
+                layout="horizontal"
+                className="iac__fourth__form"
+                errors={formErrors}
+                onChange={handleChange}
+              >
+                {/* Minimum Age */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="minAge">Minimum Student Age</label>
+                    <Input
+                      type="number"
+                      placeholder="Set minimum number of students"
+                      value={classData.min_age}
+                      name="min_age"
+                      min="4"
+                      max="100"
+                      className="min__age"
+                    />
+                    <span className="iadc__errors">{formErrors.min_age}</span>
+                  </Form.Item>
+                </div>
+                {/* Maximum Age */}
+                <div style={{ marginRight: '5rem' }}>
+                  <Form.Item>
+                    <label for="maxAge">Maximum Student Age</label>
+                    <Input
+                      type="number"
+                      placeholder="Set maximum number of students"
+                      value={classData.max_age}
+                      name="max_age"
+                      min="4"
+                      max="100"
+                      className="max__age"
+                    />
+                    <span className="iadc__errors">{formErrors.max_age}</span>
+                  </Form.Item>
+                </div>
+                {/* Zoom Link */}
+                <div>
+                  <Form.Item>
+                    <label for="classLink">Class Zoom Link: </label>
+                    <Input
+                      value={classData.location}
+                      name="location"
+                      placeholder="Zoom Link goes here!"
+                      className="zoom__link"
+                    />
+                  </Form.Item>
+                </div>
+              </Form>
+            </div>
+          </div>
+          {/* Submit Button */}
+          <div className="iac__submit">
             <Button
-              style={{ marginBottom: '1rem' }}
               type="primary"
               htmlType="submit"
-              onClick={handleSubmit}
-              disabled={disabled}
+              className="submitButton"
+              onClick={success}
+              disabled={!disabled}
+              style={{ alignContent: 'center' }}
             >
-              Submit!
+              Create New Course
             </Button>
           </div>
-        </Form>
-      </section>
-    </div>
+        </div>
+      </Content>
+    </Layout>
   );
 };
 

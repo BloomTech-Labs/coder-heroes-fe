@@ -1,6 +1,6 @@
 // -------- CALENDAR COMPONENT, MODAL STYLED AT BOTTOM --------
 
-.ant-btn {
+.calendar-event-button.ant-btn {
   background-color: #fcdfaa !important;
   position: absolute !important;
   right: 5%;
@@ -143,4 +143,21 @@ div.ant-picker-calendar-date-value {
 
 .ant-picker-ok button {
   position: relative !important;
+}
+
+.calendar-event-modal .ant-modal-footer {
+  text-align: center;
+  :hover {
+    color: rgba(0, 0, 0, 0.65) !important;
+  }
+  .ant-btn-primary {
+    background-color: #fcdfaa !important;
+    color: rgba(0, 0, 0, 0.65) !important;
+    margin-left: 0 !important;
+  }
+  button {
+    border: 1px solid rgba(0, 0, 0, 0.65) !important;
+    width: auto !important;
+    margin: 0 4% !important;
+  }
 }

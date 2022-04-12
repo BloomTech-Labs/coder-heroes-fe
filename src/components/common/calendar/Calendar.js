@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import { Calendar, Modal, Badge, Button } from 'antd';

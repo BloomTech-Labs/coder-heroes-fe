@@ -23,6 +23,7 @@ const days = [
 
 const initialClassDataState = {
   course_type: '',
+  course_name: '',
   day: '', //needs to be added to backend
   size: '',
   min_age: '', //needs to be added to backend
@@ -121,15 +122,17 @@ const InstructorAddCourseForm = props => {
                 <Option value={course}>{course}</Option>
               ))}
             </Select>
+            <span className="iadc__errors">{formErrors.course_type}</span>
           </Form.Item>
 
           <Form.Item>
             <label for="classLink">Course Name: </label>
             <Input
               value={classData.course_name}
-              name="location"
+              name="course_name"
               placeholder="Course name goes here!"
             />
+            <span className="iadc__errors">{formErrors.course_name}</span>
           </Form.Item>
 
           <Form.Item>
@@ -139,6 +142,7 @@ const InstructorAddCourseForm = props => {
                 <Option value={day}>{day}</Option>
               ))}
             </Select>
+            <span className="iadc__errors">{formErrors.day}</span>
           </Form.Item>
 
           <Form.Item>
@@ -228,7 +232,8 @@ const InstructorAddCourseForm = props => {
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button
               style={{ marginBottom: '1rem' }}
-              type="primary"
+              action="submit"
+              type="submit"
               htmlType="submit"
               onClick={handleSubmit}
               disabled={disabled}

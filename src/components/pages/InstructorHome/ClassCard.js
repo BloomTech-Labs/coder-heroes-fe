@@ -14,7 +14,7 @@ const ClassCard = ({ courses }) => {
               <Avatar size={128} className="course__card__image" />
             </Badge>
           }
-          title={courses.subject}
+          title={courses.class_name}
         />
       </Card>
     </>

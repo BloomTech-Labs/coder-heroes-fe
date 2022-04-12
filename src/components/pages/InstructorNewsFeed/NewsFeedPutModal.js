@@ -3,6 +3,7 @@ import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
 
 export default function NewsFeedPutModal(props) {
   const { setPostOptions, postID } = props;
@@ -12,8 +13,10 @@ export default function NewsFeedPutModal(props) {
     title: '',
   });
 
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   useEffect(() => {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .get(`/news/${postID}`)
       .then(resp => {
         setFormValues({
@@ -36,7 +39,7 @@ export default function NewsFeedPutModal(props) {
   };
 
   const handleEdit = () => {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .put(`/news/${postID}`, formValues)
       .then(resp => {
         setPostOptions('newsFeed');
@@ -47,7 +50,7 @@ export default function NewsFeedPutModal(props) {
   };
 
   const handleDelete = () => {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .delete(`/news/${postID}`)
       .then(resp => {
         setPostOptions('newsFeed');

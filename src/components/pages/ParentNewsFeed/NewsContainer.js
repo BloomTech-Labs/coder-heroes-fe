@@ -3,12 +3,15 @@ import '../../../styles/index.less';
 import IndividualNewsParent from './IndividualNewsParent';
 import { connect } from 'react-redux';
 import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
+import { useOktaAuth } from '@okta/okta-react';
 
 function NewsContainer(props) {
   const { newsfeed, dispatch } = props;
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   useEffect(() => {
-    dispatch(getNewsFeedsParent());
-  }, [dispatch]);
+    dispatch(getNewsFeedsParent(idToken));
+  }, [dispatch, idToken]);
 
   return (
     <div>

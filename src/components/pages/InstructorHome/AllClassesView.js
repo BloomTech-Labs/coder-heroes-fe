@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import ClassCard from './ClassCard';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { dummyData } from '../../../dummyData';
+import { getCourses } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { Content } = Layout;
 const { Title } = Typography;
 const AllClasses = props => {
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+
+  useEffect(() => {
+    getCourses(idToken);
+  }, [idToken]);
+
   console.log('props', props);
+
   return (
     <>
       <Layout>
@@ -17,7 +26,7 @@ const AllClasses = props => {
         <Content>
           <Title className="class__title">Classes</Title>
           <div className="class__subject">
-            {dummyData.own_programs.map(courses => (
+            {props.classes.map(courses => (
               <ClassCard courses={courses} />
             ))}
           </div>
@@ -33,4 +42,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(AllClasses);
+export default connect(mapStateToProps, { getCourses })(AllClasses);

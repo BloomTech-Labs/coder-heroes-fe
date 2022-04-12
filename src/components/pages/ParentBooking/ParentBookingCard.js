@@ -4,6 +4,7 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import { Button } from '../../common';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
 
 const ParentBookingCard = props => {
   const {
@@ -20,8 +21,10 @@ const ParentBookingCard = props => {
     course_id,
   } = props.booking;
 
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const handleClick = e => {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .post(
         '/children/1/enrollments', // TODO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
         { child_id: 1, class_id: course_id, completed: true }

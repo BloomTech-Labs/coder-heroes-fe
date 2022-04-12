@@ -14,14 +14,14 @@ import { useOktaAuth } from '@okta/okta-react';
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+
   useEffect(() => {
-    if (authState.isAuthenticated) {
-      authService.getUser().then(parsedJWT => {
-        const profile_id = parsedJWT.sub;
-        dispatch(getCurrentUser(profile_id));
-      });
+    if (idToken) {
+      dispatch(getCurrentUser(idToken));
     }
-  }, [dispatch]);
+  }, [dispatch, idToken]);
 
   return (
     <div className="landing-container">

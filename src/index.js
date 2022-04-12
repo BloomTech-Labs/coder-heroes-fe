@@ -35,13 +35,17 @@ import ParentBooking from './components/pages/ParentBooking';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
-import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
+import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
+import AllClasses from './components/pages/InstructorHome/AllClassesView';
+import Messages from './components/pages/Messages';
+import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
@@ -98,6 +102,7 @@ function App() {
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />
+          <Route path="/classroom" component={Classroom} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/dev"
@@ -107,15 +112,18 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute path="/messages" component={Messages} />
+          <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute
             path="/instructor-news-feed"
             component={InstructorNewsFeed}
           />
-          <SecureRoute path="/edit-news" componenet={NewsfeedPutModal} />
+          <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
+          <SecureRoute path="/instructor-all-classes" component={AllClasses} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

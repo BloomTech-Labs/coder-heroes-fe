@@ -24,7 +24,7 @@ function Cart(props) {
 
   useEffect(() => {
     setProduct({ ...product, price: total });
-  }, [total]);
+  }, [total]); // eslint-disable-line
 
   const handleModal = () => {
     setShowModal(true);

@@ -25,7 +25,7 @@ import { NavLink } from 'react-router-dom';
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
-const Navbar = () => {
+export default function NavBar() {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -238,6 +238,4 @@ const Navbar = () => {
       </nav>
     </Header>
   );
-};
-
-export default Navbar;
+}

@@ -48,6 +48,7 @@ import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
+import LandingPrograms from './components/pages/LandingPrograms';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -100,6 +101,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
+          <Route path="/browse-programs" component={LandingPrograms} />
           <Route path="/classroom" component={Classroom} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute

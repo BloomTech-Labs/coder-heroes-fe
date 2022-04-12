@@ -12,9 +12,8 @@ import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
 
 function RenderLandingPage(props) {
-  const { authState, authService } = useOktaAuth();
-  const dispatch = useDispatch();
   const { authState } = useOktaAuth();
+  const dispatch = useDispatch();
   const { idToken } = authState;
 
   useEffect(() => {

@@ -8,6 +8,7 @@ import {
   DollarOutlined,
 } from '@ant-design/icons';
 import { getStats } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 
 const initialValues = [
   {
@@ -33,6 +34,8 @@ const initialValues = [
 ];
 
 function InstructorStats() {
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {

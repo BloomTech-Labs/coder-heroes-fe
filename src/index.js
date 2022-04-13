@@ -49,6 +49,7 @@ import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
+import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -124,6 +125,10 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+          <SecureRoute
+            path="/instructor-dashboard"
+            component={InstructorDashboard}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

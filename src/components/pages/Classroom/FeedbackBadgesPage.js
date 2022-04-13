@@ -11,6 +11,7 @@ import helped from '../../../styles/ClassroomStyles/badges/helped.png';
 import helpful from '../../../styles/ClassroomStyles/badges/helpful.png';
 import live from '../../../styles/ClassroomStyles/badges/live.png';
 import solved from '../../../styles/ClassroomStyles/badges/solved.png';
+import { Button } from 'antd';
 
 const badges = [
   {
@@ -67,6 +68,7 @@ const FeedbackBadgesPage = () => {
               <FeedbackBadges badge={badge} />
             ))}
           </div>
+          <Button className="badge_feedback__button">GIVE FEEDBACK</Button>
         </Content>
       </Layout>
     </>

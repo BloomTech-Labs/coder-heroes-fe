@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import '../../../styles/InstructorStyles/statsStyle.less';
-import { Card } from 'antd';
+import { Card, Typography } from 'antd';
 import {
   UserOutlined,
   BarChartOutlined,
@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { getStats } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
+import { dummyData } from '../../../dummyData';
 
 const initialValues = [
   {
@@ -42,8 +43,13 @@ function InstructorStats() {
     // setStats(getStats()); // ENABLE WHEN READY TO CONNECT STATS TO STATE
   }, []);
 
+  const { Title } = Typography;
+
   return (
     <>
+      <Title className="instructor__name">
+        {dummyData.instructor_data.instructor_name}
+      </Title>
       <div class="stats-wrapper">
         {stats.map(stat => {
           return (

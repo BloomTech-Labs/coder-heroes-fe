@@ -9,8 +9,8 @@ const InstructorDashboard = () => {
   return (
     <div>
       <Layout>
+        <InstructorSidebar />
         <Content>
-          <InstructorSidebar />
           <InstructorStats />
           {/* Other Dashboard Components */}
         </Content>

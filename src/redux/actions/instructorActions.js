@@ -33,9 +33,9 @@ export const getusers = () => async dispatch => {
     });
   }
 };
-export const getCourses = () => async dispatch => {
+export const getCourses = idToken => async dispatch => {
   try {
-    const res = await axiosWithAuth().get(`/class-instances`);
+    const res = await axiosWithAuth(idToken).get(`/courses`);
     dispatch({
       type: GET_INSTRUCTOR_CLASSES,
       payload: res.data,
@@ -99,9 +99,9 @@ export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = () => dispatch => {
+export const getNewsFeeds = idToken => dispatch => {
   try {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .get('/news')
       .then(resp => {
         dispatch({

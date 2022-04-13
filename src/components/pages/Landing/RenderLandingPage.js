@@ -9,18 +9,18 @@ import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
+import { useOktaAuth } from '@okta/okta-react';
 
 function RenderLandingPage(props) {
+  const { authState } = useOktaAuth();
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (localStorage.getItem('okta-token-storage')) {
-      const { sub } = JSON.parse(
-        localStorage.getItem('okta-token-storage')
-      ).idToken.claims;
+  const { idToken } = authState;
 
-      dispatch(getCurrentUser(sub));
+  useEffect(() => {
+    if (idToken) {
+      dispatch(getCurrentUser(idToken));
     }
-  }, [dispatch]);
+  }, [dispatch, idToken]);
 
   return (
     <div className="landing-container">

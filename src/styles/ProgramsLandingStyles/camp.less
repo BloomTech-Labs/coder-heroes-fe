@@ -1,0 +1,159 @@
+// <---------- CoderCamp ---------->
+
+.pl__na__second__container {
+  background-color: @body__bg--green;
+  display: flex;
+  justify-content: space-between;
+
+  .pl__na__second__left {
+    display: flex;
+    justify-content: flex-start;
+    width: 45%;
+
+    .pl__na__second__left__container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .pl__na__second__left__image__container {
+      width: 55rem;
+      height: 50rem;
+
+      .pl__na__second__left__pink__border {
+        transform: translate(-0px, -10%);
+      }
+      .pl__na__second__left__kid__coder {
+        transform: translate(144px, -150%);
+        width: 38rem;
+      }
+    }
+  }
+
+  .pl__na__second__right {
+    display: flex;
+    width: 40rem;
+    margin-top: 4rem;
+
+    .pl__na__second__right__container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .pl__na__second__heading {
+        font-size: 3.7rem;
+        font-weight: 500;
+        color: #263d47;
+        letter-spacing: 0.05rem;
+        text-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+      }
+
+      .pl__na__second__text__container {
+        font-size: 1.7rem;
+        font-weight: 350;
+        line-height: @text__line-height--h3;
+
+        .pl__na__second__text {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .pl__na__second__sub__heading {
+        font-family: @text__font-family--header;
+        font-size: @text__font-size--h1;
+        font-weight: 400;
+        color: #263d47;
+      }
+
+      .pl__na__second__skills_list__container {
+        display: flex;
+        justify-content: center;
+        margin-left: 2rem;
+      }
+
+      .pl__na__second__skills_list {
+        font-family: @text__font-family;
+        font-size: @text__font-size--h4;
+        font-weight: 400;
+        line-height: 1;
+        width: 30rem;
+      }
+
+      .pl__na__top__button__container {
+        display: flex;
+        flex-direction: row;
+        margin: 3rem 0;
+        align-self: flex-end;
+
+        .pl__na__top__button {
+          font-weight: 600;
+          font-size: 1rem;
+          color: @text__color--white;
+          background-color: @btn__bg--red;
+          width: 15rem;
+          height: 3.5rem;
+          border: none;
+          border-radius: @btn__border-radius;
+          margin-left: 5px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          transition: 0.15s ease-in;
+          cursor: pointer;
+        }
+
+        .pl__na__top__button:hover {
+          background-color: #df294a;
+        }
+      }
+    }
+  }
+}
+
+// Testimonial styling -- CoderCamp
+.pl__na__testimonials__container {
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 60vh;
+  background-color: @body__bg--green;
+  display: flex;
+}
+
+// Testimonial Image
+.pl__na__third__father__son {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  align-items: center;
+  border: 4px solid #000;
+}
+
+.pl__testimony__section__one {
+  background-color: @body__bg--concrete;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+// Testimony Text Container
+.pl__na__testimony__text__container {
+  font-size: @text__font-size--h5;
+  font-family: @text__font-family;
+  font-weight: 350;
+  font-style: italic;
+  color: #000;
+}
+
+// Section 2
+.pl__testimony__section__two {
+  background-color: @body__bg--concrete;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  width: 20rem;
+}
+
+// Testimony Name Container
+.pl__na__testimony__name__container {
+  font-size: @text__line-height--h5;
+  font-weight: 700;
+  color: #000000;
+  font-family: @text__font-family--header;
+}

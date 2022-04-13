@@ -1,6 +1,5 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-//import axiosWithAuth from '../../../utils/axiosWithAuth';
 import axios from 'axios';
 
 const StripeCheckoutButton = ({ price }) => {

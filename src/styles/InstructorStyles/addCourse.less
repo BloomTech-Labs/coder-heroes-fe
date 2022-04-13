@@ -1,0 +1,154 @@
+// <------ Instructor Add Course ------>
+
+// Content -- Section Wrap
+.iac__section__wrap {
+    font-family:  @text__font-family;
+    background-color: #fbfbfb;
+    padding: 2rem 4rem 2rem 4rem;
+    
+    // IAC Container
+    .iac__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // Title / Top Container
+    .iac__title {
+        font-size: @text__font-size--h1;
+        font-family: @text__font-family--header;
+        font-weight: 300;
+    }
+
+    // Intro
+    .iac__intro {
+        font-size: @text__font-size--h5;
+        line-height: @text__line-height--h5;
+    }
+
+    // <---- Form Divs ---->
+    
+    // First Form Section
+    .iac__first__form__section {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        
+
+        .iac__first__form {
+            display: flex;
+            justify-content: space-between;
+
+            .course__name {
+                min-width: 25vw;
+            }
+
+            .program__type {
+                min-width: 15vw;
+            }
+        }
+    }
+
+    // Second Form Section
+    .iac__second__form__section {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+
+        .iac__second__form {
+            display: flex;
+            min-width: 10vw;
+            justify-content: space-between;
+            margin-right: 4rem;
+
+            .day {
+                min-width: 15vw;
+            }
+
+            .class__size {
+                min-width: 15vw;
+            }
+
+            .total__sessions {
+                min-width: 15vw;
+            }
+        }
+    }
+
+    // Third Form Section
+    .iac__third__form__section {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+
+        .iac__third__left__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+            
+            .start__date {
+                min-width: 15vw;
+            }
+
+            .end__date {
+                min-width: 15vw;
+            }
+        }
+
+        .iac__third__right__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+
+            .start__time {
+                min-width: 15vw;
+            }
+
+            .end__time {
+                min-width: 15vw;
+            }
+        }
+    }
+
+    // Fourth Form Section
+    .iac__fourth__form__section {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+
+        .iac__fourth__form {
+            display: flex;
+            min-width: 15vw;
+            justify-content: space-between;
+
+            .min__age {
+                min-width: 15vw;
+            }
+
+            .max__age {
+                min-width: 15vw;
+            }
+
+            .zoom__link {
+                min-width: 15vw;
+            }
+        }
+    }
+
+    // Submit Button
+    .iac__submit {
+        display: flex;
+        align-self: center;
+
+        .submitButton {
+            width: 15vw;
+            height: 2.5rem;
+            border-radius: 10px;
+            color: @text__color--black;
+            font-size: @text__font-size--h5;
+            font-family: @text__font-family; 
+            font-weight: 700;
+            background-color: #FCDFAA;
+            color: #F27712;
+        }
+    }
+} 

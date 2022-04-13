@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import socketIOClient from 'socket.io-client';
 
@@ -6,6 +6,12 @@ const { Content, Sider, Header } = Layout;
 
 const dummyConversations = ['Jim', 'Anna', 'Ray'];
 const Messages = props => {
+  useEffect(() => {
+    const socket = socketIOClient('localhost:4001');
+    socket.on('connection', () => {
+      console.log('CONNECTED');
+    });
+  }, []);
   return (
     <Layout>
       <Sider>

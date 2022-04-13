@@ -45,6 +45,7 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/NavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
+import FeedbackBadgesPage from './components/pages/Classroom/FeedbackBadgesPage';
 import Classroom from './components/pages/Classroom';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
@@ -103,6 +104,7 @@ function App() {
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />
           <Route path="/classroom" component={Classroom} />
+          <Route path="/feedback-badges" component={FeedbackBadgesPage} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/dev"

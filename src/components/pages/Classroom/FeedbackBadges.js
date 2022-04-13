@@ -1,24 +1,22 @@
 import React from 'react';
-import { Card, Avatar, Badge } from 'antd';
+import { Card, Avatar } from 'antd';
 
 const { Meta } = Card;
 
-const FeedbackBadges = ({ badges }) => {
+const FeedbackBadges = ({ badge }) => {
   return (
     <div>
-      <Card className="student__card" hoverable>
+      <Card className="badge__card" hoverable>
         <Meta
-          className="student__info"
+          className="badge__info"
           avatar={
-            <Badge count={21} className="student__card__badge">
-              <Avatar
-                src={badges.image}
-                size={128}
-                className="badges__card__image"
-              />
-            </Badge>
+            <Avatar
+              src={badge.image}
+              size={128}
+              className="badges__card__image"
+            />
           }
-          title={badges.name}
+          title={badge.name}
         />
       </Card>
     </div>

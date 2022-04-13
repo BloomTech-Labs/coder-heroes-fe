@@ -8,8 +8,8 @@ const dummyConversations = ['Jim', 'Anna', 'Ray'];
 const Messages = props => {
   useEffect(() => {
     const socket = socketIOClient('localhost:4001');
-    socket.on('connection', () => {
-      console.log('CONNECTED');
+    socket.on('messagesFeed', data => {
+      console.log(data);
     });
   }, []);
   return (

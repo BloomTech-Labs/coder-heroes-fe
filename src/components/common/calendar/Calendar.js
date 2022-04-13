@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import {
@@ -26,9 +27,16 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
+  const { authState, oktaAuth } = useOktaAuth();
+  const { idToken } = authState;
+
+  // const token = oktaAuth.getIdToken();
+
   useEffect(() => {
     if (eventFlag) {
-      axiosWithAuth()
+      console.log(authState);
+      console.log(oktaAuth);
+      axiosWithAuth(idToken)
         .get('/calendar-events/user')
         .then(res => {
           setEventsArr(res.data.events);
@@ -36,7 +44,7 @@ function CalendarApp() {
         .catch(err => console.error(err));
     }
     setEventFlag(false);
-  }, [eventFlag]);
+  }, [eventFlag, idToken]);
 
   useEffect(() => {
     if (event) {

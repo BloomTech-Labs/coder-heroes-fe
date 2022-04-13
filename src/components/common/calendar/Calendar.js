@@ -1,66 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
-import { Calendar, Modal, Badge, Button } from 'antd';
+import {
+  Calendar,
+  Modal,
+  Badge,
+  Button,
+  Form,
+  Input,
+  DatePicker,
+  TimePicker,
+} from 'antd';
+import moment from 'moment';
 import CalendarModal from './CalendarModal';
-
-const initialValues = [
-  {
-    date: '15/03/2022',
-    type: 'warning',
-    content: 'This is warning event.',
-    details: 'Test information 1',
-    time: '12:00 PM',
-  },
-  {
-    date: '15/03/2022',
-    type: 'success',
-    content: 'This is usual event.',
-    details: 'Test information 2',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 1.',
-    details: 'Test information 3',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 2.',
-    details: 'Test information 4',
-    time: '12:00 PM',
-  },
-  {
-    date: '16/03/2022',
-    type: 'error',
-    content: 'This is error event 3.',
-    details: 'Test information 5',
-    time: '12:00 PM',
-  },
-  {
-    date: '12/04/2022',
-    type: 'success',
-    content: 'This is usual event1.',
-    details: 'Test information 6',
-    time: '12:00 PM',
-  },
-  {
-    date: '12/04/2022',
-    type: 'success',
-    content: 'This is usual event2.',
-    details: 'Test information 7',
-    time: '12:00 PM',
-  },
-];
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 function CalendarApp() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isScheduleModalVisible, setIsScheduleModalVisible] = useState(false);
   const [event, setEvent] = useState(null);
-  const [eventsArr, setEventsArr] = useState(initialValues);
+  const [eventsArr, setEventsArr] = useState([]);
+  const [showEditEventForm, setShowEditEventForm] = useState(false);
+
+  // eventFlag toggled to trigger useEffect when event is added or deleted
+  const [eventFlag, setEventFlag] = useState(true);
+  const [form] = Form.useForm();
+
+  const { authState, oktaAuth } = useOktaAuth();
+  const { idToken } = authState;
+
+  // const token = oktaAuth.getIdToken();
+
+  useEffect(() => {
+    if (eventFlag) {
+      console.log(authState);
+      console.log(oktaAuth);
+      axiosWithAuth(idToken)
+        .get('/calendar-events/user')
+        .then(res => {
+          setEventsArr(res.data.events);
+        })
+        .catch(err => console.error(err));
+    }
+    setEventFlag(false);
+  }, [eventFlag, idToken]);
+
+  useEffect(() => {
+    if (event) {
+      form.setFieldsValue({
+        content: event.content,
+        details: event.details,
+        date: moment(event.date, 'MM/DD/YYYY'),
+        time: moment(event.time, 'h:mm A'),
+      });
+    }
+  }, [event, form, showEditEventForm]);
 
   const showModal = value => {
     setEvent(value);
@@ -73,6 +68,39 @@ function CalendarApp() {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setShowEditEventForm(false);
+  };
+
+  const toggleShowEditEventForm = () => {
+    setShowEditEventForm(true);
+  };
+
+  // edit event form submission handler
+  const onFinish = values => {
+    axiosWithAuth()
+      .put(`/calendar-events/${event.event_id}`, {
+        ...values,
+        type: 'success',
+        date: values.date.format('MM/DD/YYYY'),
+        time: values.time.format('h:mm A'),
+      })
+      .then(() => {
+        setEventFlag(true);
+        setIsModalVisible(false);
+      })
+      .catch(err => console.error(err));
+    form.resetFields();
+    setShowEditEventForm(false);
+  };
+
+  const handleDelete = () => {
+    axiosWithAuth()
+      .delete(`/calendar-events/${event.event_id}`)
+      .then(() => {
+        setEventFlag(true);
+        setIsModalVisible(false);
+      })
+      .catch(err => console.error(err));
   };
 
   const showScheduleModal = () => {
@@ -81,8 +109,7 @@ function CalendarApp() {
 
   function getListData(value, events) {
     let listData = [];
-    let dateValue = value.format('DD/MM/YYYY'); // you can parse value in every format you want
-
+    let dateValue = value.format('MM/DD/YYYY'); // you can parse value in every format you want
     events.forEach(e => {
       if (e.date === dateValue) {
         listData.push(e);
@@ -110,7 +137,9 @@ function CalendarApp() {
             <Badge
               status={item.type}
               text={item.content + ' ' + item.time}
-              onClick={() => showModal(item)}
+              onClick={() => {
+                showModal(item);
+              }}
             />
             <br />
           </p>
@@ -143,7 +172,12 @@ function CalendarApp() {
         position: 'relative',
       }}
     >
-      <Button onClick={() => showScheduleModal()}>Add Event</Button>
+      <Button
+        className="calendar-event-button"
+        onClick={() => showScheduleModal()}
+      >
+        Add Event
+      </Button>
       <Calendar
         fullscreen={true}
         dateCellRender={dateCellRender}
@@ -154,6 +188,7 @@ function CalendarApp() {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        className="calendar-event-modal"
       >
         <p>
           {event ? `Event Name: ${event.content}` : 'Something went wrong.'}
@@ -166,6 +201,61 @@ function CalendarApp() {
         <p>
           {event ? `Event Details: ${event.details}` : 'Something went wrong.'}
         </p>
+        <button onClick={toggleShowEditEventForm}>Edit Event</button>
+        {showEditEventForm && (
+          <Form
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            onFinish={onFinish}
+            autoComplete="off"
+            form={form}
+          >
+            <Form.Item
+              label="Event Title"
+              name="content"
+              rules={[
+                { required: true, message: 'Please input an event title!' },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              label="Date"
+              name="date"
+              rules={[{ required: true, message: 'Please pick a date!' }]}
+            >
+              <DatePicker format={'MM/DD/YYYY'} />
+            </Form.Item>
+            <Form.Item
+              label="Time"
+              name="time"
+              rules={[{ required: true, message: 'Please pick a time!' }]}
+            >
+              <TimePicker use12Hours format="h:mm A" minuteStep={15} />
+            </Form.Item>
+            <Form.Item
+              label="Details"
+              name="details"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input this event's details!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        )}
+        <Button onClick={handleDelete} className="delete-event-btn">
+          Delete Event
+        </Button>
       </Modal>
       <CalendarModal
         isModalVisible={isScheduleModalVisible}
@@ -174,6 +264,7 @@ function CalendarApp() {
         setEventsArr={setEventsArr}
         handleOk={handleOk}
         handleCancel={handleCancel}
+        setEventFlag={setEventFlag}
       />
     </div>
   );

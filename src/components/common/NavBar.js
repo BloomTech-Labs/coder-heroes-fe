@@ -61,7 +61,7 @@ export default function NavBar() {
           </NavLink>
         </div>
         <div className="navbar__links">
-          <NavLink className="navbar__navLink" to="/">
+          <NavLink className="navbar__navLink" to="/browse-programs">
             PROGRAMS
           </NavLink>
           <NavLink className="navbar__navLink" to="/browse-instructors">

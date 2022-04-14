@@ -43,6 +43,7 @@ import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
+// eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';

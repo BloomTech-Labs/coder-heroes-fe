@@ -35,7 +35,8 @@ export const getusers = () => async dispatch => {
 };
 export const getCourses = idToken => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`/courses`);
+    const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
+    console.log('res', res);
     dispatch({
       type: GET_INSTRUCTOR_CLASSES,
       payload: res.data,

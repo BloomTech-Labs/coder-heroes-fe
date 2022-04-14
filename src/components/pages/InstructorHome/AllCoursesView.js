@@ -4,7 +4,6 @@ import CourseCard from './CourseCard';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { dummyData } from '../../../dummyData';
 import { getCourses } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -12,6 +11,13 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 const AllCourses = props => {
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+
+  useEffect(() => {
+    props.getCourses(idToken);
+  }, []);
+
   return (
     <>
       <Layout>
@@ -30,6 +36,7 @@ const AllCourses = props => {
 };
 
 const mapStateToProps = state => {
+  console.log('state', state);
   return {
     courses: state.instructorReducer.courses,
   };

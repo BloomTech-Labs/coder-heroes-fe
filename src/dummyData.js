@@ -94,22 +94,5 @@ export const dummyData = {
     },
   ],
   newsfeed: [],
-  courses: [
-    {
-      course_id: 17,
-      course_name: 'course 1',
-      course_description: 'testDescriptionUpdated',
-      days_of_week: ['Monday', 'Fools Day'],
-      max_size: 12,
-      min_age: 5,
-      max_age: 15,
-      instructor_id: 1,
-      program_id: 1,
-      start_time: '08:00:00',
-      end_time: '10:00:00',
-      start_date: '2022-04-04T07:00:00.000Z',
-      end_date: '2022-04-28T07:00:00.000Z',
-      location: 'over there',
-    },
-  ],
+  courses: [],
 };

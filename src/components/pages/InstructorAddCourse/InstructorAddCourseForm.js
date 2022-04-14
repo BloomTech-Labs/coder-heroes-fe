@@ -79,6 +79,7 @@ const InstructorAddCourseForm = props => {
   };
 
   //will add handleSubmit after conditional rendering with success modal
+  // eslint-disable-next-line
   const handleSubmit = e => {
     e.preventDefault();
     setClassData({

@@ -72,7 +72,12 @@ const Classroom = () => {
               <p>students lack any feedback badges</p>
             </Row>
           </Card>
-          <Button className="classroom_feedback__button">GIVE FEEDBACK</Button>
+          <Button
+            className="classroom_feedback__button"
+            href="/feedback-badges"
+          >
+            GIVE FEEDBACK
+          </Button>
         </Row>
       </Content>
     </Layout>

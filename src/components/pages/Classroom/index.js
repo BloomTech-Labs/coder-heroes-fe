@@ -1,7 +1,7 @@
 import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/index.less';
-import { Card, Button, Layout, Typography, Row, Badge } from 'antd';
+import { Card, Button, Layout, Row, Badge } from 'antd';
 import StudentCard from './StudentCard';
 const { Content } = Layout;
 

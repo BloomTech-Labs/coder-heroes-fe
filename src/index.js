@@ -75,6 +75,7 @@ function App() {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
+    console.log('hello from the draft pull request!');
   };
 
   return (

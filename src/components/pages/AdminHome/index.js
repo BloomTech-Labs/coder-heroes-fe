@@ -16,6 +16,7 @@ const AdminHome = () => {
           <AdminSidebar />
           <div className="calendar" data-testid="calendar">
             {/*Calendar still set to Instructor Props*/}
+            <h1>Admin home</h1>
             <AdminCalendar />
           </div>
         </Content>

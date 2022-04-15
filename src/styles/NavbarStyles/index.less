@@ -11,11 +11,26 @@
   font-family: @text__font-family;
   overflow: hidden;
   transition: 0.1s all ease-out;
+}
+
+.InstNavbar__mainNav {
+  display: flex;
+  background-color: #21C5B5;
+  min-height: 98px;
+  padding: 0 0.6rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: @text__font-family;
+  overflow: hidden;
+  transition: 0.1s all ease-out;
+}
 
   .navbar__logo {
     display: flex;
     align-items: center;
     width: 22%;
+    margin-top: 1.7rem;
 
     .navbar__navTitle {
       margin: 0 0 0 1.5rem;
@@ -117,6 +132,7 @@
       cursor: pointer;
       transition: 0.1s all ease-in;
       margin: 0 0.2rem;
+      width: auto;
     }
     .navbar__btn:hover {
       color: #edeed7;
@@ -180,7 +196,6 @@
       display: block;
     }
   }
-}
 @media screen and (max-width: 900px) {
   .navbar__mainNav {
     padding: 0 1.4rem;

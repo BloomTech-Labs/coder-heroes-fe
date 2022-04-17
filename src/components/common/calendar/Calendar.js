@@ -33,7 +33,7 @@ function CalendarApp() {
   // const token = oktaAuth.getIdToken();
 
   useEffect(() => {
-    if (eventFlag) {
+    if (eventFlag && idToken) {
       console.log(authState);
       console.log(oktaAuth);
       axiosWithAuth(idToken)
@@ -42,9 +42,9 @@ function CalendarApp() {
           setEventsArr(res.data.events);
         })
         .catch(err => console.error(err));
+      setEventFlag(false);
     }
-    setEventFlag(false);
-  }, [eventFlag, idToken]);
+  }, [authState, eventFlag, idToken, oktaAuth]);
 
   useEffect(() => {
     if (event) {

@@ -49,12 +49,13 @@ export default function AdminNavBar() {
         </div>
         <div className="navbar__btns">
           <NavLink to="/">
-            <button>LOGOUT</button>
+            <button className="navbar__btn navbar__contact">LOGOUT</button>
           </NavLink>
-        </div>
-        <div className="navbar__profile">
-          <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
-          <p>Name Here</p>
+          <NavLink to="/my-dashboard">
+            <div className="navbar__profile">
+              <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
+            </div>
+          </NavLink>
         </div>
       </nav>
     </Header>

@@ -1,0 +1,86 @@
+// <---------- ExplorePrograms ---------->
+
+.pl__na__wrapper {
+  min-height: 100vh;
+  font-family: @text__font-family;
+  box-sizing: border-box !important;
+}
+
+.pl__na__heading {
+  font-family: @text__font-family--header;
+}
+
+.pl__na__top__container {
+  background-color: @body__bg;
+  display: flex;
+  justify-content: flex-start;
+
+  .pl__na__top__left {
+    margin: 7rem 0 7rem 10rem;
+    width: 55%;
+
+    & > *:nth-child(2) {
+      width: 24rem;
+      border-bottom: 5px solid #20c5b5;
+    }
+
+    .pl__na__top__heading {
+      font-size: 5rem;
+      font-weight: 500;
+      color: #263d47;
+      letter-spacing: 0.2rem;
+      text-shadow: 0px 7px 29px 0px rgba(107, 107, 218, 0.2);
+    }
+
+    .pl__na__top__sub__heading {
+      font-size: @text__font-size--h2;
+      font-weight: 700;
+      color: #263d47;
+      padding: 2rem 0;
+    }
+
+    .pl__na__top__text {
+      font-size: @text__font-size--h3;
+      font-weight: 400;
+      line-height: @text__line-height--h3;
+    }
+
+    .pl__na__top__button__container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 3rem;
+
+      & > *:first-child {
+        margin-right: 5rem;
+      }
+
+      .pl__na__top__button {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: @text__color--white;
+        background-color: @btn__bg--maroon;
+        width: 10rem;
+        height: 3.5rem;
+        border: none;
+        border-radius: @btn__border-radius;
+        margin-left: 5px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: 0.15s ease-in;
+        cursor: pointer;
+      }
+
+      .pl__na__top__button:hover {
+        background-color: #5d0b40;
+      }
+    }
+  }
+
+  .pl__na__top__right__image__container {
+    width: 47rem;
+
+    .pl__na__top__right__light__bulbs {
+      transform: translate(0px, -0.3%);
+      // this is one way to move assets around(questions? research!)
+    }
+  }
+}

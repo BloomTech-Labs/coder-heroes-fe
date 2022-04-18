@@ -15,12 +15,18 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .required('You must specify a minimum age'),
   max_age: yup
     .number()
-    .min(7, 'must be older than min')
+    .min(7, 'must be older than 7')
     .lessThan(18, 'must be less that 18')
     .typeError('You must specify a maximum age')
     .required('You must specify a maximum age'),
-  start_time: yup.string().required('Must input valid start time'),
-  end_time: yup.string().required('Must input valid end time'),
+  start_time: yup
+    .string()
+    .typeError('You must select a time')
+    .required('Must input valid start time'),
+  end_time: yup
+    .string()
+    .typeError('You must select a time')
+    .required('Must input valid end time'),
   start_date: yup
     .date()
     .min(new Date(), 'Please choose a future date')
@@ -42,7 +48,36 @@ const InstructorAddCourseFormSchema = yup.object().shape({
       /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
       'Please enter a zoom link!'
     )
+    .typeError('Must be a valid zoom link')
     .required('Please enter a zoom link!'),
+  day: yup
+    .string()
+    .typeError('Must select a Day')
+    .oneOf(
+      [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      'Please select a day'
+    ),
+  course_type: yup
+    .string()
+    .typeError('Must select a program')
+    .oneOf(
+      ['CoderYoga', 'CoderCamp', 'CoderSitters'],
+      'Please select a Course'
+    ),
+  course_name: yup
+    .string()
+    .min(5, 'Too Short! Has to be More than 5 characters')
+    .max(50, 'Too Long! Has to be less than 50 characters')
+    .required('Course Name is Required')
+    .typeError('Course Name is required'),
 });
 
 export default InstructorAddCourseFormSchema;

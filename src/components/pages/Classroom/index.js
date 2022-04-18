@@ -1,10 +1,9 @@
 import React from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/index.less';
-import { Card, Button, Layout, Typography, Row, Badge } from 'antd';
+import { Card, Button, Layout, Row, Badge } from 'antd';
 import StudentCard from './StudentCard';
 const { Content } = Layout;
-const { Title } = Typography;
 
 const students = [
   {
@@ -53,32 +52,35 @@ const students = [
 
 const Classroom = () => {
   return (
-      <Layout>
-        <InstructorSidebar />
-        <Content>
-          <div className="classroom__students">
-            {students.map(student => (
-              <StudentCard student={student} />
-            ))}
-          </div>
-          <Row className="feedback__badges">
-            <Card className="classroom__feedback__summary">
-              <h1>Summary of Feedback Badges</h1>
-              <Row>
-                <Badge count={7} className="student__card__badge"></Badge>
-                <p>feedback badges have been given</p>
-              </Row>
-              <Row>
-                <Badge count={1} className="student__card__badge"></Badge>
-                <p>students lack any feedback badges</p>
-              </Row>
-            </Card>
-            <Button className="classroom_feedback__button">
-              GIVE FEEDBACK
-            </Button>
-          </Row>
-        </Content>
-      </Layout>
+    <Layout>
+      <InstructorSidebar />
+      <Content>
+        <div className="classroom__students">
+          {students.map(student => (
+            <StudentCard student={student} />
+          ))}
+        </div>
+        <Row className="feedback__badges">
+          <Card className="classroom__feedback__summary">
+            <h1>Summary of Feedback Badges</h1>
+            <Row>
+              <Badge count={7} className="student__card__badge"></Badge>
+              <p>feedback badges have been given</p>
+            </Row>
+            <Row>
+              <Badge count={1} className="student__card__badge"></Badge>
+              <p>students lack any feedback badges</p>
+            </Row>
+          </Card>
+          <Button
+            className="classroom_feedback__button"
+            href="/feedback-badges"
+          >
+            GIVE FEEDBACK
+          </Button>
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 

@@ -10,6 +10,7 @@ module.exports = {
   '@body__bg--peach': '#FCDFAA',
   '@body__bg--concrete': '#F2F2F2',
   '@body__bg--white': '#FAF9F8',
+  '@body__bg--yellow': '#F2CE60',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',

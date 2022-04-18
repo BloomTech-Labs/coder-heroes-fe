@@ -1,10 +1,15 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
 
 export default function CalendarModal(props) {
-  const { isModalVisible, setIsModalVisible, eventsArr, setEventsArr } = props;
+  const { isModalVisible, setIsModalVisible, setEventFlag } = props;
 
   const [form] = Form.useForm();
+
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -13,17 +18,19 @@ export default function CalendarModal(props) {
   const onFinish = values => {
     const newEvent = {
       ...values,
-      date: values.date.format('DD/MM/YYYY'),
+      date: values.date.format('MM/DD/YYYY'),
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    setEventsArr([...eventsArr, newEvent]);
+    axiosWithAuth(idToken)
+      .post('/calendar-events', newEvent)
+      .then(() => setEventFlag(true))
+      .catch(err => console.error(err));
     setIsModalVisible(false);
     form.resetFields();
   };
 
-  const onFinishFailed = errorInfo => {
-  };
+  const onFinishFailed = errorInfo => {};
 
   return (
     <>
@@ -80,7 +87,11 @@ export default function CalendarModal(props) {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="calendar-event-button"
+            >
               Submit
             </Button>
           </Form.Item>

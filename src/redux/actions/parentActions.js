@@ -99,9 +99,9 @@ export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
 };
 
-export const getNewsFeedsParent = () => dispatch => {
+export const getNewsFeedsParent = idToken => dispatch => {
   try {
-    axiosWithAuth()
+    axiosWithAuth(idToken)
       .get('/news')
       .then(resp => {
         dispatch({

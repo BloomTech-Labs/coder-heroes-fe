@@ -22,11 +22,16 @@ import {
 } from '../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
-export default function NavBar() {
+function NavBar(props) {
   const [visible, setVisible] = useState(false);
+  const { currentUser } = props.user;
+
+  console.log(currentUser);
 
   const showDrawer = () => {
     setVisible(true);
@@ -239,3 +244,9 @@ export default function NavBar() {
     </Header>
   );
 }
+
+const mapStateToProps = state => {
+  return { user: state.userReducer };
+};
+
+export default connect(mapStateToProps)(NavBar);

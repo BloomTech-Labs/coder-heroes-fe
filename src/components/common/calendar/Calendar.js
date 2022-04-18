@@ -44,6 +44,7 @@ function CalendarApp() {
         .catch(err => console.error(err));
     }
     setEventFlag(false);
+    // eslint-disable-next-line
   }, [eventFlag, idToken]);
 
   useEffect(() => {

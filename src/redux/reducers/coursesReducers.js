@@ -1,4 +1,6 @@
 import {
+  EDITING,
+  CANCEL_EDIT,
   ADD_COURSE,
   GET_COURSES,
   UPDATE_COURSE,
@@ -6,8 +8,10 @@ import {
 } from '../actions/coursesActions';
 
 const initialState = {
-  bookings: [],
+  editing: false,
   courses: [],
+  errorMessage: '',
+  course_id: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,37 +21,36 @@ const reducer = (state = initialState, action) => {
         ...state,
         courses: action.payload,
       };
-    case UPDATE_COURSE:
-      const classIndexEdit = state.class.findIndex(
-        item => item.class_id === action.payload.class_id
-      );
-      state.class[classIndexEdit] = action.payload;
-
+    case EDITING:
       return {
         ...state,
-        class: state.class,
+        editing: true,
+        course_id: action.payload,
+      };
+    case CANCEL_EDIT:
+      return {
+        ...state,
+        editing: false,
+      };
+    case UPDATE_COURSE:
+      return {
+        ...state,
+        recipe: state.courses.map(rec => {
+          if (rec.course_id === action.payload.course_id) {
+            return action.payload;
+          }
+          return rec;
+        }),
       };
     case ADD_COURSE:
       return {
-        courses: [
-          ...state.courses,
-          {
-            courses_name: action.payload.courses_name,
-            courses_subject: action.payload.courses_subject,
-            courses_desc: action.payload.courses_desc,
-            courses_prereq_list: action.payload.prereq,
-            courses_id: Date.now(),
-          },
-        ],
+        ...state,
+        courses: [...state.courses, action.payload],
       };
     case DELETE_COURSE:
-      const classIndex = state.courses.findIndex(
-        item => item.courses_id === action.payload
-      );
-      state.courses.splice(classIndex, 1);
       return {
         ...state,
-        courses: state.courses,
+        recipe: state.recipe.filter(rec => rec.course_id !== action.payload),
       };
     default:
       return state;

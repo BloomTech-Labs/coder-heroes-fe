@@ -38,7 +38,7 @@ function RenderLandingPage(props) {
             <h3>
               {' '}
               Through a love of teaching and technology, we empower youth to
-              change the world <br /> with their ideas.{' '}
+              change the world with their ideas.{' '}
             </h3>
           </div>
 

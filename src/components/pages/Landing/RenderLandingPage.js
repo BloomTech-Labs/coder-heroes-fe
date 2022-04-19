@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
-import { DownOutlined } from '@ant-design/icons';
 import Button from '../../common/Button';
 import background from '../../../img/cloud-bg.jpg';
 import logo from '../../../img/coderheroes-logo.svg';
@@ -55,15 +54,6 @@ function RenderLandingPage(props) {
               onClick={''}
             ></Button>
           </div>
-          <DownOutlined />
-          <div className="secondtext">
-            <h3>
-              {' '}
-              We choose to navigate to Covid-19 landscape with innovation, and
-              launched the first-ever coding program for kids with a{' '}
-            </h3>
-          </div>
-          <h1 className="bogotext">BUY-ONE-GIVE-ONE CHARITABLE MODEL.</h1>
         </div>
       </div>
 

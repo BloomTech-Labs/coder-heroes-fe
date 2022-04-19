@@ -51,6 +51,7 @@ import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
+import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -128,6 +129,10 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+          <SecureRoute
+            path="/instructor-dashboard"
+            component={InstructorDashboard}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

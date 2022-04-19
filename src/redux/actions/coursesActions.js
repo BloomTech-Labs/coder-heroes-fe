@@ -16,18 +16,24 @@ export const cancelEdit = () => {
   return { type: CANCEL_EDIT };
 };
 
-export const getCourses = idToken => async dispatch => {
-  try {
-    const res = await axiosWithAuth(idToken).get(`/courses`);
-    dispatch({
-      type: GET_COURSES,
-      payload: res.data,
+export const getCourses = idToken => dispatch => {
+  //   try {
+  //     const res = await axiosWithAuth(idToken).get(`/courses`);
+  //     dispatch({
+  //       type: GET_COURSES,
+  //       payload: res.data,
+  //     });
+  //   } catch (error) {
+  //     dispatch({
+  //       payload: error.message,
+  //     });
+  //   }
+  axiosWithAuth(idToken)
+    .get('courses')
+    .then(resp => {
+      console.log(resp.data);
+      dispatch({ type: GET_COURSES, payload: resp.data });
     });
-  } catch (error) {
-    dispatch({
-      payload: error.message,
-    });
-  }
 };
 
 export const delCourse = id => async dispatch => {

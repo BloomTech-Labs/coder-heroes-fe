@@ -4,7 +4,7 @@ import instructorReducer from './instructorReducer';
 import adminReducers from './adminReducer';
 import userReducer from './userReducer';
 import childReducer from './childReducer';
-import coursesReducers from './coursesReducers';
+import coursesReducer from './coursesReducer';
 
 const rootReducer = combineReducers({
   parentReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   adminReducers,
   userReducer,
   childReducer,
-  coursesReducers,
+  coursesReducer,
 });
 
 export default rootReducer;

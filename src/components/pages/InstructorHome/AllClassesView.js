@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
+import { setEditing } from '../../../redux/actions/coursesActions';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -18,7 +19,9 @@ const AllClasses = props => {
     dispatch(getCourses(idToken));
   }, [dispatch, idToken]);
 
-  console.log('props', props);
+  const handleEditSelect = id => {
+    setEditing(id);
+  };
 
   return (
     <>
@@ -28,7 +31,10 @@ const AllClasses = props => {
           <Title className="class__title">Courses</Title>
           <div className="class__subject">
             {props.courses.map(courses => (
-              <ClassCard courses={courses} />
+              <ClassCard
+                courses={courses}
+                handleEditSelect={handleEditSelect}
+              />
             ))}
           </div>
         </Content>
@@ -37,10 +43,10 @@ const AllClasses = props => {
   );
 };
 
-const mapStateToProps = (state, r) => {
-  console.log(r);
+const mapStateToProps = state => {
   return {
     courses: state.coursesReducer.courses,
+    editing: state.coursesReducer.editing,
   };
 };
 

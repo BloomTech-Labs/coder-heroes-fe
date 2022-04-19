@@ -16,29 +16,23 @@ export const cancelEdit = () => {
   return { type: CANCEL_EDIT };
 };
 
-export const getCourses = idToken => dispatch => {
-  //   try {
-  //     const res = await axiosWithAuth(idToken).get(`/courses`);
-  //     dispatch({
-  //       type: GET_COURSES,
-  //       payload: res.data,
-  //     });
-  //   } catch (error) {
-  //     dispatch({
-  //       payload: error.message,
-  //     });
-  //   }
-  axiosWithAuth(idToken)
-    .get('courses')
-    .then(resp => {
-      console.log(resp.data);
-      dispatch({ type: GET_COURSES, payload: resp.data });
+export const getCourses = idToken => async dispatch => {
+  try {
+    const res = await axiosWithAuth(idToken).get(`/courses`);
+    dispatch({
+      type: GET_COURSES,
+      payload: res.data,
     });
+  } catch (error) {
+    dispatch({
+      payload: error.message,
+    });
+  }
 };
 
-export const delCourse = id => async dispatch => {
+export const delCourse = (idToken, id) => async dispatch => {
   try {
-    await axios.delete(`/courses/${id}`);
+    await axiosWithAuth(idToken).delete(`/courses/${id}`);
     dispatch({
       type: DELETE_COURSE,
       payload: id,
@@ -50,9 +44,9 @@ export const delCourse = id => async dispatch => {
   }
 };
 
-export const editCourse = id => async dispatch => {
+export const editCourse = (idToken, course) => async dispatch => {
   try {
-    const res = await axios.put(`/courses/${id}`);
+    const res = await axios.put(`/courses/${course.course_id}`);
     dispatch({
       type: UPDATE_COURSE,
       payload: res.data,

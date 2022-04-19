@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
     case UPDATE_COURSE:
       return {
         ...state,
-        recipe: state.courses.map(rec => {
+        courses: state.courses.map(rec => {
           if (rec.course_id === action.payload.course_id) {
             return action.payload;
           }
@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
     case DELETE_COURSE:
       return {
         ...state,
-        recipe: state.recipe.filter(rec => rec.course_id !== action.payload),
+        courses: state.courses.filter(rec => rec.course_id !== action.payload),
       };
     default:
       return state;

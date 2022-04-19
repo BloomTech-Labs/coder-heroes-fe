@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import '../../../styles/registration.less';
-import { Steps } from 'antd';
+import RegistrationProgress from './RegistrationProgress';
 
 export default function HowManyStudents() {
-  const { Step } = Steps;
   const [numStudents, setNumStudents] = useState(1);
 
   const handleChange = e => {
@@ -13,12 +12,7 @@ export default function HowManyStudents() {
   return (
     <div className="reg-content-container email-confirmation">
       <div>
-        <Steps current={1} className="reg-progress">
-          <Step />
-          <Step title="" />
-          <Step title="" description="" />
-          <Step title="" description="" />
-        </Steps>
+        <RegistrationProgress step_num={1} />
       </div>
 
       <div className="content">

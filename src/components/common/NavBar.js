@@ -29,9 +29,7 @@ const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
-  const { currentUser } = props.user;
-
-  console.log(currentUser);
+  const { role_id } = props.user.currentUser;
 
   const showDrawer = () => {
     setVisible(true);
@@ -65,20 +63,7 @@ function NavBar(props) {
             </h1>
           </NavLink>
         </div>
-        <div className="navbar__links">
-          <NavLink className="navbar__navLink" to="/browse-programs">
-            PROGRAMS
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/browse-instructors">
-            INSTRUCTORS
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/parent-booking">
-            BOOKING
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/">
-            SCHOLARSHIPS
-          </NavLink>
-        </div>
+        <NavBarLinks role_id={role_id} />
         <div className="navbar__socials">
           <div className="navbar__socials__cont">
             <a
@@ -243,6 +228,46 @@ function NavBar(props) {
       </nav>
     </Header>
   );
+}
+
+function NavBarLinks(props) {
+  const { role_id } = props;
+
+  if (role_id === 1 || role_id === 2) {
+    return (
+      <div className="navbar__links">
+        <NavLink className="navbar__navLink" to="/">
+          DASHBOARD
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/admin-courses">
+          COMPONENTS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/admin-add-course">
+          UTILITIES
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          PAGES
+        </NavLink>
+      </div>
+    );
+  } else {
+    return (
+      <div className="navbar__links">
+        <NavLink className="navbar__navLink" to="/browse-programs">
+          PROGRAMS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/browse-instructors">
+          INSTRUCTORS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/parent-booking">
+          BOOKING
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          SCHOLARSHIPS
+        </NavLink>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {

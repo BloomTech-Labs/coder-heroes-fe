@@ -2,18 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-// import CreateNewStudent from './CreateNewStudent';
+import CreateNewStudent from './CreateNewStudent';
 // import { useParams } from 'react-router';
 // import CurrentCoursesDetails from './CurrentCoursesDetails';
 import '../../../styles/ParentStyles/index.less';
-import { Layout } from 'antd';
+import { Layout, Modal, Button } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentFamilyHome = () => {
   const { Content, Sider } = Layout;
   const [studentInfo, setStudentInfo] = useState(null); //eslint-disable-line
-  // const [modal, setModal] = useState(false);
-  // const [modal2, setModal2] = useState(false);
+  const [addChildVisible, setAddChildVisible] = useState(false);
+  const [addChildConfirmLoading, setAddChildConfirmLoading] = useState(false);
+  const [addChildModalText, setAddChildModalText] = useState(
+    <CreateNewStudent />
+  );
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {
@@ -36,6 +39,23 @@ const ParentFamilyHome = () => {
       });
   }, []);
 
+  const showAddChildModal = () => {
+    setAddChildVisible(true);
+  };
+
+  const handleAddChildOk = () => {
+    setAddChildModalText(<CreateNewStudent />);
+    setAddChildConfirmLoading(true);
+    setTimeout(() => {
+      setAddChildVisible(false);
+      setAddChildConfirmLoading(false);
+    }, 2000);
+  };
+
+  const handleAddChildCancel = () => {
+    setAddChildVisible(false);
+  };
+
   return (
     <div className="family-page-container">
       <Layout style={{ width: '100%' }}>
@@ -50,6 +70,15 @@ const ParentFamilyHome = () => {
         </Sider>
         <Content>
           <Banner />
+          <Modal
+            title="Add Child"
+            visible={addChildVisible}
+            onOk={handleAddChildOk}
+            confirmLoading={addChildConfirmLoading}
+            onCancel={handleAddChildCancel}
+          >
+            {addChildModalText}
+          </Modal>
           <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
             <strong>PICK A PROFILE TO ACCESS</strong>
           </div>
@@ -58,17 +87,13 @@ const ParentFamilyHome = () => {
               <div className="profile-avatars" />
               <div className="profile-select-titles">Parent Name</div>
               <button className="profile-select-button">VIEW ACCOUNT</button>
+              <Button onClick={showAddChildModal}>ADD CHILD</Button>
             </div>
             <div className="profile-card-containers">
               <div className="profile-avatars" />
               <div className="profile-select-titles">Student Name</div>
               <button className="profile-select-button">VIEW ACCOUNT</button>
             </div>
-          </div>
-          <div className="profile-select-logout-container">
-            <button className="family-page-logout-button">
-              LOG OUT OF SHARED ACCOUNT
-            </button>
           </div>
         </Content>
       </Layout>
@@ -124,6 +149,6 @@ export default ParentFamilyHome;
 //             </div>
 //           </div>
 //         </div>
-//         {modal && <CreateNewStudent setModal={setModal} />}
+
 //         {modal2 && <CurrentCoursesDetails setModal={setModal2} />}
 //           </div> */}

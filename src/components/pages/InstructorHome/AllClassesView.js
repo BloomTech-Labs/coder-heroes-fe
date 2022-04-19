@@ -4,7 +4,7 @@ import ClassCard from './ClassCard';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { getCourses } from '../../../redux/actions/instructorActions';
+import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 
 const { Content } = Layout;

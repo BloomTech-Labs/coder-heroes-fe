@@ -58,7 +58,13 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <NavBar />
           <App />
           <Footer />

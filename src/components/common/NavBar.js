@@ -132,7 +132,7 @@ export default function NavBar() {
             </button>
           </NavLink>
           {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/my-dashboard">
+            <NavLink to="/family">
               <div className="navbar__profile">
                 <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
               </div>

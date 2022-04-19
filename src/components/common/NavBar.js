@@ -250,6 +250,57 @@ function NavBarLinks(props) {
         </NavLink>
       </div>
     );
+  } else if (role_id === 3) {
+    return (
+      <div className="navbar__links">
+        <NavLink className="navbar__navLink" to="/instructor">
+          DASHBOARD
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/instructor-all-classes">
+          COURSES
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/messages">
+          MESSAGES
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          FEEDBACK
+        </NavLink>
+      </div>
+    );
+  } else if (role_id === 4) {
+    return (
+      <div className="navbar__links">
+        <NavLink className="navbar__navLink" to="/browse-programs">
+          PROGRAMS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/browse-instructors">
+          INSTRUCTORS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/parent-booking">
+          BOOKING
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          SCHOLARSHIPS
+        </NavLink>
+      </div>
+    );
+  } else if (role_id === 5) {
+    return (
+      <div className="navbar__links">
+        <NavLink className="navbar__navLink" to="/">
+          DASHBOARD
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          RESOURCES
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          PROGRESS
+        </NavLink>
+        <NavLink className="navbar__navLink" to="/">
+          ACHIEVEMENTS
+        </NavLink>
+      </div>
+    );
   } else {
     return (
       <div className="navbar__links">

@@ -54,7 +54,7 @@ const LoginContainer = () => {
         throw err;
       }
     );
-    return { widget };
+    return widget;
   }, [history]);
 
   useEffect(() => {

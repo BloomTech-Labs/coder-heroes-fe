@@ -54,7 +54,7 @@ const LoginContainer = () => {
         throw err;
       }
     );
-    return widget;
+    return { widget };
   }, [history]);
 
   useEffect(() => {
@@ -64,7 +64,19 @@ const LoginContainer = () => {
     };
   }, [loadWidget]);
 
-  return <div id="sign-in-widget" />;
+  return (
+    <div className="login-container">
+      <div className="left-login">
+        <div className="left-login-text">
+          <p className="color-two">Unleash your superpowers today!</p>
+          <p className="color-three">creativity & design</p>
+          <p className="color-four">user research & insight</p>
+          <p className="color-five">app development</p>
+        </div>
+      </div>
+      <div id="sign-in-widget" />
+    </div>
+  );
 };
 
 export default LoginContainer;

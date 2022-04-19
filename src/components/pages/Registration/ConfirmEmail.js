@@ -3,7 +3,7 @@ import '../../../styles/registration.less';
 
 export default function ConfirmEmail() {
   return (
-    <div className="content-container email-confirmation">
+    <div className="reg-content-container email-confirmation">
       <div className="content">
         <p className="color-one">Let's make this official.</p>
         <p className="color-two">A confirmation email is headed your way.</p>

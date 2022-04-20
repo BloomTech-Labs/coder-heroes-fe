@@ -14,7 +14,7 @@ function ParentBooking() {
 
   return (
     <Layout>
-      <ParentSidebar />
+      <ParentSidebar active="courses" />
       <Content>
         <Banner />
         <div>

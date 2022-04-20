@@ -95,7 +95,7 @@ function RenderLandingPage(props) {
         />
       </div>
       <div className="landing-fourth-container">
-        <div className="empty-space"></div>
+        <div className="empty-space-two"></div>
         <img
           className="landing-third-container-pic"
           src={profile}
@@ -103,17 +103,16 @@ function RenderLandingPage(props) {
         />
         <div className="landing-third-container-text">
           <div className="description">
+            <p className="quotes">
+              “I have 7+ years of experience working in technology. I bring
+              excitement and positivity to every class, virtual and in-person."
+            </p>
+            <br />
+            <br />
             <p>
-              <em>
-                “I have 7+ years of experience working in technology. I bring
-                <br /> excitement and positivity to every class, virtual and
-                in-person.
-                <br />
-                <br />
-                I have experience teaching the following subjects for K-12
-                <br /> students: Python, Swift, JavaScript, App Inventor, Design{' '}
-                <br /> Thinking, UI/UX Design, Sales & Marketing”
-              </em>
+              "I have experience teaching the following subjects for K-12
+              students: Python, Swift, JavaScript, App Inventor, Design{' '}
+              Thinking, UI/UX Design, Sales & Marketing.”
             </p>
           </div>
           <div className="brianne">

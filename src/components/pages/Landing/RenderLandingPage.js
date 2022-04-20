@@ -33,12 +33,14 @@ function RenderLandingPage(props) {
         >
           <img src={logo} alt="CoderHeroes Text in Turquoise" />
           <div className="landing-main-text">
-            <h1>Coding is a superpower.</h1>
-            <h3>
-              {' '}
-              Through a love of teaching and technology, we empower youth to
-              change the world with their ideas.{' '}
-            </h3>
+            <center>
+              <h1> Coding is a superpower. </h1>
+              <h3>
+                {' '}
+                Through a love of teaching and technology, we empower youth to
+                change the world with their ideas.{' '}
+              </h3>
+            </center>
           </div>
 
           {/* Button container */}
@@ -69,8 +71,14 @@ function RenderLandingPage(props) {
         </div>
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
-            <h3>GIVE BACK TO THE COMMUNITY.</h3>
-            <h1>Support Code Your Dreams</h1>
+            <center>
+              <h3 style={{ color: 'white', 'font-size': '15px' }}>
+                GIVE BACK TO THE COMMUNITY.
+              </h3>
+              <h1 style={{ color: `white`, 'font-size': '25px' }}>
+                Support Code Your Dreams
+              </h1>
+            </center>
             <p>
               All CoderHeroes proceeds provide direct funding to our original
               mission, centered in incubating tech skills within under served

@@ -116,6 +116,7 @@ export default function NavBar() {
             >
               <LinkedinOutlined />
             </a>
+             
           </div>
         </div>
         <div className="navbar__btns">

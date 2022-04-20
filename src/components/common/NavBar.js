@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -29,7 +29,14 @@ const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
+  const [bgColor, setBgColor] = useState('#FEAD2A');
   const { role_id } = props.user.currentUser;
+
+  useEffect(() => {
+    if (role_id === 5) setBgColor('#9FB222');
+    else if (role_id < 5) setBgColor('#21C5B5');
+    else setBgColor('#FEAD2A');
+  }, [role_id]);
 
   const showDrawer = () => {
     setVisible(true);
@@ -41,7 +48,7 @@ function NavBar(props) {
   return (
     <Header
       style={{
-        backgroundColor: '#feae28',
+        backgroundColor: bgColor,
         minHeight: '98px',
         lineHeight: '0',
         padding: '0',
@@ -64,54 +71,18 @@ function NavBar(props) {
           </NavLink>
         </div>
         <NavBarLinks role_id={role_id} />
-        <div className="navbar__socials">
-          <div className="navbar__socials__cont">
-            <a
-              href="https://www.facebook.com/coderheroes."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FacebookOutlined />
-            </a>
-            <a
-              href="https://twitter.com/coderheroes."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterOutlined />
-            </a>
-            <a
-              href="https://www.instagram.com/coderheroes/."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramOutlined />
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <YoutubeOutlined />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/coderheroes/."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinOutlined />
-            </a>
-          </div>
-        </div>
         <div className="navbar__btns">
-          <NavLink to="/">
-            <button className="navbar__btn navbar__contact">CONTACT US</button>
-          </NavLink>
+          {localStorage.getItem('okta-token-storage') ? (
+            <NavLink to="/">
+              <button className="navbar__btn">LOGOUT</button>
+            </NavLink>
+          ) : (
+            <NavLink to="/">
+              <button className="navbar__btn navbar__contact">
+                CONTACT US
+              </button>
+            </NavLink>
+          )}
           <NavLink to="/login">
             <button
               className={`navbar__btn navbar__login ${

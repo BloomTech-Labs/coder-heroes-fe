@@ -120,7 +120,12 @@ export default function NavBar() {
         </div>
         <div className="navbar__btns">
           <NavLink to="/">
-            <button className="navbar__btn navbar__contact">CONTACT US</button>
+            <button
+              onClick={() => (window.location = 'mailto:yourmail@gmail.com')}
+              className="navbar__btn navbar__contact"
+            >
+              CONTACT US
+            </button>
           </NavLink>
           <NavLink to="/login">
             <button

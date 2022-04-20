@@ -12,6 +12,7 @@
     "antd": "^4.4.3",
     "axios": "^0.21.1",
     "craco-less": "^1.17.0",
+    "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "moment": "^2.29.2",
     "plotly.js": "^1.54.6",

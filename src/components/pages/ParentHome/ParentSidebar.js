@@ -100,7 +100,11 @@ const ParentSideBar = props => {
         >
           <Link to="/family">Family</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<ReadOutlined />}>
+        <Menu.Item
+          key="3"
+          className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
+          icon={<ReadOutlined />}
+        >
           <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
@@ -111,13 +115,20 @@ const ParentSideBar = props => {
           key="logout"
           icon={<ExportOutlined fontSize="150px" />}
           onClick={() => {
+            localStorage.removeItem('okta-pkce-storage');
+            localStorage.removeItem('okta-cache-storage');
+            localStorage.removeItem('okta-token-storage');
             authService.logout();
           }}
         >
           <Link>Logout</Link>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
+        <Menu.Item
+          key="4"
+          className={active === 'cart' ? 'ant-menu-item-selected' : ''}
+          icon={<ShoppingCartOutlined fontSize="150px" />}
+        >
           <Link to="/cart" className="link">
             Cart <span>({cart.length})</span>
           </Link>

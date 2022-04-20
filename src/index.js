@@ -80,6 +80,16 @@ function App() {
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
+  const octaPkce = localStorage.getItem('okta-pkce-storage');
+  const octaCache = localStorage.getItem('okta-cache-storage');
+  const octaToken = localStorage.getItem('okta-token-storage');
+  if (octaToken) {
+    if (!octaPkce || !octaCache) {
+      localStorage.removeItem('okta-token-storage');
+      window.location.reload(true);
+    }
+  }
+
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)

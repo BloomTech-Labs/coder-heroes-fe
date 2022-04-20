@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 // import CreateNewStudent from './CreateNewStudent';
 // import { useParams } from 'react-router';
@@ -32,7 +31,6 @@ const ParentFamilyHome = () => {
     <div className="family-page-container">
       <ParentSidebar active="family" />
       <div className="family-page-content">
-        <Banner />
         <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
           <h1>PICK A PROFILE TO ACCESS</h1>
         </div>

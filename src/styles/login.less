@@ -30,7 +30,7 @@
 }
 
 .registration-label span, .registration-link a{
-  color:#006C72;
+  color: grey;
 }
 
 // OKTA FORM STYLES
@@ -63,10 +63,11 @@
     h2 {
       margin-top: 8rem;
       text-align: center;
-      font-family: @text__font-family--header;
+      font-family: @text__font-family;
       color: #006C72;
       font-size: @text__font-size--h2;
       letter-spacing: 1px;
+      font-weight:700;
     }
     .o-form-error-container.o-form-has-errors {
       font-size: @text__font-size--body;
@@ -81,7 +82,7 @@
         }
       }
       &:visited {
-        color: #006C72;
+        color: grey;
       }
     }
     .okta-form-input-error {
@@ -140,7 +141,8 @@
 
     .custom-checkbox {
       label {
-        font-size: @text__font-size--body;
+        font-size: .75rem;
+        color: grey;
       }
     }
     form {
@@ -172,9 +174,9 @@
     .registration-container {
       .content-container {
         font-size: @text__font-size--body;
-        padding-left: 0px;
-        padding-right: 0px;
+        padding:5rem 0 0 0;
         text-align: center;
+        border: none;
         .registration-label {
           color: #006C72;
         }

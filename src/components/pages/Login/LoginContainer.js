@@ -28,7 +28,7 @@ const LoginContainer = () => {
       i18n: {
         en: {
           // Labels
-          'primaryauth.title': 'WELCOME BACK',
+          'primaryauth.title': 'Welcome Back!',
           'primaryauth.submit': 'Login',
           'registration.signup.text': 'Register here',
           // change title for your app

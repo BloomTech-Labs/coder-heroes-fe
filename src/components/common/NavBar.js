@@ -22,6 +22,8 @@ import {
 } from '../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
+import NavBarLinks from './NavBarLinks';
+
 import { connect } from 'react-redux';
 
 const { SubMenu } = Menu;
@@ -37,6 +39,11 @@ function NavBar(props) {
     else if (role_id < 5) setBgColor('#21C5B5');
     else setBgColor('#FEAD2A');
   }, [role_id]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('okta-token-storage');
+    window.location.reload();
+  };
 
   const showDrawer = () => {
     setVisible(true);
@@ -73,7 +80,7 @@ function NavBar(props) {
         <NavBarLinks role_id={role_id} />
         <div className="navbar__btns">
           {localStorage.getItem('okta-token-storage') ? (
-            <NavLink to="/">
+            <NavLink to="/" onClick={handleLogout}>
               <button className="navbar__btn">LOGOUT</button>
             </NavLink>
           ) : (
@@ -199,97 +206,6 @@ function NavBar(props) {
       </nav>
     </Header>
   );
-}
-
-function NavBarLinks(props) {
-  const { role_id } = props;
-
-  if (role_id === 1 || role_id === 2) {
-    return (
-      <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/">
-          DASHBOARD
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/admin-courses">
-          COMPONENTS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/admin-add-course">
-          UTILITIES
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          PAGES
-        </NavLink>
-      </div>
-    );
-  } else if (role_id === 3) {
-    return (
-      <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/instructor">
-          DASHBOARD
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/instructor-all-classes">
-          COURSES
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/messages">
-          MESSAGES
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          FEEDBACK
-        </NavLink>
-      </div>
-    );
-  } else if (role_id === 4) {
-    return (
-      <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/browse-programs">
-          PROGRAMS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/browse-instructors">
-          INSTRUCTORS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/parent-booking">
-          BOOKING
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          SCHOLARSHIPS
-        </NavLink>
-      </div>
-    );
-  } else if (role_id === 5) {
-    return (
-      <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/">
-          DASHBOARD
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          RESOURCES
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          PROGRESS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          ACHIEVEMENTS
-        </NavLink>
-      </div>
-    );
-  } else {
-    return (
-      <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/browse-programs">
-          PROGRAMS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/browse-instructors">
-          INSTRUCTORS
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/parent-booking">
-          BOOKING
-        </NavLink>
-        <NavLink className="navbar__navLink" to="/">
-          SCHOLARSHIPS
-        </NavLink>
-      </div>
-    );
-  }
 }
 
 const mapStateToProps = state => {

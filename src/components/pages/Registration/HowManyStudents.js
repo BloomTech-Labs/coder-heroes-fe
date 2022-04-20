@@ -11,9 +11,7 @@ export default function HowManyStudents() {
 
   return (
     <div className="reg-content-container email-confirmation">
-      <div>
-        <RegistrationProgress step_num={1} />
-      </div>
+      <RegistrationProgress step_num={1} />
 
       <div className="content">
         <p className="color-one">

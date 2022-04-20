@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../styles/registrationProgress.less';
 import { Steps } from 'antd';
 
 export default function RegistrationProgress(props) {

@@ -7,11 +7,10 @@ import { useOktaAuth } from '@okta/okta-react';
 const { Meta } = Card;
 
 const ClassCard = ({ courses }) => {
-  console.log(courses.course_id);
   const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
   const [state, setState] = useState({
-    title: courses.course_name,
+    course_name: courses.course_name,
   });
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -21,14 +20,17 @@ const ClassCard = ({ courses }) => {
   };
   const handleCancel = () => {
     setEditing(!editing);
+    setState({
+      course_name: courses.course_name,
+    });
   };
   const handleDelete = () => {
-    if (courses.course_id) dispatch(delCourse(idToken, courses.course_id));
+    dispatch(delCourse(idToken, courses.course_id));
   };
 
   const handleEdit = () => {
     setEditing(!editing);
-    dispatch(editCourse(courses, state));
+    dispatch(editCourse(idToken, courses, state));
   };
 
   return (
@@ -41,7 +43,18 @@ const ClassCard = ({ courses }) => {
               <Avatar size={128} className="course__card__image" />
             </Badge>
           }
-          title={courses.course_name}
+          title={
+            editing ? (
+              <input
+                onChange={handleChange}
+                name="course_name"
+                type="text"
+                value={state.course_name}
+              />
+            ) : (
+              courses.course_name
+            )
+          }
         />
         <button onClick={() => handleCancel()}>
           {editing ? 'Cancel' : 'Edit'}

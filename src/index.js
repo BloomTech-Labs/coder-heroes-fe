@@ -94,8 +94,8 @@ function App() {
           <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register" component={LoginPage} />
           <Route path="/confirm" component={ConfirmEmail} />
-          <Route path="/parent-welcome" component={ParentWelcome} />
-          <Route path="/instructor-welcome" component={InstructorWelcome} />
+          <Route path="/register-1" component={ParentWelcome} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />

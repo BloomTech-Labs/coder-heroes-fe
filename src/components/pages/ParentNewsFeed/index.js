@@ -7,11 +7,11 @@ import Banner from '../../common/Banner';
 import TitleParentNewsFeed from './TitleParentNewsFeed';
 const { Content } = Layout;
 
-export default function ParentNewsFeed() {
+function ParentNewsFeed() {
   return (
     <div className="news-feed-page">
       <Layout>
-        <ParentSidebar />
+        <ParentSidebar active="newsfeed" />
         <Content>
           <Banner />
           <TitleParentNewsFeed />
@@ -21,3 +21,5 @@ export default function ParentNewsFeed() {
     </div>
   );
 }
+
+export default ParentNewsFeed;

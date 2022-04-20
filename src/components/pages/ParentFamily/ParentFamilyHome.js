@@ -30,9 +30,10 @@ const ParentFamilyHome = () => {
 
   return (
     <div className="family-page-container">
-      <ParentSidebar />
+      <ParentSidebar active="family" />
       <div className="family-page-content">
-        <div className="profile-select-titles">
+        <Banner />
+        <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
           <h1>PICK A PROFILE TO ACCESS</h1>
         </div>
         <div className="profile-card-container">

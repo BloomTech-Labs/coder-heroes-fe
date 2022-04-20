@@ -18,7 +18,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const { Sider } = Layout;
 
 const ParentSideBar = props => {
-  const { cart } = props;
+  const { cart, active } = props;
   const [collapsed, setCollapsed] = useState(false);
   const { authService } = useOktaAuth();
   const onCollapse = () => {
@@ -67,7 +67,7 @@ const ParentSideBar = props => {
           >
             <path
               d="M0 0H55V7H0V0ZM0 17.5H55V24.5H0V17.5ZM0 35H55V42H0V35Z"
-              fill="#6A0C49"
+              fill="#595959"
             />
           </svg>
         </div>
@@ -77,15 +77,27 @@ const ParentSideBar = props => {
           className="dashboard-logo"
           style={{ pointerEvents: 'none' }}
         >
-          Coderheroes
+          <strong>Coderheroes</strong>
         </Menu.Item>
-        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
+        <Menu.Item
+          key="dashboard"
+          className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
+          icon={<HomeFilled fontSize="150px" />}
+        >
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="courses" icon={<CalendarFilled fontSize="150px" />}>
+        <Menu.Item
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<CalendarFilled fontSize="150px" />}
+        >
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
-        <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
+        <Menu.Item
+          key="family"
+          className={active === 'family' ? 'ant-menu-item-selected' : ''}
+          icon={<HeartFilled fontSize="150px" />}
+        >
           <Link to="/family">Family</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<ReadOutlined />}>

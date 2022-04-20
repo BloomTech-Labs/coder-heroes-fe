@@ -17,7 +17,7 @@ function ParentHome() {
   return (
     <div className="App">
       <Layout style={{ width: '100%' }}>
-        <ParentSidebar />
+        <ParentSidebar active="dashboard" />
         <Content>
           <Banner />
           <Layout>

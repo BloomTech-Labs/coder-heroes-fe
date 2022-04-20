@@ -59,16 +59,14 @@ function RenderLandingPage(props) {
 
       {/* Second text container */}
       <div className="landing-second-container">
-        <img
-          className="landing-second-container-orange"
-          src={ocloud}
-          alt="Orange Cloud"
-        />
-        <img
-          className="class"
-          src={students}
-          alt="class full of smiling students"
-        />
+        <div className="landing-second-images">
+          <img className="orange-cloud" src={ocloud} alt="Orange Cloud" />
+          <img
+            className="classroom-photo"
+            src={students}
+            alt="class full of smiling students"
+          />
+        </div>
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
             <h3>GIVE BACK TO THE COMMUNITY.</h3>

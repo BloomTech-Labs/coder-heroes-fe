@@ -1,5 +1,5 @@
 import React from 'react';
-//import registration.less when merged with kayla's PR
+import '../../../styles/registration.less';
 
 export default function InstructorWelcome() {
   return (

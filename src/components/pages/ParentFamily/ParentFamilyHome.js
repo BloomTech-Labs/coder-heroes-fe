@@ -49,9 +49,7 @@ const ParentFamilyHome = () => {
           </div>
         </div>
         <div className="profile-select-logout-container">
-          <button className="family-page-logout-button">
-            LOG OUT OF SHARED ACCOUNT
-          </button>
+          <button className="family-page-logout-button">ADD CHILD</button>
         </div>
         {/* <div className="profile-card-container">
           <div className="profile-details-headers">

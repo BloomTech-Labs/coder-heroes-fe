@@ -1,15 +1,15 @@
 // LOGIN CONTAINER
-.login-container{
+.login-container {
   display:flex;
 }
 
-.login-container p{
+.login-container p {
   font-size: 2.4rem;
   line-height: @text__line-height--h1;
   margin: 0;
 }
 
-.left-login{
+.left-login {
   background-color: #006C72;
   margin-top: 6rem;
   height: 700px;
@@ -20,16 +20,11 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.left-login-text{
+.left-login-text {
   margin-top: 10rem;
 }
 
-//get rid of left side box shadow
-#sign-in-widget{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.registration-label span, .registration-link a{
+.registration-label span, .registration-link a {
   color: grey;
 }
 
@@ -103,7 +98,7 @@
       }
     }
 
-    .o-form-button-bar{
+    .o-form-button-bar {
       padding: 0 0 5px;
     }
 
@@ -115,12 +110,12 @@
       color: #006C72;
     }
 
-    .o-form-label label{
+    .o-form-label label {
       color:grey;
       font-size: .8rem;
     }
 
-    #okta-signin-username, #okta-signin-password{
+    #okta-signin-username, #okta-signin-password {
       background-color: #F4F8F5;
       border: none;
     }
@@ -209,5 +204,75 @@
         padding-right: 20px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .left-login {
+    width: 40rem
+  }
+
+  #sign-in-widget #okta-sign-in.auth-container.no-beacon {
+      height: 700px;
+      width: 20rem;
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .registration-container .content-container {
+        font-size: .75rem;
+      }
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .left-login {
+    width: 26rem
+  }
+
+  .login-container p {
+    font-size: 2.1rem;
+    line-height: @text__line-height--h1;
+    margin: 0;
+
+  }
+  .left-login-text {
+    margin-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .left-login {
+    display: none;
+  }
+  .login-container {
+    background-color: white;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #sign-in-widget #okta-sign-in.auth-container.no-beacon {
+      width: 100%;
+      border-radius: 0;
+      box-sizing: none;
+
+      .auth-content {
+        height: 80vh;
+      }
+
+      h2{
+        margin-top: 2rem;
+      }
+
+      .main-container {
+        box-shadow: none;
+      }
+
+      .registration-container .content-container {
+        font-size: 1rem;
+      }
   }
 }

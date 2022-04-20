@@ -32,9 +32,8 @@ const ParentFamilyHome = () => {
     <div className="family-page-container">
       <ParentSidebar />
       <div className="family-page-content">
-        <Banner />
-        <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
-          <strong>PICK A PROFILE TO ACCESS</strong>
+        <div className="profile-select-titles">
+          <h1>PICK A PROFILE TO ACCESS</h1>
         </div>
         <div className="profile-card-container">
           <div className="profile-card-containers">
@@ -49,9 +48,7 @@ const ParentFamilyHome = () => {
           </div>
         </div>
         <div className="profile-select-logout-container">
-          <button className="family-page-logout-button">
-            LOG OUT OF SHARED ACCOUNT
-          </button>
+          <button className="family-page-logout-button">ADD CHILD</button>
         </div>
         {/* <div className="profile-card-container">
           <div className="profile-details-headers">

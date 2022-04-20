@@ -87,10 +87,19 @@ function RenderLandingPage(props) {
       </div>
       {/* Third text container */}
       <div className="landing-third-container">
+        <div className="empty-space"></div>
         <img
           className="landing-third-container-green"
           src={gcloud}
           alt="Green Cloud"
+        />
+      </div>
+      <div className="landing-fourth-container">
+        <div className="empty-space"></div>
+        <img
+          className="landing-third-container-pic"
+          src={profile}
+          alt="Brianne Smiling"
         />
         <div className="landing-third-container-text">
           <div className="description">
@@ -112,12 +121,6 @@ function RenderLandingPage(props) {
             <p>FOUNDER & CEO, CODERHEROES & CODE YOUR DREAMS</p>
           </div>
         </div>
-
-        <img
-          className="landing-third-container-pic"
-          src={profile}
-          alt="Brianne Smiling"
-        />
       </div>
     </div>
   );

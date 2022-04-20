@@ -70,20 +70,19 @@ function RenderLandingPage(props) {
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
             <h3>GIVE BACK TO THE COMMUNITY.</h3>
-            <h1>
-              Support Code Your
-              <nobr /> Dreams
-            </h1>
+            <h1>Support Code Your Dreams</h1>
             <p>
               All CoderHeroes proceeds provide direct funding to our original
               mission, centered in incubating tech skills within under served
               school districts.
             </p>
           </div>
-          <Button
-            classType="landing-second-container-btn"
-            buttonText="VISIT WEBSITE"
-          ></Button>
+          <center>
+            <Button
+              classType="landing-second-container-btn"
+              buttonText="VISIT WEBSITE"
+            ></Button>
+          </center>
         </div>
       </div>
       {/* Third text container */}

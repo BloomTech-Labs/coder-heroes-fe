@@ -3,10 +3,10 @@ import React from 'react';
 
 export default function InstructorWelcome() {
   return (
-    <div className="content-container">
+    <div className="reg-content-container">
       {/* add component for progress tracker when created */}
       <div className="content">
-        <h2 className="color-one">Welcome to CoderHeroes!</h2>
+        <p className="color-one">Welcome to CoderHeroes!</p>
         <p className="color-two">
           You are steps away from sharing your superpowers with future
           CoderHeroes

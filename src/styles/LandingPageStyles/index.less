@@ -1,4 +1,6 @@
-//**Landing Page Styles**//
+//** Landing Page Styles - DESKTOP **//
+
+/* First Content Section */
 
 .cloudbg {
   width: 100%;
@@ -44,9 +46,7 @@
 
   .btn {
     cursor: pointer;
-    // width: 11rem;
     height: 3rem;
-    // margin-left: 1rem;
     margin-right: 1rem;
     color: black;
     background: #f26602;
@@ -61,26 +61,24 @@
     color: white;
   }
 
+  /* Second Content Section */
+
   .landing-second-container {
     background: #156a70;
     display: flex;
   }
 
-  // .landing-second-images {
-
-  // }
-
   .orange-cloud {
     z-index: 0;
     width: 80%;
     margin-top: -10%;
-    // position: absolute;
   }
 
   .classroom-photo {
     z-index: 2;
     margin-top: -65%;
     width: 62%;
+    border-radius: 15px;
   }
 
   .landing-second-container-text {
@@ -92,6 +90,21 @@
     width: 50%
   }
 
+  .landing-second-container-btn {
+    width: 8rem;
+    height: 2.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+    background: #fbc740;
+    border: none;
+    border-radius: 0.313rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Third Content Section */
+
   .landing-third-container {
     display: flex;
     background: #156a70;
@@ -101,6 +114,8 @@
     justify-content: flex-end;
     width: 50%;
   }
+
+  /* Fourth Content Section */
 
   .landing-fourth-container {
     display: flex;
@@ -134,24 +149,314 @@
     border: 2px solid black;
   }
   
-  .landing-second-container-btn {
-    width: 8rem;
-    height: 2.3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: black;
-    background: #fbc740;
-    border: none;
-    border-radius: 0.313rem;
-    text-align: center;
-    font-weight: 600;
-  }
   
+  //** Landing Page Styles - TABLET **//
+
 
   @media only screen and (max-width: 1000px) {
     
+    /* First Content Section */
+
+    .cloudbg {
+      background-color: yellow;
+      // width: 100%;
+      // height: 100%;
+      // background-size: cover;
+      // background-repeat: no-repeat;
+      // background-position: center center;
+      // text-align: center;
+      // padding: 10% 10% 2%;
+    }
+    
+    .landing-main-text {
+      margin: 5% 0%;
+      text-align: center;
+    }
+    
+    .landing-main-text h1 {
+      margin-bottom: 5%;
+    }
+    
+    .landing-main-text h3 {
+      text-align: center;
+    }
+    
+    .browse-btn {
+        padding: 2%;
+    }
+    
+    .support-us-btn {
+        padding: 2%;
+    }
+    
+    
+    .landing-button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .btn {
+        cursor: pointer;
+        height: 3rem;
+        margin-right: 1rem;
+        color: black;
+        background: #f26602;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 600;
+    }
+      
+    .btn:hover {
+        filter: brightness(95%);
+        color: white;
+    }
+
+    /* Second Content Section */
+    
+    .landing-second-container {
+        background: #156a70;
+        display: flex;
+    }
+    
+    .orange-cloud {
+        width: 80%;
+        margin-top: -10%;
+    }
+    
+    .classroom-photo {
+        margin-top: -65%;
+        width: 62%;
+    }
+    
+    .landing-second-container-text {
+        color: white;
+        padding: 10% 10% 0%;
+        text-align: center;
+    }
+    
+    .empty-space{
+        width: 50%
+    }
+
+    .landing-second-container-btn {
+      width: 8rem;
+      height: 2.3rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      color: black;
+      background: #fbc740;
+      border: none;
+      border-radius: 0.313rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Third Content Section */
+
+    
+    .landing-third-container {
+        display: flex;
+        background: #156a70;
+    }
+    
+      .landing-third-container-green {
+        justify-content: flex-end;
+        width: 50%;
+      }
+
+    /* Fourth Content Section */
+
+      .landing-fourth-container {
+        display: flex;
+        margin-top: -25%;
+        background: #156a70;
+        padding-bottom: 5%;
+      }
+    
+      .landing-third-container-pic{
+        width: 20%;
+        height: 20%;
+      }
+    
+      .empty-space-two{
+        width: 65%
+      }
+    
+      .description {
+        background-color: #eeedd9;
+        padding: 2%;
+        border-radius: 10px;
+        margin: 2% 10%;
+        border: 2px solid black;
+      }
+    
+      .brianne {
+        background-color: #eeedd9;
+        padding: 2%;
+        border-radius: 10px;
+        margin: 2% 10%;
+        border: 2px solid black;
+      }
+
   }
 
-  @media only screen and (max-width: 600px) {
+  //** Landing Page Styles - MOBILE **//
 
+
+ @media only screen and (max-width: 600px) {
+
+  /* First Content Section */
+
+  .cloudbg {
+    background-color: red;
+    // width: 100%;
+    // height: 100%;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center center;
+    // text-align: center;
+    // padding: 10% 10% 2%;
   }
+  
+  .landing-main-text {
+    margin: 5% 0%;
+    color: red;
+    text-align: center;
+  }
+  
+  .landing-main-text h1 {
+    margin-bottom: 5%;
+  }
+  
+  .landing-main-text h3 {
+    text-align: center;
+  }
+  
+    .browse-btn {
+      padding: 2%;
+    }
+  
+    .support-us-btn {
+      padding: 2%;
+    }
+  
+  
+  .landing-button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 10%;
+      margin-left: 25rem;
+      margin-right: 25rem;
+      margin-bottom: 2rem;
+    }
+  
+    .btn {
+      cursor: pointer;
+      height: 3rem;
+      margin-right: 1rem;
+      color: black;
+      background: #f26602;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .btn:hover {
+      filter: brightness(95%);
+      color: white;
+    }
+
+    /* Second Content Section */
+  
+    .landing-second-container {
+      background: #156a70;
+      display: flex;
+    }
+  
+    .orange-cloud {
+      z-index: 0;
+      width: 80%;
+      margin-top: -10%;
+    }
+  
+    .classroom-photo {
+      z-index: 2;
+      margin-top: -65%;
+      width: 62%;
+      border-radius: 5px;
+    }
+  
+    .landing-second-container-text {
+      color: white;
+      padding: 10% 10% 0%;
+      text-align: center;
+    }
+    .empty-space{
+      width: 50%
+    }
+
+    .landing-second-container-btn {
+      width: 8rem;
+      height: 2.3rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      color: black;
+      background: #fbc740;
+      border: none;
+      border-radius: 0.313rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Third Content Section */
+  
+    .landing-third-container {
+      display: flex;
+      background: #156a70;
+    }
+  
+    .landing-third-container-green {
+      justify-content: flex-end;
+      width: 50%;
+    }
+
+    /* Fourth Content Section */
+  
+    .landing-fourth-container {
+      display: flex;
+      margin-top: -25%;
+      background: #156a70;
+      padding-bottom: 5%;
+    }
+  
+    .landing-third-container-pic{
+      width: 20%;
+      height: 20%;
+    }
+  
+    .empty-space-two{
+      width: 65%
+    }
+  
+    .description {
+      background-color: #eeedd9;
+      padding: 2%;
+      border-radius: 10px;
+      margin: 2% 10%;
+      border: 2px solid black;
+    }
+  
+    .brianne {
+      background-color: #eeedd9;
+      padding: 2%;
+      border-radius: 10px;
+      margin: 2% 10%;
+      border: 2px solid black;
+    }
+
+}
+

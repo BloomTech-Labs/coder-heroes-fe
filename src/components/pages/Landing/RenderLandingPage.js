@@ -27,11 +27,12 @@ function RenderLandingPage(props) {
     <div className="landing-container">
       {/* Main text container */}
       <div className="landing-main-container">
-        <div
-          className="cloudbg"
-          style={{ backgroundImage: `url(${background})` }}
-        >
-          <img src={logo} alt="CoderHeroes Text in Turquoise" />
+        <div className="cloudbg">
+          <img
+            className="coder-heroes"
+            src={logo}
+            alt="CoderHeroes Text in Turquoise"
+          />
           <div className="landing-main-text">
             <center>
               <h1> Coding is a superpower. </h1>

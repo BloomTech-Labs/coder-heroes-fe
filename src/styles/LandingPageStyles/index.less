@@ -10,6 +10,7 @@
   background-position: center center;
   text-align: center;
   padding: 10% 10% 2%;
+  background-image: url('../../img/cloud-bg.jpg');
 }
 
 .landing-main-text {
@@ -159,6 +160,7 @@
 
     .cloudbg {
       background-color: yellow;
+      background-image: url('../../img/cloud-bg.jpg');
       // width: 100%;
       // height: 100%;
       // background-size: cover;
@@ -166,6 +168,10 @@
       // background-position: center center;
       // text-align: center;
       // padding: 10% 10% 2%;
+    }
+
+    .coder-heroes{
+      width: 40%;
     }
     
     .landing-main-text {
@@ -310,19 +316,17 @@
   /* First Content Section */
 
   .cloudbg {
-    background-color: red;
-    // width: 100%;
-    // height: 100%;
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center center;
-    // text-align: center;
-    // padding: 10% 10% 2%;
+    background-color: #eeedd9;
+    background-image: none;
+    width: 50%;
+  }
+
+  .coder-heroes{
+    width: 40%;
   }
   
   .landing-main-text {
     margin: 5% 0%;
-    color: red;
     text-align: center;
   }
   
@@ -389,11 +393,16 @@
       width: 62%;
       border-radius: 5px;
     }
+
+    .landing-second-images {
+      display: none;  
+    }
   
     .landing-second-container-text {
       color: white;
       padding: 10% 10% 0%;
       text-align: center;
+      width: 50%;
     }
     .empty-space{
       width: 50%
@@ -415,8 +424,7 @@
     /* Third Content Section */
   
     .landing-third-container {
-      display: flex;
-      background: #156a70;
+      display: none;
     }
   
     .landing-third-container-green {
@@ -428,8 +436,8 @@
   
     .landing-fourth-container {
       display: flex;
-      margin-top: -25%;
       background: #156a70;
+      flex-direction: column;
       padding-bottom: 5%;
     }
   

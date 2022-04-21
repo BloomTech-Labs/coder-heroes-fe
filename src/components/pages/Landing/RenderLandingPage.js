@@ -105,7 +105,7 @@ function RenderLandingPage(props) {
       <div className="landing-fourth-container">
         <div className="empty-space-two"></div>
         <img
-          className="landing-third-container-pic"
+          className="landing-fourth-container-pic"
           src={profile}
           alt="Brianne Smiling"
         />

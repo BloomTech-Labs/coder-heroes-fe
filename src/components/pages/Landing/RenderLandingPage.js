@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import Button from '../../common/Button';
-import background from '../../../img/cloud-bg.jpg';
 import logo from '../../../img/coderheroes-logo.svg';
 import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';

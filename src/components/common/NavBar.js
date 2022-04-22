@@ -85,7 +85,7 @@ export default function NavBar() {
               <FacebookOutlined />
             </a>
             <a
-              href="https://twitter.com/coderheroes."
+              href="https://twitter.com/coderheroes"
               className="navbar__socialLink"
               target="_blank"
               rel="noopener noreferrer"
@@ -93,7 +93,7 @@ export default function NavBar() {
               <TwitterOutlined />
             </a>
             <a
-              href="https://www.instagram.com/coderheroes/."
+              href="https://www.instagram.com/coderheroes/"
               className="navbar__socialLink"
               target="_blank"
               rel="noopener noreferrer"
@@ -101,7 +101,7 @@ export default function NavBar() {
               <InstagramOutlined />
             </a>
             <a
-              href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+              href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg"
               className="navbar__socialLink"
               target="_blank"
               rel="noopener noreferrer"
@@ -109,7 +109,7 @@ export default function NavBar() {
               <YoutubeOutlined />
             </a>
             <a
-              href="https://www.linkedin.com/company/coderheroes/."
+              href="https://www.linkedin.com/company/coderheroes/"
               className="navbar__socialLink"
               target="_blank"
               rel="noopener noreferrer"

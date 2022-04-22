@@ -53,7 +53,7 @@ function RenderLandingPage(props) {
               classType="browse-btn btn"
               buttonText="BROWSE PROGRAMS"
               onClick={() => {
-                history.push('/programs');
+                history.push('/browse-programs');
               }}
             ></Button>
             <Button

@@ -1,84 +1,97 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
 
-const CreateNewStudent = props => {
-  const [newStudentInfo, setNewStudentInfo] = useState();
-  // const [checked, setChecked] = useState([]);
-
-  const handleChange = e => {
-    e.preventDefault();
-    setNewStudentInfo({
-      ...newStudentInfo,
-      [e.target.name]: e.target.value,
-    });
+const CreateNewStudent = () => {
+  const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
   };
 
-  // const handleChange = (id, e) => {
-  //     e.preventDefault();
-  //     const copyChecked = [...checked];
-  //     const indexOfId = copyChecked.indexOf(id);
-  //     console.log('INDEXOFID', indexOfId);
-  //     if(indexOfId === -1){
-  //         copyChecked.push(id);
-  //     }else{
-  //         copyChecked.splice(indexOfId, 1);
-  //     }
-  //     console.log('COPYCHECKED', copyChecked);
-  //     setChecked(copyChecked);
-  // };
+  const onFinish = values => {
+    //   Potential axios POST call here? Need to research AntDesign more
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = errorInfo => {
+    //   Does error handling go in Axios POST call, or here on its own? More research needed
+    console.log('Failed:', errorInfo);
+  };
+
+  const validateMessages = {
+    required: '${label} is required!',
+    types: {
+      email: '${label} is not a valid email!',
+      number: '${label} is not a valid number!',
+    },
+    number: {
+      range: '${label} must be between ${min} and ${max}',
+    },
+  };
 
   return (
-    <form className="create-new-student-form">
-      <label>
-        Student Name:
-        <input type="text" name="username" onChange={handleChange}></input>
-      </label>
-      <br />
-      <label>
-        Email Address:
-        <input type="text" name="email-address"></input>
-      </label>
-      <br />
-      <div>Add Prerequisites:</div>
-      <br />
-      <label>
-        HTML
-        <input
-          id={1}
-          type="checkbox"
-          name="prerequisites"
-          value="html"
-          // checked={checked.includes(checked.id)}
-          // onChange={(e) => handleChange(checked.id, e)}
-        />
-      </label>
-      <br />
-      <label>
-        CSS
-        <input
-          id={2}
-          type="checkbox"
-          name="prerequisites"
-          value="css"
-          // checked={checked.includes(checked.id)}
-          // onChange={(e) => handleChange(checked.id, e)}
-        />
-      </label>
-      <br />
-      <label>
-        JavaScript
-        <input
-          id={3}
-          type="checkbox"
-          name="prerequisites"
-          value="javascript"
-          // checked={checked.includes(checked.id)}
-          // onChange={(e) => handleChange(checked.id, e)}
-        />
-      </label>
-      <br />
-      <div className="create-new-student-submit"></div>
-    </form>
+    <Form
+      {...layout}
+      name="add-student"
+      className="create-new-student-form"
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      validateMessages={validateMessages}
+    >
+      <Form.Item
+        label="Student Name"
+        name={['student', 'name']}
+        rules={[
+          { required: true, message: "Please input your student's name!" },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Age"
+        name={['student', 'age']}
+        rules={[
+          {
+            required: true,
+            message: "Please input your student's age!",
+            type: 'number',
+            min: 0,
+            max: 19,
+          },
+        ]}
+      >
+        <InputNumber />
+      </Form.Item>
+
+      <Form.Item
+        label="Username"
+        name={['student', 'username']}
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Email"
+        name={['student', 'email']}
+        rules={[
+          {
+            required: true,
+            message: 'Please input your email!',
+            type: 'email',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
 

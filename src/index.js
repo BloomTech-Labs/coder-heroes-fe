@@ -52,6 +52,7 @@ import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
+import HowManyStudents from './components/pages/Registration/HowManyStudents';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -88,6 +89,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register" component={LoginPage} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/implicit/callback" component={LoginCallback} />

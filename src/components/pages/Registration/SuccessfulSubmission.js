@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../../styles/registration.less';
+import RegistrationProgress from './RegistrationProgress';
 
 export default function SuccessfulSubmission() {
   return (
     <div className="reg-content-container email-confirmation">
+      <RegistrationProgress step_num={3} />
       <div className="content">
         <p className="color-one">
           Your CoderHeroes Educator Application has been successfully submitted.

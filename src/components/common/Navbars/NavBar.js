@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FacebookOutlined,
   TwitterOutlined,
@@ -22,11 +22,28 @@ import {
 } from '../../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
+import NavBarLinks from './NavBarLinks';
+
+import { connect } from 'react-redux';
+
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
-export default function NavBar() {
+function NavBar(props) {
   const [visible, setVisible] = useState(false);
+  const [bgColor, setBgColor] = useState('#FEAD2A');
+  const { role_id } = props.user.currentUser;
+
+  useEffect(() => {
+    if (role_id === 5) setBgColor('#9FB222');
+    else if (role_id < 5) setBgColor('#21C5B5');
+    else setBgColor('#FEAD2A');
+  }, [role_id]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('okta-token-storage');
+    window.location.reload();
+  };
 
   const showDrawer = () => {
     setVisible(true);
@@ -38,7 +55,7 @@ export default function NavBar() {
   return (
     <Header
       style={{
-        backgroundColor: '#feae28',
+        backgroundColor: bgColor,
         minHeight: '98px',
         lineHeight: '0',
         padding: '0',
@@ -60,68 +77,19 @@ export default function NavBar() {
             </h1>
           </NavLink>
         </div>
-        <div className="navbar__links">
-          <NavLink className="navbar__navLink" to="/browse-programs">
-            PROGRAMS
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/browse-instructors">
-            INSTRUCTORS
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/parent-booking">
-            BOOKING
-          </NavLink>
-          <NavLink className="navbar__navLink" to="/">
-            SCHOLARSHIPS
-          </NavLink>
-        </div>
-        <div className="navbar__socials">
-          <div className="navbar__socials__cont">
-            <a
-              href="https://www.facebook.com/coderheroes."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FacebookOutlined />
-            </a>
-            <a
-              href="https://twitter.com/coderheroes."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TwitterOutlined />
-            </a>
-            <a
-              href="https://www.instagram.com/coderheroes/."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramOutlined />
-            </a>
-            <a
-              href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <YoutubeOutlined />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/coderheroes/."
-              className="navbar__socialLink"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinOutlined />
-            </a>
-          </div>
-        </div>
+        <NavBarLinks role_id={role_id} />
         <div className="navbar__btns">
-          <NavLink to="/">
-            <button className="navbar__btn navbar__contact">CONTACT US</button>
-          </NavLink>
+          {localStorage.getItem('okta-token-storage') ? (
+            <NavLink to="/" onClick={handleLogout}>
+              <button className="navbar__btn">LOGOUT</button>
+            </NavLink>
+          ) : (
+            <NavLink to="/">
+              <button className="navbar__btn navbar__contact">
+                CONTACT US
+              </button>
+            </NavLink>
+          )}
           <NavLink to="/login">
             <button
               className={`navbar__btn navbar__login ${
@@ -239,3 +207,9 @@ export default function NavBar() {
     </Header>
   );
 }
+
+const mapStateToProps = state => {
+  return { user: state.userReducer };
+};
+
+export default connect(mapStateToProps)(NavBar);

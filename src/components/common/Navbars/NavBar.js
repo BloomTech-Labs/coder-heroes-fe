@@ -19,7 +19,7 @@ import { Drawer, Menu, Layout } from 'antd';
 import {
   ProfileIcon,
   HamburgerMenuIcon,
-} from '../pages/LandingInstructor/Icons';
+} from '../../pages/LandingInstructor/Icons';
 import { NavLink } from 'react-router-dom';
 
 import NavBarLinks from './NavBarLinks';

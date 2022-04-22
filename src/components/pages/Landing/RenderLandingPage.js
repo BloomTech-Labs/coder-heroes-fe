@@ -10,11 +10,17 @@ import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
+import { useHistory } from 'react-router-dom';
 
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
   const { idToken } = authState;
+  const history = useHistory();
+
+  // function browseProgramsButton(){
+  //   history.push('/programs)';
+  // };
 
   useEffect(() => {
     if (idToken) {
@@ -46,12 +52,14 @@ function RenderLandingPage(props) {
             <Button
               classType="browse-btn btn"
               buttonText="BROWSE PROGRAMS"
-              onClick={''}
+              onClick={() => {
+                history.push('/programs');
+              }}
             ></Button>
             <Button
-              classType="support-us-btn btn"
-              buttonText="SUPPORT US"
-              onClick={''}
+              classType="sign-up-btn btn"
+              buttonText="SIGN UP"
+              // onClick={() => { history.push('/registry');}}
             ></Button>
           </div>
           <DownOutlined />

@@ -27,6 +27,7 @@ const days = [
 
 const initialClassDataState = {
   course_type: '',
+  course_name: '',
   day: '', //needs to be added to backend
   size: '',
   min_age: '', //needs to be added to backend
@@ -370,12 +371,13 @@ const InstructorAddCourseForm = props => {
           {/* Submit Button */}
           <div className="iac__submit">
             <Button
-              type="primary"
+              style={{ marginBottom: '1rem', alignContent: 'center' }}
+              action="submit"
+              type="submit"
               htmlType="submit"
               className="submitButton"
               onClick={success}
               disabled={!disabled}
-              style={{ alignContent: 'center' }}
             >
               Create New Course
             </Button>

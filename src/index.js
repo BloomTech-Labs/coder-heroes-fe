@@ -48,9 +48,12 @@ import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
+import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 // import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
+import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
+import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -85,6 +88,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
@@ -105,6 +109,7 @@ function App() {
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />
           <Route path="/classroom" component={Classroom} />
+          <Route path="/feedback-badges" component={FeedbackBadgePage} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
           <SecureRoute
             path="/dev"
@@ -126,6 +131,10 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+          <SecureRoute
+            path="/instructor-dashboard"
+            component={InstructorDashboard}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

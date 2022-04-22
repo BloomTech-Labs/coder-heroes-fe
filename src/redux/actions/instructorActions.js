@@ -19,9 +19,7 @@ export const setSelectedCourse = course => {
 };
 export const getusers = () => async dispatch => {
   try {
-    const res = await axios.get(
-      `https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca`
-    );
+    const res = await axios.get(`https://coder-heroes-api.herokuapp.com/user`);
     dispatch({
       type: GET_USER_ACTION,
       payload: res.data,
@@ -49,7 +47,9 @@ export const getCourses = idToken => async dispatch => {
 };
 export const getInbox = () => async dispatch => {
   try {
-    const res = await axios.get(`https://dummyapi.io/data/v1/post?limit=10`);
+    const res = await axios.get(
+      `https://coder-heroes-api.herokuapp.com/inbox/:profile_id`
+    );
     dispatch({
       type: GET_INBOX_ACTION,
       payload: res.data,

@@ -22,7 +22,7 @@ export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .get('https://coder-heroes-api.herokuapp.com/parent/:profile_id/children')
     .then(res => {
       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
     })
@@ -33,7 +33,7 @@ export const getChildren = () => dispatch => {
 export const getCourses = dispatch => {
   dispatch({ type: GET_COURSES_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .get('https://coder-heroes-api.herokuapp.com/course')
     .then(res => {
       dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
     })
@@ -55,7 +55,7 @@ export const getSessions = () => dispatch => {
 export const getInbox = dispatch => {
   dispatch({ type: GET_INBOX_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+    .get('https://coder-heroes-api.herokuapp.com/inbox/:profile_id', {
       crossdomain: true,
     })
     .then(res => {
@@ -81,7 +81,7 @@ export const signupForCourse = () => dispatch => {
 export const fetchBookings = () => dispatch => {
   dispatch({ type: FETCH_BOOKINGS_START });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .get('https://coder-heroes-api.herokuapp.com/parent/1/schedules')
     .then(res => {
       dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
     })

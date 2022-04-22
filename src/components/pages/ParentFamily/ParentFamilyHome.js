@@ -9,12 +9,9 @@ import 'antd/dist/antd.css';
 
 const ParentFamilyHome = () => {
   const { Content, Sider } = Layout;
-  const [studentInfo, setStudentInfo] = useState(null); //eslint-disable-line
+  const [studentInfo, setStudentInfo] = useState(null);
   const [addChildVisible, setAddChildVisible] = useState(false);
   const [addChildConfirmLoading, setAddChildConfirmLoading] = useState(false);
-  const [addChildModalText, setAddChildModalText] = useState(
-    <CreateNewStudent />
-  );
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
@@ -26,6 +23,7 @@ const ParentFamilyHome = () => {
       .then(res => {
         const familyData = res.data;
         setStudentInfo(familyData);
+        console.log(familyData);
       })
       .catch(err => {
         console.log(`error fetching axios call`);
@@ -37,7 +35,6 @@ const ParentFamilyHome = () => {
   };
 
   const handleAddChildOk = () => {
-    setAddChildModalText(<CreateNewStudent />);
     setAddChildConfirmLoading(true);
     setTimeout(() => {
       setAddChildVisible(false);
@@ -65,7 +62,7 @@ const ParentFamilyHome = () => {
             confirmLoading={addChildConfirmLoading}
             onCancel={handleAddChildCancel}
           >
-            {addChildModalText}
+            <CreateNewStudent />
           </Modal>
           <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
             <strong>PICK A PROFILE TO ACCESS</strong>

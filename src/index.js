@@ -42,7 +42,9 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import NavBar from './components/common/NavBar';
+import NavBar from './components/common/Navbars/NavBar';
+// eslint-disable-next-line
+import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
@@ -51,6 +53,7 @@ import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
+import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -129,6 +132,10 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+          <SecureRoute
+            path="/instructor-dashboard"
+            component={InstructorDashboard}
+          />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

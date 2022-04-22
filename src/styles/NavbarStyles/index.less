@@ -2,7 +2,6 @@
 
 .navbar__mainNav {
   display: flex;
-  background-color: #feae28;
   min-height: 98px;
   padding: 0 0.6rem;
   width: 100%;
@@ -21,12 +20,14 @@
       margin: 0 0 0 1.5rem;
       font-size: 1.95rem;
       letter-spacing: 1px;
+      display: flex;
       align-items: center;
       color: #3b0e2b;
       font-family: @text__font-family--header;
       overflow: hidden;
       white-space: nowrap;
       transition: 0.2s all ease-in;
+      padding-top: 4%;
     }
     @media screen and (max-width: 1220px) {
       .navbar__navTitle {
@@ -117,6 +118,7 @@
       cursor: pointer;
       transition: 0.1s all ease-in;
       margin: 0 0.2rem;
+      width: auto;
     }
     .navbar__btn:hover {
       color: #edeed7;

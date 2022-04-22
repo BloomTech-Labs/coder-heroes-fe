@@ -42,13 +42,16 @@ export const dummyData = {
     },
   ],
   errorMessage: '',
-  instructor_id: 3,
-  user_id: 9,
-  rating: 3,
-  approved: true,
-  approved_by: 1,
-  instructor_bio: 'I love making content for people to enjoy!',
-  inbox: [],
+  instructor_data: {
+    instructor_id: 3,
+    instructor_name: 'Jane Smith',
+    user_id: 9,
+    rating: 3,
+    approved: true,
+    approved_by: 1,
+    instructor_bio: 'I love making content for people to enjoy!',
+    inbox: [],
+  },
   course_id: [3],
   course_schedule: [
     {

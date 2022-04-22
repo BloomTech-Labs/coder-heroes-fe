@@ -50,7 +50,7 @@ function Cart(props) {
       <h3>List in Cart</h3>
       {cart.length === 0 ? (
         <div>
-          {/* <div>You don't have any item in cart yet!</div> */}
+          <div>You don't have any item in cart yet!</div>
           {/* //move this total and stripCheckoutButton  code under it to bottom of return for cart */}
           <div>Total: ${total}</div>
           <StripeCheckoutButton price={total} />

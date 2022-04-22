@@ -81,7 +81,7 @@ export const signupForCourse = () => dispatch => {
 export const fetchBookings = () => dispatch => {
   dispatch({ type: FETCH_BOOKINGS_START });
   axios
-    .get('https://coder-heroes-api.herokuapp.com/parent/1/schedules')
+    .get('https://coder-heroes-api.herokuapp.com/parent/:profile_id/schedules')
     .then(res => {
       dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
     })

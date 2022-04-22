@@ -77,7 +77,7 @@ export default function NavBar() {
         <div className="navbar__socials">
           <div className="navbar__socials__cont">
             <a
-              href="https://www.facebook.com/coderheroes."
+              href="https://www.facebook.com/coderheroes"
               className="navbar__socialLink"
               target="_blank"
               rel="noopener noreferrer"
@@ -116,13 +116,14 @@ export default function NavBar() {
             >
               <LinkedinOutlined />
             </a>
-             
           </div>
         </div>
         <div className="navbar__btns">
           <NavLink to="/">
             <button
-              onClick={() => (window.location = 'mailto:yourmail@gmail.com')}
+              onClick={() =>
+                (window.location = 'mailto:brianne@coderheroes.com')
+              }
               className="navbar__btn navbar__contact"
             >
               CONTACT US

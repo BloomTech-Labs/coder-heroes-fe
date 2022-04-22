@@ -21,6 +21,7 @@ function RenderLandingPage(props) {
     if (idToken) {
       dispatch(getCurrentUser(idToken, authState, authService));
     }
+    // eslint-disable-next-line
   }, [dispatch, idToken]);
 
   return (

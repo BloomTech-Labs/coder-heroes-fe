@@ -22,7 +22,7 @@ export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 export const getChildren = () => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios
-    .get('https://coder-heroes-api.herokuapp.com/parent/:profile_id/children')
+    .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/children`)
     .then(res => {
       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
     })
@@ -33,7 +33,7 @@ export const getChildren = () => dispatch => {
 export const getCourses = dispatch => {
   dispatch({ type: GET_COURSES_ACTION });
   axios
-    .get('https://coder-heroes-api.herokuapp.com/course')
+    .get(`${process.env.REACT_APP_API_URI}/course`)
     .then(res => {
       dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
     })
@@ -41,21 +41,11 @@ export const getCourses = dispatch => {
       dispatch({ type: ERROR_ACTION, payload: err });
     });
 };
-export const getSessions = () => dispatch => {
-  dispatch({ type: GET_SESSIONS_ACTION });
-  axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
-    .then(res => {
-      dispatch({ type: GET_SESSIONS_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
-};
+
 export const getInbox = dispatch => {
   dispatch({ type: GET_INBOX_ACTION });
   axios
-    .get('https://coder-heroes-api.herokuapp.com/inbox/:profile_id', {
+    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
       crossdomain: true,
     })
     .then(res => {
@@ -68,7 +58,7 @@ export const getInbox = dispatch => {
 export const signupForCourse = () => dispatch => {
   dispatch({ type: SIGNUP_COURSE_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+    .get(`${process.env.REACT_APP_API_URI}/children/:id/enrollments}`, {
       crossdomain: true,
     })
     .then(res => {
@@ -81,7 +71,7 @@ export const signupForCourse = () => dispatch => {
 export const fetchBookings = () => dispatch => {
   dispatch({ type: FETCH_BOOKINGS_START });
   axios
-    .get('https://coder-heroes-api.herokuapp.com/parent/:profile_id/schedules')
+    .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/schedules`)
     .then(res => {
       dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
     })

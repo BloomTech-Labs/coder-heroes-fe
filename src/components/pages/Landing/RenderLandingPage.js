@@ -10,23 +10,17 @@ import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
   const { idToken } = authState;
-  const history = useHistory();
-
-  // function browseProgramsButton(){
-  //   history.push('/programs)';
-  // };
 
   useEffect(() => {
     if (idToken) {
       dispatch(getCurrentUser(idToken, authState, authService));
     }
-    // eslint-disable-next-line
   }, [dispatch, idToken]);
 
   return (
@@ -49,18 +43,16 @@ function RenderLandingPage(props) {
 
           {/* Button container */}
           <div className="landing-button-container">
-            <Button
-              classType="browse-btn btn"
-              buttonText="BROWSE PROGRAMS"
-              onClick={() => {
-                history.push('/browse-programs');
-              }}
-            ></Button>
-            <Button
-              classType="sign-up-btn btn"
-              buttonText="SIGN UP"
-              // onClick={() => { history.push('/registry');}}
-            ></Button>
+            <Link to="/browse-programs">
+              <Button
+                classType="browse-btn btn"
+                buttonText="BROWSE PROGRAMS"
+              ></Button>
+            </Link>
+
+            <Link to="/register">
+              <Button classType="sign-up-btn btn" buttonText="SIGN UP"></Button>
+            </Link>
           </div>
           <DownOutlined />
           <div className="secondtext">
@@ -99,10 +91,12 @@ function RenderLandingPage(props) {
               school districts.
             </p>
           </div>
-          <Button
-            classType="landing-second-container-btn"
-            buttonText="VISIT WEBSITE"
-          ></Button>
+          <a href="https://codeyourdreams.org">
+            <Button
+              classType="landing-second-container-btn"
+              buttonText="VISIT WEBSITE"
+            ></Button>
+          </a>
         </div>
       </div>
       {/* Third text container */}

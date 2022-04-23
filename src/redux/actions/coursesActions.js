@@ -49,7 +49,6 @@ export const editCourse = (idToken, course) => async dispatch => {
       `/courses/${course.course_id}`,
       course
     );
-    console.log(res);
     dispatch({
       type: UPDATE_COURSE,
       payload: res.data.course[0],

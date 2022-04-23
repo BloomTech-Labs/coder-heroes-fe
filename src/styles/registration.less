@@ -61,6 +61,49 @@
     font-size: xx-large;
 }
 
+.reg-content-container {
+    .reg-form-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+    
+    .indicator  {
+        color: gray;
+        font-size: .75rem;
+    }
+    
+    .basic-form {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column;
+        align-content: flex-end;
+
+        label {
+            display: flex;
+            align-content: center;
+            padding: .5rem;
+        }
+    
+        input {
+            width: 30rem;
+            background-color: #FAF7F7;
+            border: none;
+        }
+    
+        button {
+            width: 10rem;
+            background-color: #006C72;
+            color: white;
+        }
+    }
+}
+
+.SaveButton {
+    display: flex;
+    justify-content: end;
+}
+
 @media screen and (max-width: 1200px) {
     .reg-content-container {
         padding: 6rem 4rem 4rem 4rem;

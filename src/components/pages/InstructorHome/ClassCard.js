@@ -30,7 +30,9 @@ const ClassCard = ({ courses }) => {
 
   const handleEdit = () => {
     setEditing(!editing);
-    dispatch(editCourse(idToken, courses, state));
+    dispatch(
+      editCourse(idToken, { ...courses, course_name: state.course_name })
+    );
   };
 
   return (

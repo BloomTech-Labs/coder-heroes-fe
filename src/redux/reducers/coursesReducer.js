@@ -33,9 +33,11 @@ const reducer = (state = initialState, action) => {
         editing: false,
       };
     case UPDATE_COURSE:
+      console.log(state.courses);
       return {
         ...state,
         courses: state.courses.map(rec => {
+          console.log(action.payload);
           if (rec.course_id === action.payload.course_id) {
             return action.payload;
           }

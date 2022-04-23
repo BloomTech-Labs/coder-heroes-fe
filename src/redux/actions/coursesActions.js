@@ -43,15 +43,16 @@ export const delCourse = (idToken, id) => async dispatch => {
   }
 };
 
-export const editCourse = (idToken, course, updated) => async dispatch => {
+export const editCourse = (idToken, course) => async dispatch => {
   try {
     const res = await axiosWithAuth(idToken).put(
       `/courses/${course.course_id}`,
-      { updated }
+      course
     );
+    console.log(res);
     dispatch({
       type: UPDATE_COURSE,
-      payload: res.data,
+      payload: res.data.course[0],
     });
   } catch (error) {
     dispatch({

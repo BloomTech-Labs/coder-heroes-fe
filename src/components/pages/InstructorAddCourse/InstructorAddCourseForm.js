@@ -31,8 +31,10 @@ const days = [
 const initialClassDataState = {
   course_type: '',
   course_name: '',
+  // course_description
   day: '', //needs to be added to backend
   size: '',
+  //max_size
   min_age: '', //needs to be added to backend
   max_age: '', //needs to be added to backend
   start_time: '',
@@ -43,6 +45,7 @@ const initialClassDataState = {
   location: '',
   open_seats_remaining: '',
   instructor_id: '',
+  // number_of_sessions
 };
 
 const initialClassDataStateFormErrors = {

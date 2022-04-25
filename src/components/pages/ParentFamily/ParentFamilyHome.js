@@ -4,14 +4,17 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Modal, Button } from 'antd';
+import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentFamilyHome = () => {
-  const { Content, Sider } = Layout;
+  const { Meta } = Card;
+  const { Content } = Layout;
   const [studentInfo, setStudentInfo] = useState(null);
-  const [addChildVisible, setAddChildVisible] = useState(false);
-  const [addChildConfirmLoading, setAddChildConfirmLoading] = useState(false);
+  const [addStudentVisible, setAddStudentVisible] = useState(false);
+  const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
+    false
+  );
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
@@ -19,7 +22,7 @@ const ParentFamilyHome = () => {
       headers: { Authorization: `Bearer ${token.idToken.value}` },
     };
     axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/1/children`, config)
+      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
       .then(res => {
         const familyData = res.data;
         setStudentInfo(familyData);
@@ -30,61 +33,89 @@ const ParentFamilyHome = () => {
       });
   }, []);
 
-  const showAddChildModal = () => {
-    setAddChildVisible(true);
+  const showAddStudentModal = () => {
+    setAddStudentVisible(true);
   };
 
-  const handleAddChildOk = () => {
-    setAddChildConfirmLoading(true);
+  const handleAddStudentOk = () => {
+    setAddStudentConfirmLoading(true);
     setTimeout(() => {
-      setAddChildVisible(false);
-      setAddChildConfirmLoading(false);
+      setAddStudentVisible(false);
+      setAddStudentConfirmLoading(false);
     }, 2000);
   };
 
-  const handleAddChildCancel = () => {
-    setAddChildVisible(false);
+  const handleAddStudentCancel = () => {
+    setAddStudentVisible(false);
   };
 
   return (
-    <div className="family-page-container">
-      <Layout style={{ width: '100%' }}>
-        <Sider collapsible theme="light">
-          <div style={{ display: 'flex', justifyContent: 'center' }} />
-          <ParentSidebar />
-        </Sider>
-        <Content>
-          <Banner />
-          <Modal
-            title="Add Child"
-            visible={addChildVisible}
-            onOk={handleAddChildOk}
-            confirmLoading={addChildConfirmLoading}
-            onCancel={handleAddChildCancel}
-          >
-            <CreateNewStudent />
-          </Modal>
-          <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
-            <strong>PICK A PROFILE TO ACCESS</strong>
-          </div>
-          <div className="profile-card-container">
-            <div className="profile-card-containers">
-              <div className="profile-avatars" />
-              <div className="profile-select-titles">Parent Name</div>
-              <Button className="profile-select-button">VIEW ACCOUNT</Button>
-              <Button className="add-child-button" onClick={showAddChildModal}>
-                ADD CHILD
+    <Layout style={{ width: '100%' }}>
+      <ParentSidebar />
+
+      <Content>
+        <Banner />
+
+        <Modal
+          title="Add Student"
+          visible={addStudentVisible}
+          onOk={handleAddStudentOk}
+          confirmLoading={addStudentConfirmLoading}
+          onCancel={handleAddStudentCancel}
+          footer={null}
+        >
+          <CreateNewStudent />
+        </Modal>
+
+        <h2 className="family-profile-title" style={{ color: '#6A0C49' }}>
+          <strong>CHOOSE A PROFILE</strong>
+        </h2>
+
+        <Row gutter={16}>
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="parent-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Parent Name"
+              />
+              <Button className="parent-view-account-button">
+                VIEW ACCOUNT
               </Button>
-            </div>
-            <div className="profile-card-containers">
-              <div className="profile-avatars" />
-              <div className="profile-select-titles">Student Name</div>
-              <Button className="profile-select-button">VIEW ACCOUNT</Button>
-            </div>
-          </div>
-        </Content>
-      </Layout>
-    </div>
+              <Button
+                className="add-student-button"
+                onClick={showAddStudentModal}
+              >
+                ADD STUDENT
+              </Button>
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="student-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Student Name"
+              />
+              <Button className="student-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="student-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Student Name"
+              />
+              <Button className="student-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+            </Card>
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 

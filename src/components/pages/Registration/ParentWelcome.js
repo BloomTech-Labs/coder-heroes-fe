@@ -9,7 +9,7 @@ export default function ParentWelcome() {
         <p className="color-two">
           You are steps away from unleashing your superpowers
         </p>
-        <a href="#">CREATE PROFILES</a>
+        <a href="/register-2">CREATE PROFILES</a>
       </div>
     </div>
   );

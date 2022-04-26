@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
 import StudentSideBar from './StudentSidebar';
-import './../../../styles/ParentStyles/index.less';
+import '../../../styles/ParentStyles/index.less';
 
 function StudentHome() {
   const { Content, Sider } = Layout;

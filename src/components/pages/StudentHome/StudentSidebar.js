@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
 import {
-  HomeFilled,
-  CalendarFilled,
-  ToolFilled,
+  DashboardOutlined,
+  CheckCircleOutlined,
+  MessageOutlined,
+  GroupOutlined,
+  StarOutlined,
+  SlidersOutlined,
   ExportOutlined,
-  HeartFilled,
   ReadOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
@@ -35,7 +37,7 @@ const StudentSideBar = props => {
       onCollapse={onCollapse}
     >
       <Menu
-        className="student-dashboard-sidebar"
+        className="parent-dashboard-sidebar"
         defaultSelectedKeys={['2']}
         defaultOpenKeys={['sub1']}
         style={{ height: '100vh' }}
@@ -44,22 +46,31 @@ const StudentSideBar = props => {
         color="orange"
         inlineCollapsed={collapsed}
       >
-        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
+        <Menu.Item
+          key="dashboard"
+          icon={<DashboardOutlined fontSize="150px" />}
+        >
           <Link to="/student">Dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="my-tasks" icon={<CalendarFilled fontSize="150px" />}>
+        <Menu.Item
+          key="my-tasks"
+          icon={<CheckCircleOutlined fontSize="150px" />}
+        >
           <Link to="/parent-booking">My Tasks</Link>
         </Menu.Item>
-        <Menu.Item key="messages" icon={<HeartFilled fontSize="150px" />}>
+        <Menu.Item key="messages" icon={<MessageOutlined fontSize="150px" />}>
           <Link to="/family">Messages</Link>
         </Menu.Item>
-        <Menu.Item key="resources" icon={<ReadOutlined />}>
+        <Menu.Item key="resources" icon={<ReadOutlined fontSize="150px" />}>
           <Link to="/parent-news-feed">Resources</Link>
         </Menu.Item>
-        <Menu.Item key="portfolio" icon={<ToolFilled fontSize="150px" />}>
+        <Menu.Item key="portfolio" icon={<GroupOutlined fontSize="150px" />}>
           <Link to="/settings">Portfolio</Link>
         </Menu.Item>
-        <Menu.Item key="achievements" icon={<ToolFilled fontSize="150px" />}>
+        <Menu.Item key="progress" icon={<SlidersOutlined fontSize="150px" />}>
+          <Link to="/progress">Progress</Link>
+        </Menu.Item>
+        <Menu.Item key="achievements" icon={<StarOutlined fontSize="150px" />}>
           <Link to="/settings">Achievements</Link>
         </Menu.Item>
 

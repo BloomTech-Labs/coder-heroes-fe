@@ -39,4 +39,5 @@ export default function Banner() {
       bannerContent('Dashboard', 'Welcome back!');
     }
   }
+  return null;
 }

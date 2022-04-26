@@ -77,4 +77,4 @@ const StudentSideBar = props => {
   );
 };
 
-export default connect(StudentSideBar);
+export default connect(state => state)(StudentSideBar);

@@ -32,6 +32,7 @@ import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
+import StudentHome from './components/pages/StudentHome/index';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
@@ -95,6 +96,7 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />
+          <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route

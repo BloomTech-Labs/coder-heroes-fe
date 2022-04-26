@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
-import Button from '../../common/Button';
 import logo from '../../../img/coderheroes-logo.svg';
 import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
@@ -45,19 +44,12 @@ function RenderLandingPage(props) {
           </div>
 
           {/* Button container */}
-          <div className="landing-button-container">
-            <Link to="/browse-programs">
-              <Button
-                classType="browse-btn btn"
-                buttonText="BROWSE PROGRAMS"
-              ></Button>
+          <div className=" landing-button-container ">
+            <Link className="landing-btn" to="/browse-programs">
+              BROWSE PROGRAMS
             </Link>
-
-            <Link to="/register">
-              <Button
-                classType="sign-up-btn btn"
-                buttonText="ENROLL NOW"
-              ></Button>
+            <Link className="landing-btn" to="/register">
+              CREATE ACCOUNT
             </Link>
           </div>
         </div>
@@ -90,12 +82,15 @@ function RenderLandingPage(props) {
             </p>
           </div>
           <center>
-            <a href="https://codeyourdreams.org">
-              <Button
-                classType="landing-second-container-btn"
-                buttonText="VISIT WEBSITE"
-              ></Button>
-            </a>
+            <Link
+              className="landing-btn"
+              to={{
+                pathname: 'https://codeyourdreams.org',
+              }}
+              target="_blank"
+            >
+              VISIT WEBSITE
+            </Link>
           </center>
         </div>
       </div>

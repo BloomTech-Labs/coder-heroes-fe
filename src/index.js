@@ -42,13 +42,16 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import NavBar from './components/common/NavBar';
+import NavBar from './components/common/Navbars/NavBar';
+// eslint-disable-next-line
+import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
+import HowManyStudents from './components/pages/Registration/HowManyStudents';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import InstructorDashboard from './components/pages/Dashboard';
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -85,6 +88,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register" component={LoginPage} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />

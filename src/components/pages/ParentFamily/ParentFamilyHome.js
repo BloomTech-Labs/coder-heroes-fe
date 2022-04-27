@@ -67,10 +67,6 @@ const ParentFamilyHome = () => {
           <CreateNewStudent />
         </Modal>
 
-        <h2 className="family-profile-title" style={{ color: '#6A0C49' }}>
-          <strong>CHOOSE A PROFILE</strong>
-        </h2>
-
         <Row gutter={16}>
           <Col span={8}>
             <Card style={{ width: 300 }} className="parent-card">

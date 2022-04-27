@@ -30,7 +30,7 @@ export default function Banner() {
     case '/instructor-add-course':
       return bannerContent('Create', 'your own course');
     case '/family':
-      return bannerContent('Family', 'Profile Center');
+      return bannerContent('Welcome', 'Choose A Profile');
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
     case '/classroom':

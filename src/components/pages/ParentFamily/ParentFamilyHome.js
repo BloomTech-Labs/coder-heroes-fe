@@ -20,10 +20,11 @@ const ParentFamilyHome = props => {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
   const dispatch = useDispatch();
+  const { user, children } = props;
 
   useEffect(() => {
-    dispatch(getChildren(idToken, props.user.profile_id));
-  }, [idToken]);
+    dispatch(getChildren(idToken, user.profile_id));
+  }, [dispatch, idToken, user.profile_id]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
@@ -67,8 +68,8 @@ const ParentFamilyHome = props => {
           <Col span={8}>
             <Card style={{ width: 300 }} className="parent-card">
               <Meta
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
-                title="Parent Name"
+                avatar={<Avatar src={user.avatarUrl} />}
+                title={user.name}
               />
               <Button className="parent-view-account-button">
                 VIEW ACCOUNT
@@ -82,29 +83,24 @@ const ParentFamilyHome = props => {
             </Card>
           </Col>
 
-          <Col span={8}>
-            <Card style={{ width: 300 }} className="student-card">
-              <Meta
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
-                title="Student Name"
-              />
-              <Button className="student-view-account-button">
-                VIEW ACCOUNT
-              </Button>
-            </Card>
-          </Col>
-
-          <Col span={8}>
-            <Card style={{ width: 300 }} className="student-card">
-              <Meta
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
-                title="Student Name"
-              />
-              <Button className="student-view-account-button">
-                VIEW ACCOUNT
-              </Button>
-            </Card>
-          </Col>
+          {children &&
+            children.map(child => {
+              return (
+                <Col span={8} key={child.child_id}>
+                  <Card style={{ width: 300 }} className="student-card">
+                    <Meta
+                      avatar={
+                        <Avatar src="https://joeschmoe.io/api/v1/random" />
+                      } // avatar url for student not in backend
+                      title={child.username}
+                    />
+                    <Button className="student-view-account-button">
+                      VIEW ACCOUNT
+                    </Button>
+                  </Card>
+                </Col>
+              );
+            })}
         </Row>
       </Content>
     </Layout>

@@ -72,10 +72,10 @@ function RenderLandingPage(props) {
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
             <center>
-              <h3 style={{ color: 'white', 'font-size': '15px' }}>
+              <h3 style={{ color: 'white', fontSize: '15px' }}>
                 GIVE BACK TO THE COMMUNITY.
               </h3>
-              <h1 style={{ color: `white`, 'font-size': '25px' }}>
+              <h1 style={{ color: `white`, fontSize: '25px' }}>
                 Support Code Your Dreams
               </h1>
             </center>

@@ -1,37 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { getChildren } from '../../../redux/actions/parentActions';
 
-const ParentFamilyHome = () => {
+const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
-  const [studentInfo, setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
-    const config = {
-      headers: { Authorization: `Bearer ${token.idToken.value}` },
-    };
-    axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
-      .then(res => {
-        const familyData = res.data;
-        setStudentInfo(familyData);
-        console.log(familyData);
-      })
-      .catch(err => {
-        console.log(`error fetching axios call`);
-      });
-  }, []);
+    dispatch(getChildren(idToken, props.user.profile_id));
+  }, [idToken]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
@@ -119,4 +111,11 @@ const ParentFamilyHome = () => {
   );
 };
 
-export default ParentFamilyHome;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.currentUser,
+    children: state.parentReducer.children,
+  };
+};
+
+export default connect(mapStateToProps, { getChildren })(ParentFamilyHome);

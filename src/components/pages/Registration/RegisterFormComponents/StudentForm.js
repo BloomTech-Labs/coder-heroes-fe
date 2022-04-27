@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../../../styles/registration.less';
 import avi1 from '../../../../img/Avatars/Avatar01.svg';
 import avi2 from '../../../../img/Avatars/Avatar03.svg';
@@ -9,6 +9,25 @@ import avi6 from '../../../../img/Avatars/Avatar07.svg';
 import avi7 from '../../../../img/Avatars/Avatar16.svg';
 
 export default function StudentForm() {
+  const initialValues = {
+    name: '',
+    pronoun: '',
+    age: '',
+    grade: '',
+    studentEmail: '',
+    avatarURL: '',
+  };
+
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const onChange = e => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(formValues);
+
   return (
     <div className="student-form">
       <label>
@@ -16,8 +35,8 @@ export default function StudentForm() {
           name="name"
           type="text"
           placeholder="*Student Name"
-          // value={formValues.name}
-          // onChange={onChange}
+          value={formValues.name}
+          onChange={onChange}
         />
       </label>
 
@@ -26,8 +45,8 @@ export default function StudentForm() {
           name="pronoun"
           type="text"
           placeholder="*Pronoun"
-          // value={formValues.name}
-          // onChange={onChange}
+          value={formValues.pronoun}
+          onChange={onChange}
         />
       </label>
 
@@ -36,8 +55,8 @@ export default function StudentForm() {
           name="age"
           type="text"
           placeholder="*Age"
-          // value={formValues.name}
-          // onChange={onChange}
+          value={formValues.age}
+          onChange={onChange}
         />
       </label>
 
@@ -46,8 +65,8 @@ export default function StudentForm() {
           name="grade"
           type="text"
           placeholder="*Grade"
-          // value={formValues.name}
-          // onChange={onChange}
+          value={formValues.grade}
+          onChange={onChange}
         />
       </label>
 
@@ -56,8 +75,8 @@ export default function StudentForm() {
           name="student-email"
           type="text"
           placeholder="*Student Email"
-          // value={formValues.name}
-          // onChange={onChange}
+          value={formValues.studentEmail}
+          onChange={onChange}
         />
       </label>
 

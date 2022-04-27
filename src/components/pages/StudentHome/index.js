@@ -28,9 +28,7 @@ function StudentHome() {
         <Content>
           <Banner />
           <Layout>
-            <Content>
-              <h1>STUDENT HOME</h1>
-            </Content>
+            <Content></Content>
           </Layout>
         </Content>
       </Layout>

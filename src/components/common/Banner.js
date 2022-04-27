@@ -20,6 +20,8 @@ export default function Banner() {
   switch (path) {
     case '/parent' || '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
+    case '/student':
+      return bannerContent('Student Dashboard', 'Welcome Back!');
     case '/parent-booking':
       return bannerContent(
         'bookings list',
@@ -39,5 +41,4 @@ export default function Banner() {
       bannerContent('Dashboard', 'Welcome back!');
     }
   }
-  return null;
 }

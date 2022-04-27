@@ -90,10 +90,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register" component={LoginPage} />
           <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register-3" component={RegisterStep3} />
-          <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentHome} />

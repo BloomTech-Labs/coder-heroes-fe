@@ -279,8 +279,8 @@ export default function() {
                 </div>
               </div>
 
-              <div className="reg-button-container">
-                <button>back</button>
+              <div className="content">
+                <a href="/register-2">back</a>
                 <button>submit</button>
               </div>
             </div>

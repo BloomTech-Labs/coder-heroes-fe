@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../../styles/registration.less';
 import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
+import RegistrationProgress from './RegistrationProgress';
 
 const initialValues = {
   name: '',
@@ -64,86 +65,94 @@ const InstrRegForm = () => {
   }, [formValues]);
 
   return (
-    <div>
-      <div className="reg-content-container">
-        <div className="reg-form-header">
-          <h1>Instructor Account Info</h1>
-          <p className="indicator">*indicates required field</p>
-        </div>
+    <div className="reg-content-container">
+      <RegistrationProgress step_num={1} />
 
-        <form className="basic-form" onSubmit={onSubmit}>
-          <label>
-            <input
-              name="name"
-              type="text"
-              placeholder="*Name"
-              value={formValues.name}
-              onChange={onChange}
-            />
-          </label>
+      <div className="reg-form-title">
+        <h1 className="form-title">Instructor Account Info</h1>
+        <p>*indicates required field</p>
+      </div>
 
-          <label>
-            <input
-              name="email"
-              type="email"
-              placeholder="*Email"
-              value={formValues.email}
-              onChange={onChange}
-            />
-          </label>
+      <div className="reg-form-container">
+        <form onSubmit={onSubmit}>
+          <div className="form-line">
+            <label>
+              <input
+                name="name"
+                type="text"
+                placeholder="*Name"
+                value={formValues.name}
+                onChange={onChange}
+              />
+            </label>
 
-          <label>
-            <input
-              name="location"
-              type="text"
-              placeholder="*City,State"
-              value={formValues.location}
-              onChange={onChange}
-            />
-          </label>
+            <label>
+              <input
+                name="email"
+                type="email"
+                placeholder="*Email"
+                value={formValues.email}
+                onChange={onChange}
+              />
+            </label>
+          </div>
 
-          <label>
-            <input
-              name="phone"
-              type="tel"
-              placeholder="*Phone Number"
-              value={formValues.phone}
-              onChange={onChange}
-            />
-          </label>
+          <div className="form-line">
+            <label>
+              <input
+                name="location"
+                type="text"
+                placeholder="*City,State"
+                value={formValues.location}
+                onChange={onChange}
+              />
+            </label>
 
-          <label>
-            <input
-              name="education"
-              type="text"
-              placeholder="*Education (include degree and University)"
-              value={formValues.education}
-              onChange={onChange}
-            />
-          </label>
+            <label>
+              <input
+                name="phone"
+                type="tel"
+                placeholder="*Phone Number"
+                value={formValues.phone}
+                onChange={onChange}
+              />
+            </label>
+          </div>
 
-          <label>
-            <input
-              name="tech"
-              type="text"
-              placeholder="Technical Experience"
-              value={formValues.tech}
-              onChange={onChange}
-            />
-          </label>
+          <div className="long-form-line">
+            <label>
+              <textarea
+                name="education"
+                type="text"
+                placeholder="*Education (include degree and University)"
+                value={formValues.education}
+                onChange={onChange}
+              />
+            </label>
 
-          <label>
-            <input
-              name="notes"
-              type="text"
-              placeholder="Notes (Use this space to provide any additional context or relevant experience)"
-              value={formValues.notes}
-              onChange={onChange}
-            />
-          </label>
+            <label>
+              <textarea
+                name="tech"
+                type="text"
+                placeholder="*Technical Experience"
+                value={formValues.tech}
+                onChange={onChange}
+              />
+            </label>
 
-          <div className="SaveButton">
-            <button disabled={disabled}>Save</button>
+            <label>
+              <textarea
+                name="notes"
+                type="text"
+                placeholder="Notes (Use this space to provide any additional context or relevant experience)"
+                value={formValues.notes}
+                onChange={onChange}
+              />
+            </label>
+          </div>
+
+          <div className="content reg-btn-container">
+            <button disabled={disabled}>Submit</button>
           </div>
 
           <div className="errors">

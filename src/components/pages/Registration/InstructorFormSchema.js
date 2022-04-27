@@ -8,7 +8,7 @@ const InstructorFormSchema = yup.object().shape({
   location: yup.string().required('You must enter your location'),
   phone: yup.string().matches(phoneRegExp, 'Phone number is not valid'),
   education: yup.string().required('You must enter your education'),
-  tech: yup.string(),
+  tech: yup.string().required('You must enter your technical experience'),
   notes: yup.string(),
 });
 

@@ -5,27 +5,39 @@
 @h1: 5rem;
 @h2: 3rem;
 @h3: 2.5rem;
-@base-url: url('../../img');
+@base-url: ~'/src/img';
+
+@text__font-family: "'Montserrat', sans-serif";
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
   display: flex;
-  // padding: 10px 10px;
-  // height: 19vh;
   background: none;
-  margin: 0 auto;
+  width: 100%;
+  // justify-content: center;
+  padding:none;
+
+  text-align: center;
 }
 .banner-content {
   width: 100%;
-  //padding-left: 3rem;
-  font-family: 'Staatliches', cursive;
+  font-family: @text__font-family--header;
+  text-align: center;
+  margin: 0 auto;
   h1 {
     font-weight: bold;
     font-size: @h2;
     color: #263e47;
     width: 100%;
-    margin: 0;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 5%;
   }
+.welcome-content{
+  display: none;
+  z-index: -1;
+}
+
 }
 
 //****ParentCalendar Styles****
@@ -225,41 +237,51 @@
 
 //****FamilyPage styles****
 
-* {
-  border: 1px solid grey;
-}
+// * {
+//   border: 1px solid grey;
+// }
 
 button {
   border: none;
   border-radius: 6px;
 }
 
+h1 {
+  font-family: @text__font-family;
+}
+
 .family-page-container {
   display: flex;
-  max-width: 100%;
   flex-direction: column;
   align-items: center;
-  background: url("/cloud-bg.jpg");
+  //background: ~ "url('@{base-url}/cloud-bg.jpg')";
+  background: 'url(@{base-url}/cloud-bg.jpg)';
+  //background: rgba(76, 175, 80, 0.3);
+  //width: 100%;
+  //opacity:.5;
 }
-//  src/img/cloud-bg.jpg
+
 .family-cards {
   display: flex;
   max-width: 80%;
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin: 0;
-  height: 50vh;
+  opacity: 1;
+  margin-bottom: 10%;
+  padding: 5%;
 }
 
 .parent-card {
   display: flex;
   background-color: #096a70;
-  //height: 50vh;
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  padding: 10% 5%;
+  margin: 7% auto;
 }
 
 .student-card {
@@ -277,13 +299,15 @@ button {
 }
 
 .student-view-account-button {
-  background-color: #096a70;
+  background-color: @body__bg--blue;
+  border-radius: @btn__border-radius;
   color: white;
 }
 
 .parent-view-account-button {
   border: 1px solid #096a70;
   color: #096a70;
+  background-color: #ffffff;
 }
 
 // Create New Student Modal

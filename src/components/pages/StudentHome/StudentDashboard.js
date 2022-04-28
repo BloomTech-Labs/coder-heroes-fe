@@ -63,7 +63,7 @@ function StudentDashboard(props) {
             <h2>Stories</h2>
           </div>
           <div className="student-story-card">
-            <img src="https://via.placeholder.com/100" alt="placeholder"></img>
+            <img src="https://via.placeholder.com/50" alt="placeholder"></img>
             <h3>Teacher Name</h3>
             <h4>Coder Heroes</h4>
             <h4>9 Minutes Ago</h4>

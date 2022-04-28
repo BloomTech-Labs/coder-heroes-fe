@@ -10,19 +10,45 @@ function StudentDashboard(props) {
   return (
     <div className="student-dashboard">
       <section className="studentdb-left-column">
-        <h1>Current Student</h1>
-        <h2>Current Teacher</h2>
+        <div className="current-student-db">
+          <img></img>
+          <center>
+            <h1>Student Name</h1>
+          </center>
+        </div>
+        <div className="current-teacher-db">
+          <div>
+            <img></img>
+          </div>
+          <div>
+            <h2>Coder Camp</h2>
+            <h2>Teacher Name</h2>
+          </div>
+        </div>
       </section>
       <section className="studentdb-right-column">
         <section className="student-photo-tasks">
-          <h3>Photo-Video-File</h3>
-          <h3>Tasks Completed 3/10</h3>
+          <div className="Photo-Video-File">
+            <img></img>
+            <h5>Photo</h5>
+            <img></img>
+            <h5>Video</h5>
+            <img></img>
+            <h5>File</h5>
+            <img></img>
+            <h5>Write</h5>
+            <img></img>
+            <h5>Meet</h5>
+          </div>
+          <div className="tasks-completed">
+            <h3>Tasks Completed 3/10</h3>
+          </div>
         </section>
         <section className="student-stories">
           <div>
             <h2>Stories</h2>
           </div>
-          <div>
+          <div className="student-story-card">
             <img></img>
             <h3>Teacher Name</h3>
             <h4>Coder Heroes</h4>

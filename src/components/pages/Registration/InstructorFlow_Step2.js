@@ -15,7 +15,6 @@ const initialValues = {
 };
 
 const initialErrors = {
-  // warning: 'PLEASEEEEE ENTER ALL REQUIRED FIELDS!!!!!!',
   name: '',
   email: '',
   location: '',
@@ -61,7 +60,6 @@ const InstrRegForm = () => {
   const onSubmit = evt => {
     evt.preventDefault();
     formSave();
-    setFormValues(initialValues);
   };
 
   const onChange = evt => {

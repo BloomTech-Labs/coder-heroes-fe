@@ -30,7 +30,10 @@ function DesktopFooter() {
             <ul>
               <li className="footer__text">brianne@coderheroes.com</li>
               <li>
-                <Link className="footer__nav-link footer__text">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/browse-programs"
+                >
                   Find a Program
                 </Link>
               </li>

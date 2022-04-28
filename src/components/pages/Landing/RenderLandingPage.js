@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
-import Button from '../../common/Button';
 import logo from '../../../img/coderheroes-logo.svg';
 import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
+import { Link } from 'react-router-dom';
 import '../../../styles/LandingPageStyles/index.less';
 
 function RenderLandingPage(props) {
@@ -44,17 +44,13 @@ function RenderLandingPage(props) {
           </div>
 
           {/* Button container */}
-          <div className="landing-button-container">
-            <Button
-              classType="browse-btn btn"
-              buttonText="BROWSE PROGRAMS"
-              onClick={''}
-            ></Button>
-            <Button
-              classType="support-us-btn btn"
-              buttonText="SUPPORT US"
-              onClick={''}
-            ></Button>
+          <div className=" landing-button-container ">
+            <Link className="landing-btn" to="/browse-programs">
+              BROWSE PROGRAMS
+            </Link>
+            <Link className="landing-btn" to="/register">
+              CREATE ACCOUNT
+            </Link>
           </div>
         </div>
       </div>
@@ -86,10 +82,15 @@ function RenderLandingPage(props) {
             </p>
           </div>
           <center>
-            <Button
-              classType="landing-second-container-btn"
-              buttonText="VISIT WEBSITE"
-            ></Button>
+            <Link
+              className="landing-btn"
+              to={{
+                pathname: 'https://codeyourdreams.org',
+              }}
+              target="_blank"
+            >
+              VISIT WEBSITE
+            </Link>
           </center>
         </div>
       </div>

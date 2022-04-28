@@ -49,7 +49,6 @@ import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
-// import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import HowManyStudents from './components/pages/Registration/HowManyStudents';

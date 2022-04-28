@@ -151,7 +151,7 @@ function NavBar(props) {
               >
                 <Menu.Item key="8" icon={<FacebookOutlined />}>
                   <a
-                    href="https://www.facebook.com/coderheroes."
+                    href="https://www.facebook.com/coderheroes"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -161,7 +161,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="8" icon={<TwitterOutlined />}>
                   <a
-                    href="https://twitter.com/coderheroes."
+                    href="https://twitter.com/coderheroes"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -171,7 +171,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="9" icon={<InstagramOutlined />}>
                   <a
-                    href="https://www.instagram.com/coderheroes/."
+                    href="https://www.instagram.com/coderheroes/"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -181,7 +181,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="10" icon={<YoutubeOutlined />}>
                   <a
-                    href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+                    href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -191,7 +191,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="11" icon={<LinkedinOutlined />}>
                   <a
-                    href="https://www.linkedin.com/company/coderheroes/."
+                    href="https://www.linkedin.com/company/coderheroes/"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"

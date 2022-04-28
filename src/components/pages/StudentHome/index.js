@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
 import StudentSideBar from './StudentSidebar';
+import StudentDashboard from './StudentDashboard';
 import '../../../styles/ParentStyles/index.less';
 
 function StudentHome() {
@@ -28,7 +29,9 @@ function StudentHome() {
         <Content>
           <Banner />
           <Layout>
-            <Content></Content>
+            <Content>
+              <StudentDashboard />
+            </Content>
           </Layout>
         </Content>
       </Layout>

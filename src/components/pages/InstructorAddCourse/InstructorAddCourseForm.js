@@ -99,6 +99,7 @@ const InstructorAddCourseForm = props => {
     });
     dispatch(addCourse(idToken, classData));
     setClassData(initialClassDataState);
+    success();
   };
 
   useEffect(() => {

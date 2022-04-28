@@ -5,6 +5,7 @@ import {
   GET_COURSES,
   UPDATE_COURSE,
   DELETE_COURSE,
+  ERROR,
 } from '../actions/coursesActions';
 
 const initialState = {
@@ -51,6 +52,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         courses: state.courses.filter(rec => rec.course_id !== action.payload),
+      };
+    case ERROR:
+      return {
+        ...state,
+        errorMessage: action.payload,
       };
     default:
       return state;

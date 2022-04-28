@@ -6,6 +6,7 @@ export const GET_COURSES = 'GET_COURSES';
 export const UPDATE_COURSE = 'UPDATE_COURSE';
 export const DELETE_COURSE = 'DELETE_COURSE';
 export const CANCEL_EDIT = 'CANCEL_EDIT';
+export const ERROR = 'ERROR';
 
 export const setEditing = id => {
   return { type: EDITING, payload: id };
@@ -24,6 +25,7 @@ export const getCourses = idToken => async dispatch => {
     });
   } catch (error) {
     dispatch({
+      type: ERROR,
       payload: error.message,
     });
   }
@@ -38,6 +40,7 @@ export const delCourse = (idToken, id) => async dispatch => {
     });
   } catch (error) {
     dispatch({
+      type: ERROR,
       payload: error.message,
     });
   }
@@ -55,6 +58,7 @@ export const editCourse = (idToken, course) => async dispatch => {
     });
   } catch (error) {
     dispatch({
+      type: ERROR,
       payload: error.message,
     });
   }
@@ -87,6 +91,7 @@ export const addCourse = (idToken, course) => async dispatch => {
     });
   } catch (error) {
     dispatch({
+      type: ERROR,
       payload: error.message,
     });
   }

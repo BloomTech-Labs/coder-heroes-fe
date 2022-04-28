@@ -55,6 +55,7 @@ import HowManyStudents from './components/pages/Registration/HowManyStudents';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
+import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -91,6 +92,10 @@ function App() {
           <Route path="/login" component={LoginPage} />
           <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register" component={LoginPage} />
+          <Route
+            path="/instructor-register-2"
+            component={InstructorFlow_Step2}
+          />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route
             path="/register-success-instructor"

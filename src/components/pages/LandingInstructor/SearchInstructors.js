@@ -85,7 +85,6 @@ const SearchInstructors = props => {
             <div>
               {props.instructors.map(instructor => (
                 <div>
-                  {' '}
                   Instructor name:{instructor.name} Rating:{instructor.rating}
                 </div>
               ))}

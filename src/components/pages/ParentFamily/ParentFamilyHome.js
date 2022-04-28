@@ -53,7 +53,10 @@ const ParentFamilyHome = () => {
     <Layout style={{ width: '100%' }}>
       <ParentSidebar />
 
-      <Content>
+      <Content
+        style={{ background: 'url(../../img/cloud-bg)' }}
+        className="family-page-container"
+      >
         <Banner />
 
         <Modal
@@ -67,10 +70,11 @@ const ParentFamilyHome = () => {
           <CreateNewStudent />
         </Modal>
 
-        <Row gutter={16}>
+        <Row gutter={16} className="family-cards">
           <Col span={8}>
-            <Card style={{ width: 300 }} className="parent-card">
+            <Card className="parent-card">
               <Meta
+                className="parent-card"
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
                 title="Parent Name"
               />
@@ -87,8 +91,9 @@ const ParentFamilyHome = () => {
           </Col>
 
           <Col span={8}>
-            <Card style={{ width: 300 }} className="student-card">
+            <Card className="student-card">
               <Meta
+                className="student-card"
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
                 title="Student Name"
               />
@@ -99,8 +104,9 @@ const ParentFamilyHome = () => {
           </Col>
 
           <Col span={8}>
-            <Card style={{ width: 300 }} className="student-card">
+            <Card className="student-card">
               <Meta
+                className="student-card"
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
                 title="Student Name"
               />
@@ -116,3 +122,5 @@ const ParentFamilyHome = () => {
 };
 
 export default ParentFamilyHome;
+
+//  style={{ width: 300 }}

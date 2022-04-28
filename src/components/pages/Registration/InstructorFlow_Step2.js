@@ -15,11 +15,17 @@ const initialValues = {
 };
 
 const initialErrors = {
+  // warning: 'PLEASEEEEE ENTER ALL REQUIRED FIELDS!!!!!!',
   name: '',
   email: '',
   location: '',
   phone: '',
   education: '',
+};
+
+const initialWarning = {
+  warning:
+    'PLEASE ENTER ALL REQUIRED FIELDS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',
 };
 
 const initialSaveDisabled = true;
@@ -28,6 +34,7 @@ const InstrRegForm = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
+  const [formWarning, setFormWarning] = useState(initialWarning);
 
   const validate = (name, value) => {
     yup
@@ -59,6 +66,14 @@ const InstrRegForm = () => {
     const { name, value } = evt.target;
     inputChange(name, value);
   };
+
+  useEffect(() => {
+    InstructorFormSchema.isValid(formValues).then(formWarning =>
+      setFormWarning(formWarning)
+    );
+  }, [formValues]);
+
+  // when validation is successful, warning is removed
 
   useEffect(() => {
     InstructorFormSchema.isValid(formValues).then(valid => setDisabled(!valid));
@@ -102,7 +117,7 @@ const InstrRegForm = () => {
               <input
                 name="location"
                 type="text"
-                placeholder="*City,State"
+                placeholder="*City, State"
                 value={formValues.location}
                 onChange={onChange}
               />
@@ -124,7 +139,7 @@ const InstrRegForm = () => {
               <textarea
                 name="education"
                 type="text"
-                placeholder="*Education (include degree and University)"
+                placeholder="*Education (include degree and university)"
                 value={formValues.education}
                 onChange={onChange}
               />
@@ -155,7 +170,12 @@ const InstrRegForm = () => {
             <button disabled={disabled}>Submit</button>
           </div>
 
+          <div className="warning">
+            <div>{formWarning.warning}</div>
+          </div>
+
           <div className="errors">
+            <div>{formErrors.warning}</div>
             <div>{formErrors.name}</div>
             <div>{formErrors.email}</div>
             <div>{formErrors.location}</div>

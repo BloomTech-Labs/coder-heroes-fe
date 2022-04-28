@@ -72,7 +72,7 @@ export default function StudentForm() {
 
       <label>
         <input
-          name="student-email"
+          name="studentEmail"
           type="text"
           placeholder="*Student Email"
           value={formValues.studentEmail}

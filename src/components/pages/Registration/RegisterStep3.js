@@ -7,6 +7,11 @@ import '../../../styles/registration.less';
 const numOfStudents = Number(localStorage.getItem('number of students'));
 const studentArr = Array.from(Array(numOfStudents).keys());
 
+const handleSubmit = e => {
+  e.preventDefault();
+  console.log();
+};
+
 export default function() {
   return (
     <div className="reg-content-container">

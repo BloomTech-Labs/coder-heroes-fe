@@ -50,6 +50,8 @@ const InstrRegForm = () => {
       ...formValues,
       [name]: value,
     });
+
+    console.log(formValues);
   };
 
   const formSave = () => {
@@ -68,9 +70,13 @@ const InstrRegForm = () => {
   };
 
   useEffect(() => {
-    InstructorFormSchema.isValid(formValues).then(formWarning =>
-      setFormWarning(formWarning)
-    );
+    InstructorFormSchema.validate(formValues)
+      .then(() => setFormWarning({}))
+      .catch(error => {
+        if (error instanceof yup.ValidationError) {
+          setFormWarning(initialWarning);
+        }
+      });
   }, [formValues]);
 
   // when validation is successful, warning is removed

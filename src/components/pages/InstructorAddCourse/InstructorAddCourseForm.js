@@ -144,7 +144,7 @@ const InstructorAddCourseForm = props => {
                     <label for="classLink">Course Name</label>
                     <Input
                       value={classData.course_name}
-                      name="location"
+                      name="course_name"
                       placeholder="Enter Course Name here"
                       className="course__name"
                     />

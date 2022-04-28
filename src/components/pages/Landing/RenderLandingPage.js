@@ -9,6 +9,10 @@ import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
 import { Link } from 'react-router-dom';
 import '../../../styles/LandingPageStyles/index.less';
+import { Typography, Space } from 'antd';
+
+const { Title, Paragraph } = Typography;
+// const { Content } = Layout;
 
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
@@ -33,14 +37,13 @@ function RenderLandingPage(props) {
             alt="CoderHeroes Text in Turquoise"
           />
           <div className="landing-main-text">
-            <center>
-              <h1> Coding is a superpower. </h1>
-              <h3>
-                {' '}
-                Through a love of teaching and technology, we empower youth to
-                change the world with their ideas.{' '}
-              </h3>
-            </center>
+            <Space align="center">
+              <Title level={2}> Coding is a superpower</Title>
+            </Space>
+            <Paragraph>
+              Through a love of teaching and technology, we empower youth to
+              change the world with their ideas
+            </Paragraph>
           </div>
 
           {/* Button container */}
@@ -66,21 +69,21 @@ function RenderLandingPage(props) {
           />
         </div>
         <div className="landing-second-container-content">
-          <div className="landing-second-container-text">
-            <center>
-              <h3 style={{ color: 'white', 'font-size': '15px' }}>
-                GIVE BACK TO THE COMMUNITY.
-              </h3>
-              <h1 style={{ color: `white`, 'font-size': '25px' }}>
+          <Space align="center">
+            <div className="landing-second-container-text">
+              <Title level={3} style={{ color: 'white', fontSize: '15px' }}>
+                GIVE BACK TO THE COMMUNITY
+              </Title>
+              <Title level={1} style={{ color: `white`, fontSize: '28px' }}>
                 Support Code Your Dreams
-              </h1>
-            </center>
-            <p>
-              All CoderHeroes proceeds provide direct funding to our original
-              mission, centered in incubating tech skills within under served
-              school districts.
-            </p>
-          </div>
+              </Title>
+              <p>
+                All CoderHeroes proceeds provide direct funding to our original
+                mission, centered in incubating tech skills within under served
+                school districts.
+              </p>
+            </div>
+          </Space>
           <center>
             <Link
               className="landing-btn"
@@ -116,8 +119,6 @@ function RenderLandingPage(props) {
               “I have 7+ years of experience working in technology. I bring
               excitement and positivity to every class, virtual and in-person."
             </p>
-            <br />
-            <br />
             <p>
               "I have experience teaching the following subjects for K-12
               students: Python, Swift, JavaScript, App Inventor, Design{' '}
@@ -125,12 +126,17 @@ function RenderLandingPage(props) {
             </p>
           </div>
           <div className="brianne">
-            <h1>BRIANNE CAPLAN</h1>
-            <p>FOUNDER & CEO, CODERHEROES & CODE YOUR DREAMS</p>
+            <Title level={2} style={{ color: `black`, 'font-size': '25px' }}>
+              BRIANNE CAPLAN
+            </Title>
+            <Title level={4}>
+              FOUNDER & CEO, CODERHEROES & CODE YOUR DREAMS
+            </Title>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
 export default RenderLandingPage;

@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-// import CreateNewStudent from './CreateNewStudent';
-// import { useParams } from 'react-router';
-// import CurrentCoursesDetails from './CurrentCoursesDetails';
+import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
+import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
+import 'antd/dist/antd.css';
 
 const ParentFamilyHome = () => {
-  const [studentInfo, setStudentInfo] = useState(null); //eslint-disable-line
-  // const [modal, setModal] = useState(false);
-  // const [modal2, setModal2] = useState(false);
+  const { Meta } = Card;
+  const { Content } = Layout;
+  const [studentInfo, setStudentInfo] = useState(null);
+  const [addStudentVisible, setAddStudentVisible] = useState(false);
+  const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
+    false
+  );
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
@@ -18,94 +22,100 @@ const ParentFamilyHome = () => {
       headers: { Authorization: `Bearer ${token.idToken.value}` },
     };
     axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/1/children`, config)
+      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
       .then(res => {
         const familyData = res.data;
         setStudentInfo(familyData);
+        console.log(familyData);
       })
       .catch(err => {
         console.log(`error fetching axios call`);
       });
   }, []);
 
+  const showAddStudentModal = () => {
+    setAddStudentVisible(true);
+  };
+
+  const handleAddStudentOk = () => {
+    setAddStudentConfirmLoading(true);
+    setTimeout(() => {
+      setAddStudentVisible(false);
+      setAddStudentConfirmLoading(false);
+    }, 2000);
+  };
+
+  const handleAddStudentCancel = () => {
+    setAddStudentVisible(false);
+  };
+
   return (
-    <div className="family-page-container">
+    <Layout style={{ width: '100%' }}>
       <ParentSidebar />
-      <div className="family-page-content">
+
+      <Content>
         <Banner />
-        <div className="profile-select-titles" style={{ color: '#6A0C49' }}>
-          <strong>PICK A PROFILE TO ACCESS</strong>
-        </div>
-        <div className="profile-card-container">
-          <div className="profile-card-containers">
-            <div className="profile-avatars"></div>
-            <div className="profile-select-titles">Parent Name</div>
-            <button className="profile-select-button">VIEW ACCOUNT</button>
-          </div>
-          <div className="profile-card-containers">
-            <div className="profile-avatars"></div>
-            <div className="profile-select-titles">Student Name</div>
-            <button className="profile-select-button">VIEW ACCOUNT</button>
-          </div>
-        </div>
-        <div className="profile-select-logout-container">
-          <button className="family-page-logout-button">
-            LOG OUT OF SHARED ACCOUNT
-          </button>
-        </div>
-        {/* <div className="profile-card-container">
-          <div className="profile-details-headers">
-            <h1>Profile</h1>
-            <h1>Username</h1>
-            <h1>Password</h1>
-          </div>
-          <div className="profile-data">
-            <div>_____</div>
-            <div>_____</div>
-            <div>_____</div>
-          </div>
-        </div>
-        <div className="between-profile-students">
-          <h1 className="students-section-title">Students</h1>
-          <button
-            className="family-page-button"
-            onClick={() => setModal(!modal)}
-          >
-            Create New Student
-          </button>
-        </div>
-        <div className="student-card-container">
-          <h1 className="student-card-name">
-            <strong>
-              Student Username: {studentInfo ? studentInfo[0].username : ''}
-            </strong>
-          </h1>
-          <div className="student-details">
-            <div className="student-details-sides">
-              <h1>Email Address: _____</h1>
-              <h1>Current Courses: _____</h1>
-              <button
-                className="family-page-button"
-                onClick={() => setModal2(!modal2)}
+
+        <Modal
+          title="Add Student"
+          visible={addStudentVisible}
+          onOk={handleAddStudentOk}
+          confirmLoading={addStudentConfirmLoading}
+          onCancel={handleAddStudentCancel}
+          footer={null}
+        >
+          <CreateNewStudent />
+        </Modal>
+
+        <h2 className="family-profile-title" style={{ color: '#6A0C49' }}>
+          <strong>CHOOSE A PROFILE</strong>
+        </h2>
+
+        <Row gutter={16}>
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="parent-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Parent Name"
+              />
+              <Button className="parent-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+              <Button
+                className="add-student-button"
+                onClick={showAddStudentModal}
               >
-                Current Courses Details
-              </button>
-            </div>
-            <div className="student-details-sides">
-              <h1>Age: {studentInfo ? studentInfo[0].age : ''}</h1>
-              <h1> Past Courses: _____</h1>
-              <button className="family-page-button">
-                Add/Change Prerequisites
-              </button>
-            </div>
-          </div>
-        </div>
-        {modal && <CreateNewStudent setModal={setModal} />}
-        {modal2 && <CurrentCoursesDetails setModal={setModal2} />}
-          </div> */}
-        {/* </div> */}
-      </div>
-    </div>
+                ADD STUDENT
+              </Button>
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="student-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Student Name"
+              />
+              <Button className="student-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+            </Card>
+          </Col>
+
+          <Col span={8}>
+            <Card style={{ width: 300 }} className="student-card">
+              <Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                title="Student Name"
+              />
+              <Button className="student-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+            </Card>
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 

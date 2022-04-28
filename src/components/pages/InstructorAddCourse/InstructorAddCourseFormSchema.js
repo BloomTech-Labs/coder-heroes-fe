@@ -65,7 +65,7 @@ const InstructorAddCourseFormSchema = yup.object().shape({
       ],
       'Please select a day'
     ),
-  course_type: yup
+  program_type: yup
     .string()
     .typeError('Must select a program')
     .oneOf(

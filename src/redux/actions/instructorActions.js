@@ -6,6 +6,7 @@ export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
 export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
+export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
 export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
@@ -40,6 +41,20 @@ export const getCourses = idToken => async dispatch => {
     );
     dispatch({
       type: GET_INSTRUCTOR_CLASSES,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+export const getPrograms = async dispatch => {
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URI}/programs`);
+    dispatch({
+      type: GET_PROGRAMS,
       payload: res.data,
     });
   } catch (error) {

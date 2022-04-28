@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { addProgram, setError } from '../../../redux/actions/instructorActions';
+import {
+  getPrograms,
+  addProgram,
+  setError,
+} from '../../../redux/actions/instructorActions';
 import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
@@ -13,7 +17,6 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 
 //dummy data
-const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
 
 const days = [
   'Monday',
@@ -153,13 +156,13 @@ const InstructorAddCourseForm = props => {
                 {/* Program Type */}
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item>
-                    <label for="courseType">Program Type</label>
+                    <label for="programType">Program Type</label>
                     <Select
                       placeholder="Select a Program"
-                      name="course_type"
+                      name="program_type"
                       className="program__type"
                     >
-                      {programs.map(course => (
+                      {getPrograms(course => (
                         <Option value={course}>{course}</Option>
                       ))}
                     </Select>

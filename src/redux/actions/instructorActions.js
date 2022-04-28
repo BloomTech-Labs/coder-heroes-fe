@@ -122,7 +122,6 @@ export const getNewsFeeds = idToken => dispatch => {
 export const getInstructors = idToken => async dispatch => {
   try {
     const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
-    console.log(res.data);
     dispatch({
       type: GET_INSTRUCTORS,
       payload: res.data,

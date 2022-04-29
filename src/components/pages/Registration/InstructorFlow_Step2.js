@@ -23,8 +23,7 @@ const initialErrors = {
 };
 
 const initialWarning = {
-  warning:
-    'PLEASE ENTER ALL REQUIRED FIELDS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',
+  warning: 'Please enter all require fields',
 };
 
 const initialSaveDisabled = true;
@@ -155,6 +154,8 @@ const InstrRegForm = () => {
               />
             </label>
 
+            <span className="error">{formErrors.education}</span>
+
             <label>
               <textarea
                 name="tech"
@@ -165,6 +166,8 @@ const InstrRegForm = () => {
               />
             </label>
 
+            <span className="error">{formErrors.tech}</span>
+
             <label>
               <textarea
                 name="notes"
@@ -174,21 +177,14 @@ const InstrRegForm = () => {
                 onChange={onChange}
               />
             </label>
+
+            <span className="error"></span>
           </div>
 
           <div className="content reg-btn-container">
+            <span className="warning">{formWarning.warning}</span>
             <button disabled={disabled}>Submit</button>
           </div>
-
-          <div className="warning">
-            <div>{formWarning.warning}</div>
-          </div>
-
-          {/* <div>{formErrors.name}</div>
-            <div>{formErrors.email}</div>
-            <div>{formErrors.location}</div>
-            <div>{formErrors.phone}</div>
-            <div>{formErrors.education}</div> */}
         </form>
       </div>
     </div>

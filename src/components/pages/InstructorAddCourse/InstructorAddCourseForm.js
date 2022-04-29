@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import {
   getPrograms,
+  getCourses,
   addProgram,
   setError,
 } from '../../../redux/actions/instructorActions';
@@ -162,7 +163,7 @@ const InstructorAddCourseForm = props => {
                       name="program_type"
                       className="program__type"
                     >
-                      {getPrograms(course => (
+                      {getCourses(course => (
                         <Option value={course}>{course}</Option>
                       ))}
                     </Select>

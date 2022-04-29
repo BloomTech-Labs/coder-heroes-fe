@@ -50,20 +50,20 @@ export const getCourses = idToken => async dispatch => {
     });
   }
 };
-export const getPrograms = async dispatch => {
-  try {
-    const res = await axios.get(`${process.env.REACT_APP_API_URI}/programs`);
-    dispatch({
-      type: GET_PROGRAMS,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
-};
+// export const getPrograms = async dispatch => {
+//   try {
+//     const res = await axios.get(`${process.env.REACT_APP_API_URI}/programs`);
+//     dispatch({
+//       type: GET_PROGRAMS,
+//       payload: res.data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
 export const getInbox = () => async dispatch => {
   try {
     const res = await axios.get(

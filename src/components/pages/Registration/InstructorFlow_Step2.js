@@ -77,8 +77,6 @@ const InstrRegForm = () => {
       });
   }, [formValues]);
 
-  // when validation is successful, warning is removed
-
   useEffect(() => {
     InstructorFormSchema.isValid(formValues).then(valid => setDisabled(!valid));
   }, [formValues]);
@@ -105,6 +103,8 @@ const InstrRegForm = () => {
               />
             </label>
 
+            <span className="error">{formErrors.name}</span>
+
             <label>
               <input
                 name="email"
@@ -114,6 +114,8 @@ const InstrRegForm = () => {
                 onChange={onChange}
               />
             </label>
+
+            <span className="error">{formErrors.email}</span>
           </div>
 
           <div className="form-line">
@@ -127,6 +129,8 @@ const InstrRegForm = () => {
               />
             </label>
 
+            <span className="error">{formErrors.location}</span>
+
             <label>
               <input
                 name="phone"
@@ -136,6 +140,8 @@ const InstrRegForm = () => {
                 onChange={onChange}
               />
             </label>
+
+            <span className="error">{formErrors.phone}</span>
           </div>
 
           <div className="long-form-line">
@@ -178,14 +184,11 @@ const InstrRegForm = () => {
             <div>{formWarning.warning}</div>
           </div>
 
-          <div className="errors">
-            <div>{formErrors.warning}</div>
-            <div>{formErrors.name}</div>
+          {/* <div>{formErrors.name}</div>
             <div>{formErrors.email}</div>
             <div>{formErrors.location}</div>
             <div>{formErrors.phone}</div>
-            <div>{formErrors.education}</div>
-          </div>
+            <div>{formErrors.education}</div> */}
         </form>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ParentCalendar from './ParentCalendar';
+import ParentDashboard from './parentDashboard';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
@@ -24,7 +24,7 @@ function ParentHome() {
             <Content>
               <Row justify="space-around" align="middle">
                 <Col span={20}>
-                  <ParentCalendar />
+                  <ParentDashboard />
                 </Col>
               </Row>
             </Content>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
-import ParentSidebar from '../ParentHome/ParentSidebar';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { dateConverter } from '../../common/dateHelpers';
@@ -128,7 +127,7 @@ function Courses(props) {
   );
 }
 
-function ParentCalendar(props) {
+function ParentDashboard(props) {
   // eslint-disable-next-line
   const [courses, setCourses] = useState(props.availableCourses);
   const [activeModal, setActiveModal] = useState(0);
@@ -233,7 +232,6 @@ function ParentCalendar(props) {
 
   return (
     <>
-      <ParentSidebar />
       <Calendar
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
@@ -248,4 +246,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(ParentCalendar);
+export default connect(mapStateToProps, {})(ParentDashboard);

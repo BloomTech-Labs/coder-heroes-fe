@@ -41,6 +41,7 @@ import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
 // eslint-disable-next-line
@@ -121,6 +122,7 @@ function App() {
             component={InstructorAddCourse}
           />
           <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />

@@ -79,6 +79,7 @@ const ParentSideBar = props => {
         >
           <strong>Coderheroes</strong>
         </Menu.Item>
+
         <Menu.Item
           key="dashboard"
           className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
@@ -86,6 +87,15 @@ const ParentSideBar = props => {
         >
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
+
+        <Menu.Item
+          key="calendar"
+          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
+          icon={<CalendarFilled fontSize="150px" />}
+        >
+          <Link to="/parent-calendar">Calendar</Link>
+        </Menu.Item>
+
         <Menu.Item
           key="courses"
           className={active === 'courses' ? 'ant-menu-item-selected' : ''}
@@ -93,6 +103,7 @@ const ParentSideBar = props => {
         >
           <Link to="/parent-booking">Courses</Link>
         </Menu.Item>
+
         <Menu.Item
           key="family"
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
@@ -100,9 +111,11 @@ const ParentSideBar = props => {
         >
           <Link to="/family">Family</Link>
         </Menu.Item>
+
         <Menu.Item key="3" icon={<ReadOutlined />}>
           <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
+
         <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>

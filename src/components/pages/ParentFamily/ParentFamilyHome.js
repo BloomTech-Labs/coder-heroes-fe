@@ -66,12 +66,17 @@ const ParentFamilyHome = () => {
           <CreateNewStudent />
         </Modal>
 
-        <Row gutter={16} className="family-cards">
+        <Row className="family-cards">
           <Col span={8}>
             <Card className="parent-card">
               <Meta
-                className="parent-card"
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                className="parent-info"
+                avatar={
+                  <Avatar
+                    className="ant-avatar-lg parent-avatar"
+                    src="https://joeschmoe.io/api/v1/random"
+                  />
+                } // make dynamic with state management
                 title="Parent Name"
               />
               <Button className="parent-view-account-button parent-card ">
@@ -89,8 +94,13 @@ const ParentFamilyHome = () => {
           <Col span={8}>
             <Card className="student-card">
               <Meta
-                className="student-card"
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                className="student-info"
+                avatar={
+                  <Avatar
+                    className="student-avatar"
+                    src="https://joeschmoe.io/api/v1/random"
+                  />
+                } // make dynamic with state management
                 title="Student Name"
               />
               <Button className="student-view-account-button">
@@ -102,8 +112,13 @@ const ParentFamilyHome = () => {
           <Col span={8}>
             <Card className="student-card">
               <Meta
-                className="student-card"
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} // make dynamic with state management
+                className="student-info"
+                avatar={
+                  <Avatar
+                    className="student-avatar"
+                    src="https://joeschmoe.io/api/v1/random"
+                  />
+                } // make dynamic with state management
                 title="Student Name"
               />
               <Button className="student-view-account-button">
@@ -118,5 +133,3 @@ const ParentFamilyHome = () => {
 };
 
 export default ParentFamilyHome;
-
-//  style={{ width: 300 }}

@@ -56,7 +56,10 @@ import HowManyStudents from './components/pages/Registration/HowManyStudents';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
+import ParentWelcome from './components/pages/Registration/ParentWelcome';
+import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -98,6 +101,8 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
+          <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register" component={LoginPage} />
           <Route
             path="/instructor-register-2"

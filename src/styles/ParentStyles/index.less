@@ -1,44 +1,38 @@
-// @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-
 // Export other less files here
 
 @h1: 5rem;
 @h2: 3rem;
 @h3: 2.5rem;
-@margin-xss: 4px;
-@base-url: ~"../../img";
+//@base-url: ~'../../img';
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
   display: flex;
-  background: none;
-  width: 80%;
+  background-color: @body__bg--blue;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  border: 1px solid grey;
-  margin: @margin-xss auto;
-  height: 10vh;
-  margin: 2%;
-  
+  height: 12vh;
 }
 
 .banner-content {
   display: flex;
   width: 60%;
-  font-family: @text__font-family--header;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
-  margin: @margin-xss auto;
+  margin: auto;
+
   h1 {
     display: flex;
-    font-size: @text__font-size--h1;
-    font-family: @text__font-family;
-    color: #263e47;
+    align-items: center;
+    font-size: @h1;
+    font-family: @text__font-family--header;
+    line-height: @text__line-height--h1;
+    color: @text__color--white;
     width: 100%;
     margin: auto;
-    border: 1px solid grey;
   }
+
   .welcome-content {
     display: none;
     z-index: -1;
@@ -242,25 +236,15 @@
 
 //****FamilyPage styles****
 
-// * {
-//   border: 1px solid grey;
-// }
-
-button {
-  border: none;
-  border-radius: 6px;
-}
-
-h1 {
-  font-family: @text__font-family;
-}
-
 .family-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ~ "url('@{base-url}/cloud-bg.jpg')";
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  //background: ~"url('@{base-url}/cloud-bg.jpg')";
 }
 
 .family-cards {
@@ -268,61 +252,57 @@ h1 {
   width: 80%;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  margin-bottom: 10%;
-  height: 50vh;
+  background-color: @body__bg--white;
+  margin: 5%;
 }
+
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 45vh;
+  padding: 5%;
+}
+
+// .avatar {
+
+// }
+
+// span{
+//   margin-bottom: 50%;
+// }
 
 .parent-card {
   display: flex;
-  background-color: #096a70;
-  color: white;
+  background-color: @body__bg--blue;
+  color: @body__bg--white;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  //padding: 20% auto;
-
+  border-radius: 15px 0 0 15px;
 }
-
-.parent-info {
-  display: flex;
-  background-color: #096a70;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 80%;
-  height: 36vh;
-  //padding: 20% auto;
-}
-
-.parent-avatar{
-  width: 50%;
-}
-
-.ant-avatar > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 
 .student-card {
   display: flex;
-  background-color: #ffffff;
+  background-color: @body__bg--white;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  flex-direction: column;
-  // padding: 20% auto;
+
+    .student-card:last-of-type {
+    border-radius: 15px 15px 15px 15px;
+    }
 }
+
+
+
 .student-info {
   display: flex;
-  background-color: #ffffff;
+  background-color: @body__bg--white;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -331,49 +311,39 @@ h1 {
   height: 36vh;
 }
 
+.family-page-container button {
+  border: none;
+  border-radius: @btn__border-radius;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5%;
+}
+
 .add-student-button {
-  background-color: #f66721;
-  color: white;
-  border: 1px solid #f66721;
+  background-color: @btn__bg--orange;
+  color: @text__color--white;
+  //border: none;
+  //border-radius:  @btn__border-radius;
 }
 
 .student-view-account-button {
   background-color: @body__bg--blue;
-  border-radius: @btn__border-radius;
-  color: white;
+  //border-radius: @btn__border-radius;
+  color: @text__color--white;
 }
 
 .parent-view-account-button {
-  border: 1px solid #096a70;
-  color: #096a70;
-  background-color: #ffffff;
+  color: @text__color--maroon;
+  background-color: @btn__bg--white;
+  //border-radius:  @btn__border-radius;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Create New Student Modal
 .create-new-student-modal {
   position: absolute;
   border: 1px solid black;
   border-radius: 10px;
-  background: #ffffff;
+  background: @body__bg--white;
   height: 35em;
   width: 30em;
   margin: 5em 10em 10em 10em;

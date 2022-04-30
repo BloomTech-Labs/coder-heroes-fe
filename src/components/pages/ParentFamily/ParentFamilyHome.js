@@ -6,10 +6,11 @@ import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
+import cloudbg from '../../../img/cloud-bg.jpg';
 
 //IMG_F8DE6E5E167E-1.jpeg
 const ParentFamilyHome = () => {
-  const { Meta } = Card;
+  //const { Meta } = Card;
   const { Content } = Layout;
   const [studentInfo, setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
@@ -51,9 +52,14 @@ const ParentFamilyHome = () => {
   };
 
   return (
-    <Layout>
+    <>
       <ParentSidebar />
-      <Content className="family-page-container">
+      <Content
+        className="family-page-container"
+        style={{
+          backgroundImage: `url(${cloudbg})`,
+        }}
+      >
         <Banner />
         <Modal
           title="Add Student"
@@ -66,69 +72,67 @@ const ParentFamilyHome = () => {
           <CreateNewStudent />
         </Modal>
 
+        {/* Begin Family Container */}
+
         <Row className="family-cards">
           <Col span={8}>
             <Card className="parent-card">
-              <Meta
-                className="parent-info"
-                avatar={
-                  <Avatar
-                    className="ant-avatar-lg parent-avatar"
-                    src="https://joeschmoe.io/api/v1/random"
-                  />
-                } // make dynamic with state management
-                title="Parent Name"
-              />
-              <Button className="parent-view-account-button parent-card ">
-                VIEW ACCOUNT
-              </Button>
-              <Button
-                className="add-student-button"
-                onClick={showAddStudentModal}
-              >
-                ADD STUDENT
-              </Button>
+              <div className="card-info">
+                <Avatar
+                  shape="square"
+                  className="avatar"
+                  src="https://joeschmoe.io/api/v1/random"
+                />
+                <span>Parent Name</span>
+                {/* // make dynamic with state management */}
+                <Button className="parent-view-account-button parent-card ">
+                  View Account
+                </Button>
+                <Button
+                  className="add-student-button"
+                  onClick={showAddStudentModal}
+                >
+                  Add Student
+                </Button>
+              </div>
             </Card>
           </Col>
 
           <Col span={8}>
             <Card className="student-card">
-              <Meta
-                className="student-info"
-                avatar={
-                  <Avatar
-                    className="student-avatar"
-                    src="https://joeschmoe.io/api/v1/random"
-                  />
-                } // make dynamic with state management
-                title="Student Name"
-              />
-              <Button className="student-view-account-button">
-                VIEW ACCOUNT
-              </Button>
+              <div className="card-info">
+                <Avatar
+                  shape="square"
+                  className="avatar"
+                  src="https://joeschmoe.io/api/v1/random"
+                />
+                <span>Student Name</span>
+                <Button className="student-view-account-button">
+                  View Account
+                </Button>
+              </div>
             </Card>
           </Col>
 
           <Col span={8}>
             <Card className="student-card">
-              <Meta
-                className="student-info"
-                avatar={
-                  <Avatar
-                    className="student-avatar"
-                    src="https://joeschmoe.io/api/v1/random"
-                  />
-                } // make dynamic with state management
-                title="Student Name"
-              />
-              <Button className="student-view-account-button">
-                VIEW ACCOUNT
-              </Button>
+              <div className="card-info">
+                <Avatar
+                  shape="square"
+                  className="avatar"
+                  src="https://joeschmoe.io/api/v1/random"
+                />
+                <span>Student Name</span>
+                {/* make dynamic with state management */}
+                <Button className="student-view-account-button">
+                  View Account
+                </Button>
+              </div>
             </Card>
           </Col>
         </Row>
       </Content>
-    </Layout>
+    </>
   );
 };
 

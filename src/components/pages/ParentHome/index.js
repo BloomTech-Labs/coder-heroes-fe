@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ParentDashboard from './parentDashboard';
+import ParentFamilyHome from '../ParentFamily/ParentFamilyHome';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
@@ -16,15 +16,15 @@ function ParentHome() {
 
   return (
     <div className="App">
-      <Layout style={{ width: '100%' }}>
-        <ParentSidebar active="dashboard" />
+      <Layout>
+        {/* <ParentSidebar active="dashboard" /> */}
         <Content>
-          <Banner />
+          {/* <Banner /> */}
           <Layout>
             <Content>
               <Row justify="space-around" align="middle">
                 <Col span={20}>
-                  <ParentDashboard />
+                  <ParentFamilyHome />
                 </Col>
               </Row>
             </Content>

@@ -13,17 +13,14 @@
   background-image: url('../../img/cloud-bg.jpg');
 }
 
-.landing-main-text {
+.landing-main-text, .landing-second-container-text {
   margin: 5% 0%;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-main-text h1 {
-  margin-bottom: 5%;
-}
-
-.landing-main-text h3 {
-  text-align: center;
+.landing-main-title, .landing-second-container-title {
+  font-family: 'Staatliches', cursive!important;
 }
 
 .landing-btn {
@@ -64,14 +61,18 @@
   border-radius: 15px;
 }
 
+.landing-second-container-content, 
 .landing-second-container-text {
-  color: white;
-  padding: 10% 10% 0%;
+  color: white!important;
   text-align: center;
+
 }
-.empty-space {
-  width: 50%;
-}
+
+// .empty-space {
+//   width: 50%;
+// }
+
+
 
 /* Third Content Section */
 
@@ -92,6 +93,15 @@
   margin-top: -25%;
   background: #156a70;
   padding-bottom: 5%;
+}
+
+.landing-fourth-container-text, .description{
+  font-family: 'Montserrat', sans-serif!important;
+
+}
+
+.landing-fourth-container-text, .brianne{
+  font-family: 'Staatliches', cursive!important;
 }
 
 .landing-third-container-pic {
@@ -119,6 +129,7 @@
   border: 2px solid black;
 }
 
+// ------------
 //** Landing Page Styles - TABLET **//
 
 @media only screen and (max-width: 1000px) {
@@ -134,20 +145,23 @@
   }
 
   .coder-heroes {
-    width: 40%;
+    width: 75%;
   }
 
   .landing-main-text {
     margin: 5% 0%;
     text-align: center;
+    
   }
 
   .landing-main-text h1 {
     margin-bottom: 5%;
+    color: yellow;
   }
 
   .landing-main-text h3 {
     text-align: center;
+    color: green;
   }
 
   .browse-btn {
@@ -403,10 +417,7 @@
     border: 2px solid black;
   }
 
-  .salmon {
-    border: 5px solid salmon;
-    width: 25%;
-  }
+
 }
 
 

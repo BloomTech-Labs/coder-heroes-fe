@@ -9,10 +9,9 @@ import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
 import { Link } from 'react-router-dom';
 import '../../../styles/LandingPageStyles/index.less';
-import { Typography, Space } from 'antd';
+import { Typography, Card } from 'antd';
 
 const { Title, Paragraph } = Typography;
-// const { Content } = Layout;
 
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
@@ -37,22 +36,22 @@ function RenderLandingPage(props) {
             alt="CoderHeroes Text in Turquoise"
           />
           <div className="landing-main-text">
-            <Space align="center">
-              <Title level={2}> Coding is a superpower</Title>
-            </Space>
-            <Paragraph>
-              Through a love of teaching and technology, we empower youth to
-              change the world with their ideas
+            <Title className="landing-main-text landing-main-title" level={2}>
+              Coding is a Superpower
+            </Title>
+            <Paragraph className="landing-main-text">
+              Through a love of teaching and technology, <br />
+              we empower youth to change the world with their ideas.
             </Paragraph>
           </div>
 
           {/* Button container */}
           <div className=" landing-button-container ">
             <Link className="landing-btn" to="/browse-programs">
-              BROWSE PROGRAMS
+              Browse Programs
             </Link>
             <Link className="landing-btn" to="/register">
-              CREATE ACCOUNT
+              Create Account
             </Link>
           </div>
         </div>
@@ -69,32 +68,34 @@ function RenderLandingPage(props) {
           />
         </div>
         <div className="landing-second-container-content">
-          <Space align="center">
-            <div className="landing-second-container-text">
-              <Title level={3} style={{ color: 'white', fontSize: '15px' }}>
-                GIVE BACK TO THE COMMUNITY
-              </Title>
-              <Title level={1} style={{ color: `white`, fontSize: '28px' }}>
-                Support Code Your Dreams
-              </Title>
-              <p>
-                All CoderHeroes proceeds provide direct funding to our original
-                mission, centered in incubating tech skills within under served
-                school districts.
-              </p>
-            </div>
-          </Space>
-          <center>
-            <Link
-              className="landing-btn"
-              to={{
-                pathname: 'https://codeyourdreams.org',
-              }}
-              target="_blank"
+          <div className="landing-second-container-text">
+            <Title
+              className="landing-second-container-text landing-second-container-title-one"
+              level={3}
             >
-              VISIT WEBSITE
-            </Link>
-          </center>
+              Give Back To Community
+            </Title>
+            <Title
+              level={2}
+              className="landing-second-container-text landing-second-container-title-two"
+            >
+              Support Code Your Dreams
+            </Title>
+            <Paragraph className="landing-second-container-text landing-second-container-paragraph ">
+              All CoderHeroes proceeds provide direct funding to our original
+              mission, centered in incubating tech skills within under served
+              school districts.
+            </Paragraph>
+          </div>
+          <Link
+            className="landing-btn"
+            to={{
+              pathname: 'https://codeyourdreams.org',
+            }}
+            target="_blank"
+          >
+            Visit Website
+          </Link>
         </div>
       </div>
       {/* Third text container */}
@@ -113,26 +114,24 @@ function RenderLandingPage(props) {
           src={profile}
           alt="Brianne Smiling"
         />
-        <div className="landing-third-container-text">
-          <div className="description">
-            <p className="quotes">
+        <div className="landing-fourth-container-text">
+          <Card className="description landing-fourth-container-text">
+            <Paragraph className="landing-fourth-container-text quotes">
               “I have 7+ years of experience working in technology. I bring
               excitement and positivity to every class, virtual and in-person."
-            </p>
-            <p>
+            </Paragraph>
+            <Paragraph className="landing-fourth-container-text">
               "I have experience teaching the following subjects for K-12
               students: Python, Swift, JavaScript, App Inventor, Design{' '}
               Thinking, UI/UX Design, Sales & Marketing.”
-            </p>
-          </div>
-          <div className="brianne">
-            <Title level={2} style={{ color: `black`, 'font-size': '25px' }}>
-              BRIANNE CAPLAN
-            </Title>
+            </Paragraph>
+          </Card>
+          <Card className="brianne landing-fourth-container-text">
+            <Title level={3}>Brianne Caplan</Title>
             <Title level={4}>
-              FOUNDER & CEO, CODERHEROES & CODE YOUR DREAMS
+              Founder & CEO, Coderhereos & Code Your Dreams
             </Title>
-          </div>
+          </Card>
         </div>
       </div>
     </div>

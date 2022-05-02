@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
@@ -17,11 +18,10 @@ import {
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
 
-//IMG_F8DE6E5E167E-1.jpeg
 const ParentFamilyHome = () => {
-  //const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
+  const history = useHistory();
   const [studentInfo, setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
@@ -68,7 +68,7 @@ const ParentFamilyHome = () => {
         className="family-page-container"
         style={{
           backgroundImage: `url(${cloudbg})`,
-        }} //need to figure out how to get functioning in LESS file
+        }} //background image here while troubleshooting LESS rendering issue
       >
         <Banner />
         <Modal
@@ -88,14 +88,16 @@ const ParentFamilyHome = () => {
           <Col span={8}>
             <Card className="parent-card">
               <div className="card-info">
+                {/* // make dynamic with state management */}
                 <Avatar
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Parent Name</Text>
-
-                {/* // make dynamic with state management */}
-                <Button className="parent-view-account-button parent-card ">
+                <Button
+                  className="parent-view-account-button parent-card"
+                  onClick={() => history.push('/parent')}
+                >
                   View Account
                 </Button>
                 <Button
@@ -111,12 +113,12 @@ const ParentFamilyHome = () => {
           <Col span={8}>
             <Card className="student-card">
               <div className="card-info">
+                {/* make dynamic with state management */}
                 <Avatar
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
-
                 <Button className="student-view-account-button">
                   View Account
                 </Button>
@@ -127,13 +129,12 @@ const ParentFamilyHome = () => {
           <Col span={8}>
             <Card className="student-card">
               <div className="card-info">
+                {/* make dynamic with state management */}
                 <Avatar
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
-
-                {/* make dynamic with state management */}
                 <Button className="student-view-account-button">
                   View Account
                 </Button>

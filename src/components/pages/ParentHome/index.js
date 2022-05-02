@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import ParentFamilyHome from '../ParentFamily/ParentFamilyHome';
 import { Layout, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
@@ -7,19 +8,12 @@ import ParentSidebar from './ParentSidebar';
 import './../../../styles/ParentStyles/index.less';
 
 function ParentHome() {
-  const { Content, Sider } = Layout;
-  // const [collapsed, setCollapsed] = useState(false);
-
-  // const toggleCollapsed = () => {
-  //   setCollapsed(!collapsed);
-  // };
+  const { Content } = Layout;
 
   return (
     <div className="App">
       <Layout>
-        <Sider>
-          <ParentSidebar active="family" />
-        </Sider>
+        <ParentSidebar active="family" />
         <Content>
           <Banner />
           <Layout>

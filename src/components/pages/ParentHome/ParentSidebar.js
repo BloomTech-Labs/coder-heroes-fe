@@ -85,6 +85,11 @@ const ParentSideBar = props => {
             Cart <span>({cart.length})</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="5" icon={<ShoppingCartOutlined fontSize="150px" />}>
+          <Link to="/parent-progress" className="link">
+            Progress
+          </Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

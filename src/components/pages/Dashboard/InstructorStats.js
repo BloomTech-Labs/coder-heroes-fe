@@ -13,6 +13,11 @@ import { useOktaAuth } from '@okta/okta-react';
 import { dummyData } from '../../../dummyData';
 import { FormProvider } from 'antd/lib/form/context';
 import { getCurrentUser } from '../../../redux/actions/userActions';
+import {
+  getInstructor,
+  getCourses,
+} from '../../../redux/actions/instructorActions';
+import { setNestedObjectValues } from 'formik';
 
 const initialValues = {
   students: 0,
@@ -21,20 +26,47 @@ const initialValues = {
   totalEarnings: 0,
 };
 function InstructorStats(props) {
-  console.log('props', props);
   const { authState, authService } = useOktaAuth();
   const { idToken } = authState;
   const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
+  console.log('courses', props.courses);
 
   useEffect(() => {
-    if (idToken) {
+    if (!props.user.name) {
       dispatch(getCurrentUser(idToken, authState, authService));
-      console.log(props);
     }
     // eslint-disable-next-line
   }, [dispatch, idToken]);
+
+  useEffect(() => {
+    dispatch(getInstructor(idToken, props.user.profile_id));
+  }, [dispatch, idToken, props.user.profile_id]);
+
+  useEffect(() => {
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
+
+  useEffect(() => {
+    let completed = 0;
+    let active = 0;
+    props.courses.forEach(course => {
+      if (course.active) {
+        active += 1;
+      } else {
+        completed += 1;
+      }
+      setStats({
+        ...stats,
+        completedCourses: completed,
+        activeCourses: active,
+      });
+    });
+    // eslint-disable-next-line
+  }, [props.courses]);
+
   const { Title } = Typography;
+
   return (
     <>
       <Title className="instructor__name">{props.user.name}</Title>
@@ -82,6 +114,8 @@ function InstructorStats(props) {
 const mapStateToProps = state => {
   return {
     user: state.userReducer.currentUser,
+    instructor: state.instructorReducer.instructor,
+    courses: state.instructorReducer.courses,
   };
 };
 export default connect(mapStateToProps)(InstructorStats);

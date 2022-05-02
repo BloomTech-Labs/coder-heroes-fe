@@ -4,7 +4,16 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
+import {
+  Layout,
+  Modal,
+  Button,
+  Card,
+  Avatar,
+  Col,
+  Row,
+  Typography,
+} from 'antd';
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
 
@@ -12,6 +21,7 @@ import cloudbg from '../../../img/cloud-bg.jpg';
 const ParentFamilyHome = () => {
   //const { Meta } = Card;
   const { Content } = Layout;
+  const { Text } = Typography;
   const [studentInfo, setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
@@ -79,22 +89,21 @@ const ParentFamilyHome = () => {
             <Card className="parent-card">
               <div className="card-info">
                 <Avatar
-                  shape="square"
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
-                <span>Parent Name</span>
-                {/* // make dynamic with state management */}
-                <Button className="parent-view-account-button parent-card ">
-                  View Account
-                </Button>
-                <Button
-                  className="add-student-button"
-                  onClick={showAddStudentModal}
-                >
-                  Add Student
-                </Button>
+                <Text className="card-name">Parent Name</Text>
               </div>
+              {/* // make dynamic with state management */}
+              <Button className="parent-view-account-button parent-card ">
+                View Account
+              </Button>
+              <Button
+                className="add-student-button"
+                onClick={showAddStudentModal}
+              >
+                Add Student
+              </Button>
             </Card>
           </Col>
 
@@ -102,15 +111,14 @@ const ParentFamilyHome = () => {
             <Card className="student-card">
               <div className="card-info">
                 <Avatar
-                  shape="square"
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
-                <span>Student Name</span>
-                <Button className="student-view-account-button">
-                  View Account
-                </Button>
+                <Text className="card-name">Student Name</Text>
               </div>
+              <Button className="student-view-account-button">
+                View Account
+              </Button>
             </Card>
           </Col>
 
@@ -118,16 +126,15 @@ const ParentFamilyHome = () => {
             <Card className="student-card">
               <div className="card-info">
                 <Avatar
-                  shape="square"
                   className="avatar"
                   src="https://joeschmoe.io/api/v1/random"
                 />
-                <span>Student Name</span>
-                {/* make dynamic with state management */}
-                <Button className="student-view-account-button">
-                  View Account
-                </Button>
+                <Text className="card-name">Student Name</Text>
               </div>
+              {/* make dynamic with state management */}
+              <Button className="student-view-account-button">
+                View Account
+              </Button>
             </Card>
           </Col>
         </Row>

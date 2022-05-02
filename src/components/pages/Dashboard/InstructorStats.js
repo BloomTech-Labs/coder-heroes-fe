@@ -6,24 +6,19 @@ import { Card, Typography } from 'antd';
 import {
   UserOutlined,
   BarChartOutlined,
-  DollarOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
-import { getStats } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
-import { dummyData } from '../../../dummyData';
-import { FormProvider } from 'antd/lib/form/context';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import {
   getInstructor,
   getCourses,
 } from '../../../redux/actions/instructorActions';
-import { setNestedObjectValues } from 'formik';
 
 const initialValues = {
   students: 0,
   activeCourses: 0,
   completedCourses: 0,
-  totalEarnings: 0,
 };
 function InstructorStats(props) {
   const { authState, authService } = useOktaAuth();
@@ -100,11 +95,11 @@ function InstructorStats(props) {
         </Card>
         <Card id="ant-card-stat">
           <div class="stat-icon-wrapper">
-            <DollarOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
+            <StarOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
           </div>
           <div class="stat-content">
-            <p>Total Earnings</p>
-            <h3>{stats.totalEarnings}</h3>
+            <p>Rating</p>
+            <h3>{props.instructor.rating}</h3>
           </div>
         </Card>
       </div>

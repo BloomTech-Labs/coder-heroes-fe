@@ -7,6 +7,7 @@ import {
   PaperClipOutlined,
   FontSizeOutlined,
   TeamOutlined,
+  LineOutlined,
 } from '@ant-design/icons';
 
 const initialStudent = null;
@@ -68,14 +69,22 @@ function StudentDashboard(props) {
             </div>
           </div>
           <div className="tasks-completed">
+            {/* <div> */}
             <h3>Tasks Completed 3/10</h3>
-            <h3> || </h3>
+            {/* <h1></h1> */}
+            {/* </div> */}
+            <div style={{ fontSize: '25px' }}>
+              <LineOutlined className="rotate-line" />
+            </div>
+            {/* <div> */}
             <h3>New Stories 2</h3>
+            {/* <h1></h1> */}
+            {/* </div> */}
           </div>
         </section>
         <section className="student-stories">
           <div>
-            <h2>Stories</h2>
+            <h1>Stories</h1>
           </div>
           <div className="student-story-card">
             <img src="https://via.placeholder.com/50" alt="placeholder"></img>

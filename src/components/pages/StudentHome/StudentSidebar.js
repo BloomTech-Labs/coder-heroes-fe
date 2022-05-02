@@ -56,22 +56,22 @@ const StudentSideBar = props => {
           key="my-tasks"
           icon={<CheckCircleOutlined fontSize="150px" />}
         >
-          <Link to="/parent-booking">My Tasks</Link>
+          <Link to="/student-tasks">My Tasks</Link>
         </Menu.Item>
         <Menu.Item key="messages" icon={<MessageOutlined fontSize="150px" />}>
-          <Link to="/family">Messages</Link>
+          <Link to="/student-messages">Messages</Link>
         </Menu.Item>
         <Menu.Item key="resources" icon={<ReadOutlined fontSize="150px" />}>
-          <Link to="/parent-news-feed">Resources</Link>
+          <Link to="/student-resources">Resources</Link>
         </Menu.Item>
         <Menu.Item key="portfolio" icon={<GroupOutlined fontSize="150px" />}>
-          <Link to="/settings">Portfolio</Link>
+          <Link to="/student-portfolio">Portfolio</Link>
         </Menu.Item>
         <Menu.Item key="progress" icon={<SlidersOutlined fontSize="150px" />}>
-          <Link to="/progress">Progress</Link>
+          <Link to="/student-progress">Progress</Link>
         </Menu.Item>
         <Menu.Item key="achievements" icon={<StarOutlined fontSize="150px" />}>
-          <Link to="/settings">Achievements</Link>
+          <Link to="/student-achievements">Achievements</Link>
         </Menu.Item>
 
         <Menu.Item

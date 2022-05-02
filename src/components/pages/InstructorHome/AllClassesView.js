@@ -4,30 +4,37 @@ import ClassCard from './ClassCard';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
-import { getCourses } from '../../../redux/actions/instructorActions';
+import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
+import { useDispatch } from 'react-redux';
+import { setEditing } from '../../../redux/actions/coursesActions';
 
 const { Content } = Layout;
 const { Title } = Typography;
 const AllClasses = props => {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    getCourses(idToken);
-  }, [idToken]);
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
 
-  console.log('props', props);
+  const handleEditSelect = id => {
+    setEditing(id);
+  };
 
   return (
     <>
       <Layout>
         <InstructorSidebar />
         <Content>
-          <Title className="class__title">Classes</Title>
+          <Title className="class__title">Courses</Title>
           <div className="class__subject">
-            {props.classes.map(courses => (
-              <ClassCard courses={courses} />
+            {props.courses.map(courses => (
+              <ClassCard
+                courses={courses}
+                handleEditSelect={handleEditSelect}
+              />
             ))}
           </div>
         </Content>
@@ -38,7 +45,8 @@ const AllClasses = props => {
 
 const mapStateToProps = state => {
   return {
-    classes: state.instructorReducer.classes,
+    courses: state.coursesReducer.courses,
+    editing: state.coursesReducer.editing,
   };
 };
 

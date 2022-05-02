@@ -69,17 +69,17 @@ function StudentDashboard(props) {
             </div>
           </div>
           <div className="tasks-completed">
-            {/* <div> */}
-            <h3>Tasks Completed 3/10</h3>
-            {/* <h1></h1> */}
-            {/* </div> */}
-            <div style={{ fontSize: '25px' }}>
+            <div className="tasks-div">
+              <h3>Tasks Completed</h3>
+              <h3 className="tasks-numbers">3/10</h3>
+            </div>
+            <div className="pipe" style={{ fontSize: '25px' }}>
               <LineOutlined className="rotate-line" />
             </div>
-            {/* <div> */}
-            <h3>New Stories 2</h3>
-            {/* <h1></h1> */}
-            {/* </div> */}
+            <div className="tasks-div">
+              <h3>New Stories</h3>
+              <h3 className="tasks-numbers">2</h3>
+            </div>
           </div>
         </section>
         <section className="student-stories">

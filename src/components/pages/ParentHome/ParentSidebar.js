@@ -12,6 +12,8 @@ import {
   HeartFilled,
   ShoppingCartOutlined,
   ReadOutlined,
+  BookFilled,
+  MessageFilled,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -89,22 +91,6 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="calendar"
-          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
-          icon={<CalendarFilled fontSize="150px" />}
-        >
-          <Link to="/parent-calendar">Calendar</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="courses"
-          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
-          icon={<CalendarFilled fontSize="150px" />}
-        >
-          <Link to="/parent-booking">Courses</Link>
-        </Menu.Item>
-
-        <Menu.Item
           key="family"
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
           icon={<HeartFilled fontSize="150px" />}
@@ -112,15 +98,35 @@ const ParentSideBar = props => {
           <Link to="/family">Family</Link>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<ReadOutlined />}>
+        <Menu.Item
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<BookFilled fontSize="150px" />}
+        >
+          <Link to="/parent-booking">Booking</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="calendar"
+          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
+          icon={<CalendarFilled fontSize="150px" />}
+        >
+          <Link to="/parent-calendar">Calendar</Link>
+        </Menu.Item>
+
+        <Menu.Item key="news" icon={<ReadOutlined fontSize="150px" />}>
           <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
 
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
+        <Menu.Item key="messages" icon={<MessageFilled fontSize="150px" />}>
+          <Link to="/parent-messages">Messages</Link>
+        </Menu.Item>
+
+        <Menu.Item key="settings" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
+        <Menu.Item key="cart" icon={<ShoppingCartOutlined fontSize="150px" />}>
           <Link to="/cart" className="link">
             Cart <span>({cart.length})</span>
           </Link>

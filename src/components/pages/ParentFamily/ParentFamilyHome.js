@@ -22,7 +22,7 @@ const ParentFamilyHome = () => {
   const { Content } = Layout;
   const { Text } = Typography;
   const history = useHistory();
-  const [studentInfo, setStudentInfo] = useState(null);
+  const [setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
@@ -81,8 +81,6 @@ const ParentFamilyHome = () => {
         >
           <CreateNewStudent />
         </Modal>
-
-        {/* Begin Family Container */}
 
         <Row className="family-cards">
           <Col span={8}>

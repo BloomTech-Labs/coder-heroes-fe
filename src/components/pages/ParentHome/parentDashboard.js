@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-import '../../../styles/ParentStyles/index.less';
+import React from 'react';
+import Banner from '../../common/Banner';
+import ParentSidebar from '../ParentHome/ParentSidebar';
+import '../../../styles/ParentStyles/dashboard.less';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentDashboard = () => {

@@ -8,16 +8,18 @@ import './../../../styles/ParentStyles/index.less';
 
 function ParentHome() {
   const { Content, Sider } = Layout;
-  const [collapsed, setCollapsed] = useState(false);
+  // const [collapsed, setCollapsed] = useState(false);
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  // const toggleCollapsed = () => {
+  //   setCollapsed(!collapsed);
+  // };
 
   return (
     <div className="App">
       <Layout>
-        <ParentSidebar active="dashboard" />
+        <Sider>
+          <ParentSidebar active="family" />
+        </Sider>
         <Content>
           <Banner />
           <Layout>

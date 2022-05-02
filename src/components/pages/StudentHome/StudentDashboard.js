@@ -14,7 +14,7 @@ import StudentStoryCard from './StudentStoryCard';
 const initialStudent = null;
 
 function StudentDashboard(props) {
-  const [student, setStudent] = useState(initialStudent);
+  // const [student, setStudent] = useState(initialStudent);
 
   return (
     <div className="student-dashboard">

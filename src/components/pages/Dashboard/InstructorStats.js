@@ -25,6 +25,7 @@ function InstructorStats(props) {
   const { idToken } = authState;
   const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
+  console.log('courses', props.courses);
 
   useEffect(() => {
     if (!props.user.name) {
@@ -60,6 +61,7 @@ function InstructorStats(props) {
   }, [props.courses]);
 
   const { Title } = Typography;
+
   return (
     <>
       <Title className="instructor__name">{props.user.name}</Title>

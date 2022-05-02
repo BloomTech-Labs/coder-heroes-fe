@@ -24,17 +24,28 @@ function DesktopFooter() {
             style={{ color: '#ffffff', fontWeight: '400' }}
             level={3}
           >
-            Contact
+            About
           </Title>
           <div>
             <ul>
-              <li className="footer__text">brianne@coderheroes.com</li>
               <li>
-                <Link
-                  className="footer__nav-link footer__text"
-                  to="/browse-programs"
-                >
-                  Find a Program
+                <Link className="footer__nav-link footer__text">
+                  About CoderHeroes
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__nav-link footer__text">
+                  Press Inquiries
                 </Link>
               </li>
             </ul>
@@ -65,28 +76,17 @@ function DesktopFooter() {
             style={{ color: '#ffffff', fontWeight: '400' }}
             level={3}
           >
-            About
+            Contact
           </Title>
           <div>
             <ul>
+              <li className="footer__text">brianne@coderheroes.com</li>
               <li>
-                <Link className="footer__nav-link footer__text">
-                  About CoderHeroes
-                </Link>
-              </li>
-              <li>
-                <Link className="footer__nav-link footer__text">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link className="footer__nav-link footer__text">
-                  Terms and Conditions
-                </Link>
-              </li>
-              <li>
-                <Link className="footer__nav-link footer__text">
-                  Press Inquiries
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/browse-programs"
+                >
+                  Find a Program
                 </Link>
               </li>
             </ul>

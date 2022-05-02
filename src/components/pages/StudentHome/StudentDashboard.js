@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../../styles/StudentStyles/index.less';
+import {
+  CameraOutlined,
+  VideoCameraOutlined,
+  PaperClipOutlined,
+  FontSizeOutlined,
+  TeamOutlined,
+} from '@ant-design/icons';
 
 const initialStudent = null;
 
@@ -30,23 +37,23 @@ function StudentDashboard(props) {
         <section className="student-photo-tasks">
           <div className="Photo-Video-File">
             <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+              <CameraOutlined fontSize="100px" />
               <h5>Photo</h5>
             </div>
             <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+              <VideoCameraOutlined fontSize="250px" />
               <h5>Video</h5>
             </div>
             <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+              <PaperClipOutlined fontSize="250px" />
               <h5>File</h5>
             </div>
             <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+              <FontSizeOutlined fontSize="250px" />
               <h5>Write</h5>
             </div>
             <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+              <TeamOutlined fontSize="250px" />
               <h5>Meet</h5>
             </div>
           </div>

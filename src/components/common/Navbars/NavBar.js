@@ -85,7 +85,12 @@ function NavBar(props) {
             </NavLink>
           ) : (
             <NavLink to="/">
-              <button className="navbar__btn navbar__contact">
+              <button
+                onClick={() =>
+                  (window.location = 'mailto:brianne@coderheroes.com')
+                }
+                className="navbar__btn navbar__contact"
+              >
                 CONTACT US
               </button>
             </NavLink>
@@ -130,7 +135,15 @@ function NavBar(props) {
                 </Menu.Item>
               )}
               <Menu.Item key="2" icon={<ContactsOutlined />}>
-                <NavLink to="/">Contact Us</NavLink>
+                <NavLink
+                  to="/"
+                  onClick={() =>
+                    (window.location = 'mailto:brianne@coderheroes.com')
+                  }
+                  className="navbar__btn navbar__contact"
+                >
+                  Contact Us
+                </NavLink>
               </Menu.Item>
               <Menu.Item key="4" icon={<SnippetsOutlined />}>
                 <NavLink to="/">Programs</NavLink>

@@ -17,9 +17,7 @@ import {
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
 
-//IMG_F8DE6E5E167E-1.jpeg
 const ParentFamilyHome = () => {
-  //const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
   const [studentInfo, setStudentInfo] = useState(null);

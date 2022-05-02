@@ -37,23 +37,33 @@ function StudentDashboard(props) {
         <section className="student-photo-tasks">
           <div className="Photo-Video-File">
             <div>
-              <CameraOutlined fontSize="100px" />
+              <div style={{ fontSize: '30px' }}>
+                <CameraOutlined />
+              </div>
               <h5>Photo</h5>
             </div>
             <div>
-              <VideoCameraOutlined fontSize="250px" />
+              <div style={{ fontSize: '30px' }}>
+                <VideoCameraOutlined />
+              </div>
               <h5>Video</h5>
             </div>
             <div>
-              <PaperClipOutlined fontSize="250px" />
+              <div style={{ fontSize: '30px' }}>
+                <PaperClipOutlined />
+              </div>
               <h5>File</h5>
             </div>
             <div>
-              <FontSizeOutlined fontSize="250px" />
+              <div style={{ fontSize: '30px' }}>
+                <FontSizeOutlined />
+              </div>
               <h5>Write</h5>
             </div>
             <div>
-              <TeamOutlined fontSize="250px" />
+              <div style={{ fontSize: '30px' }}>
+                <TeamOutlined />
+              </div>
               <h5>Meet</h5>
             </div>
           </div>

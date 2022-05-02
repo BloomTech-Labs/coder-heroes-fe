@@ -17,7 +17,7 @@ function ParentHome() {
   return (
     <div className="App">
       <Layout>
-        <ParentSidebar active="dashboard" />
+        <ParentSidebar active="family" />
         <Content>
           <Banner />
           <Layout>

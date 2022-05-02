@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../../common/Banner';
+import ParentSidebar from '../ParentHome/ParentSidebar';
 import '../../../styles/ParentStyles/index.less';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentDashboard = () => {
   return (
-    <div>
+    <Layout>
+      <ParentSidebar active="dashboard" />
       <Banner />
-    </div>
+    </Layout>
   );
 };
 

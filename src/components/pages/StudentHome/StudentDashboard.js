@@ -9,6 +9,7 @@ import {
   TeamOutlined,
   LineOutlined,
 } from '@ant-design/icons';
+import StudentStoryCard from './StudentStoryCard';
 
 const initialStudent = null;
 
@@ -86,12 +87,7 @@ function StudentDashboard(props) {
           <div>
             <h1>Stories</h1>
           </div>
-          <div className="student-story-card">
-            <img src="https://via.placeholder.com/50" alt="placeholder"></img>
-            <h3>Teacher Name</h3>
-            <h4>Coder Heroes</h4>
-            <h4>9 Minutes Ago</h4>
-          </div>
+          <StudentStoryCard />
         </section>
       </section>
     </div>

@@ -17,15 +17,13 @@ function StudentDashboard(props) {
           </center>
         </div>
         <div className="current-teacher-db">
-          <center>
-            <div>
-              <img src="https://via.placeholder.com/50" alt="placeholder"></img>
-            </div>
-            <div>
-              <h2>Coder Camp</h2>
-              <h2>Teacher Name</h2>
-            </div>
-          </center>
+          <div>
+            <img src="https://via.placeholder.com/50" alt="placeholder"></img>
+          </div>
+          <div>
+            <h2>Coder Camp</h2>
+            <h2>Teacher Name</h2>
+          </div>
         </div>
       </section>
       <section className="studentdb-right-column">

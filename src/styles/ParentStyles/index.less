@@ -1,5 +1,3 @@
-// Export other less files here
-
 @h1: 5rem;
 @h2: 3rem;
 @h3: 2.5rem;
@@ -48,16 +46,18 @@
   background-repeat: no-repeat;
   background-position: center center;
   border: none;
+  font-family: @text__font-family;
 }
 
 .family-cards {
   display: flex;
   width: 80%;
-  align-items: center;
   justify-content: center;
   background-color: @body__bg--white;
-  margin: 5%;
   border-radius: .938em;
+  border: 1px solid red;
+  // max-height: 30vh;
+  margin: 5%;
 }
 
 .card-info {
@@ -65,14 +65,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  padding: 15% 0;
-  margin: 5%;
-  height: 35vh;
+  max-width: 100%;
+  margin: 10% auto;
+  border: 1px solid red;
 }
 
 .card-info .card-name{
-  margin: 10%;
   text-align: center;
 }
 
@@ -82,13 +80,21 @@
   color: @text__color--black;
 }
 
+.parent-card .card-name{
+  color: @text__color--white;
+}
+
+.student-card .card-name{
+  margin-bottom: 30%;
+}
+
 .avatar {
   width: 9.5em;
   height: 9.5em;
   border: .625em solid  @body__bg--blue;
   border-radius: 6.25em;
   background-color: @body__bg--yellow
-  }
+}
 
  .parent-card .avatar {
   border: .625em solid @body__bg--white;
@@ -99,9 +105,11 @@
   background-color: @body__bg--blue;
   color: @body__bg--white;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   width: 100%;
   border-radius: .938em 0 0 .938em;
+  border: 1px solid red;
 }
 
 .student-card {
@@ -111,8 +119,8 @@
   flex-direction: column;
   width: 100%;
   border: none;
-  padding: 5% 0;
-   border-radius: .938em;
+  border-radius: .938em;
+  margin: auto;
 }
 
 .family-page-container button {
@@ -120,8 +128,8 @@
   border-radius: @btn__border-radius;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 5%;
   width: 100%;
+  margin: 5%;
 }
 
 .add-student-button {

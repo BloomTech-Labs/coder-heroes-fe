@@ -68,7 +68,7 @@ const ParentFamilyHome = () => {
         className="family-page-container"
         style={{
           backgroundImage: `url(${cloudbg})`,
-        }}
+        }} //need to figure out how to get functioning in LESS file
       >
         <Banner />
         <Modal
@@ -93,17 +93,18 @@ const ParentFamilyHome = () => {
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Parent Name</Text>
+
+                {/* // make dynamic with state management */}
+                <Button className="parent-view-account-button parent-card ">
+                  View Account
+                </Button>
+                <Button
+                  className="add-student-button"
+                  onClick={showAddStudentModal}
+                >
+                  Add Student
+                </Button>
               </div>
-              {/* // make dynamic with state management */}
-              <Button className="parent-view-account-button parent-card ">
-                View Account
-              </Button>
-              <Button
-                className="add-student-button"
-                onClick={showAddStudentModal}
-              >
-                Add Student
-              </Button>
             </Card>
           </Col>
 
@@ -115,10 +116,11 @@ const ParentFamilyHome = () => {
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
+
+                <Button className="student-view-account-button">
+                  View Account
+                </Button>
               </div>
-              <Button className="student-view-account-button">
-                View Account
-              </Button>
             </Card>
           </Col>
 
@@ -130,11 +132,12 @@ const ParentFamilyHome = () => {
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
+
+                {/* make dynamic with state management */}
+                <Button className="student-view-account-button">
+                  View Account
+                </Button>
               </div>
-              {/* make dynamic with state management */}
-              <Button className="student-view-account-button">
-                View Account
-              </Button>
             </Card>
           </Col>
         </Row>

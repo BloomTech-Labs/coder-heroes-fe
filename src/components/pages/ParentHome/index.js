@@ -17,9 +17,9 @@ function ParentHome() {
   return (
     <div className="App">
       <Layout>
-        {/* <ParentSidebar active="dashboard" /> */}
+        <ParentSidebar active="dashboard" />
         <Content>
-          {/* <Banner /> */}
+          <Banner />
           <Layout>
             <Content>
               <Row justify="space-around" align="middle">

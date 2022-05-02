@@ -28,7 +28,7 @@ import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentHome from './components/pages/ParentHome';
-import ParentDashboard from './';
+import ParentDashboard from './components/pages/ParentHome/parentDashboard';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
@@ -109,11 +109,13 @@ function App() {
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
+
           <Route path="/confirm" component={ConfirmEmail} />
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}
           />
+
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentDashboard} />
@@ -123,10 +125,12 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
+
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
+
           <Route path="/parent-booking" component={ParentBooking} />
           <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/family" component={ParentFamilyHome} />

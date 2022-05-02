@@ -18,8 +18,10 @@ function bannerContent(title, content) {
 export default function Banner() {
   const path = window.location.pathname;
   switch (path) {
-    case '/parent' || '/instructor':
+    case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
+    case '/parent':
+      return bannerContent('Dashboard', 'mini nav');
     case '/parent-booking':
       return bannerContent('Courses', "view your children's reserved courses");
     case '/instructor-booking':

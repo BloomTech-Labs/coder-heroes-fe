@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-// import { connect } from 'react-redux';
+import Banner from '../../common/Banner';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 
 const ParentDashboard = () => {
-  return <h1>SUP</h1>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 };
 
 export default ParentDashboard;

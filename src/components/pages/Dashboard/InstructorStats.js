@@ -25,7 +25,6 @@ function InstructorStats(props) {
   const { idToken } = authState;
   const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
-  console.log('courses', props.courses);
 
   useEffect(() => {
     if (!props.user.name) {

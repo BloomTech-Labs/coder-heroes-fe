@@ -17,15 +17,7 @@ function StudentHome() {
   return (
     <div className="App">
       <Layout style={{ width: '100%' }}>
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={toggleCollapsed}
-          theme="light"
-        >
-          <div style={{ display: 'flex', justifyContent: 'center' }}></div>
-          <StudentSideBar />
-        </Sider>
+        <StudentSideBar />
         <Content>
           <Banner />
           <Layout>

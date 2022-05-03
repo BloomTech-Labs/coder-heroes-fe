@@ -9,10 +9,11 @@ import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
 import { Link } from 'react-router-dom';
 import '../../../styles/LandingPageStyles/index.less';
-import { Typography, Card, Layout } from 'antd';
+import { Typography, Layout, Card } from 'antd';
 
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
+
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();

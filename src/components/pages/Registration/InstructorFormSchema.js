@@ -8,7 +8,10 @@ const InstructorFormSchema = yup.object().shape({
   location: yup.string().required('You must enter your location'),
   phone: yup
     .string()
-    .matches(phoneRegExp, 'You must enter a valid phone number'),
+    .required('You must enter a valid 10-digit phone number')
+    .matches(phoneRegExp, 'You must enter a valid 10-digit phone number')
+    .min(10, 'You must enter a valid 10-digit phone number')
+    .max(10, 'You must enter a valid 10-digit phone number'),
   education: yup.string().required('You must enter your education'),
   tech: yup.string().required('You must enter your technical experience'),
   notes: yup.string(),

@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const InstructorAddCourseFormSchema = yup.object().shape({
-  size: yup
+  max_size: yup
     .number()
     .min(2, 'Class size must have at least 2 students')
     .integer('Number must be a whole value')
@@ -36,7 +36,7 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .date()
     .typeError('You must specify a valid end date')
     .required('You must specify a valid end date'),
-  sessions: yup
+  number_of_sessions: yup
     .number()
     .integer('Number must be a whole value')
     .min(1, 'Must have at least 1 session')

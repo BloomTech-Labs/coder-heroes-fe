@@ -37,19 +37,17 @@ const initialClassDataState = {
   course_name: '',
   course_description: '',
   days_of_week: [],
-  size: '',
-  //max_size
-  min_age: '', //needs to be added to backend
-  max_age: '', //needs to be added to backend
+  max_size: '',
+  min_age: '',
+  max_age: '',
   start_time: '',
   end_time: '',
   start_date: '',
   end_date: '',
-  sessions: '', //needs to be added to backend
+  number_of_sessions: '',
   location: '',
   open_seats_remaining: '',
   instructor_id: '',
-  // number_of_sessions
 };
 
 const initialClassDataStateFormErrors = {
@@ -57,14 +55,14 @@ const initialClassDataStateFormErrors = {
   course_name: '',
   course_description: '',
   days_of_week: '',
-  size: '',
+  max_size: '',
   min_age: '',
   max_age: '',
   start_time: '',
   end_time: '',
   start_date: '',
   end_date: '',
-  sessions: '',
+  number_of_sessions: '',
   location: '',
 };
 
@@ -106,7 +104,7 @@ const InstructorAddCourseForm = props => {
     e.preventDefault();
     setClassData({
       ...classData,
-      open_seats_remaining: classData.size,
+      open_seats_remaining: classData.max_size,
       instructor_id: 1, //change to id of current logged in instructor once we connect redux
     });
     dispatch(addCourse(idToken, classData));
@@ -231,13 +229,13 @@ const InstructorAddCourseForm = props => {
                     <label for="classSize">Class Size</label>
                     <Input
                       type="number"
-                      value={classData.size}
-                      name="size"
+                      value={classData.max_size}
+                      name="max_size"
                       min="1"
                       placeholder="Select a Class Size"
                       className="class__size"
                     />
-                    <span className="iadc__errors">{formErrors.size}</span>
+                    <span className="iadc__errors">{formErrors.max_size}</span>
                   </Form.Item>
                 </div>
                 {/* Total Sessions */}
@@ -247,12 +245,14 @@ const InstructorAddCourseForm = props => {
                     <Input
                       type="number"
                       placeholder="Set Total Sessions"
-                      value={classData.sessions}
-                      name="sessions"
+                      value={classData.number_of_sessions}
+                      name="number_of_sessions"
                       min="1"
                       className="total__sessions"
                     />
-                    <span className="iadc__errors">{formErrors.sessions}</span>
+                    <span className="iadc__errors">
+                      {formErrors.number_of_sessions}
+                    </span>
                   </Form.Item>
                 </div>
               </Form>

@@ -86,7 +86,7 @@ const InstrRegForm = () => {
 
       <div className="reg-form-title">
         <h1 className="form-title">Instructor Account Info</h1>
-        <p>*indicates required field</p>
+        <p className="indicator">*indicates required field</p>
       </div>
 
       <div className="reg-form-container">

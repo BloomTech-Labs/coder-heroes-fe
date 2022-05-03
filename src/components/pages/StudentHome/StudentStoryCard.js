@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '../../../styles/StudentStyles/index.less';
 import { connect } from 'react-redux';
+import { Card } from 'antd';
 
 function StudentStoryCard(prop) {
   return (
-    <div className="student-story-card">
+    <Card title="Teacher Name" className="student-story-card">
       <section className="top-left">
         <img src="https://via.placeholder.com/50" alt="placeholder"></img>
         <h3>Teacher Name</h3>
@@ -30,7 +31,7 @@ function StudentStoryCard(prop) {
         <img></img>
         {/* Create field and form here*/}
       </section>
-    </div>
+    </Card>
   );
 }
 

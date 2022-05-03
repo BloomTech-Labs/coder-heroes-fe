@@ -117,7 +117,7 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/parent" component={ParentDashboard} />
-          <Route path="/parent2" component={ParentHome} />
+          <Route path="/parent2" component={ParentDashboard} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />

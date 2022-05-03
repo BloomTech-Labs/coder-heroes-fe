@@ -70,6 +70,8 @@ import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import ParentTasks from './components/pages/ParentHome/ParentTasks';
+import ParentResourcesPage from './components/pages/ParentHome/ParentResourcePage';
+
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -159,6 +161,7 @@ function App() {
           <Route path="/parent-booking" component={ParentBooking} />
           <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/parent-tasks" component={ParentTasks} />
+          <Route path="/parent-Resources" component={ParentResourcesPage} />
           <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
 >>>>>>> 200dbf8 (B)

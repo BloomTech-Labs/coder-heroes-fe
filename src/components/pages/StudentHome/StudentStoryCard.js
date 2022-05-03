@@ -24,12 +24,20 @@ function StudentStoryCard(prop) {
           https://www.youtube.com/watch?v=dQw4w9WgXcQ
         </a>
       </section>
-      <section className="story-photo">{/* <p>image here</p> */}</section>
+      <section className="story-photo">
+        <div></div>
+      </section>
       <section className="student-comment">
-        <img></img>
-        <h4>Student Name</h4>
-        <p>Student Message</p>
-        <h4>4 M</h4>
+        <div className="student-comment-info">
+          <img src="https://via.placeholder.com/50"></img>
+          <div>
+            <h4>Student Name</h4>
+            <p>Student Message</p>
+          </div>
+        </div>
+        <div className="comment-minute">
+          <h4>4 minutes ago</h4>
+        </div>
       </section>
       <section className="student-send-comment">
         <img></img>

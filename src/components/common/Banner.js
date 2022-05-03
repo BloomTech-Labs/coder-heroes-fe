@@ -23,16 +23,13 @@ export default function Banner() {
     case '/student':
       return bannerContent('Student Dashboard', 'Welcome Back!');
     case '/parent-booking':
-      return bannerContent(
-        'bookings list',
-        "view your children's reserved courses"
-      );
+      return bannerContent('Courses', "view your children's reserved courses");
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
       return bannerContent('Create', 'your own course');
     case '/family':
-      return bannerContent('Family', 'Profile Center');
+      return bannerContent('CHOOSE A PROFILE');
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
     case '/classroom':

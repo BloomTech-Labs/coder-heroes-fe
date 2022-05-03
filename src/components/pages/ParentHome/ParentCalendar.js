@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
+import ParentSidebar from '../ParentHome/ParentSidebar';
 import { Calendar, Badge, Modal, Button } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { dateConverter } from '../../common/dateHelpers';
@@ -232,6 +233,7 @@ function ParentCalendar(props) {
 
   return (
     <>
+      <ParentSidebar />
       <Calendar
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}

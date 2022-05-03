@@ -12,13 +12,15 @@ import {
   HeartFilled,
   ShoppingCartOutlined,
   ReadOutlined,
+  BookFilled,
+  MessageFilled,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
 
 const ParentSideBar = props => {
-  const { cart } = props;
+  const { cart, active } = props;
   const [collapsed, setCollapsed] = useState(false);
   const { authService } = useOktaAuth();
   const onCollapse = () => {
@@ -33,41 +35,101 @@ const ParentSideBar = props => {
     <Sider
       data-testid="sider"
       theme="light"
-      collapsible
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
       <Menu
         className="parent-dashboard-sidebar"
-        defaultSelectedKeys={['2']}
+        defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
-        style={{ height: '100vh' }}
+        style={{ height: '100%' }}
         mode="inline"
         theme="light"
         color="orange"
         inlineCollapsed={collapsed}
       >
+        <div
+          onClick={onCollapse}
+          style={{
+            width: '100%',
+            height: 'auto',
+            margin: '0 0 5px',
+            padding: '15px 0px',
+            textAlign: 'center',
+            backgroundColor: '#e6e6e6',
+            cursor: 'pointer',
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 55 42"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0H55V7H0V0ZM0 17.5H55V24.5H0V17.5ZM0 35H55V42H0V35Z"
+              fill="#595959"
+            />
+          </svg>
+        </div>
         <Menu.Item
           key="coderheroes"
           icon={<ThunderboltFilled fontSize="150px" />}
           className="dashboard-logo"
+          style={{ pointerEvents: 'none' }}
         >
-          Coderheroes
+          <strong>Coderheroes</strong>
         </Menu.Item>
-        <Menu.Item key="dashboard" icon={<HomeFilled fontSize="150px" />}>
+
+        <Menu.Item
+          key="dashboard"
+          className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
+          icon={<HomeFilled fontSize="150px" />}
+        >
           <Link to="/parent">Dashboard</Link>
         </Menu.Item>
-        <Menu.Item key="courses" icon={<CalendarFilled fontSize="150px" />}>
-          <Link to="/parent-booking">Courses</Link>
-        </Menu.Item>
-        <Menu.Item key="family" icon={<HeartFilled fontSize="150px" />}>
+
+        <Menu.Item
+          key="family"
+          className={active === 'family' ? 'ant-menu-item-selected' : ''}
+          icon={<HeartFilled fontSize="150px" />}
+        >
           <Link to="/family">Family</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<ReadOutlined />}>
+
+        <Menu.Item
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<BookFilled fontSize="150px" />}
+        >
+          <Link to="/parent-booking">Booking</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="calendar"
+          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
+          icon={<CalendarFilled fontSize="150px" />}
+        >
+          <Link to="/parent-calendar">Calendar</Link>
+        </Menu.Item>
+
+        <Menu.Item key="news" icon={<ReadOutlined fontSize="150px" />}>
           <Link to="/parent-news-feed">News Feed</Link>
         </Menu.Item>
-        <Menu.Item key="setting" icon={<ToolFilled fontSize="150px" />}>
+
+        <Menu.Item key="messages" icon={<MessageFilled fontSize="150px" />}>
+          <Link to="/parent-messages">Messages</Link>
+        </Menu.Item>
+
+        <Menu.Item key="settings" icon={<ToolFilled fontSize="150px" />}>
           <Link to="/settings">Settings</Link>
+        </Menu.Item>
+
+        <Menu.Item key="cart" icon={<ShoppingCartOutlined fontSize="150px" />}>
+          <Link to="/cart" className="link">
+            Cart <span>({cart.length})</span>
+          </Link>
         </Menu.Item>
 
         <Menu.Item
@@ -78,12 +140,6 @@ const ParentSideBar = props => {
           }}
         >
           <Link>Logout</Link>
-        </Menu.Item>
-
-        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
-          <Link to="/cart" className="link">
-            Cart <span>({cart.length})</span>
-          </Link>
         </Menu.Item>
       </Menu>
     </Sider>

@@ -113,8 +113,8 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="news"
-          className={active === 'news' ? 'ant-menu-item-selected' : ''}
+          key="newsfeed"
+          className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
           icon={<ReadOutlined />}
         >
           <Link to="/parent-news-feed">News Feed</Link>

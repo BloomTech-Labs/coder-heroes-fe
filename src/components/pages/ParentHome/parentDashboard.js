@@ -5,6 +5,8 @@ import '../../../styles/ParentStyles/index.less';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
+const { Content } = Layout;
+
 const ParentDashboard = () => {
   return (
     <Layout>

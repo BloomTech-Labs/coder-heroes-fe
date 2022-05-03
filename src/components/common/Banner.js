@@ -21,11 +21,13 @@ export default function Banner() {
     case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
     case '/parent':
-      return bannerContent('Dashboard', '');
+      return bannerContent('Mission Control', '');
     case '/parent-calendar':
       return bannerContent('Calendar', '');
     case '/parent-booking':
-      return bannerContent('Courses', "view your children's reserved courses");
+      return bannerContent('Courses', '');
+    case '/parent-news-feed':
+      return bannerContent('News Feed', '');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
@@ -36,6 +38,8 @@ export default function Banner() {
       return bannerContent('News Feed');
     case '/classroom':
       return bannerContent('Classroom');
+    case '/cart':
+      return bannerContent('Cart');
     default: {
       bannerContent('Dashboard', 'Welcome back!');
     }

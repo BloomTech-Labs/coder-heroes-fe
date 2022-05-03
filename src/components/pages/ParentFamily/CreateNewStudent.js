@@ -22,12 +22,6 @@ const CreateNewStudent = () => {
       .catch(error => {
         console.log({ error });
       });
-    console.log('Success:', values.student);
-  };
-
-  const onFinishFailed = errorInfo => {
-    //   Does error handling go in Axios POST call, or here on its own? More research needed
-    console.log('Failed:', errorInfo);
   };
 
   const validateMessages = {
@@ -47,7 +41,6 @@ const CreateNewStudent = () => {
       name="add-student"
       className="create-new-student-form"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       validateMessages={validateMessages}
     >
       <Form.Item

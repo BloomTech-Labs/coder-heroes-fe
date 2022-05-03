@@ -31,7 +31,7 @@ const days = [
 const initialClassDataState = {
   course_type: '',
   course_name: '',
-  // course_description
+  course_description: '',
   day: '', //needs to be added to backend
   size: '',
   //max_size
@@ -51,6 +51,7 @@ const initialClassDataState = {
 const initialClassDataStateFormErrors = {
   course_type: '',
   course_name: '',
+  course_description: '',
   day: '',
   size: '',
   min_age: '',
@@ -157,6 +158,16 @@ const InstructorAddCourseForm = props => {
                       name="course_name"
                       placeholder="Enter Course Name here"
                       className="course__name"
+                    />
+                  </Form.Item>
+                </div>
+                <div>
+                  <Form.Item>
+                    <label for="description">Course Description </label>
+                    <Input
+                      value={classData.course_description}
+                      name="description"
+                      placeholder="Enter Course Description"
                     />
                   </Form.Item>
                 </div>

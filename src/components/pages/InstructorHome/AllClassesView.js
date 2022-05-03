@@ -8,6 +8,7 @@ import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
 import { setEditing } from '../../../redux/actions/coursesActions';
+import { NavLink } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -30,6 +31,9 @@ const AllClasses = props => {
         <Content>
           <Title className="class__title">Courses</Title>
           <div className="class__subject">
+            <NavLink to="/instructor-add-course">
+              <button>Add Course</button>
+            </NavLink>
             {props.courses.map(courses => (
               <ClassCard
                 courses={courses}

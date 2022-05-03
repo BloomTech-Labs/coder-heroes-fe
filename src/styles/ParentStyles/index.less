@@ -1,4 +1,4 @@
-@h1: 5rem;
+@h1: 4rem;
 @h2: 3rem;
 @h3: 2.5rem;
 
@@ -37,7 +37,6 @@
 }
 
 //****FamilyPage styles****
-
 .family-page-container {
   display: flex;
   flex-direction: column;
@@ -55,9 +54,8 @@
   justify-content: center;
   background-color: @body__bg--white;
   border-radius: .938em;
-  border: 1px solid red;
-  // max-height: 30vh;
   margin: 5%;
+  border: none;
 }
 
 .card-info {
@@ -66,8 +64,7 @@
   justify-content: center;
   flex-direction: column;
   max-width: 100%;
-  margin: 10% auto;
-  border: 1px solid red;
+  margin: 8% auto;
 }
 
 .card-info .card-name{
@@ -85,7 +82,7 @@
 }
 
 .student-card .card-name{
-  margin-bottom: 30%;
+  margin-bottom:30%;
 }
 
 .avatar {
@@ -93,7 +90,6 @@
   height: 9.5em;
   border: .625em solid  @body__bg--blue;
   border-radius: 6.25em;
-  background-color: @body__bg--yellow
 }
 
  .parent-card .avatar {
@@ -109,7 +105,7 @@
   flex-direction: column;
   width: 100%;
   border-radius: .938em 0 0 .938em;
-  border: 1px solid red;
+  padding-bottom: 3%;
 }
 
 .student-card {
@@ -120,7 +116,6 @@
   width: 100%;
   border: none;
   border-radius: .938em;
-  margin: auto;
 }
 
 .family-page-container button {
@@ -129,7 +124,6 @@
   text-transform: uppercase;
   font-weight: bold;
   width: 100%;
-  margin: 5%;
 }
 
 .add-student-button {
@@ -145,9 +139,11 @@
 .parent-view-account-button {
   color: @text__color--maroon;
   background-color: @btn__bg--white;
+  margin: 5%;
 }
 
-// Create New Student Modal
+
+//****Create New Student Modal****
 .create-new-student-modal {
   position: absolute;
   border: .063em solid black;
@@ -200,7 +196,8 @@
   justify-content: center;
 }
 
-// Current Courses Details Modal
+
+//****Current Courses Details Modal****
 .current-courses-details-modal {
   position: absolute;
   z-index: 3;

@@ -12,6 +12,8 @@ import {
   HeartFilled,
   ShoppingCartOutlined,
   ReadOutlined,
+  BookFilled,
+  MessageFilled,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -89,27 +91,27 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="calendar"
-          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
-          icon={<CalendarFilled fontSize="150px" />}
-        >
-          <Link to="/parent-calendar">Calendar</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="courses"
-          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
-          icon={<CalendarFilled fontSize="150px" />}
-        >
-          <Link to="/parent-booking">Courses</Link>
-        </Menu.Item>
-
-        <Menu.Item
           key="family"
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
           icon={<HeartFilled fontSize="150px" />}
         >
           <Link to="/family">Family</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<BookFilled fontSize="150px" />}
+        >
+          <Link to="/parent-booking">Booking</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="calendar"
+          className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
+          icon={<CalendarFilled fontSize="150px" />}
+        >
+          <Link to="/parent-calendar">Calendar</Link>
         </Menu.Item>
 
         <Menu.Item

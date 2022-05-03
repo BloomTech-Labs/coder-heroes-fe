@@ -24,6 +24,8 @@ export default function Banner() {
       return bannerContent('Mission Control', '');
     case '/parent-calendar':
       return bannerContent('Calendar', '');
+    case '/student':
+      return bannerContent('Student Dashboard');
     case '/parent-booking':
       return bannerContent('Courses', '');
     case '/parent-news-feed':

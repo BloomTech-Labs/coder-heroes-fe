@@ -60,7 +60,6 @@ function InstructorStats(props) {
   }, [props.courses]);
 
   const { Title } = Typography;
-
   return (
     <>
       <Title className="instructor__name">{props.user.name}</Title>

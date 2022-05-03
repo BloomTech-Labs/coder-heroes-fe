@@ -93,6 +93,7 @@ const InstrRegForm = () => {
         <form onSubmit={onSubmit}>
           <div className="form-line">
             <label>
+              <h3 className="labelName">Name:</h3>
               <input
                 name="name"
                 type="text"
@@ -105,6 +106,7 @@ const InstrRegForm = () => {
             <span className="error">{formErrors.name}</span>
 
             <label>
+              <h3 className="labelName">Email:</h3>
               <input
                 name="email"
                 type="email"
@@ -119,6 +121,7 @@ const InstrRegForm = () => {
 
           <div className="form-line">
             <label>
+              <h3 className="labelName">Location:</h3>
               <input
                 name="location"
                 type="text"
@@ -131,6 +134,7 @@ const InstrRegForm = () => {
             <span className="error">{formErrors.location}</span>
 
             <label>
+              <h3 className="labelName">Phone Number:</h3>
               <input
                 name="phone"
                 type="tel"
@@ -145,6 +149,7 @@ const InstrRegForm = () => {
 
           <div className="long-form-line">
             <label>
+              <h3 className="labelName">Education:</h3>
               <textarea
                 name="education"
                 type="text"
@@ -159,6 +164,7 @@ const InstrRegForm = () => {
             </div>
 
             <label>
+              <h3 className="labelName">Technical Experience:</h3>
               <textarea
                 name="tech"
                 type="text"
@@ -173,6 +179,7 @@ const InstrRegForm = () => {
             </div>
 
             <label>
+              <h3 className="labelName">Notes:</h3>
               <textarea
                 name="notes"
                 type="text"

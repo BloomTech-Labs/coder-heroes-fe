@@ -1,6 +1,8 @@
 import React from 'react';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
+import { useOktaAuth } from '@okta/okta-react';
 
 const CreateNewStudent = () => {
   const layout = {
@@ -8,9 +10,19 @@ const CreateNewStudent = () => {
     wrapperCol: { span: 16 },
   };
 
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+
   const onFinish = values => {
-    //   Potential axios POST call here? Need to research AntDesign more
-    console.log('Success:', values);
+    axiosWithAuth(idToken)
+      .post('/children', values.student)
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(error => {
+        console.log({ error });
+      });
+    console.log('Success:', values.student);
   };
 
   const onFinishFailed = errorInfo => {
@@ -68,20 +80,6 @@ const CreateNewStudent = () => {
         label="Username"
         name={['student', 'username']}
         rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Email"
-        name={['student', 'email']}
-        rules={[
-          {
-            required: true,
-            message: 'Please input your email!',
-            type: 'email',
-          },
-        ]}
       >
         <Input />
       </Form.Item>

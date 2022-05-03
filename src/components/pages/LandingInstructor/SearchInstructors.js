@@ -84,7 +84,7 @@ const SearchInstructors = props => {
             </Form>
             <div>
               {props.instructors.map(instructor => (
-                <div>
+                <div key={instructor.instructor_id}>
                   Instructor name:{instructor.name} Rating:{instructor.rating}
                 </div>
               ))}

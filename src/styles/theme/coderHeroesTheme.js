@@ -43,6 +43,7 @@ module.exports = {
   '@text__color--maroon': '#3B0E2B',
   '@text__color--white': '#FFFFFF',
   '@text__color--black': '#232420',
+
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',
   '@input__box-shadow--focus': '0px 0px 10px 1px #21C5B5',

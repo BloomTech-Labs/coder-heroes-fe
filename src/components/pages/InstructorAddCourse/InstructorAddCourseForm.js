@@ -16,7 +16,11 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 
 //dummy data
-const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
+const programs = [
+  { program_name: 'CoderYoga', program_id: 3 },
+  { program_name: 'CoderCamp', program_id: 1 },
+  { program_name: 'CoderSitters', program_id: 2 },
+];
 
 const days = [
   'Monday',
@@ -32,7 +36,7 @@ const initialClassDataState = {
   course_type: '',
   course_name: '',
   course_description: '',
-  day: '', //needs to be added to backend
+  days_of_week: [],
   size: '',
   //max_size
   min_age: '', //needs to be added to backend
@@ -52,7 +56,7 @@ const initialClassDataStateFormErrors = {
   course_type: '',
   course_name: '',
   course_description: '',
-  day: '',
+  days_of_week: '',
   size: '',
   min_age: '',
   max_age: '',
@@ -86,6 +90,13 @@ const InstructorAddCourseForm = props => {
     setClassData({
       ...classData,
       [name]: value,
+    });
+  };
+
+  const handleDays = selectedDays => {
+    setClassData({
+      ...classData,
+      days_of_week: selectedDays,
     });
   };
 
@@ -152,7 +163,7 @@ const InstructorAddCourseForm = props => {
                 {/* Course Name */}
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item className="form__one">
-                    <label for="classLink">Course Name</label>
+                    <label for="course_name">Course Name</label>
                     <Input
                       value={classData.course_name}
                       name="course_name"
@@ -200,11 +211,13 @@ const InstructorAddCourseForm = props => {
                 {/* Day */}
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item>
-                    <label for="day">Day</label>
+                    <label for="days_of_week">Days</label>
                     <Select
-                      name="day"
-                      placeholder="Select a day"
+                      name="days_of_week"
+                      mode="multiple"
+                      placeholder="Select days"
                       className="day"
+                      onChange={handleDays}
                     >
                       {days.map(day => (
                         <Option value={day}>{day}</Option>

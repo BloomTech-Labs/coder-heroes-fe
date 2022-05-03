@@ -50,8 +50,8 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     )
     .typeError('Must be a valid zoom link')
     .required('Please enter a zoom link!'),
-  day: yup
-    .string()
+  days_of_weeks: yup
+    .array()
     .typeError('Must select a Day')
     .oneOf(
       [

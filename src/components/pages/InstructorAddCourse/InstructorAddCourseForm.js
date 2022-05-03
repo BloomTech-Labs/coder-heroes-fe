@@ -117,7 +117,7 @@ const InstructorAddCourseForm = props => {
               <Title className="iac__title">Add New Course</Title>
               <Text className="iac__intro">
                 Enter the required information below to Create a new Course. You
-                can handleChange
+                can change
                 <br />
                 it anytime you want.
               </Text>
@@ -163,8 +163,8 @@ const InstructorAddCourseForm = props => {
                       name="program_type"
                       className="program__type"
                     >
-                      {getCourses(course => (
-                        <Option value={course}>{course}</Option>
+                      {getPrograms(programs => (
+                        <Option value={programs}>{programs}</Option>
                       ))}
                     </Select>
                   </Form.Item>

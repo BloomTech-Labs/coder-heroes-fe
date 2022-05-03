@@ -2,6 +2,7 @@
 import {
   GET_USER_ACTION,
   GET_INSTRUCTOR_CLASSES,
+  GET_PROGRAMS_SUCCESS,
   GET_INBOX_ACTION,
   SET_SELECTED_COURSE,
   ADD_COURSE_ACTION,
@@ -9,9 +10,9 @@ import {
   SET_ERROR,
   GET_NEWSFEEDS,
 } from '../actions/instructorActions';
-import { dummyData } from '../../dummyData';
+// import { dummyData } from '../../dummyData';
 
-const initialState = dummyData;
+const initialState = {};
 const instructorReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
@@ -35,6 +36,11 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         courses: [...state.course_schedule, newCourse],
+      };
+    case GET_PROGRAMS_SUCCESS:
+      return {
+        ...state,
+        programs: action.payload,
       };
     case ADD_NEW_PROGRAM:
       const newProgram = {

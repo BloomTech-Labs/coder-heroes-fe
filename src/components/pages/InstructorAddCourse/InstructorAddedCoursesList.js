@@ -20,6 +20,7 @@ const InstructorProgramList = props => {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return { programs: state.instructorReducer };
 };
 

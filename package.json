@@ -94,6 +94,7 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-prop-type-error": "^1.1.0",
     "kleur": "^4.1.1",
+    "lint": "^0.7.0",
     "lint-staged": "^10.2.11",
     "prettier-eslint-cli": "^5.0.0",
     "prompts": "^2.3.2",

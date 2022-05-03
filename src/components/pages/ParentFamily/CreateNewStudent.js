@@ -17,6 +17,8 @@ const CreateNewStudent = () => {
     axiosWithAuth(idToken)
       .post('/children', values.student)
       .then(resp => {
+        // Post is posting proper required information. There is a bug/desync on the BE side that prevents us currently from seeing our response or handling a successful promise.
+        // Once the 500 error is cleared from BE, FE devs can see the response and choose with the stakeholder how/if they want to notify the user of a successful post here.
         console.log(resp);
       })
       .catch(error => {
@@ -27,7 +29,6 @@ const CreateNewStudent = () => {
   const validateMessages = {
     required: '${label} is required!',
     types: {
-      email: '${label} is not a valid email!',
       number: '${label} is not a valid number!',
     },
     number: {

@@ -236,9 +236,7 @@ function ParentCalendar(props) {
 
   return (
     <Layout>
-      <ParentSidebar active="calendar" />
       <Content>
-        <Banner />
         <Calendar
           dateCellRender={dateCellRender}
           monthCellRender={monthCellRender}

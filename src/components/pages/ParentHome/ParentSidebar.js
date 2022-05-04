@@ -5,7 +5,6 @@ import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
 import {
   HomeFilled,
-  ThunderboltFilled,
   CalendarFilled,
   ToolFilled,
   ExportOutlined,
@@ -73,14 +72,6 @@ const ParentSideBar = props => {
             />
           </svg>
         </div>
-        <Menu.Item
-          key="coderheroes"
-          icon={<ThunderboltFilled fontSize="150px" />}
-          className="dashboard-logo"
-          style={{ pointerEvents: 'none' }}
-        >
-          <strong>Coderheroes</strong>
-        </Menu.Item>
 
         <Menu.Item
           key="dashboard"
@@ -103,7 +94,7 @@ const ParentSideBar = props => {
           className={active === 'courses' ? 'ant-menu-item-selected' : ''}
           icon={<BookFilled fontSize="150px" />}
         >
-          <Link to="/parent-booking">Booking</Link>
+          <Link to="/parent-booking">My Courses</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -117,9 +108,17 @@ const ParentSideBar = props => {
         <Menu.Item
           key="newsfeed"
           className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
-          icon={<ReadOutlined />}
+          icon={<ReadOutlined fontSize="150px" />}
         >
           <Link to="/parent-news-feed">News Feed</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="messages"
+          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
+          icon={<MessageFilled fontSize="150px" />}
+        >
+          <Link to="/parent-news-feed">Messages</Link>
         </Menu.Item>
 
         <Menu.Item

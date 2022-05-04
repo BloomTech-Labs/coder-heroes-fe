@@ -62,15 +62,13 @@ const ParentFamilyHome = () => {
   };
 
   return (
-    <>
-      <ParentSidebar />
+    <Layout>
       <Content
         className="family-page-container"
         style={{
           backgroundImage: `url(${cloudbg})`,
         }} //background image here while troubleshooting LESS rendering issue
       >
-        <Banner />
         <Modal
           title="Add Student"
           visible={addStudentVisible}
@@ -141,7 +139,7 @@ const ParentFamilyHome = () => {
           </Col>
         </Row>
       </Content>
-    </>
+    </Layout>
   );
 };
 

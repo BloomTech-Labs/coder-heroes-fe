@@ -40,8 +40,11 @@ function StudentStoryCard(prop) {
         </div>
       </section>
       <section className="student-send-comment">
-        <img></img>
-        {/* Create field and form here*/}
+        <img src="https://via.placeholder.com/50"></img>
+        <form>
+          <input type="text"></input>
+          <button>Enter</button>
+        </form>
       </section>
     </Card>
   );

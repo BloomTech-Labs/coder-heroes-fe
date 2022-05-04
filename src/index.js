@@ -164,7 +164,6 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/parent-progress" component={Progress} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />

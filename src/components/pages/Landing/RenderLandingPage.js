@@ -7,8 +7,12 @@ import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
-import { Link } from 'react-router-dom';
+import Button from '../../common/Button';
 import '../../../styles/LandingPageStyles/index.less';
+import { Typography, Card } from 'antd';
+import { NavLink } from 'react-router-dom';
+
+const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
@@ -33,24 +37,31 @@ function RenderLandingPage(props) {
             alt="CoderHeroes Text in Turquoise"
           />
           <div className="landing-main-text">
-            <center>
-              <h1> Coding is a superpower. </h1>
-              <h3>
-                {' '}
-                Through a love of teaching and technology, we empower youth to
-                change the world with their ideas.{' '}
-              </h3>
-            </center>
+            <Title className="landing-main-text landing-main-title" level={2}>
+              Coding is a Superpower
+            </Title>
+            <Paragraph className="landing-main-text">
+              Through a love of teaching and technology, <br />
+              we empower youth to change the world with their ideas.
+            </Paragraph>
           </div>
 
           {/* Button container */}
-          <div className=" landing-button-container ">
-            <Link className="landing-btn" to="/browse-programs">
-              BROWSE PROGRAMS
-            </Link>
-            <Link className="landing-btn" to="/register">
-              CREATE ACCOUNT
-            </Link>
+          <div className="landing-button-container">
+            <NavLink to="/browse-programs">
+              <Button
+                classType="browse-btn btn"
+                buttonText="Browse Programs"
+                onClick={''}
+              ></Button>
+            </NavLink>
+            <NavLink to="/register">
+              <Button
+                classType="create-account-btn btn"
+                buttonText="Create Account"
+                onClick={''}
+              ></Button>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -67,31 +78,36 @@ function RenderLandingPage(props) {
         </div>
         <div className="landing-second-container-content">
           <div className="landing-second-container-text">
-            <center>
-              <h3 style={{ color: 'white', fontSize: '15px' }}>
-                GIVE BACK TO THE COMMUNITY.
-              </h3>
-              <h1 style={{ color: `white`, fontSize: '25px' }}>
-                Support Code Your Dreams
-              </h1>
-            </center>
-            <p>
+            <Title
+              className="landing-second-container-text landing-second-container-title-one"
+              level={3}
+            >
+              Give Back To Community
+            </Title>
+            <Title
+              level={1}
+              className="landing-second-container-text landing-second-container-title-two"
+            >
+              Support Code Your Dreams
+            </Title>
+            <Paragraph className="landing-second-container-text landing-second-container-paragraph ">
               All CoderHeroes proceeds provide direct funding to our original
               mission, centered in incubating tech skills within under served
+              <br />
               school districts.
-            </p>
+            </Paragraph>
           </div>
-          <center>
-            <Link
-              className="landing-btn"
-              to={{
-                pathname: 'https://codeyourdreams.org',
-              }}
-              target="_blank"
-            >
-              VISIT WEBSITE
-            </Link>
-          </center>
+          <NavLink
+            className="landing-btn"
+            to={{
+              pathname: 'https://codeyourdreams.org',
+            }}
+            target="_blank"
+          >
+            <Button className="primary" buttonText="Visit Website" onClick={''}>
+              Visit Website
+            </Button>
+          </NavLink>
         </div>
       </div>
       {/* Third text container */}
@@ -110,27 +126,28 @@ function RenderLandingPage(props) {
           src={profile}
           alt="Brianne Smiling"
         />
-        <div className="landing-third-container-text">
-          <div className="description">
-            <p className="quotes">
+        <div className="landing-fourth-container-text">
+          <Card className="description">
+            <Paragraph className="landing-fourth-container-text quotes">
               “I have 7+ years of experience working in technology. I bring
               excitement and positivity to every class, virtual and in-person."
-            </p>
-            <br />
-            <br />
-            <p>
+            </Paragraph>
+            <Paragraph className="landing-fourth-container-text">
               "I have experience teaching the following subjects for K-12
               students: Python, Swift, JavaScript, App Inventor, Design{' '}
               Thinking, UI/UX Design, Sales & Marketing.”
-            </p>
-          </div>
-          <div className="brianne">
-            <h1>BRIANNE CAPLAN</h1>
-            <p>FOUNDER & CEO, CODERHEROES & CODE YOUR DREAMS</p>
-          </div>
+            </Paragraph>
+          </Card>
+          <Card className="brianne landing-fourth-container-text">
+            <Title level={3}>Brianne Caplan</Title>
+            <Title level={4}>
+              Founder & CEO, Coderhereos & Code Your Dreams
+            </Title>
+          </Card>
         </div>
       </div>
     </div>
   );
 }
+
 export default RenderLandingPage;

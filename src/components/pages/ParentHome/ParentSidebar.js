@@ -133,6 +133,14 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          key="tasks"
+          className={active === 'tasks' ? 'ant-menu-item-selected' : ''}
+          icon={<HeartFilled fontSize="150px" />}
+        >
+          <Link to="/parent/tasks">Tasks</Link>
+        </Menu.Item>
+
+        <Menu.Item
           key="logout"
           icon={<ExportOutlined fontSize="150px" />}
           onClick={() => {

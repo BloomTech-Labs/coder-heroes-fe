@@ -42,13 +42,13 @@ const ParentNavbar = props => {
         <Link to="/achievements">Achievements</Link>
       </Menu.Item>
       <Menu.Item key="tasks" icon={<UnorderedListOutlined fontSize="150px" />}>
-        <Link to="/tasks">Tasks</Link>
+        <Link to="/parent/tasks">Tasks</Link>
       </Menu.Item>
       <Menu.Item
         key="resources"
         icon={<FundProjectionScreenOutlined fontSize="150px" />}
       >
-        <Link to="/resources">Resources</Link>
+        <Link to="/parent/resources">Resources</Link>
       </Menu.Item>
     </Menu>
   );

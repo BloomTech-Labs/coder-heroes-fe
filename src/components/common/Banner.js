@@ -27,7 +27,12 @@ export default function Banner() {
     case '/student':
       return bannerContent('Student Dashboard');
     case '/parent-booking':
-      return bannerContent('Courses', "view your children's reserved courses");
+      return bannerContent(
+        'bookings list',
+        "view your children's reserved courses"
+      );
+    case '/parent-progress':
+      return bannerContent('Progress', "view your children's progress");
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':

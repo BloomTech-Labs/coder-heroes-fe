@@ -5,7 +5,6 @@ import {
   InstagramOutlined,
   YoutubeOutlined,
   LinkedinOutlined,
-  ThunderboltFilled,
   HomeOutlined,
   SnippetsOutlined,
   AliwangwangOutlined,
@@ -25,6 +24,8 @@ import { NavLink } from 'react-router-dom';
 import NavBarLinks from './NavBarLinks';
 
 import { connect } from 'react-redux';
+
+import navLogo from '../../../img/navbar-logo.png';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -64,17 +65,7 @@ function NavBar(props) {
       <nav className="navbar__mainNav">
         <div className="navbar__logo">
           <NavLink to="/">
-            <h1 className="navbar__navTitle">
-              {
-                <ThunderboltFilled
-                  style={{
-                    color: '#EEEDD9',
-                    fontSize: '1.8rem',
-                  }}
-                />
-              }{' '}
-              CODERHEROES
-            </h1>
+            <img className="nav-logo" src={navLogo} alt="logo" />
           </NavLink>
         </div>
         <NavBarLinks role_id={role_id} />

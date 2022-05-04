@@ -7,7 +7,8 @@ import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
-import { Link } from 'react-router-dom';
+import Button from '../../common/Button';
+// import { useNavigate } from "react-router-dom";
 import '../../../styles/LandingPageStyles/index.less';
 import { Typography, Card } from 'antd';
 
@@ -17,6 +18,7 @@ function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
   const { idToken } = authState;
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (idToken) {
@@ -46,13 +48,17 @@ function RenderLandingPage(props) {
           </div>
 
           {/* Button container */}
-          <div className=" landing-button-container ">
-            <Link className="landing-btn" to="/browse-programs">
-              Browse Programs
-            </Link>
-            <Link className="landing-btn" to="/register">
-              Create Account
-            </Link>
+          <div className="landing-button-container">
+            <Button
+              classType="browse-btn btn"
+              buttonText="Browse Programs"
+              onClick={event => (window.location.href = '/browse-programs')}
+            ></Button>
+            <Button
+              classType="create-account-btn btn"
+              buttonText="Create Account"
+              onClick={''}
+            ></Button>
           </div>
         </div>
       </div>
@@ -88,7 +94,7 @@ function RenderLandingPage(props) {
               school districts.
             </Paragraph>
           </div>
-          <Link
+          <button
             className="landing-btn"
             to={{
               pathname: 'https://codeyourdreams.org',
@@ -96,7 +102,7 @@ function RenderLandingPage(props) {
             target="_blank"
           >
             Visit Website
-          </Link>
+          </button>
         </div>
       </div>
       {/* Third text container */}

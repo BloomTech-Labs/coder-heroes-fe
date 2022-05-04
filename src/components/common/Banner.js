@@ -27,8 +27,14 @@ export default function Banner() {
         'bookings list',
         "view your children's reserved courses"
       );
-    case '/parent-progress':
+    case '/parent/progress':
       return bannerContent('Progress', "view your children's progress");
+    case '/parent/achievements':
+      return bannerContent('Achievements');
+    case '/parent/tasks':
+      return bannerContent('Tasks');
+    case '/parent/resources':
+      return bannerContent('Resources');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':

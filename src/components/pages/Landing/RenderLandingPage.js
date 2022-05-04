@@ -104,11 +104,7 @@ function RenderLandingPage(props) {
             }}
             target="_blank"
           >
-            <Button
-              className="landing-btn"
-              buttonText="Visit Website"
-              onClick={''}
-            >
+            <Button className="primary" buttonText="Visit Website" onClick={''}>
               Visit Website
             </Button>
           </NavLink>

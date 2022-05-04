@@ -42,7 +42,7 @@ import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import ParentHome from './components/pages/ParentHome';
 import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
-import ParentMessages from './components/pages/ParentHome/ParentMessages';
+import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';

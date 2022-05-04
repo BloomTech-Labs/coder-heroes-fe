@@ -27,11 +27,12 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-import ParentHome from './components/pages/ParentHome';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
+import StudentHome from './components/pages/StudentHome/index';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
@@ -41,6 +42,7 @@ import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
 // eslint-disable-next-line
@@ -59,6 +61,8 @@ import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import Progress from './components/pages/ParentHome/Progress';
+import ParentTasks from './components/pages/ParentHome/ParentTasks';
+import ParentResources from './components/pages/ParentHome/ParentResources';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -66,7 +70,13 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <NavBar />
           <App />
           <Footer />
@@ -109,7 +119,8 @@ function App() {
           />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <Route path="/parent" component={ParentHome} />
+          <Route path="/parent" component={ParentDashboard} />
+          <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
@@ -121,6 +132,7 @@ function App() {
             component={InstructorAddCourse}
           />
           <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
@@ -145,7 +157,9 @@ function App() {
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
           <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
-          <SecureRoute path="/parent-progress" component={Progress} />
+          <SecureRoute path="/parent/progress" component={Progress} />
+          <SecureRoute path="/parent/tasks" component={ParentTasks} />
+          <SecureRoute path="/parent/resources" component={ParentResources} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

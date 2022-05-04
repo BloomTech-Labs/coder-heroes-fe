@@ -1,341 +1,178 @@
-// @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-
-// Export other less files here
-
-@h1: 5rem;
+@h1: 4rem;
 @h2: 3rem;
 @h3: 2.5rem;
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
-  background-color: #006c72;
-  padding: 10px 10px;
-  height: 19vh;
-  width: 174.5vh;
+  display: flex;
+  background-color: @body__bg--blue;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 12vh;
 }
+
 .banner-content {
-  width: 90%;
-  padding-left: 3rem;
-  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
   h1 {
-    font-weight: bold;
-    font-size: @h3;
-    margin-bottom: 0;
-    color: #00cab7;
+    display: flex;
+    align-items: center;
+    font-size: @h1;
+    font-family: @text__font-family--header;
+    line-height: @text__line-height--h1;
+    color: @text__color--white;
+    width: 100%;
+    margin: auto;
   }
-  h2 {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: light;
+
+  .welcome-content {
+    display: none;
+    z-index: -1;
   }
-}
-
-//****ParentCalendar Styles****
-tbody td {
-  border-left: 4px #006c72 solid !important;
-}
-
-th {
-  color: #006c72 !important;
-  font-weight: bold !important;
-  text-transform: uppercase;
-  text-align: center !important;
-  font-size: 1.2rem;
-}
-
-.ant-picker-cell {
-  border-right: 4px #006c72 solid !important;
-}
-.ant-picker-cell-in-view .ant-picker-calendar-date-value {
-  color: #006c72;
-  font-weight: bold;
-}
-.time {
-  font-size: 1rem;
-}
-.capital {
-  text-transform: capitalize;
-}
-.ant-picker-cell-inner {
-  border-right: 1px solid;
-}
-
-.badge {
-  background-color: #daf4ff;
-}
-.anticon-info-circle {
-  font-size: 1rem !important;
-}
-.badge span {
-  color: #4ccaff;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.ant-btn-round.ant-btn-icon-only {
-  width: 75%;
-  background-color: #4ccaff;
-  border: none;
-  font-weight: bold;
-}
-svg {
-  font-weight: bold;
-}
-button {
-  width: 75%;
-}
-li {
-  list-style-type: none;
-}
-.cell {
-  background-color: #daf4ff;
-  height: 5rem;
-  border-radius: 25%;
-  padding: 0.7rem;
-  text-align: center;
-}
-.ulcell {
-  margin-bottom: 4px;
-  text-align: center;
-  width: 100%;
-}
-
-.fullButton {
-  margin-bottom: 4px;
-  width: 100%;
-}
-.events {
-  background-color: #daf4ff;
-  border-radius: 25%;
-  overflow: unset;
-  margin-bottom: 0;
-}
-
-.notes-month {
-  background-color: black;
-}
-
-.bookingBtn {
-  border: solid black 2px;
-  border-radius: 3px;
-  width: 20%;
-  text-align: center;
-  padding-top: 8px;
-  margin-top: 10px;
-}
-
-//****AvailableCourses styles****
-.header {
-  width: 40%;
-  padding-left: 24px;
-}
-.flex {
-  display: flex;
-  width: 90%;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-}
-.flex:hover {
-  box-shadow: 0px 0px;
-}
-.flex h2 {
-  font-weight: bold;
-  color: #929292;
-}
-.flex p {
-  color: #929292;
-}
-.flex button {
-  background-color: #00cab7;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 2rem;
-  width: 35%;
-  padding: 0.4rem;
-  margin-right: 2rem;
-  box-shadow: 1px 3px 6px #7b7575;
-}
-.card {
-  margin-right: 1.5rem;
-  width: 48%;
-  margin-top: 1rem;
-  border-radius: 2rem;
-}
-.buttonWrapper {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.ant-card-head-title {
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.left {
-  width: 50%;
-}
-.right {
-  width: 50%;
-  text-align: center;
-}
-.card-container {
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-  margin-bottom: 1rem;
-}
-img {
-  width: inherit;
-}
-
-.ant-card-body {
-  padding: 1rem;
-}
-
-.ant-tabs-nav-wrap {
-  padding-left: 28px;
-}
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #00cab7;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.ant-tabs-tab .ant-tabs-tab-active {
-  color: #00cab7;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.ant-tabs-tab:hover {
-  color: #00cab7;
-}
-.ant-tabs-tab {
-  color: #a3a9b9;
-  font-weight: bold;
-}
-.ant-tabs-tab .ant-tabs-tab-active {
-  color: #00cab7;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.ant-tabs-tab:hover {
-  color: #00cab7;
-}
-.ant-tabs-tab {
-  color: #a3a9b9;
-  font-weight: bold;
 }
 
 //****FamilyPage styles****
 .family-page-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  font-family: @text__font-family;
+}
+
+.family-cards {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  background-color: @body__bg--white;
+  border-radius: .938em;
+  margin: 5%;
+  border: none;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 8% auto;
+}
+
+.card-info .card-name{
+  text-align: center;
+}
+
+.card-name{
+  font-size: 1.6rem;
+  width: 100%;
+  color: @text__color--black;
+}
+
+.parent-card .card-name{
+  color: @text__color--white;
+}
+
+.student-card .card-name{
+  margin-bottom:30%;
+}
+
+.avatar {
+  width: 9.5em;
+  height: 9.5em;
+  border: .625em solid  @body__bg--blue;
+  border-radius: 6.25em;
+}
+
+ .parent-card .avatar {
+  border: .625em solid @body__bg--white;
+}
+
+.parent-card {
+  display: flex;
+  background-color: @body__bg--blue;
+  color: @body__bg--white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: .938em 0 0 .938em;
+  padding-bottom: 3%;
+}
+
+.student-card {
+  display: flex;
+  background-color: @body__bg--white;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border: none;
+  border-radius: .938em;
+}
+
+.family-page-container button {
+  border: none;
+  border-radius: @btn__border-radius;
+  text-transform: uppercase;
+  font-weight: bold;
   width: 100%;
 }
 
-.profile-card-container {
-  display: flex;
-  justify-content: center;
+.add-student-button {
+  background-color: @btn__bg--orange;
+  color: @text__color--white;
 }
 
-.profile-card-containers {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  border-radius: 15px;
-  margin: 2em 2em 0 2em;
-  height: 30em;
-  width: 23em;
-  background-color: #fff;
+.student-view-account-button {
+  background-color: @body__bg--blue;
+  color: @text__color--white;
 }
 
-.profile-card-containers:hover {
-  background-color: #096a70;
-  color: white;
-  cursor: pointer;
-}
-
-.profile-avatars {
-  margin-top: 2rem;
-  height: 16rem;
-  width: 13rem;
-  border: 1px solid black;
-  border-radius: 99%;
-}
-
-.profile-select-titles {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  font-size: 48px;
-}
-
-.profile-select-logout-container {
-  display: flex;
-  justify-content: center;
-}
-
-.profile-select-button {
-  margin: 1em 0 2em 0;
-  padding: 0.5em 0 0.5em 0;
-  height: 3em;
-  width: 15em;
-  border-radius: 30px;
-  color: #096a70;
-  background-color: #fff;
-  border: none;
-  box-shadow: 2px 2px 2px 2px #999999;
-  font-size: 16px;
-}
-
-.profile-select-button:hover {
-  background-color: #faac02;
-  color: #3b0e2b;
-  box-shadow: 2px 2px 2px 2px #999999;
-  cursor: pointer;
-}
-
-.family-page-logout-button {
-  margin: 2em 0 2em 0;
-  padding: 0.5em 0 0.5em 0;
-  height: 3em;
-  width: 20em;
-  border-radius: 30px;
-  color: #6a0c49;
-  background-color: #fff;
-  border: none;
-  box-shadow: 2px 2px 2px 2px #999999;
-  font-size: 24px;
-}
-
-.family-page-logout-button:hover {
-  background-color: #6a0c49;
-  color: white;
-  cursor: pointer;
+.parent-view-account-button {
+  color: @text__color--maroon;
+  background-color: @btn__bg--white;
+  margin: 5%;
 }
 
 //****Parent-Progress styles****
 .progress-bars {
   font-size: 50px;
-  padding: 5% 20%;
+  padding: 0% 10%;
   display:flex;
   flex-direction: row;
 }
 
 .progress-bar {
   font-size: 30px;
-  padding: 5%;
+  padding: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   size: large;
 }
 
+//****Parent-Navbar styles****
+.parent-navbar {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+}
+
 // Create New Student Modal
 .create-new-student-modal {
   position: absolute;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: #ffffff;
+  border: .063em solid black;
+  border-radius: .625em;
+  background: @body__bg--white;
   height: 35em;
   width: 30em;
   margin: 5em 10em 10em 10em;
@@ -355,7 +192,7 @@ img {
 .create-new-student-exit {
   display: flex;
   justify-content: flex-end;
-  font-size: 20px;
+  font-size: 1.25em;
   margin: -2em 0 0 18em;
   height: 2em;
   width: 2em;
@@ -365,7 +202,7 @@ img {
 .exit {
   display: flex !important;
   justify-content: flex-end !important;
-  font-size: 20px !important;
+  font-size: 1.25em !important;
   margin: -2em 0 0 18em !important;
   height: 2em !important;
   width: 2em !important;
@@ -383,7 +220,8 @@ img {
   justify-content: center;
 }
 
-// Current Courses Details Modal
+
+//****Current Courses Details Modal****
 .current-courses-details-modal {
   position: absolute;
   z-index: 3;
@@ -392,7 +230,7 @@ img {
 }
 
 .current-courses-details-exit {
-  font-size: 20px;
+  font-size: 1.25em;
   height: 2em;
   width: 2em;
   position: absolute;

@@ -20,6 +20,8 @@ export default function Banner() {
   switch (path) {
     case '/parent' || '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
+    case '/student':
+      return bannerContent('Student Dashboard');
     case '/parent-booking':
       return bannerContent(
         'bookings list',
@@ -32,7 +34,7 @@ export default function Banner() {
     case '/instructor-add-course':
       return bannerContent('Create', 'your own course');
     case '/family':
-      return bannerContent('Family', 'Profile Center');
+      return bannerContent('CHOOSE A PROFILE');
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
     case '/classroom':

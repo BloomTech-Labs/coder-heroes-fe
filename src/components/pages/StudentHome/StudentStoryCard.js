@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../../styles/StudentStyles/index.less';
 import { connect } from 'react-redux';
 import { Card } from 'antd';
-import { ArrowRightOutlined } from '@ant-design/icons';
+import { SendOutlined } from '@ant-design/icons';
 
 function StudentStoryCard(prop) {
   return (
@@ -43,8 +43,19 @@ function StudentStoryCard(prop) {
         <img src="https://via.placeholder.com/50"></img>
         <form className="comment-form">
           <input type="text" placeholder="Write a comment"></input>
-          <button>
-            <ArrowRightOutlined />
+          <button
+            style={{
+              color: 'teal',
+              backgroundColor: 'white',
+              border: '0px transparent',
+              fontSize: '25px',
+              marginLeft: '-50px',
+              height: '10px',
+              marginBottom: '-30px',
+              marginTop: '3px',
+            }}
+          >
+            <SendOutlined />
           </button>
         </form>
       </section>

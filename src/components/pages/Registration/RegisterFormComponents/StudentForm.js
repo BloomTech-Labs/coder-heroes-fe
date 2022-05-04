@@ -35,7 +35,6 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
     updateStudent(formValues);
     setSelectedAvatar(e.target.src);
     // sets the selected avatar to the img src
-    console.log(selectedAvatar);
   };
 
   const isSelectedAvatar = src =>

@@ -37,16 +37,9 @@ export default function() {
     children: studentArr,
   };
 
-  console.log('account deets', accountDetails);
-
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(
-      'submitting parent info',
-      parentInfo,
-      'student info',
-      studentArr
-    );
+    // use axios to post account details
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../../styles/StudentStyles/index.less';
 import { connect } from 'react-redux';
 import { Card } from 'antd';
+import { ArrowRightOutlined } from '@ant-design/icons';
 
 function StudentStoryCard(prop) {
   return (
@@ -41,8 +42,10 @@ function StudentStoryCard(prop) {
       <section className="student-send-comment">
         <img src="https://via.placeholder.com/50"></img>
         <form className="comment-form">
-          <input type="text"></input>
-          <button>Enter</button>
+          <input type="text" placeholder="Write a comment"></input>
+          <button>
+            <ArrowRightOutlined />
+          </button>
         </form>
       </section>
     </Card>

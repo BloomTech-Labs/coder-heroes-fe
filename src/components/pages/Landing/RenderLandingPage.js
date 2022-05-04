@@ -116,7 +116,7 @@ function RenderLandingPage(props) {
           alt="Brianne Smiling"
         />
         <div className="landing-fourth-container-text">
-          <Card className="description landing-fourth-container-text">
+          <Card className="description">
             <Paragraph className="landing-fourth-container-text quotes">
               “I have 7+ years of experience working in technology. I bring
               excitement and positivity to every class, virtual and in-person."

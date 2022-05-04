@@ -14,10 +14,7 @@ const { Title } = Typography;
 function DesktopFooter() {
   return (
     <>
-      <Row
-        justify="space-between"
-        style={{ maxWidth: '1100px', margin: '0 auto' }}
-      >
+      <Row justify="space-between">
         <Col>
           <Title
             className="title"

@@ -1,6 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap');
 
 .navbar__mainNav {
+  display: flex;
+  min-height: 98px;
+  padding: 0 0.6rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: @text__font-family;
+  overflow: hidden;
+  transition: 0.1s all ease-out;
+
+  .navbar__logo {
+    display: flex;
+    align-items: center;
+    width: 22%;
+
+    .navbar__navTitle {
+      margin: 0 0 0 1.5rem;
+      font-size: 1.95rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      color: #3b0e2b;
+      font-family: @text__font-family--header;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: 0.2s all ease-in;
+      padding-top: 1%;
+    }
+    @media screen and (max-width: 1220px) {
+      .navbar__navTitle {
+        margin: 0;
+      }
+    }
+  }
 
   .nav-logo {
     width: 30%;

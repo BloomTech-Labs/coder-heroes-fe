@@ -8,9 +8,9 @@ import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
 import { useOktaAuth } from '@okta/okta-react';
 import Button from '../../common/Button';
-// import { useNavigate } from "react-router-dom";
 import '../../../styles/LandingPageStyles/index.less';
 import { Typography, Card } from 'antd';
+import { NavLink } from 'react-router-dom';
 
 const { Title, Paragraph } = Typography;
 
@@ -18,7 +18,6 @@ function RenderLandingPage(props) {
   const { authState, authService } = useOktaAuth();
   const dispatch = useDispatch();
   const { idToken } = authState;
-  // const navigate = useNavigate();
 
   useEffect(() => {
     if (idToken) {
@@ -49,16 +48,20 @@ function RenderLandingPage(props) {
 
           {/* Button container */}
           <div className="landing-button-container">
-            <Button
-              classType="browse-btn btn"
-              buttonText="Browse Programs"
-              onClick={event => (window.location.href = '/browse-programs')}
-            ></Button>
-            <Button
-              classType="create-account-btn btn"
-              buttonText="Create Account"
-              onClick={''}
-            ></Button>
+            <NavLink to="/browse-programs">
+              <Button
+                classType="browse-btn btn"
+                buttonText="Browse Programs"
+                onClick={''}
+              ></Button>
+            </NavLink>
+            <NavLink to="/register">
+              <Button
+                classType="create-account-btn btn"
+                buttonText="Create Account"
+                onClick={''}
+              ></Button>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -94,15 +97,21 @@ function RenderLandingPage(props) {
               school districts.
             </Paragraph>
           </div>
-          <button
+          <NavLink
             className="landing-btn"
             to={{
               pathname: 'https://codeyourdreams.org',
             }}
             target="_blank"
           >
-            Visit Website
-          </button>
+            <Button
+              className="landing-btn"
+              buttonText="Visit Website"
+              onClick={''}
+            >
+              Visit Website
+            </Button>
+          </NavLink>
         </div>
       </div>
       {/* Third text container */}

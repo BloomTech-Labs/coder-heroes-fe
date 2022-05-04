@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import '../../../styles/ParentStyles/index.less';
-import { Layout } from 'antd';
+import { Layout, Carousel } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentResourcesPage = () => {
@@ -10,6 +10,7 @@ const ParentResourcesPage = () => {
     <Layout>
       <ParentSidebar active="dashboard" />
       <Banner />
+      <Carousel />
     </Layout>
   );
 };

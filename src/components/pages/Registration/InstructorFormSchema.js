@@ -4,7 +4,10 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 const InstructorFormSchema = yup.object().shape({
   name: yup.string().required('You must enter your name'),
-  email: yup.string().required('You must enter a valid email'),
+  email: yup
+    .string()
+    .email()
+    .required('You must enter a valid email'),
   location: yup.string().required('You must enter your location'),
   phone: yup
     .string()

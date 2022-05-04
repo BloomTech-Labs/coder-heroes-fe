@@ -94,17 +94,16 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-
-          <Route path="/register-2" component={HowManyStudents} />
-          <Route path="/instructor-register-1" component={InstructorWelcome} />
-          <Route path="/register-1" component={ParentWelcome} />
-          <Route path="/register-3" component={RegisterStep3} />
           <Route path="/register" component={LoginPage} />
+          <Route path="/confirm" component={ConfirmEmail} />
+          <Route path="/register-1" component={ParentWelcome} />
+          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-          <Route path="/confirm" component={ConfirmEmail} />
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}

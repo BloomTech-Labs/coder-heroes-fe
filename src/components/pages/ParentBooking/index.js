@@ -14,14 +14,7 @@ function ParentBooking() {
 
   return (
     <Layout>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={toggleCollapsed}
-        theme="light"
-      >
-        <ParentSidebar />
-      </Sider>
+      <ParentSidebar active="courses" />
       <Content>
         <Banner />
         <div>

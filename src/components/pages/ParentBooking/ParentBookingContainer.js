@@ -45,7 +45,6 @@ const ParentBookingContainer = props => {
 
   return (
     <div>
-      <div className="header"></div>
       {error ? (
         <div>{error}</div>
       ) : isFetching ? (

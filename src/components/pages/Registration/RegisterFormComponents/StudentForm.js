@@ -8,25 +8,39 @@ import avi5 from '../../../../img/Avatars/Avatar06.svg';
 import avi6 from '../../../../img/Avatars/Avatar07.svg';
 import avi7 from '../../../../img/Avatars/Avatar16.svg';
 
-export default function StudentForm() {
-  const initialValues = {
-    name: '',
-    pronoun: '',
-    age: '',
-    grade: '',
-    studentEmail: '',
-    avatarURL: '',
-  };
+export default function StudentForm({ studentArr, setStudentArr, idx }) {
+  const [formValues, setFormValues] = useState(studentArr[0]);
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
 
-  const [formValues, setFormValues] = useState(initialValues);
+  const updateStudent = formValues => {
+    let newArr = [...studentArr];
+    newArr[idx] = formValues;
+    setStudentArr(newArr);
+  };
 
   const onChange = e => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
+    updateStudent(formValues);
   };
-  console.log(formValues);
+
+  const updateAvatar = e => {
+    e.preventDefault();
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.src,
+    });
+    updateStudent(formValues);
+    setSelectedAvatar(e.target.src);
+    // sets the selected avatar to the img src
+    console.log(selectedAvatar);
+  };
+
+  const isSelectedAvatar = src =>
+    selectedAvatar === src ? 'selected-avatar' : '';
+  // if the selected avatar matches the src of the clicked avatar, the class name will be set to selected avatar
 
   return (
     <div className="student-form">
@@ -81,14 +95,57 @@ export default function StudentForm() {
       </label>
 
       <div className="avatars">
-        <img src={avi1} />
-        <img src={avi2} />
-        <img src={avi3} />
-        <img src={avi7} />
-        <img src={avi5} />
-        <img src={avi6} />
-        <img src={avi4} />
-        <button>+</button>
+        {/* isSelected avatar dictates the classname */}
+        <img
+          className={isSelectedAvatar(avi1)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi1}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi2)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi2}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi3)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi3}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi7)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi7}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi5)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi5}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi6)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi6}
+          alt=""
+        />
+        <img
+          className={isSelectedAvatar(avi4)}
+          name="avatarURL"
+          onClick={updateAvatar}
+          src={avi4}
+          alt=""
+        />
+        <button id="add-btn">+</button>
       </div>
 
       <p>select or upload an avatar</p>

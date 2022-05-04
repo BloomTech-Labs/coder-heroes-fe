@@ -2,6 +2,7 @@
 import axios from 'axios';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
+export const GET_INSTRUCTORS = 'GET_INSTRUCTORS';
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
 export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
@@ -113,6 +114,21 @@ export const getNewsFeeds = idToken => dispatch => {
         });
       })
       .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const getInstructors = idToken => async dispatch => {
+  try {
+    const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+    dispatch({
+      type: GET_INSTRUCTORS,
+      payload: res.data,
+    });
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,

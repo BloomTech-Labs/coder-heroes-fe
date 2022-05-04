@@ -14,7 +14,7 @@ const Progress = () => {
       <ParentSidebar active="dashboard" />
       <div className="progress-container">
         <Banner />
-        <ParentNavbar />
+        <ParentNavbar className="parent-navbar" />
         <ProgressBar />
       </div>
     </Layout>

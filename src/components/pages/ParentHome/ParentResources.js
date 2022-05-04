@@ -6,11 +6,14 @@ import { Layout, Carousel } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentResourcesPage = () => {
+  const { Content } = Layout;
   return (
     <Layout>
       <ParentSidebar active="dashboard" />
       <Banner />
-      <Carousel />
+      <Content>
+        <Carousel />
+      </Content>
     </Layout>
   );
 };

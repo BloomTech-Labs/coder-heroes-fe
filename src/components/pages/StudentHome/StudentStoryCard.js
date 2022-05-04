@@ -11,7 +11,6 @@ function StudentStoryCard(prop) {
           <img src="https://via.placeholder.com/50" alt="placeholder"></img>
           <div>
             <h2>Teacher Name</h2>
-            <h4>Coder Heroes</h4>
           </div>
         </section>
         <section className="top-right">

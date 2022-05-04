@@ -20,6 +20,10 @@ export default function Banner() {
   switch (path) {
     case '/parent' || '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
+    case '/parent/tasks':
+      return bannerContent('TASKS');
+    case '/parent/resources':
+      return bannerContent('RESOURCES');
     case '/student':
       return bannerContent('Student Dashboard');
     case '/parent-booking':

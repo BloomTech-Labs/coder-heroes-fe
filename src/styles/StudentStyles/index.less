@@ -1,3 +1,7 @@
+// h1 {
+//     font-size: @text__font-size
+// }
+
 .ant-layout-content {
     display: block !important;
 }
@@ -159,6 +163,7 @@
     display: flex;
     flex-direction: row;
     margin-right: 0%;
+    justify-content: space-between;
 }
 
 .top-left h3 {
@@ -183,7 +188,8 @@
 }
 
 .story-photo {
-    background-image: url('https://via.placeholder.com/50');
+    background-image: url('https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_1280.jpg');
+    height: 100px;
     width: 100%;
 }
 
@@ -214,8 +220,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .student-send-comment form input{
     width: 400px;
+}
+
+.comment-form {
+    display: flex;
+    justify-content: space-between;
 }

@@ -24,9 +24,9 @@ function StudentStoryCard(prop) {
           https://www.youtube.com/watch?v=dQw4w9WgXcQ
         </a>
       </section>
-      <section className="story-photo">
-        <div></div>
-      </section>
+      <div className="story-photo">
+        <p></p>
+      </div>
       <section className="student-comment">
         <div className="student-comment-info">
           <img src="https://via.placeholder.com/50"></img>
@@ -41,7 +41,7 @@ function StudentStoryCard(prop) {
       </section>
       <section className="student-send-comment">
         <img src="https://via.placeholder.com/50"></img>
-        <form>
+        <form className="comment-form">
           <input type="text"></input>
           <button>Enter</button>
         </form>

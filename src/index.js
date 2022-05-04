@@ -63,6 +63,7 @@ import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import Progress from './components/pages/ParentHome/Progress';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -163,6 +164,8 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
+          <SecureRoute path="/parent-progress" component={Progress} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

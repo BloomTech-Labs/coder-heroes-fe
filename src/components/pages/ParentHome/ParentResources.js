@@ -7,14 +7,17 @@ import 'antd/dist/antd.css';
 import { Space, Card } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 
-const ParentResources = props => {
+const ParentResourcesPage = () => {
+  const { Content } = Layout;
   return (
     <Layout>
       <ParentSidebar active="dashboard" />
       <Banner />
-      <Carousel />
+      <Content>
+        <Carousel />
+      </Content>
     </Layout>
   );
 };
 
-export default ParentResources;
+export default ParentResourcesPage;

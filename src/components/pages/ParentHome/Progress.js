@@ -6,6 +6,7 @@ import '../../../styles/ParentStyles/index.less';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import { findByLabelText } from '@testing-library/react';
+import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
   return (
@@ -13,6 +14,7 @@ const Progress = () => {
       <ParentSidebar active="dashboard" />
       <div className="progress-container">
         <Banner />
+        <ParentNavbar />
         <ProgressBar />
       </div>
     </Layout>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import {
@@ -115,7 +113,10 @@ const ParentFamilyHome = () => {
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
-                <Button className="student-view-account-button">
+                <Button
+                  className="student-view-account-button"
+                  onClick={() => history.push('/student')}
+                >
                   View Account
                 </Button>
               </div>
@@ -131,7 +132,10 @@ const ParentFamilyHome = () => {
                   src="https://joeschmoe.io/api/v1/random"
                 />
                 <Text className="card-name">Student Name</Text>
-                <Button className="student-view-account-button">
+                <Button
+                  className="student-view-account-button"
+                  onClick={() => history.push('/student')}
+                >
                   View Account
                 </Button>
               </div>

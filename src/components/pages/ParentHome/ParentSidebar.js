@@ -86,7 +86,7 @@ const ParentSideBar = props => {
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
           icon={<HeartFilled fontSize="150px" />}
         >
-          <Link to="/family">Family</Link>
+          <Link to="/parent/family">Family</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -94,7 +94,7 @@ const ParentSideBar = props => {
           className={active === 'courses' ? 'ant-menu-item-selected' : ''}
           icon={<BookFilled fontSize="150px" />}
         >
-          <Link to="/parent-booking">My Courses</Link>
+          <Link to="/parent/booking">My Courses</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -102,7 +102,7 @@ const ParentSideBar = props => {
           className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
           icon={<CalendarFilled fontSize="150px" />}
         >
-          <Link to="/parent-calendar">Calendar</Link>
+          <Link to="/parent/calendar">Calendar</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -110,7 +110,7 @@ const ParentSideBar = props => {
           className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
           icon={<ReadOutlined fontSize="150px" />}
         >
-          <Link to="/parent-news-feed">News Feed</Link>
+          <Link to="/parent/newsfeed">News Feed</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -118,7 +118,17 @@ const ParentSideBar = props => {
           className={active === 'messages' ? 'ant-menu-item-selected' : ''}
           icon={<MessageFilled fontSize="150px" />}
         >
-          <Link to="/parent-news-feed">Messages</Link>
+          <Link to="/parent/messages">Messages</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="cart"
+          className={active === 'cart' ? 'ant-menu-item-selected' : ''}
+          icon={<ShoppingCartOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/cart" className="link">
+            Cart <span>({cart.length})</span>
+          </Link>
         </Menu.Item>
 
         <Menu.Item
@@ -127,16 +137,6 @@ const ParentSideBar = props => {
           icon={<ToolFilled fontSize="150px" />}
         >
           <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="cart"
-          className={active === 'cart' ? 'ant-menu-item-selected' : ''}
-          icon={<ShoppingCartOutlined fontSize="150px" />}
-        >
-          <Link to="/cart" className="link">
-            Cart <span>({cart.length})</span>
-          </Link>
         </Menu.Item>
 
         <Menu.Item

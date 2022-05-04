@@ -27,8 +27,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-import ParentHome from './components/pages/ParentHome';
-import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
+
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
@@ -40,12 +39,15 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentHome from './components/pages/ParentHome';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
-import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
-import Cart from './components/pages/ParentHome/Cart';
+import ParentMessages from './components/pages/ParentHome/ParentMessages';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
+import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
+import Cart from './components/pages/ParentHome/Cart';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
@@ -117,10 +119,16 @@ function App() {
             component={SuccessfulSubmission}
           />
 
+          <SecureRoute path="/parent/booking" component={ParentBooking} />
+          <SecureRoute path="/parent/calendar" component={ParentCalendar} />
+          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
+          <SecureRoute path="/parent/messages" component={ParentMessages} />
+          <SecureRoute path="/parent/cart" component={Cart} />
+
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <Route path="/parent" component={ParentDashboard} />
-          <Route path="/family" component={ParentHome} />
+          <SecureRoute path="/parent" component={ParentDashboard} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -134,10 +142,6 @@ function App() {
             component={InstructorAddCourse}
           />
 
-          <Route path="/parent-booking" component={ParentBooking} />
-          <Route path="/parent-calendar" component={ParentCalendar} />
-
-          <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />
@@ -159,7 +163,6 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

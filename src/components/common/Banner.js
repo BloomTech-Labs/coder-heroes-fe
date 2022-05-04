@@ -20,28 +20,30 @@ export default function Banner() {
   switch (path) {
     case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
-    case '/parent':
-      return bannerContent('Mission Control', '');
-    case '/parent-calendar':
-      return bannerContent('Calendar', '');
-    case '/student':
-      return bannerContent('Student Dashboard');
-    case '/parent-booking':
-      return bannerContent('Courses', '');
-    case '/parent-news-feed':
-      return bannerContent('News Feed', '');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
       return bannerContent('Create', 'your own course');
-    case '/family':
-      return bannerContent('CHOOSE A PROFILE');
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
+    case '/parent':
+      return bannerContent('Mission Control', '');
+    case '/parent/calendar':
+      return bannerContent('Calendar', '');
+    case '/parent/booking':
+      return bannerContent('Courses', '');
+    case '/parent/newsfeed':
+      return bannerContent('News Feed', '');
+    case '/parent/family':
+      return bannerContent('CHOOSE A PROFILE');
+    case '/parent/cart':
+      return bannerContent('Cart');
+    case '/parent/messages':
+      return bannerContent('Messages');
+    case '/student':
+      return bannerContent('Student Dashboard');
     case '/classroom':
       return bannerContent('Classroom');
-    case '/cart':
-      return bannerContent('Cart');
     default: {
       bannerContent('Dashboard', 'Welcome back!');
     }

@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import { Row, Col, Typography, Input, Select, Layout, Form } from 'antd';
 import '../../../styles/index.less';
-
+import { useOktaAuth } from '@okta/okta-react';
 import { StudentIcon, TeacherIcon, CalendarIcon } from './Icons';
+import { getInstructors } from '../../../redux/actions/instructorActions';
+import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
 const { Item } = Form;
 const { Option } = Select;
 
-const SearchInstructors = () => {
+const SearchInstructors = props => {
+  const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSubmit = () => {
+    dispatch(getInstructors(idToken));
+  };
+
   return (
     <Layout className="il__top">
       <Content className="il__top__topContent">
@@ -62,11 +73,22 @@ const SearchInstructors = () => {
                     <Option value="weekends">Weekends</Option>
                   </Select>
                 </Item>
-                <button className="il__top__formBtn" type="submit">
+                <button
+                  className="il__top__formBtn"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   FIND TUTOR
                 </button>
               </Input.Group>
             </Form>
+            <div>
+              {props.instructors.map(instructor => (
+                <div key={instructor.instructor_id}>
+                  Instructor name:{instructor.name} Rating:{instructor.rating}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Content>
@@ -149,5 +171,10 @@ const SearchInstructors = () => {
     </Layout>
   );
 };
+const mapStateToProps = state => {
+  return {
+    instructors: state.instructorReducer.instructors,
+  };
+};
 
-export default SearchInstructors;
+export default connect(mapStateToProps)(SearchInstructors);

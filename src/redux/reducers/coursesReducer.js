@@ -13,6 +13,7 @@ const initialState = {
   courses: [],
   errorMessage: '',
   course_id: '',
+  newCourses: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,7 +47,7 @@ const reducer = (state = initialState, action) => {
     case ADD_COURSE:
       return {
         ...state,
-        courses: [...state.courses, action.payload],
+        newCourses: [...state.newCourses, action.payload],
       };
     case DELETE_COURSE:
       return {

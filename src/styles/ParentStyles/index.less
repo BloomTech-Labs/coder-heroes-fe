@@ -1,6 +1,4 @@
-@h1: 4rem;
-@h2: 3rem;
-@h3: 2.5rem;
+
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
@@ -22,7 +20,7 @@
   h1 {
     display: flex;
     align-items: center;
-    font-size: @h1;
+    font-size: @text__font-size--h1;
     font-family: @text__font-family--header;
     line-height: @text__line-height--h1;
     color: @text__color--white;
@@ -41,17 +39,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   border: none;
   font-family: @text__font-family;
+  height: 100%;
 }
 
 .family-cards {
   display: flex;
   width: 80%;
   justify-content: center;
+  // align-items: center;
   background-color: @body__bg--white;
   border-radius: .938em;
   margin: 5%;
@@ -72,7 +73,7 @@
 }
 
 .card-name{
-  font-size: 1.6rem;
+  font-size: 1rem;
   width: 100%;
   color: @text__color--black;
 }
@@ -173,7 +174,52 @@
   display:flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 800px;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  border: none;
+}
+
+.dropStudent {
+  padding: 12% 30%;
+  background-color: white;
+}
+
+//****Parent-Tasks styles****
+.navDrop {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.classCard {
+  margin: 5%;
+}
+
+//****Parent-Resources styles****
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.artImg {
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.resourceCard {
+  width: 25%;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: nowrap;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 // Create New Student Modal

@@ -5,7 +5,6 @@ import { Menu, Layout } from 'antd';
 import 'antd/dist/antd.css';
 import {
   HomeFilled,
-  ThunderboltFilled,
   CalendarFilled,
   ToolFilled,
   ExportOutlined,
@@ -14,6 +13,8 @@ import {
   ReadOutlined,
   BookFilled,
   MessageFilled,
+  CarryOutOutlined,
+  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -73,14 +74,6 @@ const ParentSideBar = props => {
             />
           </svg>
         </div>
-        <Menu.Item
-          key="coderheroes"
-          icon={<ThunderboltFilled fontSize="150px" />}
-          className="dashboard-logo"
-          style={{ pointerEvents: 'none' }}
-        >
-          <strong>Coderheroes</strong>
-        </Menu.Item>
 
         <Menu.Item
           key="dashboard"
@@ -95,7 +88,7 @@ const ParentSideBar = props => {
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
           icon={<HeartFilled fontSize="150px" />}
         >
-          <Link to="/family">Family</Link>
+          <Link to="/parent/family">Family</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -103,7 +96,7 @@ const ParentSideBar = props => {
           className={active === 'courses' ? 'ant-menu-item-selected' : ''}
           icon={<BookFilled fontSize="150px" />}
         >
-          <Link to="/parent-booking">Booking</Link>
+          <Link to="/parent/booking">My Courses</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -111,25 +104,57 @@ const ParentSideBar = props => {
           className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
           icon={<CalendarFilled fontSize="150px" />}
         >
-          <Link to="/parent-calendar">Calendar</Link>
+          <Link to="/parent/calendar">Calendar</Link>
         </Menu.Item>
 
-        <Menu.Item key="news" icon={<ReadOutlined fontSize="150px" />}>
-          <Link to="/parent-news-feed">News Feed</Link>
+        <Menu.Item
+          key="newsfeed"
+          className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
+          icon={<ReadOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/newsfeed">News Feed</Link>
         </Menu.Item>
 
-        <Menu.Item key="messages" icon={<MessageFilled fontSize="150px" />}>
-          <Link to="/parent-messages">Messages</Link>
+        <Menu.Item
+          key="messages"
+          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
+          icon={<MessageFilled fontSize="150px" />}
+        >
+          <Link to="/parent/messages">Messages</Link>
         </Menu.Item>
 
-        <Menu.Item key="settings" icon={<ToolFilled fontSize="150px" />}>
-          <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item key="cart" icon={<ShoppingCartOutlined fontSize="150px" />}>
-          <Link to="/cart" className="link">
+        <Menu.Item
+          key="cart"
+          className={active === 'cart' ? 'ant-menu-item-selected' : ''}
+          icon={<ShoppingCartOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
           </Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="tasks"
+          className={active === 'tasks' ? 'ant-menu-item-selected' : ''}
+          icon={<CarryOutOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/tasks">Tasks</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="resources"
+          className={active === 'resources' ? 'ant-menu-item-selected' : ''}
+          icon={<FundProjectionScreenOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/resources">Resources</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="settings"
+          className={active === 'settings' ? 'ant-menu-item-selected' : ''}
+          icon={<ToolFilled fontSize="150px" />}
+        >
+          <Link to="/settings">Settings</Link>
         </Menu.Item>
 
         <Menu.Item

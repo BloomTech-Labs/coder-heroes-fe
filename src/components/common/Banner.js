@@ -18,7 +18,7 @@ function bannerContent(title, content) {
 export default function Banner() {
   const path = window.location.pathname;
   switch (path) {
-    case '/parent' || '/instructor':
+    case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
     case '/student':
       return bannerContent('Student Dashboard');
@@ -39,10 +39,22 @@ export default function Banner() {
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
       return bannerContent('Create', 'your own course');
-    case '/family':
-      return bannerContent('CHOOSE A PROFILE');
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
+    case '/parent':
+      return bannerContent('Mission Control', '');
+    case '/parent/calendar':
+      return bannerContent('Calendar', '');
+    case '/parent/booking':
+      return bannerContent('Courses', '');
+    case '/parent/newsfeed':
+      return bannerContent('News Feed', '');
+    case '/parent/family':
+      return bannerContent('CHOOSE A PROFILE');
+    case '/parent/cart':
+      return bannerContent('Cart');
+    case '/parent/messages':
+      return bannerContent('Messages');
     case '/classroom':
       return bannerContent('Classroom');
     default: {

@@ -6,8 +6,8 @@ import 'antd/dist/antd.css';
 import {
   ClockCircleOutlined,
   GiftOutlined,
-  UnorderedListOutlined,
   FundProjectionScreenOutlined,
+  CarryOutOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -35,16 +35,29 @@ const ParentNavbar = props => {
       color="orange"
       inlineCollapsed={collapsed}
     >
-      <Menu.Item key="progress" icon={<ClockCircleOutlined fontSize="150px" />}>
+      <Menu.Item
+        className="parentNavItem"
+        key="progress"
+        icon={<ClockCircleOutlined fontSize="150px" />}
+      >
         <Link to="/parent/progress">Progress</Link>
       </Menu.Item>
-      <Menu.Item key="achievements" icon={<GiftOutlined fontSize="150px" />}>
-        <Link to="/parent/achievements">Achievements</Link>
+      <Menu.Item
+        className="parentNavItem"
+        key="achievements"
+        icon={<GiftOutlined fontSize="150px" />}
+      >
+        <Link to="/achievements">Achievements</Link>
       </Menu.Item>
-      <Menu.Item key="tasks" icon={<UnorderedListOutlined fontSize="150px" />}>
+      <Menu.Item
+        className="parentNavItem"
+        key="tasks"
+        icon={<CarryOutOutlined fontSize="150px" />}
+      >
         <Link to="/parent/tasks">Tasks</Link>
       </Menu.Item>
       <Menu.Item
+        className="parentNavItem"
         key="resources"
         icon={<FundProjectionScreenOutlined fontSize="150px" />}
       >

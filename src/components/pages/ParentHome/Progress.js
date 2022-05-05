@@ -10,18 +10,11 @@ import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
   const { Content } = Layout;
-<<<<<<< HEAD
-  return (
-    <Layout>
-      <ParentSidebar active="dashboard" />
-      <Content className="progress-container">
-=======
 
   return (
     <Layout style={{ width: '100%' }}>
       <ParentSidebar active="dashboard" />
       <Content>
->>>>>>> 0d2f0d6 (cleaned up sidebar, added student dropdown and styling to progress page and fixed routing of profile picture to the new family route)
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

@@ -20,8 +20,8 @@ function StudentStoryCard(prop) {
       </div>
       <section className="teacher-message">
         <h4>Teacher message</h4>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-          https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        <a href="www.google.com">
+          www.google.com
         </a>
       </section>
       <div className="story-photo">

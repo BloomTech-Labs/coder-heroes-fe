@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import {
-  Layout,
-  Modal,
-  Button,
-  Card,
-  Avatar,
-  Col,
-  Row,
-  Typography,
-} from 'antd';
+import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
 import { connect } from 'react-redux';
@@ -25,13 +14,12 @@ import { getChildren } from '../../../redux/actions/parentActions';
 const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
-  const { Text } = Typography;
-  const history = useHistory();
-  const [setStudentInfo] = useState(null);
+
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+
   const { authState } = useOktaAuth();
   const { idToken } = authState;
   const dispatch = useDispatch();
@@ -75,7 +63,7 @@ const ParentFamilyHome = props => {
           onCancel={handleAddStudentCancel}
           footer={null}
         >
-          <CreateNewStudent />
+          <CreateNewStudent setAddStudentVisible={setAddStudentVisible} />
         </Modal>
 
         <Row className="family-cards">

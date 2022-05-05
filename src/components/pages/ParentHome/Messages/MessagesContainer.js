@@ -3,8 +3,8 @@ import { Layout, Card } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../../common/Banner';
 import ParentSidebar from '../ParentSidebar';
-import MessagingInterface from './MessagingInterface';
-import ConversationList from './ConversationList';
+import ActiveMessage from './ActiveMessage';
+import MessageList from './MessageList';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
 
@@ -13,14 +13,16 @@ function ParentMessages() {
   return (
     <Layout>
       <ParentSidebar />
-      <Content className="messages-container">
+      <Content>
         <Banner />
-        <Card className="parent-convo-list">
-          <ConversationList className="parent-dashboard-msg-list" />
-        </Card>
-        <Card>
-          <MessagingInterface />
-        </Card>
+        <div className="messages-container">
+          <Card className="msg-list-card">
+            <MessageList />
+          </Card>
+          <Card className="active-msg-card">
+            <ActiveMessage />
+          </Card>
+        </div>
       </Content>
     </Layout>
   );

@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 
-function MessagingInterface() {
+function ActiveMessage() {
   const { Content } = Layout;
 
   return (
@@ -13,4 +13,4 @@ function MessagingInterface() {
   );
 }
 
-export default MessagingInterface;
+export default ActiveMessage;

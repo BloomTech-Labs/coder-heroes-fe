@@ -19,14 +19,13 @@ const data = [
   },
 ];
 
-function ConversationList() {
+function MessageList() {
   return (
     <List
-      size="small"
       itemLayout="horizontal"
       dataSource={data}
       renderItem={item => (
-        <List.Item className="parent-messages">
+        <List.Item className="p">
           <List.Item.Meta
             avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
             title={<a href="https://ant.design">{item.title}</a>}
@@ -38,4 +37,4 @@ function ConversationList() {
   );
 }
 
-export default ConversationList;
+export default MessageList;

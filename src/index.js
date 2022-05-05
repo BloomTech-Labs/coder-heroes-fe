@@ -133,7 +133,7 @@ function App() {
           />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
@@ -156,15 +156,6 @@ function App() {
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
-<<<<<<< HEAD
-=======
-          <Route path="/parent-booking" component={ParentBooking} />
-          <Route path="/parent-calendar" component={ParentCalendar} />
-          <Route path="/parent-tasks" component={ParentTasks} />
-          <Route path="/parent-Resources" component={ParentResourcesPage} />
-          <Route path="/family" component={ParentFamilyHome} />
-          <Route path="/cart" component={Cart} />
->>>>>>> 200dbf8 (B)
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />

@@ -14,7 +14,7 @@ import {
   Typography,
 } from 'antd';
 import 'antd/dist/antd.css';
-import cloudbg from '../../../img/cloud-bg.jpg';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 
 const ParentFamilyHome = () => {
   const { Content } = Layout;

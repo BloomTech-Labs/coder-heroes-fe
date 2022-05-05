@@ -8,9 +8,7 @@ function MessagingInterface() {
 
   return (
     <Content>
-      <div>
-        <h1>Messaging Interface</h1>
-      </div>
+      <h1>Messaging Interface</h1>
     </Content>
   );
 }

@@ -9,14 +9,15 @@ import { findByLabelText } from '@testing-library/react';
 import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
+  const { Content } = Layout;
   return (
     <Layout style={{ width: '100%' }}>
       <ParentSidebar active="dashboard" />
-      <div className="progress-container">
+      <Content className="progress-container">
         <Banner />
         <ParentNavbar />
         <ProgressBar />
-      </div>
+      </Content>
     </Layout>
   );
 };

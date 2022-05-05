@@ -1,17 +1,40 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, List, Avatar, Card } from 'antd';
 import 'antd/dist/antd.css';
+import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
 
-function ConversationList() {
-  const { Content } = Layout;
+const data = [
+  {
+    title: 'Ant Design Title 1',
+  },
+  {
+    title: 'Ant Design Title 2',
+  },
+  {
+    title: 'Ant Design Title 3',
+  },
+  {
+    title: 'Ant Design Title 4',
+  },
+];
 
+function ConversationList() {
   return (
-    <Content>
-      <div>
-        <h1>ConversationList</h1>
-      </div>
-    </Content>
+    <List
+      size="small"
+      itemLayout="horizontal"
+      dataSource={data}
+      renderItem={item => (
+        <List.Item className="parent-messages">
+          <List.Item.Meta
+            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+            title={<a href="https://ant.design">{item.title}</a>}
+            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+          />
+        </List.Item>
+      )}
+    />
   );
 }
 

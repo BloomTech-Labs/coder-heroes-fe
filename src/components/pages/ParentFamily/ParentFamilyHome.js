@@ -3,9 +3,8 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
+import { Layout, Modal, Button, Card, Avatar, Col, Row, Alert } from 'antd';
 import 'antd/dist/antd.css';
-
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -19,6 +18,7 @@ const ParentFamilyHome = props => {
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+  const [alertMsg, setAlertMsg] = useState(0);
 
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -50,6 +50,26 @@ const ParentFamilyHome = props => {
       <ParentSidebar />
       <Content>
         <Banner />
+
+        {alertMsg === 1 && (
+          <Alert
+            type="success"
+            message="Congrats!"
+            description="You have successfully created a new student."
+            showIcon
+            closable
+          />
+        )}
+        {alertMsg === 2 && (
+          <Alert
+            type="error"
+            message="Oops!"
+            description="Something went wrong when trying to create a new student. Please try again later."
+            showIcon
+            closable
+          />
+        )}
+
         <Modal
           title="Add Student"
           visible={addStudentVisible}
@@ -58,7 +78,10 @@ const ParentFamilyHome = props => {
           onCancel={handleAddStudentCancel}
           footer={null}
         >
-          <CreateNewStudent setAddStudentVisible={setAddStudentVisible} />
+          <CreateNewStudent
+            setAddStudentVisible={setAddStudentVisible}
+            setAlertMsg={setAlertMsg}
+          />
         </Modal>
 
         <Row className="family-cards">

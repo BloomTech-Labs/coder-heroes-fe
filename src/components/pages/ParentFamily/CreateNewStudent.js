@@ -5,7 +5,7 @@ import '../../../styles/ParentStyles/index.less';
 import { useOktaAuth } from '@okta/okta-react';
 
 const CreateNewStudent = props => {
-  const { setAddStudentVisible } = props;
+  const { setAddStudentVisible, setAlertMsg } = props;
 
   const layout = {
     labelCol: { span: 8 },
@@ -20,10 +20,12 @@ const CreateNewStudent = props => {
       .post('/children', values.student)
       .then(resp => {
         setAddStudentVisible(false);
+        setAlertMsg(1);
       })
       .catch(error => {
         console.log({ error });
         setAddStudentVisible(false);
+        setAlertMsg(2);
       });
   };
 

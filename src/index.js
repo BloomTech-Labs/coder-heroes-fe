@@ -41,7 +41,11 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+<<<<<<< HEAD
 import ParentHome from './components/pages/ParentHome/ParentHome';
+=======
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
+>>>>>>> 9cdbac6 (finished initial styling and layout of parent tasks page)
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
@@ -126,9 +130,11 @@ function App() {
 
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
+          <SecureRoute path="/parent/tasks" component={ParentTasks} />
+          <SecureRoute path="/parent/resources" component={ParentResources} />
           <SecureRoute path="/parent/cart" component={Cart} />
 
           <Route path="/implicit/callback" component={LoginCallback} />

@@ -40,7 +40,7 @@ import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentHome from './components/pages/ParentHome/ParentHome';
-import ParentDashboard from './components/pages/ParentHome/parentDashboard';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';

@@ -79,6 +79,12 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .max(50, 'Too Long! Has to be less than 50 characters')
     .required('Course Name is Required')
     .typeError('Course Name is required'),
+  course_description: yup
+    .string()
+    .typeError('course description must be as string')
+    .min(5, 'course description must be at least 5 char')
+    .trim('whitespace alone is not accepted')
+    .required('you must provide a course description'),
 });
 
 export default InstructorAddCourseFormSchema;

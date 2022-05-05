@@ -77,6 +77,13 @@ const InstructorAddCourseForm = props => {
     dispatch(getUser(idToken));
   }, [dispatch, idToken]);
 
+  useEffect(() => {
+    setClassData({
+      ...classData,
+      instructor_id: instructor.instructor_id,
+    });
+  }, [instructor]);
+
   const validate = (name, value) => {
     yup
       .reach(schema, name)
@@ -110,10 +117,6 @@ const InstructorAddCourseForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setClassData({
-      ...classData,
-      instructor_id: instructor.instructor_id,
-    });
     dispatch(addCourse(idToken, classData));
     setClassData(initialClassDataState);
     success();
@@ -182,7 +185,7 @@ const InstructorAddCourseForm = props => {
                     <label for="description">Course Description </label>
                     <Input
                       value={classData.course_description}
-                      name="description"
+                      name="course_description"
                       placeholder="Enter Course Description"
                     />
                   </Form.Item>
@@ -443,6 +446,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getPrograms, setError, getUser })(
-  InstructorAddCourseForm
-);
+export default connect(mapStateToProps, {
+  getPrograms,
+  setError,
+  getUser,
+  addCourse,
+})(InstructorAddCourseForm);

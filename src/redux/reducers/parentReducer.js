@@ -7,6 +7,7 @@ import {
   FETCH_BOOKINGS_START,
   FETCH_BOOKINGS_SUCCESS,
   GET_CHILDREN_ACTION,
+  GET_CHILDREN_SUCCESS,
   GET_COURSES_ACTION,
   GET_INBOX_ACTION,
   GET_SESSIONS_ACTION,
@@ -35,6 +36,11 @@ const reducer = (state = parentDummyData, action) => {
         availableCourses: action.payload,
       };
     case GET_CHILDREN_ACTION:
+      return {
+        ...state,
+        children: action.payload,
+      };
+    case GET_CHILDREN_SUCCESS:
       return {
         ...state,
         children: action.payload,

@@ -1,7 +1,7 @@
 import {
   GET_CHILDREN_ACTION,
   // GET_CHILDREN_SUCCESS,
-  // GET_COURSES_SUCCESS,
+  GET_COURSES_SUCCESS,
   GET_COURSES_ACTION,
 } from '../actions/childAction';
 
@@ -19,6 +19,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COURSES_ACTION:
+      return {
+        ...state,
+        courses: action.payload,
+      };
+    case GET_COURSES_SUCCESS:
       return {
         ...state,
         courses: action.payload,

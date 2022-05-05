@@ -2,6 +2,7 @@
 import axios from 'axios';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
+export const GET_INSTRUCTORS = 'GET_INSTRUCTORS';
 export const ERROR_ACTION = 'ERROR';
 export const GET_USER_ACTION = 'GET_USERS';
 export const GET_INSTRUCTOR_COURSES = 'GET_INSTRUCTOR_COURSES';

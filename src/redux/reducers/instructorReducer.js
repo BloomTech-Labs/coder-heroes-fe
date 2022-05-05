@@ -1,5 +1,6 @@
 //import actions
 import {
+  GET_INSTRUCTORS,
   GET_USER_ACTION,
   GET_INSTRUCTOR_COURSES,
   GET_INBOX_ACTION,
@@ -15,7 +16,6 @@ import { dummyData } from '../../dummyData';
 const initialState = dummyData;
 const instructorReducer = (state = initialState, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case GET_INSTRUCTOR:
       return {

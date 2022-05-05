@@ -1,6 +1,6 @@
 export const dummyData = {
+  courses: [],
   instructor: {},
-  instructors: [],
   selectedCourse: {
     id: 100000,
     course_id: 1000000,

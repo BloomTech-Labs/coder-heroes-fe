@@ -3,7 +3,7 @@ import axios from 'axios';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 export const ERROR_ACTION = 'ERROR';
-export const GET_USER_ACTION = 'GET_USERS';
+export const GET_USER_ACTION = 'GET_USER';
 export const GET_INSTRUCTOR_CLASSES = 'GET_INSTRUCTOR_COURSES';
 export const GET_INBOX_ACTION = 'GET_INBOX';
 export const SET_SELECTED_COURSE = 'SET_SELECTED_COURSE';
@@ -20,19 +20,21 @@ export const setSelectedCourse = course => {
     payload: course,
   };
 };
-export const getusers = () => async dispatch => {
-  try {
-    const res = await axios.get(`${process.env.REACT_APP_API_URI}/user`);
-    dispatch({
-      type: GET_USER_ACTION,
-      payload: res.data,
+export const getUser = idToken => async dispatch => {
+  axiosWithAuth(idToken)
+    .get('/user')
+    .then(res => {
+      dispatch({
+        type: GET_USER_ACTION,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR_ACTION,
+        payload: err.message,
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
 };
 export const getCourses = idToken => async dispatch => {
   try {

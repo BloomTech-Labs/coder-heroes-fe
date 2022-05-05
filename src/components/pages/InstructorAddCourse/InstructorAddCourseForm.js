@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import {
   getPrograms,
   setError,
+  getUser,
 } from '../../../redux/actions/instructorActions';
 import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
@@ -69,10 +70,11 @@ const InstructorAddCourseForm = props => {
   const [disabled, setDisabled] = useState(true);
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-  const { programs } = props;
+  const { programs, instructor } = props;
 
   useEffect(() => {
     dispatch(getPrograms(idToken));
+    dispatch(getUser(idToken));
   }, [dispatch, idToken]);
 
   const validate = (name, value) => {
@@ -106,14 +108,11 @@ const InstructorAddCourseForm = props => {
     });
   };
 
-  //will add handleSubmit after conditional rendering with success modal
-  // eslint-disable-next-line
   const handleSubmit = e => {
     e.preventDefault();
     setClassData({
       ...classData,
-      open_seats_remaining: classData.max_size,
-      instructor_id: 1, //change to id of current logged in instructor once we connect redux
+      instructor_id: instructor.instructor_id,
     });
     dispatch(addCourse(idToken, classData));
     setClassData(initialClassDataState);
@@ -440,9 +439,10 @@ const mapStateToProps = state => {
   return {
     errorMessage: state.errorMessage,
     programs: state.instructorReducer.own_programs,
+    instructor: state.instructorReducer.instructor_data,
   };
 };
 
-export default connect(mapStateToProps, { getPrograms, setError })(
+export default connect(mapStateToProps, { getPrograms, setError, getUser })(
   InstructorAddCourseForm
 );

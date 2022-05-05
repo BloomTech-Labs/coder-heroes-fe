@@ -42,7 +42,6 @@ import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentHome from './components/pages/ParentHome/ParentHome';
-import ParentDashboard from './components/pages/ParentHome/parentDashboard';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
@@ -131,7 +130,7 @@ function App() {
 
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <Route path="/parent" component={ParentDashboard} />
+          <Route path="/parent" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />

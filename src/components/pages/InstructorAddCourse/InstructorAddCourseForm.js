@@ -18,13 +18,6 @@ const { Option } = Select;
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
-//dummy data
-const programs = [
-  { program_name: 'CoderYoga', program_id: 3 },
-  { program_name: 'CoderCamp', program_id: 1 },
-  { program_name: 'CoderSitters', program_id: 2 },
-];
-
 const days = [
   'Monday',
   'Tuesday',
@@ -36,7 +29,6 @@ const days = [
 ];
 
 const initialClassDataState = {
-  course_type: '',
   course_name: '',
   course_description: '',
   days_of_week: [],
@@ -49,12 +41,11 @@ const initialClassDataState = {
   end_date: '',
   number_of_sessions: '',
   location: '',
-  open_seats_remaining: '',
   instructor_id: '',
+  program_id: '',
 };
 
 const initialClassDataStateFormErrors = {
-  course_type: '',
   course_name: '',
   course_description: '',
   days_of_week: '',
@@ -67,6 +58,8 @@ const initialClassDataStateFormErrors = {
   end_date: '',
   number_of_sessions: '',
   location: '',
+  instructor_id: '',
+  program_id: '',
 };
 
 const InstructorAddCourseForm = props => {
@@ -76,7 +69,7 @@ const InstructorAddCourseForm = props => {
   const [disabled, setDisabled] = useState(true);
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-  console.log(props);
+  const { programs } = props;
 
   useEffect(() => {
     dispatch(getPrograms(idToken));
@@ -103,6 +96,13 @@ const InstructorAddCourseForm = props => {
     setClassData({
       ...classData,
       days_of_week: selectedDays,
+    });
+  };
+
+  const handleProgram = selectedProgram => {
+    setClassData({
+      ...classData,
+      program_id: selectedProgram,
     });
   };
 
@@ -194,11 +194,17 @@ const InstructorAddCourseForm = props => {
                     <label for="courseType">Program Type</label>
                     <Select
                       placeholder="Select a Program"
-                      name="course_type"
+                      name="program_id"
                       className="program__type"
+                      onChange={handleProgram}
                     >
-                      {programs.map(course => (
-                        <Option value={course}>{course}</Option>
+                      {programs.map(program => (
+                        <Option
+                          key={program.program_id}
+                          value={program.program_id}
+                        >
+                          {program.program_name}
+                        </Option>
                       ))}
                     </Select>
                   </Form.Item>

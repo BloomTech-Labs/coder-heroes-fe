@@ -65,13 +65,14 @@ const InstructorAddCourseFormSchema = yup.object().shape({
       ],
       'Please select a day'
     ),
-  course_type: yup
-    .string()
-    .typeError('Must select a program')
-    .oneOf(
-      ['CoderYoga', 'CoderCamp', 'CoderSitters'],
-      'Please select a Course'
-    ),
+  instructor_id: yup
+    .number()
+    .required('Must be logged in as instructor')
+    .typeError('Instructor id must be an number'),
+  program_id: yup
+    .number()
+    .required('Must select a program type')
+    .typeError('program id must be an number'),
   course_name: yup
     .string()
     .min(5, 'Too Short! Has to be More than 5 characters')

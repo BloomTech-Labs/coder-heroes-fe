@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { addProgram, setError } from '../../../redux/actions/instructorActions';
+import {
+  getPrograms,
+  setError,
+} from '../../../redux/actions/instructorActions';
 import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
@@ -73,6 +76,11 @@ const InstructorAddCourseForm = props => {
   const [disabled, setDisabled] = useState(true);
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+  console.log(props);
+
+  useEffect(() => {
+    dispatch(getPrograms(idToken));
+  }, [dispatch, idToken]);
 
   const validate = (name, value) => {
     yup
@@ -425,9 +433,10 @@ const InstructorAddCourseForm = props => {
 const mapStateToProps = state => {
   return {
     errorMessage: state.errorMessage,
+    programs: state.instructorReducer.own_programs,
   };
 };
 
-export default connect(mapStateToProps, { addProgram, setError })(
+export default connect(mapStateToProps, { getPrograms, setError })(
   InstructorAddCourseForm
 );

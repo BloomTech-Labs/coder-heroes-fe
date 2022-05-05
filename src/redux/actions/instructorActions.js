@@ -11,6 +11,7 @@ export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
+export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const setSelectedCourse = course => {
@@ -48,6 +49,22 @@ export const getCourses = idToken => async dispatch => {
       payload: error.message,
     });
   }
+};
+export const getPrograms = idToken => async dispatch => {
+  axiosWithAuth(idToken)
+    .get('/programs')
+    .then(res => {
+      dispatch({
+        type: GET_PROGRAMS,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR_ACTION,
+        payload: err.message,
+      });
+    });
 };
 export const getInbox = () => async dispatch => {
   try {

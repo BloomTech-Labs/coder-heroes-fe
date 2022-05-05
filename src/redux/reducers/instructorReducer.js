@@ -8,6 +8,7 @@ import {
   ADD_NEW_PROGRAM,
   SET_ERROR,
   GET_NEWSFEEDS,
+  GET_PROGRAMS,
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
 
@@ -55,6 +56,11 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         newsfeed: payload,
+      };
+    case GET_PROGRAMS:
+      return {
+        ...state,
+        own_programs: payload,
       };
     default:
       return state;

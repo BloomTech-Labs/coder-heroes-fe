@@ -14,6 +14,7 @@ import {
   Col,
   Row,
   Typography,
+  Alert,
 } from 'antd';
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
@@ -27,6 +28,7 @@ const ParentFamilyHome = () => {
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+  const [alertMsg, setAlertMsg] = useState(null);
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
@@ -71,6 +73,27 @@ const ParentFamilyHome = () => {
         }} //background image here while troubleshooting LESS rendering issue
       >
         <Banner />
+
+        {alertMsg === 1 && (
+          <Alert
+            type="info"
+            message="Success! You have created a new student named"
+            banner
+            closable
+            showIcon
+          />
+        )}
+        {alertMsg === 2 && (
+          <Alert
+            type="error"
+            message="Error!"
+            description="Something went wrong while creating a new student. Please try again"
+            banner
+            closable
+            showIcon
+          />
+        )}
+
         <Modal
           title="Add Student"
           visible={addStudentVisible}
@@ -79,7 +102,10 @@ const ParentFamilyHome = () => {
           onCancel={handleAddStudentCancel}
           footer={null}
         >
-          <CreateNewStudent />
+          <CreateNewStudent
+            setAddStudentVisible={setAddStudentVisible}
+            setAlertMsg={setAlertMsg}
+          />
         </Modal>
 
         <Row className="family-cards">

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import '../../../../styles/registration.less';
 import avi1 from '../../../../img/Avatars/Avatar01.svg';
 import avi2 from '../../../../img/Avatars/Avatar03.svg';
@@ -11,6 +12,8 @@ import avi7 from '../../../../img/Avatars/Avatar16.svg';
 export default function StudentForm({ studentArr, setStudentArr, idx }) {
   const [formValues, setFormValues] = useState(studentArr[0]);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const fileInput = useRef(null);
 
   const updateStudent = formValues => {
     let newArr = [...studentArr];
@@ -40,6 +43,20 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
   const isSelectedAvatar = src =>
     selectedAvatar === src ? 'selected-avatar' : '';
   // if the selected avatar matches the src of the clicked avatar, the class name will be set to selected avatar
+
+  const fileSelectedHandler = event => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  useEffect(() => {
+    const fd = new FormData();
+    if (selectedFile) {
+      fd.append('image', selectedFile, selectedFile.name);
+    }
+    // axios.post('endpointForFileUploads', fd).then(res => {
+    //   console.log(res);
+    // });
+  }, [selectedFile]);
 
   return (
     <div className="student-form">
@@ -144,7 +161,15 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
           src={avi4}
           alt=""
         />
-        <button id="add-btn">+</button>
+        <input
+          type="file"
+          ref={fileInput}
+          style={{ display: 'none' }}
+          onChange={fileSelectedHandler}
+        />
+        <button id="add-btn" onClick={() => fileInput.current.click()}>
+          +
+        </button>
       </div>
 
       <p>select or upload an avatar</p>

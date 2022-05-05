@@ -17,8 +17,13 @@ import {
 } from 'antd';
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/cloud-bg.jpg';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { getChildren } from '../../../redux/actions/parentActions';
 
-const ParentFamilyHome = () => {
+const ParentFamilyHome = props => {
+  const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
   const history = useHistory();
@@ -27,23 +32,14 @@ const ParentFamilyHome = () => {
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+  const dispatch = useDispatch();
+  const { user, children } = props;
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
-    const config = {
-      headers: { Authorization: `Bearer ${token.idToken.value}` },
-    };
-    axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
-      .then(res => {
-        const familyData = res.data;
-        setStudentInfo(familyData);
-        console.log(familyData);
-      })
-      .catch(err => {
-        console.log(`error fetching axios call`);
-      });
-  }, []);
+    dispatch(getChildren(idToken, user.profile_id));
+  }, [dispatch, idToken, user.profile_id]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
@@ -84,65 +80,52 @@ const ParentFamilyHome = () => {
 
         <Row className="family-cards">
           <Col span={8}>
-            <Card className="parent-card">
-              <div className="card-info">
-                {/* // make dynamic with state management */}
-                <Avatar
-                  className="avatar"
-                  src="https://joeschmoe.io/api/v1/random"
-                />
-                <Text className="card-name">Parent Name</Text>
-                <Button
-                  className="parent-view-account-button parent-card"
-                  onClick={() => history.push('/parent')}
-                >
-                  View Account
-                </Button>
-                <Button
-                  className="add-student-button"
-                  onClick={showAddStudentModal}
-                >
-                  Add Student
-                </Button>
-              </div>
+            <Card style={{ width: 300 }} className="parent-card">
+              <Meta
+                avatar={<Avatar src={user.avatarUrl} />}
+                title={user.name}
+              />
+              <Button className="parent-view-account-button">
+                VIEW ACCOUNT
+              </Button>
+              <Button
+                className="add-student-button"
+                onClick={showAddStudentModal}
+              >
+                ADD STUDENT
+              </Button>
             </Card>
           </Col>
 
-          <Col span={8}>
-            <Card className="student-card">
-              <div className="card-info">
-                {/* make dynamic with state management */}
-                <Avatar
-                  className="avatar"
-                  src="https://joeschmoe.io/api/v1/random"
-                />
-                <Text className="card-name">Student Name</Text>
-                <Button className="student-view-account-button">
-                  View Account
-                </Button>
-              </div>
-            </Card>
-          </Col>
-
-          <Col span={8}>
-            <Card className="student-card">
-              <div className="card-info">
-                {/* make dynamic with state management */}
-                <Avatar
-                  className="avatar"
-                  src="https://joeschmoe.io/api/v1/random"
-                />
-                <Text className="card-name">Student Name</Text>
-                <Button className="student-view-account-button">
-                  View Account
-                </Button>
-              </div>
-            </Card>
-          </Col>
+          {children &&
+            children.map(child => {
+              return (
+                <Col span={8} key={child.child_id}>
+                  <Card style={{ width: 300 }} className="student-card">
+                    <Meta
+                      avatar={
+                        <Avatar src="https://joeschmoe.io/api/v1/random" />
+                      } // avatar url for student not in backend
+                      title={child.username}
+                    />
+                    <Button className="student-view-account-button">
+                      VIEW ACCOUNT
+                    </Button>
+                  </Card>
+                </Col>
+              );
+            })}
         </Row>
       </Content>
     </>
   );
 };
 
-export default ParentFamilyHome;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.currentUser,
+    children: state.parentReducer.children,
+  };
+};
+
+export default connect(mapStateToProps, { getChildren })(ParentFamilyHome);

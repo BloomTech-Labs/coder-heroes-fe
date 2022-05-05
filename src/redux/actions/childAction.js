@@ -17,12 +17,12 @@ export const getChildren = idToken => dispatch => {
     });
 };
 
-export const getCourses = idToken => dispatch => {
+export const getCourses = (idToken, child_id) => dispatch => {
   dispatch({ type: GET_COURSES_ACTION });
   axiosWithAuth(idToken)
-    .get(`${process.env.REACT_APP_API_URI}/course`)
+    .get(`/children/${child_id}/enrollments`)
     .then(res => {
-      dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
+      dispatch({ type: GET_COURSES_SUCCESS, payload: res.data.enrollments });
     })
     .catch(err => {
       dispatch({ type: ERROR_ACTION, payload: err });

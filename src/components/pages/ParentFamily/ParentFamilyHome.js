@@ -37,9 +37,21 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
-
-    dispatch(getChildren(idToken, user.profile_id));
-  }, [dispatch, idToken, user.profile_id]);
+    const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
+    const config = {
+      headers: { Authorization: `Bearer ${token.idToken.value}` },
+    };
+    axios
+      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
+      .then(res => {
+        const familyData = res.data;
+        setStudentInfo(familyData);
+        console.log(familyData);
+      })
+      .catch(err => {
+        console.log(`error fetching axios call`);
+      });
+  }, [setStudentInfo]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

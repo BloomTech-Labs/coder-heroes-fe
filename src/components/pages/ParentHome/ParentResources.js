@@ -12,7 +12,7 @@ const ParentResourcesPage = () => {
   return (
     <Layout>
       <ParentSidebar active="Resources" />
-      <Content>
+      <Content className="resources-container">
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

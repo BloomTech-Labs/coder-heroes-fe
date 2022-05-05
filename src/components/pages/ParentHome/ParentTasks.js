@@ -9,12 +9,11 @@ import 'antd/dist/antd.css';
 
 const ParentTasks = () => {
   const { Content } = Layout;
-  const { Text } = Typography;
 
   return (
     <Layout>
       <ParentSidebar active="tasks" />
-      <Content>
+      <Content className="tasks-container">
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

@@ -13,34 +13,68 @@
   background-image: url('../../img/cloud-bg.jpg');
 }
 
+.landing-main-title {
+  font-family: 'Staatliches', cursive !important;
+}
+
 .landing-main-text {
   margin: 5% 0%;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-main-text h1 {
-  margin-bottom: 5%;
+.browse-btn {
+  padding: 10px 32px;
+  margin: 30px;
 }
 
-.landing-main-text h3 {
+.create-account-btn {
+  padding: 10px 32px;
+  margin: 30px;
+}
+
+.landing-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+.btn {
+  cursor: pointer;
+  height: 3rem;
+  color: white;
+  background: #f26602;
+  border: none;
+  border-radius: 5px;
   text-align: center;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-btn {
-  background-color: #f26602;
+.btn:hover {
+  filter: brightness(95%);
+  color: black;
+}
+
+.primary {
+  background-color: @btn__bg--yellow!important;
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 1% 5%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 2%;
-  border-radius: 4%;
+  border-radius: 5px;
   cursor: pointer;
+  height: 3rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-btn:hover {
+.primary:hover {
   color: white;
 }
 
@@ -61,14 +95,36 @@
   z-index: 2;
   margin-top: -65%;
   width: 62%;
-  border-radius: 15px;
+  padding-left: 10%;
+  padding-bottom: 2%;
+}
+
+.landing-second-container-content {
+  text-align: center;
+  padding-top: 10%;
+  margin-right: 5%;
 }
 
 .landing-second-container-text {
-  color: white;
-  padding: 10% 10% 0%;
-  text-align: center;
+  color: white !important;
 }
+
+.landing-second-container-title-one {
+  font-size: 16px !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landing-second-container-title-two {
+  font-family: 'Staatliches', cursive;
+  margin-left: 6%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.landing-second-container-paragraph {
+  margin-top: 0 !important;
+}
+
 .empty-space {
   width: 50%;
 }
@@ -93,6 +149,20 @@
   background: #156a70;
   padding-bottom: 5%;
 }
+.landing-fourth-container-text {
+  margin-right: 3%;
+  margin-left: 1%;
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif !important;
+  margin-bottom: 2% !important;
+}
+
+.brianne {
+  font-family: 'Staatliches', cursive !important;
+  border-radius: 30px;
+}
 
 .landing-third-container-pic {
   width: 20%;
@@ -101,22 +171,6 @@
 
 .empty-space-two {
   width: 65%;
-}
-
-.description {
-  background-color: #eeedd9;
-  padding: 2%;
-  border-radius: 10px;
-  margin: 2% 10%;
-  border: 2px solid black;
-}
-
-.brianne {
-  background-color: #eeedd9;
-  padding: 2%;
-  border-radius: 10px;
-  margin: 2% 10%;
-  border: 2px solid black;
 }
 
 //** Landing Page Styles - TABLET **//
@@ -134,7 +188,7 @@
   }
 
   .coder-heroes {
-    width: 40%;
+    width: 75%;
   }
 
   .landing-main-text {
@@ -144,10 +198,12 @@
 
   .landing-main-text h1 {
     margin-bottom: 5%;
+    color: yellow;
   }
 
   .landing-main-text h3 {
     text-align: center;
+    color: green;
   }
 
   .browse-btn {
@@ -157,10 +213,6 @@
   .support-us-btn {
     padding: 2% 10%;
   }
-
-  // .landing-button-container {
-  //   width: 100%;
-  // }
 
   .btn {
     cursor: pointer;
@@ -174,11 +226,6 @@
     text-align: center;
     font-weight: 600;
   }
-
-  // .btn:hover {
-  //   filter: brightness(95%);
-  //   color: white;
-  // }
 
   /* Second Content Section */
 
@@ -389,7 +436,6 @@
 
   .description {
     background-color: #eeedd9;
-    padding: 2%;
     border-radius: 10px;
     margin: 2% 10%;
     border: 2px solid black;

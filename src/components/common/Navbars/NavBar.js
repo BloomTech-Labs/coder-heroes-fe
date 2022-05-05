@@ -35,11 +35,11 @@ function NavBar(props) {
   const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
 
-  // useEffect(() => {
-  //   if (role_id === 5) setBgColor('#9FB222');
-  //   else if (role_id < 5) setBgColor('#21C5B5');
-  //   else setBgColor('#FEAD2A');
-  // }, [role_id]);
+  useEffect(() => {
+    if (role_id === 5) setBgColor('#9FB222');
+    else if (role_id < 5) setBgColor('#21C5B5');
+    else setBgColor('#FEAD2A');
+  }, [role_id]);
 
   const handleLogout = () => {
     localStorage.removeItem('okta-token-storage');

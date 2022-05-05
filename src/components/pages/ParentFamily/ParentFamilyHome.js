@@ -5,7 +5,7 @@ import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
 import 'antd/dist/antd.css';
-import cloudbg from '../../../img/cloud-bg.jpg';
+
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -48,12 +48,7 @@ const ParentFamilyHome = props => {
   return (
     <>
       <ParentSidebar />
-      <Content
-        className="family-page-container"
-        style={{
-          backgroundImage: `url(${cloudbg})`,
-        }} //background image here while troubleshooting LESS rendering issue
-      >
+      <Content>
         <Banner />
         <Modal
           title="Add Student"

@@ -137,9 +137,13 @@ const ParentSideBar = props => {
           icon={<HeartFilled fontSize="150px" />}
         >
           <Link to="/parent/tasks">Tasks</Link>
-          key="settings" className=
-          {active === 'settings' ? 'ant-menu-item-selected' : ''}
+        </Menu.Item>
+
+        <Menu.Item
+          key="settings"
+          className={active === 'settings' ? 'ant-menu-item-selected' : ''}
           icon={<ToolFilled fontSize="150px" />}
+        >
           <Link to="/settings">Settings</Link>
         </Menu.Item>
 

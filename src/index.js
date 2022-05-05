@@ -39,7 +39,6 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
-import ParentHome from './components/pages/ParentHome';
 import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
@@ -124,9 +123,11 @@ function App() {
 
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
+          <SecureRoute path="/parent/tasks" component={ParentTasks} />
+          <SecureRoute path="/parent/resources" component={ParentResources} />
           <SecureRoute path="/parent/cart" component={Cart} />
 
           <Route path="/implicit/callback" component={LoginCallback} />

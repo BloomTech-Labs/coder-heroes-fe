@@ -35,23 +35,23 @@ function InstructorSidebar() {
       <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
         {/* need to add the route to instructor dashboard but instructor-dashboard is psuedo code for now */}
         <Menu.Item key="1" icon={<HomeOutlined />}>
-          <a href="/instructor-dashboard">Dashboard</a>
+          <Link to="/instructor-dashboard">Dashboard</Link>
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/instructor">Overview</a>
+          <Link to="/instructor">Overview</Link>
         </Menu.Item>
 
         <Menu.Item key="3" icon={<ReadOutlined />}>
-          <a href="/instructor-all-classes">Courses</a>
+          <Link to="/instructor-all-classes">Courses</Link>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<ReadOutlined />}>
-          <a href="/classroom">Course</a>
+          <Link to="/classroom">Course</Link>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<PlusOutlined />}>
-          <a href="/messages">Messages</a>
+          <Link to="/messages">Messages</Link>
         </Menu.Item>
 
         <Menu.Item

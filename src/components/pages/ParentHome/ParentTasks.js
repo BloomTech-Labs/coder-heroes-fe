@@ -13,7 +13,7 @@ const ParentTasks = () => {
   return (
     <Layout>
       <ParentSidebar active="tasks" />
-      <Content>
+      <Content className="tasks-container">
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

@@ -5,18 +5,19 @@ import ProgressBar from '../../common/ProgressBar';
 import '../../../styles/ParentStyles/index.less';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
-import { findByLabelText } from '@testing-library/react';
 import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
+  const { Content } = Layout;
+
   return (
-    <Layout style={{ width: '100%' }}>
+    <Layout>
       <ParentSidebar active="dashboard" />
-      <div className="progress-container">
+      <Content>
         <Banner />
         <ParentNavbar className="parent-navbar" />
         <ProgressBar />
-      </div>
+      </Content>
     </Layout>
   );
 };

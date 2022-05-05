@@ -56,6 +56,7 @@ import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import HowManyStudents from './components/pages/Registration/HowManyStudents';
+import RegisterStep3 from './components/pages/Registration/RegisterStep3';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
@@ -103,15 +104,16 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register-2" component={HowManyStudents} />
-          <Route path="/instructor-register-1" component={InstructorWelcome} />
-          <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register" component={LoginPage} />
+          <Route path="/confirm" component={ConfirmEmail} />
+          <Route path="/register-1" component={ParentWelcome} />
+          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-          <Route path="/confirm" component={ConfirmEmail} />
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}

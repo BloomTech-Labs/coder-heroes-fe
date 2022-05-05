@@ -9,6 +9,12 @@ export default function HowManyStudents() {
     setNumStudents(e.target.value);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    localStorage.setItem('number of students', numStudents);
+    window.location.href = '/register-3';
+  };
+
   return (
     <div className="reg-content-container email-confirmation">
       <RegistrationProgress step_num={1} />
@@ -27,8 +33,7 @@ export default function HowManyStudents() {
         </form>
 
         <div className="link-container">
-          <a href="#">Create Profiles</a>
-          {/* update href after finding correct path from Okta */}
+          <button onClick={handleSubmit}>Create Profiles</button>
         </div>
       </div>
     </div>

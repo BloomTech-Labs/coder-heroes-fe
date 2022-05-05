@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Modal, Button, Card, Avatar, Col, Row } from 'antd';
+import {
+  Layout,
+  Modal,
+  Button,
+  Card,
+  Avatar,
+  Col,
+  Row,
+  Typography,
+} from 'antd';
 import 'antd/dist/antd.css';
+import cloudbg from '../../../img/cloud-bg.jpg';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -13,6 +25,9 @@ import { getChildren } from '../../../redux/actions/parentActions';
 const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
+  const { Text } = Typography;
+  const history = useHistory();
+  const [setStudentInfo] = useState(null);
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
@@ -43,12 +58,15 @@ const ParentFamilyHome = props => {
   };
 
   return (
-    <Layout style={{ width: '100%' }}>
+    <>
       <ParentSidebar />
-
-      <Content>
+      <Content
+        className="family-page-container"
+        style={{
+          backgroundImage: `url(${cloudbg})`,
+        }} //background image here while troubleshooting LESS rendering issue
+      >
         <Banner />
-
         <Modal
           title="Add Student"
           visible={addStudentVisible}
@@ -60,11 +78,7 @@ const ParentFamilyHome = props => {
           <CreateNewStudent />
         </Modal>
 
-        <h2 className="family-profile-title" style={{ color: '#6A0C49' }}>
-          <strong>CHOOSE A PROFILE</strong>
-        </h2>
-
-        <Row gutter={16}>
+        <Row className="family-cards">
           <Col span={8}>
             <Card style={{ width: 300 }} className="parent-card">
               <Meta
@@ -103,7 +117,7 @@ const ParentFamilyHome = props => {
             })}
         </Row>
       </Content>
-    </Layout>
+    </>
   );
 };
 

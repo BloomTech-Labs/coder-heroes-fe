@@ -33,7 +33,7 @@ export const getChildren = (idToken, profile_id) => async dispatch => {
 export const getCourses = dispatch => {
   dispatch({ type: GET_COURSES_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .get(`${process.env.REACT_APP_API_URI}/course`)
     .then(res => {
       dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
     })
@@ -41,21 +41,11 @@ export const getCourses = dispatch => {
       dispatch({ type: ERROR_ACTION, payload: err });
     });
 };
-export const getSessions = () => dispatch => {
-  dispatch({ type: GET_SESSIONS_ACTION });
-  axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
-    .then(res => {
-      dispatch({ type: GET_SESSIONS_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
-};
+
 export const getInbox = dispatch => {
   dispatch({ type: GET_INBOX_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
       crossdomain: true,
     })
     .then(res => {
@@ -68,7 +58,7 @@ export const getInbox = dispatch => {
 export const signupForCourse = () => dispatch => {
   dispatch({ type: SIGNUP_COURSE_ACTION });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca', {
+    .get(`${process.env.REACT_APP_API_URI}/children/:id/enrollments}`, {
       crossdomain: true,
     })
     .then(res => {
@@ -81,7 +71,7 @@ export const signupForCourse = () => dispatch => {
 export const fetchBookings = () => dispatch => {
   dispatch({ type: FETCH_BOOKINGS_START });
   axios
-    .get('https://dummyapi.io/data/v1/user/60d0fe4f5311236168a109ca')
+    .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/schedules`)
     .then(res => {
       dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
     })

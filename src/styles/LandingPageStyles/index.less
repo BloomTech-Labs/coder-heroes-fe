@@ -13,52 +13,218 @@
   background-image: url('../../img/cloud-bg.jpg');
 }
 
+.landing-main-title {
+  font-family: 'Staatliches', cursive !important;
+}
+
 .landing-main-text {
   margin: 5% 0%;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.landing-main-text h1 {
-  margin-bottom: 5%;
+.browse-btn {
+  padding: 10px 32px;
+  margin: 30px;
 }
 
-.landing-main-text h3 {
+.create-account-btn {
+  padding: 10px 32px;
+  margin: 30px;
+}
+
+.landing-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+.btn {
+  cursor: pointer;
+  height: 3rem;
+  color: white;
+  background: #f26602;
+  border: none;
+  border-radius: 5px;
   text-align: center;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.btn:hover {
+  filter: brightness(95%);
+  color: black;
+}
+
+.primary {
+  background-color: @btn__bg--yellow!important;
+  border: none;
+  color: black;
+  padding: 1% 5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 3rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.primary:hover {
+  color: white;
+}
+
+/* Second Content Section */
+
+.landing-second-container {
+  background: #156a70;
+  display: flex;
+}
+
+.orange-cloud {
+  z-index: 0;
+  width: 80%;
+  margin-top: -10%;
+}
+
+.classroom-photo {
+  z-index: 2;
+  margin-top: -65%;
+  width: 62%;
+  padding-left: 10%;
+  padding-bottom: 2%;
+}
+
+.landing-second-container-content {
+  text-align: center;
+  padding-top: 10%;
+  margin-right: 5%;
+}
+
+.landing-second-container-text {
+  color: white !important;
+}
+
+.landing-second-container-title-one {
+  font-size: 16px !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landing-second-container-title-two {
+  font-family: 'Staatliches', cursive;
+  margin-left: 6%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.landing-second-container-paragraph {
+  margin-top: 0 !important;
+}
+
+.empty-space {
+  width: 50%;
+}
+
+/* Third Content Section */
+
+.landing-third-container {
+  display: flex;
+  background: #156a70;
+}
+
+.landing-third-container-green {
+  justify-content: flex-end;
+  width: 50%;
+}
+
+/* Fourth Content Section */
+
+.landing-fourth-container {
+  display: flex;
+  margin-top: -25%;
+  background: #156a70;
+  padding-bottom: 5%;
+}
+.landing-fourth-container-text {
+  margin-right: 3%;
+  margin-left: 1%;
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif !important;
+  margin-bottom: 2% !important;
+}
+
+.brianne {
+  font-family: 'Staatliches', cursive !important;
+  border-radius: 30px;
+}
+
+.landing-third-container-pic {
+  width: 20%;
+  height: 20%;
+}
+
+.empty-space-two {
+  width: 65%;
+}
+
+//** Landing Page Styles - TABLET **//
+
+@media only screen and (max-width: 1000px) {
+  /* First Content Section */
+
+  .landing-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .cloudbg {
+    background-image: url('../../img/cloud-bg.jpg');
+  }
+
+  .coder-heroes {
+    width: 75%;
+  }
+
+  .landing-main-text {
+    margin: 5% 0%;
+    text-align: center;
+  }
+
+  .landing-main-text h1 {
+    margin-bottom: 5%;
+    color: yellow;
+  }
+
+  .landing-main-text h3 {
+    text-align: center;
+    color: green;
+  }
 
   .browse-btn {
-    padding: 0%;
-    margin: 0% 10%
+    padding: 2% 10%;
   }
 
   .support-us-btn {
-    padding: 0%;
-    margin: 0% 10%
-  }
-
-
-.landing-button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 2%;
-    margin-bottom: 10%;
+    padding: 2% 10%;
   }
 
   .btn {
     cursor: pointer;
     height: 3rem;
+    margin-right: 1rem;
     color: black;
     background: #f26602;
+    padding: 3% 0%;
     border: none;
     border-radius: 5px;
     text-align: center;
     font-weight: 600;
-  }
-  
-  .btn:hover {
-    filter: brightness(95%);
-    color: white;
   }
 
   /* Second Content Section */
@@ -69,16 +235,13 @@
   }
 
   .orange-cloud {
-    z-index: 0;
     width: 80%;
     margin-top: -10%;
   }
 
   .classroom-photo {
-    z-index: 2;
     margin-top: -65%;
     width: 62%;
-    border-radius: 15px;
   }
 
   .landing-second-container-text {
@@ -86,8 +249,13 @@
     padding: 10% 10% 0%;
     text-align: center;
   }
-  .empty-space{
-    width: 50%
+
+  .landing-second-container-content {
+    margin: 0% 4%;
+  }
+
+  .empty-space {
+    width: 50%;
   }
 
   .landing-second-container-btn {
@@ -108,6 +276,7 @@
   .landing-third-container {
     display: flex;
     background: #156a70;
+    padding-top: 5%;
   }
 
   .landing-third-container-green {
@@ -124,20 +293,21 @@
     padding-bottom: 5%;
   }
 
-  .landing-third-container-pic{
-    width: 20%;
-    height: 20%;
+  .landing-fourth-container-pic {
+    width: 30%;
+    height: 30%;
+    margin: 0% 5%;
   }
 
-  .empty-space-two{
-    width: 65%
+  .empty-space-two {
+    display: none;
   }
 
   .description {
     background-color: #eeedd9;
     padding: 2%;
     border-radius: 10px;
-    margin: 2% 10%;
+    margin: 0% 2;
     border: 2px solid black;
   }
 
@@ -148,172 +318,11 @@
     margin: 2% 10%;
     border: 2px solid black;
   }
-  
-  
-  //** Landing Page Styles - TABLET **//
+}
 
+//** Landing Page Styles - MOBILE **//
 
-  @media only screen and (max-width: 1000px) {
-    
-    /* First Content Section */
-
-    .landing-container {
-      width: 100%;
-      padding: 0;
-    }
-
-    .cloudbg {
-      background-image: url('../../img/cloud-bg.jpg');
-    }
-
-    .coder-heroes{
-      width: 40%;
-    }
-    
-    .landing-main-text {
-      margin: 5% 0%;
-      text-align: center;
-    }
-    
-    .landing-main-text h1 {
-      margin-bottom: 5%;
-    }
-    
-    .landing-main-text h3 {
-      text-align: center;
-    }
-    
-    .browse-btn {
-        padding: 2% 10%;
-    }
-    
-    .support-us-btn {
-        padding: 2% 10%;
-    }
-    
-    
-    .landing-button-container {
-        width: 100%
-    }
-    
-    .btn {
-        cursor: pointer;
-        height: 3rem;
-        margin-right: 1rem;
-        color: black;
-        background: #f26602;
-        padding: 3% 0%;
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        font-weight: 600;
-    }
-      
-    .btn:hover {
-        filter: brightness(95%);
-        color: white;
-    }
-
-    /* Second Content Section */
-    
-    .landing-second-container {
-        background: #156a70;
-        display: flex;
-    }
-    
-    .orange-cloud {
-        width: 80%;
-        margin-top: -10%;
-    }
-    
-    .classroom-photo {
-        margin-top: -65%;
-        width: 62%;
-    }
-    
-    .landing-second-container-text {
-        color: white;
-        padding: 10% 10% 0%;
-        text-align: center;
-    }
-
-    .landing-second-container-content {
-    margin: 0% 4%;
-    }
-    
-    .empty-space{
-        width: 50%
-    }
-
-    .landing-second-container-btn {
-      width: 8rem;
-      height: 2.3rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      color: black;
-      background: #fbc740;
-      border: none;
-      border-radius: 0.313rem;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    /* Third Content Section */
-
-    
-    .landing-third-container {
-        display: flex;
-        background: #156a70;
-        padding-top: 5%;
-    }
-    
-      .landing-third-container-green {
-        justify-content: flex-end;
-        width: 50%;
-      }
-
-    /* Fourth Content Section */
-
-      .landing-fourth-container {
-        display: flex;
-        margin-top: -25%;
-        background: #156a70;
-        padding-bottom: 5%;
-      }
-    
-      .landing-fourth-container-pic{
-        width: 30%;
-        height: 30%;
-        margin: 0% 5%;
-      }
-    
-      .empty-space-two{
-        display: none;
-      }
-    
-      .description {
-        background-color: #eeedd9;
-        padding: 2%;
-        border-radius: 10px;
-        margin: 0% 2;
-        border: 2px solid black;
-      }
-    
-      .brianne {
-        background-color: #eeedd9;
-        padding: 2%;
-        border-radius: 10px;
-        margin: 2% 10%;
-        border: 2px solid black;
-      }
-
-  }
-
-  //** Landing Page Styles - MOBILE **//
-
-
- @media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 600px) {
   /* First Content Section */
 
   .landing-container {
@@ -326,122 +335,117 @@
     background-image: none;
   }
 
-  .coder-heroes{
+  .coder-heroes {
     width: 80%;
   }
-  
+
   .landing-main-text {
     margin: 5% 0%;
     text-align: center;
   }
-  
+
   .landing-main-text h1 {
     text-align: center;
   }
-  
+
   .landing-main-text h3 {
     text-align: center;
   }
-  
+
   // Button Styling
-  
+
   .landing-button-container {
-      margin-top: 5%;
-      display: flex;
-      margin: 2% 0%;
-    }
+    margin-top: 5%;
+    display: flex;
+    margin: 2% 0%;
+  }
 
-    .browse-btn {
-      padding: 0% 10%;
-    }
-  
-    .support-us-btn {
-      padding: 0% 10%;
-    }
-    
-    .btn:hover {
-      filter: brightness(95%);
-      color: white;
-    }
+  .browse-btn {
+    padding: 0% 10%;
+  }
 
-    /* Second Content Section */
-  
-    .landing-second-container {
-      background: #156a70;
-      display: flex;
-    }
+  .support-us-btn {
+    padding: 0% 10%;
+  }
 
-    .landing-second-images {
-      display: none;  
-    }
-  
-    .landing-second-container-text {
-      color: white;
-      padding: 10% 10% 0%;
-      text-align: center;
-    }
-    .empty-space{
-      width: 50%
-    }
+  .btn:hover {
+    filter: brightness(95%);
+    color: white;
+  }
 
-    .landing-second-container-btn {
-      width: 8rem;
-      height: 2.3rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      color: black;
-      background: #fbc740;
-      border: none;
-      border-radius: 0.313rem;
-      text-align: center;
-      font-weight: 600;
-    }
+  /* Second Content Section */
 
-    /* Third Content Section */
-  
-    .landing-third-container {
-      display: none;
+  .landing-second-container {
+    background: #156a70;
+    display: flex;
+  }
 
-    }
-  
+  .landing-second-images {
+    display: none;
+  }
 
-    /* Fourth Content Section */
-  
-    .landing-fourth-container {
-      padding-top: 30%;
-      display: flex;
-      background: #156a70;
-      flex-direction: column;
-      padding-bottom: 5%;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .landing-fourth-container-pic{
-      width: 35%;
-      height: 35%;
-      text-align: center;
-    }
-  
-    .empty-space-two{
-      width: 65%
-    }
-  
-    .description {
-      background-color: #eeedd9;
-      padding: 2%;
-      border-radius: 10px;
-      margin: 2% 10%;
-      border: 2px solid black;
-    }
-  
-    .brianne {
-      background-color: #eeedd9;
-      padding: 2%;
-      border-radius: 10px;
-      margin: 2% 10%;
-      border: 2px solid black;
-    }
+  .landing-second-container-text {
+    color: white;
+    padding: 10% 10% 0%;
+    text-align: center;
+  }
+  .empty-space {
+    width: 50%;
+  }
 
+  .landing-second-container-btn {
+    width: 8rem;
+    height: 2.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+    background: #fbc740;
+    border: none;
+    border-radius: 0.313rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Third Content Section */
+
+  .landing-third-container {
+    display: none;
+  }
+
+  /* Fourth Content Section */
+
+  .landing-fourth-container {
+    padding-top: 30%;
+    display: flex;
+    background: #156a70;
+    flex-direction: column;
+    padding-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-fourth-container-pic {
+    width: 35%;
+    height: 35%;
+    text-align: center;
+  }
+
+  .empty-space-two {
+    width: 65%;
+  }
+
+  .description {
+    background-color: #eeedd9;
+    border-radius: 10px;
+    margin: 2% 10%;
+    border: 2px solid black;
+  }
+
+  .brianne {
+    background-color: #eeedd9;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 2% 10%;
+    border: 2px solid black;
+  }
 }
-

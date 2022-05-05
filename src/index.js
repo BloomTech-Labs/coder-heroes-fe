@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Layout } from 'antd';
@@ -27,11 +29,12 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-import ParentHome from './components/pages/ParentHome';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
+import StudentHome from './components/pages/StudentHome/index';
 import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
@@ -41,6 +44,7 @@ import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
 // eslint-disable-next-line
@@ -49,19 +53,30 @@ import AllClasses from './components/pages/InstructorHome/AllClassesView';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
-// import Newfeed from './components/pages/n';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import HowManyStudents from './components/pages/Registration/HowManyStudents';
+import RegisterStep3 from './components/pages/Registration/RegisterStep3';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
+import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
+import ParentWelcome from './components/pages/Registration/ParentWelcome';
+import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
+import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <NavBar />
           <App />
           <Footer />
@@ -89,12 +104,24 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register" component={LoginPage} />
           <Route path="/confirm" component={ConfirmEmail} />
+          <Route path="/register-1" component={ParentWelcome} />
+          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
+          <Route
+            path="/instructor-register-2"
+            component={InstructorFlow_Step2}
+          />
+          <Route
+            path="/register-success-instructor"
+            component={SuccessfulSubmission}
+          />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <Route path="/parent" component={ParentHome} />
+          <Route path="/parent" component={ParentDashboard} />
+          <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
@@ -106,6 +133,7 @@ function App() {
             component={InstructorAddCourse}
           />
           <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/family" component={ParentFamilyHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />

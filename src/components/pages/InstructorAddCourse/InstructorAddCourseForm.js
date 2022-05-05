@@ -7,6 +7,9 @@ import '../../../styles/index.less';
 import { Select, Input, Form, Button, Layout, Typography, Modal } from 'antd';
 import schema from './InstructorAddCourseFormSchema';
 import { CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
+import { useDispatch } from 'react-redux';
+import { addCourse } from '../../../redux/actions/coursesActions';
 
 const { Option } = Select;
 const { Content } = Layout;
@@ -28,8 +31,10 @@ const days = [
 const initialClassDataState = {
   course_type: '',
   course_name: '',
+  // course_description
   day: '', //needs to be added to backend
   size: '',
+  //max_size
   min_age: '', //needs to be added to backend
   max_age: '', //needs to be added to backend
   start_time: '',
@@ -40,6 +45,7 @@ const initialClassDataState = {
   location: '',
   open_seats_remaining: '',
   instructor_id: '',
+  // number_of_sessions
 };
 
 const initialClassDataStateFormErrors = {
@@ -58,9 +64,12 @@ const initialClassDataStateFormErrors = {
 };
 
 const InstructorAddCourseForm = props => {
+  const dispatch = useDispatch();
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
 
   const validate = (name, value) => {
     yup
@@ -88,8 +97,9 @@ const InstructorAddCourseForm = props => {
       open_seats_remaining: classData.size,
       instructor_id: 1, //change to id of current logged in instructor once we connect redux
     });
-    props.addProgram(classData);
+    dispatch(addCourse(idToken, classData));
     setClassData(initialClassDataState);
+    success();
   };
 
   useEffect(() => {
@@ -144,7 +154,7 @@ const InstructorAddCourseForm = props => {
                     <label for="classLink">Course Name</label>
                     <Input
                       value={classData.course_name}
-                      name="location"
+                      name="course_name"
                       placeholder="Enter Course Name here"
                       className="course__name"
                     />
@@ -376,7 +386,7 @@ const InstructorAddCourseForm = props => {
               type="submit"
               htmlType="submit"
               className="submitButton"
-              onClick={success}
+              onClick={handleSubmit}
               disabled={!disabled}
             >
               Create New Course

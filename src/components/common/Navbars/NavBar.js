@@ -5,7 +5,6 @@ import {
   InstagramOutlined,
   YoutubeOutlined,
   LinkedinOutlined,
-  ThunderboltFilled,
   HomeOutlined,
   SnippetsOutlined,
   AliwangwangOutlined,
@@ -25,6 +24,8 @@ import { NavLink } from 'react-router-dom';
 import NavBarLinks from './NavBarLinks';
 
 import { connect } from 'react-redux';
+
+import navLogo from '../../../img/navbar-logo.png';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -64,17 +65,7 @@ function NavBar(props) {
       <nav className="navbar__mainNav">
         <div className="navbar__logo">
           <NavLink to="/">
-            <h1 className="navbar__navTitle">
-              {
-                <ThunderboltFilled
-                  style={{
-                    color: '#EEEDD9',
-                    fontSize: '1.8rem',
-                  }}
-                />
-              }{' '}
-              CODERHEROES
-            </h1>
+            <img className="nav-logo" src={navLogo} alt="logo" />
           </NavLink>
         </div>
         <NavBarLinks role_id={role_id} />
@@ -85,7 +76,12 @@ function NavBar(props) {
             </NavLink>
           ) : (
             <NavLink to="/">
-              <button className="navbar__btn navbar__contact">
+              <button
+                onClick={() =>
+                  (window.location = 'mailto:brianne@coderheroes.com')
+                }
+                className="navbar__btn navbar__contact"
+              >
                 CONTACT US
               </button>
             </NavLink>
@@ -100,7 +96,7 @@ function NavBar(props) {
             </button>
           </NavLink>
           {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/my-dashboard">
+            <NavLink to="/family">
               <div className="navbar__profile">
                 <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
               </div>
@@ -130,7 +126,15 @@ function NavBar(props) {
                 </Menu.Item>
               )}
               <Menu.Item key="2" icon={<ContactsOutlined />}>
-                <NavLink to="/">Contact Us</NavLink>
+                <NavLink
+                  to="/"
+                  onClick={() =>
+                    (window.location = 'mailto:brianne@coderheroes.com')
+                  }
+                  className="navbar__btn navbar__contact"
+                >
+                  Contact Us
+                </NavLink>
               </Menu.Item>
               <Menu.Item key="4" icon={<SnippetsOutlined />}>
                 <NavLink to="/">Programs</NavLink>
@@ -151,7 +155,7 @@ function NavBar(props) {
               >
                 <Menu.Item key="8" icon={<FacebookOutlined />}>
                   <a
-                    href="https://www.facebook.com/coderheroes."
+                    href="https://www.facebook.com/coderheroes"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -161,7 +165,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="8" icon={<TwitterOutlined />}>
                   <a
-                    href="https://twitter.com/coderheroes."
+                    href="https://twitter.com/coderheroes"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -171,7 +175,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="9" icon={<InstagramOutlined />}>
                   <a
-                    href="https://www.instagram.com/coderheroes/."
+                    href="https://www.instagram.com/coderheroes/"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -181,7 +185,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="10" icon={<YoutubeOutlined />}>
                   <a
-                    href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg."
+                    href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -191,7 +195,7 @@ function NavBar(props) {
                 </Menu.Item>
                 <Menu.Item key="11" icon={<LinkedinOutlined />}>
                   <a
-                    href="https://www.linkedin.com/company/coderheroes/."
+                    href="https://www.linkedin.com/company/coderheroes/"
                     className="navbar__socialLink"
                     target="_blank"
                     rel="noopener noreferrer"

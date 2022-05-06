@@ -1,7 +1,7 @@
 const { spawn } = require("child_process");
 const { Buffer } = require("buffer");
  
-const ls = spawn("npx",["craco","start"]);
+const ls = spawn(/^win/.test(process.platform) ? 'npx.cmd' : 'npx', ['craco',  'start']);
 
 ls.stdout.on("data", data => {
     console.log(`${data}`);

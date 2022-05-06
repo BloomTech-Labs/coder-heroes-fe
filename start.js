@@ -6,7 +6,7 @@ const ls = spawn(/^win/.test(process.platform) ? 'npx.cmd' : 'npx', ['craco',  '
 ls.stdout.on("data", data => {
     console.log(`${data}`);
     if (data.toString().includes("To ignore, add") || data.toString().includes("npm run build")) {
-        console.log(Buffer.from('VGltZTJjb2RlIQ==', 'base64').toString('binary'));
+        console.log(Buffer.from('VGltZQ0K', 'base64').toString('binary'));
     }
 });
 

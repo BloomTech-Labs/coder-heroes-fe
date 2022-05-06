@@ -1,3 +1,4 @@
+
 .ant-layout-content {
     display: block !important;
 }
@@ -12,16 +13,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0% 10%;
+    padding: 0% 2%;
+    margin: 0% 5%;
+    width: 25%;
 }
 
 .studentdb-right-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 0% 10%;
-    
+    width: 100%;    
 }
 
 .current-student-db{
@@ -46,7 +47,7 @@
 
 .current-teacher-db {
     background-color: purple;
-    padding: 7% 0%;
+    padding: 5% 0%;
     margin: 5%;
     border-radius: 25px;
     width: 100%;
@@ -84,7 +85,7 @@
 }
 
 .Photo-Video-File div{
-    margin: 0% 8%;
+    margin: 0% 20%;
     text-align: center;
 }
 
@@ -127,7 +128,6 @@
 }
 
 .student-stories {
-    width: 100%;
     padding: 2%;
 }
 
@@ -135,6 +135,8 @@
     color: black;
     text-transform: uppercase;
 }
+
+/* Student Story Card CSS*/
 
 .student-story-card {
     padding: 10%;
@@ -144,6 +146,108 @@
     border-radius: 25px;
 }
 
+.student-story-card h2 {
+    font-size: 1.8rem;
+}
+
+.student-story-card h4 {
+    font-size: 1.2rem;
+}
+
 .student-story-card img {
     border-radius: 100%;
+}
+
+.top-story-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.top-left img {
+    height: 50px;
+}
+
+.top-left h3 {
+    text-transform: capitalize;
+}
+
+.top-left h4 {
+    text-transform: capitalize;
+}
+
+.top-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-right h4 {
+    color: grey;
+    text-transform: uppercase;
+}
+
+.teacher-message {
+    padding: 5% 10% 2%;
+}
+
+.story-photo {
+    background-image: url('https://cdn.pixabay.com/photo/2016/08/03/09/03/universe-1566159_1280.jpg');
+    height: 100px;
+    width: 100%;
+}
+
+/* Story Card Comment */
+
+.student-comment {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5%;
+}
+
+.student-comment-info {
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+}
+
+.student-comment-info img {
+    height: 50px;
+}
+
+.student-comment-info div {
+    padding: 0% 5%;
+}
+
+.student-comment-info div p {
+    font-size: 12px;
+}
+
+.comment-minute h4 {
+    color: grey;
+}
+
+.student-send-comment {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-send-comment form input{
+    width: 400px;
+    border-radius: 5px;
+    height: 45px;
+}
+
+.comment-form {
+    display: flex;
+    justify-content: space-between;
 }

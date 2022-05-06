@@ -14,8 +14,7 @@ function ParentNewsFeed() {
       <ParentSidebar active="newsfeed" />
       <Content>
         <Banner />
-        <IndividualNewsParent />
-        {/* <NewsContainer /> */}
+        <NewsContainer />
       </Content>
     </Layout>
   );

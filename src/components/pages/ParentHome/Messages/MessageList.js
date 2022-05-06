@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, List, Avatar, Card } from 'antd';
+import { List, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';

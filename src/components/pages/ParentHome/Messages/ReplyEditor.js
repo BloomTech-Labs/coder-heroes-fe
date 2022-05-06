@@ -1,5 +1,5 @@
 import React from 'react';
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
+import { Comment, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import '../../../../styles/ParentStyles/messages.less';
 

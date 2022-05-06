@@ -41,7 +41,7 @@ const ParentFamilyHome = () => {
       .catch(err => {
         console.log(`error fetching axios call`);
       });
-  }, []);
+  }, [setStudentInfo]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

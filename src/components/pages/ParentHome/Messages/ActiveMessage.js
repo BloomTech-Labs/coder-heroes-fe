@@ -1,6 +1,6 @@
 import React from 'react';
 import ReplyEditor from './ReplyEditor';
-import { Layout, Comment, Tooltip, List } from 'antd';
+import { Comment, Tooltip, List } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';

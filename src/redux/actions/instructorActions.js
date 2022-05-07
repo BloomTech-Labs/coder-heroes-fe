@@ -144,6 +144,21 @@ export const getNewsFeeds = idToken => dispatch => {
   }
 };
 
+export const getInstructors = idToken => async dispatch => {
+  try {
+    const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+    dispatch({
+      type: GET_INSTRUCTORS,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
 export const getInstructor = (idToken, profile_id) => async dispatch => {
   try {
     const res = await axiosWithAuth(idToken).get(

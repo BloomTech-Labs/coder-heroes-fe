@@ -53,8 +53,13 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
     if (selectedFile) {
       fd.append('image', selectedFile, selectedFile.name);
     }
+    // Code below will be used with endpoint for storing images
     // axios.post('endpointForFileUploads', fd).then(res => {
-    //   console.log(res);
+    // setFormValues({
+    //   ...formValues,
+    //   [avatarURL]: res,
+    // });
+    // updateStudent(formValues);
     // });
   }, [selectedFile]);
 

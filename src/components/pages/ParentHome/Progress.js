@@ -5,7 +5,6 @@ import ProgressBar from '../../common/ProgressBar';
 import '../../../styles/ParentStyles/index.less';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
-import { findByLabelText } from '@testing-library/react';
 import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {

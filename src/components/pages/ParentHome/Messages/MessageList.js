@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, List, Avatar, Card } from 'antd';
+import { List, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
@@ -29,7 +29,7 @@ function MessageList() {
           <List.Item.Meta
             avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
             title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            description="Ant Design, a design language for background applications..."
           />
         </List.Item>
       )}

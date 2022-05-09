@@ -5,7 +5,6 @@ import {
   InstagramOutlined,
   YoutubeOutlined,
   LinkedinOutlined,
-  ThunderboltFilled,
   HomeOutlined,
   SnippetsOutlined,
   AliwangwangOutlined,
@@ -26,12 +25,14 @@ import NavBarLinks from './NavBarLinks';
 
 import { connect } from 'react-redux';
 
+import navLogo from '../../../img/navbar-logo.png';
+
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
-  const [bgColor, setBgColor] = useState('#FEAD2A');
+  const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
 
   useEffect(() => {
@@ -64,17 +65,7 @@ function NavBar(props) {
       <nav className="navbar__mainNav">
         <div className="navbar__logo">
           <NavLink to="/">
-            <h1 className="navbar__navTitle">
-              {
-                <ThunderboltFilled
-                  style={{
-                    color: '#EEEDD9',
-                    fontSize: '1.8rem',
-                  }}
-                />
-              }{' '}
-              CODERHEROES
-            </h1>
+            <img className="nav-logo" src={navLogo} alt="logo" />
           </NavLink>
         </div>
         <NavBarLinks role_id={role_id} />
@@ -85,7 +76,12 @@ function NavBar(props) {
             </NavLink>
           ) : (
             <NavLink to="/">
-              <button className="navbar__btn navbar__contact">
+              <button
+                onClick={() =>
+                  (window.location = 'mailto:brianne@coderheroes.com')
+                }
+                className="navbar__btn navbar__contact"
+              >
                 CONTACT US
               </button>
             </NavLink>
@@ -130,7 +126,15 @@ function NavBar(props) {
                 </Menu.Item>
               )}
               <Menu.Item key="2" icon={<ContactsOutlined />}>
-                <NavLink to="/">Contact Us</NavLink>
+                <NavLink
+                  to="/"
+                  onClick={() =>
+                    (window.location = 'mailto:brianne@coderheroes.com')
+                  }
+                  className="navbar__btn navbar__contact"
+                >
+                  Contact Us
+                </NavLink>
               </Menu.Item>
               <Menu.Item key="4" icon={<SnippetsOutlined />}>
                 <NavLink to="/">Programs</NavLink>

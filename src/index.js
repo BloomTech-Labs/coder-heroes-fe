@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Layout } from 'antd';
@@ -27,7 +29,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
+// import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
@@ -39,12 +41,14 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
-import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
-import Cart from './components/pages/ParentHome/Cart';
+import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
+import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
+import Cart from './components/pages/ParentHome/Cart';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
@@ -54,12 +58,14 @@ import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
 import HowManyStudents from './components/pages/Registration/HowManyStudents';
+import RegisterStep3 from './components/pages/Registration/RegisterStep3';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import Progress from './components/pages/ParentHome/Progress';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -101,22 +107,33 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register-2" component={HowManyStudents} />
-          <Route path="/instructor-register-1" component={InstructorWelcome} />
-          <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register" component={LoginPage} />
+          <Route path="/confirm" component={ConfirmEmail} />
+          <Route path="/register-1" component={ParentWelcome} />
+          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-          <Route path="/confirm" component={ConfirmEmail} />
+
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}
           />
+
+          <SecureRoute path="/parent/booking" component={ParentBooking} />
+          <SecureRoute path="/parent/calendar" component={ParentCalendar} />
+          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
+          <SecureRoute path="/parent/messages" component={ParentMessages} />
+          <SecureRoute path="/parent/cart" component={Cart} />
+
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <Route path="/parent" component={ParentDashboard} />
+
+          <Route path="/parent" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -124,14 +141,12 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
+
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
-          <Route path="/parent-booking" component={ParentBooking} />
-          <Route path="/parent-calendar" component={ParentCalendar} />
-          <Route path="/family" component={ParentFamilyHome} />
-          <Route path="/cart" component={Cart} />
+
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />
@@ -153,7 +168,7 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
+          <SecureRoute path="/parent-progress" component={Progress} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

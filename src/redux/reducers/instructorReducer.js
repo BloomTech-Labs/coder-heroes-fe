@@ -9,6 +9,7 @@ import {
   ADD_NEW_PROGRAM,
   SET_ERROR,
   GET_NEWSFEEDS,
+  GET_PROGRAMS,
   GET_INSTRUCTOR,
 } from '../actions/instructorActions';
 import { dummyData } from '../../dummyData';
@@ -28,7 +29,10 @@ const instructorReducer = (state = initialState, action) => {
         courses: payload,
       };
     case GET_USER_ACTION:
-      return state;
+      return {
+        ...state,
+        instructor_data: payload,
+      };
     case GET_INBOX_ACTION:
       return state;
     case SET_SELECTED_COURSE:
@@ -61,6 +65,11 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         newsfeed: payload,
+      };
+    case GET_PROGRAMS:
+      return {
+        ...state,
+        own_programs: payload,
       };
     default:
       return state;

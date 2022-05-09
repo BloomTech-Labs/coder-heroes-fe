@@ -132,6 +132,7 @@ function App() {
 
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
+
           <Route path="/parent" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />

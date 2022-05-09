@@ -31,7 +31,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "node start.js",
     "build": "craco build",
     "test": "craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import {
@@ -16,7 +14,8 @@ import {
   Typography,
 } from 'antd';
 import 'antd/dist/antd.css';
-import cloudbg from '../../../img/cloud-bg.jpg';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
+
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -38,6 +37,7 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
+
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);
 
@@ -58,66 +58,89 @@ const ParentFamilyHome = props => {
   };
 
   return (
-    <>
-      <ParentSidebar />
-      <Content
-        className="family-page-container"
-        style={{
-          backgroundImage: `url(${cloudbg})`,
-        }} //background image here while troubleshooting LESS rendering issue
+    <Content
+      className="family-page-container"
+      style={{
+        backgroundImage: `url(${cloudbg})`,
+      }} //background image here while troubleshooting LESS rendering issue
+    >
+      <Modal
+        title="Add Student"
+        visible={addStudentVisible}
+        onOk={handleAddStudentOk}
+        confirmLoading={addStudentConfirmLoading}
+        onCancel={handleAddStudentCancel}
+        footer={null}
       >
-        <Banner />
-        <Modal
-          title="Add Student"
-          visible={addStudentVisible}
-          onOk={handleAddStudentOk}
-          confirmLoading={addStudentConfirmLoading}
-          onCancel={handleAddStudentCancel}
-          footer={null}
-        >
-          <CreateNewStudent />
-        </Modal>
+        <CreateNewStudent />
+      </Modal>
 
-        <Row className="family-cards">
-          <Col span={8}>
-            <Card style={{ width: 300 }} className="parent-card">
-              <Meta
-                avatar={<Avatar src={user.avatarUrl} />}
-                title={user.name}
+
+      <Row className="family-cards">
+        <Col span={8}>
+          <Card className="parent-card">
+            <div className="card-info">
+              {/* // make dynamic with state management */}
+              <Avatar
+                className="avatar"
+                src="https://joeschmoe.io/api/v1/random"
               />
-              <Button className="parent-view-account-button">
-                VIEW ACCOUNT
+              <Text className="card-name">Parent Name</Text>
+              <Button
+                className="parent-view-account-button parent-card"
+                onClick={() => history.push('/parent')}
+              >
+                View Account
               </Button>
               <Button
                 className="add-student-button"
                 onClick={showAddStudentModal}
               >
-                ADD STUDENT
+                Add Student
               </Button>
-            </Card>
-          </Col>
+            </div>
+          </Card>
+        </Col>
 
-          {children &&
-            children.map(child => {
-              return (
-                <Col span={8} key={child.child_id}>
-                  <Card style={{ width: 300 }} className="student-card">
-                    <Meta
-                      avatar={
-                        <Avatar src="https://joeschmoe.io/api/v1/random" />
-                      } // avatar url for student not in backend
-                      title={child.username}
-                    />
-                    <Button className="student-view-account-button">
-                      VIEW ACCOUNT
-                    </Button>
-                  </Card>
-                </Col>
-              );
-            })}
-        </Row>
-      </Content>
-    </>
+        <Col span={8}>
+          <Card className="student-card">
+            <div className="card-info">
+              {/* make dynamic with state management */}
+              <Avatar
+                className="avatar"
+                src="https://joeschmoe.io/api/v1/random"
+              />
+              <Text className="card-name">Student Name</Text>
+              <Button
+                className="student-view-account-button"
+                onClick={() => history.push('/student')}
+              >
+                View Account
+              </Button>
+            </div>
+          </Card>
+        </Col>
+
+        <Col span={8}>
+          <Card className="student-card">
+            <div className="card-info">
+              {/* make dynamic with state management */}
+              <Avatar
+                className="avatar"
+                src="https://joeschmoe.io/api/v1/random"
+              />
+              <Text className="card-name">Student Name</Text>
+              <Button
+                className="student-view-account-button"
+                onClick={() => history.push('/student')}
+              >
+                View Account
+              </Button>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+    </Content>
   );
 };
 

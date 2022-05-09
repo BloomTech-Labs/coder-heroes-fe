@@ -32,7 +32,7 @@ const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
-  const [bgColor, setBgColor] = useState('#FEAD2A');
+  const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
 
   useEffect(() => {

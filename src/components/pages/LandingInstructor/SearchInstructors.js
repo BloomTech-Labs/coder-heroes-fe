@@ -3,7 +3,7 @@ import { Row, Col, Typography, Input, Select, Layout, Form } from 'antd';
 import '../../../styles/index.less';
 import { useOktaAuth } from '@okta/okta-react';
 import { StudentIcon, TeacherIcon, CalendarIcon } from './Icons';
-import { getInstructor } from '../../../redux/actions/instructorActions';
+import { getInstructors } from '../../../redux/actions/instructorActions';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ const SearchInstructors = props => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = () => {
-    dispatch(getInstructor(idToken));
+    dispatch(getInstructors(idToken));
   };
 
   return (

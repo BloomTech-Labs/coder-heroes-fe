@@ -4,8 +4,10 @@ import IndividualNewsParent from './IndividualNewsParent';
 import { connect } from 'react-redux';
 import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
 import { useOktaAuth } from '@okta/okta-react';
+import { Layout } from 'antd';
 
 function NewsContainer(props) {
+  const { Content } = props;
   const { newsfeed, dispatch } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -14,7 +16,7 @@ function NewsContainer(props) {
   }, [dispatch, idToken]);
 
   return (
-    <div className="news-container">
+    <Layout className="news-container">
       <IndividualNewsParent className="news-article" />
       <IndividualNewsParent
         className="
@@ -32,7 +34,7 @@ function NewsContainer(props) {
           />
         );
       })}
-    </div>
+    </Layout>
   );
 }
 const mapStateToProps = state => {

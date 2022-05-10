@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
+import ParentNavbar from './ParentNavbar';
 import StripeCheckoutButton from '../Stripe/StripeCheckoutButton';
 // import { useHistory } from 'react-router-dom';
 import { Modal, Button, Layout } from 'antd';
@@ -54,6 +55,7 @@ function Cart(props) {
       <ParentSidebar />
       <Content>
         <Banner />
+        <ParentNavbar />
         {cart.length === 0 ? (
           <div>
             {/* <div>You don't have any item in cart yet!</div> */}

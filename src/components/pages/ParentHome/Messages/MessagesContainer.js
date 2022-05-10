@@ -5,6 +5,7 @@ import Banner from '../../../common/Banner';
 import ParentSidebar from '../ParentSidebar';
 import ActiveMessage from './ActiveMessage';
 import MessageList from './MessageList';
+import ParentNavbar from '../ParentNavbar';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
 
@@ -16,6 +17,7 @@ function ParentMessages() {
       <ParentSidebar />
       <Content className="messages-container">
         <Banner />
+        <ParentNavbar />
         <Row gutter={[8, 8]}>
           <Col span={18}>
             <ActiveMessage className="active-message" />

@@ -46,6 +46,8 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
+// import ParentTasks from './components/pages/ParentHome/ParentTasks';
+import ParentResources from './components/pages/ParentHome/ParentResources';
 import ParentProgress from './components/pages/ParentHome/Progress';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
@@ -128,6 +130,8 @@ function App() {
           <SecureRoute path="/parent/family" component={ParentHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
+          {/* <SecureRoute path="/parent/tasks" component={ParentTasks} /> */}
+          <SecureRoute path="/parent/resources" component={ParentResources} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
 

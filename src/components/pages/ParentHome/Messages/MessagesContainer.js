@@ -19,8 +19,8 @@ function ParentMessages() {
         <Banner />
         <ParentNavbar />
         <Row gutter={[8, 8]}>
-          <Col span={18}>
-            <ActiveMessage className="active-message" />
+          <Col span={18} className="active-message">
+            <ActiveMessage />
           </Col>
           <Col span={6}>
             <Card>

@@ -13,9 +13,11 @@ import {
   Row,
   Typography,
 } from 'antd';
+import { ThunderboltFilled } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
-
+import avatar17 from '../../../img/Avatars/Avatar17.svg';
+import avatar7 from '../../../img/Avatars/Avatar07.svg';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -37,7 +39,6 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
-
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);
 
@@ -75,16 +76,12 @@ const ParentFamilyHome = props => {
         <CreateNewStudent />
       </Modal>
 
-
       <Row className="family-cards">
         <Col span={8}>
-          <Card className="parent-card">
+          <Card className="parent">
             <div className="card-info">
               {/* // make dynamic with state management */}
-              <Avatar
-                className="avatar"
-                src="https://joeschmoe.io/api/v1/random"
-              />
+              <ThunderboltFilled className="avatar icon" />
               <Text className="card-name">Parent Name</Text>
               <Button
                 className="parent-view-account-button parent-card"
@@ -103,13 +100,10 @@ const ParentFamilyHome = props => {
         </Col>
 
         <Col span={8}>
-          <Card className="student-card">
+          <Card className="student">
             <div className="card-info">
               {/* make dynamic with state management */}
-              <Avatar
-                className="avatar"
-                src="https://joeschmoe.io/api/v1/random"
-              />
+              <Avatar className="avatar" src={avatar17} />
               <Text className="card-name">Student Name</Text>
               <Button
                 className="student-view-account-button"
@@ -122,13 +116,10 @@ const ParentFamilyHome = props => {
         </Col>
 
         <Col span={8}>
-          <Card className="student-card">
+          <Card className="student">
             <div className="card-info">
               {/* make dynamic with state management */}
-              <Avatar
-                className="avatar"
-                src="https://joeschmoe.io/api/v1/random"
-              />
+              <Avatar className="avatar" src={avatar7} />
               <Text className="card-name">Student Name</Text>
               <Button
                 className="student-view-account-button"

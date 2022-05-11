@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "node start.js",
-    "build": "craco build",
+    "build": "craco --max_old_space_size=4096 build",
     "test": "craco test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",

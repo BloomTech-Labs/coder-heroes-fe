@@ -34,6 +34,36 @@
   }
 }
 
+//****Parent-Navbar styles****
+.parent-navbar-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.parent-navbar {
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  width: 75%;
+  border: none;
+}
+
+.parent-navbar-items {
+  width: 20%;
+}
+
+.dropStudent {
+  background-color: white;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 //****FamilyPage styles****
 .family-page-container {
   display: flex;
@@ -85,10 +115,6 @@
   color: @text__color--black;
 }
 
-// .parent .card-name{
-//   color: @text__color--white;
-// }
-
 .student .card-name{
   margin-bottom:30%;
 }
@@ -139,22 +165,6 @@
   width: 100%;
 }
 
-// .parent{
-//   .card();
-//   background-color: @body__bg--blue;
-//   color: @text__color--white;
-//   border-radius: .938em 0 0 .938em;
-//   padding-bottom: 3%;
-// }
-
-// .student{
-//   .card();
-//   background-color: @body__bg--white;
-//   border: none;
-//   border-radius: .938em;
-// }
-
-
 .add-student-button {
   background-color: @btn__bg--orange;
   color: @text__color--white;
@@ -186,14 +196,6 @@
   flex-direction: column;
   align-items: center;
   size: large;
-}
-
-//****Parent-Navbar styles****
-.parent-navbar {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 800px;
 }
 
 // Create New Student Modal
@@ -249,7 +251,6 @@
   justify-content: center;
 }
 
-
 //****Current Courses Details Modal****
 .current-courses-details-modal {
   position: absolute;
@@ -272,3 +273,57 @@
 .news-container{
   padding: 5%;
 }
+
+//****Parent-Progress styles****
+.progress-bars {
+  font-size: 50px;
+  padding: 0% 10%;
+  display:flex;
+  flex-direction: row;
+}
+
+.progress-bar {
+  font-size: 30px;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  size: large;
+}
+
+  //****Parent-Tasks styles****
+.navDrop {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.classCard {
+  margin: 5%;
+}
+
+//****Parent-Resources styles****
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.artImg {
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.resourceCard {
+  width: 25%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: nowrap;
+  justify-content: center;
+  margin-top: 5%;
+  }

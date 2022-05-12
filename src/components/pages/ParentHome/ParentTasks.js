@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
+import ParentNavbar from './ParentNavbar';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Collapse, Card } from 'antd';
 import 'antd/dist/antd.css';
@@ -11,6 +12,7 @@ const ParentTasks = () => {
     <Layout>
       <ParentSidebar active="dashboard" />
       <Banner />
+      <ParentNavbar />
       <Content>
         <Card title="Intro to HTML with Teacher Name">
           <Collapse>

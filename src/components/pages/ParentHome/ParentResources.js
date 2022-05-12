@@ -16,7 +16,6 @@ const ParentResources = () => {
         <Banner />
         <div className="navDrop">
           <ParentNavbar />
-          {/* <StudentDropdown /> */}
         </div>
         <div className="cardContainer">
           <Card className="resourceCard">

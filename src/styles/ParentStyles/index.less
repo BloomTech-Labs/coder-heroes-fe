@@ -1,4 +1,4 @@
-//family page buttons, parent/student card names, invoke card on student, 
+//family page buttons, parent/student card names, invoke card on student,
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
@@ -35,14 +35,14 @@
 }
 
 //****Parent-Navbar styles****
-.parent-navbar-container{
+.parent-navbar-container {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
 .parent-navbar {
-  display:flex;
+  display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   text-align: center;
@@ -61,7 +61,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 //****FamilyPage styles****
@@ -76,7 +75,7 @@
   border: none;
   font-family: @text__font-family;
   height: 100%;
-    button {
+  button {
     border: none;
     border-radius: @btn__border-radius;
     text-transform: uppercase;
@@ -91,7 +90,7 @@
   justify-content: center;
   align-items: center;
   background-color: @body__bg--white;
-  border-radius: .938em;
+  border-radius: 0.938em;
   margin: 5% auto;
   border: none;
 }
@@ -105,59 +104,58 @@
   margin: 8% auto;
 }
 
-.card-info .card-name{
+.card-info .card-name {
   text-align: center;
 }
 
-.card-name{
+.card-name {
   font-size: 1rem;
   width: 100%;
   color: @text__color--black;
 }
 
-.student .card-name{
-  margin-bottom:30%;
+.student .card-name {
+  margin-bottom: 30%;
 }
 
 .avatar {
   width: 9.5em;
   height: 9.5em;
-  border: .75rem solid  @body__bg--blue;
+  border: 0.75rem solid @body__bg--blue;
   border-radius: 6.25em;
   background-size: auto;
 }
 
- .parent .avatar {
-  border: .625em solid @body__bg--white;
-   background-color: @footer__bg;
+.parent .avatar {
+  border: 0.625em solid @body__bg--white;
+  background-color: @footer__bg;
 }
 
-.icon{
+.icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.parent{
+.parent {
   .card();
-  .card-name{
-  color: @text__color--white;
-}
+  .card-name {
+    color: @text__color--white;
+  }
   background-color: @body__bg--blue;
   color: @text__color--white;
-  border-radius: .938em 0 0 .938em;
+  border-radius: 0.938em 0 0 0.938em;
   padding-bottom: 3%;
 }
 
-.student{
+.student {
   .card();
   background-color: @body__bg--white;
   border: none;
-  border-radius: .938em;
+  border-radius: 0.938em;
 }
 
-
-.card{
+.card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,28 +179,11 @@
   margin: 5%;
 }
 
-//****Parent-Progress styles****
-.progress-bars {
-  font-size: 50px;
-  padding: 0% 10%;
-  display:flex;
-  flex-direction: row;
-}
-
-.progress-bar {
-  font-size: 30px;
-  padding: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  size: large;
-}
-
 // Create New Student Modal
 .create-new-student-modal {
   position: absolute;
-  border: .063em solid black;
-  border-radius: .625em;
+  border: 0.063em solid black;
+  border-radius: 0.625em;
   background: @body__bg--white;
   height: 35em;
   width: 30em;
@@ -270,7 +251,7 @@
   cursor: pointer;
 }
 
-.news-container{
+.news-container {
   padding: 5%;
 }
 
@@ -278,7 +259,7 @@
 .progress-bars {
   font-size: 50px;
   padding: 0% 10%;
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
@@ -291,10 +272,10 @@
   size: large;
 }
 
-  //****Parent-Tasks styles****
+//****Parent-Tasks styles****
 .navDrop {
-  display:flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
 }
@@ -326,4 +307,4 @@
   flex-flow: nowrap;
   justify-content: center;
   margin-top: 5%;
-  }
+}

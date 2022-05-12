@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
 import '../../../../styles/registration.less';
 import avi1 from '../../../../img/Avatars/Avatar01.svg';
 import avi2 from '../../../../img/Avatars/Avatar03.svg';
@@ -53,14 +52,7 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
     if (selectedFile) {
       fd.append('image', selectedFile, selectedFile.name);
     }
-    // Code below will be used with endpoint for storing images
-    // axios.post('endpointForFileUploads', fd).then(res => {
-    // setFormValues({
-    //   ...formValues,
-    //   [avatarURL]: res,
-    // });
-    // updateStudent(formValues);
-    // });
+    // fd will be posted to endpoint for storing images
   }, [selectedFile]);
 
   return (

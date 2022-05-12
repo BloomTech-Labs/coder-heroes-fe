@@ -39,8 +39,8 @@ const ParentSideBar = props => {
     >
       <Menu
         className="parent-dashboard-sidebar"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
+        defaultselectedkeys={['1']}
+        defaultopenkeys={['sub1']}
         style={{ height: '100%' }}
         mode="inline"
         theme="light"

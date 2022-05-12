@@ -34,19 +34,19 @@ const ParentNavbar = props => {
       inlineCollapsed={collapsed}
     >
       <Menu.Item key="progress" icon={<ClockCircleOutlined fontSize="150px" />}>
-        <Link to="/parent-progress">Progress</Link>
+        <Link to="/parent/progress">Progress</Link>
       </Menu.Item>
       <Menu.Item key="achievements" icon={<GiftOutlined fontSize="150px" />}>
-        <Link to="/achievements">Achievements</Link>
+        <Link to="/parent/achievements">Achievements</Link>
       </Menu.Item>
       <Menu.Item key="tasks" icon={<UnorderedListOutlined fontSize="150px" />}>
-        <Link to="/tasks">Tasks</Link>
+        <Link to="/parent/tasks">Tasks</Link>
       </Menu.Item>
       <Menu.Item
         key="resources"
         icon={<FundProjectionScreenOutlined fontSize="150px" />}
       >
-        <Link to="/resources">Resources</Link>
+        <Link to="/parent/resources">Resources</Link>
       </Menu.Item>
     </Menu>
   );

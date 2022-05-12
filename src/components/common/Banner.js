@@ -28,8 +28,8 @@ export default function Banner() {
       return bannerContent('News Feed');
     case '/parent':
       return bannerContent('Mission Control', '');
-    case '/parent-progress':
-      return bannerContent('Progress', "view your children's progress");
+    case '/parent/progress':
+      return bannerContent('Progress', '');
     case '/parent/calendar':
       return bannerContent('Calendar', '');
     case '/parent/booking':
@@ -37,11 +37,15 @@ export default function Banner() {
     case '/parent/newsfeed':
       return bannerContent('Newsfeed', '');
     case '/parent/family':
-      return bannerContent('CHOOSE A PROFILE');
+      return bannerContent('Choose a Profile', '');
     case '/parent/cart':
-      return bannerContent('Cart');
+      return bannerContent('Cart', '');
     case '/parent/messages':
-      return bannerContent('Messages');
+      return bannerContent('Messages', '');
+    case '/parent/tasks':
+      return bannerContent('Tasks');
+    case '/parent/resources':
+      return bannerContent('Resources');
     case '/student':
       return bannerContent('Student Dashboard');
     case '/classroom':

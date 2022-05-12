@@ -11,7 +11,7 @@ const FeedbackBadges = ({ badge }) => {
           className="badge__info"
           avatar={
             <Avatar
-              src={badge.image}
+              src={`../../../styles/ClassroomStyles/badges/${badge.image}.png`}
               size={128}
               className="badge__card__image"
             />

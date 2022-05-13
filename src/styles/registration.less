@@ -76,7 +76,7 @@
 
 .reg-form-title {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-top: 1rem;
     
     p {
@@ -120,15 +120,17 @@
     }
     .form-line{
         margin: .5rem 0;
-        
     }
     .long-form-line {
-        textarea{
-            width: 64.8rem;
+        margin: -.2rem 0;
+        width: 100%;
+        textarea {
+            width: 100%;
             height: 10rem;
             border: none;
             padding: 1rem;
             background-color: #F4F8F5;
+            display: block
         }
     }
     .error{

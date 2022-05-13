@@ -101,9 +101,8 @@ const InstrRegForm = () => {
                 value={formValues.name}
                 onChange={onChange}
               />
+              <span className="error">{formErrors.name}</span>
             </label>
-
-            <span className="error">{formErrors.name}</span>
 
             <label>
               <h3 className="labelName">Email:</h3>
@@ -114,9 +113,8 @@ const InstrRegForm = () => {
                 value={formValues.email}
                 onChange={onChange}
               />
+              <span className="error">{formErrors.email}</span>
             </label>
-
-            <span className="error">{formErrors.email}</span>
           </div>
 
           <div className="form-line">
@@ -129,9 +127,8 @@ const InstrRegForm = () => {
                 value={formValues.location}
                 onChange={onChange}
               />
+              <span className="error">{formErrors.location}</span>
             </label>
-
-            <span className="error">{formErrors.location}</span>
 
             <label>
               <h3 className="labelName">Phone Number:</h3>
@@ -142,9 +139,8 @@ const InstrRegForm = () => {
                 value={formValues.phone}
                 onChange={onChange}
               />
+              <span className="error">{formErrors.phone}</span>
             </label>
-
-            <span className="error">{formErrors.phone}</span>
           </div>
 
           <div className="long-form-line">
@@ -157,11 +153,8 @@ const InstrRegForm = () => {
                 value={formValues.education}
                 onChange={onChange}
               />
-            </label>
-
-            <div className="BigForm">
               <span className="error">{formErrors.education}</span>
-            </div>
+            </label>
 
             <label>
               <h3 className="labelName">Technical Experience:</h3>
@@ -172,11 +165,8 @@ const InstrRegForm = () => {
                 value={formValues.tech}
                 onChange={onChange}
               />
-            </label>
-
-            <div className="BigForm">
               <span className="error">{formErrors.tech}</span>
-            </div>
+            </label>
 
             <label>
               <h3 className="labelName">Notes:</h3>
@@ -187,10 +177,8 @@ const InstrRegForm = () => {
                 value={formValues.notes}
                 onChange={onChange}
               />
-            </label>
-            <div className="BigForm">
               <span className="error"></span>
-            </div>
+            </label>
           </div>
           <div className="content reg-btn-container">
             <span className="warning">{formWarning.warning}</span>

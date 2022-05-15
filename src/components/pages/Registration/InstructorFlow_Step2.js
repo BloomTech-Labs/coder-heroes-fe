@@ -3,6 +3,7 @@ import '../../../styles/registration.less';
 import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
 import RegistrationProgress from './RegistrationProgress';
+import { useHistory } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -56,9 +57,12 @@ const InstrRegForm = () => {
     // TODO
   };
 
+  let history = useHistory();
+
   const onSubmit = evt => {
     evt.preventDefault();
     formSave();
+    history.push('/instructor-register-success');
   };
 
   const onChange = evt => {

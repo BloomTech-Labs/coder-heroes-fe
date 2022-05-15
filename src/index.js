@@ -117,9 +117,8 @@ function App() {
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-
           <Route
-            path="/register-success-instructor"
+            path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
 

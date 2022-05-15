@@ -39,6 +39,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  background-color: @body__bg--peach;
 }
 
 .parent-navbar {
@@ -49,6 +50,7 @@
   align-items: center;
   width: 75%;
   border: none;
+  background-color: @body__bg--peach;
 }
 
 .parent-navbar-items {
@@ -61,6 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: @body__bg--peach;
 }
 
 //****FamilyPage styles****
@@ -102,11 +105,13 @@
   flex-direction: column;
   max-width: 100%;
   margin: 8% auto;
-}
 
-.card-info .card-name {
+  .card-name {
   text-align: center;
 }
+}
+
+
 
 .card-name {
   font-size: 1rem;
@@ -126,10 +131,7 @@
   background-size: auto;
 }
 
-.parent .avatar {
-  border: 0.625em solid @body__bg--white;
-  background-color: @footer__bg;
-}
+
 
 .icon {
   display: flex;
@@ -146,6 +148,10 @@
   color: @text__color--white;
   border-radius: 0.938em 0 0 0.938em;
   padding-bottom: 3%;
+  .avatar {
+  border: 0.625em solid @body__bg--white;
+  background-color: @footer__bg;
+  }
 }
 
 .student {
@@ -307,4 +313,24 @@
   flex-flow: nowrap;
   justify-content: center;
   margin-top: 5%;
+}
+
+//****Cart styles**** 
+
+.cart-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.achievements{
+background: no-repeat;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center center;
+
+
+  // background: url('../../img/Assets/achievements.png');
+
 }

@@ -1,35 +1,63 @@
-
-h4{
-text-align: center;
-font-family:@text__font-family;
-font-size: @text__font-size--h4;
-border-bottom:1px solid #F66721;
+h4 {
+  text-align: center;
+  font-family: @text__font-family;
+  font-size: @text__font-size--h4;
+  border-bottom: 1px solid @btn__bg--orange;
 }
 
-button{
-    background-color:@btn__bg--orange;
+button {
+  background-color: @btn__bg--orange;
 }
 
-.messages-container{
+.content-container {
+  display:flex;
   background-image: url('../../img/Assets/beige-faded-clouds.png');
+
 }
 
-.message-list{
-    margin: auto 5%;
+.component-container {
+  display: flex;
+  width: 80%;
 }
 
-.active-message{
-    background-color: white;
+.card-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
 }
 
-.message-thread{
-    padding: auto 5%;
+.parent-message-card{
+width: 70%;
 }
 
-.ant-list.ant-list-split{
-    margin: 10%;
+.parent-message-card:first-child {
+  width: 30%;
+  background-color: @body__bg--concrete;
 }
 
-.text-box{
-    margin: 0 10%;
+.message-list {
+  width: 100%;
+}
+
+.message-list-item:first-child{
+  background-color: @body__bg--peach;
+}// used to show selected conversation color; non-functional
+
+.active-message {
+  background-color: @body__bg--white;
+}
+
+.message-thread {
+  padding: auto 5%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.text-box {
+  margin: 0 10%;
+}
+
+.ant-list-item-meta-description{
+  width: 100%;
 }

@@ -28,6 +28,8 @@ export default function Banner() {
       return bannerContent('News Feed');
     case '/parent':
       return bannerContent('Mission Control', '');
+    case '/parent/achievements':
+      return bannerContent('Achievements');
     case '/parent/progress':
       return bannerContent('Progress', '');
     case '/parent/calendar':

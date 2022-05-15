@@ -14,6 +14,8 @@ import {
   clearCart,
 } from '../../../redux/actions/parentActions';
 
+import '../../../styles/ParentStyles/index.less';
+
 const { Content } = Layout;
 
 function Cart(props) {
@@ -85,7 +87,7 @@ function Cart(props) {
               };
 
               return (
-                <div key={index}>
+                <div className="cart-content" key={index}>
                   <div>
                     <div>Course: {sessionDetail.subject}</div>
                     <div>Book for: {booking.child_name}</div>

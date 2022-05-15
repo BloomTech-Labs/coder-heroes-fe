@@ -46,6 +46,7 @@ import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
+import ParentAchievements from './components/pages/ParentHome/ParentAchievements';
 import ParentTasks from './components/pages/ParentHome/ParentTasks';
 import ParentResources from './components/pages/ParentHome/ParentResources';
 import ParentProgress from './components/pages/ParentHome/Progress';
@@ -124,7 +125,10 @@ function App() {
             path="/register-success-instructor"
             component={SuccessfulSubmission}
           />
-
+          <SecureRoute
+            path="/parent/achievements"
+            component={ParentAchievements}
+          />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentHome} />

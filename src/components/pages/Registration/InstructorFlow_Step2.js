@@ -49,19 +49,39 @@ const InstrRegForm = () => {
       ...formValues,
       [name]: value,
     });
-
-    console.log(formValues);
-  };
-
-  const formSave = () => {
-    // TODO
   };
 
   let history = useHistory();
 
   const onSubmit = evt => {
     evt.preventDefault();
-    formSave();
+
+    // TODO: should look similar to this
+    // const data = {
+    //   firstName: formValues.name, // TODO
+    //   lastName: formValues.name, // TODO
+    //   email: formValues.email,
+    //   password: '123456', // TODO
+    //   role_id: 1 // TODO
+    // };
+
+    // fetch('/user/register', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    // .then(() => {
+    //   history.push('/instructor-register-success');
+    // })
+    // .catch(e => {
+    //   console.error(e);
+    //   setFormWarning(e);
+    // });
+
+    // TODO: remove this stub
     history.push('/instructor-register-success');
   };
 

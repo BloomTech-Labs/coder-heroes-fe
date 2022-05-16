@@ -4,6 +4,7 @@ import Banner from '../../common/Banner';
 import ParentNavbar from '../ParentHome/ParentNavbar';
 import { Layout } from 'antd';
 import ParentBookingContainer from './ParentBookingContainer';
+import '../../../styles/ParentStyles/booking.less';
 
 function ParentBooking() {
   const { Content } = Layout;
@@ -14,9 +15,8 @@ function ParentBooking() {
       <Content>
         <Banner />
         <ParentNavbar />
-        <div>
-          <ParentBookingContainer />
-        </div>
+
+        <ParentBookingContainer className="booking-container" />
       </Content>
     </Layout>
   );

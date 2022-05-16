@@ -45,7 +45,7 @@ export default function Banner() {
     case '/parent/tasks':
       return bannerContent('TASKS');
     case '/parent/resources':
-      return bannerContent('RESOURCES');
+      return bannerContent('PARENT RESOURCES');
     case '/student':
       return bannerContent('Student Dashboard');
     case '/classroom':

@@ -29,7 +29,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-// import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
+import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
@@ -46,7 +46,6 @@ import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
-import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
@@ -128,7 +127,7 @@ function App() {
 
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
+          <SecureRoute path="/parent/family" component={ParentHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />

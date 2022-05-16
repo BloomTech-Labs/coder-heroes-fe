@@ -6,6 +6,7 @@ import Banner from '../../common/Banner';
 import './../../../styles/ParentStyles/index.less';
 
 function ParentHome() {
+
   return (
     <Layout>
       <Banner />

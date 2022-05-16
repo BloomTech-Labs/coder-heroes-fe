@@ -29,7 +29,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
-
+// import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
@@ -42,10 +42,10 @@ import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutM
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
+import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
-import ParentHome from './components/pages/ParentHome/ParentHome';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
@@ -119,6 +119,7 @@ function App() {
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
+
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}
@@ -136,6 +137,8 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <SecureRoute path="/parent" component={ParentDashboard} />
+
+          <Route path="/parent2" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />

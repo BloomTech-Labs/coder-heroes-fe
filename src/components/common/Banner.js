@@ -35,7 +35,7 @@ export default function Banner() {
     case '/parent/booking':
       return bannerContent('Courses', '');
     case '/parent/newsfeed':
-      return bannerContent('News Feed', '');
+      return bannerContent('Newsfeed', '');
     case '/parent/family':
       return bannerContent('CHOOSE A PROFILE');
     case '/parent/cart':

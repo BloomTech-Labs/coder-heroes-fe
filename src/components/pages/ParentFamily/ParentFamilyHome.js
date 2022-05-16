@@ -14,7 +14,8 @@ import {
   Typography,
 } from 'antd';
 import 'antd/dist/antd.css';
-import cloudbg from '../../../img/cloud-bg.jpg';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
+
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
@@ -72,6 +73,7 @@ const ParentFamilyHome = props => {
       >
         <CreateNewStudent />
       </Modal>
+
       <Row className="family-cards">
         <Col span={8}>
           <Card className="parent-card">
@@ -136,7 +138,7 @@ const ParentFamilyHome = props => {
           </Card>
         </Col>
       </Row>
-    </Content>        
+    </Content>
   );
 };
 

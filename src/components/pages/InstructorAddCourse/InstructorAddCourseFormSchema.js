@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const InstructorAddCourseFormSchema = yup.object().shape({
-  size: yup
+  max_size: yup
     .number()
     .min(2, 'Class size must have at least 2 students')
     .integer('Number must be a whole value')
@@ -36,7 +36,7 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     .date()
     .typeError('You must specify a valid end date')
     .required('You must specify a valid end date'),
-  sessions: yup
+  number_of_sessions: yup
     .number()
     .integer('Number must be a whole value')
     .min(1, 'Must have at least 1 session')
@@ -50,8 +50,8 @@ const InstructorAddCourseFormSchema = yup.object().shape({
     )
     .typeError('Must be a valid zoom link')
     .required('Please enter a zoom link!'),
-  day: yup
-    .string()
+  days_of_weeks: yup
+    .array()
     .typeError('Must select a Day')
     .oneOf(
       [
@@ -65,19 +65,26 @@ const InstructorAddCourseFormSchema = yup.object().shape({
       ],
       'Please select a day'
     ),
-  course_type: yup
-    .string()
-    .typeError('Must select a program')
-    .oneOf(
-      ['CoderYoga', 'CoderCamp', 'CoderSitters'],
-      'Please select a Course'
-    ),
+  instructor_id: yup
+    .number()
+    .required('Must be logged in as instructor')
+    .typeError('Instructor id must be an number'),
+  program_id: yup
+    .number()
+    .required('Must select a program type')
+    .typeError('program id must be an number'),
   course_name: yup
     .string()
     .min(5, 'Too Short! Has to be More than 5 characters')
     .max(50, 'Too Long! Has to be less than 50 characters')
     .required('Course Name is Required')
     .typeError('Course Name is required'),
+  course_description: yup
+    .string()
+    .typeError('course description must be as string')
+    .min(5, 'course description must be at least 5 char')
+    .trim('whitespace alone is not accepted')
+    .required('you must provide a course description'),
 });
 
 export default InstructorAddCourseFormSchema;

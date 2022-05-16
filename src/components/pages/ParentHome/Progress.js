@@ -6,16 +6,14 @@ import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Content } from 'antd';
 import 'antd/dist/antd.css';
-import { findByLabelText } from '@testing-library/react';
 import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
   const { Content } = Layout;
-
   return (
     <Layout style={{ width: '100%' }}>
       <ParentSidebar active="dashboard" />
-      <Content>
+      <Content className="progress-container">
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

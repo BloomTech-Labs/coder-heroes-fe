@@ -1,70 +1,115 @@
 import React, { useState, useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import 'antd/dist/antd.css';
 import '../../../styles/InstructorStyles/statsStyle.less';
 import { Card, Typography } from 'antd';
 import {
   UserOutlined,
   BarChartOutlined,
-  DollarOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
-import { getStats } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
-import { dummyData } from '../../../dummyData';
+import { getCurrentUser } from '../../../redux/actions/userActions';
+import {
+  getInstructor,
+  getCourses,
+} from '../../../redux/actions/instructorActions';
 
-const initialValues = [
-  {
-    icon: <UserOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
-    title: 'My Students',
-    value: 0,
-  },
-  {
-    icon: <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
-    title: 'Active Course',
-    value: 0,
-  },
-  {
-    icon: <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
-    title: 'Completed Course',
-    value: 0,
-  },
-  {
-    icon: <DollarOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />,
-    title: 'Total Earnings',
-    value: '$' + 0,
-  },
-];
-
-function InstructorStats() {
-  const { authState } = useOktaAuth();
+const initialValues = {
+  students: 0,
+  activeCourses: 0,
+  completedCourses: 0,
+};
+function InstructorStats(props) {
+  const { authState, authService } = useOktaAuth();
   const { idToken } = authState;
+  const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {
-    // setStats(getStats()); // ENABLE WHEN READY TO CONNECT STATS TO STATE
-  }, []);
+    if (!props.user.name) {
+      dispatch(getCurrentUser(idToken, authState, authService));
+    }
+    // eslint-disable-next-line
+  }, [dispatch, idToken]);
+
+  useEffect(() => {
+    dispatch(getInstructor(idToken, props.user.profile_id));
+  }, [dispatch, idToken, props.user.profile_id]);
+
+  useEffect(() => {
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
+
+  useEffect(() => {
+    let completed = 0;
+    let active = 0;
+    props.courses.forEach(course => {
+      if (course.active) {
+        active += 1;
+      } else {
+        completed += 1;
+      }
+      setStats({
+        ...stats,
+        completedCourses: completed,
+        activeCourses: active,
+      });
+    });
+    // eslint-disable-next-line
+  }, [props.courses]);
 
   const { Title } = Typography;
 
   return (
     <>
-      <Title className="instructor__name">
-        {dummyData.instructor_data.instructor_name}
-      </Title>
+      <Title className="instructor__name">{props.user.name}</Title>
       <div class="stats-wrapper">
-        {stats.map(stat => {
-          return (
-            <Card id="ant-card-stat">
-              <div class="stat-icon-wrapper">{stat.icon}</div>
-              <div class="stat-content">
-                <p>{stat.title}</p>
-                <h3>{stat.value}</h3>
-              </div>
-            </Card>
-          );
-        })}
+        <Card id="ant-card-stat">
+          <div class="stat-icon-wrapper">
+            <UserOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
+          </div>
+          <div class="stat-content">
+            <p>Students</p>
+            <h3>{stats.students}</h3>
+          </div>
+        </Card>
+        <Card id="ant-card-stat">
+          <div class="stat-icon-wrapper">
+            <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
+          </div>
+          <div class="stat-content">
+            <p>Active Course</p>
+            <h3>{stats.activeCourses}</h3>
+          </div>
+        </Card>
+        <Card id="ant-card-stat">
+          <div class="stat-icon-wrapper">
+            <BarChartOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
+          </div>
+          <div class="stat-content">
+            <p>Completed Course</p>
+            <h3>{stats.completedCourses}</h3>
+          </div>
+        </Card>
+        <Card id="ant-card-stat">
+          <div class="stat-icon-wrapper">
+            <StarOutlined style={{ fontSize: '40px', color: '#F79E1B' }} />
+          </div>
+          <div class="stat-content">
+            <p>Rating</p>
+            <h3>{props.instructor.rating}</h3>
+          </div>
+        </Card>
       </div>
     </>
   );
 }
-
-export default InstructorStats;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.currentUser,
+    instructor: state.instructorReducer.instructor,
+    courses: state.instructorReducer.courses,
+  };
+};
+export default connect(mapStateToProps)(InstructorStats);

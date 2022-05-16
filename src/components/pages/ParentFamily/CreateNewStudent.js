@@ -1,6 +1,8 @@
 import React from 'react';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
+import { useOktaAuth } from '@okta/okta-react';
 
 const CreateNewStudent = () => {
   const layout = {
@@ -8,25 +10,30 @@ const CreateNewStudent = () => {
     wrapperCol: { span: 16 },
   };
 
-  const onFinish = values => {
-    //   Potential axios POST call here? Need to research AntDesign more
-    console.log('Success:', values);
-  };
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
 
-  const onFinishFailed = errorInfo => {
-    //   Does error handling go in Axios POST call, or here on its own? More research needed
-    console.log('Failed:', errorInfo);
+  const onFinish = values => {
+    axiosWithAuth(idToken)
+      .post('/children', values.student)
+      .then(resp => {
+        // Post is posting proper required information. There is a bug/desync on the BE side that prevents us currently from seeing our response or handling a successful promise.
+        // Once the 500 error is cleared from BE, FE devs can see the response and choose with the stakeholder how/if they want to notify the user of a successful post here.
+        console.log(resp);
+      })
+      .catch(error => {
+        console.log({ error });
+      });
   };
 
   const validateMessages = {
-    required: '${label} is required!',
-    types: {
-      email: '${label} is not a valid email!',
-      number: '${label} is not a valid number!',
-    },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
-    },
+    // required: '${label} is required!',
+    // types: {
+    //   number: '${label} is not a valid number!',
+    // },
+    // number: {
+    //   range: '${label} must be between ${min} and ${max}',
+    // },
   };
 
   return (
@@ -35,7 +42,6 @@ const CreateNewStudent = () => {
       name="add-student"
       className="create-new-student-form"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       validateMessages={validateMessages}
     >
       <Form.Item
@@ -68,20 +74,6 @@ const CreateNewStudent = () => {
         label="Username"
         name={['student', 'username']}
         rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Email"
-        name={['student', 'email']}
-        rules={[
-          {
-            required: true,
-            message: 'Please input your email!',
-            type: 'email',
-          },
-        ]}
       >
         <Input />
       </Form.Item>

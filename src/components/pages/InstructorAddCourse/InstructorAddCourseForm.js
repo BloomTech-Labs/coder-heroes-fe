@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
-import { addProgram, setError } from '../../../redux/actions/instructorActions';
+import {
+  getPrograms,
+  setError,
+  getUser,
+} from '../../../redux/actions/instructorActions';
 import '../../../styles/InstructorStyles/addCourse.less';
 import { connect } from 'react-redux';
 import '../../../styles/index.less';
@@ -15,9 +19,6 @@ const { Option } = Select;
 const { Content } = Layout;
 const { Title, Text } = Typography;
 
-//dummy data
-const programs = ['CoderYoga', 'CoderCamp', 'CoderSitters'];
-
 const days = [
   'Monday',
   'Tuesday',
@@ -29,38 +30,37 @@ const days = [
 ];
 
 const initialClassDataState = {
-  course_type: '',
   course_name: '',
-  // course_description
-  day: '', //needs to be added to backend
-  size: '',
-  //max_size
-  min_age: '', //needs to be added to backend
-  max_age: '', //needs to be added to backend
-  start_time: '',
-  end_time: '',
-  start_date: '',
-  end_date: '',
-  sessions: '', //needs to be added to backend
-  location: '',
-  open_seats_remaining: '',
-  instructor_id: '',
-  // number_of_sessions
-};
-
-const initialClassDataStateFormErrors = {
-  course_type: '',
-  course_name: '',
-  day: '',
-  size: '',
+  course_description: '',
+  days_of_week: [],
+  max_size: '',
   min_age: '',
   max_age: '',
   start_time: '',
   end_time: '',
   start_date: '',
   end_date: '',
-  sessions: '',
+  number_of_sessions: '',
   location: '',
+  instructor_id: '',
+  program_id: '',
+};
+
+const initialClassDataStateFormErrors = {
+  course_name: '',
+  course_description: '',
+  days_of_week: '',
+  max_size: '',
+  min_age: '',
+  max_age: '',
+  start_time: '',
+  end_time: '',
+  start_date: '',
+  end_date: '',
+  number_of_sessions: '',
+  location: '',
+  instructor_id: '',
+  program_id: '',
 };
 
 const InstructorAddCourseForm = props => {
@@ -70,6 +70,19 @@ const InstructorAddCourseForm = props => {
   const [disabled, setDisabled] = useState(true);
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+  const { programs, instructor } = props;
+
+  useEffect(() => {
+    dispatch(getPrograms(idToken));
+    dispatch(getUser(idToken));
+  }, [dispatch, idToken]);
+
+  useEffect(() => {
+    setClassData({
+      ...classData,
+      instructor_id: instructor.instructor_id,
+    });
+  }, [instructor]);
 
   const validate = (name, value) => {
     yup
@@ -88,15 +101,22 @@ const InstructorAddCourseForm = props => {
     });
   };
 
-  //will add handleSubmit after conditional rendering with success modal
-  // eslint-disable-next-line
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleDays = selectedDays => {
     setClassData({
       ...classData,
-      open_seats_remaining: classData.size,
-      instructor_id: 1, //change to id of current logged in instructor once we connect redux
+      days_of_week: selectedDays,
     });
+  };
+
+  const handleProgram = selectedProgram => {
+    setClassData({
+      ...classData,
+      program_id: selectedProgram,
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
     dispatch(addCourse(idToken, classData));
     setClassData(initialClassDataState);
     success();
@@ -151,12 +171,22 @@ const InstructorAddCourseForm = props => {
                 {/* Course Name */}
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item className="form__one">
-                    <label for="classLink">Course Name</label>
+                    <label for="course_name">Course Name</label>
                     <Input
                       value={classData.course_name}
                       name="course_name"
                       placeholder="Enter Course Name here"
                       className="course__name"
+                    />
+                  </Form.Item>
+                </div>
+                <div>
+                  <Form.Item>
+                    <label for="description">Course Description </label>
+                    <Input
+                      value={classData.course_description}
+                      name="course_description"
+                      placeholder="Enter Course Description"
                     />
                   </Form.Item>
                 </div>
@@ -166,11 +196,17 @@ const InstructorAddCourseForm = props => {
                     <label for="courseType">Program Type</label>
                     <Select
                       placeholder="Select a Program"
-                      name="course_type"
+                      name="program_id"
                       className="program__type"
+                      onChange={handleProgram}
                     >
-                      {programs.map(course => (
-                        <Option value={course}>{course}</Option>
+                      {programs.map(program => (
+                        <Option
+                          key={program.program_id}
+                          value={program.program_id}
+                        >
+                          {program.program_name}
+                        </Option>
                       ))}
                     </Select>
                   </Form.Item>
@@ -189,11 +225,13 @@ const InstructorAddCourseForm = props => {
                 {/* Day */}
                 <div style={{ marginRight: '5rem' }}>
                   <Form.Item>
-                    <label for="day">Day</label>
+                    <label for="days_of_week">Days</label>
                     <Select
-                      name="day"
-                      placeholder="Select a day"
+                      name="days_of_week"
+                      mode="multiple"
+                      placeholder="Select days"
                       className="day"
+                      onChange={handleDays}
                     >
                       {days.map(day => (
                         <Option value={day}>{day}</Option>
@@ -207,13 +245,13 @@ const InstructorAddCourseForm = props => {
                     <label for="classSize">Class Size</label>
                     <Input
                       type="number"
-                      value={classData.size}
-                      name="size"
+                      value={classData.max_size}
+                      name="max_size"
                       min="1"
                       placeholder="Select a Class Size"
                       className="class__size"
                     />
-                    <span className="iadc__errors">{formErrors.size}</span>
+                    <span className="iadc__errors">{formErrors.max_size}</span>
                   </Form.Item>
                 </div>
                 {/* Total Sessions */}
@@ -223,12 +261,14 @@ const InstructorAddCourseForm = props => {
                     <Input
                       type="number"
                       placeholder="Set Total Sessions"
-                      value={classData.sessions}
-                      name="sessions"
+                      value={classData.number_of_sessions}
+                      name="number_of_sessions"
                       min="1"
                       className="total__sessions"
                     />
-                    <span className="iadc__errors">{formErrors.sessions}</span>
+                    <span className="iadc__errors">
+                      {formErrors.number_of_sessions}
+                    </span>
                   </Form.Item>
                 </div>
               </Form>
@@ -401,9 +441,14 @@ const InstructorAddCourseForm = props => {
 const mapStateToProps = state => {
   return {
     errorMessage: state.errorMessage,
+    programs: state.instructorReducer.own_programs,
+    instructor: state.instructorReducer.instructor_data,
   };
 };
 
-export default connect(mapStateToProps, { addProgram, setError })(
-  InstructorAddCourseForm
-);
+export default connect(mapStateToProps, {
+  getPrograms,
+  setError,
+  getUser,
+  addCourse,
+})(InstructorAddCourseForm);

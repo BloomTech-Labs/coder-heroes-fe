@@ -3,6 +3,7 @@ import { Modal } from 'antd';
 function IndividualNewsParent(props) {
   const { title, link, description, newsfeed_id } = props;
   const [showNewsFeedModal, setShowNewsFeedModal] = useState(false);
+
   return (
     <div
       className="news-card"

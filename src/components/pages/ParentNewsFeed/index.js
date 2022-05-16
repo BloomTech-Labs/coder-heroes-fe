@@ -4,8 +4,6 @@ import '../../../styles/index.less';
 import NewsContainer from './NewsContainer';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
-// import TitleParentNewsFeed from './TitleParentNewsFeed';
-import IndividualNewsParent from './IndividualNewsParent';
 const { Content } = Layout;
 
 function ParentNewsFeed() {
@@ -14,8 +12,7 @@ function ParentNewsFeed() {
       <ParentSidebar active="newsfeed" />
       <Content>
         <Banner />
-        <IndividualNewsParent />
-        {/* <NewsContainer /> */}
+        <NewsContainer />
       </Content>
     </Layout>
   );

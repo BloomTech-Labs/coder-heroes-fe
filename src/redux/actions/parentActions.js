@@ -19,10 +19,10 @@ export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 
-export const getChildren = () => dispatch => {
+export const getChildren = (idToken, profile_id) => async dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
-  axios
-    .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/children`)
+  axiosWithAuth(idToken)
+    .get(`/parent/${profile_id}/children/`)
     .then(res => {
       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
     })

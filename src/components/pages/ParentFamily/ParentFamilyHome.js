@@ -14,9 +14,15 @@ import {
   Typography,
 } from 'antd';
 import 'antd/dist/antd.css';
-import cloudbg from '../../../img/cloud-bg.jpg';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 
-const ParentFamilyHome = () => {
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { getChildren } from '../../../redux/actions/parentActions';
+
+const ParentFamilyHome = props => {
+  const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
   const history = useHistory();
@@ -25,23 +31,14 @@ const ParentFamilyHome = () => {
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
     false
   );
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+  const dispatch = useDispatch();
+  const { user, children } = props;
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem(`okta-token-storage`));
-    const config = {
-      headers: { Authorization: `Bearer ${token.idToken.value}` },
-    };
-    axios
-      .get(`https://coder-heroes-api.herokuapp.com/parent/1/Studentren`, config)
-      .then(res => {
-        const familyData = res.data;
-        setStudentInfo(familyData);
-        console.log(familyData);
-      })
-      .catch(err => {
-        console.log(`error fetching axios call`);
-      });
-  }, []);
+    dispatch(getChildren(idToken, user.profile_id));
+  }, [dispatch, idToken, user.profile_id]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
@@ -145,4 +142,11 @@ const ParentFamilyHome = () => {
   );
 };
 
-export default ParentFamilyHome;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.currentUser,
+    children: state.parentReducer.children,
+  };
+};
+
+export default connect(mapStateToProps, { getChildren })(ParentFamilyHome);

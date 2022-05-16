@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { List } from 'antd';
 
 const InstructorProgramList = props => {
-  const { programs } = props;
+  const { newCourses } = props;
 
   return (
     <div>
       <h1 className="instructor-h1">Already Submitted Programs:</h1>
       <List className="instructor-list">
-        {programs.own_programs &&
-          programs.own_programs.map(program => {
-            return <InstructorProgram key={program.id} program={program} />;
+        {newCourses &&
+          newCourses.map(course => {
+            return <InstructorProgram key={course.course_id} course={course} />;
           })}
       </List>
     </div>
@@ -20,7 +20,7 @@ const InstructorProgramList = props => {
 };
 
 const mapStateToProps = state => {
-  return { programs: state.instructorReducer };
+  return { newCourses: state.coursesReducer.newCourses };
 };
 
 export default connect(mapStateToProps, {})(InstructorProgramList);

@@ -20,9 +20,7 @@ function StudentStoryCard(prop) {
       </div>
       <section className="teacher-message">
         <h4>Teacher message</h4>
-        <a href="www.google.com">
-          www.google.com
-        </a>
+        <a href="www.google.com">www.google.com</a>
       </section>
       <div className="story-photo">
         <p></p>

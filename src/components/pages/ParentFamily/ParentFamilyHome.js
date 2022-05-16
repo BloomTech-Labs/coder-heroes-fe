@@ -37,7 +37,6 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
-
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);
 
@@ -74,7 +73,6 @@ const ParentFamilyHome = props => {
       >
         <CreateNewStudent />
       </Modal>
-
 
       <Row className="family-cards">
         <Col span={8}>

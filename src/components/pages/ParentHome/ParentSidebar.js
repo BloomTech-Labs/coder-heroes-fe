@@ -13,6 +13,8 @@ import {
   ReadOutlined,
   BookFilled,
   MessageFilled,
+  CarryOutOutlined,
+  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -129,6 +131,22 @@ const ParentSideBar = props => {
           <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
           </Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="tasks"
+          className={active === 'tasks' ? 'ant-menu-item-selected' : ''}
+          icon={<CarryOutOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/tasks">Tasks</Link>
+        </Menu.Item>
+
+        <Menu.Item
+          key="resources"
+          className={active === 'resources' ? 'ant-menu-item-selected' : ''}
+          icon={<FundProjectionScreenOutlined fontSize="150px" />}
+        >
+          <Link to="/parent/resources">Resources</Link>
         </Menu.Item>
 
         <Menu.Item

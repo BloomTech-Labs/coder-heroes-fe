@@ -42,6 +42,10 @@ export default function Banner() {
       return bannerContent('Cart');
     case '/parent/messages':
       return bannerContent('Messages');
+    case '/parent/tasks':
+      return bannerContent('TASKS');
+    case '/parent/resources':
+      return bannerContent('RESOURCES');
     case '/student':
       return bannerContent('Student Dashboard');
     case '/classroom':

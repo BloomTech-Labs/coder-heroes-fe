@@ -82,7 +82,7 @@ function RenderLandingPage(props) {
               className="landing-second-container-text landing-second-container-title-one"
               level={2}
             >
-              Give Back To Community
+              Give Back To The Community
             </Title>
             <Title
               level={2}

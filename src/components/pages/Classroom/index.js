@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/index.less';
 import { Card, Button, Layout, Row, Badge, Typography } from 'antd';
 import StudentCard from './StudentCard';
+import { connect } from 'react-redux';
+import { getStudents } from '../../../redux/actions/classroomActions';
+import { useOktaAuth } from '@okta/okta-react';
+
 const { Content } = Layout;
 const { Title } = Typography;
 
@@ -63,7 +67,15 @@ const students = [
   },
 ];
 
-const Classroom = () => {
+const Classroom = props => {
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+  console.log(props.class.course_id);
+  useEffect(() => {
+    props.getStudents(idToken, props.class.course_id);
+  }, []);
+
+  console.log(props.class.students);
   return (
     <>
       <Layout>
@@ -71,8 +83,8 @@ const Classroom = () => {
         <Content>
           <Title className="classroom__title">Classroom</Title>
           <div className="classroom__students">
-            {students.map(student => (
-              <StudentCard student={student} />
+            {props.class.students.map(student => (
+              <StudentCard key={student.id} student={student} />
             ))}
           </div>
           <Row className="feedback__badges">
@@ -100,4 +112,10 @@ const Classroom = () => {
   );
 };
 
-export default Classroom;
+const mapStateToProps = state => {
+  return {
+    class: state.classroomReducer,
+  };
+};
+
+export default connect(mapStateToProps, { getStudents })(Classroom);

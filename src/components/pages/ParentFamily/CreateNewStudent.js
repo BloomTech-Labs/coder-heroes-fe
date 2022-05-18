@@ -30,13 +30,13 @@ const CreateNewStudent = props => {
   };
 
   const validateMessages = {
-    required: '${label} is required!',
-    types: {
-      number: '${label} is not a valid number!',
-    },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
-    },
+    // required: '${label} is required!',
+    // types: {
+    //   number: '${label} is not a valid number!',
+    // },
+    // number: {
+    //   range: '${label} must be between ${min} and ${max}',
+    // },
   };
 
   return (

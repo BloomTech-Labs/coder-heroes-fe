@@ -14,21 +14,24 @@ function NewsContainer(props) {
   }, [dispatch, idToken]);
 
   return (
-    <div>
-      <div className="news-container">
-        {newsfeed.map(news => {
-          const { title, link, description, id } = news;
-          return (
-            <IndividualNewsParent
-              key={id}
-              title={title}
-              link={link}
-              description={description}
-              newsfeed_id={id}
-            />
-          );
-        })}
-      </div>
+    <div className="news-container">
+      <IndividualNewsParent className="news-article" />
+      <IndividualNewsParent
+        className="
+        news-article"
+      />
+      {newsfeed.map(news => {
+        const { title, link, description, id } = news;
+        return (
+          <IndividualNewsParent
+            key={id}
+            title={title}
+            link={link}
+            description={description}
+            newsfeed_id={id}
+          />
+        );
+      })}
     </div>
   );
 }

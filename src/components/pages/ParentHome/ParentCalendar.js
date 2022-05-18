@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-import { Calendar, Badge, Modal, Button } from 'antd';
+import Banner from '../../common/Banner';
+import { Calendar, Badge, Modal, Button, Layout } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import ChildForm from './ChildForm';
+
+const { Content } = Layout;
 
 function displayedItem(value, current, item) {
   return {
@@ -232,13 +235,16 @@ function ParentCalendar(props) {
   }
 
   return (
-    <>
-      <ParentSidebar />
-      <Calendar
-        dateCellRender={dateCellRender}
-        monthCellRender={monthCellRender}
-      />
-    </>
+    <Layout>
+      <ParentSidebar active="dashboard" />
+      <Content>
+        <Banner />
+        <Calendar
+          dateCellRender={dateCellRender}
+          monthCellRender={monthCellRender}
+        />
+      </Content>
+    </Layout>
   );
 }
 

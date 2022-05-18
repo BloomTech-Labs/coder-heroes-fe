@@ -32,7 +32,7 @@ const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
-  const [bgColor, setBgColor] = useState('#FEAD2A');
+  const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
 
   useEffect(() => {
@@ -96,7 +96,7 @@ function NavBar(props) {
             </button>
           </NavLink>
           {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/family">
+            <NavLink to="/parent/family">
               <div className="navbar__profile">
                 <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
               </div>

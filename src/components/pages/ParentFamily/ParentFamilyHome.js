@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
@@ -9,10 +10,12 @@ import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 
 const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
+  const history = useHistory();
 
   const [addStudentVisible, setAddStudentVisible] = useState(false);
   const [addStudentConfirmLoading, setAddStudentConfirmLoading] = useState(
@@ -26,6 +29,7 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
+    console.log(user);
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);
 
@@ -47,9 +51,14 @@ const ParentFamilyHome = props => {
 
   return (
     <>
-      <ParentSidebar />
-      <Content>
-        <Banner />
+      {/* <ParentSidebar /> */}
+      <Content
+        className="family-page-container"
+        style={{
+          backgroundImage: `url(${cloudbg})`,
+        }} //background image here while troubleshooting LESS rendering issue
+      >
+        {/* <Banner /> */}
 
         {alertMsg === 1 && (
           <Alert
@@ -86,19 +95,22 @@ const ParentFamilyHome = props => {
 
         <Row className="family-cards">
           <Col span={8}>
-            <Card style={{ width: 300 }} className="parent-card">
+            <Card className="parent-card">
               <Meta
                 avatar={<Avatar src={user.avatarUrl} />}
                 title={user.name}
               />
-              <Button className="parent-view-account-button">
-                VIEW ACCOUNT
+              <Button
+                className="parent-view-account-button"
+                onClick={() => history.push('/parent')}
+              >
+                View Account
               </Button>
               <Button
                 className="add-student-button"
                 onClick={showAddStudentModal}
               >
-                ADD STUDENT
+                Add Student
               </Button>
             </Card>
           </Col>
@@ -107,15 +119,18 @@ const ParentFamilyHome = props => {
             children.map(child => {
               return (
                 <Col span={8} key={child.child_id}>
-                  <Card style={{ width: 300 }} className="student-card">
+                  <Card className="student-card">
                     <Meta
                       avatar={
                         <Avatar src="https://joeschmoe.io/api/v1/random" />
                       } // avatar url for student not in backend
                       title={child.username}
                     />
-                    <Button className="student-view-account-button">
-                      VIEW ACCOUNT
+                    <Button
+                      className="student-view-account-button"
+                      onClick={() => history.push('/student')}
+                    >
+                      View Account
                     </Button>
                   </Card>
                 </Col>

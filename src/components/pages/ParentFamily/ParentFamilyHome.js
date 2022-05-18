@@ -4,7 +4,7 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Modal, Button, Card, Avatar, Col, Row, Alert } from 'antd';
+import { Layout, Modal, Button, Card, Avatar, Col, Row, Alert, Typography } from 'antd';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -15,6 +15,7 @@ import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
+  const { Text } = Typography;
   const history = useHistory();
 
   const [addStudentVisible, setAddStudentVisible] = useState(false);
@@ -96,22 +97,25 @@ const ParentFamilyHome = props => {
         <Row className="family-cards">
           <Col span={8}>
             <Card className="parent-card">
-              <Meta
-                avatar={<Avatar src={user.avatarUrl} />}
-                title={user.name}
-              />
-              <Button
-                className="parent-view-account-button"
-                onClick={() => history.push('/parent')}
-              >
-                View Account
-              </Button>
-              <Button
-                className="add-student-button"
-                onClick={showAddStudentModal}
-              >
-                Add Student
-              </Button>
+              <div className="card-info">
+                <Avatar
+                  className="avatar"
+                  src={user.avatarUrl}
+                />
+                <Text className="card-name">{user.name}</Text>
+                <Button
+                  className="parent-view-account-button"
+                  onClick={() => history.push('/parent')}
+                >
+                  View Account
+                </Button>
+                <Button
+                  className="add-student-button"
+                  onClick={showAddStudentModal}
+                >
+                  Add Student
+                </Button>
+              </div>
             </Card>
           </Col>
 

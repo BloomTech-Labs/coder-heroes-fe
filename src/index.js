@@ -69,8 +69,7 @@ import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
-import Progress from './components/pages/ParentHome/Progress';
-
+import ParentTasks from './components/pages/ParentHome/ParentTasks';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
@@ -155,6 +154,14 @@ function App() {
             path="/instructor-add-course"
             component={InstructorAddCourse}
           />
+<<<<<<< HEAD
+=======
+          <Route path="/parent-booking" component={ParentBooking} />
+          <Route path="/parent-calendar" component={ParentCalendar} />
+          <Route path="/parent-tasks" component={ParentTasks} />
+          <Route path="/family" component={ParentFamilyHome} />
+          <Route path="/cart" component={Cart} />
+>>>>>>> 200dbf8 (B)
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />
           <Route path="/browse-programs" component={LandingPrograms} />

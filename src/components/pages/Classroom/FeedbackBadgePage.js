@@ -12,6 +12,9 @@ import helpful from '../../../styles/ClassroomStyles/badges/helpful.png';
 import live from '../../../styles/ClassroomStyles/badges/live.png';
 import solved from '../../../styles/ClassroomStyles/badges/solved.png';
 import { Button } from 'antd';
+import { connect } from 'react-redux';
+
+import { getStudents } from '../../../redux/actions/classroomActions';
 
 const badges = [
   {
@@ -75,4 +78,4 @@ const FeedbackBadgesPage = () => {
   );
 };
 
-export default FeedbackBadgesPage;
+export default connect(state => state, getStudents)(FeedbackBadgesPage);

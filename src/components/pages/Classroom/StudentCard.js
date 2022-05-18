@@ -18,7 +18,7 @@ const StudentCard = ({ student }) => {
               />
             </Badge>
           }
-          title={student.name}
+          title={student.username}
         />
       </Card>
     </>

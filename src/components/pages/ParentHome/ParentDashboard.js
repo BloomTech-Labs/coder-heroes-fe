@@ -5,7 +5,7 @@ import IndividualNewsParent from '../ParentNewsFeed/IndividualNewsParent';
 import MessageList from './Messages/MessageList';
 import ParentNavbar from './ParentNavbar';
 import '../../../styles/ParentStyles/dashboard.less';
-import { Layout, Col, Row, Calendar, Card } from 'antd';
+import { Layout, Col, Row, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentDashboard = () => {
@@ -28,14 +28,6 @@ const ParentDashboard = () => {
                     <IndividualNewsParent />
                     <IndividualNewsParent />
                   </Row>
-                </Card>
-              </Row>
-            </Col>
-            <Col>
-              <Row className="row">
-                <Card className="dashboard-card ">
-                  <h2>Messages</h2>
-                  <MessageList />
                 </Card>
               </Row>
             </Col>

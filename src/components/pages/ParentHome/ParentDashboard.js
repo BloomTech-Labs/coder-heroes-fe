@@ -15,10 +15,9 @@ const ParentDashboard = () => {
         <Banner />
         <Content className="dashboard-container">
           <Row className="row">
-            <Col className="parent-dashboard-column" span={10}>
+            <Col className="parent-dashboard-column" span={20}>
               <Row className="row">
                 <Card className="dashboard-card">
-                  <h2>NewsFeed</h2>
                   <Row className="row">
                     <IndividualNewsParent />
                     <IndividualNewsParent />

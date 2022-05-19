@@ -4,6 +4,7 @@ import { Card, Avatar } from 'antd';
 const { Meta } = Card;
 
 const FeedbackBadges = ({ badge }) => {
+  console.log(badge);
   return (
     <div>
       <Card className="badge__card" hoverable>
@@ -11,7 +12,10 @@ const FeedbackBadges = ({ badge }) => {
           className="badge__info"
           avatar={
             <Avatar
-              src={`../../../styles/ClassroomStyles/badges/${badge.image}.png`}
+              src={
+                require(`../../../styles/ClassroomStyles/badges/${badge.image}.png`)
+                  .default
+              }
               size={128}
               className="badge__card__image"
             />

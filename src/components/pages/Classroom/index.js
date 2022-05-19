@@ -3,77 +3,32 @@ import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/index.less';
 import { Card, Button, Layout, Row, Badge, Typography } from 'antd';
 import StudentCard from './StudentCard';
-import { connect } from 'react-redux';
-import { getStudents } from '../../../redux/actions/classroomActions';
+import { connect, useDispatch } from 'react-redux';
+import {
+  getStudents,
+  setCurrentStudentId,
+} from '../../../redux/actions/classroomActions';
 import { useOktaAuth } from '@okta/okta-react';
+import { useHistory } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
-const students = [
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    id: 'a24efb',
-    name: 'Margery',
-    image:
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-];
-
 const Classroom = props => {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-  console.log(props.class.course_id);
+  const dispatch = useDispatch();
   useEffect(() => {
     props.getStudents(idToken, props.class.course_id);
   }, []);
+
+  const navigate = useHistory();
+
+  const handleNavigate = e => {
+    e.preventDefault();
+    dispatch(setCurrentStudentId(parseInt(e.target.parentElement.value)));
+    navigate.push('/feedback-badges');
+  };
 
   console.log(props.class.students);
   return (
@@ -84,7 +39,16 @@ const Classroom = props => {
           <Title className="classroom__title">Classroom</Title>
           <div className="classroom__students">
             {props.class.students.map(student => (
-              <StudentCard key={student.id} student={student} />
+              <>
+                <StudentCard key={student.id} student={student} />
+                <Button
+                  className="classroom_feedback__button"
+                  value={student.child_id}
+                  onClick={handleNavigate}
+                >
+                  GIVE FEEDBACK
+                </Button>
+              </>
             ))}
           </div>
           <Row className="feedback__badges">
@@ -99,12 +63,6 @@ const Classroom = props => {
                 <p>students lack any feedback badges</p>
               </Row>
             </Card>
-            <Button
-              className="classroom_feedback__button"
-              href="/feedback-badges"
-            >
-              GIVE FEEDBACK
-            </Button>
           </Row>
         </Content>
       </Layout>
@@ -118,4 +76,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getStudents })(Classroom);
+export default connect(mapStateToProps, { getStudents, setCurrentStudentId })(
+  Classroom
+);

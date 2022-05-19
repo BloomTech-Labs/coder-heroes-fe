@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Banner from '../../common/Banner';
-import ParentSidebar from '../ParentHome/ParentSidebar';
 import CreateNewStudent from './CreateNewStudent';
 import '../../../styles/ParentStyles/index.less';
 import {
@@ -16,11 +14,11 @@ import {
   Typography,
 } from 'antd';
 import 'antd/dist/antd.css';
+import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
-import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 
 const ParentFamilyHome = props => {
   const { Meta } = Card;
@@ -40,7 +38,6 @@ const ParentFamilyHome = props => {
   const { user, children } = props;
 
   useEffect(() => {
-    console.log(user);
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);
 

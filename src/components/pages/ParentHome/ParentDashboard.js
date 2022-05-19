@@ -31,14 +31,7 @@ const ParentDashboard = () => {
                 </Card>
               </Row>
             </Col>
-            <Col className="parent-dashboard-column" span={8}>
-              <Row className="row">
-                <Card className="dashboard-card">
-                  <h2>Upcoming Courses</h2>
-                  <Calendar className="dashboard-calendar" fullscreen={false} />
-                </Card>
-              </Row>
-
+            <Col>
               <Row className="row">
                 <Card className="dashboard-card ">
                   <h2>Messages</h2>

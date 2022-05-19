@@ -10,7 +10,7 @@ const ParentDashboard = () => {
   const { Content } = Layout;
   return (
     <Layout>
-      <ParentSidebar active="dashboard" />
+      <ParentSidebar active="" />
       <Content>
         <Banner />
         <Content className="dashboard-container">

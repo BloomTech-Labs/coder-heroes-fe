@@ -2,11 +2,12 @@ import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import ParentNavbar from './ParentNavbar';
+import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Card, Empty } from 'antd';
 import 'antd/dist/antd.css';
 
-const ParentResources = () => {
+const ParentResourcesPage = () => {
   const { Content } = Layout;
   return (
     <Layout>
@@ -15,6 +16,7 @@ const ParentResources = () => {
         <Banner />
         <div className="navDrop">
           <ParentNavbar />
+          <StudentDropdown />
         </div>
         <div className="cardContainer">
           <Card className="resourceCard">
@@ -37,4 +39,4 @@ const ParentResources = () => {
   );
 };
 
-export default ParentResources;
+export default ParentResourcesPage;

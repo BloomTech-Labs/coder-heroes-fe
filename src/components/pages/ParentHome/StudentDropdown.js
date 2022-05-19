@@ -31,17 +31,16 @@ const menu = (
 
 const StudentDropdown = () => {
   return (
-    <div className="dropStudent">
-      <Space wrap>
-        <Dropdown.Button
-          overlay={menu}
-          placement="bottom"
-          icon={<UserOutlined />}
-        >
-          Choose Student
-        </Dropdown.Button>
-      </Space>
-    </div>
+    <Space wrap>
+      <Dropdown.Button
+        className="dropStudent"
+        overlay={menu}
+        placement="bottom"
+        icon={<UserOutlined />}
+      >
+        Choose Student
+      </Dropdown.Button>
+    </Space>
   );
 };
 

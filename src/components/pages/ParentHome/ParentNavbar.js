@@ -6,8 +6,8 @@ import 'antd/dist/antd.css';
 import {
   ClockCircleOutlined,
   GiftOutlined,
-  UnorderedListOutlined,
   FundProjectionScreenOutlined,
+  UnorderedListOutlined,
 } from '@ant-design/icons';
 //import { useOktaAuth } from '@okta/okta-react';
 

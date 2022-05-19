@@ -1,4 +1,6 @@
-//family page buttons, parent/student card names, invoke card on student,
+@h1: 4rem;
+@h2: 3rem;
+@h3: 2.5rem;
 
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
@@ -10,9 +12,14 @@
   height: 12vh;
 }
 
+.dashboard {
+  display:flex;
+  flex-direction: column;
+}
+
 .banner-content {
   display: flex;
-  width: 60%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -20,7 +27,7 @@
   h1 {
     display: flex;
     align-items: center;
-    font-size: @text__font-size--h1;
+    font-size: @h1;
     font-family: @text__font-family--header;
     line-height: @text__line-height--h1;
     color: @text__color--white;
@@ -71,7 +78,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -183,6 +189,88 @@
   color: @text__color--maroon;
   background-color: @btn__bg--white;
   margin: 5%;
+}
+
+//****Parent-Progress styles****
+.progress-container {
+  display:flex;
+  flex-direction: column;
+}
+.progress-bars {
+  font-size: 50px;
+  padding: 0% 10%;
+  display:flex;
+  flex-direction: row;
+}
+
+.progress-bar {
+  font-size: 30px;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  size: large;
+}
+
+//****Parent-Navbar styles****
+.parent-navbar {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  border: none;
+}
+.parentNavItem {
+  margin:left 5%;
+}
+
+.parentNavItem {
+  margin-left: 5%;
+}
+
+.dropStudent {
+  padding: 12% 30%;
+  background-color: white;
+}
+
+//****Parent-Tasks styles****
+.navDrop {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.classCard {
+  margin: 5%;
+  border-radius: 2%;
+}
+
+//****Parent-Resources styles****
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.artImg {
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.resourceCard {
+  width: 25%;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  flex-flow: nowrap;
+  justify-content: center;
+  margin-top: 5%;
+  border-radius: 5%;
 }
 
 // Create New Student Modal

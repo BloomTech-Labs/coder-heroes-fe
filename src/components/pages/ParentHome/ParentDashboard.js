@@ -4,6 +4,7 @@ import ParentSidebar from './ParentSidebar';
 import IndividualNewsParent from '../ParentNewsFeed/IndividualNewsParent';
 import MessageList from './Messages/MessageList';
 import ParentNavbar from './ParentNavbar';
+import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/dashboard.less';
 import { Layout, Progress, Col, Row, Calendar, Card } from 'antd';
 import 'antd/dist/antd.css';
@@ -15,7 +16,10 @@ const ParentDashboard = () => {
       <ParentSidebar active="dashboard" />
       <Content>
         <Banner />
-        <ParentNavbar />
+        <div className="navDrop">
+          <ParentNavbar />
+          <StudentDropdown />
+        </div>
         <Content className="dashboard-container">
           <Row className="row">
             <Col className="parent-dashboard-column" span={10}>

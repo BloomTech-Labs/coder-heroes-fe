@@ -1,10 +1,10 @@
 import React from 'react';
 import { Layout } from 'antd';
 import '../../../styles/index.less';
-import NewsContainer from './NewsContainer';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import ParentNavbar from '../ParentHome/ParentNavbar';
 import Banner from '../../common/Banner';
+import IndividualNewsParent from './IndividualNewsParent';
 const { Content } = Layout;
 
 function ParentNewsFeed() {
@@ -14,7 +14,7 @@ function ParentNewsFeed() {
       <Content>
         <Banner />
         <ParentNavbar />
-        <NewsContainer />
+        <IndividualNewsParent />
       </Content>
     </Layout>
   );

@@ -26,13 +26,15 @@ export default function CoderYoga() {
           </div>
           <div className="pl__na__right">
             <div className="pl__na__right__container">
-              <Title className="pl__na__coder__yoga__title">CODERYOGA</Title>
-              <Text className="pl__na__right__info__container">
+              <Title className="pl__na__coder__yoga__title" level={2}>
+                CODERYOGA
+              </Title>
+              <Text className="pl__na__right__info__container" level={3}>
                 Kids learn coding basics through
                 <br />
                 yoga stories and exercise.
               </Text>
-              <Title className="pl__na__right__sub__heading">
+              <Title className="pl__na__right__sub__heading" level={2}>
                 OUR NEWEST COURSE CATEGORY!
               </Title>
               <Text className="pl__na__right__info">

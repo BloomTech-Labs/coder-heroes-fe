@@ -31,25 +31,7 @@ const ParentDashboard = () => {
                 </Card>
               </Row>
             </Col>
-
-            <Col className="parent-dashboard-column" span={6}>
-              <Row className="row">
-                <Card className="dashboard-card">
-                  <h2>Progress Report</h2>
-                  <Progress
-                    className="progress-circle"
-                    type="circle"
-                    gapPosition="top"
-                    percent={50}
-                  />
-                  <Progress
-                    className="progress-circle"
-                    type="circle"
-                    gapPosition="top"
-                    percent={75}
-                  />
-                </Card>
-              </Row>
+            <Col>
               <Row className="row">
                 <Card className="dashboard-card achievement">
                   <h2>Newest Achievement</h2>

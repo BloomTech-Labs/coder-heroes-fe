@@ -70,6 +70,7 @@ import ParentTasks from './components/pages/ParentHome/ParentTasks';
 import ParentResourcesPage from './components/pages/ParentHome/ParentResourcePage';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
+window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>

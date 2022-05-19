@@ -150,6 +150,11 @@ const ParentSideBar = props => {
         >
           <Link>Logout</Link>
         </Menu.Item>
+        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
+          <Link to="/cart" className="link">
+            Cart <span>({cart.length})</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

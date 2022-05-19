@@ -38,7 +38,7 @@ const ParentNavbar = props => {
         key="progress"
         icon={<ClockCircleOutlined fontSize="150px" />}
       >
-        <Link to="/parent-progress">Progress</Link>
+        <Link to="/parent/progress">Progress</Link>
       </Menu.Item>
       <Menu.Item
         className="parentNavItem"

@@ -132,13 +132,12 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
+          <SecureRoute path="/parent" component={ParentDashboard} />
+          <SecureRoute path="/parent/progress" component={Progress} />
           <SecureRoute path="/parent/cart" component={Cart} />
 
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <SecureRoute path="/parent" component={ParentDashboard} />
-
-          <Route path="/parent2" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -172,7 +171,7 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-progress" component={Progress} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

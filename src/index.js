@@ -41,11 +41,7 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
-<<<<<<< HEAD
-import ParentHome from './components/pages/ParentHome/ParentHome';
-=======
 import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
->>>>>>> 9cdbac6 (finished initial styling and layout of parent tasks page)
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
@@ -56,6 +52,7 @@ import Cart from './components/pages/ParentHome/Cart';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
+import Progress from './components/pages/ParentHome/Progress';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
@@ -130,17 +127,20 @@ function App() {
 
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/family" component={ParentDashboard} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
-          <SecureRoute path="/parent/resources" component={ParentResources} />
+          <SecureRoute
+            path="/parent/resources"
+            component={ParentResourcesPage}
+          />
           <SecureRoute path="/parent/cart" component={Cart} />
 
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
 
-          <Route path="/parent" component={ParentFamilyHome} />
+          <Route path="/parent" component={ParentHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -157,7 +157,7 @@ function App() {
           <Route path="/parent-calendar" component={ParentCalendar} />
           <Route path="/parent-tasks" component={ParentTasks} />
           <Route path="/parent-Resources" component={ParentResourcesPage} />
-          <Route path="/family" component={ParentFamilyHome} />
+          <Route path="/family" component={ParentHome} />
           <Route path="/cart" component={Cart} />
           <Route path="/payment-success" component={PaymentSuccess} />
           <Route path="/browse-instructors" component={LandingInstructor} />

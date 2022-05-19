@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Menu, Layout } from 'antd';
+import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import {
   ClockCircleOutlined,
@@ -9,20 +8,19 @@ import {
   FundProjectionScreenOutlined,
   CarryOutOutlined,
 } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
-
-const { Sider } = Layout;
+//import { useOktaAuth } from '@okta/okta-react';
 
 const ParentNavbar = props => {
-  const [collapsed, setCollapsed] = useState(false);
-  const { authService } = useOktaAuth();
-  const onCollapse = () => {
-    if (collapsed === true) {
-      setCollapsed(false);
-    } else {
-      setCollapsed(true);
-    }
-  };
+  const [collapsed] = useState(false);
+
+  // const { authService } = useOktaAuth();
+  // const onCollapse = () => {
+  //   if (collapsed === true) {
+  //     setCollapsed(false);
+  //   } else {
+  //     setCollapsed(true);
+  //   }
+  // };
 
   return (
     <Menu

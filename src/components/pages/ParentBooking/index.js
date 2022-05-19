@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
 import ParentBookingContainer from './ParentBookingContainer';
 
 function ParentBooking() {
-  const { Content, Sider } = Layout;
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  const { Content } = Layout;
 
   return (
     <Layout>

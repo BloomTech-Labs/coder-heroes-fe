@@ -10,11 +10,10 @@ import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
   const { Content } = Layout;
-
   return (
     <Layout>
       <ParentSidebar active="dashboard" />
-      <Content>
+      <Content className="progress-container">
         <Banner />
         <div className="navDrop">
           <ParentNavbar />

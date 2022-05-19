@@ -2,19 +2,18 @@ import React from 'react';
 import { List } from 'antd';
 
 const InstructorProgram = props => {
-  const { program } = props;
+  const { course } = props;
 
   return (
     <div>
       <List bordered>
         <List.Item>
           <p>
-            <b>Subject: {program.subject}</b>
+            <b>Course: {course.course_name}</b>
           </p>
           {'\n'}
-          <p>Date: {program.date}</p>
-          <p>Time: {program.time}</p>
-          <p>Approval Status: {program.status}</p>
+          <p>Date: {course.start_date}</p>
+          <p>Time: {course.start_time}</p>
         </List.Item>
       </List>
     </div>

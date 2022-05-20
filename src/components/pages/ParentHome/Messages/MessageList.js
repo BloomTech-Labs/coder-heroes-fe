@@ -6,34 +6,31 @@ import '../../../../styles/ParentStyles/index.less';
 
 const data = [
   {
-    title: 'Ant Design Title 1',
+    title: 'Person 1',
   },
   {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
+    title: 'Person 2',
   },
 ];
 
 function MessageList() {
   return (
-    <List
-      itemLayout="horizontal"
-      dataSource={data}
-      renderItem={item => (
-        <List.Item className="p">
-          <List.Item.Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-            title={<a href="https://ant.design">{item.title}</a>}
-            description="Ant Design, a design language for background applications..."
-          />
-        </List.Item>
-      )}
-    />
+    <div>
+      <h4>Conversations</h4>
+      <List
+        itemLayout="horizontal"
+        dataSource={data}
+        renderItem={item => (
+          <List.Item className="message-list-item">
+            <List.Item.Meta
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+              title={<a href="https://ant.design">{item.title}</a>}
+              description="Ant Design, a design language for background applications..."
+            />
+          </List.Item>
+        )}
+      />
+    </div>
   );
 }
 

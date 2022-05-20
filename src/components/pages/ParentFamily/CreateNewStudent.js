@@ -4,7 +4,9 @@ import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
 import { useOktaAuth } from '@okta/okta-react';
 
-const CreateNewStudent = () => {
+const CreateNewStudent = props => {
+  const { setAddStudentVisible, setAlertMsg } = props;
+
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -17,12 +19,13 @@ const CreateNewStudent = () => {
     axiosWithAuth(idToken)
       .post('/children', values.student)
       .then(resp => {
-        // Post is posting proper required information. There is a bug/desync on the BE side that prevents us currently from seeing our response or handling a successful promise.
-        // Once the 500 error is cleared from BE, FE devs can see the response and choose with the stakeholder how/if they want to notify the user of a successful post here.
-        console.log(resp);
+        setAddStudentVisible(false);
+        setAlertMsg(1);
       })
       .catch(error => {
         console.log({ error });
+        setAddStudentVisible(false);
+        setAlertMsg(2);
       });
   };
 

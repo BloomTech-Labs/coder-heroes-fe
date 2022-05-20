@@ -30,7 +30,6 @@ const Classroom = props => {
     navigate.push('/feedback-badges');
   };
 
-  console.log(props.class.students);
   return (
     <>
       <Layout>
@@ -45,6 +44,7 @@ const Classroom = props => {
                   className="classroom_feedback__button"
                   value={student.child_id}
                   onClick={handleNavigate}
+                  key={Date.now()}
                 >
                   GIVE FEEDBACK
                 </Button>

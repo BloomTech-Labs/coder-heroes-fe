@@ -7,7 +7,10 @@ import FeedbackBadge from './FeedbackBadge';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
 
-import { getBadgesById } from '../../../redux/actions/classroomActions';
+import {
+  getBadgesById,
+  getBadges,
+} from '../../../redux/actions/classroomActions';
 
 const { Content } = Layout;
 const FeedbackBadgesPage = props => {
@@ -16,6 +19,7 @@ const FeedbackBadgesPage = props => {
 
   useEffect(() => {
     props.getBadgesById(idToken, props.class.currentStudentId);
+    props.getBadges(idToken);
   }, []);
 
   return (
@@ -25,7 +29,10 @@ const FeedbackBadgesPage = props => {
         <Content>
           <div className="classroom__students">
             {props.class.badges.map(badge => (
-              <FeedbackBadge badge={badge} />
+              <FeedbackBadge
+                badge={badge}
+                studentBadges={props.class.studentBadges}
+              />
             ))}
           </div>
           <Button className="badge_feedback__button">GIVE FEEDBACK</Button>
@@ -41,4 +48,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getBadgesById })(FeedbackBadgesPage);
+export default connect(mapStateToProps, { getBadgesById, getBadges })(
+  FeedbackBadgesPage
+);

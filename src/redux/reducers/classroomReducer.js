@@ -5,6 +5,9 @@ import {
   FETCHING,
   ERROR,
   GET_BADGES_BY_ID,
+  GET_BADGES,
+  ADD_BADGE_TO_STUDENT,
+  REMOVE_BADGE_FROM_STUDENT,
 } from '../actions/classroomActions';
 
 const initialState = {
@@ -13,6 +16,7 @@ const initialState = {
   students: [],
   currentStudentId: '',
   badges: [],
+  studentBadges: [],
   course_id: '',
   errorMessage: '',
 };
@@ -41,10 +45,33 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentStudentId: action.payload,
       };
-    case GET_BADGES_BY_ID:
+    case GET_BADGES:
       return {
         ...state,
         badges: action.payload,
+        error: false,
+        fetching: false,
+      };
+    case GET_BADGES_BY_ID:
+      return {
+        ...state,
+        studentBadges: action.payload,
+        error: false,
+        fetching: false,
+      };
+    case ADD_BADGE_TO_STUDENT:
+      return {
+        ...state,
+        badges: state.badges.append(action.payload),
+        error: false,
+        fetching: false,
+      };
+    case REMOVE_BADGE_FROM_STUDENT:
+      return {
+        ...state,
+        badges: state.badges.filter(
+          badge => badge.badge_id !== action.payload.badge_id
+        ),
         error: false,
         fetching: false,
       };

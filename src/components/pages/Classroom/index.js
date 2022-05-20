@@ -19,7 +19,7 @@ const Classroom = props => {
   const { idToken } = authState;
   const dispatch = useDispatch();
   useEffect(() => {
-    props.getStudents(idToken, props.class.course_id);
+    props.getStudents(idToken, props.course.course_id);
   }, []);
 
   const navigate = useHistory();
@@ -37,7 +37,7 @@ const Classroom = props => {
         <Content>
           <Title className="classroom__title">Classroom</Title>
           <div className="classroom__students">
-            {props.class.students.map(student => (
+            {props.course.students.map(student => (
               <>
                 <StudentCard key={student.id} student={student} />
                 <Button
@@ -72,7 +72,7 @@ const Classroom = props => {
 
 const mapStateToProps = state => {
   return {
-    class: state.classroomReducer,
+    course: state.classroomReducer,
   };
 };
 

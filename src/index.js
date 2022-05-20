@@ -74,7 +74,7 @@ import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow
 import ParentResourcesPage from './components/pages/ParentHome/ParentResourcePage';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
-window.store = store;
+window.store = store; // Remove before full deployment. In here for development purposes.
 
 ReactDOM.render(
   <Provider store={store}>

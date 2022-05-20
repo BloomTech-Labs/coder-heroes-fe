@@ -15,42 +15,32 @@ const FeedbackBadges = props => {
 
   const dispatch = useDispatch();
 
-  const addValue = {
+  const badgeValues = {
     badge_id: badge.badge_id,
-    student_id: props.class.currentStudentId,
-    badge: badge,
-  };
-
-  const removeValue = {
-    badge_id: badge.badge_id,
-    student_id: props.class.currentStudentId,
+    student_id: props.course.currentStudentId,
     badge: badge,
   };
 
   const assignBadge = e => {
     e.preventDefault();
-    console.log(e);
-    console.log(addValue);
     dispatch(
       addBadgeToStudent(
         idToken,
-        addValue.badge_id,
-        addValue.student_id,
-        addValue.badge
+        badgeValues.badge_id,
+        badgeValues.student_id,
+        badgeValues.badge
       )
     );
   };
 
   const removeBadge = e => {
     e.preventDefault();
-    console.log(e);
-    console.log(removeValue);
     dispatch(
       removeBadgeFromStudent(
         idToken,
-        removeValue.badge_id,
-        removeValue.student_id,
-        removeValue.badge
+        badgeValues.badge_id,
+        badgeValues.student_id,
+        badgeValues.badge
       )
     );
   };
@@ -109,7 +99,7 @@ const FeedbackBadges = props => {
 
 const mapStateToProps = state => {
   return {
-    class: state.classroomReducer,
+    course: state.classroomReducer,
   };
 };
 

@@ -6,7 +6,7 @@ import { Layout } from 'antd';
 import FeedbackBadge from './FeedbackBadge';
 import { Button } from 'antd';
 import { connect } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import {
   getBadgesById,
   getBadges,
@@ -14,12 +14,16 @@ import {
 
 const { Content } = Layout;
 const FeedbackBadgesPage = props => {
+  const dispatch = useDispatch();
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+  const { course } = props;
 
   useEffect(() => {
-    props.getBadgesById(idToken, props.class.currentStudentId);
-    props.getBadges(idToken);
+    dispatch(getBadgesById(idToken, course.currentStudentId));
+    dispatch(getBadges(idToken));
+    console.log(course);
+    console.log(course.studentBadges);
   }, []);
 
   return (
@@ -28,10 +32,10 @@ const FeedbackBadgesPage = props => {
         <InstructorSidebar />
         <Content>
           <div className="classroom__students">
-            {props.class.badges.map(badge => (
+            {course.badges.map(badge => (
               <FeedbackBadge
                 badge={badge}
-                studentBadges={props.class.studentBadges}
+                studentBadges={course.studentBadges}
               />
             ))}
           </div>
@@ -44,7 +48,7 @@ const FeedbackBadgesPage = props => {
 
 const mapStateToProps = state => {
   return {
-    class: state.classroomReducer,
+    course: state.classroomReducer,
   };
 };
 

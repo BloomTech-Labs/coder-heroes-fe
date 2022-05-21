@@ -12,7 +12,7 @@ export default function ConfirmEmail() {
         </p>
         <div className="link-container">
           <a href="#">Resend Link</a>
-          {/* update href after finding correct path from Okta */}
+          {/* TODO update href after finding correct path from Okta */}
         </div>
       </div>
     </div>

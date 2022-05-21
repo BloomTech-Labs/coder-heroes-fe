@@ -11,6 +11,7 @@ export default function InstructorWelcome() {
           CoderHeroes
         </p>
         <a href="#">CREATE ACCOUNT</a>
+        {/* TODO */}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import StudentDashboard from './StudentDashboard';
 import '../../../styles/ParentStyles/index.less';
 
 function StudentHome() {
-  const { Content, Sider } = Layout;
+  const { Content } = Layout;
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {

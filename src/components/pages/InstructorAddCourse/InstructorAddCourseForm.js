@@ -82,7 +82,7 @@ const InstructorAddCourseForm = props => {
       ...classData,
       instructor_id: instructor.instructor_id,
     });
-  }, [instructor]);
+  }, [instructor, classData]);
 
   const validate = (name, value) => {
     yup

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import StudentDropdown from './StudentDropdown';
 import { Link } from 'react-router-dom';
-import { Menu, Layout } from 'antd';
+import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import {
   ClockCircleOutlined,

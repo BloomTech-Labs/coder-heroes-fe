@@ -4,12 +4,11 @@ import ParentSidebar from '../ParentHome/ParentSidebar';
 import ParentNavbar from './ParentNavbar';
 import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Collapse, Card, Typography } from 'antd';
+import { Layout, Collapse, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentTasks = () => {
   const { Content } = Layout;
-  const { Text } = Typography;
 
   return (
     <Layout>

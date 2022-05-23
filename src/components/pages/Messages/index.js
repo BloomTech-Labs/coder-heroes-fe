@@ -1,4 +1,5 @@
 import React from 'react';
+import { InputForm } from './InputForm';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/InstructorStyles/index.less';
 import { Layout } from 'antd';
@@ -11,6 +12,7 @@ const Messages = () => {
         <InstructorSidebar />
         <Content>
           <h3>This is where all the Messages will show up</h3>
+          <InputForm />
         </Content>
       </Layout>
     </>

@@ -58,7 +58,7 @@ const FeedbackBadges = props => {
               avatar={
                 <Avatar
                   src={
-                    require(`../../../styles/ClassroomStyles/badges/${badge.image}.png`)
+                    require(`../../../styles/ClassroomStyles/badges/${badge.image}-achieved.png`)
                       .default
                   }
                   size={128}

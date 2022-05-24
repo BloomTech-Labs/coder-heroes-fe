@@ -13,9 +13,9 @@ const { Title } = Typography;
 
 function DesktopFooter() {
   return (
-    <>
-      <Row justify="space-between">
-        <Col>
+    <div className="footer_container">
+      <Row justify="space-evenly">
+        <Col className="about_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -48,7 +48,7 @@ function DesktopFooter() {
             </ul>
           </div>
         </Col>
-        <Col>
+        <Col className="services_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -67,7 +67,7 @@ function DesktopFooter() {
             </ul>
           </div>
         </Col>
-        <Col>
+        <Col className="contact_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -91,7 +91,7 @@ function DesktopFooter() {
         </Col>
         <Col
           style={{
-            textAlign: 'right',
+            textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -173,7 +173,7 @@ function DesktopFooter() {
           </span>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }
 

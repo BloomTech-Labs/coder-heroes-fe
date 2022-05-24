@@ -42,24 +42,33 @@
 
   .navbar__links {
     display: flex;
-    width: 40%;
-    justify-content: space-between;
-    margin-left: 0.6rem;
+    width: 70%;
+    justify-content: space-evenly;
 
     .navbar__navLink {
+      height: 55px;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #3b0e2b;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      transition: 0.1s all ease-in;
+      border-right: 2px solid #3b0e2b;
+      transition: 250ms all ease-in-out;
+    }
+    .last_navLink {
+      border: none;
     }
     .navbar__navLink:hover {
       color: #fff;
-      text-decoration: underline;
-      text-decoration-thickness: 10px;
+      font-size: 1.35rem;
+      letter-spacing: 3px;
     }
     @media screen and (max-width: 1220px) {
       .navbar__navLink {
         font-size: 0.85rem;
+        border: none;
       }
     }
   }
@@ -115,12 +124,12 @@
       color: #006c72;
       font-weight: 600;
       min-height: 38px;
-      border-radius: 7%;
+      border-radius: 5px;
       border: none;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       font-size: 0.95rem;
       cursor: pointer;
-      transition: 0.1s all ease-in;
+      transition: 250ms all ease;
       margin: 0 0.2rem;
       width: auto;
     }

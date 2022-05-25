@@ -19,6 +19,7 @@ const initialState = {
   studentBadges: [],
   course_id: '',
   errorMessage: '',
+  badge_request: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -62,18 +63,20 @@ const reducer = (state = initialState, action) => {
     case ADD_BADGE_TO_STUDENT:
       return {
         ...state,
-        badges: state.badges.append(action.payload),
+        studentBadges: [...state.studentBadges, action.payload],
         error: false,
         fetching: false,
+        badge_request: !state.badge_request,
       };
     case REMOVE_BADGE_FROM_STUDENT:
       return {
         ...state,
-        badges: state.badges.filter(
+        studentBadges: state.studentBadges.filter(
           badge => badge.badge_id !== action.payload.badge_id
         ),
         error: false,
         fetching: false,
+        badge_request: !state.badge_request,
       };
     case ERROR:
       return { ...state, error: true };

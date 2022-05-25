@@ -88,21 +88,24 @@ export const addBadgeToStudent = (
     type: FETCHING,
     payload: true,
   });
-  try {
-    axiosWithAuth(idToken).post(`/classroom/assign`, {
+  axiosWithAuth(idToken)
+    .post(`/classroom/assign`, {
       badge_id: badge_id,
       child_id: student_id,
+    })
+    .then(() => {
+      console.log(badge);
+      dispatch({
+        type: ADD_BADGE_TO_STUDENT,
+        payload: badge,
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: ERROR,
+        payload: true,
+      });
     });
-    dispatch({
-      type: ADD_BADGE_TO_STUDENT,
-      payload: badge,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: true,
-    });
-  }
 };
 
 export const removeBadgeFromStudent = (
@@ -116,13 +119,15 @@ export const removeBadgeFromStudent = (
     payload: true,
   });
   try {
-    axiosWithAuth(idToken).delete(
-      `/classroom/remove/${badge_id}/${student_id}`
-    );
-    dispatch({
-      type: REMOVE_BADGE_FROM_STUDENT,
-      payload: badge,
-    });
+    axiosWithAuth(idToken)
+      .delete(`/classroom/remove/${badge_id}/${student_id}`)
+      .then(() => {
+        console.log(badge);
+        dispatch({
+          type: REMOVE_BADGE_FROM_STUDENT,
+          payload: badge,
+        });
+      });
   } catch (error) {
     dispatch({
       type: ERROR,

@@ -22,9 +22,14 @@ const FeedbackBadgesPage = props => {
   useEffect(() => {
     dispatch(getBadgesById(idToken, course.currentStudentId));
     dispatch(getBadges(idToken));
-    console.log(course);
-    console.log(course.studentBadges);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(getBadgesById(idToken, course.currentStudentId));
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [course.badge_request]);
 
   return (
     <>

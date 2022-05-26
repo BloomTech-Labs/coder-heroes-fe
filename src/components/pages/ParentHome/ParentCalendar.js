@@ -4,6 +4,7 @@ import '../../../styles/ParentStyles/index.less';
 import 'antd/dist/antd.css';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
+import ParentNavbar from './ParentNavbar';
 import { Calendar, Badge, Modal, Button, Layout } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { dateConverter } from '../../common/dateHelpers';
@@ -239,6 +240,7 @@ function ParentCalendar(props) {
       <ParentSidebar active="dashboard" />
       <Content>
         <Banner />
+        <ParentNavbar />
         <Calendar
           dateCellRender={dateCellRender}
           monthCellRender={monthCellRender}

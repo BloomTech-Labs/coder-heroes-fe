@@ -11,7 +11,7 @@ import ParentNavbar from './ParentNavbar';
 const Progress = () => {
   const { Content } = Layout;
   return (
-    <Layout style={{ width: '100%' }}>
+    <Layout>
       <ParentSidebar active="dashboard" />
       <Content className="progress-container">
         <Banner />

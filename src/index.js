@@ -42,7 +42,6 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
-import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
@@ -70,7 +69,6 @@ import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
-
 import ParentResourcesPage from './components/pages/ParentHome/ParentResourcePage';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));

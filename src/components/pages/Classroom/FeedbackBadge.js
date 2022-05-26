@@ -50,9 +50,9 @@ const FeedbackBadges = props => {
   switch (hasBadge) {
     case true:
       return (
-        <div>
+        <div className="card_div">
           <Card className="badge__card" hoverable>
-            <Button onClick={removeBadge}>Remove Badge</Button>
+            <h2>{badge.name}</h2>
             <Meta
               className="badge__info"
               avatar={
@@ -65,16 +65,18 @@ const FeedbackBadges = props => {
                   className="badge__card__image"
                 />
               }
-              title={badge.name + ' earned'}
             />
+            <Button onClick={removeBadge} className="remove_btn">
+              Remove Badge
+            </Button>
           </Card>
         </div>
       );
     case false:
       return (
-        <div>
+        <div className="card_div">
           <Card className="badge__card" hoverable>
-            <Button onClick={assignBadge}>Add Badge</Button>
+            <h2>{badge.name}</h2>
             <Meta
               className="badge__info"
               avatar={
@@ -87,8 +89,10 @@ const FeedbackBadges = props => {
                   className="badge__card__image"
                 />
               }
-              title={badge.name + ' not earned'}
             />
+            <Button onClick={assignBadge} className="add_btn">
+              Add Badge
+            </Button>
           </Card>
         </div>
       );

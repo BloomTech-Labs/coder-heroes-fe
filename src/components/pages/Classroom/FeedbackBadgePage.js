@@ -40,11 +40,11 @@ const FeedbackBadgesPage = props => {
             {course.badges.map(badge => (
               <FeedbackBadge
                 badge={badge}
+                key={badge.badge_id}
                 studentBadges={course.studentBadges}
               />
             ))}
           </div>
-          <Button className="badge_feedback__button">GIVE FEEDBACK</Button>
         </Content>
       </Layout>
     </>

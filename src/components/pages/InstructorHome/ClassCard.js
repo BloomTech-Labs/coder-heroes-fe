@@ -21,7 +21,6 @@ const ClassCard = ({ course }) => {
 
   const handleNavigate = e => {
     e.preventDefault();
-    console.log(course.course_id);
     dispatch(setCourseId(course.course_id));
     navigate.push('/classroom');
   };

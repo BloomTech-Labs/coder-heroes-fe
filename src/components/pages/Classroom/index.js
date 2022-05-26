@@ -38,7 +38,7 @@ const Classroom = props => {
           <Title className="classroom__title">Classroom</Title>
           <div className="classroom__students">
             {props.course.students.map(student => (
-              <>
+              <Card className="student_feedback_card">
                 <StudentCard key={student.id} student={student} />
                 <Button
                   className="classroom_feedback__button"
@@ -48,22 +48,9 @@ const Classroom = props => {
                 >
                   GIVE FEEDBACK
                 </Button>
-              </>
+              </Card>
             ))}
           </div>
-          <Row className="feedback__badges">
-            <Card className="classroom__feedback__summary">
-              <h1>Summary of Feedback Badges</h1>
-              <Row>
-                <Badge count={7} className="student__card__badge"></Badge>
-                <p>feedback badges have been given</p>
-              </Row>
-              <Row>
-                <Badge count={1} className="student__card__badge"></Badge>
-                <p>students lack any feedback badges</p>
-              </Row>
-            </Card>
-          </Row>
         </Content>
       </Layout>
     </>

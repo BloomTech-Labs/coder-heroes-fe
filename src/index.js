@@ -111,7 +111,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={LoginPage} />
+          <Route path="/register" component={ParentWelcome} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register-2" component={HowManyStudents} />

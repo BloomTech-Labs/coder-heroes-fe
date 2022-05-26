@@ -29,31 +29,44 @@ function ParentMessages(props) {
 
   const [collapsed, setCollapsed] = useState(false);
   const [conversations, setConversations] = useState([]);
+  const [talkingWith, setTalkingWith] = useState([]);
+  const [currentMessages, setCurrentMessages] = useState([]);
 
   const toggle = () => {
     setCollapsed(!collapsed);
   };
-  useEffect(() => {
+  useEffect(async () => {
     console.log('Props before dispatch: ', props);
-    props.dispatch(getCurrentUser(idToken, authState, authService));
+    await props.dispatch(getCurrentUser(idToken, authState, authService));
   }, []);
 
   useEffect(() => {
-    console.log('user has changed to user ' + props.user.profile_id);
     axios
-      .get(`http://localhost:8080/conversation/test/${props.user.profile_id}`)
+      .get(
+        `http://localhost:8080/conversation/myConvos/${props.user.profile_id}`
+      )
       .then(resp => {
-        const peopleImTalkingTo = [];
+        setConversations(resp.data);
+        let convos = resp.data;
 
-        for (let i = 0; i < resp.data.length; i++) {
-          peopleImTalkingTo.push({ label: resp.data[i] });
-        }
-        setConversations(peopleImTalkingTo);
+        let count = 0;
+        let fetchTalkingWith = convos.map(convo => {
+          return { label: convo.conversation_with, key: `${count++}` };
+        });
+
+        setTalkingWith(fetchTalkingWith);
       })
       .catch(error => {
         console.log(error);
       });
   }, [props.user]);
+
+  const handleClick = e => {
+    const index = parseInt(e.key);
+    console.log('typeof index: ', typeof index);
+    console.log(conversations[index]);
+    setCurrentMessages(conversations[index].messages);
+  };
 
   return (
     <Layout className=".page-container">
@@ -63,11 +76,13 @@ function ParentMessages(props) {
         <Layout>
           <Sider trigger={null} collapsible collapsed={collapsed}>
             <div className="logo" />
+            <h1>Conversations</h1>
             <Menu
+              onClick={handleClick}
               theme="dark"
               mode="inline"
               defaultSelectedKeys={['1']}
-              items={conversations.length ? conversations : null}
+              items={conversations.length ? talkingWith : null}
             />
           </Sider>
           <Layout className="site-layout">
@@ -93,7 +108,9 @@ function ParentMessages(props) {
                 minHeight: 280,
               }}
             >
-              Content
+              {currentMessages.map(message => {
+                return <h2>{message.message}</h2>;
+              })}
             </Content>
           </Layout>
         </Layout>

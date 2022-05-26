@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/index.less';
-import { Card, Button, Layout, Row, Badge, Typography } from 'antd';
+import { Card, Button, Layout, Typography } from 'antd';
 import StudentCard from './StudentCard';
 import { connect, useDispatch } from 'react-redux';
 import {

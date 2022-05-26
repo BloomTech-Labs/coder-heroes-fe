@@ -4,7 +4,6 @@ import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/badges.less';
 import { Layout } from 'antd';
 import FeedbackBadge from './FeedbackBadge';
-import { Button } from 'antd';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {

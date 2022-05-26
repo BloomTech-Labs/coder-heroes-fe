@@ -1,29 +1,63 @@
-.badge__card {
-  width: 250;
-  margin: 2rem;
-  border-radius: 10px;
-  background-color: #edeed7;
+.card_div {
+  padding: 0;
+  width: 300px;
+  display: flex;
+  align-items: center;
 
-  .badge__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  div.ant-card-meta-avatar {
+    padding: 0px;
   }
 
-  .badge__card__badge {
-    transform: translate(0.5rem, 50%);
-    .student__card__image {
-      transform: translate(0, -50%);
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .badge__card {
+    width: 100%;
+    margin: 2rem;
+    border-radius: 10px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    text-align: center;
+    background-color: #edeed7;
+    padding: 0;
+
+    .badge__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .add_btn {
+      width: 100%;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      border: 1px solid black;
+      border-radius: @btn__border-radius;
+    }
+
+    .remove_btn {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      border: 1px solid black;
+      border-radius: @btn__border-radius;
     }
   }
-}
-.badge_feedback__button {
-  width: 15rem;
-  height: 4rem;
-  font-family: @text__font-family;
-  font-weight: 700;
-  font-size: 1.8em;
-  background-color: @btn__bg--red;
-  color: #fff;
-  border-radius: 8px;
+
+  .ant-btn {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+
 }

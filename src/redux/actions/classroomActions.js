@@ -94,7 +94,6 @@ export const addBadgeToStudent = (
       child_id: student_id,
     })
     .then(() => {
-      console.log(badge);
       dispatch({
         type: ADD_BADGE_TO_STUDENT,
         payload: badge,
@@ -122,7 +121,6 @@ export const removeBadgeFromStudent = (
     axiosWithAuth(idToken)
       .delete(`/classroom/remove/${badge_id}/${student_id}`)
       .then(() => {
-        console.log(badge);
         dispatch({
           type: REMOVE_BADGE_FROM_STUDENT,
           payload: badge,

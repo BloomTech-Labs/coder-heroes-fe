@@ -41,8 +41,8 @@ const ParentSideBar = props => {
     >
       <Menu
         className="parent-dashboard-sidebar"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
+        defaultselectedkeys={['1']}
+        defaultopenkeys={['sub1']}
         style={{ height: '100%' }}
         mode="inline"
         theme="light"
@@ -149,6 +149,11 @@ const ParentSideBar = props => {
           }}
         >
           <Link>Logout</Link>
+        </Menu.Item>
+        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
+          <Link to="/cart" className="link">
+            Cart <span>({cart.length})</span>
+          </Link>
         </Menu.Item>
       </Menu>
     </Sider>

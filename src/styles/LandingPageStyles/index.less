@@ -20,7 +20,7 @@
 .landing-main-text {
   margin: 5% 0%;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
 }
 
 .browse-btn {
@@ -44,13 +44,13 @@
 .btn {
   cursor: pointer;
   height: 3rem;
-  color: white;
-  background: #f26602;
+  color: @text__color--white;
+  background: @btn__bg--safety-orange;
   border: none;
   border-radius: 5px;
   text-align: center;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
 }
 
 .btn:hover {
@@ -71,17 +71,17 @@
   cursor: pointer;
   height: 3rem;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
 }
 
 .primary:hover {
-  color: white;
+  color: @text__color--white;
 }
 
 /* Second Content Section */
 
 .landing-second-container {
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
   display: flex;
 }
 
@@ -106,16 +106,16 @@
 }
 
 .landing-second-container-text {
-  color: white !important;
+  color: @text__color--white !important;
 }
 
 .landing-second-container-title-one {
   font-size: 16px !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
 }
 
 .landing-second-container-title-two {
-  font-family: 'Staatliches', cursive;
+  font-family: @text__font-family--header;
   margin-left: 6%;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -133,7 +133,7 @@
 
 .landing-third-container {
   display: flex;
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
 }
 
 .landing-third-container-green {
@@ -146,7 +146,7 @@
 .landing-fourth-container {
   display: flex;
   margin-top: -25%;
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
   padding-bottom: 5%;
 }
 .landing-fourth-container-text {
@@ -155,7 +155,7 @@
 }
 
 .description {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: @text__font-family !important;
   margin-bottom: 2% !important;
 }
 
@@ -198,12 +198,12 @@
 
   .landing-main-text h1 {
     margin-bottom: 5%;
-    color: yellow;
+    color: @text__color--yellow;
   }
 
   .landing-main-text h3 {
     text-align: center;
-    color: green;
+    color: @text__color--green;
   }
 
   .browse-btn {
@@ -219,7 +219,7 @@
     height: 3rem;
     margin-right: 1rem;
     color: black;
-    background: #f26602;
+    background: @btn__bg--safety-orange;
     padding: 3% 0%;
     border: none;
     border-radius: 5px;
@@ -230,7 +230,7 @@
   /* Second Content Section */
 
   .landing-second-container {
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     display: flex;
   }
 
@@ -264,7 +264,7 @@
     margin-left: 1rem;
     margin-right: 1rem;
     color: black;
-    background: #fbc740;
+    background: @landing__btn__bg--sunglow;
     border: none;
     border-radius: 0.313rem;
     text-align: center;
@@ -275,7 +275,7 @@
 
   .landing-third-container {
     display: flex;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     padding-top: 5%;
   }
 
@@ -289,7 +289,7 @@
   .landing-fourth-container {
     display: flex;
     margin-top: -25%;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     padding-bottom: 5%;
   }
 
@@ -304,7 +304,7 @@
   }
 
   .description {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 0% 2;
@@ -312,7 +312,7 @@
   }
 
   .brianne {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 2% 10%;
@@ -331,7 +331,7 @@
   }
 
   .cloudbg {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     background-image: none;
   }
 
@@ -370,13 +370,13 @@
 
   .btn:hover {
     filter: brightness(95%);
-    color: white;
+    color: @text__color--white;
   }
 
   /* Second Content Section */
 
   .landing-second-container {
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     display: flex;
   }
 
@@ -385,7 +385,7 @@
   }
 
   .landing-second-container-text {
-    color: white;
+    color: @text__color--white;
     padding: 10% 10% 0%;
     text-align: center;
   }
@@ -399,7 +399,7 @@
     margin-left: 1rem;
     margin-right: 1rem;
     color: black;
-    background: #fbc740;
+    background: @landing__btn__bg--sunglow;
     border: none;
     border-radius: 0.313rem;
     text-align: center;
@@ -417,7 +417,7 @@
   .landing-fourth-container {
     padding-top: 30%;
     display: flex;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     flex-direction: column;
     padding-bottom: 5%;
     justify-content: center;
@@ -435,14 +435,14 @@
   }
 
   .description {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     border-radius: 10px;
     margin: 2% 10%;
     border: 2px solid black;
   }
 
   .brianne {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 2% 10%;

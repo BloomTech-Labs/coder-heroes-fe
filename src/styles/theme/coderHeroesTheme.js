@@ -41,6 +41,8 @@ module.exports = {
   '@navbar__btn__bg--blue-lagoon': '#006C72',
   '@news__btn__bg--licorice': '#2E3646',
   '@news__btn__bg--black': '#000000',
+  '@pl__na__top__btn__bg--amaranth': '#DF294A',
+  '@pl__na__top_-btn_-bg--tyrian-purple': '#5D0B40',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -76,6 +78,8 @@ module.exports = {
   '@navbar__text__color--white': '#EDEED7',
   '@navbar__text__color--blue-lagoon': '#006C72',
   '@news__text__color--white': '#FFFFFF',
+  '@pl__na__text__color--Tarawera': '#263D47',
+  '@pl__na__text__color--black': '#000000',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

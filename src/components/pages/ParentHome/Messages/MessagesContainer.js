@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Col, Row, Card, Menu } from 'antd';
+import { Layout, Col, Row, Card, Menu, Input, Button } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -25,12 +25,14 @@ function ParentMessages(props) {
   const { idToken } = authState;
   const dispatch = useDispatch();
 
-  const { Header, Sider, Content } = Layout;
+  const { Header, Sider, Content, Footer } = Layout;
 
   const [collapsed, setCollapsed] = useState(false);
   const [conversations, setConversations] = useState([]);
   const [talkingWith, setTalkingWith] = useState([]);
   const [currentMessages, setCurrentMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [currentConvo, setCurrentConvo] = useState(null);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -62,10 +64,29 @@ function ParentMessages(props) {
   }, [props.user]);
 
   const handleClick = e => {
-    const index = parseInt(e.key);
-    console.log('typeof index: ', typeof index);
-    console.log(conversations[index]);
+    let index = parseInt(e.key);
+    setCurrentConvo(conversations[index].conversation_id);
     setCurrentMessages(conversations[index].messages);
+  };
+
+  const sendMessage = e => {
+    let messageBeingSent = {
+      message: newMessage,
+      conversation_id: currentConvo,
+      sent_by_profile_id: props.user.profile_id,
+    };
+    axios
+      .post('http://localhost:8080/conversation/messages', messageBeingSent)
+      .then(resp => {
+        console.log('success');
+      })
+      .catch(error => {
+        console.log('failure');
+      });
+  };
+
+  const handleChange = e => {
+    setNewMessage(e.target.value);
   };
 
   return (
@@ -112,6 +133,14 @@ function ParentMessages(props) {
                 return <h2>{message.message}</h2>;
               })}
             </Content>
+            <Footer>
+              <Input
+                placeholder="New Message"
+                className="newMessageInput"
+                onChange={handleChange}
+              />
+              <Button onClick={sendMessage}>Send</Button>
+            </Footer>
           </Layout>
         </Layout>
       </Content>

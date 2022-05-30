@@ -29,6 +29,11 @@ module.exports = {
   '@teacher-db__bg--purple': '800080',
   'student-story-card__bg--white': '#FFFFFF',
   '@student-styles__bg--light-cyan': '#E0FFFF',
+  '@calendar__bg--cream-can': '#F1C461',
+  '@success-class-event__bg--robins-egg-blue': 'rgba(0, 202, 183, 0.25)',
+  '@warning-class-event__bg--dark-tangerine': '#FAAD14',
+  '@error-class-event__bg--salmon': '#FA8072',
+  '@ant-picker__bg--varden': '#FBECD1',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -85,6 +90,8 @@ module.exports = {
   '@pl__na__text__color--Tarawera': '#263D47',
   '@pl__na__text__color--black': '#000000',
   '@top-right__text__color--grey': '#808080',
+  '@text__color--pumpkin': '#F27712',
+  '@calendar-modal__text__color--black': 'rgba(0, 0, 0, 0.65)',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

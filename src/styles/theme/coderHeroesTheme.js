@@ -23,6 +23,7 @@ module.exports = {
   '@instructor-calendar-style__bg--white-smoke': '#F2F2F2',
   '@stat-icon-wrapper__bg--varden': '#FBECD1',
   '@landing-container__bg--blue-stone': '#156A70',
+  '@news__bg--white': '#FFFFFF',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -37,6 +38,8 @@ module.exports = {
   '@landing__btn__bg--sunglow': '#FBC740',
   '@navbar__btn__bg--white': '#EDEED7',
   '@navbar__btn__bg--blue-lagoon': '#006C72',
+  '@news__btn__bg--licorice': '#2E3646',
+  '@news__btn__bg--black': '#000000',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -71,6 +74,7 @@ module.exports = {
   '@text__color--green': '#008000',
   '@navbar__text__color--white': '#EDEED7',
   '@navbar__text__color--blue-lagoon': '#006C72',
+  '@news__text__color--white': '#FFFFFF',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

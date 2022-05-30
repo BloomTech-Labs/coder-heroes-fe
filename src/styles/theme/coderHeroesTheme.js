@@ -13,6 +13,10 @@ module.exports = {
   '@body__bg--yellow': '#F2CE60',
   '@badge-card__bg--white': ' #EDEED7',
   '@classroom__feedback__bg--clay': '#8D8950',
+  '@il__bg--Allsports': '#1E6A70',
+  '@il__bottom__leftCircle': '#F2C35F',
+  '@il__top__bottomContent--white': '#FFFFFF',
+  '@iac__section__bg--snow': '#FBFBFB',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -20,6 +24,8 @@ module.exports = {
   '@btn__bg--maroon': '#6A0C49',
   '@btn__bg--yellow': '#F2CE60',
   '@btn__bg--orange': '#F66721',
+  '@btn__bg__hover--golden-poppy': '#FDC312',
+  '@btn__bg__peach': '#FCDFAA',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -45,6 +51,8 @@ module.exports = {
   '@text__color--maroon': '#3B0E2B',
   '@text__color--white': '#FFFFFF',
   '@text__color--black': '#232420',
+  '@il__text__color_fiord': '#485b63',
+  '@submitbtn__text__color--pumpkin': '#F27712',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

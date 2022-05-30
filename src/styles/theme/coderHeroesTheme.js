@@ -24,6 +24,7 @@ module.exports = {
   '@stat-icon-wrapper__bg--varden': '#FBECD1',
   '@landing-container__bg--blue-stone': '#156A70',
   '@news__bg--white': '#FFFFFF',
+  '@parent-navbar__bg--white': '#FFFFFF',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',

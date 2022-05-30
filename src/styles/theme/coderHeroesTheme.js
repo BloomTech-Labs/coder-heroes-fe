@@ -35,6 +35,8 @@ module.exports = {
   '@insturctor-calendar-style__btn__bg--turquoise': '#34D4C5',
   '@btn__bg--safety-orange': '#F26602',
   '@landing__btn__bg--sunglow': '#FBC740',
+  '@navbar__btn__bg--white': '#EDEED7',
+  '@navbar__btn__bg--blue-lagoon': '#006C72',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -67,6 +69,8 @@ module.exports = {
   '@errorMessage': '#F5222D',
   '@text__color--yellow': '#FFFF00',
   '@text__color--green': '#008000',
+  '@navbar__text__color--white': '#EDEED7',
+  '@navbar__text__color--blue-lagoon': '#006C72',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

@@ -25,6 +25,10 @@ module.exports = {
   '@landing-container__bg--blue-stone': '#156A70',
   '@news__bg--white': '#FFFFFF',
   '@parent-navbar__bg--white': '#FFFFFF',
+  '@student-db__bg--teal': '#008080',
+  '@teacher-db__bg--purple': '800080',
+  'student-story-card__bg--white': '#FFFFFF',
+  '@student-styles__bg--light-cyan': '#E0FFFF',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -80,6 +84,7 @@ module.exports = {
   '@news__text__color--white': '#FFFFFF',
   '@pl__na__text__color--Tarawera': '#263D47',
   '@pl__na__text__color--black': '#000000',
+  '@top-right__text__color--grey': '#808080',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

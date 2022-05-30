@@ -17,6 +17,11 @@ module.exports = {
   '@il__bottom__leftCircle': '#F2C35F',
   '@il__top__bottomContent--white': '#FFFFFF',
   '@iac__section__bg--snow': '#FBFBFB',
+  '@badge-capital__bg__pattens-blue': '#DAF4FF',
+  '@instuctor-calendar-style__bg__blue-lagoon': '#006C72',
+  '@instructor-calendar-style__bg__white': '#FFFFFF',
+  '@instructor-calendar-style__bg__white-smoke': '#F2F2F2',
+  '@stat-icon-wrapper__bg_varden': '#FBECD1',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -26,6 +31,7 @@ module.exports = {
   '@btn__bg--orange': '#F66721',
   '@btn__bg__hover--golden-poppy': '#FDC312',
   '@btn__bg__peach': '#FCDFAA',
+  '@insturctor-calendar-style__btn__bg__turquoise': '#34D4C5',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -53,6 +59,9 @@ module.exports = {
   '@text__color--black': '#232420',
   '@il__text__color_fiord': '#485b63',
   '@submitbtn__text__color--pumpkin': '#F27712',
+  '@close-modal-btn__text__color--red': '#FF0000',
+  '@banner-content__text__color-robins-egg-blue': '#00CAB7',
+  '@errorMessage': '#F5222D',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

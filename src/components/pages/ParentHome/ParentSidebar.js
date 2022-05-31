@@ -40,7 +40,11 @@ const ParentSideBar = props => {
         className="parent-dashboard-sidebar"
         defaultselectedkeys={['1']}
         defaultopenkeys={['sub1']}
-        style={{ height: '100%' }}
+        style={{
+          height: '100%',
+          fontSize: '14px',
+          fontFamily: 'Montserrat',
+        }}
         mode="inline"
         theme="light"
         color="orange"
@@ -52,7 +56,7 @@ const ParentSideBar = props => {
             width: '100%',
             height: 'auto',
             margin: '0 0 5px',
-            padding: '15px 0px',
+            padding: '47px 0px',
             textAlign: 'center',
             backgroundColor: '#e6e6e6',
             cursor: 'pointer',
@@ -73,6 +77,7 @@ const ParentSideBar = props => {
         </div>
 
         <Menu.Item
+          style={{ marginTop: '35px' }}
           key="dashboard"
           className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
           icon={<HomeFilled fontSize="150px" />}
@@ -81,6 +86,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="family"
           className={active === 'family' ? 'ant-menu-item-selected' : ''}
           icon={<HeartFilled fontSize="150px" />}
@@ -89,6 +95,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="messages"
           className={active === 'messages' ? 'ant-menu-item-selected' : ''}
           icon={<MessageFilled fontSize="150px" />}
@@ -97,6 +104,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="calendar"
           className={active === 'calendar' ? 'ant-menu-item-selected' : ''}
           icon={<CalendarFilled fontSize="150px" />}
@@ -105,6 +113,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="courses"
           className={active === 'courses' ? 'ant-menu-item-selected' : ''}
           icon={<ReadFilled fontSize="150px" />}
@@ -113,6 +122,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="cart"
           className={active === 'cart' ? 'ant-menu-item-selected' : ''}
           icon={<ShoppingFilled fontSize="150px" />}
@@ -123,6 +133,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="settings"
           className={active === 'settings' ? 'ant-menu-item-selected' : ''}
           icon={<ToolFilled fontSize="150px" />}
@@ -131,6 +142,7 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
+          style={{ marginTop: '45px' }}
           key="logout"
           icon={<ExportOutlined fontSize="150px" />}
           onClick={() => {

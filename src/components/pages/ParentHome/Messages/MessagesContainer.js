@@ -1,5 +1,7 @@
+import '../../../../styles/messages.less';
+
 import React, { useState, useEffect } from 'react';
-import { Layout, Col, Row, Card, Menu, Input, Button } from 'antd';
+import { Layout, Col, Row, Card, Menu, Input, Button, Avatar } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -146,7 +148,29 @@ function ParentMessages(props) {
               }}
             >
               {currentMessages.map(message => {
-                return <h2>{message.message}</h2>;
+                console.log(
+                  'message.sent_by_profile_id: ',
+                  message.sent_by_profile_id
+                );
+                console.log('props.user.profile_id: ', props.user.profile_id);
+                if (message.sent_by_profile_id === props.user.profile_id) {
+                  return (
+                    <h2 className="myMessage">
+                      <Avatar size="small">{props.user.name[0]}</Avatar>
+                      {message.message}
+                    </h2>
+                  );
+                } else {
+                  console.log('MESSAGE: ', message);
+                  return (
+                    <h2 className="theirMessage">
+                      <Avatar size="small">
+                        {conversations[currentConvoIndex].conversation_with[0]}
+                      </Avatar>
+                      {message.message}
+                    </h2>
+                  );
+                }
               })}
             </Content>
             <Footer>

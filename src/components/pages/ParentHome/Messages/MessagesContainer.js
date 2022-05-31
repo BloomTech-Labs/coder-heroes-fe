@@ -33,6 +33,7 @@ function ParentMessages(props) {
   const [currentMessages, setCurrentMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [currentConvo, setCurrentConvo] = useState(null);
+  const [currentConvoIndex, setCurrentConvoIndex] = useState(null);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -65,6 +66,7 @@ function ParentMessages(props) {
 
   const handleClick = e => {
     let index = parseInt(e.key);
+    setCurrentConvoIndex(index);
     setCurrentConvo(conversations[index].conversation_id);
     setCurrentMessages(conversations[index].messages);
   };
@@ -78,10 +80,24 @@ function ParentMessages(props) {
     axios
       .post('http://localhost:8080/conversation/messages', messageBeingSent)
       .then(resp => {
-        console.log('success');
+        console.log('CUrrent convo: ', currentConvo);
+        axios
+          .get(
+            `http://localhost:8080/conversation/myConvos/${props.user.profile_id}`
+          )
+          .then(resp => {
+            console.log('CHECKKKKK: ', resp);
+            setCurrentMessages(resp.data[currentConvoIndex].messages);
+          })
+          .catch(error => {
+            console.log(error);
+          });
       })
       .catch(error => {
         console.log('failure');
+      })
+      .finally(() => {
+        setNewMessage('');
       });
   };
 
@@ -138,6 +154,7 @@ function ParentMessages(props) {
                 placeholder="New Message"
                 className="newMessageInput"
                 onChange={handleChange}
+                value={newMessage}
               />
               <Button onClick={sendMessage}>Send</Button>
             </Footer>

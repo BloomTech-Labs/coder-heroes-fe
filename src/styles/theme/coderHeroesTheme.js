@@ -37,7 +37,9 @@ module.exports = {
   '@ant-menu__bg--supernova': '#FEAE28',
   '@header__bg--light-sea-green': '#21C5B5',
   '@header__bg--white': '#FFFFFF',
-
+  '@login__bg--blue-lagoon': '#006C72',
+  '@login__bg--dew': '#F4F8F5',
+  '@login__bg--white': '#FFFFFF',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -56,6 +58,7 @@ module.exports = {
   '@news__btn__bg--black': '#000000',
   '@pl__na__top__btn__bg--amaranth': '#DF294A',
   '@pl__na__top_-btn_-bg--tyrian-purple': '#5D0B40',
+  '@login__btn__bg--blue-lagoon': '#006C72',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -102,7 +105,9 @@ module.exports = {
   '@ant-menu__text__color--red': '#ff0000',
   '@ant-menu__text__color--tyrian-purple': 'rgba(116, 0, 73, 0.8)',
   '@header__text__color--teal': '#008080',
-
+  '@login__text__color--grey': '#808080',
+  '@login__text__color--blue-lagoon': '#006C72',
+  '@login__text__color--white': '#FFFFFF',
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',
   '@input__box-shadow--focus': '0px 0px 10px 1px #21C5B5',

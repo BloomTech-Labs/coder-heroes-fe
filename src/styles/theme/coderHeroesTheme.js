@@ -35,6 +35,9 @@ module.exports = {
   '@error-class-event__bg--salmon': '#FA8072',
   '@ant-picker__bg--varden': '#FBECD1',
   '@ant-menu__bg--supernova': '#FEAE28',
+  '@header__bg--light-sea-green': '#21C5B5',
+  '@header__bg--white': '#FFFFFF',
+
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -98,6 +101,7 @@ module.exports = {
   '@ant-menu__text__color--grey': '#808080',
   '@ant-menu__text__color--red': '#ff0000',
   '@ant-menu__text__color--tyrian-purple': 'rgba(116, 0, 73, 0.8)',
+  '@header__text__color--teal': '#008080',
 
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',

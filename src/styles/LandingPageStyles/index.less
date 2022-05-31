@@ -21,6 +21,7 @@
   margin: 5% 0%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
 }
 
 .browse-btn {
@@ -58,6 +59,63 @@
   color: black;
 }
 
+
+/* Second Content Section */
+
+.landing-second-container {
+  background: #156a70;
+  display: flex;
+}
+
+.landing-second-images {
+  flex: 2;
+}
+
+.orange-cloud {
+  z-index: 0;
+  width: 80%;
+  margin-top: -10%;
+}
+
+.classroom-photo {
+  z-index: 2;
+  margin-top: -65%;
+  width: 62%;
+  padding-left: 10%;
+  padding-bottom: 2%;
+}
+
+.landing-second-container-content {
+  flex: 1;
+  padding-top: 10%;
+  margin-right: 5%;
+  text-align: center;
+  // background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-second-container-text {
+  color: white !important;
+  text-align: center;
+}
+
+.landing-second-container-title-one {
+  font-size: 23px !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landing-second-container-title-two {
+  font-family: 'Staatliches', cursive;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.landing-second-container-paragraph {
+  margin-top: 1%;
+  font-size: 1.1rem;
+}
+
 .primary {
   background-color: @btn__bg--yellow!important;
   border: none;
@@ -76,53 +134,6 @@
 
 .primary:hover {
   color: white;
-}
-
-/* Second Content Section */
-
-.landing-second-container {
-  background: #156a70;
-  display: flex;
-}
-
-.orange-cloud {
-  z-index: 0;
-  width: 80%;
-  margin-top: -10%;
-}
-
-.classroom-photo {
-  z-index: 2;
-  margin-top: -65%;
-  width: 62%;
-  padding-left: 10%;
-  padding-bottom: 2%;
-}
-
-.landing-second-container-content {
-  text-align: center;
-  padding-top: 10%;
-  margin-right: 5%;
-}
-
-.landing-second-container-text {
-  color: white !important;
-}
-
-.landing-second-container-title-one {
-  font-size: 16px !important;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.landing-second-container-title-two {
-  font-family: 'Staatliches', cursive;
-  margin-left: 6%;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.landing-second-container-paragraph {
-  margin-top: 0 !important;
 }
 
 .empty-space {
@@ -152,6 +163,8 @@
 .landing-fourth-container-text {
   margin-right: 3%;
   margin-left: 1%;
+  text-align: center;
+  font-weight: bold; 
 }
 
 .description {

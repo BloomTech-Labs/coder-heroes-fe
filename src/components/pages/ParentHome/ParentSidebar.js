@@ -9,12 +9,9 @@ import {
   ToolFilled,
   ExportOutlined,
   HeartFilled,
-  ShoppingCartOutlined,
-  ReadOutlined,
-  BookFilled,
+  ShoppingFilled,
+  ReadFilled,
   MessageFilled,
-  CarryOutOutlined,
-  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -80,7 +77,7 @@ const ParentSideBar = props => {
           className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
           icon={<HomeFilled fontSize="150px" />}
         >
-          <Link to="/parent">Dashboard</Link>
+          <Link to="/parent">Newsfeed</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -92,11 +89,11 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="courses"
-          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
-          icon={<BookFilled fontSize="150px" />}
+          key="messages"
+          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
+          icon={<MessageFilled fontSize="150px" />}
         >
-          <Link to="/parent/booking">My Courses</Link>
+          <Link to="/parent/messages">Messages</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -108,25 +105,17 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="newsfeed"
-          className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
-          icon={<ReadOutlined fontSize="150px" />}
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<ReadFilled fontSize="150px" />}
         >
-          <Link to="/parent/newsfeed">News Feed</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="messages"
-          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
-          icon={<MessageFilled fontSize="150px" />}
-        >
-          <Link to="/parent/messages">Messages</Link>
+          <Link to="/parent/booking">Course Catalog</Link>
         </Menu.Item>
 
         <Menu.Item
           key="cart"
           className={active === 'cart' ? 'ant-menu-item-selected' : ''}
-          icon={<ShoppingCartOutlined fontSize="150px" />}
+          icon={<ShoppingFilled fontSize="150px" />}
         >
           <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
@@ -149,11 +138,6 @@ const ParentSideBar = props => {
           }}
         >
           <Link>Logout</Link>
-        </Menu.Item>
-        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
-          <Link to="/cart" className="link">
-            Cart <span>({cart.length})</span>
-          </Link>
         </Menu.Item>
       </Menu>
     </Sider>

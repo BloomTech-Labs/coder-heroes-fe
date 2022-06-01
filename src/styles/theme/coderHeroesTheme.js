@@ -44,6 +44,8 @@ module.exports = {
   '@reg-content__bg--white': '#FFFFFF',
   '@reg-content__bg--blue-lagoon': '#006C72',
   '@reg-conent__bg--dew': '#F4F8F5',
+  '@registration-progress__bg--light-sea-green': '#21C5b5',
+  '@registration-progress__bg--white': '#FFFFFF',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -123,6 +125,7 @@ module.exports = {
   '@reg-conent__text__color--blue-lagoon': '#006C72',
   '@reg-content__text__color--white': '#FFFFFF',
   '@reg-content__text__color--light-grey': '#D3D3D3',
+  '@registration-progress__text__color--light-sea-green': '#21C5b5',
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',
   '@input__box-shadow--focus': '0px 0px 10px 1px #21C5B5',

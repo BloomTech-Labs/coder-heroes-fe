@@ -70,6 +70,7 @@ import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import Progress from './components/pages/ParentHome/Progress';
+import AdminApplications from './components/pages/AdminApplications';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -169,6 +170,11 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute
+            path="/admin-applications"
+            component={AdminApplications}
+          />
+          {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
           <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute

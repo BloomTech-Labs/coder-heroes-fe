@@ -10,7 +10,7 @@ export default function ExplorePrograms() {
       <Content className="pl__na__container">
         <div className="pl__na__top__container">
           <div className="pl__na__top__left">
-            <Title className="pl__na__heading pl__na__top__heading">
+            <Title className="pl__na__heading pl__na__top__heading" level={2}>
               PROGRAMS
             </Title>
             <div> </div>

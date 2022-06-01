@@ -14,7 +14,7 @@ const AdminApplicationsContainer = () => {
           provided application details to ensure applicant meets our student
           instructor standards.
         </p>
-        <Button className="button">View Pending</Button>
+        <Button className="pendingBtn">View Pending</Button>
       </Card>
 
       <Card className="approved-applications">
@@ -24,7 +24,7 @@ const AdminApplicationsContainer = () => {
           instructors. Select the dropdown to view expanded details about each
           accepted applicant.
         </p>
-        <Button className="button">View Approved</Button>
+        <Button className="approvedBtn">View Approved</Button>
       </Card>
     </div>
   );

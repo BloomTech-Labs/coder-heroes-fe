@@ -41,6 +41,9 @@ module.exports = {
   '@login__bg--blue-lagoon': '#006C72',
   '@login__bg--dew': '#F4F8F5',
   '@login__bg--white': '#FFFFFF',
+  '@reg-content__bg--white': '#FFFFFF',
+  '@reg-content__bg--blue-lagoon': '#006C72',
+  '@reg-conent__bg--dew': '#F4F8F5',
   // Buttons
   '@btn__bg--blue': '#21C5B5',
   '@btn__bg--white': '#EEEDD9',
@@ -60,6 +63,7 @@ module.exports = {
   '@pl__na__top__btn__bg--amaranth': '#DF294A',
   '@pl__na__top_-btn_-bg--tyrian-purple': '#5D0B40',
   '@login__btn__bg--blue-lagoon': '#006C72',
+  '@reg-content__btn__bg--blue-lagoon': '#006C72',
   // Borders
   '@btn__border-radius': '6px',
   // Fonts
@@ -111,6 +115,14 @@ module.exports = {
   '@login__text__color--grey': '#808080',
   '@login__text__color--blue-lagoon': '#006C72',
   '@login__text__color--white': '#FFFFFF',
+  '@reg-content__text__color--blue-lagoon': '#006C72',
+  '@reg-content__text__color--orange': '#FFAD00',
+  '@reg-content__text__color--safety-orange': '#FF5C00',
+  '@reg-content__text__color--amaranth': '#EC2C4E',
+  '@reg-content__text__color--tyrian-purple': '#740049',
+  '@reg-conent__text__color--blue-lagoon': '#006C72',
+  '@reg-content__text__color--white': '#FFFFFF',
+  '@reg-content__text__color--light-grey': '#D3D3D3',
   // Focus Effects
   '@input__border--focus': '1px solid #21C5B5',
   '@input__box-shadow--focus': '0px 0px 10px 1px #21C5B5',

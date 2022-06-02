@@ -22,7 +22,7 @@ import InstructorBooking from './components/pages/InstructorBooking';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
-import { LoginPage } from './components/pages/Login';
+import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -111,17 +111,15 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={LoginPage} />
+          <Route path="/register" component={InstructorWelcome} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register-2" component={HowManyStudents} />
           <Route path="/register-3" component={RegisterStep3} />
-          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-
           <Route
             path="/register-success-instructor"
             component={SuccessfulSubmission}

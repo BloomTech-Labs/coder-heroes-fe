@@ -20,6 +20,19 @@ export default function Banner() {
   switch (path) {
     case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');
+    case '/student':
+      return bannerContent('Student Dashboard');
+    case '/parent-booking':
+      return bannerContent(
+        'bookings list',
+        "view your children's reserved courses"
+      );
+    case '/parent/achievements':
+      return bannerContent('Achievements');
+    case '/parent/tasks':
+      return bannerContent('Tasks');
+    case '/parent/resources':
+      return bannerContent('Resources');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
@@ -27,9 +40,9 @@ export default function Banner() {
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
     case '/parent':
-      return bannerContent('Mission Control', '');
-    case '/parent-progress':
-      return bannerContent('Progress', "view your children's progress");
+      return bannerContent('Newsfeed', '');
+    case '/parent/progress':
+      return bannerContent('Progress', '');
     case '/parent/calendar':
       return bannerContent('Calendar', '');
     case '/parent/booking':
@@ -37,17 +50,11 @@ export default function Banner() {
     case '/parent/newsfeed':
       return bannerContent('Newsfeed', '');
     case '/parent/family':
-      return bannerContent('CHOOSE A PROFILE');
+      return bannerContent('Choose a Profile', '');
     case '/parent/cart':
-      return bannerContent('Cart');
+      return bannerContent('Cart', '');
     case '/parent/messages':
-      return bannerContent('Messages');
-    case '/parent/tasks':
-      return bannerContent('TASKS');
-    case '/parent/resources':
-      return bannerContent('PARENT RESOURCES');
-    case '/student':
-      return bannerContent('Student Dashboard');
+      return bannerContent('Messages', '');
     case '/classroom':
       return bannerContent('Classroom');
     default: {

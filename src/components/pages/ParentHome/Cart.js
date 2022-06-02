@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
+import ParentNavbar from './ParentNavbar';
 import StripeCheckoutButton from '../Stripe/StripeCheckoutButton';
 // import { useHistory } from 'react-router-dom';
 import { Modal, Button, Layout } from 'antd';
@@ -12,6 +13,8 @@ import {
   cancelCartItem,
   clearCart,
 } from '../../../redux/actions/parentActions';
+
+import '../../../styles/ParentStyles/index.less';
 
 const { Content } = Layout;
 
@@ -54,6 +57,7 @@ function Cart(props) {
       <ParentSidebar />
       <Content>
         <Banner />
+        <ParentNavbar />
         {cart.length === 0 ? (
           <div>
             {/* <div>You don't have any item in cart yet!</div> */}
@@ -83,7 +87,7 @@ function Cart(props) {
               };
 
               return (
-                <div key={index}>
+                <div className="cart-content" key={index}>
                   <div>
                     <div>Course: {sessionDetail.subject}</div>
                     <div>Book for: {booking.child_name}</div>

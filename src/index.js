@@ -41,7 +41,6 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
-import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
@@ -70,7 +69,6 @@ import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
-import ParentResourcesPage from './components/pages/ParentHome/ParentResourcePage';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -139,7 +137,7 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent" component={ParentDashboard} />
+          <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
 

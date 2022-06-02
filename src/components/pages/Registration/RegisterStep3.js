@@ -27,15 +27,15 @@ const initialParentInfo = {
   children: [],
 };
 
-export default function() {
+export default function RegisterStep3() {
   const [studentArr, setStudentArr] = useState(initialStudentArr);
   const [parentInfo, setParentInfo] = useState(initialParentInfo);
 
   // send accountDetails to the backend
-  const accountDetails = {
-    ...parentInfo,
-    children: studentArr,
-  };
+  // const accountDetails = {
+  //   ...parentInfo,
+  //   children: studentArr,
+  // };
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -13,8 +13,6 @@ import {
   ReadOutlined,
   BookFilled,
   MessageFilled,
-  CarryOutOutlined,
-  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
 

@@ -7,12 +7,11 @@ import {
   HomeFilled,
   CalendarFilled,
   ToolFilled,
-  ExportOutlined,
   HeartFilled,
-  ShoppingFilled,
   ReadFilled,
   MessageFilled,
 } from '@ant-design/icons';
+import { FaShoppingCart } from 'react-icons/fa';
 import { useOktaAuth } from '@okta/okta-react';
 
 const { Sider } = Layout;
@@ -56,7 +55,7 @@ const ParentSideBar = props => {
             width: '100%',
             height: 'auto',
             margin: '0 0 5px',
-            padding: '47px 0px',
+            padding: '15px 0px',
             textAlign: 'center',
             backgroundColor: '#e6e6e6',
             cursor: 'pointer',
@@ -125,7 +124,7 @@ const ParentSideBar = props => {
           style={{ marginTop: '45px' }}
           key="cart"
           className={active === 'cart' ? 'ant-menu-item-selected' : ''}
-          icon={<ShoppingFilled fontSize="150px" />}
+          icon={<FaShoppingCart fontSize="150px" />}
         >
           <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
@@ -139,17 +138,6 @@ const ParentSideBar = props => {
           icon={<ToolFilled fontSize="150px" />}
         >
           <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          style={{ marginTop: '45px' }}
-          key="logout"
-          icon={<ExportOutlined fontSize="150px" />}
-          onClick={() => {
-            authService.logout();
-          }}
-        >
-          <Link>Logout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

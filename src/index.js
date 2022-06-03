@@ -41,7 +41,6 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
-import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
@@ -56,6 +55,7 @@ import Cart from './components/pages/ParentHome/Cart';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
+import Progress from './components/pages/ParentHome/Progress';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
@@ -69,9 +69,9 @@ import InstructorDashboard from './components/pages/Dashboard';
 import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
-import Progress from './components/pages/ParentHome/Progress';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
+window.store = store; // Remove before full deployment. In here for development purposes.
 
 ReactDOM.render(
   <Provider store={store}>
@@ -111,7 +111,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={LoginPage} />
+          <Route path="/register" component={ParentWelcome} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={ParentWelcome} />
           <Route path="/register-2" component={HowManyStudents} />
@@ -121,9 +121,8 @@ function App() {
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-
           <Route
-            path="/register-success-instructor"
+            path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
           <SecureRoute
@@ -132,12 +131,12 @@ function App() {
           />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentHome} />
+          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent" component={ParentDashboard} />
+          <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
 

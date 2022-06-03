@@ -9,7 +9,6 @@ import 'antd/dist/antd.css';
 
 const ParentTasks = () => {
   const { Content } = Layout;
-  const { Text } = Typography;
 
   return (
     <Layout>

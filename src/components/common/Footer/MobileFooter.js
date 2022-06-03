@@ -14,8 +14,8 @@ const { Title } = Typography;
 function MobileFooter() {
   return (
     <div className="footer-content">
-      <Row justify="space-between">
-        <Col>
+      <Row justify="space-evenly">
+        <Col className="services_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -38,7 +38,7 @@ function MobileFooter() {
             </ul>
           </div>
         </Col>
-        <Col>
+        <Col className="about_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -71,7 +71,7 @@ function MobileFooter() {
             </ul>
           </div>
         </Col>
-        <Col span={24}>
+        <Col className="contact_column">
           <Title
             className="title"
             style={{ color: '#ffffff', fontWeight: '400' }}
@@ -101,6 +101,7 @@ function MobileFooter() {
             margin: 'auto',
             marginBottom: '10px',
             fontWeight: '400',
+            textAlign: 'center',
           }}
           level={1}
         >

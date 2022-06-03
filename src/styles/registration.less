@@ -6,7 +6,7 @@
 
 .reg-content-container {
     text-align: center;
-    background-color: white;
+    background-color: @reg-content__bg--white;
     width: 85rem;
     height: auto;
     padding: 6rem 10rem;
@@ -21,7 +21,6 @@
 .reg-content-container p {
     font-size: 2.4rem;
 }
-
 .content {
     padding: 0 6rem;
 }
@@ -30,25 +29,20 @@
 }
 
 .color-one {
-    color: #006C72;
+    color: @reg-content__text__color--blue-lagoon;
 }
-
 .color-two {
-    color: #FFAD00;
+    color: @reg-content__text__color--orange;
 }
-
 .color-three {
-    color: #FF5C00;
+    color: @reg-content__text__color--safety-orange;
 }
-
 .color-four {
-    color: #EC2C4E;
+    color: @reg-content__text__color--amaranth;
 }
-
 .color-five {
-    color: #740049;
+    color: @reg-content__text__color--tyrian-purple;
 }
-
 .link-container {
     margin-top: 4rem;
 }
@@ -56,12 +50,22 @@
 .content a, .content button {
     width: auto;
     padding: .7rem 2rem;
-    background-color: #006C72;
-    color:white;
+    background-color: @reg-content__bg--blue-lagoon;
+    color:@reg-content__text__color--white;
+    font-weight: bold;
     text-transform: uppercase;
     border-radius: 3px;
 }
-
+.footer-content {
+    padding: 2rem;
+    padding-top: 5rem;
+}
+.footer-content p{
+    font-size: .75rem;
+}
+.footer-content a{
+    font-size: .75rem;
+}
 .content button{
     border: none;
     margin-left: 1rem;
@@ -70,7 +74,7 @@
 .student-num {
     width: 3rem;
     height: 3rem;
-    color: #006C72;
+    color: @reg-conent__text__color--blue-lagoon;
     border: 1px solid #006C72;
     text-align: center;
     font-weight: 700;
@@ -81,18 +85,18 @@
 
 .reg-form-title {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-top: 1rem;
     
     p {
-        color: lightgray;
+        color: @reg-content__text__color--light-grey;
         font-size: .9rem;
         margin: 0;
     }
 }
 
 .form-title{
-         color:#006C72;
+         color:@reg-conent__text__color--blue-lagoon;
         font-weight: bold;
         text-align: start;
         margin: 0;
@@ -118,23 +122,43 @@
 
     input{
         display: block;
-        margin-top: 1rem;
         padding: .7rem;
         width: 32rem;
         border: none;
-        background-color: #F4F8F5;
+        background-color: @reg-conent__bg--dew;
     }
-
-.long-form-line {
-    textarea{
-        width: 64.8rem;
-        height: 10rem;
-        margin-top: 1rem;
-        padding: 1rem;
-        border: none;
-        background-color: #F4F8F5;
+    .form-line{
+        margin: .5rem 0;
+    }
+    .long-form-line {
+        margin: -.2rem 0;
+        width: 100%;
+        textarea {
+            width: 100%;
+            height: 10rem;
+            border: none;
+            padding: 1rem;
+            background-color: @reg-conent__bg--dew;
+            display: block
         }
     }
+    .error{
+        color:#EC2C4E;
+        font-size: .9rem;
+        padding: 1.2rem;
+    }
+}
+
+.labelName{
+    color: #740049;
+    display: flex;
+}
+
+
+.warning{
+    color:#EC2C4E;
+    display: flex;
+    align-items: center;
 }
 
 .profile-container{
@@ -153,7 +177,7 @@
     margin: 0 .7rem;
     p{
         font-size: .7rem;
-        color: lightgray;
+        color: @reg-content__text__color--light-grey;
         text-align: start;
     }
 }
@@ -166,7 +190,11 @@
     padding: 0;
 
     button, a{
+        cursor: pointer;
         width: 8rem;
+    }
+    button:disabled {
+        opacity: 20%;
     }
 }
 
@@ -189,8 +217,8 @@
         width: 2.1rem;
         height: 2.1rem;
         border-radius: 50%;
-        background-color: #006C72;
-        color: white;
+        background-color: @reg-content__btn__bg--blue-lagoon;
+        color: @reg-content__text__color--white;
         border: none;
     }
     .selected-avatar{
@@ -221,7 +249,6 @@
             padding: 0;
     }
 }
-
 @media screen and (max-width: 768px) {
     .content{
         padding: 0;
@@ -243,20 +270,24 @@
         margin-top: 2rem;
     }
 }
-
 @media screen and (max-width: 576px) {
     .reg-content-container {
         width: 100%;
         margin: 0;
     }
 }
-
 @media screen and (max-width: 576px) {
     .reg-content-container p {
         font-size: 1.2rem;
     }
-
     .reg-content-container {
         padding: 5rem 1.5rem;
     }
 }
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/admin-add-course">
           UTILITIES
         </NavLink>
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink last_navLink" to="/">
           PAGES
         </NavLink>
       </div>
@@ -33,7 +33,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/messages">
           MESSAGES
         </NavLink>
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink last_navLink" to="/">
           FEEDBACK
         </NavLink>
       </div>
@@ -50,7 +50,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/parent-booking">
           BOOKING
         </NavLink>
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink last_navLink" to="/">
           SCHOLARSHIPS
         </NavLink>
       </div>
@@ -67,7 +67,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/">
           PROGRESS
         </NavLink>
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink last_navLink" to="/">
           ACHIEVEMENTS
         </NavLink>
       </div>
@@ -84,7 +84,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/parent-booking">
           BOOKING
         </NavLink>
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink last_navLink" to="/">
           SCHOLARSHIPS
         </NavLink>
       </div>

@@ -6,31 +6,31 @@ html {
 //****Parent and Instructor Sidebar Styles****
 .ant-menu-item {
   ant-icon {
-    color: orange;
+    color: @ant-menu__text__color--orange;
   }
 }
 .dashboard-logo {
-  color: orange;
+  color: @ant-menu__text__color--orange;
 }
 .ant-menu-item-selected{
-  color: #fff !important;
-  background-color: rgb(254,174,40) !important;
+  color: @text__color--white !important;
+  background-color: @ant-menu__bg--supernova !important;
 }
 
 .ant-menu-item-selected span a, .ant-menu-item-active span a:hover {
-  color: #fff !important;
+  color: @text__color--white !important;
 }
 
 // Parent and Instructor Sidebar Styles
 
 .ant-menu-item-active {
-  background-color: rgb(254,174,40);
-  color: white !important;
+  background-color: @ant-menu__bg--supernova;
+  color: @text__color--white !important;
   border-radius: 0px;
 }
 
 .ant-menu-item a, .ant-menu-item::before {
-  color: #595959 !important;
+  color: @ant-menu__text__color--zambezi !important;
 }
 
 .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
@@ -38,17 +38,17 @@ html {
 }
 
 .ant-menu-item-active-selected::after {
-  color: red;
-  color: grey;
+  color: @ant-menu__text__color--red;
+  color: @ant-menu__text__color--grey;
 }
 .ant-menu-item-selected::after {
-  color: rgba(116, 0, 73, 0.8);
+  color: @ant-menu__text__color--tyrian-purple;
 }
 .dashboard-icon {
-  color: grey;
+  color: @ant-menu__text__color--grey;
 }
 .link {
-  color: grey;
+  color: @ant-menu__text__color--grey;
 }
 .title {
   font-family: @text__font-family--header;

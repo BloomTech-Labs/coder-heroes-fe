@@ -97,7 +97,7 @@ export const parentDummyData = {
         subject: 'CS101',
         description: 'Computer Science fundamentals',
         prereqs: null,
-        start_date: '2021-12-13T07:00:00.000Z',
+        start_date: '2021-05-30T07:00:00.000Z',
         end_date: '2022-10-10T07:00:00.000Z',
         start_time: '17:00:00',
         end_time: '18:00:00',

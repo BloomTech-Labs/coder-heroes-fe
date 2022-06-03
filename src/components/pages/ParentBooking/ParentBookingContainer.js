@@ -50,15 +50,17 @@ const ParentBookingContainer = props => {
       ) : isFetching ? (
         <LoadingComponent message="Loading Bookings List..." />
       ) : (
-        <Tabs animated="true" tabPosition="top" onChange={renderTab}>
+        <Tabs animated="true" tabPosition="top" onChange={renderTab} centered>
           {tabs.map((item, index) => (
-            <TabPane tab={item.title} key={index}>
-              <Card.Grid hoverable="False" className="flex">
-                {currentTab &&
-                  currentTab.map((item, idx) => {
-                    return <ParentBookingCard key={idx} booking={item} />;
-                  })}
-              </Card.Grid>
+            <TabPane tab={item.title} key={index} className="tab_container">
+              {currentTab &&
+                currentTab.map((item, idx) => {
+                  return (
+                    <div>
+                      <ParentBookingCard key={idx} booking={item} />
+                    </div>
+                  );
+                })}
             </TabPane>
           ))}
           <TabPane tab="My Courses" key="3">

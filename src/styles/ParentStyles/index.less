@@ -117,7 +117,16 @@
 }
 }
 
-
+.tab_container {
+  display: flex;  
+  background-color: #edeed7;  
+}
+.tab_container > div {
+  background-color: #f1f1f1;
+  margin: 20px 0px  20px 50px;
+  
+  font-size: 30px;
+}
 
 .card-name {
   font-size: 1rem;
@@ -168,12 +177,13 @@
 }
 
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
+
 }
+.tab_container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 .add-student-button {
   background-color: @btn__bg--orange;

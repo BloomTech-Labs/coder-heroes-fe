@@ -29,6 +29,7 @@ import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddProgram';

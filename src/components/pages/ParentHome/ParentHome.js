@@ -1,17 +1,35 @@
 import React from 'react';
-import ParentFamilyHome from '../ParentFamily/ParentFamilyHome';
-import { Layout } from 'antd';
-import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
-import './../../../styles/ParentStyles/index.less';
+import ParentSidebar from './ParentSidebar';
+import IndividualNewsParent from '../ParentNewsFeed/IndividualNewsParent';
+import '../../../styles/ParentStyles/dashboard.less';
+import { Layout, Col, Row, Card } from 'antd';
+import 'antd/dist/antd.css';
 
-function ParentHome() {
+const ParentHome = () => {
+  const { Content } = Layout;
   return (
     <Layout>
-      <Banner />
-      <ParentFamilyHome />
+      <ParentSidebar active="" />
+      <Content>
+        <Banner />
+        <Content className="dashboard-container">
+          <Row className="row">
+            <Col className="parent-dashboard-column" span={20}>
+              <Row className="row">
+                <Card className="dashboard-card">
+                  <Row className="row">
+                    <IndividualNewsParent />
+                    <IndividualNewsParent />
+                  </Row>
+                </Card>
+              </Row>
+            </Col>
+          </Row>
+        </Content>
+      </Content>
     </Layout>
   );
-}
+};
 
 export default ParentHome;

@@ -27,7 +27,10 @@ const SearchInstructors = props => {
       <Content className="il__top__topContent">
         <div className="il__top__topContent__container">
           <div className="il__top__topContent__main">
-            <Title className="il__heading il__top__topContent__heading">
+            <Title
+              className="il__heading il__top__topContent__heading"
+              level={2}
+            >
               ONLINE CODER INSTRUCTORS
             </Title>
             <Text className="il__top__topContent__text">
@@ -106,7 +109,7 @@ const SearchInstructors = props => {
                   whiteSpace: 'nowrap',
                   color: '#263E47',
                 }}
-                className="il__heading"
+                className="il__heading il__heading_inner"
               >
                 STUDENTS FIRST
               </Title>
@@ -129,7 +132,7 @@ const SearchInstructors = props => {
                   whiteSpace: 'nowrap',
                   color: '#263E47',
                 }}
-                className="il__heading"
+                className="il__heading il__heading_inner"
               >
                 QUALITY INSTRUCTION
               </Title>
@@ -151,7 +154,7 @@ const SearchInstructors = props => {
                   whiteSpace: 'nowrap',
                   color: '#263E47',
                 }}
-                className="il__heading"
+                className="il__heading il__heading_inner"
               >
                 AVAILABLE SCHEDULING
               </Title>
@@ -162,11 +165,9 @@ const SearchInstructors = props => {
             </div>
           </Col>
         </Row>
-        <Row>
-          <Col span={8}>
-            <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
-          </Col>
-        </Row>
+        <div className="il__browseBtn__container il__heading_inner">
+          <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
+        </div>
       </Content>
     </Layout>
   );

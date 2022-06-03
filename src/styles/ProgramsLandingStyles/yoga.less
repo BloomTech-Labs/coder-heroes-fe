@@ -15,26 +15,29 @@
   .pl__na__left__container {
     display: flex;
     justify-content: flex-start;
-    flex: 2;
-    overflow: hidden;
+    flex: 1;
   }
 
   // DIV IMAGE CONTAINER
   .pl__na__image__containers {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   // BLUE BACKGROUND IMAGE
   .pl__na__image__bluebg {
-    height: 95%;
-    transform: translate(10%, -3.5%)
+    height: auto;
+    width: 100%;
   }
 
   // COMPUTER IMAGE
   .pl__na__image__yoga {
-    height: 50%;
-    transform: translate(-110%, 15%)
+    position: absolute;
+    width: 60%;
+    top: 43%;
+    left: 17%;
   }
 
   // DIV RIGHT CONTAINER
@@ -108,5 +111,13 @@
       transition: 0.15s ease-in;
       cursor: pointer;
     }
+  }
+}
+
+
+//** Landing Page Styles - CELL **//
+@media only screen and (max-width: 900px) {
+  .pl__na__left__container {
+    display: none !important;
   }
 }

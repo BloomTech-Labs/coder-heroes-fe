@@ -2,18 +2,28 @@ import React, { useState } from 'react';
 import { Card, Avatar, Badge } from 'antd';
 import { useDispatch } from 'react-redux';
 import { delCourse, editCourse } from '../../../redux/actions/coursesActions';
+import { setCourseId } from '../../../redux/actions/classroomActions';
 import { useOktaAuth } from '@okta/okta-react';
+import { useHistory } from 'react-router-dom';
 
 const { Meta } = Card;
 
-const ClassCard = ({ courses }) => {
+const ClassCard = ({ course }) => {
   const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
   const [state, setState] = useState({
-    course_name: courses.course_name,
+    course_name: course.course_name,
   });
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+
+  const navigate = useHistory();
+
+  const handleNavigate = e => {
+    e.preventDefault();
+    dispatch(setCourseId(course.course_id));
+    navigate.push('/classroom');
+  };
 
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -21,23 +31,23 @@ const ClassCard = ({ courses }) => {
   const handleCancel = () => {
     setEditing(!editing);
     setState({
-      course_name: courses.course_name,
+      course_name: course.course_name,
     });
   };
   const handleDelete = () => {
-    dispatch(delCourse(idToken, courses.course_id));
+    dispatch(delCourse(idToken, course.course_id));
   };
 
   const handleEdit = () => {
     setEditing(!editing);
     dispatch(
-      editCourse(idToken, { ...courses, course_name: state.course_name })
+      editCourse(idToken, { ...course, course_name: state.course_name })
     );
   };
 
   return (
     <>
-      <Card className="course__card" hoverable>
+      <Card className="course__card" onClick={handleNavigate} hoverable>
         <Meta
           className="course__info"
           avatar={
@@ -54,7 +64,7 @@ const ClassCard = ({ courses }) => {
                 value={state.course_name}
               />
             ) : (
-              courses.course_name
+              course.course_name
             )
           }
         />

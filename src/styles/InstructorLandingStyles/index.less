@@ -1,18 +1,12 @@
-@bg1: #eeedd9;
-@bg2: #1e6a70;
-@bg3: #9fb222;
-@btnBg1: #f2ce60;
-@btnBg2: #f66721;
-
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap');
 
 .il__wrapper {
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
   box-sizing: border-box !important;
 }
 .il__heading {
-  font-family: 'Staatliches', 'cursive';
+  font-family: @text__font-family--header;
 }
 .il__heading_inner{
   display: flex;
@@ -27,7 +21,7 @@
   font-weight: bold;
   font-size: 0.9rem;
   color: black;
-  background-color: @btnBg1;
+  background-color: @btn__bg--yellow;
   width: 200px;
   height: 56px;
   border: none;
@@ -36,11 +30,11 @@
   transition: 0.15s ease-in;
 }
 .il__browseBtn:hover {
-  background-color: #fdc312;
+  background-color: @btn__bg__hover--golden-poppy;
 }
 .il__top {
   .il__top__topContent {
-    background-color: @bg1;
+    background-color: @body__bg;
 
     .il__top__topContent__container {
       display: flex;
@@ -56,7 +50,7 @@
     }
 
     .il__top__topContent__heading {
-      color: #263e47;
+      color: @header__bg--dark;
       font-size: 3.4rem;
       font-weight: 500;
       letter-spacing: 2px;
@@ -77,14 +71,14 @@
       width: 40% !important;
     }
     .il__top__input > input::placeholder {
-      color: #485b63 !important;
+      color:@il__text__color--fiord !important;
     }
     .il__top__formBtn {
       cursor: pointer;
       font-weight: 600;
       font-size: 0.9rem;
       color: black;
-      background-color: @btnBg1;
+      background-color: @body__bg--yellow;
       width: 120px;
       height: 42px;
       border: none;
@@ -94,7 +88,7 @@
       transition: 0.15s ease-in;
     }
     .il__top__formBtn:hover {
-      background-color: #fdc312;
+      background-color: @btn__bg__hover--golden-poppy;
     }
     @media screen and (max-width: 1193px) {
       .il__top__topContent__main {
@@ -126,7 +120,7 @@
   }
 
   .il__top__bottomContent {
-    background-color: #fff;
+    background-color: @il__top__bottomContent--white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +145,7 @@
     .il__top__bottomContent__info__iconCircle {
       cursor: pointer;
       border-radius: 50%;
-      background-color: @bg2;
+      background-color: @il__bg--Allsports;
       height: 100px;
       width: 100px;
       margin-bottom: 20px;
@@ -168,14 +162,14 @@
 
 .il__mid {
   display: flex;
-  background-color: @bg2;
+  background-color: @il__bg--Allsports;
   padding: 2rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   .il__mid__heading {
-    color: white;
+    color: @text__color--white;
     font-size: 3.4rem;
     font-weight: 500;
     letter-spacing: 2px;
@@ -186,7 +180,7 @@
   .il__mid__info__text {
     text-align: center;
     font-weight: 500;
-    color: white;
+    color: @text__color--white;
     font-size: 1.1rem;
     width: 250px;
   }
@@ -214,7 +208,7 @@
   .il__mid__info__contentCircle {
     cursor: pointer;
     border-radius: 50%;
-    background-color: #eeedd9;
+    background-color: @btn__bg--white;
     border: 2px solid white;
     height: 150px;
     width: 150px;
@@ -229,11 +223,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9fb222;
+    background-color: @body__bg--green;
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    color: white;
+    color: @text__color--white;
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.8rem;
@@ -244,7 +238,7 @@
 }
 
 .il__bottom {
-  background-color: @bg3;
+  background-color: @body__bg--green;
   .il__bottom__container {
     display: flex;
     justify-content: center;
@@ -264,7 +258,7 @@
     max-height: 650px;
     margin: 2rem 0;
     border-radius: 50%;
-    background-color: #f2c35f;
+    background-color: @il__bottom__leftCircle--cream-can;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -282,8 +276,8 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 1rem;
-    color: white;
-    background-color: @btnBg2;
+    color: @text__color--white;
+    background-color: @btn__bg--orange;
     width: 210px;
     height: 46px;
     border: none;
@@ -295,7 +289,7 @@
     white-space: 'nowrap';
   }
   .il__bottom__findInsBtn:hover {
-    background-color: #fd732e;
+    background-color: @btn__bg--orange;
   }
   .il__grid__container {
     display: flex;

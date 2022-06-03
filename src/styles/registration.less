@@ -6,7 +6,7 @@
 
 .reg-content-container {
     text-align: center;
-    background-color: white;
+    background-color: @reg-content__bg--white;
     width: 85rem;
     height: auto;
     padding: 6rem 10rem;
@@ -29,19 +29,19 @@
 }
 
 .color-one {
-    color: #006C72;
+    color: @reg-content__text__color--blue-lagoon;
 }
 .color-two {
-    color: #FFAD00;
+    color: @reg-content__text__color--orange;
 }
 .color-three {
-    color: #FF5C00;
+    color: @reg-content__text__color--safety-orange;
 }
 .color-four {
-    color: #EC2C4E;
+    color: @reg-content__text__color--amaranth;
 }
 .color-five {
-    color: #740049;
+    color: @reg-content__text__color--tyrian-purple;
 }
 .link-container {
     margin-top: 4rem;
@@ -50,8 +50,8 @@
 .content a, .content button {
     width: auto;
     padding: .7rem 2rem;
-    background-color: #006C72;
-    color:white;
+    background-color: @reg-content__bg--blue-lagoon;
+    color:@reg-content__text__color--white;
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 3px;
@@ -74,7 +74,7 @@
 .student-num {
     width: 3rem;
     height: 3rem;
-    color: #006C72;
+    color: @reg-conent__text__color--blue-lagoon;
     border: 1px solid #006C72;
     text-align: center;
     font-weight: 700;
@@ -89,14 +89,14 @@
     margin-top: 1rem;
     
     p {
-        color: #3d5c5c;
+        color: @reg-content__text__color--light-grey;
         font-size: .9rem;
         margin: 0;
     }
 }
 
 .form-title{
-        color:#006C72;
+         color:@reg-conent__text__color--blue-lagoon;
         font-weight: bold;
         text-align: start;
         margin: 0;
@@ -125,7 +125,7 @@
         padding: .7rem;
         width: 32rem;
         border: none;
-        background-color: #F4F8F5;
+        background-color: @reg-conent__bg--dew;
     }
     .form-line{
         margin: .5rem 0;
@@ -138,7 +138,7 @@
             height: 10rem;
             border: none;
             padding: 1rem;
-            background-color: #F4F8F5;
+            background-color: @reg-conent__bg--dew;
             display: block
         }
     }
@@ -177,7 +177,7 @@
     margin: 0 .7rem;
     p{
         font-size: .7rem;
-        color: lightgray;
+        color: @reg-content__text__color--light-grey;
         text-align: start;
     }
 }
@@ -217,8 +217,8 @@
         width: 2.1rem;
         height: 2.1rem;
         border-radius: 50%;
-        background-color: #006C72;
-        color: white;
+        background-color: @reg-content__btn__bg--blue-lagoon;
+        color: @reg-content__text__color--white;
         border: none;
     }
     .selected-avatar{

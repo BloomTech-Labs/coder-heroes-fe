@@ -1,13 +1,13 @@
 // -------- CALENDAR COMPONENT, MODAL STYLED AT BOTTOM --------
 
 .calendar-event-button.ant-btn {
-  background-color: #fcdfaa;
+  background-color: @btn__bg__peach;
   position: absolute;
   right: 5%;
   top: 7.8%;
   width: fit-content;
   padding: 0 5%;
-  color: #f27712;
+  color: @text__color--pumpkin;
   font-weight: bold;
 }
 
@@ -15,22 +15,22 @@
   justify-content: flex-start;
   margin: 0 2%;
   div {
-    background-color: #f1c461;
-    color: #f27712;
+    background-color: @calendar__bg--cream-can;
+    color: @text__color--pumpkin;
   }
 }
 
 .ant-radio-button-wrapper {
-  background-color: #fcdfaa;
-  color: #f27712;
+  background-color: @btn__bg__peach;
+  color: @text__color--pumpkin;
 }
 .ant-radio-button-wrapper-checked {
-  background-color: #f1c461;
-  color: white;
+  background-color: @calendar__bg--cream-can;
+  color: @text__color--white;
 }
 
 thead {
-  background-color: #fcdfaa;
+  background-color: @btn__bg__peach;
 }
 
 th {
@@ -38,7 +38,7 @@ th {
 }
 
 thead tr th {
-  color: #f27712;
+  color: @text__color--pumpkin;
 }
 
 ul {
@@ -66,15 +66,15 @@ ul {
 }
 
 .success-class-event {
-  background-color: rgba(0, 202, 183, 0.25);
+  background-color: @success-class-event__bg--robins-egg-blue;
 }
 
 .warning-class-event {
-  background-color: #faad14;
+  background-color: @warning-class-event__bg--dark-tangerine;
 }
 
 .error-class-event {
-  background-color: salmon;
+  background-color: @error-class-event__bg--salmon;
 }
 
 .ant-badge-status-dot {
@@ -87,7 +87,7 @@ ul {
 }
 
 .ant-picker-panel {
-  border: 2px solid #fbecd1;
+  border: 2px solid @ant-picker__bg--varden;
   border-radius: 5rem;
   overflow: hidden;
 }
@@ -97,25 +97,25 @@ ul {
 }
 
 td.ant-picker-cell {
-  border: 2px solid #fbecd1;
+  border: 2px solid @ant-picker__bg--varden;
 }
 
 .ant-picker-cell-inner {
   border-top: none;
   padding: none;
   margin: 0;
-  background-color: #faf9f8;
+  background-color: @body__bg--white;
   .ant-picker-calendar-date:hover {
-    background-color: #096a70;
-    color: white;
+    background-color: @body__bg--blue;
+    color: @text__color--white;
   }
 }
 
 .ant-picker-calendar-date:hover {
-  background-color: #096a70;
+  background-color: @body__bg--blue;
   div,
   ul span {
-    color: white;
+    color: @text__color--white;
   }
 }
 
@@ -126,7 +126,7 @@ tr:nth-of-type(6) {
 }
 
 div.ant-picker-calendar-date-value {
-  color: #f27712;
+  color: @text__color--pumpkin;
 }
 
 // ---------- MODAL ----------
@@ -148,11 +148,11 @@ div.ant-picker-calendar-date-value {
 .calendar-event-modal .ant-modal-footer {
   text-align: center;
   :hover {
-    color: rgba(0, 0, 0, 0.65);
+    color: @calendar-modal__text__color--black;
   }
   .ant-btn-primary {
-    background-color: #fcdfaa;
-    color: rgba(0, 0, 0, 0.65);
+    background-color: @btn__bg__peach;
+    color: @calendar-modal__text__color--black;
     margin-left: 0;
   }
   button {

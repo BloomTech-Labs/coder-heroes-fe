@@ -12,8 +12,28 @@
   transition: 0.1s all ease-out;
 
   .navbar__logo {
-    height: 100%;
-    width: 20%;
+    display: flex;
+    align-items: center;
+    width: 22%;
+
+    .navbar__navTitle {
+      margin: 0 0 0 1.5rem;
+      font-size: 1.95rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      color: @text__color--maroon;
+      font-family: @text__font-family--header;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: 0.2s all ease-in;
+      padding-top: 1%;
+    }
+    @media screen and (max-width: 1220px) {
+      .navbar__navTitle {
+        margin: 0;
+      }
+    }
   }
   .nav-logo {
     width: 27%;
@@ -31,7 +51,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #3b0e2b;
+      color: @text__color--maroon;
       font-size: 1rem;
       font-weight: 600;
       border-right: 2px solid #3b0e2b;
@@ -41,9 +61,9 @@
       border: none;
     }
     .navbar__navLink:hover {
-      color: #fff;
-      font-size: 1.35rem;
-      letter-spacing: 3px;
+      color: @text__color--white;
+      text-decoration: underline;
+      text-decoration-thickness: 10px;
     }
     @media screen and (max-width: 1220px) {
       .navbar__navLink {
@@ -73,11 +93,11 @@
 
     .navbar__socialLink {
       font-size: 1.7rem;
-      color: #3b0e2b;
+      color: @text__color--maroon;
       transition: 0.1s all ease-in;
     }
     .navbar__socialLink:hover {
-      color: white;
+      color: @text__color--white;
     }
     @media screen and (max-width: 1100px) {
       .navbar__socialLink {
@@ -99,8 +119,8 @@
     justify-content: space-evenly;
 
     .navbar__btn {
-      background: #edeed7;
-      color: #006c72;
+      background: @navbar__btn__bg--white;
+      color: @navbar__text__color--blue-lagoon;
       font-weight: 600;
       min-height: 38px;
       border-radius: 5px;
@@ -113,8 +133,8 @@
       width: auto;
     }
     .navbar__btn:hover {
-      color: #edeed7;
-      background-color: #006c72;
+      color: @navbar__text__color--white;
+      background-color: @navbar__btn__bg--blue-lagoon;
     }
     .navbar__contact {
       width: 120px;
@@ -132,7 +152,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #eeedd9;
+      background-color: @body__bg;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       transition: 0.2s ease-in;
     }
@@ -153,7 +173,7 @@
     }
     @media screen and (max-width: 900px) {
       .navbar__btn {
-        background-color: red;
+        background-color: @btn__bg--red;
       }
     }
   }

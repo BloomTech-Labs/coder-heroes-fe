@@ -1,63 +1,464 @@
-.card_div {
-  padding: 0;
-  width: 300px;
+//** Landing Page Styles - DESKTOP **//
+
+/* First Content Section */
+
+.cloudbg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  padding: 10% 10% 2%;
+  background-image: url('../../img/cloud-bg.jpg');
+}
+
+.landing-main-title {
+  font-family: @text__font-family;
+  font-family: @text__font-family--header;
+}
+
+.landing-main-text {
+  margin: 5% 0%;
+  text-align: center;
+  font-family: @text__font-family--header;
+  font-size: 1.25rem;
+}
+
+.browse-btn {
+  padding: 10px 32px;
+  margin: 30px;
+}
+
+.create-account-btn {
+  padding: 10px 32px;
+  margin: 30px;
+}
+
+.landing-button-container {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
 
-  div.ant-card-meta-avatar {
-    padding: 0px;
-  }
+.btn {
+  cursor: pointer;
+  height: 3rem;
+  color: @text__color--white;
+  background: @btn__bg--safety-orange;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-family: @text__font-family;
+}
 
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
+.btn:hover {
+  filter: brightness(95%);
+  color: @landing__text__color--black;
+}
+
+/* Second Content Section */
+
+.landing-second-container {
+  background: @landing-container__bg--blue-stone;
+  display: flex;
+}
+
+.landing-second-images {
+  flex: 2;
+}
+
+.orange-cloud {
+  z-index: 0;
+  width: 80%;
+  margin-top: -10%;
+}
+
+.classroom-photo {
+  z-index: 2;
+  margin-top: -65%;
+  width: 62%;
+  padding-left: 10%;
+  padding-bottom: 2%;
+}
+
+.landing-second-container-content {
+  flex: 1;
+  padding-top: 10%;
+  margin-right: 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-second-container-text {
+  color: @landing__text__color--white !important;
+  text-align: center;
+}
+
+.landing-second-container-title-one {
+  font-size: 23px !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landing-second-container-title-two {
+  font-family: 'Staatliches', cursive;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.landing-second-container-paragraph {
+  margin-top: 1%;
+  font-size: 1.1rem;
+}
+
+.primary {
+  background-color: @btn__bg--yellow!important;
+  border: none;
+  color: @landing__text__color--black;
+  padding: 1% 5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 3rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.primary:hover {
+  color: @landing__text__color--white;
+}
+
+.empty-space {
+  width: 50%;
+}
+
+/* Third Content Section */
+
+.landing-third-container {
+  display: flex;
+  background: @landing-container__bg--blue-stone;
+  margin-top: -1px;
+}
+
+.landing-third-container-green {
+  justify-content: flex-end;
+  width: 50%;
+}
+
+/* Fourth Content Section */
+
+.landing-fourth-container {
+  display: flex;
+  margin-top: -25%;
+  background: @landing-container__bg--blue-stone;
+  padding-bottom: 5%;
+}
+.landing-fourth-container-text {
+  margin-right: 3%;
+  margin-left: 1%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.description {
+  font-family: @text__font-family !important;
+  margin-bottom: 2% !important;
+}
+
+.brianne {
+  font-family: 'Staatliches', cursive !important;
+  border-radius: 30px;
+}
+
+.landing-third-container-pic {
+  width: 20%;
+  height: 20%;
+}
+
+.empty-space-two {
+  width: 65%;
+}
+
+//** Landing Page Styles - TABLET **//
+
+@media only screen and (max-width: 1000px) {
+  /* First Content Section */
+
+  .landing-container {
     width: 100%;
-  }
-
-  .badge__card {
-    width: 100%;
-    margin: 2rem;
-    border-radius: 10px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    text-align: center;
-    background-color: #edeed7;
     padding: 0;
-
-    .badge__info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .add_btn {
-      width: 100%;
-      display: flex;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-      border: 1px solid black;
-      border-radius: @btn__border-radius;
-    }
-
-    .remove_btn {
-      display: flex;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-      border: 1px solid black;
-      border-radius: @btn__border-radius;
-    }
   }
 
-  .ant-btn {
+  .cloudbg {
+    background-image: url('../../img/cloud-bg.jpg');
+  }
+
+  .coder-heroes {
+    width: 75%;
+  }
+
+  .landing-main-text {
+    margin: 5% 0%;
+    text-align: center;
+  }
+
+  .landing-main-text h1 {
+    margin-bottom: 5%;
+    color: @text__color--yellow;
+  }
+
+  .landing-main-text h3 {
+    text-align: center;
+    color: @text__color--green;
+  }
+
+  /* Second Content Section */
+
+  .landing-second-container {
+    background: @landing-container__bg--blue-stone;
+    align-items: center;
+  }
+  .landing-second-images {
+    flex: 1;
+  }
+
+  .orange-cloud {
+    width: 100%;
+    transform: translate(10%, 25%);
+  }
+
+  .classroom-photo {
+    width: 70%;
+    transform: translate(30%, 15%);
+  }
+
+  .landing-second-container-content {
+    flex: 1;
+    margin: 0% 4%;
+  }
+
+  .landing-second-container-text {
+    color: @landing__text__color--white;
+    text-align: center;
+    padding: 0 2%;
+  }
+
+  .empty-space {
+    width: 50%;
+  }
+
+  .landing-second-container-btn {
+    width: 8rem;
+    height: 2.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: @landing__text__color--black;
+    background: @landing__btn__bg--sunglow;
+    border: none;
+    border-radius: 0.313rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Third Content Section */
+
+  .landing-third-container {
+    display: flex;
+    background: @landing-container__bg--blue-stone;
+    padding-top: 5%;
+  }
+
+  .landing-third-container-green {
+    justify-content: flex-end;
+    width: 50%;
+  }
+
+  /* Fourth Content Section */
+
+  .landing-fourth-container {
+    display: flex;
+    margin-top: -25%;
+    background: @landing-container__bg--blue-stone;
+    padding-bottom: 5%;
+  }
+
+  .landing-fourth-container-pic {
+    width: 30%;
+    height: 30%;
+    margin: 0% 5%;
+  }
+
+  .empty-space-two {
+    display: none;
+  }
+
+  .description {
+    background-color: @body__bg;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 0% 2;
+    border: 2px solid black;
+  }
+
+  .brianne {
+    background-color: @body__bg;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 2% 10%;
+    border: 2px solid black;
+  }
+}
+
+//** Landing page styles - Tablet fix **//
+
+@media only screen and (max-width: 694px) {
+  .landing-second-container-title-one {
+    font-size: 28px !important;
+  }
+  .landing-second-container-title-one {
+    margin-bottom: 0;
+  }
+  .landing-second-container-title-two {
+    margin: 0;
+  }
+  .landing-second-container-paragraph {
+    padding: 0;
+  }
+  .landing-second-images {
+    display: none;
+  }
+}
+
+//** Landing Page Styles - MOBILE **//
+
+@media only screen and (max-width: 600px) {
+  /* First Content Section */
+
+  .landing-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  .cloudbg {
+    background-color: @body__bg;
+    background-image: none;
+  }
+
+  .coder-heroes {
     width: 80%;
-    margin-left: 10%;
+  }
+
+  .landing-main-text {
+    margin: 5% 0%;
+    text-align: center;
+  }
+
+  .landing-main-text h1 {
+    text-align: center;
+  }
+
+  .landing-main-text h3 {
+    text-align: center;
+  }
+
+  // Button Styling
+
+  .landing-button-container {
+    margin-top: 5%;
     display: flex;
     align-items: center;
-    align-content: center;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .btn:hover {
+    filter: brightness(95%);
+    color: @text__color--white;
+  }
+
+  /* Second Content Section */
+
+  .landing-second-container {
+    background: @landing-container__bg--blue-stone;
+    display: flex;
+    margin-bottom: 15%;
+  }
+
+  .landing-second-images {
+    display: none;
+  }
+
+  .landing-second-container-text {
+    color: @text__color--white;
+    text-align: center;
+  }
+  .empty-space {
+    width: 50%;
+  }
+
+  .landing-second-container-btn {
+    width: 8rem;
+    height: 2.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: black;
+    background: @landing__btn__bg--sunglow;
+    border: none;
+    border-radius: 0.313rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Third Content Section */
+
+  .landing-third-container {
+    display: none;
+  }
+
+  /* Fourth Content Section */
+
+  .landing-fourth-container {
+    padding-top: 30%;
+    display: flex;
+    background: @landing-container__bg--blue-stone;
+    flex-direction: column;
+    padding-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-fourth-container-pic {
+    width: 35%;
+    height: 35%;
+    text-align: center;
+  }
+
+  .empty-space-two {
+    width: 65%;
+  }
+
+  .description {
+    background-color: @body__bg;
+    border-radius: 10px;
+    margin: 2% 10%;
+    border: 2px solid black;
+  }
+
+  .brianne {
+    background-color: @body__bg;
+    padding: 2%;
+    border-radius: 10px;
+    margin: 2% 10%;
+    border: 2px solid black;
+  }
 }

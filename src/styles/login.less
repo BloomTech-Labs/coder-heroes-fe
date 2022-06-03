@@ -1,6 +1,6 @@
 // LOGIN CONTAINER
 .login-container {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -8,7 +8,7 @@
   line-height: @text__line-height--h1;
   text-align: center;
   margin: 3% 0;
-  
+
   &:nth-child(1) {
     font-size: @text__font-size--h1;
     color: @header__bg;
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #006C72;
+  background-color: @login__bg--blue-lagoon;
   margin-top: 6rem;
   height: 700px;
   width: 50rem;
@@ -43,8 +43,9 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.registration-label span, .registration-link a {
-  color: grey;
+.registration-label span,
+.registration-link a {
+  color: @login__text__color--grey;
 }
 
 // OKTA FORM STYLES
@@ -66,18 +67,18 @@
     margin: auto;
     min-height: 700px;
     border: none;
-    background-color: @body__bg--concrete;
-    .okta-form-input-field{
-      border:none;
+    background-color: @login__bg--white;
+    .okta-form-input-field {
+      border: none;
     }
     h2 {
       margin-top: 8rem;
       text-align: center;
       font-family: @text__font-family;
-      color: #006C72;
+      color: @login__text__color--blue-lagoon;
       font-size: @text__font-size--h2;
       letter-spacing: 1px;
-      font-weight:700;
+      font-weight: 700;
     }
     .o-form-error-container.o-form-has-errors {
       font-size: @text__font-size--body;
@@ -86,17 +87,17 @@
     a.link {
       &:link {
         font-size: @text__font-size--body;
-        color: #006C72;
+        color: @login__text__color--blue-lagoon;
         &:focus {
           box-shadow: none;
         }
       }
       &:visited {
-        color: grey;
+        color: @login__text__color--grey;
       }
     }
     .okta-form-input-error {
-      color:#006C72;
+      color: @login__text__color--blue-lagoon;
       font-weight: bold;
       .error-16-small:before {
         color: @error-color;
@@ -122,16 +123,17 @@
     label,
     textarea {
       font-size: @text__font-size--h5;
-      color: #006C72;
+      color: @login__text__color--blue-lagoon;
     }
 
     .o-form-label label {
-      color:grey;
-      font-size: .8rem;
+      color: @login__text__color--grey;
+      font-size: 0.8rem;
     }
 
-    #okta-signin-username, #okta-signin-password {
-      background-color: #F4F8F5;
+    #okta-signin-username,
+    #okta-signin-password {
+      background-color: @login__bg--dew;
       border: none;
     }
   }
@@ -145,14 +147,14 @@
     .custom-checkbox {
       &.focused-input {
         box-shadow: none;
-        border:none;
+        border: none;
       }
     }
 
     .custom-checkbox {
       label {
-        font-size: .75rem;
-        color: grey;
+        font-size: 0.75rem;
+        color: @login__text__color--grey;
       }
     }
     form {
@@ -163,8 +165,8 @@
       }
     }
     .button {
-      background: #006C72;
-      color: white;
+      background: @login__btn__bg--blue-lagoon;
+      color: @login__text__color--white;
       border: none;
       border-radius: @btn__border-radius;
       font-weight: 600;
@@ -177,29 +179,29 @@
       }
       &:focus {
         background: darken(@btn__bg--blue, 35%);
-        color: #006C72;
+        color: @login__text__color--blue-lagoon;
         .input-focus();
       }
     }
     .registration-container {
       .content-container {
         font-size: @text__font-size--body;
-        padding:5rem 0 0 0;
+        padding: 5rem 0 0 0;
         text-align: center;
         border: none;
         .registration-label {
-          color: #006C72;
+          color: @login__text__color--blue-lagoon;
         }
         .registration-link {
           margin-left: 2px;
-          color: #006C72;
+          color: @login__text__color--blue-lagoon;
           font-weight: bold;
         }
       }
     }
   }
 
-  .auth-footer{
+  .auth-footer {
     text-align: center;
   }
 }
@@ -224,10 +226,9 @@
 
 @media screen and (max-width: 1200px) {
   .left-login {
-    width: 40rem
+    width: 40rem;
   }
   .login-container p {
-    
     &:nth-child(1) {
       width: 31rem;
       font-size: @text__font-size--h2;
@@ -246,21 +247,19 @@
       font-size: @text__font-size--h3;
     }
   }
-    
 
   #sign-in-widget #okta-sign-in.auth-container.no-beacon {
-      height: 700px;
-      width: 20rem;
+    height: 700px;
+    width: 20rem;
 
-      h2 {
-        font-size: 1.6rem;
-      }
+    h2 {
+      font-size: 1.6rem;
+    }
 
-      .registration-container .content-container {
-        font-size: .75rem;
-      }
+    .registration-container .content-container {
+      font-size: 0.75rem;
+    }
   }
-
 }
 
 @media screen and (max-width: 992px) {
@@ -271,7 +270,7 @@
     line-height: @text__line-height--h1;
     margin: 3% 0;
     text-align: center;
-    
+
     &:nth-child(1) {
       color: @header__bg;
       width: 24.7rem;
@@ -297,6 +296,7 @@
     display: none;
   }
   .login-container {
+    background-color: @login__bg--white;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -306,17 +306,17 @@
     width: 100%;
     border-radius: 5px;
     border: 35px solid @body__bg--blue;
-    
+
     .auth-content {
-        height: 63vh;
-      }
+      height: 63vh;
+    }
 
-      h2{
-        margin-top: 2rem;
-      }
+    h2 {
+      margin-top: 2rem;
+    }
 
-      .registration-container .content-container {
-        font-size: 1rem;
-      }
+    .registration-container .content-container {
+      font-size: 1rem;
+    }
   }
 }

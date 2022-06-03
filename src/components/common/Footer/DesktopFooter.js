@@ -90,11 +90,12 @@ function DesktopFooter() {
           </div>
         </Col>
         <Col
+          className="socialMedia_column"
           style={{
             textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
+            justifyContent: 'space-evenly',
           }}
         >
           <Title
@@ -108,7 +109,7 @@ function DesktopFooter() {
           >
             CoderHeroes
           </Title>
-          <Row style={{ justifyContent: 'space-between', marginLeft: '20px' }}>
+          <Row style={{ justifyContent: 'space-evenly' }}>
             <a
               target="_blank"
               rel="noopener noreferrer"

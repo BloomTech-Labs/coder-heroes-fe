@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../../styles/registration.less';
 import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
+import RegistrationProgress from './RegistrationProgress';
+import { useHistory } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -21,12 +23,17 @@ const initialErrors = {
   education: '',
 };
 
+const initialWarning = {
+  warning: 'Please enter all required fields',
+};
+
 const initialSaveDisabled = true;
 
 const InstrRegForm = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
+  const [formWarning, setFormWarning] = useState(initialWarning);
 
   const validate = (name, value) => {
     yup
@@ -44,14 +51,38 @@ const InstrRegForm = () => {
     });
   };
 
-  const formSave = () => {
-    // TODO
-  };
+  let history = useHistory();
 
   const onSubmit = evt => {
     evt.preventDefault();
-    formSave();
-    setFormValues(initialValues);
+
+    // TODO: should look similar to this
+    // const data = {
+    //   firstName: formValues.name, // TODO
+    //   lastName: formValues.name, // TODO
+    //   email: formValues.email,
+    //   password: '123456', // TODO
+    //   role_id: 1 // TODO
+    // };
+
+    // fetch('/user/register', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    // .then(() => {
+    //   history.push('/instructor-register-success');
+    // })
+    // .catch(e => {
+    //   console.error(e);
+    //   setFormWarning(e);
+    // });
+
+    // TODO: remove this stub
+    history.push('/instructor-register-success');
   };
 
   const onChange = evt => {
@@ -60,98 +91,122 @@ const InstrRegForm = () => {
   };
 
   useEffect(() => {
+    InstructorFormSchema.validate(formValues)
+      .then(() => setFormWarning({}))
+      .catch(error => {
+        if (error instanceof yup.ValidationError) {
+          setFormWarning(initialWarning);
+        }
+      });
+  }, [formValues]);
+
+  useEffect(() => {
     InstructorFormSchema.isValid(formValues).then(valid => setDisabled(!valid));
   }, [formValues]);
 
   return (
-    <div>
-      <div className="reg-content-container">
-        <div className="reg-form-header">
-          <h1>Instructor Account Info</h1>
-          <p className="indicator">*indicates required field</p>
-        </div>
+    <div className="reg-content-container">
+      <RegistrationProgress step_num={1} />
 
-        <form className="basic-form" onSubmit={onSubmit}>
-          <label>
-            <input
-              name="name"
-              type="text"
-              placeholder="*Name"
-              value={formValues.name}
-              onChange={onChange}
-            />
-          </label>
+      <div className="reg-form-title">
+        <h1 className="form-title">Instructor Account Info</h1>
+        <p className="indicator">*indicates required field</p>
+      </div>
 
-          <label>
-            <input
-              name="email"
-              type="email"
-              placeholder="*Email"
-              value={formValues.email}
-              onChange={onChange}
-            />
-          </label>
+      <div className="reg-form-container">
+        <form onSubmit={onSubmit}>
+          <div className="form-line">
+            <label>
+              <h3 className="labelName">Name:</h3>
+              <input
+                name="name"
+                type="text"
+                placeholder="*Name"
+                value={formValues.name}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.name}</span>
+            </label>
 
-          <label>
-            <input
-              name="location"
-              type="text"
-              placeholder="*City,State"
-              value={formValues.location}
-              onChange={onChange}
-            />
-          </label>
-
-          <label>
-            <input
-              name="phone"
-              type="tel"
-              placeholder="*Phone Number"
-              value={formValues.phone}
-              onChange={onChange}
-            />
-          </label>
-
-          <label>
-            <input
-              name="education"
-              type="text"
-              placeholder="*Education (include degree and University)"
-              value={formValues.education}
-              onChange={onChange}
-            />
-          </label>
-
-          <label>
-            <input
-              name="tech"
-              type="text"
-              placeholder="Technical Experience"
-              value={formValues.tech}
-              onChange={onChange}
-            />
-          </label>
-
-          <label>
-            <input
-              name="notes"
-              type="text"
-              placeholder="Notes (Use this space to provide any additional context or relevant experience)"
-              value={formValues.notes}
-              onChange={onChange}
-            />
-          </label>
-
-          <div className="SaveButton">
-            <button disabled={disabled}>Save</button>
+            <label>
+              <h3 className="labelName">Email:</h3>
+              <input
+                name="email"
+                type="email"
+                placeholder="*Email"
+                value={formValues.email}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.email}</span>
+            </label>
           </div>
 
-          <div className="errors">
-            <div>{formErrors.name}</div>
-            <div>{formErrors.email}</div>
-            <div>{formErrors.location}</div>
-            <div>{formErrors.phone}</div>
-            <div>{formErrors.education}</div>
+          <div className="form-line">
+            <label>
+              <h3 className="labelName">Location:</h3>
+              <input
+                name="location"
+                type="text"
+                placeholder="*City, State"
+                value={formValues.location}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.location}</span>
+            </label>
+
+            <label>
+              <h3 className="labelName">Phone Number:</h3>
+              <input
+                name="phone"
+                type="tel"
+                placeholder="*Phone Number"
+                value={formValues.phone}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.phone}</span>
+            </label>
+          </div>
+
+          <div className="long-form-line">
+            <label>
+              <h3 className="labelName">Education:</h3>
+              <textarea
+                name="education"
+                type="text"
+                placeholder="*Education (include degree and university)"
+                value={formValues.education}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.education}</span>
+            </label>
+
+            <label>
+              <h3 className="labelName">Technical Experience:</h3>
+              <textarea
+                name="tech"
+                type="text"
+                placeholder="*Technical Experience"
+                value={formValues.tech}
+                onChange={onChange}
+              />
+              <span className="error">{formErrors.tech}</span>
+            </label>
+
+            <label>
+              <h3 className="labelName">Notes:</h3>
+              <textarea
+                name="notes"
+                type="text"
+                placeholder="Notes (Use this space to provide any additional context or relevant experience)"
+                value={formValues.notes}
+                onChange={onChange}
+              />
+              <span className="error"></span>
+            </label>
+          </div>
+          <div className="content reg-btn-container">
+            <span className="warning">{formWarning.warning}</span>
+            <button disabled={disabled}>Submit</button>
           </div>
         </form>
       </div>

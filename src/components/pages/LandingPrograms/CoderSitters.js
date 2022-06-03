@@ -10,11 +10,9 @@ export default function CoderSitters() {
       <Content className="pl__na__sitter__container">
         <div className="pl__na__sitter__container_wrapper">
           <div className="pl__na__top__sitter__container">
-            {/* CODERSITTERS TITLE */}
             <Title className="pl__na__sitter__title" level={2}>
               CODERSITTERS
             </Title>
-            {/* CODERSITTERS INTRO PARAGRAPH */}
             <Text className="pl__na__intro__text">
               Parents get their needed
               <br />
@@ -22,13 +20,10 @@ export default function CoderSitters() {
               <br />
               learn coding through play.
             </Text>
-            {/* BABYSITTER + INSTRUCTOR */}
             <div className="pl__na__top__mid__container">
               <Title className="pl__na__sitter__title__container" level={2}>
                 THINK BABY SITTER + CODING INSTRUCTOR.
               </Title>
-
-              {/* INFO PARAGRAPH */}
               <Text className="pl__na__sitter__text__container">
                 Our lessons include playing age-appropriate
                 <br />
@@ -41,12 +36,9 @@ export default function CoderSitters() {
                 or imaginative brainstorming
               </Text>
             </div>
-            {/* AGE */}
             <div className="pl__na__age__container">
               <Text className="pl__na__age">Ages 6 and Up.</Text>
             </div>
-
-            {/* BUTTON */}
             <div className="pl__na__button__container">
               <button className="pl__na__sitter__button" type="submit">
                 Learn More

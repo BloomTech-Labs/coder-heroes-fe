@@ -42,10 +42,12 @@ import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
 import InstructorNewsFeed from './components/pages/InstructorNewsFeed';
 import NewsFeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
+import ParentDashboard from './components/pages/ParentHome/ParentDashboard';
 import ParentHome from './components/pages/ParentHome/ParentHome';
 import ParentNewsFeed from './components/pages/ParentNewsFeed';
 import ParentMessages from './components/pages/ParentHome/Messages/MessagesContainer';
 import ParentCalendar from './components/pages/ParentHome/ParentCalendar';
+import ParentAchievements from './components/pages/ParentHome/ParentAchievements';
 import ParentTasks from './components/pages/ParentHome/ParentTasks';
 import ParentResources from './components/pages/ParentHome/ParentResources';
 import ParentProgress from './components/pages/ParentHome/Progress';
@@ -120,12 +122,14 @@ function App() {
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
           />
-
           <Route
-            path="/register-success-instructor"
+            path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
-
+          <SecureRoute
+            path="/parent/achievements"
+            component={ParentAchievements}
+          />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentHome} />
@@ -133,13 +137,12 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
+          <SecureRoute path="/parent" component={ParentDashboard} />
           <SecureRoute path="/parent/cart" component={Cart} />
+          <SecureRoute path="/parent/progress" component={ParentProgress} />
 
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
-          <SecureRoute path="/parent" component={ParentDashboard} />
-
-          <Route path="/parent2" component={ParentFamilyHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
@@ -173,7 +176,7 @@ function App() {
             component={InstructorNewsFeed}
           />
           <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-progress" component={Progress} />
+          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
           <SecureRoute path="/example-list" component={ExampleListPage} />
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />

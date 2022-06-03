@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input, Button } from 'antd';
 const layout = {
@@ -28,7 +28,12 @@ const InstructorQuestions = () => {
     console.log(values);
   };
 
-  return (
+  const [visible, setVisible] = useState(false);
+
+  function showAboutMe() {
+    setVisible(!visible);
+  }
+  return visible ? (
     <Form
       {...layout}
       name="nest-messages"
@@ -51,11 +56,16 @@ const InstructorQuestions = () => {
         <Input.TextArea />
       </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" onClick={showAboutMe}>
           Submit
         </Button>
       </Form.Item>
     </Form>
+  ) : (
+    <Button type="primary" onClick={showAboutMe}>
+      {' '}
+      Tell me about yourself
+    </Button>
   );
 };
 

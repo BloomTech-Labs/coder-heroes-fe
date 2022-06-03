@@ -20,7 +20,9 @@ function StudentHome() {
         <StudentSideBar />
         <Content>
           <Banner />
-          <InstructorQuestions />
+          <div className="instructorquestions">
+            <InstructorQuestions />
+          </div>
           <Layout>
             <Content>
               <StudentDashboard />

@@ -27,7 +27,7 @@ export default function CoderYoga() {
           <div className="pl__na__right">
             <div className="pl__na__right__container">
               <Title className="pl__na__coder__yoga__title" level={2}>
-                CODER-YOGA
+                CoderYoga
               </Title>
               <Text className="pl__na__right__info__container" level={3}>
                 Kids learn coding basics through

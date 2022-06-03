@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from './ParentSidebar';
 import '../../../styles/ParentStyles/dashboard.less';
-import { Layout } from 'antd';
+import { Layout, Progress, Col, Row, Calendar, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentDashboard = () => {

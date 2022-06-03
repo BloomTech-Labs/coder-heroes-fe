@@ -81,7 +81,8 @@ const MessageThread = () => (
 
 function ActiveMessage() {
   return (
-    <div className=".message-thread">
+    <div className="active-message">
+      <h4>Conversation with: Teacher1</h4>
       <MessageThread />
       <ReplyEditor />
     </div>

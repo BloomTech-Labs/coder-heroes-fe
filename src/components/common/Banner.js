@@ -40,7 +40,7 @@ export default function Banner() {
     case '/instructor-news-feed' || '/parent-news-feed':
       return bannerContent('News Feed');
     case '/parent':
-      return bannerContent('Mission Control', '');
+      return bannerContent('Newsfeed', '');
     case '/parent/progress':
       return bannerContent('Progress', '');
     case '/parent/calendar':

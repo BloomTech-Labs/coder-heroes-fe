@@ -3,41 +3,42 @@
 .pl__na__second__container {
   background-color: @body__bg--green;
   display: flex;
-  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
 
   .pl__na__second__left {
+    flex: 1;
     display: flex;
-    justify-content: flex-start;
-    width: 45%;
-
-    .pl__na__second__left__container {
-      display: flex;
-      justify-content: center;
-    }
 
     .pl__na__second__left__image__container {
-      width: 55rem;
-      height: 50rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       .pl__na__second__left__pink__border {
-        transform: translate(-0px, -10%);
+        width: 100%;
+        margin-top: -5%;
       }
       .pl__na__second__left__kid__coder {
-        transform: translate(144px, -150%);
-        width: 38rem;
+        position: absolute;
+        width: 50%;
+        top: 40%;
       }
     }
   }
 
   .pl__na__second__right {
+    width: 35%;
+    flex: 1;
     display: flex;
-    width: 40rem;
-    margin-top: 4rem;
+    align-items: center;
 
     .pl__na__second__right__container {
       display: flex;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
       .pl__na__second__heading {
         font-size: 3.7rem;
@@ -45,12 +46,14 @@
         color: #263d47;
         letter-spacing: 0.05rem;
         text-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+        text-align: center;
       }
 
       .pl__na__second__text__container {
         font-size: 1.7rem;
         font-weight: 350;
         line-height: @text__line-height--h3;
+        text-align: center;
 
         .pl__na__second__text {
           display: flex;
@@ -59,6 +62,8 @@
       }
 
       .pl__na__second__sub__heading {
+        width: 100%;
+        text-align: center;
         font-family: @text__font-family--header;
         font-size: @text__font-size--h1;
         font-weight: 400;
@@ -67,8 +72,7 @@
 
       .pl__na__second__skills_list__container {
         display: flex;
-        justify-content: center;
-        margin-left: 2rem;
+        margin-left: 5%;
       }
 
       .pl__na__second__skills_list {
@@ -76,14 +80,12 @@
         font-size: @text__font-size--h4;
         font-weight: 400;
         line-height: 1;
-        width: 30rem;
       }
 
       .pl__na__top__button__container {
         display: flex;
         flex-direction: row;
-        margin: 3rem 0;
-        align-self: flex-end;
+        align-self: center;
 
         .pl__na__top__button {
           font-weight: 600;
@@ -94,7 +96,6 @@
           height: 3.5rem;
           border: none;
           border-radius: @btn__border-radius;
-          margin-left: 5px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           transition: 0.15s ease-in;
           cursor: pointer;
@@ -115,6 +116,7 @@
   min-height: 60vh;
   background-color: @body__bg--green;
   display: flex;
+  margin-top: -5px;
 }
 
 // Testimonial Image
@@ -156,4 +158,43 @@
   font-weight: 700;
   color: #000000;
   font-family: @text__font-family--header;
+}
+
+
+
+//** Landing Page Styles - CELL **//
+@media only screen and (max-width: 900px) {
+  .pl__na__second__left {
+    display: none !important;
+  }
+  .pl__na__second__sub__heading {
+    margin-bottom: -7% !important;
+  }
+  .pl__na__top__button__container {
+    margin-top: -5%;
+  }
+}
+
+@media only screen and (max-width: 744px) {
+  .pl__na__testimonials__container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+  .pl__testimony__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
+  .left-arrow, .right-arrow {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 687px) {
+  .pl__na__second__sub__heading {
+    margin-bottom: 0% !important;
+  }
 }

@@ -14,13 +14,15 @@
 }
 
 .landing-main-title {
+  font-family: 'Montserrat', cursive !important;
   font-family: @text__font-family--header;
 }
 
 .landing-main-text {
   margin: 5% 0%;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Staatliches', sans-serif;
+  font-size: 1.25rem;
 }
 
 .browse-btn {
@@ -58,6 +60,62 @@
   color: black;
 }
 
+
+/* Second Content Section */
+
+.landing-second-container {
+  background: #156a70;
+  display: flex;
+}
+
+.landing-second-images {
+  flex: 2;
+}
+
+.orange-cloud {
+  z-index: 0;
+  width: 80%;
+  margin-top: -10%;
+}
+
+.classroom-photo {
+  z-index: 2;
+  margin-top: -65%;
+  width: 62%;
+  padding-left: 10%;
+  padding-bottom: 2%;
+}
+
+.landing-second-container-content {
+  flex: 1;
+  padding-top: 10%;
+  margin-right: 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-second-container-text {
+  color: white !important;
+  text-align: center;
+}
+
+.landing-second-container-title-one {
+  font-size: 23px !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.landing-second-container-title-two {
+  font-family: 'Staatliches', cursive;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.landing-second-container-paragraph {
+  margin-top: 1%;
+  font-size: 1.1rem;
+}
+
 .primary {
   background-color: @btn__bg--yellow!important;
   border: none;
@@ -78,53 +136,6 @@
   color: white;
 }
 
-/* Second Content Section */
-
-.landing-second-container {
-  background: #156a70;
-  display: flex;
-}
-
-.orange-cloud {
-  z-index: 0;
-  width: 80%;
-  margin-top: -10%;
-}
-
-.classroom-photo {
-  z-index: 2;
-  margin-top: -65%;
-  width: 62%;
-  padding-left: 10%;
-  padding-bottom: 2%;
-}
-
-.landing-second-container-content {
-  text-align: center;
-  padding-top: 10%;
-  margin-right: 5%;
-}
-
-.landing-second-container-text {
-  color: white !important;
-}
-
-.landing-second-container-title-one {
-  font-size: 16px !important;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.landing-second-container-title-two {
-  font-family: 'Staatliches', cursive;
-  margin-left: 6%;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.landing-second-container-paragraph {
-  margin-top: 0 !important;
-}
-
 .empty-space {
   width: 50%;
 }
@@ -134,6 +145,7 @@
 .landing-third-container {
   display: flex;
   background: #156a70;
+  margin-top: -1px;
 }
 
 .landing-third-container-green {
@@ -152,6 +164,8 @@
 .landing-fourth-container-text {
   margin-right: 3%;
   margin-left: 1%;
+  text-align: center;
+  font-weight: bold; 
 }
 
 .description {
@@ -206,52 +220,35 @@
     color: green;
   }
 
-  .browse-btn {
-    padding: 2% 10%;
-  }
-
-  .support-us-btn {
-    padding: 2% 10%;
-  }
-
-  .btn {
-    cursor: pointer;
-    height: 3rem;
-    margin-right: 1rem;
-    color: black;
-    background: #f26602;
-    padding: 3% 0%;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
-  }
-
   /* Second Content Section */
 
   .landing-second-container {
     background: #156a70;
-    display: flex;
+    align-items: center;
+  }
+  .landing-second-images {
+    flex: 1;
   }
 
   .orange-cloud {
-    width: 80%;
-    margin-top: -10%;
+    width: 100%;
+    transform: translate(10%, 25%);
   }
 
   .classroom-photo {
-    margin-top: -65%;
-    width: 62%;
+    width: 70%;
+    transform: translate(30%, 15%);
+  }
+  
+  .landing-second-container-content {
+    flex: 1;
+    margin: 0% 4%;
   }
 
   .landing-second-container-text {
     color: white;
-    padding: 10% 10% 0%;
     text-align: center;
-  }
-
-  .landing-second-container-content {
-    margin: 0% 4%;
+    padding: 0 2%;
   }
 
   .empty-space {
@@ -320,6 +317,28 @@
   }
 }
 
+//** Landing page styles - Tablet fix **//
+
+@media only screen and (max-width: 694px) {
+  .landing-second-container-title-one {
+    font-size: 28px !important;
+  }
+  .landing-second-container-title-one {
+    margin-bottom: 0;
+  }
+  .landing-second-container-title-two {
+    margin: 0;
+  }
+  .landing-second-container-paragraph {
+    padding: 0;
+  }
+  .landing-second-images {
+    display: none;
+  }
+
+}
+
+
 //** Landing Page Styles - MOBILE **//
 
 @media only screen and (max-width: 600px) {
@@ -357,15 +376,12 @@
   .landing-button-container {
     margin-top: 5%;
     display: flex;
-    margin: 2% 0%;
+    align-items: center;
   }
-
-  .browse-btn {
-    padding: 0% 10%;
-  }
-
-  .support-us-btn {
-    padding: 0% 10%;
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn:hover {
@@ -378,6 +394,7 @@
   .landing-second-container {
     background: #156a70;
     display: flex;
+    margin-bottom: 15%;
   }
 
   .landing-second-images {
@@ -386,13 +403,12 @@
 
   .landing-second-container-text {
     color: white;
-    padding: 10% 10% 0%;
     text-align: center;
   }
   .empty-space {
     width: 50%;
   }
-
+  
   .landing-second-container-btn {
     width: 8rem;
     height: 2.3rem;

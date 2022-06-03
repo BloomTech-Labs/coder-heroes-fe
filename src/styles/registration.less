@@ -21,7 +21,6 @@
 .reg-content-container p {
     font-size: 2.4rem;
 }
-
 .content {
     padding: 0 6rem;
 }
@@ -32,23 +31,18 @@
 .color-one {
     color: #006C72;
 }
-
 .color-two {
     color: #FFAD00;
 }
-
 .color-three {
     color: #FF5C00;
 }
-
 .color-four {
     color: #EC2C4E;
 }
-
 .color-five {
     color: #740049;
 }
-
 .link-container {
     margin-top: 4rem;
 }
@@ -58,6 +52,7 @@
     padding: .7rem 2rem;
     background-color: #006C72;
     color:white;
+    font-weight: bold;
     text-transform: uppercase;
     border-radius: 3px;
 }
@@ -90,18 +85,18 @@
 
 .reg-form-title {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-top: 1rem;
     
     p {
-        color: lightgray;
+        color: #3d5c5c;
         font-size: .9rem;
         margin: 0;
     }
 }
 
 .form-title{
-         color:#006C72;
+        color:#006C72;
         font-weight: bold;
         text-align: start;
         margin: 0;
@@ -127,23 +122,43 @@
 
     input{
         display: block;
-        margin-top: 1rem;
         padding: .7rem;
         width: 32rem;
         border: none;
         background-color: #F4F8F5;
     }
-
-.long-form-line {
-    textarea{
-        width: 64.8rem;
-        height: 10rem;
-        margin-top: 1rem;
-        padding: 1rem;
-        border: none;
-        background-color: #F4F8F5;
+    .form-line{
+        margin: .5rem 0;
+    }
+    .long-form-line {
+        margin: -.2rem 0;
+        width: 100%;
+        textarea {
+            width: 100%;
+            height: 10rem;
+            border: none;
+            padding: 1rem;
+            background-color: #F4F8F5;
+            display: block
         }
     }
+    .error{
+        color:#EC2C4E;
+        font-size: .9rem;
+        padding: 1.2rem;
+    }
+}
+
+.labelName{
+    color: #740049;
+    display: flex;
+}
+
+
+.warning{
+    color:#EC2C4E;
+    display: flex;
+    align-items: center;
 }
 
 .profile-container{
@@ -175,7 +190,11 @@
     padding: 0;
 
     button, a{
+        cursor: pointer;
         width: 8rem;
+    }
+    button:disabled {
+        opacity: 20%;
     }
 }
 
@@ -230,7 +249,6 @@
             padding: 0;
     }
 }
-
 @media screen and (max-width: 768px) {
     .content{
         padding: 0;
@@ -252,20 +270,24 @@
         margin-top: 2rem;
     }
 }
-
 @media screen and (max-width: 576px) {
     .reg-content-container {
         width: 100%;
         margin: 0;
     }
 }
-
 @media screen and (max-width: 576px) {
     .reg-content-container p {
         font-size: 1.2rem;
     }
-
     .reg-content-container {
         padding: 5rem 1.5rem;
     }
 }
+
+
+
+
+
+
+

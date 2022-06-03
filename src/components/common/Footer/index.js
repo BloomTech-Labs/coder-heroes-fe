@@ -22,10 +22,6 @@ function MainFooter() {
       <Footer
         className="mobile-footer"
         style={{
-          paddingLeft: '20px',
-          paddingRight: '20px',
-          paddingBottom: '40px',
-          paddingTop: '40px',
           backgroundColor: '#6A0C49',
         }}
       >

@@ -34,9 +34,10 @@ const AllClasses = props => {
             <NavLink to="/instructor-add-course">
               <button>Add Course</button>
             </NavLink>
-            {props.courses.map(courses => (
+            {props.courses.map(course => (
               <ClassCard
-                courses={courses}
+                key={course.course_id}
+                course={course}
                 handleEditSelect={handleEditSelect}
               />
             ))}

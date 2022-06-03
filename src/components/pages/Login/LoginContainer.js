@@ -68,10 +68,10 @@ const LoginContainer = () => {
     <div className="login-container">
       <div className="left-login">
         <div className="left-login-text">
-          <p className="color-two">Unleash your superpowers today!</p>
-          <p className="color-three">creativity & design</p>
-          <p className="color-four">user research & insight</p>
-          <p className="color-five">app development</p>
+          <p>Unleash your superpowers today!</p>
+          <p>Creativity & Design</p>
+          <p>User-research & Insight</p>
+          <p>App Development</p>
         </div>
       </div>
       <div id="sign-in-widget" />

@@ -3,33 +3,34 @@
 .pl__na__second__container {
   background-color: @body__bg--green;
   display: flex;
-  justify-content: center;
   height: 100vh;
+  width: 100%;
 
   .pl__na__second__left {
-    width: 65%;
+    flex: 1;
     display: flex;
 
-    .pl__na__second__left__container {
-      display: flex;
-      justify-content: center;
-    }
-
     .pl__na__second__left__image__container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       .pl__na__second__left__pink__border {
-        height:100%;
-        transform: translate(10%, -10%);
+        width: 100%;
+        margin-top: -5%;
       }
       .pl__na__second__left__kid__coder {
-        height: 45%;
-        transform: translate(55%, -160%);
+        position: absolute;
+        width: 50%;
+        top: 40%;
       }
     }
   }
 
   .pl__na__second__right {
     width: 35%;
+    flex: 1;
     display: flex;
     align-items: center;
 
@@ -37,6 +38,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
 
       .pl__na__second__heading {
         font-size: 3.7rem;
@@ -94,7 +96,6 @@
           height: 3.5rem;
           border: none;
           border-radius: @btn__border-radius;
-          margin-left: 5px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           transition: 0.15s ease-in;
           cursor: pointer;
@@ -115,6 +116,7 @@
   min-height: 60vh;
   background-color: @body__bg--green;
   display: flex;
+  margin-top: -5px;
 }
 
 // Testimonial Image
@@ -156,4 +158,43 @@
   font-weight: 700;
   color: @pl__na__text__color--black;
   font-family: @text__font-family--header;
+}
+
+
+
+//** Landing Page Styles - CELL **//
+@media only screen and (max-width: 900px) {
+  .pl__na__second__left {
+    display: none !important;
+  }
+  .pl__na__second__sub__heading {
+    margin-bottom: -7% !important;
+  }
+  .pl__na__top__button__container {
+    margin-top: -5%;
+  }
+}
+
+@media only screen and (max-width: 744px) {
+  .pl__na__testimonials__container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+  .pl__testimony__text__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
+  .left-arrow, .right-arrow {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 687px) {
+  .pl__na__second__sub__heading {
+    margin-bottom: 0% !important;
+  }
 }

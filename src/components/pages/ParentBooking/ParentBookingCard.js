@@ -1,8 +1,7 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
-import { Button } from '../../common';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
 
@@ -49,29 +48,23 @@ const ParentBookingCard = props => {
   ];
 
   return (
-    <div>
-      <Card className="card" hoverable="true" title={subject}>
-        <div className="card-container">
-          <div className="left">
-            {data.map((itm, idx) => {
-              return (
-                <div key={idx}>
-                  {itm.title}: {itm.text}
-                </div>
-              );
-            })}
+    <Card title={subject} style={{ width: 280 }} hoverable="true">
+      {data.map((itm, idx) => {
+        return (
+          <div key={idx}>
+            {itm.title}: {itm.text}
           </div>
-          <div className="right">
-            <img
-              className="image"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-              alt="booking card"
-            />
-          </div>
-        </div>
-        <Button buttonText="ADD" handleClick={handleClick}></Button>
-      </Card>
-    </div>
+        );
+      })}
+      <Button
+        type="primary"
+        style={{ background: '#006C72', color: 'white' }}
+        block
+      >
+        {' '}
+        ADD{' '}
+      </Button>
+    </Card>
   );
 };
 

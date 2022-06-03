@@ -2,48 +2,28 @@
 
 .navbar__mainNav {
   display: flex;
-  min-height: 98px;
-  padding: 0 0.6rem;
+  min-height: 10vh;
+  padding: 0 1%;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   font-family: @text__font-family;
   overflow: hidden;
   transition: 0.1s all ease-out;
 
   .navbar__logo {
-    display: flex;
-    align-items: center;
-    width: 22%;
-
-    .navbar__navTitle {
-      margin: 0 0 0 1.5rem;
-      font-size: 1.95rem;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      color: #3b0e2b;
-      font-family: @text__font-family--header;
-      overflow: hidden;
-      white-space: nowrap;
-      transition: 0.2s all ease-in;
-      padding-top: 1%;
-    }
-    @media screen and (max-width: 1220px) {
-      .navbar__navTitle {
-        margin: 0;
-      }
-    }
+    height: 100%;
+    width: 20%;
   }
-
   .nav-logo {
-    width: 26%;
+    width: 27%;
   }
 
   .navbar__links {
     display: flex;
-    width: 70%;
+    align-items: center;
     justify-content: space-evenly;
+    width: 65%;
 
     .navbar__navLink {
       height: 55px;
@@ -52,7 +32,7 @@
       align-items: center;
       justify-content: center;
       color: #3b0e2b;
-      font-size: 1.15rem;
+      font-size: 1rem;
       font-weight: 600;
       border-right: 2px solid #3b0e2b;
       transition: 250ms all ease-in-out;
@@ -114,10 +94,9 @@
 
   .navbar__btns {
     display: flex;
-    width: 18%;
+    width: 20%;
     align-items: center;
     justify-content: space-evenly;
-    margin-left: 1.5rem;
 
     .navbar__btn {
       background: #edeed7;
@@ -165,12 +144,11 @@
     @media screen and (max-width: 1220px) {
       .navbar__contact {
         font-size: 0.8rem;
-        width: 105px;
+        min-height: 30px;
       }
       .navbar__login {
         font-size: 0.8rem;
-        width: 70px;
-        margin-right: 1rem;
+        min-height: 30px;
       }
     }
     @media screen and (max-width: 900px) {
@@ -198,6 +176,7 @@
 }
 @media screen and (max-width: 900px) {
   .navbar__mainNav {
-    padding: 0 1.4rem;
+    padding: 0 1%;
+    justify-content: space-between;
   }
 }

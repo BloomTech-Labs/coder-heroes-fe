@@ -59,7 +59,7 @@ export default function ParentAccountInfo({ parentInfo, setParentInfo }) {
           <textarea
             name="notes"
             type="text"
-            placeholder="Notes (Use this space to provide any additional context like alternative contact, student disability, etc...)"
+            placeholder="Notes (Use this space to provide any additional context like alternative contact, day-to-day availability, etc...)"
             value={parentInfo.notes}
             onChange={onChange}
           />

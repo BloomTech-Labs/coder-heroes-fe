@@ -92,6 +92,16 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
           onChange={onChange}
         />
       </label>
+      <div className="test">
+        <textarea
+          className="create-new-student-notes"
+          name="notes"
+          type="text"
+          placeholder="Notes (Use this space to provide any additional context like student disabilities, nicknames, etc...)"
+          // value={parentInfo.notes}
+          onChange={onChange}
+        />
+      </div>
 
       <div className="avatars">
         {/* isSelected avatar dictates the classname */}

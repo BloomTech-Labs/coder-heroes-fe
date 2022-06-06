@@ -13,6 +13,10 @@ export default function ParentWelcome() {
         </p>
         <a href="/register-2">CREATE PROFILES</a>
       </div>
+      <div className="footer-content">
+        <p>Looking for Instructor Registration?</p>
+        <a href="/instructor-register-1">Click Here</a>
+      </div>
     </div>
   );
 }

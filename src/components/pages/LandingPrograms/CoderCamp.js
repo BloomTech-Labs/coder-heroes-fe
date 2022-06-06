@@ -75,11 +75,9 @@ export default function CoderCamp() {
             </div>
           </div>
         </div>
-
-        {/* Testimonials */}
         {/* Testimonials */}
         <div className="pl__na__testimonials__container">
-          <div>
+          <div className="left-arrow">
             <LeftOutlined style={{ color: '#fefefe', fontSize: '62px' }} />
           </div>
           {/* Image Section */}
@@ -91,7 +89,7 @@ export default function CoderCamp() {
             />
           </div>
           {/* Text sections */}
-          <div>
+          <div className="pl__testimony__text__wrapper">
             {/* Testimony Section */}
             <div className="pl__testimony__section__one">
               <Text className="pl__na__testimony__text__container">
@@ -111,14 +109,10 @@ export default function CoderCamp() {
               </Text>
             </div>
           </div>
-          <div>
+          <div className="right-arrow">
             <RightOutlined style={{ color: '#fefefe', fontSize: '62px' }} />
           </div>
         </div>
-
-        {/* CoderSitters */}
-        {/* CoderSitters */}
-        <div className="pl__na__codersitters__container"></div>
       </Content>
     </Layout>
   );

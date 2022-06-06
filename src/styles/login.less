@@ -247,6 +247,25 @@
       font-size: @text__font-size--h3;
     }
   }
+  .login-container p {
+    &:nth-child(1) {
+      width: 31rem;
+      font-size: @text__font-size--h2;
+      margin-bottom: 7%;
+    }
+    &:nth-child(2) {
+      color: @body__bg--peach;
+      font-size: @text__font-size--h3;
+    }
+    &:nth-child(3) {
+      color: @body__bg--yellow;
+      font-size: @text__font-size--h3;
+    }
+    &:nth-child(4) {
+      color: @body__bg--concrete;
+      font-size: @text__font-size--h3;
+    }
+  }
 
   #sign-in-widget #okta-sign-in.auth-container.no-beacon {
     height: 700px;
@@ -311,8 +330,8 @@
       height: 63vh;
     }
 
-    h2 {
-      margin-top: 2rem;
+    .auth-content {
+      height: 63vh;
     }
 
     .registration-container .content-container {

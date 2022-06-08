@@ -8,6 +8,7 @@ import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import Banner from '../../common/Banner';
 import Title from './Title';
 const { Content } = Layout;
+
 export default function InstructorNewsFeed() {
   const [postOptions, setPostOptions] = useState('newsFeed');
   const [postID, setPostId] = useState(0);

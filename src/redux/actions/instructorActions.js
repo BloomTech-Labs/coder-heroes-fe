@@ -12,6 +12,9 @@ export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
+export const GET_NEWSFEED = 'GET_NEWSFEED';
+export const PUT_NEWSFEED = 'PUT_NEWSFEED';
+export const DELETE_NEWSFEED = 'DELETE_NEWSFEED';
 export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
@@ -132,6 +135,63 @@ export const getNewsFeeds = idToken => dispatch => {
       .then(resp => {
         dispatch({
           type: GET_NEWSFEEDS,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const getNewsFeed = (idToken, postID) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .get(`/news/${postID}`)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEED,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const putNewsFeed = (idToken, postID) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .put(`/news/${postID}`)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEED,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const deleteNewsFeed = (idToken, postID) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .delete(`/news/${postID}`)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEED,
           payload: resp.data,
         });
       })

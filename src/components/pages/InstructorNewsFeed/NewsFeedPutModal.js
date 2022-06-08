@@ -1,63 +1,95 @@
 import React, { useState, useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
+import {
+  getNewsFeed,
+  putNewsFeed,
+  deleteNewsFeed,
+} from '../../../redux/actions/instructorActions';
 
-export default function NewsFeedPutModal(props) {
+export function NewsFeedPutModal(props) {
   const { setPostOptions, postID } = props;
-  const [formValues, setFormValues] = useState({
-    link: '',
-    description: '',
-    title: '',
-  });
-
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-  useEffect(() => {
-    axiosWithAuth(idToken)
-      .get(`/news/${postID}`)
-      .then(resp => {
-        setFormValues({
-          ...formValues,
-          link: resp.data.link,
-          description: resp.data.description,
-          title: resp.data.title,
-        });
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }, []); // eslint-disable-line
-  const handleChange = e => {
-    setFormValues({
-      ...formValues,
 
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const [formValues, setFormValues] = useState({
+  //     link: '',
+  //     description: '',
+  //     title: '',
+  // });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getNewsFeed(idToken, postID));
+  }, [dispatch, idToken]);
+
+  // useEffect(() =>
+  // {
+  //     axiosWithAuth(idToken)
+  //         .get(`/news/${postID}`)
+  //         .then(resp =>
+  //         {
+  //             setFormValues({
+  //                 ...formValues,
+  //                 link: resp.data.link,
+  //                 description: resp.data.description,
+  //                 title: resp.data.title,
+  //             });
+  //         })
+  //         .catch(err =>
+  //         {
+  //             console.error(err);
+  //         });
+  // }, []); // eslint-disable-line
+
+  // const handleChange = e =>
+  // {
+  //     setFormValues({
+  //         ...formValues,
+
+  //         [e.target.name]: e.target.value,
+  //     });
+  // };
+
+  // const handleEdit = () =>
+  // {
+  //     axiosWithAuth(idToken)
+  //         .put(`/news/${postID}`, formValues)
+  //         .then(resp =>
+  //         {
+  //             setPostOptions('newsFeed');
+  //         })
+  //         .catch(err =>
+  //         {
+  //             console.log(err);
+  //         });
+  // };
 
   const handleEdit = () => {
-    axiosWithAuth(idToken)
-      .put(`/news/${postID}`, formValues)
-      .then(resp => {
-        setPostOptions('newsFeed');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    dispatch(putNewsFeed(idToken, postID));
   };
 
+  // const handleDelete = () =>
+  // {
+  //     axiosWithAuth(idToken)
+  //         .delete(`/news/${postID}`)
+  //         .then(resp =>
+  //         {
+  //             setPostOptions('newsFeed');
+  //         })
+  //         .catch(err =>
+  //         {
+  //             console.log(err);
+  //         });
+  // };
+
   const handleDelete = () => {
-    axiosWithAuth(idToken)
-      .delete(`/news/${postID}`)
-      .then(resp => {
-        setPostOptions('newsFeed');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    dispatch(deleteNewsFeed(idToken, postID));
   };
 
   return (
@@ -75,15 +107,15 @@ export default function NewsFeedPutModal(props) {
           <Form.Item label="Post Title:">
             <Input
               name="title"
-              value={formValues.title}
-              onChange={handleChange}
+              value={props.formValues.title}
+              // onChange={handleChange}
             />
           </Form.Item>
           <Form.Item label="Link:">
             <Input
               name="link"
-              value={formValues.link}
-              onChange={handleChange}
+              value={props.formValues.link}
+              // onChange={handleChange}
             />
           </Form.Item>
         </div>
@@ -91,9 +123,9 @@ export default function NewsFeedPutModal(props) {
           <Form.Item label="Post Contents:" />
           <Input.TextArea
             name="description"
-            onChange={handleChange}
+            // onChange={handleChange}
             className="newsfeedForm_inputfield_textarea"
-            value={formValues.description}
+            value={props.formValues.description}
           />
         </div>
         <div className="newsfeedForm_editDeleteButton_container">
@@ -122,3 +154,8 @@ export default function NewsFeedPutModal(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return { newsfeed: state.instructorReducer.newsfeed };
+};
+export default connect(mapStateToProps)(NewsFeedPutModal);

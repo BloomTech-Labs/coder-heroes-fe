@@ -9,12 +9,28 @@ import {
   ADD_NEW_PROGRAM,
   SET_ERROR,
   GET_NEWSFEEDS,
+  GET_NEWSFEED,
+  PUT_NEWSFEED,
+  DELETE_NEWSFEED,
   GET_PROGRAMS,
   GET_INSTRUCTOR,
 } from '../actions/instructorActions';
-import { dummyData } from '../../dummyData';
+// import { dummyData } from '../../dummyData';
 
-const initialState = dummyData;
+// const initialState = dummyData;
+
+const initialState = {
+  instructors: [],
+  instructor: '',
+  courses: [],
+  instructor_data: null,
+  selectedCourse: '',
+  id: null,
+  own_programs: [],
+  errorMessage: null,
+  newsfeed: {},
+};
+
 const instructorReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -41,7 +57,10 @@ const instructorReducer = (state = initialState, action) => {
     case GET_INBOX_ACTION:
       return state;
     case SET_SELECTED_COURSE:
-      return { ...state, selectedCourse: payload };
+      return {
+        ...state,
+        selectedCourse: payload,
+      };
     case ADD_COURSE_ACTION:
       const newCourse = {
         ...payload,
@@ -71,6 +90,23 @@ const instructorReducer = (state = initialState, action) => {
         ...state,
         newsfeed: payload,
       };
+
+    case GET_NEWSFEED:
+      return {
+        ...state,
+        newsfeed: payload,
+      };
+    case PUT_NEWSFEED:
+      return {
+        ...state,
+        newsfeed: payload,
+      };
+    case DELETE_NEWSFEED:
+      return {
+        ...state,
+        newsfeed: payload,
+      };
+
     case GET_PROGRAMS:
       return {
         ...state,

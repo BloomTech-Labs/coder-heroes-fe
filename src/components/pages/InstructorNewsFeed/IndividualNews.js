@@ -10,6 +10,7 @@ function IndividualNews(props) {
     setPostId,
   } = props;
   const [showNewsFeedModal, setShowNewsFeedModal] = useState(false);
+
   return (
     <div
       className="news-card"

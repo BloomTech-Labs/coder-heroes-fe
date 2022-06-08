@@ -65,7 +65,7 @@ const RegisterStep4 = () => {
 
           <div className="content reg-btn-container">
             <a href="/register-3">back</a>
-            <button>submit</button>
+            <button onClick={handleSubmit}>submit</button>
           </div>
         </form>
       </div>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import RegistrationProgress from './RegistrationProgress';
-import StudentForm from './RegisterFormComponents/StudentForm';
 import ParentAccountInfo from './RegisterFormComponents/ParentAccountInfo';
 import '../../../styles/registration.less';
 

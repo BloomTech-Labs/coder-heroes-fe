@@ -61,7 +61,7 @@ export default function() {
 
           <div className="content reg-btn-container">
             <a href="/register-1">back</a>
-            <button onClick={handleSubmit}>submit</button>
+            <button onClick={handleSubmit}>Next</button>
           </div>
         </form>
       </div>

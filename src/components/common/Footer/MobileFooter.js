@@ -8,6 +8,7 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
 } from '@ant-design/icons';
+import ScrollToTop from '../scrollToTopHelper';
 
 const { Title } = Typography;
 
@@ -79,9 +80,14 @@ function MobileFooter() {
             <ul>
               <li className="footer__text">brianne@coderheroes.com</li>
               <li>
-                <Link className="footer__nav-link footer__text">
-                  Find a Program
-                </Link>
+                <ScrollToTop>
+                  <Link
+                    className="footer__nav-link footer__text"
+                    to="/browse-programs"
+                  >
+                    Find a Program
+                  </Link>
+                </ScrollToTop>
               </li>
             </ul>
           </div>

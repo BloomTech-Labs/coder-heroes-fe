@@ -15,9 +15,6 @@ import {
   GET_PROGRAMS,
   GET_INSTRUCTOR,
 } from '../actions/instructorActions';
-// import { dummyData } from '../../dummyData';
-
-// const initialState = dummyData;
 
 const initialState = {
   instructors: [],
@@ -28,7 +25,7 @@ const initialState = {
   id: null,
   own_programs: [],
   errorMessage: null,
-  newsfeed: {},
+  newsfeed: [],
 };
 
 const instructorReducer = (state = initialState, action) => {

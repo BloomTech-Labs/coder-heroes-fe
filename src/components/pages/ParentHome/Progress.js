@@ -6,7 +6,6 @@ import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Content } from 'antd';
 import 'antd/dist/antd.css';
-import ParentNavbar from './ParentNavbar';
 
 const Progress = () => {
   const { Content } = Layout;
@@ -17,7 +16,6 @@ const Progress = () => {
       <Content>
         <Banner />
         <div className="navDrop">
-          <ParentNavbar />
           <StudentDropdown />
         </div>
         <ProgressBar />

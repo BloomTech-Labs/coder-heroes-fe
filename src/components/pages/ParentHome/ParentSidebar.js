@@ -17,6 +17,7 @@ import {
   FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useOktaAuth } from '@okta/okta-react';
+import handleLogout from '../../../utils/logout.js';
 
 const { Sider } = Layout;
 
@@ -24,6 +25,7 @@ const ParentSideBar = props => {
   const { cart, active } = props;
   const [collapsed, setCollapsed] = useState(false);
   const { authService } = useOktaAuth();
+
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -144,11 +146,9 @@ const ParentSideBar = props => {
         <Menu.Item
           key="logout"
           icon={<ExportOutlined fontSize="150px" />}
-          onClick={() => {
-            authService.logout();
-          }}
+          onClick={handleLogout}
         >
-          <Link>Logout</Link>
+          <Link to="/">Logout</Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
           <Link to="/cart" className="link">

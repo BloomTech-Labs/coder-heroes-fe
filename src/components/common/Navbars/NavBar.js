@@ -26,6 +26,7 @@ import NavBarLinks from './NavBarLinks';
 import { connect } from 'react-redux';
 
 import navLogo from '../../../img/navbar-logo.png';
+import handleLogout from '../../../utils/logout.js';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -40,11 +41,6 @@ function NavBar(props) {
     else if (role_id < 5) setBgColor('#21C5B5');
     else setBgColor('#FEAD2A');
   }, [role_id]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('okta-token-storage');
-    window.location.reload();
-  };
 
   const showDrawer = () => {
     setVisible(true);

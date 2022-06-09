@@ -8,7 +8,7 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
 } from '@ant-design/icons';
-import ScrollToTop from '../scrollToTopHelper';
+import ScrollToTop from '../../../utils/scrollToTopHelper';
 
 const { Title } = Typography;
 

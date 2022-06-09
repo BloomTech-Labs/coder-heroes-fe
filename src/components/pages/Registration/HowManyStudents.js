@@ -29,6 +29,7 @@ export default function HowManyStudents() {
             type="number"
             value={numStudents}
             onChange={handleChange}
+            min="0"
           />
         </form>
 

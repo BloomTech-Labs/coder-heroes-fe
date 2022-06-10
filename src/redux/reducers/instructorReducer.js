@@ -14,6 +14,8 @@ import {
   DELETE_NEWSFEED,
   GET_PROGRAMS,
   GET_INSTRUCTOR,
+  SET_POST_ID,
+  SET_POST_OPTIONS,
 } from '../actions/instructorActions';
 
 const initialState = {
@@ -26,6 +28,8 @@ const initialState = {
   own_programs: [],
   errorMessage: null,
   newsfeed: [],
+  postOptions: 'newsFeed',
+  postID: 0,
 };
 
 const instructorReducer = (state = initialState, action) => {
@@ -108,6 +112,17 @@ const instructorReducer = (state = initialState, action) => {
       return {
         ...state,
         own_programs: payload,
+      };
+
+    case SET_POST_ID:
+      return {
+        ...state,
+        postID: payload,
+      };
+    case SET_POST_OPTIONS:
+      return {
+        ...state,
+        postOptions: payload,
       };
     default:
       return state;

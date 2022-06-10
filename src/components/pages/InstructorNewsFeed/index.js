@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import '../../../styles/index.less';
 import NewsContainer from './NewsContainer';
@@ -7,11 +7,11 @@ import NewsfeedPostModal from './NewsFeedPostModal';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import Banner from '../../common/Banner';
 import Title from './Title';
+import { connect } from 'react-redux';
 const { Content } = Layout;
 
-export default function InstructorNewsFeed() {
-  const [postOptions, setPostOptions] = useState('newsFeed');
-  const [postID, setPostId] = useState(0);
+function InstructorNewsFeed(props) {
+  const { postOptions } = props;
 
   return (
     <div className="news-feed-page">
@@ -22,28 +22,22 @@ export default function InstructorNewsFeed() {
           {/* depending on the postOptions state it will conditional render components newsFeed, editDelete, createNewPost*/}
           {postOptions === 'newsFeed' ? (
             <div>
-              <Title setPostOptions={setPostOptions} />
-              <NewsContainer
-                setPostId={setPostId}
-                setPostOptions={setPostOptions}
-              />
+              <Title />
+              <NewsContainer />
             </div>
           ) : (
             ''
           )}
           {postOptions === 'editDelete' ? (
             <div className="newsfeed_put_post_form_container">
-              <NewsfeedPutModal
-                postID={postID}
-                setPostOptions={setPostOptions}
-              />
+              <NewsfeedPutModal />
             </div>
           ) : (
             ''
           )}
           {postOptions === 'createNewPost' ? (
             <div className="newsfeed_put_post_form_container">
-              <NewsfeedPostModal setPostOptions={setPostOptions} />
+              <NewsfeedPostModal />
             </div>
           ) : (
             ''
@@ -53,3 +47,10 @@ export default function InstructorNewsFeed() {
     </div>
   );
 }
+const mapStateToProps = state => {
+  return {
+    newsfeed: state.instructorReducer.newsfeed,
+    postOptions: state.instructorReducer.postOptions,
+  };
+};
+export default connect(mapStateToProps)(InstructorNewsFeed);

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Modal } from 'antd';
+import {
+  setPostID,
+  setPostOptions,
+} from '../../../redux/actions/instructorActions';
 function IndividualNews(props) {
-  const {
-    title,
-    link,
-    description,
-    newsfeed_id,
-    setPostOptions,
-    setPostId,
-  } = props;
+  const { title, link, description, newsfeed_id } = props;
   const [showNewsFeedModal, setShowNewsFeedModal] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -30,8 +29,10 @@ function IndividualNews(props) {
         <button
           className="edit-button"
           onClick={() => {
-            setPostId(newsfeed_id);
-            setPostOptions('editDelete');
+            // setPostId(newsfeed_id);
+            // setPostOptions('editDelete');
+            dispatch(setPostID(newsfeed_id));
+            dispatch(setPostOptions('editDelete'));
           }}
         >
           Edit/Delete Post
@@ -48,4 +49,8 @@ function IndividualNews(props) {
     </div>
   );
 }
-export default IndividualNews;
+
+const mapStateToProps = state => {
+  return { newsfeed: state.instructorReducer.newsfeed };
+};
+export default connect(mapStateToProps)(IndividualNews);

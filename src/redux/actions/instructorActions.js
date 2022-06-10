@@ -19,6 +19,8 @@ export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const GET_INSTRUCTOR = 'GET_INSTRUCTOR';
+export const SET_POST_ID = 'SET_POST_ID';
+export const SET_POST_OPTIONS = 'SET_POST_OPTIONS';
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
@@ -234,4 +236,18 @@ export const getInstructor = (idToken, profile_id) => async dispatch => {
       payload: error.message,
     });
   }
+};
+
+export const setPostID = postID => async dispatch => {
+  dispatch({
+    type: SET_POST_ID,
+    payload: postID,
+  });
+};
+
+export const setPostOptions = postOptions => async dispatch => {
+  dispatch({
+    type: SET_POST_OPTIONS,
+    payload: postOptions,
+  });
 };

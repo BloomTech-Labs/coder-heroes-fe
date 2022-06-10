@@ -160,6 +160,7 @@ const mapStateToProps = state => {
     newsfeed: state.instructorReducer.newsfeed,
     postOptions: state.instructorReducer.postOptions,
     postID: state.instructorReducer.postID,
+    formValues: state.instructorReducer.formValues,
   };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

@@ -30,6 +30,11 @@ const initialState = {
   newsfeed: [],
   postOptions: 'newsFeed',
   postID: 0,
+  formValues: {
+    link: '',
+    description: '',
+    title: '',
+  },
 };
 
 const instructorReducer = (state = initialState, action) => {

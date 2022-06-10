@@ -77,7 +77,14 @@ function MobileFooter() {
           </Title>
           <div>
             <ul>
-              <li className="footer__text">brianne@coderheroes.com</li>
+              <li
+                onClick={() =>
+                  (window.location = 'mailto:brianne@coderheroes.com')
+                }
+                className="navbar__btn navbar__contact"
+              >
+                brianne@coderheroes.com
+              </li>
               <li>
                 <Link className="footer__nav-link footer__text">
                   Find a Program

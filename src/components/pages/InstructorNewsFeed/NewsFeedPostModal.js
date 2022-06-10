@@ -12,6 +12,7 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     title: '',
   });
   const { link, description, title } = formValues;
+
   function ValidateNewsFeedFormButton() {
     if (link.trim() && description.trim() && title.trim()) {
       return (

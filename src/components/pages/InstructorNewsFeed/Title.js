@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { setPostOptions } from '../../../redux/actions/instructorActions.js';
 
-export default function Title({ setPostOptions }) {
+function Title(props) {
+  const dispatch = useDispatch();
+
   return (
     <div className="news-feed-title-container-instructor">
       <div id="news-feed-title">
@@ -9,7 +13,7 @@ export default function Title({ setPostOptions }) {
       <div id="create-news-button">
         <button
           onClick={() => {
-            setPostOptions('createNewPost');
+            dispatch(setPostOptions('createNewPost'));
           }}
         >
           Create Post
@@ -18,3 +22,8 @@ export default function Title({ setPostOptions }) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return { postOptions: state.instructorReducer.postOptions };
+};
+export default connect(mapStateToProps)(Title);

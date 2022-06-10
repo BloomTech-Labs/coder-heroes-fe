@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
 import {
   getNewsFeed,
   putNewsFeed,
   deleteNewsFeed,
+  setPostOptions,
 } from '../../../redux/actions/instructorActions';
 
-export function NewsFeedPutModal(props) {
-  const { setPostOptions, postID } = props;
+function NewsFeedPutModal(props) {
+  const { postID } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
@@ -26,7 +26,7 @@ export function NewsFeedPutModal(props) {
 
   useEffect(() => {
     dispatch(getNewsFeed(idToken, postID));
-  }, [dispatch, idToken]);
+  }, []);
 
   // useEffect(() =>
   // {
@@ -98,7 +98,7 @@ export function NewsFeedPutModal(props) {
         <h1>Edit/Delete Post</h1>
         <CloseOutlined
           onClick={() => {
-            setPostOptions('newsFeed');
+            dispatch(setPostOptions('newsFeed'));
           }}
         />
       </div>
@@ -156,6 +156,10 @@ export function NewsFeedPutModal(props) {
 }
 
 const mapStateToProps = state => {
-  return { newsfeed: state.instructorReducer.newsfeed };
+  return {
+    newsfeed: state.instructorReducer.newsfeed,
+    postOptions: state.instructorReducer.postOptions,
+    postID: state.instructorReducer.postID,
+  };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

@@ -49,7 +49,6 @@ function InstructorNewsFeed(props) {
 }
 const mapStateToProps = state => {
   return {
-    newsfeed: state.instructorReducer.newsfeed,
     postOptions: state.instructorReducer.postOptions,
   };
 };

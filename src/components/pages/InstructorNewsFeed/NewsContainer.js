@@ -11,8 +11,16 @@ function NewsContainer(props) {
   const { idToken } = authState;
 
   useEffect(() => {
+    console.log('newsfeed:', newsfeed);
     dispatch(getNewsFeeds(idToken));
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(getNewsFeeds(idToken));
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [props.newsRequest]);
 
   return (
     <div className="news-container">
@@ -34,6 +42,9 @@ function NewsContainer(props) {
   );
 }
 const mapStateToProps = state => {
-  return { newsfeed: state.instructorReducer.newsfeed };
+  return {
+    newsfeed: state.instructorReducer.newsfeed,
+    newsRequest: state.instructorReducer.newsRequest,
+  };
 };
 export default connect(mapStateToProps)(NewsContainer);

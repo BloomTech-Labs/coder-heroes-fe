@@ -5,7 +5,10 @@ import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
-import { setPostOptions } from '../../../redux/actions/instructorActions';
+import {
+  postNewsFeed,
+  setPostOptions,
+} from '../../../redux/actions/instructorActions';
 
 const NewsfeedPostModal = props => {
   const [formValues, setFormValues] = useState({
@@ -54,8 +57,7 @@ const NewsfeedPostModal = props => {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
   const handleSubmit = () => {
-    axiosWithAuth(idToken)
-      .post(`/news`, formValues)
+    dispatch(postNewsFeed(idToken, formValues))
       .then(resp => {
         dispatch(setPostOptions('newsFeed'));
       })

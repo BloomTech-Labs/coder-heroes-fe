@@ -13,6 +13,7 @@ export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
 export const GET_NEWSFEED = 'GET_NEWSFEED';
+export const POST_NEWSFEED = 'POST_NEWSFEED';
 export const PUT_NEWSFEED = 'PUT_NEWSFEED';
 export const DELETE_NEWSFEED = 'DELETE_NEWSFEED';
 // export const SET_FORM_VALUES = 'SET_FORM_VALUES';
@@ -169,10 +170,29 @@ export const getNewsFeed = (idToken, postID) => dispatch => {
   }
 };
 
-export const putNewsFeed = (idToken, postID) => dispatch => {
+export const postNewsFeed = (idToken, values) => dispatch => {
   try {
     axiosWithAuth(idToken)
-      .put(`/news/${postID}`)
+      .post(`/news/`, values)
+      .then(resp => {
+        dispatch({
+          type: POST_NEWSFEED,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const putNewsFeed = (idToken, postID, values) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .put(`/news/${postID}`, values)
       .then(resp => {
         dispatch({
           type: GET_NEWSFEED,

@@ -88,6 +88,8 @@ function NewsFeedPutModal(props) {
 
   const handleDelete = () => {
     dispatch(deleteNewsFeed(idToken, postID));
+
+    dispatch(setPostOptions('newsFeed'));
   };
 
   return (

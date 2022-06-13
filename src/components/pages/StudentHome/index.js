@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../common/Banner';
@@ -7,13 +7,7 @@ import StudentDashboard from './StudentDashboard';
 import '../../../styles/ParentStyles/index.less';
 
 function StudentHome() {
-  const { Content, Sider } = Layout;
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
+  const { Content } = Layout;
   return (
     <div className="App">
       <Layout style={{ width: '100%' }}>

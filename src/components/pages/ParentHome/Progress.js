@@ -4,7 +4,7 @@ import ParentSidebar from '../ParentHome/ParentSidebar';
 import ProgressBar from '../../common/ProgressBar';
 import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Content } from 'antd';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
 const Progress = () => {

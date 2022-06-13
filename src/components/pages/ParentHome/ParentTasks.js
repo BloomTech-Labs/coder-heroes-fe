@@ -3,7 +3,7 @@ import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
 import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
-import { Layout, Collapse, Card, Typography } from 'antd';
+import { Layout, Collapse, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 const ParentTasks = () => {

@@ -12,6 +12,7 @@ import {
   GET_NEWSFEED,
   PUT_NEWSFEED,
   DELETE_NEWSFEED,
+  // SET_FORM_VALUES,
   GET_PROGRAMS,
   GET_INSTRUCTOR,
   SET_POST_ID,
@@ -30,11 +31,11 @@ const initialState = {
   newsfeed: [],
   postOptions: 'newsFeed',
   postID: 0,
-  formValues: {
-    link: '',
-    description: '',
-    title: '',
-  },
+  // formValues: {
+  //     link: '',
+  //     description: '',
+  //     title: '',
+  // },
 };
 
 const instructorReducer = (state = initialState, action) => {
@@ -112,13 +113,16 @@ const instructorReducer = (state = initialState, action) => {
         ...state,
         newsfeed: payload,
       };
-
+    // case SET_FORM_VALUES:
+    //     return {
+    //         ...state,
+    //         formValues: payload
+    //     };
     case GET_PROGRAMS:
       return {
         ...state,
         own_programs: payload,
       };
-
     case SET_POST_ID:
       return {
         ...state,

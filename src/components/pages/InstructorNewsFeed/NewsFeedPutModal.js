@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
@@ -16,11 +16,11 @@ function NewsFeedPutModal(props) {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
-  // const [formValues, setFormValues] = useState({
-  //     link: '',
-  //     description: '',
-  //     title: '',
-  // });
+  const [formValues, setFormValues] = useState({
+    link: '',
+    description: '',
+    title: '',
+  });
 
   const dispatch = useDispatch();
 
@@ -47,14 +47,12 @@ function NewsFeedPutModal(props) {
   //         });
   // }, []); // eslint-disable-line
 
-  // const handleChange = e =>
-  // {
-  //     setFormValues({
-  //         ...formValues,
-
-  //         [e.target.name]: e.target.value,
-  //     });
-  // };
+  const handleChange = e => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // const handleEdit = () =>
   // {
@@ -107,15 +105,15 @@ function NewsFeedPutModal(props) {
           <Form.Item label="Post Title:">
             <Input
               name="title"
-              value={props.formValues.title}
-              // onChange={handleChange}
+              value={formValues.title}
+              onChange={handleChange}
             />
           </Form.Item>
           <Form.Item label="Link:">
             <Input
               name="link"
-              value={props.formValues.link}
-              // onChange={handleChange}
+              value={formValues.link}
+              onChange={handleChange}
             />
           </Form.Item>
         </div>
@@ -123,9 +121,9 @@ function NewsFeedPutModal(props) {
           <Form.Item label="Post Contents:" />
           <Input.TextArea
             name="description"
-            // onChange={handleChange}
+            onChange={handleChange}
             className="newsfeedForm_inputfield_textarea"
-            value={props.formValues.description}
+            value={formValues.description}
           />
         </div>
         <div className="newsfeedForm_editDeleteButton_container">
@@ -160,7 +158,7 @@ const mapStateToProps = state => {
     newsfeed: state.instructorReducer.newsfeed,
     postOptions: state.instructorReducer.postOptions,
     postID: state.instructorReducer.postID,
-    formValues: state.instructorReducer.formValues,
+    // formValues: state.instructorReducer.formValues,
   };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

@@ -69,7 +69,9 @@ function NewsFeedPutModal(props) {
   // };
 
   const handleEdit = () => {
-    dispatch(putNewsFeed(idToken, postID));
+    dispatch(putNewsFeed(idToken, postID, formValues));
+
+    dispatch(setPostOptions('newsFeed'));
   };
 
   // const handleDelete = () =>

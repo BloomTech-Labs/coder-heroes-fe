@@ -17,13 +17,6 @@ function NewsContainer(props) {
   console.log('newsfeed:', newsfeed);
   console.log('post:', post);
 
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       dispatch(getNewsFeeds(idToken));
-  //     }, 100);
-  //     return () => clearTimeout(timer);
-  //   }, [props.newsRequest]);
-
   return (
     <div className="news-container">
       {newsfeed.map(news => {

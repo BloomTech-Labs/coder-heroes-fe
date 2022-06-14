@@ -189,14 +189,14 @@ export const postNewsFeed = (idToken, values) => dispatch => {
   }
 };
 
-export const putNewsFeed = (idToken, postID, values) => dispatch => {
+export const putNewsFeed = (idToken, postID, values, post) => dispatch => {
   try {
     axiosWithAuth(idToken)
       .put(`/news/${postID}`, values)
       .then(resp => {
         dispatch({
-          type: GET_NEWSFEED,
-          payload: resp.data,
+          type: PUT_NEWSFEED,
+          payload: post,
         });
       })
       .catch(err => console.log(err));

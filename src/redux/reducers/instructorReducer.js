@@ -33,7 +33,6 @@ const initialState = {
   post: [],
   postOptions: 'newsFeed',
   postID: 0,
-  newsRequest: false,
   // formValues: {
   //     link: '',
   //     description: '',
@@ -114,12 +113,13 @@ const instructorReducer = (state = initialState, action) => {
     case PUT_NEWSFEED:
       return {
         ...state,
-        newsfeed: payload,
+        newsfeed: state.newsfeed.filter(
+          post => post.newsfeed_id !== payload.newsfeed_id
+        ),
       };
     case DELETE_NEWSFEED:
       return {
         ...state,
-        newsRequest: true,
         newsfeed: state.newsfeed.filter(
           post => post.newsfeed_id !== payload.newsfeed_id
         ),

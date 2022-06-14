@@ -6,21 +6,23 @@ import IndividualNews from './IndividualNews';
 import { useOktaAuth } from '@okta/okta-react';
 
 function NewsContainer(props) {
-  const { newsfeed, dispatch } = props;
+  const { newsfeed, dispatch, post } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
   useEffect(() => {
-    console.log('newsfeed:', newsfeed);
     dispatch(getNewsFeeds(idToken));
   }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(getNewsFeeds(idToken));
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [props.newsRequest]);
+  console.log('newsfeed:', newsfeed);
+  console.log('post:', post);
+
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => {
+  //       dispatch(getNewsFeeds(idToken));
+  //     }, 100);
+  //     return () => clearTimeout(timer);
+  //   }, [props.newsRequest]);
 
   return (
     <div className="news-container">
@@ -29,8 +31,6 @@ function NewsContainer(props) {
         return (
           <IndividualNews
             key={newsfeed_id}
-            // setPostOptions={setPostOptions}
-            // setPostId={setPostId}
             title={title}
             link={link}
             description={description}
@@ -45,6 +45,7 @@ const mapStateToProps = state => {
   return {
     newsfeed: state.instructorReducer.newsfeed,
     newsRequest: state.instructorReducer.newsRequest,
+    post: state.instructorReducer.post,
   };
 };
 export default connect(mapStateToProps)(NewsContainer);

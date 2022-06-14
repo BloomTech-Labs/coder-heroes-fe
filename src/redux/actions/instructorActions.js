@@ -208,14 +208,14 @@ export const putNewsFeed = (idToken, postID, values) => dispatch => {
   }
 };
 
-export const deleteNewsFeed = (idToken, postID) => dispatch => {
+export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
   try {
     axiosWithAuth(idToken)
       .delete(`/news/${postID}`)
       .then(resp => {
         dispatch({
-          type: GET_NEWSFEED,
-          payload: resp.data,
+          type: DELETE_NEWSFEED,
+          payload: post,
         });
       })
       .catch(err => console.log(err));

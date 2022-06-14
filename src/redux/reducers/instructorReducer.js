@@ -30,6 +30,7 @@ const initialState = {
   own_programs: [],
   errorMessage: null,
   newsfeed: [],
+  post: [],
   postOptions: 'newsFeed',
   postID: 0,
   newsRequest: false,
@@ -103,7 +104,7 @@ const instructorReducer = (state = initialState, action) => {
     case GET_NEWSFEED:
       return {
         ...state,
-        newsfeed: payload,
+        post: payload,
       };
     case POST_NEWSFEED:
       return {
@@ -118,8 +119,10 @@ const instructorReducer = (state = initialState, action) => {
     case DELETE_NEWSFEED:
       return {
         ...state,
-        newsfeed: payload,
-        newsRequest: !state.newsRequest,
+        newsRequest: true,
+        newsfeed: state.newsfeed.filter(
+          post => post.newsfeed_id !== payload.newsfeed_id
+        ),
       };
     // case SET_FORM_VALUES:
     //     return {

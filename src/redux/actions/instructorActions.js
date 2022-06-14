@@ -16,7 +16,6 @@ export const GET_NEWSFEED = 'GET_NEWSFEED';
 export const POST_NEWSFEED = 'POST_NEWSFEED';
 export const PUT_NEWSFEED = 'PUT_NEWSFEED';
 export const DELETE_NEWSFEED = 'DELETE_NEWSFEED';
-// export const SET_FORM_VALUES = 'SET_FORM_VALUES';
 export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
@@ -226,14 +225,6 @@ export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
     });
   }
 };
-
-// export const setFormValues = ({name, value}) => dispatch =>
-// {
-//     dispatch({
-//         type: SET_FORM_VALUES,
-//         payload: {name, value}
-//     });
-// };
 
 export const getInstructors = idToken => async dispatch => {
   try {

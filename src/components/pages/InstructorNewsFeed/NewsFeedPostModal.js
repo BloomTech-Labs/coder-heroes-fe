@@ -3,7 +3,6 @@ import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
 import {
   postNewsFeed,
@@ -56,15 +55,13 @@ const NewsfeedPostModal = props => {
 
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+
   const handleSubmit = () => {
-    dispatch(postNewsFeed(idToken, formValues))
-      .then(resp => {
-        dispatch(setPostOptions('newsFeed'));
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    dispatch(postNewsFeed(idToken, formValues));
+
+    dispatch(setPostOptions('newsFeed'));
   };
+
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">

@@ -28,25 +28,6 @@ function NewsFeedPutModal(props) {
     dispatch(getNewsFeed(idToken, postID));
   }, []);
 
-  // useEffect(() =>
-  // {
-  //     axiosWithAuth(idToken)
-  //         .get(`/news/${postID}`)
-  //         .then(resp =>
-  //         {
-  //             setFormValues({
-  //                 ...formValues,
-  //                 link: resp.data.link,
-  //                 description: resp.data.description,
-  //                 title: resp.data.title,
-  //             });
-  //         })
-  //         .catch(err =>
-  //         {
-  //             console.error(err);
-  //         });
-  // }, []); // eslint-disable-line
-
   const handleChange = e => {
     setFormValues({
       ...formValues,
@@ -54,39 +35,11 @@ function NewsFeedPutModal(props) {
     });
   };
 
-  // const handleEdit = () =>
-  // {
-  //     axiosWithAuth(idToken)
-  //         .put(`/news/${postID}`, formValues)
-  //         .then(resp =>
-  //         {
-  //             setPostOptions('newsFeed');
-  //         })
-  //         .catch(err =>
-  //         {
-  //             console.log(err);
-  //         });
-  // };
-
   const handleEdit = () => {
     dispatch(putNewsFeed(idToken, postID, formValues));
 
     dispatch(setPostOptions('newsFeed'));
   };
-
-  // const handleDelete = () =>
-  // {
-  //     axiosWithAuth(idToken)
-  //         .delete(`/news/${postID}`)
-  //         .then(resp =>
-  //         {
-  //             setPostOptions('newsFeed');
-  //         })
-  //         .catch(err =>
-  //         {
-  //             console.log(err);
-  //         });
-  // };
 
   const handleDelete = () => {
     dispatch(deleteNewsFeed(idToken, postID));
@@ -162,7 +115,6 @@ const mapStateToProps = state => {
     newsfeed: state.instructorReducer.newsfeed,
     postOptions: state.instructorReducer.postOptions,
     postID: state.instructorReducer.postID,
-    // formValues: state.instructorReducer.formValues,
   };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

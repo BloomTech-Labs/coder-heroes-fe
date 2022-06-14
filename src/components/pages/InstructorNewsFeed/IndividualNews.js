@@ -29,8 +29,6 @@ function IndividualNews(props) {
         <button
           className="edit-button"
           onClick={() => {
-            // setPostId(newsfeed_id);
-            // setPostOptions('editDelete');
             dispatch(setPostID(newsfeed_id));
             dispatch(setPostOptions('editDelete'));
           }}

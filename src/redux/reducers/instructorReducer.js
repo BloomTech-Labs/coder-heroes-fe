@@ -13,7 +13,6 @@ import {
   POST_NEWSFEED,
   PUT_NEWSFEED,
   DELETE_NEWSFEED,
-  // SET_FORM_VALUES,
   GET_PROGRAMS,
   GET_INSTRUCTOR,
   SET_POST_ID,
@@ -33,11 +32,6 @@ const initialState = {
   post: [],
   postOptions: 'newsFeed',
   postID: 0,
-  // formValues: {
-  //     link: '',
-  //     description: '',
-  //     title: '',
-  // },
 };
 
 const instructorReducer = (state = initialState, action) => {
@@ -94,7 +88,6 @@ const instructorReducer = (state = initialState, action) => {
         errorMessage: payload,
       };
     case GET_NEWSFEEDS:
-      //if we are no longer importing dummy data we will need to double check and new state does have newsfeed inside
       return {
         ...state,
         newsfeed: payload,
@@ -124,11 +117,6 @@ const instructorReducer = (state = initialState, action) => {
           post => post.newsfeed_id !== payload.newsfeed_id
         ),
       };
-    // case SET_FORM_VALUES:
-    //     return {
-    //         ...state,
-    //         formValues: payload
-    //     };
     case GET_PROGRAMS:
       return {
         ...state,

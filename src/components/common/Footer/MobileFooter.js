@@ -8,6 +8,7 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
 } from '@ant-design/icons';
+import ScrollToTop from '../../../utils/scrollToTopHelper';
 
 const { Title } = Typography;
 
@@ -26,10 +27,14 @@ function MobileFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text">FAQ</Link>
+                <Link className="footer__nav-link footer__text" to="/">
+                  FAQ
+                </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text">Site Map</Link>
+                <Link className="footer__nav-link footer__text" to="/">
+                  Site Map
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,22 +50,22 @@ function MobileFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text">
+                <Link className="footer__nav-link footer__text" to="/">
                   About CoderHeroes
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text">
+                <Link className="footer__nav-link footer__text" to="/">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text">
+                <Link className="footer__nav-link footer__text" to="/">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text">
+                <Link className="footer__nav-link footer__text" to="/">
                   Press Inquiries
                 </Link>
               </li>
@@ -77,11 +82,18 @@ function MobileFooter() {
           </Title>
           <div>
             <ul>
-              <li className="footer__text">brianne@coderheroes.com</li>
+              <a href="mailto:brianne@coderheroes.com" className="footer__text">
+                brianne@coderheroes.com
+              </a>
               <li>
-                <Link className="footer__nav-link footer__text">
-                  Find a Program
-                </Link>
+                <ScrollToTop>
+                  <Link
+                    className="footer__nav-link footer__text"
+                    to="/browse-programs"
+                  >
+                    Find a Program
+                  </Link>
+                </ScrollToTop>
               </li>
             </ul>
           </div>

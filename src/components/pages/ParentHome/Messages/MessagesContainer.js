@@ -5,7 +5,6 @@ import Banner from '../../../common/Banner';
 import ParentSidebar from '../ParentSidebar';
 import ActiveMessage from './ActiveMessage';
 import MessageList from './MessageList';
-import ParentNavbar from '../ParentNavbar';
 import '../../../../styles/ParentStyles/messages.less';
 
 function ParentMessages() {
@@ -16,7 +15,6 @@ function ParentMessages() {
       <ParentSidebar />
       <Content className="content-container">
         <Banner />
-        <ParentNavbar />
         <Content className="component-container">
           <div className="card-container">
             <Card className="parent-message-card">

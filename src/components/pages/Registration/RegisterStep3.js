@@ -1,83 +1,40 @@
 import React, { useState } from 'react';
-import RegistrationProgress from './RegistrationProgress';
-import StudentForm from './RegisterFormComponents/StudentForm';
-import ParentAccountInfo from './RegisterFormComponents/ParentAccountInfo';
 import '../../../styles/registration.less';
+import RegistrationProgress from './RegistrationProgress';
 
-const numOfStudents = Number(localStorage.getItem('number of students'));
+export default function HowManyStudents() {
+  const [numStudents, setNumStudents] = useState(1);
 
-const initialStudentArr = new Array(numOfStudents).fill({
-  name: '',
-  pronoun: '',
-  age: '',
-  grade: '',
-  studentEmail: '',
-  avatarURL: '',
-  parent_id: '',
-});
-
-const initialParentInfo = {
-  name: '',
-  email: '',
-  location: '',
-  phone: '',
-  notes: '',
-  parent_id: '',
-  role_id: 3,
-  children: [],
-};
-
-export default function RegisterStep3() {
-  const [studentArr, setStudentArr] = useState(initialStudentArr);
-  const [parentInfo, setParentInfo] = useState(initialParentInfo);
-
-  // send accountDetails to the backend
-  // const accountDetails = {
-  //   ...parentInfo,
-  //   children: studentArr,
-  // };
+  const handleChange = e => {
+    setNumStudents(e.target.value);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // use axios to post account details
+    localStorage.setItem('number of students', numStudents);
+    window.location.href = '/register-4';
   };
 
   return (
-    <div className="reg-content-container">
+    <div className="reg-content-container email-confirmation">
       <RegistrationProgress step_num={2} />
 
-      <div className="reg-form-container">
-        <form onSubmit={handleSubmit}>
-          <div className="reg-form-title">
-            <h1 className="form-title">Parent Account Info</h1>
-            <p>* indicates required field</p>
-          </div>
-
-          <ParentAccountInfo
-            parentInfo={parentInfo}
-            setParentInfo={setParentInfo}
+      <div className="content">
+        <p className="color-one">
+          How many student profiles would you like to create?
+        </p>
+        <form>
+          <input
+            className="student-num"
+            type="number"
+            value={numStudents}
+            onChange={handleChange}
           />
-
-          <div className="profile-container">
-            <h1 className="form-title">Student Profiles</h1>
-
-            <div className="student-form-container">
-              {studentArr.map((student, idx) => (
-                <StudentForm
-                  key={idx}
-                  setStudentArr={setStudentArr}
-                  studentArr={studentArr}
-                  idx={idx}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="content reg-btn-container">
-            <a href="/register-2">back</a>
-            <button>submit</button>
-          </div>
         </form>
+
+        <div className="link-container">
+          <button onClick={handleSubmit}>Create Profiles</button>
+        </div>
       </div>
     </div>
   );

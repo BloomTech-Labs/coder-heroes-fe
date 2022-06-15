@@ -62,12 +62,13 @@ import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
-import HowManyStudents from './components/pages/Registration/HowManyStudents';
+import RegisterStep1 from './components/pages/Registration/RegisterStep1';
+import RegisterStep2 from './components/pages/Registration/RegisterStep2';
 import RegisterStep3 from './components/pages/Registration/RegisterStep3';
+import RegisterStep4 from './components/pages/Registration/RegisterStep4';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
-import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 
@@ -114,11 +115,13 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={ParentWelcome} />
+          <Route path="/register" component={RegisterStep1} />
           <Route path="/confirm" component={ConfirmEmail} />
-          <Route path="/register-1" component={ParentWelcome} />
-          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-1" component={RegisterStep1} />
+          <Route path="/register-2" component={RegisterStep2} />
           <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/register-4" component={RegisterStep4} />
+          <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}

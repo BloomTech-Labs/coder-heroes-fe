@@ -5,7 +5,6 @@ import Banner from '../../common/Banner';
 import StudentSideBar from './StudentSidebar';
 import StudentDashboard from './StudentDashboard';
 import '../../../styles/ParentStyles/index.less';
-
 function StudentHome() {
   const { Content, Sider } = Layout;
   const [collapsed, setCollapsed] = useState(false);

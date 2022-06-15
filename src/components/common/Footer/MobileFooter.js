@@ -81,7 +81,9 @@ function MobileFooter() {
           </Title>
           <div>
             <ul>
-              <li className="footer__text">brianne@coderheroes.com</li>
+              <a href="mailto:brianne@coderheroes.com" className="footer__text">
+                brianne@coderheroes.com
+              </a>
               <li>
                 <Link className="footer__nav-link footer__text" to="/">
                   Find a Program

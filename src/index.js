@@ -1,7 +1,8 @@
 /* eslint-disable */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+import { createRoot } from 'react-dom/client';
 import { Layout } from 'antd';
 import {
   BrowserRouter as Router,
@@ -22,7 +23,7 @@ import InstructorBooking from './components/pages/InstructorBooking';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
-import { LoginPage } from './components/pages/Login';
+import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -74,7 +75,10 @@ import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
 
-ReactDOM.render(
+const app = document.getElementById('root');
+const root = createRoot(app);
+
+root.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
@@ -91,8 +95,7 @@ ReactDOM.render(
         </Layout>
       </React.StrictMode>
     </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
 
 function App() {

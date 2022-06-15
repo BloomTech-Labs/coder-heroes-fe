@@ -8,6 +8,7 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
 } from '@ant-design/icons';
+import ScrollToTop from '../../../utils/scrollToTopHelper';
 
 const { Title } = Typography;
 
@@ -85,12 +86,14 @@ function DesktopFooter() {
                 brianne@coderheroes.com
               </a>
               <li>
-                <Link
-                  className="footer__nav-link footer__text"
-                  to="/browse-programs"
-                >
-                  Find a Program
-                </Link>
+                <ScrollToTop>
+                  <Link
+                    className="footer__nav-link footer__text"
+                    to="/browse-programs"
+                  >
+                    Find a Program
+                  </Link>
+                </ScrollToTop>
               </li>
             </ul>
           </div>

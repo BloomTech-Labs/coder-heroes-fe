@@ -1,7 +1,6 @@
 import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from '../ParentHome/ParentSidebar';
-import ParentNavbar from './ParentNavbar';
 import StudentDropdown from './StudentDropdown';
 import '../../../styles/ParentStyles/index.less';
 import { Layout, Card, Empty } from 'antd';
@@ -15,7 +14,6 @@ const ParentResourcesPage = () => {
       <Content className="resources-container">
         <Banner />
         <div className="navDrop">
-          <ParentNavbar />
           <StudentDropdown />
         </div>
         <div className="cardContainer">

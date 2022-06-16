@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import '../../../styles/StudentStyles/index.less';
 import {
@@ -11,11 +11,7 @@ import {
 } from '@ant-design/icons';
 import StudentStoryCard from './StudentStoryCard';
 
-const initialStudent = null;
-
 function StudentDashboard(props) {
-  // const [student, setStudent] = useState(initialStudent);
-
   return (
     <div className="student-dashboard">
       <section className="studentdb-left-column">

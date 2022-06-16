@@ -19,6 +19,7 @@
     "plotly.js": "^1.54.6",
     "react": "^18.1",
     "react-dom": "^18.1",
+    "react-icons": "^4.4.0",
     "react-plotly.js": "^2.4.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",

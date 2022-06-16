@@ -14,9 +14,6 @@ function NewsContainer(props) {
     dispatch(getNewsFeeds(idToken));
   }, []);
 
-  console.log('newsfeed:', newsfeed);
-  console.log('post:', post);
-
   return (
     <div className="news-container">
       {newsfeed.map(news => {

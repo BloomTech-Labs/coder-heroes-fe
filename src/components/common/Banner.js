@@ -43,6 +43,8 @@ export default function Banner() {
       return bannerContent('Newsfeed', '');
     case '/parent/progress':
       return bannerContent('Progress', '');
+    case '/student-progress':
+      return bannerContent('Progress', '');
     case '/parent/calendar':
       return bannerContent('Calendar', '');
     case '/parent/booking':

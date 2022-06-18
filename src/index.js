@@ -114,7 +114,7 @@ function App() {
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />;
           <Route path="/register" component={RegisterStep1} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={RegisterStep1} />
@@ -134,7 +134,7 @@ function App() {
             path="/parent/achievements"
             component={ParentAchievements}
           />
-          <SecureRoute path="/parent/booking" component={ParentBooking} />
+          /* <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
@@ -144,7 +144,6 @@ function App() {
           <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
-
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
@@ -154,7 +153,6 @@ function App() {
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}

@@ -134,7 +134,7 @@ function App() {
             path="/parent/achievements"
             component={ParentAchievements}
           />
-          /* <SecureRoute path="/parent/booking" component={ParentBooking} />
+          <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentFamilyHome} />
           <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />

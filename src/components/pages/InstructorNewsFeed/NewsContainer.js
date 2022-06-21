@@ -34,7 +34,6 @@ function NewsContainer(props) {
 const mapStateToProps = state => {
   return {
     newsfeed: state.instructorReducer.newsfeed,
-    newsRequest: state.instructorReducer.newsRequest,
     post: state.instructorReducer.post,
   };
 };

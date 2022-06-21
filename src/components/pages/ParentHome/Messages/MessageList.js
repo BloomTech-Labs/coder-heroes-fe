@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 import { List, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
+import { getConversations } from '../../../../redux/actions/userActions';
 
 const data = [
   {
@@ -13,7 +16,13 @@ const data = [
   },
 ];
 
-function MessageList() {
+const MessageList = props => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getConversations());
+    console.log(props);
+  }, []);
+
   return (
     <div>
       <h4>Conversations</h4>
@@ -32,6 +41,12 @@ function MessageList() {
       />
     </div>
   );
-}
+};
 
-export default MessageList;
+const mapStateToProps = state => {
+  return {
+    conversations: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps)(MessageList);

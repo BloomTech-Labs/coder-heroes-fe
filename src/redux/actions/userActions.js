@@ -1,4 +1,5 @@
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import axios from 'axios';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_CONVERSATIONS_ACTION = 'GET_CONVERSATIONS_ACTION';
@@ -31,10 +32,10 @@ export const getCurrentUser = (
   }
 };
 
-export const getConversations = (idToken, profileId) => async dispatch => {
+export const getConversations = () => dispatch => {
   dispatch({ type: GET_CONVERSATIONS_ACTION });
-  axiosWithAuth(idToken)
-    .get(`/parent/${profileId}/conversations/`)
+  axios
+    .get(`${process.env.REACT_APP_API_URI}/conversation_id/`)
     .then(res => {
       dispatch({ type: GET_CONVERSATIONS_SUCCESS, payload: res.data });
     })

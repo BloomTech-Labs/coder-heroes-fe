@@ -7,6 +7,7 @@
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "dependencies": {
     "@craco/craco": "^6.4.3",
+    "@okta/okta-auth-js": "^6.7.0",
     "@okta/okta-react": "^6.5.0",
     "@okta/okta-signin-widget": "^6.4.2",
     "antd": "^4.20.1",

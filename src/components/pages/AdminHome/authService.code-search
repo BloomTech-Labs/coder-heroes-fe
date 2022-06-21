@@ -1,0 +1,97 @@
+# Query: authService
+# Flags: WordMatch
+# ContextLines: 1
+
+23 results - 10 files
+
+src\__tests__\Home.test.js:
+  14        },
+  15:       useOktaAuth: {
+  16          getUser: () => Promise.resolve({ name: 'sara' }),
+
+src\__tests__\ProfileListContainer.test.js:
+  14        },
+  15:       useOktaAuth: {},
+  16      };
+
+src\__tests__\RenderHomePage.test.js:
+   9    test('it handles a loading state', () => {
+  10:     const useOktaAuth = {
+  11        logout: jest.fn(),
+
+  15        <Router>
+  16:         <RenderHomePage userInfo={{ name: 'Sara' }} useOktaAuth={useOktaAuth} />
+  17        </Router>
+
+  20      // userEvent.click(button);
+  21:     // expect(useOktaAuth.logout).toHaveBeenCalledTimes(1);
+  22      // expect(getByText(/hi sara welcome to labs basic spa/i).innerHTML).toBe(
+
+src\components\common\Header.js:
+   5  export default function MainHeader() {
+   6:   const { useOktaAuth, authState } = useOktaAuth();
+   7    return (
+
+  18              onClick={() => {
+  19:               useOktaAuth.logout();
+  20              }}
+
+src\components\pages\Dashboard\InstructorStats.js:
+  23  function InstructorStats(props) {
+  24:   const { authState, useOktaAuth } = useOktaAuth();
+  25    const { idToken } = authState;
+
+  30      if (!props.user.name) {
+  31:       dispatch(getCurrentUser(idToken, authState, useOktaAuth));
+  32      }
+
+src\components\pages\Home\HomeContainer.js:
+   6  function HomeContainer({ LoadingComponent }) {
+   7:   const { authState, useOktaAuth } = useOktaAuth();
+   8    const [userInfo, setUserInfo] = useState(null);
+   9    // eslint-disable-next-line
+  10:   const [memouseOktaAuth] = useMemo(() => [useOktaAuth], []);
+  11  
+
+  17        .then(info => {
+  18:         // if user is authenticated we can use the useOktaAuth to snag some user info.
+  19          // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
+
+  36        {authState.isAuthenticated && userInfo && (
+  37:         <RenderHomePage userInfo={userInfo} useOktaAuth={useOktaAuth} />
+  38        )}
+
+src\components\pages\InstructorHome\InstructorSidebar.js:
+  17    const [collapsed, setCollapsed] = useState(false);
+  18:   const { useOktaAuth } = useOktaAuth();
+  19    const onCollapse = () => {
+
+  59            onClick={() => {
+  60:             useOktaAuth.logout();
+  61            }}
+
+src\components\pages\Landing\RenderLandingPage.js:
+  17  function RenderLandingPage(props) {
+  18:   const { authState, useOktaAuth } = useOktaAuth();
+  19    const dispatch = useDispatch();
+
+  23      if (idToken) {
+  24:       dispatch(getCurrentUser(idToken, authState, useOktaAuth));
+  25      }
+
+src\components\pages\StudentHome\StudentSidebar.js:
+  21    const [collapsed, setCollapsed] = useState(false);
+  22:   const { useOktaAuth } = useOktaAuth();
+  23    const onCollapse = () => {
+
+  80            onClick={() => {
+  81:             useOktaAuth.logout();
+  82            }}
+
+src\redux\actions\userActions.js:
+   7    authState,
+   8:   useOktaAuth
+   9  ) => async dispatch => {
+  10    if (authState.isAuthenticated) {
+  11:     useOktaAuth
+  12        .getUser()

@@ -27,7 +27,7 @@ import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import { config } from './utils/oktaConfig';
+import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';

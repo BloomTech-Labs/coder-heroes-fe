@@ -6,4 +6,4 @@ const config = {
   scopes: ['openid', 'email', 'profile'],
 };
 
-export { config };
+export default config;

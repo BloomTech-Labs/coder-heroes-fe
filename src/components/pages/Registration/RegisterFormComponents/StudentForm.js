@@ -43,55 +43,55 @@ export default function StudentForm({ studentArr, setStudentArr, idx }) {
 
   return (
     <div className="student-form">
-      <label>
-        <input
-          name="name"
-          type="text"
-          placeholder="*Student Name"
-          value={formValues.name}
-          onChange={onChange}
-        />
-      </label>
+      <input
+        name="name"
+        type="text"
+        placeholder="*Student Name"
+        value={formValues.name}
+        onChange={onChange}
+      />
 
-      <label>
-        <input
-          name="pronoun"
-          type="text"
-          placeholder="*Pronoun"
-          value={formValues.pronoun}
-          onChange={onChange}
-        />
-      </label>
+      <input
+        name="pronoun"
+        type="text"
+        placeholder="*Pronoun"
+        value={formValues.pronoun}
+        onChange={onChange}
+      />
 
-      <label>
-        <input
-          name="age"
-          type="text"
-          placeholder="*Age"
-          value={formValues.age}
-          onChange={onChange}
-        />
-      </label>
+      <input
+        name="age"
+        type="text"
+        placeholder="*Age"
+        value={formValues.age}
+        onChange={onChange}
+      />
 
-      <label>
-        <input
-          name="grade"
-          type="text"
-          placeholder="*Grade"
-          value={formValues.grade}
-          onChange={onChange}
-        />
-      </label>
+      <input
+        name="grade"
+        type="text"
+        placeholder="*Grade"
+        value={formValues.grade}
+        onChange={onChange}
+      />
 
-      <label>
-        <input
-          name="studentEmail"
+      <input
+        name="studentEmail"
+        type="text"
+        placeholder="*Student Email"
+        value={formValues.studentEmail}
+        onChange={onChange}
+      />
+      <div className="test">
+        <textarea
+          className="create-new-student-notes"
+          name="notes"
           type="text"
-          placeholder="*Student Email"
-          value={formValues.studentEmail}
+          placeholder="Notes (Use this space to provide any additional context like student disabilities, nicknames, etc...)"
+          // value={parentInfo.notes}
           onChange={onChange}
         />
-      </label>
+      </div>
 
       <div className="avatars">
         {/* isSelected avatar dictates the classname */}

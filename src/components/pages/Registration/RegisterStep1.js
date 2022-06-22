@@ -2,7 +2,7 @@ import React from 'react';
 import RegistrationProgress from './RegistrationProgress';
 import '../../../styles/registration.less';
 
-export default function ParentWelcome() {
+export default function RegisterStep1() {
   return (
     <div className="reg-content-container">
       <RegistrationProgress step_num={0} />

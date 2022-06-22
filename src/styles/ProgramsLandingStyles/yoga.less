@@ -2,47 +2,53 @@
 
 // CONTENT
 .pl__section__wrap {
-  min-height: 100vh;
   font-family: @text__font-family;
-
+  
   // DIV FIRST CONTAINER
   .pl__na__first__container {
+    height: 100vh;
     background-color: @body__bg--blue;
     display: flex;
-    justify-content: space-between;
   }
 
   // DIV LEFT CONTAINER
   .pl__na__left__container {
     display: flex;
     justify-content: flex-start;
-    width: 45%;
+    flex: 1;
   }
 
   // DIV IMAGE CONTAINER
   .pl__na__image__containers {
-    width: 55rem;
-    height: 50rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   // BLUE BACKGROUND IMAGE
   .pl__na__image__bluebg {
-    transform: translate(-0px, -10%);
+    height: auto;
+    width: 100%;
   }
 
   // COMPUTER IMAGE
   .pl__na__image__yoga {
-    transform: translate(144px, -150%);
-    width: 38rem;
+    position: absolute;
+    width: 60%;
+    top: 43%;
+    left: 17%;
   }
 
   // DIV RIGHT CONTAINER
-  .pl__na__right__container {
+  .pl__na__right {
+    height: 75%;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin-top: 10rem;
-    margin-right: 4rem;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    margin: auto;
   }
 
   // CODERYOGA TITLE
@@ -57,14 +63,12 @@
 
   // INFORMATION PARAGRAPH (2 LINES) CONTAINER
   .pl__na__right__info__container {
-    font-size: @text__font-size--h2;
-    font-weight: 350;
-    color: @text__color--white;
+    font-size: @text__font-size--h3;
     line-height: @text__line-height--h3;
-    display: flex;
-    justify-content: center;
+    font-weight: 400;
+    color: @text__color--white;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   // NEW COURSE TITLE
@@ -78,18 +82,20 @@
 
   // 2ND INFORMATION PARAGRAPH
   .pl__na__right__info {
-    font-size: @text__font-size--h5;
-    font-size: @text__line-height--body;
+    font-size: @text__font-size--h4;
+    line-height: @text__line-height--h4;
     color: @text__color--white;
-    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    margin-bottom: 2rem;
   }
 
   // BUTTON CONTAINER
   .pl__na__button__container {
     display: flex;
     flex-direction: row;
-    margin-top: 5rem;
-    align-self: flex-end;
+    margin-top: 3rem;
+    align-self: center;
 
     // BUTTON CONFIGURATION
     .pl__na__button {
@@ -105,5 +111,13 @@
       transition: 0.15s ease-in;
       cursor: pointer;
     }
+  }
+}
+
+
+//** Landing Page Styles - CELL **//
+@media only screen and (max-width: 900px) {
+  .pl__na__left__container {
+    display: none !important;
   }
 }

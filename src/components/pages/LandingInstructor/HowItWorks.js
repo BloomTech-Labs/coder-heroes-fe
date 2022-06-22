@@ -13,7 +13,7 @@ const HowItWorks = () => {
     <Content className="il__mid">
       <Row>
         <Col span={24}>
-          <Title className="il__heading il__mid__heading">
+          <Title className="il__heading il__mid__heading" level={2}>
             HOW CODERHEROES WORKS
           </Title>
         </Col>
@@ -26,7 +26,7 @@ const HowItWorks = () => {
               style={{
                 fontSize: '1.4rem',
               }}
-              className="il__heading il__mid__heading"
+              className="il__heading il__heading_inner il__mid__heading"
             >
               WHAT KIND OF HELP DO YOU NEED?
             </Title>
@@ -47,7 +47,7 @@ const HowItWorks = () => {
               style={{
                 fontSize: '1.4rem',
               }}
-              className="il__heading il__mid__heading"
+              className="il__heading il__heading_inner il__mid__heading"
             >
               FIND AN INSTRUCTOR
             </Title>
@@ -68,7 +68,7 @@ const HowItWorks = () => {
               style={{
                 fontSize: '1.4rem',
               }}
-              className="il__heading il__mid__heading"
+              className="il__heading il__heading_inner il__mid__heading"
             >
               LEARN AT A LESSON
             </Title>
@@ -83,11 +83,9 @@ const HowItWorks = () => {
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col span={8}>
-          <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
-        </Col>
-      </Row>
+      <div className="il__browseBtn__container il__heading_inner">
+        <button className="il__browseBtn">BROWSE INSTRUCTORS</button>
+      </div>
     </Content>
   );
 };

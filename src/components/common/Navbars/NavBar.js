@@ -96,9 +96,9 @@ function NavBar(props) {
             </button>
           </NavLink>
           {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/family">
+            <NavLink to="/parent/family">
               <div className="navbar__profile">
-                <ProfileIcon style={{ color: 'black', fontSize: 25 }} />
+                <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
               </div>
             </NavLink>
           )}

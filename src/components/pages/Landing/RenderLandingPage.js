@@ -15,16 +15,17 @@ import { NavLink } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-  const { authState, authService } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
-  const { idToken } = authState;
 
   useEffect(() => {
-    if (idToken) {
-      dispatch(getCurrentUser(idToken, authState, authService));
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
     }
     // eslint-disable-next-line
-  }, [dispatch, idToken]);
+  }, [dispatch, authState]);
 
   return (
     <div className="landing-container">
@@ -38,7 +39,7 @@ function RenderLandingPage(props) {
           />
           <div className="landing-main-text">
             <Title className="landing-main-text landing-main-title" level={2}>
-              Coding is a Superpower
+              Coding is a Superpower!
             </Title>
             <Paragraph className="landing-main-text">
               Through a love of teaching and technology, <br />
@@ -80,12 +81,12 @@ function RenderLandingPage(props) {
           <div className="landing-second-container-text">
             <Title
               className="landing-second-container-text landing-second-container-title-one"
-              level={3}
+              level={2}
             >
-              Give Back To Community
+              Give Back To The Community
             </Title>
             <Title
-              level={1}
+              level={2}
               className="landing-second-container-text landing-second-container-title-two"
             >
               Support Code Your Dreams

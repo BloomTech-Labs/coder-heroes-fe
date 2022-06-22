@@ -1,32 +1,30 @@
 import React from 'react';
-import { Layout, Col, Row, Card } from 'antd';
+import { Layout, Card } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../../common/Banner';
 import ParentSidebar from '../ParentSidebar';
 import ActiveMessage from './ActiveMessage';
 import MessageList from './MessageList';
 import '../../../../styles/ParentStyles/messages.less';
-import '../../../../styles/ParentStyles/index.less';
 
 function ParentMessages() {
   const { Content } = Layout;
 
   return (
-    <Layout className=".page-container">
+    <Layout>
       <ParentSidebar />
-      <Content className="messages-container">
+      <Content className="content-container">
         <Banner />
-        <Row gutter={[8, 8]}>
-          <Col span={18}>
-            <ActiveMessage className="active-message" />
-          </Col>
-          <Col span={6}>
-            <Card>
-              <h4>Conversations</h4>
-              <MessageList className="message-list" />
+        <Content className="component-container">
+          <div className="card-container">
+            <Card className="parent-message-card">
+              <MessageList />
             </Card>
-          </Col>
-        </Row>
+            <Card className="parent-message-card">
+              <ActiveMessage />
+            </Card>
+          </div>
+        </Content>
       </Content>
     </Layout>
   );

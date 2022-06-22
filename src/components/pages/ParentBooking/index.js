@@ -3,6 +3,7 @@ import ParentSidebar from '../ParentHome/ParentSidebar';
 import Banner from '../../common/Banner';
 import { Layout } from 'antd';
 import ParentBookingContainer from './ParentBookingContainer';
+import '../../../styles/ParentStyles/booking.less';
 
 function ParentBooking() {
   const { Content } = Layout;
@@ -12,9 +13,8 @@ function ParentBooking() {
       <ParentSidebar active="courses" />
       <Content>
         <Banner />
-        <div>
-          <ParentBookingContainer />
-        </div>
+
+        <ParentBookingContainer className="booking-container" />
       </Content>
     </Layout>
   );

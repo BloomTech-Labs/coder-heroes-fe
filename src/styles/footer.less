@@ -8,6 +8,16 @@
   padding: 0;
 }
 
+.about_column {
+  text-align: center;
+}
+.services_column {
+  text-align: center;
+}
+.contact_column {
+  text-align: center;
+}
+
 ul {
   list-style-type: none !important;
 }
@@ -22,11 +32,16 @@ ul {
   font-family: @text__font-family;
 }
 .footer-content {
-  max-width: 500px;
+  width: 100%;
   margin: auto;
 }
 .mobile-footer {
   display: none;
+}
+@media screen and (max-width: 973px) {
+  .footer__text {
+    padding: 3% 0;
+  }
 }
 
 .navbar__btn {
@@ -48,5 +63,14 @@ ul {
   }
   .mobile-footer {
     display: block;
+  }
+  .about_column {
+    width: 33%;
+  }
+  .services_column {
+    width: 33%;
+  }
+  .contact_column {
+    width: 33%;
   }
 }

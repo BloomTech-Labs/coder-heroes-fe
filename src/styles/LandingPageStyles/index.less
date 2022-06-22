@@ -14,13 +14,15 @@
 }
 
 .landing-main-title {
-  font-family: 'Staatliches', cursive !important;
+  font-family: @text__font-family;
+  font-family: @text__font-family--header;
 }
 
 .landing-main-text {
   margin: 5% 0%;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family--header;
+  font-size: 1.25rem;
 }
 
 .browse-btn {
@@ -44,45 +46,30 @@
 .btn {
   cursor: pointer;
   height: 3rem;
-  color: white;
-  background: #f26602;
+  color: @text__color--white;
+  background: @btn__bg--safety-orange;
   border: none;
   border-radius: 5px;
   text-align: center;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: @text__font-family;
 }
 
 .btn:hover {
   filter: brightness(95%);
-  color: black;
+  color: @landing__text__color--black;
 }
 
-.primary {
-  background-color: @btn__bg--yellow!important;
-  border: none;
-  color: black;
-  padding: 1% 5%;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 3rem;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.primary:hover {
-  color: white;
-}
 
 /* Second Content Section */
 
 .landing-second-container {
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
   display: flex;
+}
+
+.landing-second-images {
+  flex: 2;
 }
 
 .orange-cloud {
@@ -100,29 +87,53 @@
 }
 
 .landing-second-container-content {
-  text-align: center;
+  flex: 1;
   padding-top: 10%;
   margin-right: 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .landing-second-container-text {
-  color: white !important;
+  color: @landing__text__color--white !important;
+  text-align: center;
 }
 
 .landing-second-container-title-one {
-  font-size: 16px !important;
+  font-size: 23px !important;
   font-family: 'Montserrat', sans-serif;
 }
 
 .landing-second-container-title-two {
   font-family: 'Staatliches', cursive;
-  margin-left: 6%;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 .landing-second-container-paragraph {
-  margin-top: 0 !important;
+  margin-top: 1%;
+  font-size: 1.1rem;
+}
+
+.primary {
+  background-color: @btn__bg--yellow!important;
+  border: none;
+  color: @landing__text__color--black;
+  padding: 1% 5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 3rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.primary:hover {
+  color: @landing__text__color--white;
 }
 
 .empty-space {
@@ -133,7 +144,8 @@
 
 .landing-third-container {
   display: flex;
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
+  margin-top: -1px;
 }
 
 .landing-third-container-green {
@@ -146,16 +158,18 @@
 .landing-fourth-container {
   display: flex;
   margin-top: -25%;
-  background: #156a70;
+  background: @landing-container__bg--blue-stone;
   padding-bottom: 5%;
 }
 .landing-fourth-container-text {
   margin-right: 3%;
   margin-left: 1%;
+  text-align: center;
+  font-weight: bold; 
 }
 
 .description {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: @text__font-family !important;
   margin-bottom: 2% !important;
 }
 
@@ -198,60 +212,43 @@
 
   .landing-main-text h1 {
     margin-bottom: 5%;
-    color: yellow;
+    color: @text__color--yellow;
   }
 
   .landing-main-text h3 {
     text-align: center;
-    color: green;
-  }
-
-  .browse-btn {
-    padding: 2% 10%;
-  }
-
-  .support-us-btn {
-    padding: 2% 10%;
-  }
-
-  .btn {
-    cursor: pointer;
-    height: 3rem;
-    margin-right: 1rem;
-    color: black;
-    background: #f26602;
-    padding: 3% 0%;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 600;
+    color: @text__color--green;
   }
 
   /* Second Content Section */
 
   .landing-second-container {
-    background: #156a70;
-    display: flex;
+    background: @landing-container__bg--blue-stone;
+    align-items: center;
+  }
+  .landing-second-images {
+    flex: 1;
   }
 
   .orange-cloud {
-    width: 80%;
-    margin-top: -10%;
+    width: 100%;
+    transform: translate(10%, 25%);
   }
 
   .classroom-photo {
-    margin-top: -65%;
-    width: 62%;
+    width: 70%;
+    transform: translate(30%, 15%);
+  }
+  
+  .landing-second-container-content {
+    flex: 1;
+    margin: 0% 4%;
   }
 
   .landing-second-container-text {
-    color: white;
-    padding: 10% 10% 0%;
+    color: @landing__text__color--white;
     text-align: center;
-  }
-
-  .landing-second-container-content {
-    margin: 0% 4%;
+    padding: 0 2%;
   }
 
   .empty-space {
@@ -263,8 +260,8 @@
     height: 2.3rem;
     margin-left: 1rem;
     margin-right: 1rem;
-    color: black;
-    background: #fbc740;
+    color: @landing__text__color--black;
+    background: @landing__btn__bg--sunglow;
     border: none;
     border-radius: 0.313rem;
     text-align: center;
@@ -275,7 +272,7 @@
 
   .landing-third-container {
     display: flex;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     padding-top: 5%;
   }
 
@@ -289,7 +286,7 @@
   .landing-fourth-container {
     display: flex;
     margin-top: -25%;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     padding-bottom: 5%;
   }
 
@@ -304,7 +301,7 @@
   }
 
   .description {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 0% 2;
@@ -312,13 +309,35 @@
   }
 
   .brianne {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 2% 10%;
     border: 2px solid black;
   }
 }
+
+//** Landing page styles - Tablet fix **//
+
+@media only screen and (max-width: 694px) {
+  .landing-second-container-title-one {
+    font-size: 28px !important;
+  }
+  .landing-second-container-title-one {
+    margin-bottom: 0;
+  }
+  .landing-second-container-title-two {
+    margin: 0;
+  }
+  .landing-second-container-paragraph {
+    padding: 0;
+  }
+  .landing-second-images {
+    display: none;
+  }
+
+}
+
 
 //** Landing Page Styles - MOBILE **//
 
@@ -331,7 +350,7 @@
   }
 
   .cloudbg {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     background-image: none;
   }
 
@@ -357,27 +376,25 @@
   .landing-button-container {
     margin-top: 5%;
     display: flex;
-    margin: 2% 0%;
+    align-items: center;
   }
-
-  .browse-btn {
-    padding: 0% 10%;
-  }
-
-  .support-us-btn {
-    padding: 0% 10%;
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn:hover {
     filter: brightness(95%);
-    color: white;
+    color: @text__color--white;
   }
 
   /* Second Content Section */
 
   .landing-second-container {
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     display: flex;
+    margin-bottom: 15%;
   }
 
   .landing-second-images {
@@ -385,21 +402,20 @@
   }
 
   .landing-second-container-text {
-    color: white;
-    padding: 10% 10% 0%;
+    color: @text__color--white;
     text-align: center;
   }
   .empty-space {
     width: 50%;
   }
-
+  
   .landing-second-container-btn {
     width: 8rem;
     height: 2.3rem;
     margin-left: 1rem;
     margin-right: 1rem;
     color: black;
-    background: #fbc740;
+    background: @landing__btn__bg--sunglow;
     border: none;
     border-radius: 0.313rem;
     text-align: center;
@@ -417,7 +433,7 @@
   .landing-fourth-container {
     padding-top: 30%;
     display: flex;
-    background: #156a70;
+    background: @landing-container__bg--blue-stone;
     flex-direction: column;
     padding-bottom: 5%;
     justify-content: center;
@@ -435,14 +451,14 @@
   }
 
   .description {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     border-radius: 10px;
     margin: 2% 10%;
     border: 2px solid black;
   }
 
   .brianne {
-    background-color: #eeedd9;
+    background-color: @body__bg;
     padding: 2%;
     border-radius: 10px;
     margin: 2% 10%;

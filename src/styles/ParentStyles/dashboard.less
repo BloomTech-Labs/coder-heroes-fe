@@ -3,19 +3,20 @@
   background-repeat: no-repeat;
 }
 
-.dashboard-content {
+.dashboard-card{
+  border-radius: .625em;
+  width: 100%;
+  margin: 5%;
+}
+
+.parent-dashboard-column {
   display: flex;
-  flex-direction: row;
+  flex-flow: column wrap;
 }
 
-.column {
-  border: 1px solid red;
-}
-
-.parent-dashboard-calendar-card {
-  width: 20rem;
-  max-height: 20rem;
-  border: 1px solid #f0f0f0;
-  border-radius: none;
+.row{
+   display: flex;
+   justify-content: center;
+   width: 100%;
 }
 

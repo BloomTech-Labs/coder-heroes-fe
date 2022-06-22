@@ -1,11 +1,11 @@
 import React from 'react';
 import Banner from '../../common/Banner';
-import ParentSidebar from './ParentSidebar';
-import '../../../styles/ParentStyles/dashboard.less';
+import ParentSidebar from '../ParentHome/ParentSidebar';
+import '../../../styles/ParentStyles/index.less';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
-const ParentDashboard = () => {
+const Achievements = () => {
   return (
     <Layout>
       <ParentSidebar active="dashboard" />
@@ -14,4 +14,4 @@ const ParentDashboard = () => {
   );
 };
 
-export default ParentDashboard;
+export default Achievements;

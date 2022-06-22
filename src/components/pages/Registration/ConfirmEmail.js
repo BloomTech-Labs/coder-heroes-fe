@@ -1,4 +1,4 @@
-import { connect } from 'formik';
+import { connect } from 'react-redux';
 import React from 'react';
 import '../../../styles/registration.less';
 

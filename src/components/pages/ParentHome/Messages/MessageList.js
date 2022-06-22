@@ -5,7 +5,7 @@ import { List, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
-import { getConversations } from '../../../../redux/actions/userActions';
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 
 const data = [
   {
@@ -17,11 +17,18 @@ const data = [
 ];
 
 const MessageList = props => {
+  const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getConversations());
-    console.log(props);
-  }, []);
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+        console.log(props);
+      }
+    }
+    // eslint-disable-next-line
+  }, [dispatch, authState]);
 
   return (
     <div>
@@ -45,7 +52,7 @@ const MessageList = props => {
 
 const mapStateToProps = state => {
   return {
-    conversations: state.userReducer,
+    conversations: state.parentReducer.messages,
   };
 };
 

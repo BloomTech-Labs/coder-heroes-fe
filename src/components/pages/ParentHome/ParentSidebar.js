@@ -16,8 +16,13 @@ import { FaShoppingCart } from 'react-icons/fa';
 const { Sider } = Layout;
 
 const ParentSideBar = props => {
-  const { cart, active } = props;
+  const { cart, active, user } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { authService } = useOktaAuth();
+  const { role_id } = props.user.currentUser;
+
+  console.log(`user role is ${role_id}`);
+
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -139,6 +144,7 @@ const ParentSideBar = props => {
 const mapStateToProps = state => {
   return {
     cart: state.parentReducer.cart,
+    user: state.userReducer,
   };
 };
 

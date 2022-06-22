@@ -9,6 +9,7 @@ import {
   BellOutlined,
   CalculatorOutlined,
   FormOutlined,
+  FolderOpenOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
 
@@ -64,6 +65,10 @@ function AdminSidebar() {
 
         <Menu.Item key="7" icon={<FormOutlined />}>
           <a href="/admin-add-course">Edit Programs</a>
+        </Menu.Item>
+
+        <Menu.Item key="8" icon={<FolderOpenOutlined />}>
+          <a href="/admin-applications">Applications</a>
         </Menu.Item>
       </Menu>
     </Sider>

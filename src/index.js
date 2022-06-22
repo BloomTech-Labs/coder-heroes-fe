@@ -1,7 +1,8 @@
 /* eslint-disable */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+import { createRoot } from 'react-dom/client';
 import { Layout } from 'antd';
 import {
   BrowserRouter as Router,
@@ -10,6 +11,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
@@ -22,11 +24,11 @@ import InstructorBooking from './components/pages/InstructorBooking';
 import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
-import { LoginPage } from './components/pages/Login';
+import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import { config } from './utils/oktaConfig';
+import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -61,19 +63,23 @@ import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
 import LandingInstructor from './components/pages/LandingInstructor';
 import LandingPrograms from './components/pages/LandingPrograms';
-import HowManyStudents from './components/pages/Registration/HowManyStudents';
+import RegisterStep1 from './components/pages/Registration/RegisterStep1';
+import RegisterStep2 from './components/pages/Registration/RegisterStep2';
 import RegisterStep3 from './components/pages/Registration/RegisterStep3';
+import RegisterStep4 from './components/pages/Registration/RegisterStep4';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
 import InstructorDashboard from './components/pages/Dashboard';
-import ParentWelcome from './components/pages/Registration/ParentWelcome';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
 
-ReactDOM.render(
+const app = document.getElementById('root');
+const root = createRoot(app);
+
+root.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
@@ -90,8 +96,7 @@ ReactDOM.render(
         </Layout>
       </React.StrictMode>
     </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
 
 function App() {
@@ -102,20 +107,35 @@ function App() {
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
-    history.push('/login');
+    const previousAuthState = oktaAuth.authStateManager.getPreviousAuthState();
+    if (!previousAuthState || !previousAuthState.isAuthenticated) {
+      // App initialization stage
+      history.push('/login');
+    }
+  };
+
+  const oktaAuth = new OktaAuth(config);
+
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <Security
+      oktaAuth={oktaAuth}
+      restoreOriginalUri={restoreOriginalUri}
+      onAuthRequired={authHandler}
+    >
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={ParentWelcome} />
+          <Route path="/register" component={RegisterStep1} />
           <Route path="/confirm" component={ConfirmEmail} />
-          <Route path="/register-1" component={ParentWelcome} />
-          <Route path="/register-2" component={HowManyStudents} />
+          <Route path="/register-1" component={RegisterStep1} />
+          <Route path="/register-2" component={RegisterStep2} />
           <Route path="/register-3" component={RegisterStep3} />
+          <Route path="/register-4" component={RegisterStep4} />
           <Route path="/instructor-register-1" component={InstructorWelcome} />
           <Route
             path="/instructor-register-2"
@@ -168,6 +188,11 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute
+            path="/admin-applications"
+            component={AdminApplications}
+          />
+          {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
           <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute

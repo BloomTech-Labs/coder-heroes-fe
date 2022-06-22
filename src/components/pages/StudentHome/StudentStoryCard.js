@@ -27,10 +27,7 @@ function StudentStoryCard(prop) {
       </div>
       <section className="student-comment">
         <div className="student-comment-info">
-          <img
-            src="https://via.placeholder.com/50"
-            alt="placeholder add later"
-          ></img>
+          <img src="https://via.placeholder.com/50" alt="placeholder"></img>
           <div>
             <h4>Student Name</h4>
             <p>Student Message</p>
@@ -41,10 +38,7 @@ function StudentStoryCard(prop) {
         </div>
       </section>
       <section className="student-send-comment">
-        <img
-          src="https://via.placeholder.com/50"
-          alt="placeholder add later"
-        ></img>
+        <img src="https://via.placeholder.com/50" alt="placeholder"></img>
         <Form className="comment-form">
           <input type="text" placeholder="Write a comment"></input>
           <Button

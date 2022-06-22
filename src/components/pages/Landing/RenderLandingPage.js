@@ -15,16 +15,17 @@ import { NavLink } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-  const { authState, authService } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
-  const { idToken } = authState;
 
   useEffect(() => {
-    if (idToken) {
-      dispatch(getCurrentUser(idToken, authState, authService));
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
     }
     // eslint-disable-next-line
-  }, [dispatch, idToken]);
+  }, [dispatch, authState]);
 
   return (
     <div className="landing-container">

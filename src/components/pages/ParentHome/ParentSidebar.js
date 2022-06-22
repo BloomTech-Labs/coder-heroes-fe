@@ -7,21 +7,17 @@ import {
   HomeFilled,
   CalendarFilled,
   ToolFilled,
-  ExportOutlined,
   HeartFilled,
-  ShoppingCartOutlined,
-  ReadOutlined,
-  BookFilled,
+  ReadFilled,
   MessageFilled,
 } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const { Sider } = Layout;
 
 const ParentSideBar = props => {
   const { cart, active } = props;
   const [collapsed, setCollapsed] = useState(false);
-  const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -37,48 +33,54 @@ const ParentSideBar = props => {
       collapsed={collapsed}
       onCollapse={onCollapse}
     >
+      <div
+        onClick={onCollapse}
+        style={{
+          width: '100%',
+          height: 'auto',
+          margin: '0 0 5px',
+          padding: '15px 0px',
+          textAlign: 'center',
+          backgroundColor: '#e6e6e6',
+          cursor: 'pointer',
+        }}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 55 42"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0H55V7H0V0ZM0 17.5H55V24.5H0V17.5ZM0 35H55V42H0V35Z"
+            fill="#595959"
+          />
+        </svg>
+      </div>
       <Menu
         className="parent-dashboard-sidebar"
         defaultselectedkeys={['1']}
         defaultopenkeys={['sub1']}
-        style={{ height: '100%' }}
+        style={{
+          height: '90%',
+          fontSize: '14px',
+          fontFamily: 'Montserrat',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
         mode="inline"
         theme="light"
         color="orange"
         inlineCollapsed={collapsed}
       >
-        <div
-          onClick={onCollapse}
-          style={{
-            width: '100%',
-            height: 'auto',
-            margin: '0 0 5px',
-            padding: '15px 0px',
-            textAlign: 'center',
-            backgroundColor: '#e6e6e6',
-            cursor: 'pointer',
-          }}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 55 42"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 0H55V7H0V0ZM0 17.5H55V24.5H0V17.5ZM0 35H55V42H0V35Z"
-              fill="#595959"
-            />
-          </svg>
-        </div>
-
         <Menu.Item
           key="dashboard"
           className={active === 'dashboard' ? 'ant-menu-item-selected' : ''}
           icon={<HomeFilled fontSize="150px" />}
         >
-          <Link to="/parent">Dashboard</Link>
+          <Link to="/parent">Newsfeed</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -90,11 +92,11 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="courses"
-          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
-          icon={<BookFilled fontSize="150px" />}
+          key="messages"
+          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
+          icon={<MessageFilled fontSize="150px" />}
         >
-          <Link to="/parent/booking">My Courses</Link>
+          <Link to="/parent/messages">Messages</Link>
         </Menu.Item>
 
         <Menu.Item
@@ -106,25 +108,17 @@ const ParentSideBar = props => {
         </Menu.Item>
 
         <Menu.Item
-          key="newsfeed"
-          className={active === 'newsfeed' ? 'ant-menu-item-selected' : ''}
-          icon={<ReadOutlined fontSize="150px" />}
+          key="courses"
+          className={active === 'courses' ? 'ant-menu-item-selected' : ''}
+          icon={<ReadFilled fontSize="150px" />}
         >
-          <Link to="/parent/newsfeed">News Feed</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="messages"
-          className={active === 'messages' ? 'ant-menu-item-selected' : ''}
-          icon={<MessageFilled fontSize="150px" />}
-        >
-          <Link to="/parent/messages">Messages</Link>
+          <Link to="/parent/booking">Courses</Link>
         </Menu.Item>
 
         <Menu.Item
           key="cart"
           className={active === 'cart' ? 'ant-menu-item-selected' : ''}
-          icon={<ShoppingCartOutlined fontSize="150px" />}
+          icon={<FaShoppingCart fontSize="150px" />}
         >
           <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
@@ -137,21 +131,6 @@ const ParentSideBar = props => {
           icon={<ToolFilled fontSize="150px" />}
         >
           <Link to="/settings">Settings</Link>
-        </Menu.Item>
-
-        <Menu.Item
-          key="logout"
-          icon={<ExportOutlined fontSize="150px" />}
-          onClick={() => {
-            authService.logout();
-          }}
-        >
-          <Link>Logout</Link>
-        </Menu.Item>
-        <Menu.Item key="4" icon={<ShoppingCartOutlined fontSize="150px" />}>
-          <Link to="/cart" className="link">
-            Cart <span>({cart.length})</span>
-          </Link>
         </Menu.Item>
       </Menu>
     </Sider>

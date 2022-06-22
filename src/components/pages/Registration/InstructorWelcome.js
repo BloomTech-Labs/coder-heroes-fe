@@ -10,8 +10,7 @@ export default function InstructorWelcome() {
           You are steps away from sharing your superpowers with future
           CoderHeroes
         </p>
-        <a href="#">CREATE ACCOUNT</a>
-        {/* TODO */}
+        <button>CREATE ACCOUNT</button>
       </div>
     </div>
   );

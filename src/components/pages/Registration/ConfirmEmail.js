@@ -1,7 +1,10 @@
+import { connect } from 'formik';
 import React from 'react';
 import '../../../styles/registration.less';
 
-export default function ConfirmEmail() {
+//{{url}}/api/v1/users/{{userID}}/lifecycle/reactivate?sendEmail=true would be the correct url whenever this gets hooked up btw
+
+function ConfirmEmail(props) {
   return (
     <div className="reg-content-container email-confirmation">
       <div className="content">
@@ -11,10 +14,18 @@ export default function ConfirmEmail() {
           Follow the link in the email to complete your registration!
         </p>
         <div className="link-container">
-          <a href="#">Resend Link</a>
-          {/* TODO update href after finding correct path from Okta */}
+          <button>Resend Link</button>
+          {/* update href after finding correct path from Okta */}
         </div>
       </div>
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user_id: state.userReducer.currentUser.user_id,
+  };
+};
+
+export default connect(mapStateToProps)(ConfirmEmail);

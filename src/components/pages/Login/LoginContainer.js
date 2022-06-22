@@ -43,7 +43,15 @@ const LoginContainer = () => {
       },
     });
 
-    widget.showSignInAndRedirect({}).catch(function(error) {});
+    widget
+      .showSignInAndRedirect({
+        // Assumes there is an empty element on the page with an id of 'osw-container'
+      })
+      .catch(function(error) {
+        // This function is invoked with errors the widget cannot recover from:
+        // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
+      });
+    return widget;
   }, [history]);
 
   useEffect(() => {

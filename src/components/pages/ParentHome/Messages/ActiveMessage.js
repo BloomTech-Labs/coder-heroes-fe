@@ -67,16 +67,17 @@ function ActiveMessage(props) {
   const [filteredConversations, setFilteredConversations] = useState([[]]);
 
   useLayoutEffect(() => {
+    console.log(props);
     setFilteredConversations(
-      props.conversations.filter(
-        conversation => conversation.inbox_id === props.currentUser.profile_id
+      props.Messages.filter(
+        conversation => conversation.profile_id === props.currentUser.profile_id
       )
     );
-  }, [props.conversations, props.currentUser.profile_id]);
+  }, [props.Messages, props.currentUser.profile_id]);
 
   return (
     <div className="active-message">
-      <h4>Conversation with: Teacher1</h4>
+      <h4>{filteredConversations[0]?.title}</h4>
       <List
         className="message-thread"
         header={`${filteredConversations.length} replies`}
@@ -101,7 +102,7 @@ function ActiveMessage(props) {
 
 const mapStateToProps = state => {
   return {
-    conversations: state.parentReducer.messages,
+    Messages: state.userReducer.Messages,
     currentUser: state.userReducer.currentUser,
   };
 };

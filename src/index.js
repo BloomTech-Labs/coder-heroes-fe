@@ -72,6 +72,7 @@ import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubm
 import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import AdminApplications from './components/pages/AdminApplications';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.

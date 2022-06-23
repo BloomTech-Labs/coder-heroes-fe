@@ -1,10 +1,10 @@
-import { connect } from 'formik';
 import React from 'react';
+import { connect } from 'react-redux';
 import '../../../styles/registration.less';
 
 //{{url}}/api/v1/users/{{userID}}/lifecycle/reactivate?sendEmail=true would be the correct url whenever this gets hooked up btw
 
-function ConfirmEmail(props) {
+const ConfirmEmail = props => {
   return (
     <div className="reg-content-container email-confirmation">
       <div className="content">
@@ -20,7 +20,7 @@ function ConfirmEmail(props) {
       </div>
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {

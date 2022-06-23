@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import ReplyEditor from './ReplyEditor';
 import { Comment, Tooltip, List } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';
 import moment from 'moment';
+import { connect, useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 
 const data = [
   {
@@ -59,34 +61,49 @@ const data = [
   },
 ];
 
-const MessageThread = () => (
-  <List
-    className="message-thread"
-    header={`${data.length} replies`}
-    itemLayout="horizontal"
-    dataSource={data}
-    renderItem={item => (
-      <li>
-        <Comment
-          actions={item.actions}
-          author={item.author}
-          avatar={item.avatar}
-          content={item.content}
-          datetime={item.datetime}
-        />
-      </li>
-    )}
-  />
-);
+function ActiveMessage(props) {
+  const dispatch = useDispatch();
+  const { authState, oktaAuth } = useOktaAuth();
+  const [filteredConversations, setFilteredConversations] = useState([[]]);
 
-function ActiveMessage() {
+  useLayoutEffect(() => {
+    setFilteredConversations(
+      props.conversations.filter(
+        conversation => conversation.inbox_id === props.currentUser.profile_id
+      )
+    );
+  }, [props.conversations, props.currentUser.profile_id]);
+
   return (
     <div className="active-message">
       <h4>Conversation with: Teacher1</h4>
-      <MessageThread />
+      <List
+        className="message-thread"
+        header={`${filteredConversations.length} replies`}
+        itemLayout="horizontal"
+        dataSource={filteredConversations}
+        renderItem={(item, i) => (
+          <li key={i}>
+            <Comment
+              actions={data[0].actions}
+              author={item.sender_id}
+              avatar="https://joeschmoe.io/api/v1/random"
+              content={item.message}
+              datetime={item.sent_at}
+            />
+          </li>
+        )}
+      />
       <ReplyEditor />
     </div>
   );
 }
 
-export default ActiveMessage;
+const mapStateToProps = state => {
+  return {
+    conversations: state.parentReducer.messages,
+    currentUser: state.userReducer.currentUser,
+  };
+};
+
+export default connect(mapStateToProps)(ActiveMessage);

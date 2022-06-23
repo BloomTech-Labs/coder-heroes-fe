@@ -19,6 +19,7 @@ const initialValues = {
   students: 0,
   activeCourses: 0,
   completedCourses: 0,
+  totalCourse: 0,
 };
 function InstructorStats(props) {
   const { authState, authService } = useOktaAuth();

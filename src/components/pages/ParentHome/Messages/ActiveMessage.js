@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import ReplyEditor from './ReplyEditor';
 import { Comment, Tooltip, List } from 'antd';
 import 'antd/dist/antd.css';
@@ -65,12 +65,14 @@ function ActiveMessage(props) {
   const dispatch = useDispatch();
   const { authState, oktaAuth } = useOktaAuth();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
-  useEffect(() => {
-    console.log(props);
+
+  useLayoutEffect(() => {
     setFilteredConversations(
-      props.conversations.filter(conversation => conversation.inbox_id === 0)
+      props.conversations.filter(
+        conversation => conversation.inbox_id === props.currentUser.profile_id
+      )
     );
-  }, []);
+  }, [props.conversations, props.currentUser.profile_id]);
 
   return (
     <div className="active-message">
@@ -80,8 +82,8 @@ function ActiveMessage(props) {
         header={`${filteredConversations.length} replies`}
         itemLayout="horizontal"
         dataSource={filteredConversations}
-        renderItem={item => (
-          <li>
+        renderItem={(item, i) => (
+          <li key={i}>
             <Comment
               actions={data[0].actions}
               author={item.sender_id}

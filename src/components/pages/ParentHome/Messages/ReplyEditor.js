@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Comment, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import '../../../../styles/ParentStyles/messages.less';
+import { useDispatch, connect } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { getCurrentUser } from '../../../../redux/actions/userActions';
+import { addMessage } from '../../../../redux/actions/userActions';
 
 const { TextArea } = Input;
 
@@ -32,65 +36,69 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </>
 );
 
-class ReplyEditor extends React.Component {
-  state = {
-    comments: [],
-    submitting: false,
-    value: '',
-  };
+const ReplyEditor = (props, { onChange, onSubmit }) => {
+  const [comments, setComments] = useState([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+  }, []);
 
-  handleSubmit = () => {
-    if (!this.state.value) {
+  const { authState, oktaAuth } = useOktaAuth();
+  useEffect(() => {
+    console.log(props);
+  }, []);
+  const handleSubmit = () => {
+    if (!value) {
       return;
     }
-
-    this.setState({
-      submitting: true,
-    });
-
+    setSubmitting(true);
     setTimeout(() => {
-      this.setState({
-        submitting: false,
-        value: '',
-        comments: [
-          ...this.state.comments,
-          {
-            author: 'Han Solo',
-            avatar: 'https://joeschmoe.io/api/v1/random',
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-        ],
-      });
+      setSubmitting(false);
+      setValue('');
+      console.log(props);
+      dispatch(
+        addMessage(
+          authState.idToken.idToken,
+          value,
+          3,
+          props.getCurrentUser.profile_id,
+          value
+        )
+      );
     }, 1000);
   };
 
-  handleChange = e => {
-    this.setState({
-      value: e.target.value,
-    });
+  const handleChange = e => {
+    setValue(e.target.value);
   };
 
-  render() {
-    const { comments, submitting, value } = this.state;
+  return (
+    <>
+      {}
+      <Comment
+        className="text-box"
+        content={
+          <Editor
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            submitting={submitting}
+            value={value}
+          />
+        }
+      />
+    </>
+  );
+};
 
-    return (
-      <>
-        {comments.length > 0 && <CommentList comments={comments} />}
-        <Comment
-          className="text-box"
-          content={
-            <Editor
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              submitting={submitting}
-              value={value}
-            />
-          }
-        />
-      </>
-    );
-  }
-}
-
-export default ReplyEditor;
+const mapStateToProps = state => {
+  return {
+    getCurrentUser: state.userReducer.currentUser,
+  };
+};
+export default connect(mapStateToProps)(ReplyEditor);

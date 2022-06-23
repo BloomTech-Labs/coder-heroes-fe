@@ -20,7 +20,7 @@ const MessageList = props => {
   const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
-
+  const [currentConversation, setCurrentConversation] = useState('');
   useEffect(() => {
     if (authState !== null) {
       if (authState.isAuthenticated !== false) {
@@ -30,12 +30,12 @@ const MessageList = props => {
     console.log(filteredConversations);
   }, []);
   useLayoutEffect(() => {
+    console.log(props.Messages);
     let hash = {};
     setFilteredConversations(
-      props.conversations
-        .filter(
-          conversation => conversation.inbox_id === props.currentUser.profile_id
-        )
+      props.Messages.filter(
+        conversation => conversation.profile_id === props.currentUser.profile_id
+      )
         .sort((a, b) => {
           const dateA = new Date(a.sent_at);
           const dateB = new Date(b.sent_at);
@@ -50,7 +50,7 @@ const MessageList = props => {
           return false;
         })
     );
-  }, [props.conversations, props.currentUser.profile_id]);
+  }, [props.Messages, props.currentUser.profile_id]);
   return (
     <div>
       <h4>Conversations</h4>
@@ -58,7 +58,17 @@ const MessageList = props => {
         itemLayout="horizontal"
         dataSource={filteredConversations}
         renderItem={item => (
-          <List.Item className="message-list-item">
+          <List.Item
+            className={
+              currentConversation == item.sender_id
+                ? 'message-list-item active-conversation'
+                : 'message-list-item'
+            }
+            onClick={() => {
+              setCurrentConversation(item.sender_id);
+              console.log(currentConversation);
+            }}
+          >
             <List.Item.Meta
               avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
               title={<a href="https://ant.design">{item.sender_id}</a>}
@@ -73,7 +83,7 @@ const MessageList = props => {
 
 const mapStateToProps = state => {
   return {
-    conversations: state.parentReducer.messages,
+    Messages: state.userReducer.Messages,
     currentUser: state.userReducer.currentUser,
   };
 };

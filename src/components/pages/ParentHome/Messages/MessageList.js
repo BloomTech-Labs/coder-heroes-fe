@@ -35,13 +35,13 @@ const MessageList = props => {
       <h4>Conversations</h4>
       <List
         itemLayout="horizontal"
-        dataSource={data}
+        dataSource={props.conversations}
         renderItem={item => (
           <List.Item className="message-list-item">
             <List.Item.Meta
               avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description="Ant Design, a design language for background applications..."
+              title={<a href="https://ant.design">{item.inbox_id}</a>}
+              description={item.message}
             />
           </List.Item>
         )}

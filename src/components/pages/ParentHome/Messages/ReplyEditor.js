@@ -4,7 +4,7 @@ import moment from 'moment';
 import '../../../../styles/ParentStyles/messages.less';
 import { useDispatch, connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
-import { getCurrentUser } from '../../../../redux/actions/userActions';
+
 import { addMessage } from '../../../../redux/actions/userActions';
 
 const { TextArea } = Input;
@@ -41,13 +41,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-  }, []);
 
   const { authState, oktaAuth } = useOktaAuth();
   useEffect(() => {

@@ -55,6 +55,7 @@ const reducer = (state = parentDummyData, action) => {
         ...state,
         inbox: action.payload,
       };
+
     case SIGNUP_COURSE_ACTION:
       return {
         ...state,

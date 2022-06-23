@@ -17,6 +17,7 @@ const data = [
 ];
 
 const MessageList = props => {
+  const currentUser = props.currentUser;
   const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
@@ -34,7 +35,9 @@ const MessageList = props => {
     let hash = {};
     setFilteredConversations(
       props.Messages.filter(
-        conversation => conversation.profile_id === props.currentUser.profile_id
+        conversation =>
+          conversation.profile_id === props.currentUser.profile_id ||
+          conversation.sender_id === props.currentUser.profile_id
       )
         .sort((a, b) => {
           const dateA = new Date(a.sent_at);
@@ -60,7 +63,7 @@ const MessageList = props => {
         renderItem={item => (
           <List.Item
             className={
-              currentConversation == item.sender_id
+              currentConversation === item.sender_id
                 ? 'message-list-item active-conversation'
                 : 'message-list-item'
             }
@@ -71,7 +74,13 @@ const MessageList = props => {
           >
             <List.Item.Meta
               avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-              title={<a href="https://ant.design">{item.sender_id}</a>}
+              title={
+                <div className="conversation-partner">
+                  {item.sender_id === currentUser.profile_id
+                    ? 'sent to: ' + item.profile_id
+                    : 'sent by: ' + item.sender_id}
+                </div>
+              }
               description={item.message}
             />
           </List.Item>

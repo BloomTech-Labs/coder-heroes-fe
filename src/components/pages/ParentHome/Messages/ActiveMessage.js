@@ -24,7 +24,42 @@ function ActiveMessage(props) {
   useLayoutEffect(() => {
     console.log(props);
   }, [props]);
-
+  const sortByDate = arr => {
+    return arr.sort((a, b) => {
+      const dateA = new Date(a.sent_at);
+      const dateB = new Date(b.sent_at);
+      return dateA - dateB;
+    });
+  };
+  const getTime = time => {
+    const date = new Date(time);
+    return (
+      'Date: ' +
+      date.getDate() +
+      '/' +
+      (date.getMonth() + 1) +
+      '/' +
+      date.getFullYear() +
+      ' ' +
+      date.getHours() +
+      ':' +
+      String(date.getMinutes()).padStart(2, '0') +
+      ':' +
+      String(date.getSeconds()).padStart(2, '0')
+    );
+  };
+  const countReplies = arr => {
+    let count = 0;
+    arr.forEach(message => {
+      if (
+        message.read === false &&
+        message.sender_id !== props.currentUser.profile_id
+      ) {
+        count++;
+      }
+    });
+    return count;
+  };
   return (
     <div className="active-message">
       <h4>
@@ -32,10 +67,12 @@ function ActiveMessage(props) {
       </h4>
       <List
         className="message-thread"
-        header={`${props.activeConversation | 0 &&
-          props.activeConversation.length} replies`}
+        header={`${props.activeConversation &&
+          countReplies(props.activeConversation)} unread`}
         itemLayout="horizontal"
-        dataSource={props.activeConversation ? props.activeConversation : []}
+        dataSource={
+          props.activeConversation ? sortByDate(props.activeConversation) : []
+        }
         renderItem={(item, i) => (
           <li key={i}>
             <Comment
@@ -46,7 +83,7 @@ function ActiveMessage(props) {
               author={item.sender_id}
               avatar="https://joeschmoe.io/api/v1/random"
               content={item.message}
-              datetime={item.sent_at}
+              datetime={getTime(item.sent_at)}
             />
           </li>
         )}

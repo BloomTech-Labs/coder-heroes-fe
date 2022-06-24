@@ -8,12 +8,11 @@ import { connect, useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { getCurrentUser } from '../../../../redux/actions/userActions';
+import { getActiveConversation } from '../../../../redux/actions/userActions';
 
 function ActiveMessage(props) {
-  console.log('props in activeMessage', props);
   const dispatch = useDispatch();
   const { authState, oktaAuth } = useOktaAuth();
-  const [filteredConversations, setFilteredConversations] = useState([[]]);
 
   useEffect(() => {
     if (authState !== null) {
@@ -21,55 +20,29 @@ function ActiveMessage(props) {
         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
       }
     }
-    console.log(filteredConversations);
   }, []);
-
   useLayoutEffect(() => {
     console.log(props);
-    setFilteredConversations(
-      props.Messages.filter(
-        conversation => conversation.profile_id === props.currentUser.profile_id
-      )
-    );
-    // eslint-disable-next-line
-  }, [props.Messages, props.currentUser.profile_id]);
-
-  useLayoutEffect(() => {
-    let hash = {};
-    setFilteredConversations(
-      props.Messages.filter(
-        conversation =>
-          conversation.profile_id === props.currentUser.profile_id ||
-          conversation.sender_id === props.currentUser.profile_id
-      )
-        .sort((a, b) => {
-          const dateA = new Date(a.sent_at);
-          const dateB = new Date(b.sent_at);
-          console.log(props.currentUser.profile_id);
-          return dateA - dateB;
-        })
-        .filter(conversation => {
-          if (!hash[conversation.sender_id]) {
-            hash[conversation.sender_id] = true;
-            return true;
-          }
-          return false;
-        })
-    );
-  }, [props.Messages, props.currentUser.profile_id]);
+  }, [props]);
 
   return (
     <div className="active-message">
-      <h4>{filteredConversations[0]?.title}</h4>
+      <h4>
+        {props.activeConversation[0] && props.activeConversation[0].title}
+      </h4>
       <List
         className="message-thread"
-        header={`${filteredConversations.length} replies`}
+        header={`${props.activeConversation | 0 &&
+          props.activeConversation.length} replies`}
         itemLayout="horizontal"
-        dataSource={filteredConversations}
+        dataSource={props.activeConversation ? props.activeConversation : []}
         renderItem={(item, i) => (
           <li key={i}>
             <Comment
-              actions={filteredConversations[0].actions}
+              actions={
+                props.activeConversation[0] &&
+                props.activeConversation[0].actions
+              }
               author={item.sender_id}
               avatar="https://joeschmoe.io/api/v1/random"
               content={item.message}
@@ -87,6 +60,7 @@ const mapStateToProps = state => {
   return {
     Messages: state.userReducer.Messages,
     currentUser: state.userReducer.currentUser,
+    activeConversation: state.userReducer.activeConversation,
   };
 };
 

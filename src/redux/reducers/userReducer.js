@@ -4,11 +4,13 @@ import {
   SET_ERROR,
   POST_INBOX_ACTION,
   POST_INBOX_SUCCESS,
+  SET_ACTIVE_CONVERSATION,
 } from '../actions/userActions';
 
 const initialState = {
   currentUser: {},
   errorMessage: '',
+  activeConversation: [],
   Messages: [
     {
       message: 'Hello World',
@@ -105,6 +107,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         inbox: action.payload,
+      };
+    case SET_ACTIVE_CONVERSATION:
+      return {
+        ...state,
+        activeConversation: action.payload,
       };
     default:
       return state;

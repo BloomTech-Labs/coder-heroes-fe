@@ -7,6 +7,7 @@ export const GET_INBOX_SUCCESS = 'GET_INBOX_SUCCESS';
 export const ERROR_ACTION = 'ERROR';
 export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
 export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
+export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 
 export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
   if (oktaAuth.isAuthenticated) {
@@ -29,6 +30,10 @@ export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
         });
       });
   }
+};
+
+export const getActiveConversation = activeConversation => {
+  return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };
 };
 
 export const addMessage = (

@@ -82,8 +82,7 @@ const InstructorAddCourseForm = props => {
       ...classData,
       instructor_id: instructor.instructor_id,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [instructor]);
+  }, [instructor, classData]);
 
   const validate = (name, value) => {
     yup

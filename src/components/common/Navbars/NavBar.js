@@ -26,6 +26,7 @@ import NavBarLinks from './NavBarLinks';
 import { connect } from 'react-redux';
 
 import navLogo from '../../../img/navbar-logo.png';
+import handleLogout from '../../../utils/logout.js';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -34,17 +35,13 @@ function NavBar(props) {
   const [visible, setVisible] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
+  console.log(`inside Navbar role_id is: ${role_id}`);
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
     else if (role_id < 5) setBgColor('#21C5B5');
     else setBgColor('#FEAD2A');
   }, [role_id]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('okta-token-storage');
-    window.location.reload();
-  };
 
   const showDrawer = () => {
     setVisible(true);

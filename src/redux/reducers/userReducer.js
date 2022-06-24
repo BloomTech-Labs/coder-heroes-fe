@@ -132,7 +132,7 @@ const reducer = (state = initialState, action) => {
       };
     //Replace this with normal reducer once endpoint is working
     case POST_INBOX_ACTION:
-      return initialState.Messages.push(action.payload);
+      return { ...state, Messages: [...state.Messages, action.payload] };
 
     case POST_INBOX_SUCCESS:
       return {

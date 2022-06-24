@@ -36,20 +36,14 @@ export const getActiveConversation = activeConversation => {
   return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };
 };
 
-export const addMessage = (
-  idToken,
-  message,
-  profile_id,
-  title,
-  sender_id
-) => async dispatch => {
+export const addMessage = (idToken, message, profile_id, title, sender_id) => {
   return {
     type: POST_INBOX_ACTION,
     payload: {
       message,
-      sender_id: profile_id,
+      sender_id: sender_id,
       title,
-      profile_id: sender_id,
+      profile_id: profile_id,
       sent_at: new Date(),
       read: false,
     },

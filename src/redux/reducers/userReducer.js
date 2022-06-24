@@ -31,7 +31,7 @@ const initialState = {
       sent_at: '2015-06-01T00:00:00Z',
       profile_id: 1,
       read: false,
-      sender_id: '4',
+      sender_id: 4,
       title: 'Hello World',
     },
     {

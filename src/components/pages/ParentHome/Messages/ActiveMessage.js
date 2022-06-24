@@ -62,17 +62,20 @@ const data = [
 ];
 
 function ActiveMessage(props) {
+  console.log('props in activeMessage', props);
   const dispatch = useDispatch();
   const { authState, oktaAuth } = useOktaAuth();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
 
   useLayoutEffect(() => {
     console.log(props);
+
     setFilteredConversations(
       props.Messages.filter(
         conversation => conversation.profile_id === props.currentUser.profile_id
       )
     );
+    // eslint-disable-next-line
   }, [props.Messages, props.currentUser.profile_id]);
 
   return (

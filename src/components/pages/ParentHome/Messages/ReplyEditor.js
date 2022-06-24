@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Comment, Form, Button, List, Input } from 'antd';
-import moment from 'moment';
 import '../../../../styles/ParentStyles/messages.less';
 import { useDispatch, connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';

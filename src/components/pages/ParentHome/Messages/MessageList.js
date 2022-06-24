@@ -7,15 +7,6 @@ import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 
-const data = [
-  {
-    title: 'Person 1',
-  },
-  {
-    title: 'Person 2',
-  },
-];
-
 const MessageList = props => {
   const currentUser = props.currentUser;
   const { authState, oktaAuth } = useOktaAuth();
@@ -69,7 +60,7 @@ const MessageList = props => {
             }
             onClick={() => {
               setCurrentConversation(item.sender_id);
-              console.log(currentConversation);
+              console.log('current conversation', currentConversation);
             }}
           >
             <List.Item.Meta

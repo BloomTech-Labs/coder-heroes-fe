@@ -14,6 +14,9 @@ const MessageList = props => {
   const dispatch = useDispatch();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
   const [currentConversation, setCurrentConversation] = useState('');
+  const [activeSenderId, setActiveSenderId] = useState('1');
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (authState !== null) {
       if (authState.isAuthenticated !== false) {
@@ -22,6 +25,13 @@ const MessageList = props => {
     }
     console.log(filteredConversations);
   }, []);
+
+  useEffect(() => {
+    const currentConversation = filteredConversations.filter(
+      conversation => conversation.sender_id === activeSenderId
+    );
+    dispatch(getActiveConversation(currentConversation));
+  }, [activeSenderId, dispatch, filteredConversations, props.Messages]);
   useLayoutEffect(() => {
     console.log(props.Messages);
 
@@ -48,14 +58,17 @@ const MessageList = props => {
       return false;
     });
   };
-  const handleClick = sender_id => {
+
+  const handleClick = async sender_id => {
+    console.log(loading);
     const currentConversation = filteredConversations.filter(
       conversation => conversation.sender_id === sender_id
     );
-    dispatch(getActiveConversation(currentConversation));
-    setCurrentConversation(currentConversation);
+    await dispatch(getActiveConversation(currentConversation));
+    await setCurrentConversation(currentConversation);
     console.log(props);
   };
+
   return (
     <div>
       <h4>Conversations</h4>
@@ -70,6 +83,7 @@ const MessageList = props => {
                 : 'message-list-item'
             }
             onClick={() => {
+              setActiveSenderId(item.sender_id);
               handleClick(item.sender_id);
               console.log('current conversation', currentConversation);
             }}

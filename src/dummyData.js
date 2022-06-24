@@ -1,6 +1,7 @@
 export const dummyData = {
   courses: [
     {
+      course_id: 1,
       course_name: 'CS101',
       course_description: 'Computer Science fundamentals',
       days_of_week: ['Monday'],
@@ -17,6 +18,7 @@ export const dummyData = {
       program_id: '1',
     },
     {
+      course_id: 3,
       course_name: 'JavaScriptB',
       course_description: 'Intermediate Javascript.',
       days_of_week: ['Thursday'],

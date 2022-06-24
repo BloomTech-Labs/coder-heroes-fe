@@ -13,6 +13,7 @@ const LoginContainer = () => {
     // destructure your config so that you can pass it into the required fields in your widget.
     const widget = new OktaSignIn({
       baseUrl: issuer ? issuer.split('/oauth2')[0] : '',
+      el: '#sign-in-widget',
       clientId,
       redirectUri,
       registration: {
@@ -42,18 +43,14 @@ const LoginContainer = () => {
       },
     });
 
-    widget.renderEl(
-      { el: '#sign-in-widget' },
-      () => {
-        /**
-         * In this flow, the success handler will not be called because we redirect
-         * to the Okta org for the authentication workflow.
-         */
-      },
-      err => {
-        throw err;
-      }
-    );
+    widget
+      .showSignInAndRedirect({
+        // Assumes there is an empty element on the page with an id of 'osw-container'
+      })
+      .catch(function(error) {
+        // This function is invoked with errors the widget cannot recover from:
+        // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
+      });
     return widget;
   }, [history]);
 

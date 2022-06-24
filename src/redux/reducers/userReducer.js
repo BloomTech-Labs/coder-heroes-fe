@@ -7,39 +7,6 @@ import {
   SET_ACTIVE_CONVERSATION,
 } from '../actions/userActions';
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_CURRENT_USER:
-      return { ...state, currentUser: action.payload };
-    case SET_ERROR:
-      return { ...state, errorMessage: action.payload };
-    case GET_INBOX_ACTION:
-      return {
-        ...state,
-        inbox: action.payload,
-      };
-    case POST_INBOX_ACTION:
-      return {
-        ...state,
-        inbox: action.payload,
-      };
-    case POST_INBOX_SUCCESS:
-      return {
-        ...state,
-        inbox: action.payload,
-      };
-    case SET_ACTIVE_CONVERSATION:
-      return {
-        ...state,
-        activeConversation: action.payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export default reducer;
-
 const initialState = {
   currentUser: {},
   errorMessage: '',
@@ -151,3 +118,35 @@ const initialState = {
     },
   ],
 };
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_CURRENT_USER:
+      return { ...state, currentUser: action.payload };
+    case SET_ERROR:
+      return { ...state, errorMessage: action.payload };
+    case GET_INBOX_ACTION:
+      return {
+        ...state,
+        inbox: action.payload,
+      };
+    //Replace this with normal reducer once endpoint is working
+    case POST_INBOX_ACTION:
+      return initialState.Messages.push(action.payload);
+
+    case POST_INBOX_SUCCESS:
+      return {
+        ...state,
+        inbox: action.payload,
+      };
+    case SET_ACTIVE_CONVERSATION:
+      return {
+        ...state,
+        activeConversation: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export default reducer;

@@ -39,27 +39,37 @@ export const getActiveConversation = activeConversation => {
 export const addMessage = (
   idToken,
   message,
-  recipient,
   profile_id,
   title,
   sender_id
 ) => async dispatch => {
-  dispatch({ type: POST_INBOX_ACTION });
-  const date = new Date();
-  axios
-    .post(`${process.env.REACT_APP_API_URI}/conversation_id/messages/`, {
+  return {
+    type: POST_INBOX_ACTION,
+    payload: {
       message,
-      sent_at: date.toISOString(),
       sender_id: profile_id,
-      title: title,
-      inbox_id: recipient,
+      title,
+      profile_id: sender_id,
+      sent_at: new Date(),
       read: false,
-      crossdomain: true,
-    })
-    .then(res => {
-      dispatch({ type: POST_INBOX_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
+    },
+  };
+
+  // This endpoint is not working/not built yet
+  //   axios
+  //     .post(`${process.env.REACT_APP_API_URI}/conversation_id/messages/`, {
+  //       message,
+  //       sent_at: date.toISOString(),
+  //       sender_id: profile_id,
+  //       title: title,
+  //       inbox_id: recipient,
+  //       read: false,
+  //       crossdomain: true,
+  //     })
+  //     .then(res => {
+  //       dispatch({ type: POST_INBOX_SUCCESS, payload: res.data });
+  //     })
+  //     .catch(err => {
+  //       dispatch({ type: ERROR_ACTION, payload: err });
+  //     });
 };

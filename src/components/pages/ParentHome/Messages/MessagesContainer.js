@@ -13,7 +13,6 @@ import { connect, useDispatch } from 'react-redux';
 function ParentMessages(props) {
   const { Content } = Layout;
   const dispatch = useDispatch();
-  const [currentUser, setCurrentUser] = useState({});
   const { authState, oktaAuth } = useOktaAuth();
   useEffect(() => {
     if (authState !== null) {
@@ -22,9 +21,6 @@ function ParentMessages(props) {
       }
     }
   }, []);
-  useLayoutEffect(() => {
-    setCurrentUser(props.currentUser);
-  }, [props.currentUser]);
   return (
     <Layout>
       <ParentSidebar />

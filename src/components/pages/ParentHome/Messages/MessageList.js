@@ -6,6 +6,7 @@ import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
 import '../../../../styles/ParentStyles/index.less';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
+import { getActiveConversation } from '../../../../redux/actions/userActions';
 
 const MessageList = props => {
   const currentUser = props.currentUser;
@@ -23,43 +24,53 @@ const MessageList = props => {
   }, []);
   useLayoutEffect(() => {
     console.log(props.Messages);
-    let hash = {};
+
     setFilteredConversations(
       props.Messages.filter(
         conversation =>
           conversation.profile_id === props.currentUser.profile_id ||
           conversation.sender_id === props.currentUser.profile_id
-      )
-        .sort((a, b) => {
-          const dateA = new Date(a.sent_at);
-          const dateB = new Date(b.sent_at);
-          console.log(props.currentUser.profile_id);
-          return dateB - dateA;
-        })
-        .filter(conversation => {
-          if (!hash[conversation.sender_id]) {
-            hash[conversation.sender_id] = true;
-            return true;
-          }
-          return false;
-        })
+      ).sort((a, b) => {
+        const dateA = new Date(a.sent_at);
+        const dateB = new Date(b.sent_at);
+        console.log(props.currentUser.profile_id);
+        return dateB - dateA;
+      })
     );
   }, [props.Messages, props.currentUser.profile_id]);
+  const getFirstOnly = arr => {
+    let hash = {};
+    return arr.filter(conversation => {
+      if (!hash[conversation.sender_id]) {
+        hash[conversation.sender_id] = true;
+        return true;
+      }
+      return false;
+    });
+  };
+  const handleClick = sender_id => {
+    const currentConversation = filteredConversations.filter(
+      conversation => conversation.sender_id === sender_id
+    );
+    dispatch(getActiveConversation(currentConversation));
+    setCurrentConversation(currentConversation);
+    console.log(props);
+  };
   return (
     <div>
       <h4>Conversations</h4>
       <List
         itemLayout="horizontal"
-        dataSource={filteredConversations}
+        dataSource={getFirstOnly(filteredConversations)}
         renderItem={item => (
           <List.Item
             className={
-              currentConversation === item.sender_id
+              currentConversation[0]?.sender_id === item.sender_id
                 ? 'message-list-item active-conversation'
                 : 'message-list-item'
             }
             onClick={() => {
-              setCurrentConversation(item.sender_id);
+              handleClick(item.sender_id);
               console.log('current conversation', currentConversation);
             }}
           >
@@ -85,6 +96,7 @@ const mapStateToProps = state => {
   return {
     Messages: state.userReducer.Messages,
     currentUser: state.userReducer.currentUser,
+    activeConversation: state.userReducer.activeConversation,
   };
 };
 

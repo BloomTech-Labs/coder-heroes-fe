@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Comment, Form, Button, List, Input } from 'antd';
 import '../../../../styles/ParentStyles/messages.less';
 import { useDispatch, connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
-
 import { addMessage } from '../../../../redux/actions/userActions';
-
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
@@ -43,8 +42,15 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
 
   const { authState, oktaAuth } = useOktaAuth();
   useEffect(() => {
-    console.log(props);
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
   }, []);
+  useLayoutEffect(() => {
+    console.log(props);
+  }, [props]);
   const handleSubmit = () => {
     if (!value) {
       return;
@@ -54,14 +60,14 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
       setSubmitting(false);
       setValue('');
       console.log(props);
-      dispatch(
-        addMessage(
-          authState.idToken.idToken,
-          value,
-          3,
-          props.getCurrentUser.profile_id,
-          value
-        )
+      addMessage(
+        authState.idToken,
+        value,
+        props.currentUser.profile_id,
+        value,
+        props.getActiveConversation
+          ? props.getActiveConversation[0].sender_id
+          : 0
       );
     }, 1000);
   };
@@ -90,7 +96,8 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
 
 const mapStateToProps = state => {
   return {
-    getCurrentUser: state.userReducer.currentUser,
+    currentUser: state.userReducer.currentUser,
+    getActiveConversation: state.userReducer.activeConversation,
   };
 };
 export default connect(mapStateToProps)(ReplyEditor);

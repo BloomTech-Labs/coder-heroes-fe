@@ -36,7 +36,8 @@ export const addMessage = (
   message,
   recipient,
   profile_id,
-  title
+  title,
+  sender_id
 ) => async dispatch => {
   dispatch({ type: POST_INBOX_ACTION });
   const date = new Date();

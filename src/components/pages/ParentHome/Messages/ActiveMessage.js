@@ -4,62 +4,10 @@ import { Comment, Tooltip, List } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';
-import moment from 'moment';
 import { connect, useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 
-const data = [
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
-    ),
-    datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(1, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(1, 'days')
-            .fromNow()}
-        </span>
-      </Tooltip>
-    ),
-  },
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
-    ),
-    datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(2, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(2, 'days')
-            .fromNow()}
-        </span>
-      </Tooltip>
-    ),
-  },
-];
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 
 function ActiveMessage(props) {
   console.log('props in activeMessage', props);
@@ -67,15 +15,47 @@ function ActiveMessage(props) {
   const { authState, oktaAuth } = useOktaAuth();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
 
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    console.log(filteredConversations);
+  }, []);
+
   useLayoutEffect(() => {
     console.log(props);
-
     setFilteredConversations(
       props.Messages.filter(
         conversation => conversation.profile_id === props.currentUser.profile_id
       )
     );
     // eslint-disable-next-line
+  }, [props.Messages, props.currentUser.profile_id]);
+
+  useLayoutEffect(() => {
+    let hash = {};
+    setFilteredConversations(
+      props.Messages.filter(
+        conversation =>
+          conversation.profile_id === props.currentUser.profile_id ||
+          conversation.sender_id === props.currentUser.profile_id
+      )
+        .sort((a, b) => {
+          const dateA = new Date(a.sent_at);
+          const dateB = new Date(b.sent_at);
+          console.log(props.currentUser.profile_id);
+          return dateA - dateB;
+        })
+        .filter(conversation => {
+          if (!hash[conversation.sender_id]) {
+            hash[conversation.sender_id] = true;
+            return true;
+          }
+          return false;
+        })
+    );
   }, [props.Messages, props.currentUser.profile_id]);
 
   return (
@@ -89,7 +69,7 @@ function ActiveMessage(props) {
         renderItem={(item, i) => (
           <li key={i}>
             <Comment
-              actions={data[0].actions}
+              actions={filteredConversations[0].actions}
               author={item.sender_id}
               avatar="https://joeschmoe.io/api/v1/random"
               content={item.message}

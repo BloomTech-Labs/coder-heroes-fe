@@ -35,6 +35,8 @@ export default function Banner() {
       return bannerContent('My Tasks');
     case '/parent/resources':
       return bannerContent('Resources');
+    case '/student-portfolio':
+      return bannerContent('Portfolio +');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':

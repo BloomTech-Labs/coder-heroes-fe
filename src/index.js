@@ -73,8 +73,8 @@ import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import AdminApplications from './components/pages/AdminApplications';
-
 import StudentTasks from './components/pages/StudentHome/StudentTasks';
+import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -166,6 +166,7 @@ function App() {
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/student-tasks" component={StudentTasks} />
+          <Route path="/student-portfolio" component={StudentPortfolio} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route

@@ -12,6 +12,7 @@ export default function ParentAccountInfo({ parentInfo, setParentInfo }) {
     <div className="parent-account-info">
       <div className="form-line">
         <input
+          className="input-box-parent-info"
           name="name"
           type="text"
           placeholder="*Name"
@@ -20,6 +21,7 @@ export default function ParentAccountInfo({ parentInfo, setParentInfo }) {
         />
 
         <input
+          className="input-box-parent-info"
           name="email"
           type="email"
           placeholder="*Email"
@@ -30,6 +32,7 @@ export default function ParentAccountInfo({ parentInfo, setParentInfo }) {
 
       <div className="form-line">
         <input
+          className="input-box-parent-info"
           name="location"
           type="text"
           placeholder="*City,State"
@@ -38,6 +41,7 @@ export default function ParentAccountInfo({ parentInfo, setParentInfo }) {
         />
 
         <input
+          className="input-box-parent-info"
           name="phone"
           type="tel"
           placeholder="*Phone Number"

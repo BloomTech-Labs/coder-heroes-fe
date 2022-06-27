@@ -72,6 +72,9 @@ import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubm
 import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import AdminApplications from './components/pages/AdminApplications';
+import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
+import StudentProgress from './components/pages/StudentHome/StudentProgress/StudentProgress';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -129,7 +132,7 @@ function App() {
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />;
           <Route path="/register" component={RegisterStep1} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={RegisterStep1} />
@@ -159,17 +162,17 @@ function App() {
           <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
-
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
+          <Route path="/student-portfolio" component={StudentPortfolio} />
+          <Route path="/student-progress" component={StudentProgress} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -188,6 +191,11 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute
+            path="/admin-applications"
+            component={AdminApplications}
+          />
+          {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
           <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute

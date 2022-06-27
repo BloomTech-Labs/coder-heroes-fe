@@ -82,9 +82,14 @@ function MobileFooter() {
           </Title>
           <div>
             <ul>
-              <a href="mailto:brianne@coderheroes.com" className="footer__text">
+              <li
+                onClick={() =>
+                  (window.location = 'mailto:brianne@coderheroes.com')
+                }
+                className="navbar__btn navbar__contact"
+              >
                 brianne@coderheroes.com
-              </a>
+              </li>
               <li>
                 <ScrollToTop>
                   <Link

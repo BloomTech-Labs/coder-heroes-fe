@@ -75,6 +75,7 @@ import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow
 import AdminApplications from './components/pages/AdminApplications';
 
 import StudentAchievements from './components/pages/StudentHome/StudentAchievements';
+import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -166,6 +167,7 @@ function App() {
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/student-achievements" component={StudentAchievements} />
+          <Route path="/student-portfolio" component={StudentPortfolio} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route

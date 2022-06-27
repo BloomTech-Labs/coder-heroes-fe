@@ -22,6 +22,7 @@ const MessageList = props => {
         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const MessageList = props => {
       dispatch(getActiveConversation(currentConversation));
     }
   }, [activeSenderId, dispatch, filteredConversations, props.Messages]);
+
   useLayoutEffect(() => {
     const idMap = {};
     const allConversations = [];
@@ -56,9 +58,10 @@ const MessageList = props => {
       }
       return profileA - profileB;
     });
+
     sortedMessagesById.forEach(message => {
       const sender =
-        message.sender_id != currentUser.profile_id
+        message.sender_id !== currentUser.profile_id
           ? message.sender_id
           : message.profile_id;
       if (idMap[sender]) {
@@ -76,6 +79,7 @@ const MessageList = props => {
     if (activeSenderId === null && allConversations.length > 0) {
       setActiveSenderId(allConversations[0][0].sender_id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.Messages, props.currentUser.profile_id, dispatch]);
 
   const getLastOnly = arr => {
@@ -95,13 +99,11 @@ const MessageList = props => {
   };
 
   const handleClick = sender_id => {
-    console.log(sender_id);
     const currentConversation = filteredConversations.filter(
       conversation =>
         conversation[0].sender_id === sender_id ||
         conversation[0].profile_id === sender_id
     )[0];
-    console.log(currentConversation);
     dispatch(getActiveConversation(currentConversation));
     setCurrentConversation(currentConversation);
   };
@@ -138,7 +140,6 @@ const MessageList = props => {
                   ? getLastOnly(item)?.profile_id
                   : getLastOnly(item)?.sender_id
               );
-              console.log('current conversation', currentConversation);
             }}
           >
             <List.Item.Meta

@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import ReplyEditor from './ReplyEditor';
-import { Comment, Tooltip, List } from 'antd';
+import { Comment, List } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';
@@ -8,7 +8,6 @@ import { connect, useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 
 import { getCurrentUser } from '../../../../redux/actions/userActions';
-import { getActiveConversation } from '../../../../redux/actions/userActions';
 
 function ActiveMessage(props) {
   const dispatch = useDispatch();
@@ -20,6 +19,7 @@ function ActiveMessage(props) {
         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const sortByDate = arr => {
     return arr.sort((a, b) => {
@@ -45,6 +45,7 @@ function ActiveMessage(props) {
       String(date.getSeconds()).padStart(2, '0')
     );
   };
+
   const countReplies = arr => {
     let count = 0;
     arr.forEach(message => {
@@ -57,6 +58,7 @@ function ActiveMessage(props) {
     });
     return count;
   };
+
   return (
     <div className="active-message">
       <h4>

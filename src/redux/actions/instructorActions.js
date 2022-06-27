@@ -12,10 +12,16 @@ export const ADD_COURSE_ACTION = 'ADD_COURSE';
 export const ADD_NEW_PROGRAM = 'ADD_NEW_PROGRAM';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_NEWSFEEDS = 'GET_NEWSFEEDS';
+export const GET_NEWSFEED = 'GET_NEWSFEED';
+export const POST_NEWSFEED = 'POST_NEWSFEED';
+export const PUT_NEWSFEED = 'PUT_NEWSFEED';
+export const DELETE_NEWSFEED = 'DELETE_NEWSFEED';
 export const GET_PROGRAMS = 'GET_PROGRAMS';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 export const GET_INSTRUCTOR = 'GET_INSTRUCTOR';
+export const SET_POST_ID = 'SET_POST_ID';
+export const SET_POST_OPTIONS = 'SET_POST_OPTIONS';
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
@@ -144,6 +150,82 @@ export const getNewsFeeds = idToken => dispatch => {
   }
 };
 
+export const getNewsFeed = (idToken, postID) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .get(`/news/${postID}`)
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEED,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const postNewsFeed = (idToken, values) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .post(`/news/`, values)
+      .then(resp => {
+        dispatch({
+          type: POST_NEWSFEED,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const putNewsFeed = (idToken, postID, values, post) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .put(`/news/${postID}`, values)
+      .then(resp => {
+        dispatch({
+          type: PUT_NEWSFEED,
+          payload: post,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
+export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
+  try {
+    axiosWithAuth(idToken)
+      .delete(`/news/${postID}`)
+      .then(resp => {
+        dispatch({
+          type: DELETE_NEWSFEED,
+          payload: post,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
+};
+
 export const getInstructors = idToken => async dispatch => {
   try {
     const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
@@ -174,4 +256,18 @@ export const getInstructor = (idToken, profile_id) => async dispatch => {
       payload: error.message,
     });
   }
+};
+
+export const setPostID = postID => async dispatch => {
+  dispatch({
+    type: SET_POST_ID,
+    payload: postID,
+  });
+};
+
+export const setPostOptions = postOptions => async dispatch => {
+  dispatch({
+    type: SET_POST_OPTIONS,
+    payload: postOptions,
+  });
 };

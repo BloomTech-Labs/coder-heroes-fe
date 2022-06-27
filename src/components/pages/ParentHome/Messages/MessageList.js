@@ -35,7 +35,6 @@ const MessageList = props => {
     }
   }, [activeSenderId, dispatch, filteredConversations, props.Messages]);
   useLayoutEffect(() => {
-    console.log(props.Messages);
     const idMap = {};
     const allConversations = [];
     const sortedMessagesById = props.Messages.filter(
@@ -73,8 +72,10 @@ const MessageList = props => {
       allConversations.push(idMap[key]);
     }
 
-    console.log(allConversations);
     setFilteredConversations(allConversations);
+    if (activeSenderId === null && allConversations.length > 0) {
+      setActiveSenderId(allConversations[0][0].sender_id);
+    }
   }, [props.Messages, props.currentUser.profile_id, dispatch]);
 
   const getLastOnly = arr => {

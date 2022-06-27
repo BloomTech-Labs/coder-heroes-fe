@@ -1,20 +1,11 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { Comment, Form, Button, List, Input } from 'antd';
+import { Comment, Form, Button, Input } from 'antd';
 import '../../../../styles/ParentStyles/messages.less';
 import { useDispatch, connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { addMessage } from '../../../../redux/actions/userActions';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 const { TextArea } = Input;
-
-const CommentList = ({ comments }) => (
-  <List
-    dataSource={comments}
-    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-    itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
-  />
-);
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
@@ -35,7 +26,6 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 
 const ReplyEditor = (props, { onChange, onSubmit }) => {
-  const [comments, setComments] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
@@ -47,7 +37,8 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
       }
     }
-  }, []);
+  }, [authState, dispatch, oktaAuth]);
+
   useLayoutEffect(() => {}, [props]);
   const handleSubmit = () => {
     if (!value) {
@@ -60,14 +51,16 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
       addMessage(
         authState.idToken,
         value,
-        props.currentUser.profile_id,
-        value,
         props.getActiveConversation
-          ? props.getActiveConversation[0].sender_id
-          : 0
+          ? props.getActiveConversation[0].sender_id !==
+            props.currentUser.profile_id
+            ? props.getActiveConversation[0].sender_id
+            : props.getActiveConversation[0].profile_id
+          : 0,
+        value,
+        props.currentUser.profile_id
       )
     );
-    console.log(props);
   };
 
   const handleChange = e => {

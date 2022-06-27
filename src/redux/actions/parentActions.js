@@ -18,8 +18,6 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
-export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
-export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 
 export const getChildren = (idToken, profile_id) => async dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
@@ -38,47 +36,6 @@ export const getCourses = dispatch => {
     .get(`${process.env.REACT_APP_API_URI}/course`)
     .then(res => {
       dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
-};
-
-export const getInbox = dispatch => {
-  dispatch({ type: GET_INBOX_ACTION });
-  axios
-    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
-      crossdomain: true,
-    })
-    .then(res => {
-      dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
-};
-
-export const addMessage = (
-  idToken,
-  message,
-  recipient,
-  profile_id,
-  title
-) => async dispatch => {
-  dispatch({ type: POST_INBOX_ACTION });
-  const date = new Date();
-  axios
-    .post(`${process.env.REACT_APP_API_URI}/inbox/messages`, {
-      message,
-      sent_at: date.toISOString(),
-      sender_id: profile_id,
-      title: title,
-      inbox_id: recipient,
-      read: false,
-      crossdomain: true,
-    })
-    .then(res => {
-      dispatch({ type: POST_INBOX_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: ERROR_ACTION, payload: err });

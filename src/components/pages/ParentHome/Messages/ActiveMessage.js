@@ -22,7 +22,7 @@ function ActiveMessage(props) {
     }
   }, []);
   const sortByDate = arr => {
-    console.log(props.activeConversation);
+    console.log(arr);
     return arr.sort((a, b) => {
       const dateA = new Date(a.sent_at);
       const dateB = new Date(b.sent_at);

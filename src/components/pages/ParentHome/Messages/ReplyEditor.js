@@ -60,11 +60,11 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
       addMessage(
         authState.idToken,
         value,
-        props.currentUser.profile_id,
-        value,
         props.getActiveConversation
           ? props.getActiveConversation[0].sender_id
-          : 0
+          : 0,
+        value,
+        props.currentUser.profile_id
       )
     );
     console.log(props);

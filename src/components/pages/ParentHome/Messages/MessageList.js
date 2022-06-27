@@ -39,25 +39,28 @@ const MessageList = props => {
   useLayoutEffect(() => {
     const idMap = {};
     const allConversations = [];
-    const sortedMessagesById = props.Messages.filter(
-      message =>
-        message.sender_id === currentUser.profile_id ||
-        message.profile_id === currentUser.profile_id
-    ).sort((a, b) => {
-      let profileA = 0;
-      if (a.sender_id === currentUser.profile_id) {
-        profileA = a.sender_id;
-      } else {
-        profileA = a.profile_id;
-      }
-      let profileB = 0;
-      if (b.sender_id === currentUser.profile_id) {
-        profileB = b.sender_id;
-      } else {
-        profileB = b.profile_id;
-      }
-      return profileA - profileB;
-    });
+    const sortedMessagesById =
+      //Right now this is manually filtering all messages by profile_id, once backend is built instead send a dispatch to get
+      //all messages by profileId in the useEffect and replace this filter
+      props.Messages.filter(
+        message =>
+          message.sender_id === currentUser.profile_id ||
+          message.profile_id === currentUser.profile_id
+      ).sort((a, b) => {
+        let profileA = 0;
+        if (a.sender_id === currentUser.profile_id) {
+          profileA = a.sender_id;
+        } else {
+          profileA = a.profile_id;
+        }
+        let profileB = 0;
+        if (b.sender_id === currentUser.profile_id) {
+          profileB = b.sender_id;
+        } else {
+          profileB = b.profile_id;
+        }
+        return profileA - profileB;
+      });
 
     sortedMessagesById.forEach(message => {
       const sender =

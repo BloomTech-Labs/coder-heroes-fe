@@ -52,7 +52,10 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
         authState.idToken,
         value,
         props.getActiveConversation
-          ? props.getActiveConversation[0].sender_id
+          ? props.getActiveConversation[0].sender_id !==
+            props.currentUser.profile_id
+            ? props.getActiveConversation[0].sender_id
+            : props.getActiveConversation[0].profile_id
           : 0,
         value,
         props.currentUser.profile_id

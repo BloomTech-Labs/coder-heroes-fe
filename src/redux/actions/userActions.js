@@ -1,5 +1,5 @@
 import axiosWithAuth from '../../utils/axiosWithAuth';
-//import axios from 'axios';
+import axios from 'axios';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
 export const GET_INBOX_ACTION = 'GET_INBOX';
@@ -48,7 +48,6 @@ export const addMessage = (idToken, message, profile_id, title, sender_id) => {
       read: false,
     },
   };
-
   // This endpoint is not working/not built yet
   //   axios
   //     .post(`${process.env.REACT_APP_API_URI}/conversation_id/messages/`, {
@@ -66,4 +65,18 @@ export const addMessage = (idToken, message, profile_id, title, sender_id) => {
   //     .catch(err => {
   //       dispatch({ type: ERROR_ACTION, payload: err });
   //     });
+};
+
+export const getInbox = dispatch => {
+  dispatch({ type: GET_INBOX_ACTION });
+  axios
+    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
+      crossdomain: true,
+    })
+    .then(res => {
+      dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };

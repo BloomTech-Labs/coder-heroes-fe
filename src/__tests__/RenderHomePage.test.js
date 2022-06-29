@@ -4,6 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 // eslint-disable-next-line no-unused-vars
 import userEvent from '@testing-library/user-event';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { rootReducer } from '../reducers';
+import { initialState } from '../reducers/currentUser';
+
+const store = createStore(rootReducer, initialState);
 
 describe('<RenderHomePage /> test suite', () => {
   test('it handles a loading state', () => {
@@ -12,15 +18,11 @@ describe('<RenderHomePage /> test suite', () => {
     };
     // eslint-disable-next-line no-unused-vars
     const { getByText } = render(
-      <Router>
-        <RenderHomePage userInfo={{ name: 'Sara' }} authService={authService} />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <RenderHomePage />
+        </Router>
+      </Provider>
     );
-    // const button = getByText(/logout/i);
-    // userEvent.click(button);
-    // expect(authService.logout).toHaveBeenCalledTimes(1);
-    // expect(getByText(/hi sara welcome to labs basic spa/i).innerHTML).toBe(
-    //   'Hi Sara Welcome to Labs Basic SPA'
-    // );
   });
 });

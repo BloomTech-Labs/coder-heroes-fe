@@ -47,6 +47,13 @@ describe('LandingPage component', () => {
   });
 
   //same issue as above
+  test('Sign Up button is removed from the document', () => {
+    expect(screen.getByText('Create Account'))
+      .exists()
+      .toBeFalse();
+  });
+
+  //same issue as above
   test('Visit Website button sends to correct route', () => {
     const button = screen.getByText('Visit Website');
     expect(button).toHaveAttribute('href', 'https://www.codeyourdreams.org/');
@@ -62,6 +69,13 @@ describe('LandingPage component', () => {
     const images = screen.getAllByRole('img');
     images.forEach(image => {
       expect(image).toHaveAttribute('alt');
+    });
+  });
+
+  test('All images render correctly', () => {
+    const images = screen.getAllByRole('img');
+    images.forEach(image => {
+      expect(image).toBeInTheDocument();
     });
   });
 });

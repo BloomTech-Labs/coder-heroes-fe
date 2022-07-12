@@ -4,7 +4,7 @@ import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '../../../styles/login.less';
 
-import { config } from '../../../utils/oktaConfig';
+import config from '../../../utils/oktaConfig';
 
 const LoginContainer = () => {
   const history = useHistory();
@@ -43,22 +43,11 @@ const LoginContainer = () => {
       },
     });
 
-    widget
-      .showSignInAndRedirect({
-        // Assumes there is an empty element on the page with an id of 'osw-container'
-      })
-      .catch(function(error) {
-        // This function is invoked with errors the widget cannot recover from:
-        // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
-      });
-    return widget;
+    widget.showSignInAndRedirect({}).catch(function(error) {});
   }, [history]);
 
   useEffect(() => {
-    const widget = loadWidget();
-    return () => {
-      widget.remove();
-    };
+    loadWidget();
   }, [loadWidget]);
 
   return (

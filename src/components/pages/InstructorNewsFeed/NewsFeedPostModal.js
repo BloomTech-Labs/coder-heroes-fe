@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
+import {
+  postNewsFeed,
+  setPostOptions,
+} from '../../../redux/actions/instructorActions';
 
-const NewsfeedPostModal = ({ setPostOptions }) => {
+const NewsfeedPostModal = props => {
   const [formValues, setFormValues] = useState({
     link: '',
     description: '',
     title: '',
   });
   const { link, description, title } = formValues;
+
+  const dispatch = useDispatch();
+
   function ValidateNewsFeedFormButton() {
     if (link.trim() && description.trim() && title.trim()) {
       return (
@@ -38,31 +45,30 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
       );
     }
   }
+
   const handleChange = e => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
+
   const { authState } = useOktaAuth();
   const { idToken } = authState;
+
   const handleSubmit = () => {
-    axiosWithAuth(idToken)
-      .post(`/news`, formValues)
-      .then(resp => {
-        setPostOptions('newsFeed');
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    dispatch(postNewsFeed(idToken, formValues));
+
+    dispatch(setPostOptions('newsFeed'));
   };
+
   return (
     <div className="newsfeedForm_container">
       <div className="newsfeedForm_header">
         <h1>Create New Post</h1>
         <CloseOutlined
           onClick={() => {
-            setPostOptions('newsFeed');
+            dispatch(setPostOptions('newsFeed'));
           }}
         />
       </div>
@@ -90,4 +96,12 @@ const NewsfeedPostModal = ({ setPostOptions }) => {
     </div>
   );
 };
-export default NewsfeedPostModal;
+
+const mapStateToProps = state => {
+  return {
+    newsfeed: state.instructorReducer.newsfeed,
+    postOptions: state.instructorReducer.postOptions,
+    postID: state.instructorReducer.postID,
+  };
+};
+export default connect(mapStateToProps)(NewsfeedPostModal);

@@ -11,6 +11,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
@@ -27,7 +28,7 @@ import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import { config } from './utils/oktaConfig';
+import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -71,6 +72,15 @@ import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubm
 import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import AdminApplications from './components/pages/AdminApplications';
+import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
+import StudentProgress from './components/pages/StudentHome/StudentProgress/StudentProgress';
+import AboutCoderHeroes from './components/pages/About/AboutCoderHeroes';
+import PrivacyPolicy from './components/pages/About/PrivacyPolicy';
+import TermsAndConditions from './components/pages/About/TermsAndConditions';
+import PressInquiries from './components/pages/About/PressInquiries';
+import Faq from './components/pages/Services/Faq';
+import SiteMap from './components/pages/Services/SiteMap';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -106,15 +116,29 @@ function App() {
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
-    history.push('/login');
+    const previousAuthState = oktaAuth.authStateManager.getPreviousAuthState();
+    if (!previousAuthState || !previousAuthState.isAuthenticated) {
+      // App initialization stage
+      history.push('/login');
+    }
+  };
+
+  const oktaAuth = new OktaAuth(config);
+
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <Security
+      oktaAuth={oktaAuth}
+      restoreOriginalUri={restoreOriginalUri}
+      onAuthRequired={authHandler}
+    >
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={LoginPage} />;
           <Route path="/register" component={RegisterStep1} />
           <Route path="/confirm" component={ConfirmEmail} />
           <Route path="/register-1" component={RegisterStep1} />
@@ -122,6 +146,12 @@ function App() {
           <Route path="/register-3" component={RegisterStep3} />
           <Route path="/register-4" component={RegisterStep4} />
           <Route path="/instructor-register-1" component={InstructorWelcome} />
+          <Route path="/about-coderheroes" component={AboutCoderHeroes} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route path="/press-inquiries" component={PressInquiries} />
+          <Route path="/faq" component={Faq} />
+          <Route path="/site-map" component={SiteMap} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
@@ -144,17 +174,17 @@ function App() {
           <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
-
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
+          <Route path="/student-portfolio" component={StudentPortfolio} />
+          <Route path="/student-progress" component={StudentProgress} />
           <Route path="/admin" component={AdminHome} />
           <Route path="/instructor-booking" component={InstructorBooking} />
           <Route
             path="/instructor-booking-confirm"
             component={InstructorApplyConfirm}
           />
-
           <Route
             path="/instructor-add-course"
             component={InstructorAddCourse}
@@ -173,6 +203,11 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute
+            path="/admin-applications"
+            component={AdminApplications}
+          />
+          {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
           <SecureRoute path="/messages" component={Messages} />
           <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
           <SecureRoute

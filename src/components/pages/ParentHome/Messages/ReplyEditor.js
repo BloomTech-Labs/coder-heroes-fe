@@ -1,18 +1,11 @@
-import React from 'react';
-import { Comment, Form, Button, List, Input } from 'antd';
-import moment from 'moment';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { Comment, Form, Button, Input } from 'antd';
 import '../../../../styles/ParentStyles/messages.less';
-
+import { useDispatch, connect } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { addMessage } from '../../../../redux/actions/userActions';
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 const { TextArea } = Input;
-
-const CommentList = ({ comments }) => (
-  <List
-    dataSource={comments}
-    header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
-    itemLayout="horizontal"
-    renderItem={props => <Comment {...props} />}
-  />
-);
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
@@ -32,65 +25,71 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </>
 );
 
-class ReplyEditor extends React.Component {
-  state = {
-    comments: [],
-    submitting: false,
-    value: '',
-  };
+const ReplyEditor = (props, { onChange, onSubmit }) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
-  handleSubmit = () => {
-    if (!this.state.value) {
+  const { authState, oktaAuth } = useOktaAuth();
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+  }, [authState, dispatch, oktaAuth]);
+
+  useLayoutEffect(() => {}, [props]);
+  const handleSubmit = () => {
+    if (!value) {
       return;
     }
-
-    this.setState({
-      submitting: true,
-    });
-
-    setTimeout(() => {
-      this.setState({
-        submitting: false,
-        value: '',
-        comments: [
-          ...this.state.comments,
-          {
-            author: 'Han Solo',
-            avatar: 'https://joeschmoe.io/api/v1/random',
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-        ],
-      });
-    }, 1000);
-  };
-
-  handleChange = e => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  render() {
-    const { comments, submitting, value } = this.state;
-
-    return (
-      <>
-        {comments.length > 0 && <CommentList comments={comments} />}
-        <Comment
-          className="text-box"
-          content={
-            <Editor
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              submitting={submitting}
-              value={value}
-            />
-          }
-        />
-      </>
+    setSubmitting(true);
+    setSubmitting(false);
+    setValue('');
+    dispatch(
+      addMessage(
+        authState.idToken,
+        value,
+        props.getActiveConversation
+          ? props.getActiveConversation[0].sender_id !==
+            props.currentUser.profile_id
+            ? props.getActiveConversation[0].sender_id
+            : props.getActiveConversation[0].profile_id
+          : 0,
+        value,
+        props.currentUser.profile_id
+      )
     );
-  }
-}
+  };
 
-export default ReplyEditor;
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <>
+      {}
+      <Comment
+        className="text-box"
+        content={
+          <Editor
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            submitting={submitting}
+            value={value}
+          />
+        }
+      />
+    </>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    Messages: state.userReducer.Messages,
+    currentUser: state.userReducer.currentUser,
+    getActiveConversation: state.userReducer.activeConversation,
+  };
+};
+export default connect(mapStateToProps)(ReplyEditor);

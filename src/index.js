@@ -77,6 +77,8 @@ import StudentAchievements from './components/pages/StudentHome/StudentAchieveme
 import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
 import StudentProgress from './components/pages/StudentHome/StudentProgress/StudentProgress';
 
+import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
+
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
 
@@ -166,6 +168,7 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
+          <Route path="/student-messages" component={StudentMessages} />
           <Route path="/student-achievements" component={StudentAchievements} />
           <Route path="/student-portfolio" component={StudentPortfolio} />
           <Route path="/student-progress" component={StudentProgress} />

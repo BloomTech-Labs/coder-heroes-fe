@@ -74,3 +74,38 @@ ul {
     width: 33%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .desktop-footer {
+    display: none;
+  }
+  .mobile-footer {
+    display: block;
+  }
+  .about_column {
+    width: 100%;
+  }
+  .services_column {
+    width: 100%;
+  }
+  .contact_column {
+    width: 100%;
+  }
+  
+  .footer__text {
+    font-size: 75%;
+    font-weight: 600;
+    font-family: @text__font-family;
+  }
+  .footer__title--container{
+    width: 100%
+  }
+  .footer__title--copyright {
+    padding-top: 15%;
+    font-size: 50% !important
+  }
+  .social_media_icons_container{
+    width: 100% !important;
+    display: flex !important;
+  }
+}

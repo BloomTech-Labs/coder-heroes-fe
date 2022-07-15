@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'formik';
 import '../../../styles/registration.less';
 
 //{{url}}/api/v1/users/{{userID}}/lifecycle/reactivate?sendEmail=true would be the correct url whenever this gets hooked up btw

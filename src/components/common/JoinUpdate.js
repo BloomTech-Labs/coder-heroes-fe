@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// const headers_ = {
-//   Authorization: 'BEARER keyFVhRW3Vr2Gtxha',
-//   'Content-Type': 'application/json',
-// };
-
 const initialForm = {
   firstName: '',
   lastName: '',
@@ -45,7 +40,7 @@ const Form = props => {
         }
       )
       .then(res => {
-        console.log(res);
+        console.log(res.data.records[0].fields);
       })
       .catch(err => {
         console.log(err);

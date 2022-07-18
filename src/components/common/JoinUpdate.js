@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// const headers_ = {
-//   Authorization: 'BEARER keyFVhRW3Vr2Gtxha',
-//   'Content-Type': 'application/json',
-// };
-
 const initialForm = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  role: 'Parent',
+  'First Name': '',
+  'Last Name': '',
+  'Email Address': '',
+  Role: 'Parent',
+  Notes: '',
 };
 
 const Form = props => {
@@ -19,6 +15,7 @@ const Form = props => {
   const onChange = event => {
     const name = event.target.name;
     setValues({ ...value, [name]: event.target.value });
+    console.log(event.target.name);
   };
 
   const onSubmit = e => {
@@ -30,10 +27,11 @@ const Form = props => {
           records: [
             {
               fields: {
-                Name: 'John',
-                firstName: 'John2',
-                lastName: 'Brown',
-                email: 'john@brown.com',
+                'Email Address': `${value['Email Address']}`,
+                'First Name': `${value['First Name']}`,
+                'Last Name': `${value['Last Name']}`,
+                Role: `${value['Role']}`,
+                Notes: `${value['Notes']}`,
               },
             },
           ],
@@ -45,12 +43,18 @@ const Form = props => {
         }
       )
       .then(res => {
-        console.log(res);
+        console.log(res.data.records[0].fields);
       })
       .catch(err => {
         console.log(err);
       });
-    setValues({ firstName: '', lastName: '', email: '', role: 'Parent' });
+    setValues({
+      'First Name': '',
+      'Last Name': '',
+      'Email Address': '',
+      Role: 'Parent',
+      Notes: '',
+    });
     e.target.reset();
   };
 
@@ -60,7 +64,7 @@ const Form = props => {
         <h1>Join Our Updates Now!</h1>
         <label>
           I am..
-          <select name="role" onChange={onChange}>
+          <select name="Role" onChange={onChange}>
             <option name="parent" value={props.values}>
               Parent
             </option>
@@ -74,7 +78,7 @@ const Form = props => {
           First Name:
           <input
             type="text"
-            name="firstName"
+            name="First Name"
             value={props.values}
             onChange={onChange}
           />
@@ -84,7 +88,7 @@ const Form = props => {
           Last Name:
           <input
             type="text"
-            name="lastName"
+            name="Last Name"
             value={props.values}
             onChange={onChange}
           />
@@ -94,7 +98,17 @@ const Form = props => {
           Email:
           <input
             type="email"
-            name="email"
+            name="Email Address"
+            value={props.values}
+            onChange={onChange}
+          />
+        </label>
+        <br />
+        <label>
+          Notes:
+          <input
+            type="text"
+            name="Notes"
             value={props.values}
             onChange={onChange}
           />

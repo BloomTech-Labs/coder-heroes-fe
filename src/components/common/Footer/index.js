@@ -2,6 +2,7 @@ import React from 'react';
 import DesktopFooter from './DesktopFooter';
 import MobileFooter from './MobileFooter';
 import { Layout } from 'antd';
+import Form from '../JoinUpdate';
 
 const { Footer } = Layout;
 
@@ -9,6 +10,7 @@ function MainFooter() {
   return (
     <>
       {/* Dispaly for Desktop (is hidden at 900px screen width or below) */}
+      <Form />
       <Footer
         className="desktop-footer"
         style={{

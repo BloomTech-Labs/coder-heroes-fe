@@ -4,6 +4,7 @@ import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
+import { addToCart } from '../../../redux/actions/parentActions';
 
 const ParentBookingCard = props => {
   const {
@@ -47,6 +48,17 @@ const ParentBookingCard = props => {
     { title: 'class size', text: size },
   ];
 
+  // const handleSubmit = (e) => {
+  // e.preventDefault()
+  // props.addMovie({ ...movie, [e.target.name]: e.target.value })
+  // push('/movies/')
+  // }
+
+  const handleAddCourse = data => {
+    addToCart({ ...data, [data]: data });
+    console.log(data);
+  };
+
   return (
     <Card title={subject} style={{ width: 280 }} hoverable="true">
       {data.map((itm, idx) => {
@@ -60,6 +72,7 @@ const ParentBookingCard = props => {
         type="primary"
         style={{ background: '#006C72', color: 'white' }}
         block
+        onClick={() => handleAddCourse(data)}
       >
         {' '}
         ADD{' '}

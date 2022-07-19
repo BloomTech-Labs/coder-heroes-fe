@@ -5,7 +5,6 @@ import { Layout } from 'antd';
 import Form from '../JoinUpdate';
 
 const { Footer } = Layout;
-
 function MainFooter() {
   return (
     <>
@@ -32,5 +31,4 @@ function MainFooter() {
     </>
   );
 }
-
 export default MainFooter;

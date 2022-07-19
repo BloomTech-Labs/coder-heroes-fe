@@ -21,7 +21,7 @@ const Form = props => {
     e.preventDefault();
     axios
       .post(
-        'https://api.airtable.com/v0/appSgakw7GmVkbEVl/user%20info',
+        'https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201',
         {
           records: [
             {
@@ -29,15 +29,15 @@ const Form = props => {
                 'Email Address': `${value['Email Address']}`,
                 'First Name': `${value['First Name']}`,
                 'Last Name': `${value['Last Name']}`,
-                // 'Role': `${value['Role']}`,
-                // 'Notes': `${value['Notes']}`,
+                Role: `${value['Role']}`,
+                Notes: `${value['Notes']}`,
               },
             },
           ],
         },
         {
           headers: {
-            Authorization: 'Bearer keyFVhRW3Vr2Gtxha',
+            Authorization: 'Bearer keyvivxw89Lg0dwjm',
           },
         }
       )
@@ -58,80 +58,100 @@ const Form = props => {
   };
 
   return (
-    <div
-      style={{
-        'background-color': '#FC6A03',
-        'text-align': 'center',
-        'font-size': '14px',
-        width: '100%',
-      }}
-    >
-      <h2>Join Our Updates Now!</h2>
+    <div>
+      <h2 style={{}}>Join Our Updates Now!</h2>
+
       <form onSubmit={onSubmit}>
-        <label>
+        <label
+          style={{
+            display: 'inline-block',
+            float: 'left',
+            width: '80%',
+            'text-align': 'right',
+          }}
+        >
           I am..
           <select name="Role" onChange={onChange}>
             <option name="parent" value={props.values}>
               Parent
             </option>
-            <option name="teacher" value={props.values}>
-              Teacher
+            <option name="instructor" value={props.values}>
+              Instructor
             </option>
           </select>
         </label>
 
-        <br />
-
-        <label>
+        <label
+          style={{
+            display: 'inline-block',
+            float: 'left',
+            width: '80%',
+            'text-align': 'right',
+          }}
+        >
           First Name:
           <input
+            style={{ border: '1px solid black' }}
             type="text"
+            placeholder="Enter First Name.."
             name="First Name"
             value={props.values}
             onChange={onChange}
           />
         </label>
 
-        <br />
-
-        <label>
+        <label
+          style={{
+            display: 'inline-block',
+            float: 'left',
+            width: '80%',
+            'text-align': 'right',
+          }}
+        >
           Last Name:
           <input
+            style={{ border: '1px solid black' }}
             type="text"
+            placeholder="Enter Last Name.."
             name="Last Name"
             value={props.values}
             onChange={onChange}
           />
         </label>
 
-        <br />
-
-        <label>
-          Email:
+        <label style={{ float: 'left', width: '80%', 'text-align': 'right' }}>
+          Email Address:
           <input
+            style={{ border: '1px solid black' }}
             type="email"
+            placeholder="Enter Email.."
             name="Email Address"
             value={props.values}
             onChange={onChange}
           />
         </label>
 
-        <br />
-
-        <label>
+        <label style={{ float: 'left', width: '80%', 'text-align': 'right' }}>
           Notes:
           <input
+            style={{ border: '1px solid black' }}
             type="text"
+            placeholder="Add a Message.."
             name="Notes"
             value={props.values}
             onChange={onChange}
           />
         </label>
 
-        <input type="submit" />
+        <div style={{ float: 'left', width: '76%', 'text-align': 'right' }}>
+          <input type="submit" value="Join Now!" />
+        </div>
       </form>
     </div>
   );
 };
 
 export default Form;
+
+//johns api call https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201 keyvivxw89Lg0dwjm
+// our api call https://api.airtable.com/v0/appSgakw7GmVkbEVl/user%20info keyFVhRW3Vr2Gtxha

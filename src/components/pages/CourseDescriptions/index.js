@@ -6,12 +6,10 @@ const { Content } = Layout;
 const CourseDescription = () => {
   return (
     <div>
-      <Layout>
-        <Content>
-          <CourseDescriptionComponent />
-          {/* Other Dashboard Components */}
-        </Content>
-      </Layout>
+      <Content>
+        <CourseDescriptionComponent />
+        {/* Other Dashboard Components */}
+      </Content>
     </div>
   );
 };

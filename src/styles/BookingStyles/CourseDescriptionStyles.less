@@ -1,0 +1,68 @@
+.course-page {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid green;
+
+  .page-title {
+    border: 3px solid blue;
+
+    display: flex;
+    flex-direction: row;
+    //justify-content: center;
+    height: 23vh;
+
+    .title-container {
+      border: 3px solid green;
+      display: flex;
+      flex-direction: row;
+      width: 75%;
+      height: 100%;
+      margin: 0 auto;
+      justify-content: center;
+      //position: absolute;
+      h1 {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .image {
+      display: flex;
+      border: 3px solid green;
+      justify-content: flex-start;
+      position: absolute;
+    }
+  }
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    .description-card {
+      border: 1px solid blue;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      width: 369px;
+      height: 539px;
+
+      p {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 22px;
+        text-align: center;
+        color: #000000;
+      }
+      .bttn {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}

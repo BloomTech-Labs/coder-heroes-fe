@@ -1,35 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 .course-page {
   display: flex;
   flex-direction: column;
-  border: 3px solid green;
+
+  .search-bar {
+    width: 100%;
+    margin-top: 5%;
+    height: 5vh;
+
+    form {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 5vh;
+      input {
+        width: 25%;
+        height: 5vh;
+        font-size: medium;
+      }
+    }
+  }
 
   .page-title {
-    border: 3px solid blue;
-
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
-    //justify-content: center;
     height: 23vh;
 
     .title-container {
-      border: 3px solid green;
       display: flex;
       flex-direction: row;
-      width: 75%;
+      width: 100%;
       height: 100%;
       margin: 0 auto;
       justify-content: center;
-      //position: absolute;
+
       h1 {
         display: flex;
         justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-family: 'Staatliches';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 93px;
+        text-decoration: underline;
+        align-items: center;
       }
     }
     .image {
       display: flex;
-      border: 3px solid green;
       justify-content: flex-start;
       position: absolute;
+      padding-left: 5%;
     }
   }
   .card-container {
@@ -41,27 +65,33 @@
     padding-bottom: 5%;
 
     .description-card {
-      border: 1px solid blue;
       margin: auto;
       display: flex;
       flex-direction: column;
       width: 369px;
       height: 539px;
-
-      p {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 22px;
-        text-align: center;
-        color: #000000;
-      }
-      .bttn {
+      border-radius: 20px;
+      .card-details {
         display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: 0;
+        flex-direction: column;
+        row-gap: 80px;
+        p {
+          display: flex;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 22px;
+          text-align: center;
+          color: #000000;
+        }
+        .bttn {
+          display: flex;
+          justify-content: center;
+          background-color: #096a70;
+          border: none;
+          border-radius: 6px;
+        }
       }
     }
   }

@@ -71,7 +71,7 @@ const ParentBookingCard = props => {
         onClick={() => handleAddCourse(data)}
       >
         {' '}
-        ADD{' '}
+        ADD{'  '}
       </Button>
     </Card>
   );

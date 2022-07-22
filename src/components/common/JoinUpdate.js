@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import { Row, Col, Typography } from 'antd';
 // import '../../../styles/LandingPageStyles/joinUpdate.less';
+=======
+// import { authState } from "@okta/okta-react";
+// import { authState, OktaAuth } from "@okta/okta-auth-js";
+>>>>>>> a7ee8511d26e687d8265a7e79a1b926bc2645150
 
 const { Title } = Typography;
 const initialForm = {
@@ -12,8 +17,25 @@ const initialForm = {
   Notes: '',
 };
 const Form = props => {
+<<<<<<< HEAD
+=======
+  // const  { OktaAuth }  = useOktaAuth();
+>>>>>>> a7ee8511d26e687d8265a7e79a1b926bc2645150
   const [value, setValues] = useState(initialForm);
 
+<<<<<<< HEAD
+=======
+  // console.log(authState);
+
+  // useEffect(() => {
+  //     console.log(authState);
+  //   // if( authState !==  null && authState.isAuthenticated){
+  //   //   setIsLoggedIn(false);
+  //   // } else {
+  //   //   setIsLoggedIn(true);
+  //   // }
+  // },[]);
+>>>>>>> a7ee8511d26e687d8265a7e79a1b926bc2645150
   const onChange = event => {
     const name = event.target.name;
     setValues({ ...value, [name]: event.target.value });

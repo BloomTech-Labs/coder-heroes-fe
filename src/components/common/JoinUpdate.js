@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { SecureRoute, useOktaAuth } from '@okta/okta-react';
+// import { authState } from "@okta/okta-react";
+// import { authState, OktaAuth } from "@okta/okta-auth-js";
 
 // console.log(localStorage.getItem("token"));
 const initialForm = {
@@ -11,17 +12,19 @@ const initialForm = {
   Notes: '',
 };
 const Form = props => {
-  // const { authState } = useOktaAuth();
+  // const  { OktaAuth }  = useOktaAuth();
   const [value, setValues] = useState(initialForm);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // console.log(authState);
+
   // useEffect(() => {
-  //     // console.log(isAuthenticated);
-  //   if( authState !==  null && authState.isAuthenticated){
-  //     setIsLoggedIn(false);
-  //   } else {
-  //     setIsLoggedIn(true);
-  //   }
+  //     console.log(authState);
+  //   // if( authState !==  null && authState.isAuthenticated){
+  //   //   setIsLoggedIn(false);
+  //   // } else {
+  //   //   setIsLoggedIn(true);
+  //   // }
   // },[]);
   const onChange = event => {
     const name = event.target.name;

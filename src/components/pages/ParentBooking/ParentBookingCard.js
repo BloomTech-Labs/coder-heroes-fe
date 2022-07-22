@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
+import { addToCart } from '../../../redux/actions/parentActions';
 
 const ParentBookingCard = props => {
   const {
@@ -19,6 +21,8 @@ const ParentBookingCard = props => {
     size,
     course_id,
   } = props.booking;
+
+  const { addToCart } = props;
 
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -47,6 +51,10 @@ const ParentBookingCard = props => {
     { title: 'class size', text: size },
   ];
 
+  const handleAddCourse = booking => {
+    addToCart(booking);
+  };
+
   return (
     <Card title={subject} style={{ width: 280 }} hoverable="true">
       {data.map((itm, idx) => {
@@ -60,12 +68,20 @@ const ParentBookingCard = props => {
         type="primary"
         style={{ background: '#006C72', color: 'white' }}
         block
+        onClick={() => handleAddCourse(data)}
       >
         {' '}
-        ADD{' '}
+        ADD{'  '}
       </Button>
     </Card>
   );
 };
 
-export default ParentBookingCard;
+const mapStateToProps = state => ({
+  cart: state.parentReducer.cart,
+  bookings: state.parentReducer.bookings,
+});
+
+export default connect(mapStateToProps, {
+  addToCart,
+})(ParentBookingCard);

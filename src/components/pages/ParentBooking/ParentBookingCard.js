@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
@@ -20,6 +21,8 @@ const ParentBookingCard = props => {
     size,
     course_id,
   } = props.booking;
+
+  const { addToCart } = props;
 
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -48,15 +51,8 @@ const ParentBookingCard = props => {
     { title: 'class size', text: size },
   ];
 
-  // const handleSubmit = (e) => {
-  // e.preventDefault()
-  // props.addMovie({ ...movie, [e.target.name]: e.target.value })
-  // push('/movies/')
-  // }
-
-  const handleAddCourse = data => {
-    addToCart({ ...data, [data]: data });
-    console.log(data);
+  const handleAddCourse = booking => {
+    addToCart(booking);
   };
 
   return (
@@ -81,4 +77,11 @@ const ParentBookingCard = props => {
   );
 };
 
-export default ParentBookingCard;
+const mapStateToProps = state => ({
+  cart: state.parentReducer.cart,
+  bookings: state.parentReducer.bookings,
+});
+
+export default connect(mapStateToProps, {
+  addToCart,
+})(ParentBookingCard);

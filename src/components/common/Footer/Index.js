@@ -9,6 +9,7 @@ function MainFooter() {
   return (
     <>
       {/* Dispaly for Desktop (is hidden at 900px screen width or below) */}
+
       <Form />
       <Footer
         className="desktop-footer"

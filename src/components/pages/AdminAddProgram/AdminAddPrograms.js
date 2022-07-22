@@ -92,7 +92,7 @@ function AdminAddCoursesForm(props) {
             />
           </Form.Item>
           <Form.Item>
-            <label htmlFor="description">Description: </label>
+            <label htmlFor="description">Description:</label>
             <TextArea
               onChange={handleChange}
               type="text"
@@ -110,7 +110,9 @@ function AdminAddCoursesForm(props) {
             className="prereq-split-container"
           >
             <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq">Prerequisites: </label>
+              <label htmlFor="prereq" className="prereq">
+                Prerequisites:
+              </label>
               <Input
                 onChange={handleChange}
                 value={formPreReqs.prereq}

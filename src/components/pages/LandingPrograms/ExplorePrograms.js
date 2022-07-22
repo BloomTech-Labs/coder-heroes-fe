@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Layout, Typography } from 'antd';
 import lightBulbs from '../../../styles/ProgramsLandingStyles/assets/lightbulbs.png';
 const { Content } = Layout;
@@ -24,9 +25,15 @@ export default function ExplorePrograms() {
               ability to turn your passion into an app.
             </Text>
             <div className="pl__na__top__button__container">
-              <button className="pl__na__top__button" type="submit">
-                BOOK NOW
-              </button>
+              <NavLink to="/parent/booking">
+                <button
+                  className="pl__na__top__button"
+                  type="submit"
+                  to="/parent/booking"
+                >
+                  BOOK NOW
+                </button>
+              </NavLink>
               <button className="pl__na__top__button" type="submit">
                 VOLUNTEER
               </button>

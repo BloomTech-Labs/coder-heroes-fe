@@ -42,19 +42,6 @@ export const getCourses = dispatch => {
     });
 };
 
-export const getInbox = dispatch => {
-  dispatch({ type: GET_INBOX_ACTION });
-  axios
-    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
-      crossdomain: true,
-    })
-    .then(res => {
-      dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
-};
 export const signupForCourse = () => dispatch => {
   dispatch({ type: SIGNUP_COURSE_ACTION });
   axios

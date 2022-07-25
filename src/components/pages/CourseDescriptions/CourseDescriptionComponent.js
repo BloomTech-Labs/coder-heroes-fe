@@ -16,9 +16,12 @@ function CourseDescriptionComponent() {
 
   return (
     <div className="course-page">
-      <div className="modal-container">
-        <div className={modalOpen ? 'modal-open' : 'modal-closed'}>
-          <AdvancedSearchModal className="modal-component" />
+      <div className={modalOpen ? 'modal-open' : 'modal-closed'}>
+        <div className="modal-component-container">
+          <AdvancedSearchModal
+            className="modal-component"
+            toggleModal={toggleModal}
+          />
         </div>
       </div>
       <div className="page-title">

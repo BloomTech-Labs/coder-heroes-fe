@@ -3,7 +3,7 @@
 .course-page {
   display: flex;
   flex-direction: column;
-  .modal-container {
+  .modal-open {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -11,7 +11,7 @@
     height: 100%;
     z-index: 1;
 
-    .modal-open {
+    .modal-component-container {
       position: absolute;
       display: flex;
 
@@ -22,9 +22,10 @@
       background-color: white;
       z-index: 1;
     }
-    .modal-closed {
-      visibility: hidden;
-    }
+  }
+  .modal-closed {
+    visibility: hidden;
+    display: none;
   }
 
   .search-bar {
@@ -49,6 +50,7 @@
         border: none;
         margin-left: 16.5%;
         color: grey;
+        cursor: pointer;
       }
     }
   }

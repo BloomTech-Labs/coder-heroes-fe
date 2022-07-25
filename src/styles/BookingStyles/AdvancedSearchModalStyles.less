@@ -1,22 +1,35 @@
 .modal-window {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   .h3-container {
-    border: 1px solid green;
     width: 100%;
     h3 {
-      border: 1px solid red;
       display: flex;
       justify-content: center;
       width: 100%;
     }
   }
   .filter-container {
-    display: flex;
-    align-items: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    width: 100%;
   }
   .topics-container {
     display: flex;
-    align-items: row;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .topics-title {
+    }
+    .topics-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-content: space-evenly;
+      width: 100%;
+    }
   }
 }

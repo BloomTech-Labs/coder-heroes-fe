@@ -2,10 +2,10 @@ import React from 'react';
 
 import '../../../styles/BookingStyles/AdvancedSearchModalStyles.less';
 
-import { DownOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu, message, Space, Tooltip } from 'antd';
+import { DownOutlined, CloseOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu, message, Space } from 'antd';
 
-export function AdvancedSearchModal() {
+export function AdvancedSearchModal({ toggleModal }) {
   const menu = (
     <Menu
       items={[
@@ -27,6 +27,10 @@ export function AdvancedSearchModal() {
 
   return (
     <div className="modal-window">
+      <div onClick={toggleModal}>
+        <CloseOutlined />
+      </div>
+
       <div className="h3-container">
         <h3>Filter By:</h3>
       </div>
@@ -66,10 +70,10 @@ export function AdvancedSearchModal() {
         </Dropdown>
       </div>
       <div className="topics-container">
-        Topics:
-        <div>
+        <div className="topics-title">Topics:</div>
+        <div className="topics-list">
           <label>
-            <input type="checkbox" name="html" value="html" checked /> HTML
+            <input type="checkbox" name="html" value="html" /> HTML
           </label>
           <br />
           <label>
@@ -87,6 +91,7 @@ export function AdvancedSearchModal() {
           <br />
         </div>
       </div>
+      <button className="submit-button">Submit</button>
     </div>
   );
 }

@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+
+// Component Imports
+import { AdvancedSearchModal } from './AdvancedSearchModal';
+
+// Design Imports
 import { Card, Button } from 'antd';
 import '../../../styles/BookingStyles/CourseDescriptionStyles.less';
 import avatar from '../../../styles/BookingStyles/assets/Avatar07.png';
@@ -6,18 +11,33 @@ import avatar from '../../../styles/BookingStyles/assets/Avatar07.png';
 //const { Content } = Layout;
 
 function CourseDescriptionComponent() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => setModalOpen(!modalOpen);
+
   return (
     <div className="course-page">
+      <div className="modal-container">
+        <div className={modalOpen ? 'modal-open' : 'modal-closed'}>
+          <AdvancedSearchModal className="modal-component" />
+        </div>
+      </div>
       <div className="page-title">
         <img className="image" src={avatar} alt="Student" />
 
         <div className="title-container">
-          <h1>COURSE DESCRIPTIONS</h1>
+          <h1>CODERHEROES PROGAMS</h1>
         </div>
       </div>
       <div className="search-bar">
         <form>
           <input placeholder="Search"></input>
+          <div
+            className="advanced-search"
+            id="advanced-search"
+            onClick={toggleModal}
+          >
+            Advanced Search
+          </div>
         </form>
       </div>
       <div className="card-container">

@@ -14,8 +14,6 @@
     .modal-component-container {
       position: absolute;
       display: flex;
-
-      border: 1px solid red;
       visibility: visible;
       height: 50%;
       width: 50%;
@@ -99,35 +97,40 @@
     padding-bottom: 5%;
 
     .description-card {
-      margin: auto;
+      margin-top: 5%;
       display: flex;
       flex-direction: column;
       width: 369px;
-      height: 539px;
+      height: auto;
       border-radius: 20px;
+
       .card-details {
         display: flex;
         flex-direction: column;
         row-gap: 80px;
-        p {
-          display: flex;
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 24px;
-          line-height: 22px;
-          text-align: center;
-          color: #000000;
-        }
-        // p:hover {
-        //   color: red;
-        // }
-        .bttn {
-          display: flex;
-          justify-content: center;
-          background-color: #096a70;
-          border: none;
-          border-radius: 6px;
+        .card-content {
+          padding: 1%;
+          p {
+            display: flex;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 22px;
+            text-align: center;
+            color: #000000;
+          }
+
+          h3 {
+            margin: 0;
+            padding: 0;
+          }
+          li {
+            margin: 0;
+            padding: 0;
+          }
         }
       }
     }

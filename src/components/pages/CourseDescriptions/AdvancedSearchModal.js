@@ -27,9 +27,9 @@ export function AdvancedSearchModal({ toggleModal }) {
 
   return (
     <div className="modal-window">
-      <div onClick={toggleModal}>
-        <CloseOutlined />
-      </div>
+      <button className="modal-close-button" onClick={toggleModal}>
+        <CloseOutlined style={{ color: 'white' }} />
+      </button>
 
       <div className="h3-container">
         <h3>Filter By:</h3>

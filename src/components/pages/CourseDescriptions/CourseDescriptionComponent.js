@@ -62,15 +62,17 @@ function CourseDescriptionComponent() {
           }}
         >
           <div className="card-details">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
+            <div className="card-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              </p>
+              <h3>Courses:</h3>
 
-            <Button className="bttn" type="primary">
-              Register Now
-            </Button>
+              <li>Intro to JavaScript</li>
+              <li>Intro to CSS</li>
+            </div>
           </div>
         </Card>
         <Card
@@ -91,15 +93,17 @@ function CourseDescriptionComponent() {
           }}
         >
           <div className="card-details">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
+            <div className="card-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              </p>
+              <h3>Courses:</h3>
 
-            <Button className="bttn" type="primary">
-              Register Now
-            </Button>
+              <li>Intro to JavaScript</li>
+              <li>Intro to HTML</li>
+            </div>
           </div>
         </Card>
         <Card
@@ -120,15 +124,17 @@ function CourseDescriptionComponent() {
           }}
         >
           <div className="card-details">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
+            <div className="card-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              </p>
+              <h3>Courses:</h3>
 
-            <Button className="bttn" type="primary">
-              Register Now
-            </Button>
+              <li>Intro to JavaScript</li>
+              <li>Intro to CSS</li>
+            </div>
           </div>
         </Card>
       </div>

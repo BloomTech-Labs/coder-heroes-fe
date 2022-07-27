@@ -164,7 +164,6 @@ function App() {
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
           <SecureRoute path="/parent" component={ParentHome} />
-          <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
           <SecureRoute path="/parent-booking" component={SingleCourseBooking} />
           <Route path="/implicit/callback" component={LoginCallback} />

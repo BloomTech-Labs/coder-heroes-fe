@@ -51,10 +51,10 @@ function Cart(props) {
     <div>
       {cart.length === 0 ? (
         <div>
-          {/* <div>You don't have any item in cart yet!</div> */}
+          <div>You don't have any item in cart yet!</div>
           {/* //move this total and stripCheckoutButton  code under it to bottom of return for cart */}
-          <div>Total: ${total}</div>
-          <StripeCheckoutButton price={total} />
+          {/* <div>Total: ${total}</div> */}
+          {/* <StripeCheckoutButton price={total} /> */}
         </div>
       ) : (
         <div>
@@ -97,6 +97,8 @@ function Cart(props) {
                   <div>Location: {sessionDetail.subject}</div>
                 </div>
                 <div>
+                  <div>Total: ${total}</div>
+                  <StripeCheckoutButton price={total} />
                   <Button onClick={() => handleModal()}>Cancel booking</Button>
                 </div>
                 {showModal ? (

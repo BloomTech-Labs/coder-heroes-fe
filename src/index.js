@@ -71,7 +71,7 @@ import RegisterStep3 from './components/pages/Registration/RegisterStep3';
 import RegisterStep4 from './components/pages/Registration/RegisterStep4';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
 import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
-import InstructorDashboard from './components/pages/Dashboard';
+import DashBoard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import AdminApplications from './components/pages/AdminApplications';
@@ -235,10 +235,9 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
-          <SecureRoute
-            path="/instructor-dashboard"
-            component={InstructorDashboard}
-          />
+          <SecureRoute path="/instructor-dashboard" component={DashBoard} />
+          // Rename Later ^
+          <SecureRoute path="/dashboard" component={DashBoard} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

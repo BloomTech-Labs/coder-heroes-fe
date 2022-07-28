@@ -235,6 +235,11 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
+<<<<<<< HEAD
+=======
+          <SecureRoute path="/instructor-dashboard" component={DashBoard} />
+          // Rename Later ^
+>>>>>>> 52a78ed (BL-650 created dashboard component that conditionally renders based on role_id. Login Functionality needs to be reworked does not update user info on login and redirects to the same route on login)
           <SecureRoute path="/dashboard" component={DashBoard} />
           <Route component={NotFoundPage} />
         </Switch>

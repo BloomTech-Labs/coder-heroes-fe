@@ -1,7 +1,7 @@
 import React from 'react';
 
+// Styles
 import '../../../styles/BookingStyles/SingleCourseBookingStyles.less';
-
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from 'antd';
 

@@ -2,10 +2,10 @@ import React from 'react';
 
 import '../../../styles/BookingStyles/SingleCourseBookingStyles.less';
 
-import { DownOutlined, CloseOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu, message, Space } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu } from 'antd';
 
-export function SingleCourseBookingComponent({ toggleModal }) {
+export function SingleCourseBookingComponent() {
   const menu = (
     <Menu
       items={[

@@ -11,7 +11,7 @@ import {
   clearCart,
 } from '../../../redux/actions/parentActions';
 
-import '../../../styles/ParentStyles/index.less';
+import '../../../styles/ParentStyles/cart.less';
 
 function Cart(props) {
   const { cart, cancelCartItem } = props; //clearCart needed in deconstructor
@@ -48,13 +48,12 @@ function Cart(props) {
   // };
 
   return (
-    <div>
+    <div className="cart-container">
       {cart.length === 0 ? (
-        <div>
-          <div>You don't have any item in cart yet!</div>
-          {/* //move this total and stripCheckoutButton  code under it to bottom of return for cart */}
-          {/* <div>Total: ${total}</div> */}
-          {/* <StripeCheckoutButton price={total} /> */}
+        <div className="cart-content">
+          <div className="program-details-container">
+            You don't have any items in cart yet!
+          </div>
         </div>
       ) : (
         <div>
@@ -79,28 +78,66 @@ function Cart(props) {
 
             return (
               <div className="cart-content" key={index}>
-                <div>
-                  <div>Course: {sessionDetail.subject}</div>
-                  <div>Book for: {booking.child_name}</div>
-                  <div>Instructor: {sessionDetail.instructor_name}</div>
+                <div className="program-details-container">
                   <div>
+                    <div className="program-details">SELECTED PROGRAM:</div>
+                    {sessionDetail.subject}
+                  </div>
+
+                  {/* this was not included in the figma */}
+                  {/* <div>
+                    <div className="program-details">Book for:</div>
+                    {booking.child_name}
+                  </div> */}
+
+                  <div>
+                    <div className="program-details">DATE + TIME:</div>
+                    {dateConverter(sessionDetail.start_date)} @{' '}
+                    {timeConverter(sessionDetail.start_time)}
+                  </div>
+
+                  {/* the next three divs were condensed down to just a start date and time in figma */}
+
+                  {/* <div>
                     First day of class:{' '}
                     {dateConverter(sessionDetail.start_date)}
-                  </div>
-                  <div>
+                  </div> */}
+
+                  {/* <div>
                     Last day of class: {dateConverter(sessionDetail.end_date)}
-                  </div>
-                  <div>
+                  </div> */}
+
+                  {/* <div>
                     Time: {timeConverter(sessionDetail.start_time)} -{' '}
                     {timeConverter(sessionDetail.end_time)}
+                  </div> */}
+
+                  {/* this was changed to say remote in figma */}
+
+                  <div>
+                    <div className="program-details">LOCATION:</div>
+                    {sessionDetail.subject}
                   </div>
-                  <div>Location: {sessionDetail.subject}</div>
                 </div>
-                <div>
-                  <div>Total: ${total}</div>
+
+                <div className="instructor-container">
+                  <div className="instructor-details">INSTRUCTOR: </div>
+                  {sessionDetail.instructor_name}
+                </div>
+                <br />
+                <br />
+
+                <div className="buttons-container">
+                  <Button className="cancel" onClick={() => handleModal()}>
+                    Cancel booking
+                  </Button>
+
                   <StripeCheckoutButton price={total} />
-                  <Button onClick={() => handleModal()}>Cancel booking</Button>
+
+                  {/* total was not included in the figma */}
+                  {/* <div>Total: ${total}</div> */}
                 </div>
+
                 {showModal ? (
                   <Modal
                     className="events capital"

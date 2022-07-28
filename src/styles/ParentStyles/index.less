@@ -2,8 +2,6 @@
 @h2: 3rem;
 @h3: 2.5rem;
 
-
-
 //****Banner styles (in components common folder)*****
 .dashboard-banner {
   display: flex;
@@ -15,7 +13,7 @@
 }
 
 .dashboard {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
@@ -115,11 +113,9 @@
   margin: 8% auto;
 
   .card-name {
-  text-align: center;
+    text-align: center;
+  }
 }
-}
-
-
 
 .card-name {
   font-size: 1rem;
@@ -139,8 +135,6 @@
   background-size: auto;
 }
 
-
-
 .icon {
   display: flex;
   justify-content: center;
@@ -157,8 +151,8 @@
   border-radius: 0.938em 0 0 0.938em;
   padding-bottom: 3%;
   .avatar {
-  border: 0.625em solid @body__bg--white;
-  background-color: @footer__bg;
+    border: 0.625em solid @body__bg--white;
+    background-color: @footer__bg;
   }
 }
 
@@ -180,7 +174,7 @@
 .add-student-button {
   background-color: @btn__bg--orange;
   color: @text__color--white;
-   margin: 3%
+  margin: 3%;
 }
 
 .student-view-account-button {
@@ -191,18 +185,18 @@
 .parent-view-account-button {
   color: @text__color--maroon;
   background-color: @btn__bg--white;
-   margin: 3%;
+  margin: 3%;
 }
 
 //****Parent-Progress styles****
 .progress-container {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 .progress-bars {
   font-size: 50px;
   padding: 0% 10%;
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
@@ -217,7 +211,7 @@
 
 //****Parent-Navbar styles****
 .parent-navbar {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -225,7 +219,7 @@
   border: none;
 }
 .parentNavItem {
-  margin:left 5%;
+  margin: left 5%;
 }
 
 .parentNavItem {
@@ -239,7 +233,7 @@
 
 //****Parent-Tasks styles****
 .navDrop {
-  display:flex;
+  display: flex;
   flex-direction: row;
   width: 100%;
   align-items: center;
@@ -411,40 +405,29 @@
   margin-top: 5%;
 }
 
-//****Cart styles**** 
-
-.cart-content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-.achievements{
-background: no-repeat;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center center;
-
+.achievements {
+  background: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
   // background: url('../../img/Assets/achievements.png');
-
 }
 
 @media screen and (max-width: 700px) {
   .parent-view-account-button {
-    font-size: .75em;
+    font-size: 0.75em;
   }
-  .add-student-button{
-    font-size: .75em
+  .add-student-button {
+    font-size: 0.75em;
   }
 }
 
 @media screen and (max-width: 550px) {
   .parent-view-account-button {
-    font-size: .5em;
+    font-size: 0.5em;
   }
-  .add-student-button{
-    font-size: .5em
+  .add-student-button {
+    font-size: 0.5em;
   }
 }

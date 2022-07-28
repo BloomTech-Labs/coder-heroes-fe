@@ -1,14 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 // Component Imports
 import { AdvancedSearchModal } from './AdvancedSearchModal';
 
 // Design Imports
-import { Card, Button } from 'antd';
+import { Card } from 'antd';
 import '../../../styles/BookingStyles/CourseDescriptionStyles.less';
 import avatar from '../../../styles/BookingStyles/assets/Avatar07.png';
-
-//const { Content } = Layout;
 
 function CourseDescriptionComponent() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +26,7 @@ function CourseDescriptionComponent() {
         <img className="image" src={avatar} alt="Student" />
 
         <div className="title-container">
-          <h1>CODERHEROES PROGAMS</h1>
+          <h1>CODERHEROES PROGRAMS</h1>
         </div>
       </div>
       <div className="search-bar">
@@ -70,8 +68,14 @@ function CourseDescriptionComponent() {
               </p>
               <h3>Courses:</h3>
 
-              <li>Intro to JavaScript</li>
-              <li>Intro to CSS</li>
+              <li>
+                Intro to JavaScript
+                <a href="#">Book Now</a>
+              </li>
+              <li>
+                Intro to CSS
+                <a href="#">Book Now</a>
+              </li>
             </div>
           </div>
         </Card>
@@ -101,8 +105,14 @@ function CourseDescriptionComponent() {
               </p>
               <h3>Courses:</h3>
 
-              <li>Intro to JavaScript</li>
-              <li>Intro to HTML</li>
+              <li>
+                Intro to JavaScript
+                <a href="#">Book Now</a>
+              </li>
+              <li>
+                Intro to HTML
+                <a href="#">Book Now</a>
+              </li>
             </div>
           </div>
         </Card>
@@ -132,8 +142,14 @@ function CourseDescriptionComponent() {
               </p>
               <h3>Courses:</h3>
 
-              <li>Intro to JavaScript</li>
-              <li>Intro to CSS</li>
+              <li>
+                Intro to JavaScript
+                <a href="#">Book Now</a>
+              </li>
+              <li>
+                Intro to CSS
+                <a href="#">Book Now</a>
+              </li>
             </div>
           </div>
         </Card>

@@ -3,9 +3,12 @@ import React from 'react';
 import '../../../styles/BookingStyles/AdvancedSearchModalStyles.less';
 
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu, message, Space } from 'antd';
+import { Button, Dropdown, Menu } from 'antd';
+
+//toggleModal is passed in as props from CourseDescriptionComponent.js
 
 export function AdvancedSearchModal({ toggleModal }) {
+  // Filter dropdown options that get passed to <Dropdown/>
   const menu = (
     <Menu
       items={[
@@ -26,6 +29,9 @@ export function AdvancedSearchModal({ toggleModal }) {
   );
 
   return (
+    //CloseOutlined is the X icon in the modal close button
+    //DownOutlined is the down arrow in the dropdown boxes
+
     <div className="modal-window">
       <button className="modal-close-button" onClick={toggleModal}>
         <CloseOutlined style={{ color: 'white' }} />
@@ -38,34 +44,26 @@ export function AdvancedSearchModal({ toggleModal }) {
       <div className="filter-container">
         <Dropdown overlay={menu}>
           <Button>
-            <Space>
-              Example
-              <DownOutlined />
-            </Space>
+            Instructor
+            <DownOutlined />
           </Button>
         </Dropdown>
         <Dropdown overlay={menu}>
           <Button>
-            <Space>
-              Example
-              <DownOutlined />
-            </Space>
+            Session Type
+            <DownOutlined />
           </Button>
         </Dropdown>
         <Dropdown overlay={menu}>
           <Button>
-            <Space>
-              Example
-              <DownOutlined />
-            </Space>
+            Age Group
+            <DownOutlined />
           </Button>
         </Dropdown>
         <Dropdown overlay={menu}>
           <Button>
-            <Space>
-              Example
-              <DownOutlined />
-            </Space>
+            Level
+            <DownOutlined />
           </Button>
         </Dropdown>
       </div>

@@ -156,6 +156,7 @@ function App() {
             path="/parent/achievements"
             component={ParentAchievements}
           />
+          <SecureRoute exact path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentFamilyHome} />
@@ -163,13 +164,9 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
-          <SecureRoute
-            path="/course-description"
-            component={CourseDescription}
-          />
+          <SecureRoute path="/parent-booking" component={CourseDescription} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />

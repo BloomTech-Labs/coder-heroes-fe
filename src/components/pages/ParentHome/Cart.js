@@ -84,35 +84,11 @@ function Cart(props) {
                     {sessionDetail.subject}
                   </div>
 
-                  {/* this was not included in the figma */}
-                  {/* <div>
-                    <div className="program-details">Book for:</div>
-                    {booking.child_name}
-                  </div> */}
-
                   <div>
                     <div className="program-details">DATE + TIME:</div>
                     {dateConverter(sessionDetail.start_date)} @{' '}
                     {timeConverter(sessionDetail.start_time)}
                   </div>
-
-                  {/* the next three divs were condensed down to just a start date and time in figma */}
-
-                  {/* <div>
-                    First day of class:{' '}
-                    {dateConverter(sessionDetail.start_date)}
-                  </div> */}
-
-                  {/* <div>
-                    Last day of class: {dateConverter(sessionDetail.end_date)}
-                  </div> */}
-
-                  {/* <div>
-                    Time: {timeConverter(sessionDetail.start_time)} -{' '}
-                    {timeConverter(sessionDetail.end_time)}
-                  </div> */}
-
-                  {/* this was changed to say remote in figma */}
 
                   <div>
                     <div className="program-details">LOCATION:</div>
@@ -133,9 +109,6 @@ function Cart(props) {
                   </Button>
 
                   <StripeCheckoutButton price={total} />
-
-                  {/* total was not included in the figma */}
-                  {/* <div>Total: ${total}</div> */}
                 </div>
 
                 {showModal ? (

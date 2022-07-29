@@ -12,6 +12,7 @@ import { NavLink } from 'react-router-dom';
 
 const { Content } = Layout;
 const { Title } = Typography;
+
 const AllClasses = props => {
   const { authState } = useOktaAuth();
   const { idToken } = authState;
@@ -32,15 +33,17 @@ const AllClasses = props => {
           <Title className="class__title">Courses</Title>
           <div className="class__subject">
             <NavLink to="/instructor-add-course">
-              <button>Add Course</button>
+              <button className="courseAdd_button">Add Course</button>
             </NavLink>
-            {props.courses.map(course => (
-              <ClassCard
-                key={course.course_id}
-                course={course}
-                handleEditSelect={handleEditSelect}
-              />
-            ))}
+            <div className="courses_display">
+              {props.courses.map(course => (
+                <ClassCard
+                  key={course.course_id}
+                  course={course}
+                  handleEditSelect={handleEditSelect}
+                />
+              ))}
+            </div>
           </div>
         </Content>
       </Layout>

@@ -73,6 +73,7 @@ import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import AdminApplications from './components/pages/AdminApplications';
+import StudentResourcesPage from './components/pages/StudentHome/StudentResources';
 import StudentAchievements from './components/pages/StudentHome/StudentAchievements';
 import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
 import StudentProgress from './components/pages/StudentHome/StudentProgress/StudentProgress';
@@ -180,6 +181,7 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
+          <Route path="/student-resources" component={StudentResourcesPage} />
           <Route path="/student-messages" component={StudentMessages} />
           <Route path="/student-achievements" component={StudentAchievements} />
           <Route path="/student-portfolio" component={StudentPortfolio} />

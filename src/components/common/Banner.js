@@ -31,10 +31,14 @@ export default function Banner() {
       return bannerContent('Achievements');
     case '/parent/tasks':
       return bannerContent('Tasks');
+    case '/student-tasks':
+      return bannerContent('My Tasks');
     case '/parent/resources':
       return bannerContent('Resources');
+    case '/student-resources':
+      return bannerContent('Resources');
     case '/student-portfolio':
-      return bannerContent('Portfolio +');
+      return bannerContent('Portfolio');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':

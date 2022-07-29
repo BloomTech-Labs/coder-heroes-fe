@@ -180,6 +180,7 @@
 .add-student-button {
   background-color: @btn__bg--orange;
   color: @text__color--white;
+   margin: 3%
 }
 
 .student-view-account-button {
@@ -190,7 +191,7 @@
 .parent-view-account-button {
   color: @text__color--maroon;
   background-color: @btn__bg--white;
-  margin: 5%;
+   margin: 3%;
 }
 
 //****Parent-Progress styles****
@@ -428,4 +429,22 @@ background-position: center center;
 
   // background: url('../../img/Assets/achievements.png');
 
+}
+
+@media screen and (max-width: 700px) {
+  .parent-view-account-button {
+    font-size: .75em;
+  }
+  .add-student-button{
+    font-size: .75em
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .parent-view-account-button {
+    font-size: .5em;
+  }
+  .add-student-button{
+    font-size: .5em
+  }
 }

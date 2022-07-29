@@ -1,92 +1,103 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReplyEditor from './ReplyEditor';
-import { Comment, Tooltip, List } from 'antd';
+import { Comment, List } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';
-import moment from 'moment';
+import { connect, useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 
-const data = [
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
-    ),
-    datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(1, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(1, 'days')
-            .fromNow()}
-        </span>
-      </Tooltip>
-    ),
-  },
-  {
-    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
-    author: 'Han Solo',
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    content: (
-      <p>
-        We supply a series of design principles, practical patterns and high
-        quality design resources (Sketch and Axure), to help people create their
-        product prototypes beautifully and efficiently.
-      </p>
-    ),
-    datetime: (
-      <Tooltip
-        title={moment()
-          .subtract(2, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
-      >
-        <span>
-          {moment()
-            .subtract(2, 'days')
-            .fromNow()}
-        </span>
-      </Tooltip>
-    ),
-  },
-];
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 
-const MessageThread = () => (
-  <List
-    className="message-thread"
-    header={`${data.length} replies`}
-    itemLayout="horizontal"
-    dataSource={data}
-    renderItem={item => (
-      <li>
-        <Comment
-          actions={item.actions}
-          author={item.author}
-          avatar={item.avatar}
-          content={item.content}
-          datetime={item.datetime}
-        />
-      </li>
-    )}
-  />
-);
+function ActiveMessage(props) {
+  const dispatch = useDispatch();
+  const { authState, oktaAuth } = useOktaAuth();
 
-function ActiveMessage() {
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const sortByDate = arr => {
+    return arr.sort((a, b) => {
+      const dateA = new Date(a.sent_at);
+      const dateB = new Date(b.sent_at);
+      return dateA - dateB;
+    });
+  };
+  const getTime = time => {
+    const date = new Date(time);
+    return (
+      'Date: ' +
+      date.getDate() +
+      '/' +
+      (date.getMonth() + 1) +
+      '/' +
+      date.getFullYear() +
+      ' ' +
+      date.getHours() +
+      ':' +
+      String(date.getMinutes()).padStart(2, '0') +
+      ':' +
+      String(date.getSeconds()).padStart(2, '0')
+    );
+  };
+
+  const countReplies = arr => {
+    let count = 0;
+    arr.forEach(message => {
+      if (
+        message.read === false &&
+        message.sender_id !== props.currentUser.profile_id
+      ) {
+        count++;
+      }
+    });
+    return count;
+  };
+
   return (
     <div className="active-message">
-      <h4>Conversation with: Teacher1</h4>
-      <MessageThread />
+      <h4>
+        {props.activeConversation[0] && props.activeConversation[0].title}
+      </h4>
+      <List
+        className="message-thread"
+        header={`${props.activeConversation &&
+          countReplies(props.activeConversation)} unread`}
+        itemLayout="horizontal"
+        dataSource={
+          props.activeConversation ? sortByDate(props.activeConversation) : []
+        }
+        renderItem={(item, i) => (
+          <li key={i}>
+            <Comment
+              actions={
+                props.activeConversation[0] &&
+                props.activeConversation[0].actions
+              }
+              author={item.sender_id}
+              avatar="https://joeschmoe.io/api/v1/random"
+              content={item.message}
+              datetime={getTime(item.sent_at)}
+            />
+          </li>
+        )}
+      />
       <ReplyEditor />
     </div>
   );
 }
 
-export default ActiveMessage;
+const mapStateToProps = state => {
+  return {
+    Messages: state.userReducer.Messages,
+    currentUser: state.userReducer.currentUser,
+    activeConversation: state.userReducer.activeConversation,
+  };
+};
+
+export default connect(mapStateToProps)(ActiveMessage);

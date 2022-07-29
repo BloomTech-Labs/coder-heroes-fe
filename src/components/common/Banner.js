@@ -65,6 +65,8 @@ export default function Banner() {
       return bannerContent('Messages', '');
     case '/classroom':
       return bannerContent('Classroom');
+    case '/student-achievements':
+      return bannerContent('Achievements');
     default: {
       bannerContent('Dashboard', 'Welcome back!');
     }

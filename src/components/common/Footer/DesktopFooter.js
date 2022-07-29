@@ -27,22 +27,34 @@ function DesktopFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/about-coderheroes"
+                >
                   About CoderHeroes
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/privacy-policy"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/terms-and-conditions"
+                >
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/press-inquiries"
+                >
                   Press Inquiries
                 </Link>
               </li>
@@ -60,12 +72,12 @@ function DesktopFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link className="footer__nav-link footer__text" to="/faq">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link className="footer__nav-link footer__text" to="/site-map">
                   Site Map
                 </Link>
               </li>

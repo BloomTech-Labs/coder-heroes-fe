@@ -27,12 +27,12 @@ function MobileFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link className="footer__nav-link footer__text" to="/faq">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link className="footer__nav-link footer__text" to="/site-map">
                   Site Map
                 </Link>
               </li>
@@ -50,22 +50,34 @@ function MobileFooter() {
           <div>
             <ul>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/about-coderheroes"
+                >
                   About CoderHeroes
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/privacy-policy"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/terms-and-conditions"
+                >
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link className="footer__nav-link footer__text" to="/">
+                <Link
+                  className="footer__nav-link footer__text"
+                  to="/press-inquiries"
+                >
                   Press Inquiries
                 </Link>
               </li>
@@ -105,7 +117,81 @@ function MobileFooter() {
         </Col>
       </Row>
       <Divider style={{ color: '#ffffff' }} />
-      <Row>
+      <Row
+        className="social_media_icons_container"
+        style={{
+          justifyContent: 'space-between',
+          maxWidth: '250px',
+          margin: 'auto',
+        }}
+      >
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.facebook.com/coderheroes/"
+        >
+          <FacebookOutlined
+            className="social_media"
+            style={{
+              color: '#ffffff',
+              fontSize: '40px',
+            }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://twitter.com/coderheroes/"
+        >
+          <TwitterOutlined
+            className="social_media"
+            style={{
+              color: '#ffffff',
+              fontSize: '40px',
+            }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/coderheroes/"
+        >
+          <InstagramOutlined
+            className="social_media"
+            style={{
+              color: '#ffffff',
+              fontSize: '40px',
+            }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg/"
+        >
+          <YoutubeOutlined
+            className="social_media"
+            style={{
+              color: '#ffffff',
+              fontSize: '40px',
+            }}
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/company/coderheroes/"
+        >
+          <LinkedinOutlined
+            className="social_media"
+            style={{
+              color: '#ffffff',
+              fontSize: '40px',
+            }}
+          />
+        </a>
+      </Row>
+      <Row className="footer__title--container">
         <Title
           className="footer__title--copyright"
           style={{
@@ -120,69 +206,6 @@ function MobileFooter() {
         >
           © 2022 CoderHeroes
         </Title>
-      </Row>
-      <Row
-        style={{
-          justifyContent: 'space-between',
-          maxWidth: '250px',
-          margin: 'auto',
-        }}
-      >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.facebook.com/coderheroes/"
-        >
-          <FacebookOutlined
-            style={{
-              color: '#ffffff',
-              fontSize: '40px',
-            }}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://twitter.com/coderheroes/"
-        >
-          <TwitterOutlined style={{ color: '#ffffff', fontSize: '40px' }} />
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.instagram.com/coderheroes/"
-        >
-          <InstagramOutlined
-            style={{
-              color: '#ffffff',
-              fontSize: '40px',
-            }}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.youtube.com/channel/UC7vHHesa12tznVpgvnwbnKg/"
-        >
-          <YoutubeOutlined
-            style={{
-              color: '#ffffff',
-              fontSize: '40px',
-            }}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/company/coderheroes/"
-        >
-          <LinkedinOutlined
-            style={{
-              color: '#ffffff',
-              fontSize: '40px',
-            }}
-          />
-        </a>
       </Row>
     </div>
   );

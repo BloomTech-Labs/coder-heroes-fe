@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import StripeCheckoutButton from '../Stripe/StripeCheckoutButton';
 // import { useHistory } from 'react-router-dom';
@@ -40,7 +41,7 @@ function Cart(props) {
     cancelCartItem(booking);
     setShowModal(false);
   };
-  //do not delete will use some for credit card and coarses to added to cart
+  //do not delete will use some for credit card and courses to added to cart
 
   // const handleAddtoCart = booking => {
   //   addToCart(booking);
@@ -49,10 +50,16 @@ function Cart(props) {
 
   return (
     <div className="cart-container">
+      <div className="heading-container">
+        <h1>CONFIRMATION</h1>
+      </div>
+      <Link to="/parent-book-now">
+        <Button className="back-button">Back</Button>
+      </Link>
       {cart.length === 0 ? (
         <div className="cart-content">
           <div className="program-details-container">
-            You don't have any items in cart yet!
+            You haven't registered to any courses yet!
           </div>
         </div>
       ) : (

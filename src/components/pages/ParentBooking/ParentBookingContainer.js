@@ -1,3 +1,5 @@
+// WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
+
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';

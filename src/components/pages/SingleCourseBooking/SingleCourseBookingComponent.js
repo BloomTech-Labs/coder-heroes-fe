@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Styles
 import '../../../styles/BookingStyles/SingleCourseBookingStyles.less';
@@ -121,7 +122,9 @@ export function SingleCourseBookingComponent() {
           </div>
         </div>
       </div>
-      <button className="submit-button">Continue Registration</button>
+      <Link to="/parent/cart">
+        <button className="submit-button">Continue Registration</button>
+      </Link>
     </div>
   );
 }

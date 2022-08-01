@@ -7,7 +7,26 @@ import { DownOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from 'antd';
 
 export function SingleCourseBookingComponent() {
-  const menu = (
+  // menu -> this is what gets passed to the dropdown, it is what is listed out in the dropdown.
+  // You can add to the dropdown list by adding another object inside of "items", the "label" keys value is what will be shown.
+  // Right now the menu items are hard-coded, someone that works on this in the future can either dynamically render the information or simply add other menu variables to pass the dropdowns.
+
+  const courseMenu = (
+    <Menu
+      items={[
+        {
+          label: '1st example',
+          key: '1',
+        },
+        {
+          label: '2nd example',
+          key: '2',
+        },
+      ]}
+    />
+  );
+
+  const filterMenu = (
     <Menu
       items={[
         {
@@ -21,6 +40,17 @@ export function SingleCourseBookingComponent() {
         {
           label: '3rd example',
           key: '3',
+        },
+      ]}
+    />
+  );
+
+  const registerMenu = (
+    <Menu
+      items={[
+        {
+          label: '1st example',
+          key: '1',
         },
       ]}
     />
@@ -41,7 +71,7 @@ export function SingleCourseBookingComponent() {
       </div>
       <div className="course-card">
         <p>You Are Registering For:</p>
-        <Dropdown overlay={menu}>
+        <Dropdown overlay={courseMenu}>
           <Button>
             Course
             <DownOutlined />
@@ -55,25 +85,25 @@ export function SingleCourseBookingComponent() {
         <br />
 
         <div className="filter-container">
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={filterMenu}>
             <Button>
               Available Seats
               <DownOutlined />
             </Button>
           </Dropdown>
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={filterMenu}>
             <Button>
               Instructor
               <DownOutlined />
             </Button>
           </Dropdown>
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={filterMenu}>
             <Button>
               Session Type
               <DownOutlined />
             </Button>
           </Dropdown>
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={filterMenu}>
             <Button>
               Age Group
               <DownOutlined />
@@ -85,13 +115,13 @@ export function SingleCourseBookingComponent() {
         <div className="register-title">Registration:</div>
         <div className="register-columns">
           <div className="register-list">
-            <Dropdown overlay={menu}>
+            <Dropdown overlay={registerMenu}>
               <Button>
                 Number of Seats
                 <DownOutlined />
               </Button>
             </Dropdown>
-            <Dropdown overlay={menu}>
+            <Dropdown overlay={registerMenu}>
               <Button>
                 Available Dates
                 <DownOutlined />

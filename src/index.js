@@ -54,6 +54,7 @@ import ParentProgress from './components/pages/ParentHome/Progress';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import CourseDescription from './components/pages/CourseDescriptions';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
@@ -169,6 +170,7 @@ function App() {
             path="/parent/achievements"
             component={ParentAchievements}
           />
+          <SecureRoute exact path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentFamilyHome} />
@@ -176,9 +178,9 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/cart" component={Cart} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
+          <SecureRoute path="/parent-booking" component={CourseDescription} />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />

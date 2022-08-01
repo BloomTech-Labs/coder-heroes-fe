@@ -79,8 +79,6 @@ const ParentBookingCard = props => {
   );
 };
 
-// export default ParentBookingCard;
-
 const mapStateToProps = state => ({
   cart: state.parentReducer.cart,
   bookings: state.parentReducer.bookings,

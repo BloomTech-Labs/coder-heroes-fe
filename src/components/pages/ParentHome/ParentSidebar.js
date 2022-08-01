@@ -120,7 +120,8 @@ const ParentSideBar = props => {
         >
           <Link to="/parent/booking">Courses</Link>
         </Menu.Item>
-
+        {/* THIS IS COMMENTED OUT BECAUSE WE ARE NOT USEING THE CART COMPONENT AS A CART COMPONENT, WE ARE ISTED USING IT AS A CONFIRMATION PAGE FOR SingleCourseBookingComponent.js. I HAVE PURPOSELY LEFT IT HERE SO THAT YOU MAY TEST IT */}
+        {/* 
         <Menu.Item
           key="cart"
           className={active === 'cart' ? 'ant-menu-item-selected' : ''}
@@ -129,7 +130,7 @@ const ParentSideBar = props => {
           <Link to="/parent/cart" className="link">
             Cart <span>({cart.length})</span>
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
 
         <Menu.Item
           key="settings"

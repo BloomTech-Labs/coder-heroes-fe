@@ -4,11 +4,11 @@ import MobileFooter from './MobileFooter';
 import { Layout } from 'antd';
 
 const { Footer } = Layout;
-
 function MainFooter() {
   return (
     <>
       {/* Dispaly for Desktop (is hidden at 900px screen width or below) */}
+
       <Footer
         className="desktop-footer"
         style={{
@@ -30,5 +30,4 @@ function MainFooter() {
     </>
   );
 }
-
 export default MainFooter;

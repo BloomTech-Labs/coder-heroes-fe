@@ -1,0 +1,62 @@
+.modal-window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .modal-close-button {
+    width: 5%;
+    background-color: #096a70;
+  }
+
+  .h3-container {
+    width: 100%;
+
+    h3 {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .filter-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    width: 100%;
+
+    button {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .topics-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .topics-title {
+      margin-top: 5%;
+    }
+
+    .topics-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-content: space-evenly;
+      margin-top: 6%;
+      width: 100%;
+    }
+  }
+
+  .submit-button {
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+    background-color: #096a70;
+    color: white;
+    width: 20%;
+  }
+}

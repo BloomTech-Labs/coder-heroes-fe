@@ -55,6 +55,7 @@ import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
 import SingleCourseBooking from './components/pages/SingleCourseBooking';
+import CourseDescription from './components/pages/CourseDescriptions';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
@@ -74,9 +75,17 @@ import InstructorDashboard from './components/pages/Dashboard';
 import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
 import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
 import AdminApplications from './components/pages/AdminApplications';
+import StudentTasks from './components/pages/StudentHome/StudentTasks';
+import StudentResourcesPage from './components/pages/StudentHome/StudentResources';
 import StudentAchievements from './components/pages/StudentHome/StudentAchievements';
 import StudentPortfolio from './components/pages/StudentHome/StudentPortfolio';
 import StudentProgress from './components/pages/StudentHome/StudentProgress/StudentProgress';
+import AboutCoderHeroes from './components/pages/About/AboutCoderHeroes';
+import PrivacyPolicy from './components/pages/About/PrivacyPolicy';
+import TermsAndConditions from './components/pages/About/TermsAndConditions';
+import PressInquiries from './components/pages/About/PressInquiries';
+import Faq from './components/pages/Services/Faq';
+import SiteMap from './components/pages/Services/SiteMap';
 
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 
@@ -144,6 +153,12 @@ function App() {
           <Route path="/register-3" component={RegisterStep3} />
           <Route path="/register-4" component={RegisterStep4} />
           <Route path="/instructor-register-1" component={InstructorWelcome} />
+          <Route path="/about-coderheroes" component={AboutCoderHeroes} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route path="/press-inquiries" component={PressInquiries} />
+          <Route path="/faq" component={Faq} />
+          <Route path="/site-map" component={SiteMap} />
           <Route
             path="/instructor-register-2"
             component={InstructorFlow_Step2}
@@ -156,6 +171,7 @@ function App() {
             path="/parent/achievements"
             component={ParentAchievements}
           />
+          <SecureRoute exact path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/booking" component={ParentBooking} />
           <SecureRoute path="/parent/calendar" component={ParentCalendar} />
           <SecureRoute path="/parent/family" component={ParentFamilyHome} />
@@ -172,6 +188,8 @@ function App() {
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
+          <Route path="/student-tasks" component={StudentTasks} />
+          <Route path="/student-resources" component={StudentResourcesPage} />
           <Route path="/student-messages" component={StudentMessages} />
           <Route path="/student-achievements" component={StudentAchievements} />
           <Route path="/student-portfolio" component={StudentPortfolio} />

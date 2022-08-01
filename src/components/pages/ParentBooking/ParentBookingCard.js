@@ -53,6 +53,10 @@ const ParentBookingCard = props => {
     { title: 'class size', text: size },
   ];
 
+  const handleAddCourse = booking => {
+    addToCart(booking);
+  };
+
   return (
     <Card title={subject} style={{ width: 280 }} hoverable="true">
       {data.map((itm, idx) => {
@@ -66,9 +70,10 @@ const ParentBookingCard = props => {
         type="primary"
         style={{ background: '#006C72', color: 'white' }}
         block
+        onClick={() => handleAddCourse(data)}
       >
         {' '}
-        ADD{' '}
+        ADD{'  '}
       </Button>
     </Card>
   );

@@ -166,7 +166,6 @@ function App() {
           <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
           <SecureRoute
-            exact
             path="/parent-book-now"
             component={SingleCourseBooking}
           />

@@ -27,6 +27,9 @@ export function SingleCourseBookingComponent() {
   );
 
   return (
+    // Dropdown and Button are from ant design
+    // DownOutlined is the down arrow on the dropdowns, also from ant design
+
     <div className="content-container">
       <div className="heading-container">
         <div className="button-container">

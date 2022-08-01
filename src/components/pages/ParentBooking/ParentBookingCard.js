@@ -38,10 +38,6 @@ const ParentBookingCard = props => {
       .catch(err => console.log(`message: ${err.message}`));
   };
 
-  const handleAddCourse = booking => {
-    addToCart(booking);
-  };
-
   const data = [
     { title: 'student name', text: child_name },
     { title: 'course', text: subject },
@@ -70,7 +66,6 @@ const ParentBookingCard = props => {
         type="primary"
         style={{ background: '#006C72', color: 'white' }}
         block
-        onClick={() => handleAddCourse(data)}
       >
         {' '}
         ADD{' '}

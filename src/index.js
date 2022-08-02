@@ -33,7 +33,7 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome';
-import AdminAddCourses from './components/pages/AdminAddProgram';
+import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';

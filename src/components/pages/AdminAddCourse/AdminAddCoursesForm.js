@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
-import '../../../styles/AdminAddProgramStyles/AdminAddProgramsStyles.less';
+import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesStyles.less';
 import { Input, Form, Card } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 

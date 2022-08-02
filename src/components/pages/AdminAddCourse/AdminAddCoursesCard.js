@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import '../../../styles/AdminAddProgramStyles/AdminAddProgramsCard.less';
+import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesCard.less';
 import { Card, Button, Modal, Form, Input } from 'antd';
 import React, { useState } from 'react';
 import { delClass, editClass } from '../../../redux/actions/adminActions';

@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import '../../../styles/AdminAddProgramStyles/AdminAddProgramsPage.less';
+import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 
-import AdminAddCourses from './AdminAddPrograms';
-import AdminAddCoursesList from './AdminAddProgramsList';
+import AdminAddCoursesForm from './AdminAddCoursesForm';
+import AdminAddCoursesList from './AdminAddCoursesList';
 
-function AdminCourses(props) {
+function AdminAddCoursesPage(props) {
   return (
     <div className="admin-add-courses-page" style={{ display: 'flex' }}>
       <div className="admin-add-courses-left">
-        <AdminAddCourses editClass={props.changeClass} />
+        <AdminAddCoursesForm editClass={props.changeClass} />
       </div>
       <div className="admin-add-courses-right">
         <AdminAddCoursesList />
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(AdminCourses);
+export default connect(mapStateToProps)(AdminAddCoursesPage);

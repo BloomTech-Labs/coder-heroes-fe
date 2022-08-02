@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
-import '../../../styles/index.less';
+import '../../../styles/AdminAddProgramStyles/AdminAddProgramsStyles.less';
 import { Input, Form, Card } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
@@ -69,11 +69,11 @@ function AdminAddCoursesForm(props) {
   };
 
   return (
-    <div className="add-courses-form-container" style={{ height: '75vh' }}>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <h1 style={{ marginTop: 30, fontSize: 20 }}>Submit New Program:</h1>
+    <div className="add-courses-form-container">
+      <div className="h1-container">
+        <h1>Submit New Program:</h1>
       </div>
-      <section style={{ display: 'flex', justifyContent: 'center' }}>
+      <section className="form-items-container">
         <Form wrapperCol={{ span: 50 }} layout="horizontal">
           <Form.Item>
             <label htmlFor="className">Class Name: </label>
@@ -107,7 +107,7 @@ function AdminAddCoursesForm(props) {
               alignItems: 'center',
               justifyContent: 'space-between',
             }}
-            className="prereq-split-container"
+            name="prereq-split-container"
           >
             <Form.Item style={{ width: '65%' }}>
               <label htmlFor="prereq">Prerequisites: </label>
@@ -141,8 +141,8 @@ function AdminAddCoursesForm(props) {
             <p id="prereq-render"></p>
           </Card>
 
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button className="course-submit-button" onClick={handleSubmit}>
+          <div className="submit-button-container">
+            <button className="submit-button" onClick={handleSubmit}>
               Submit
             </button>
           </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import '../../../styles/index.less';
+import '../../../styles/AdminAddProgramStyles/AdminAddProgramsPage.less';
 
 import AdminAddCourses from './AdminAddPrograms';
 import AdminAddCoursesList from './AdminAddProgramsList';

@@ -1,10 +1,12 @@
 import React from 'react';
 import Banner from '../../common/Banner';
 import ParentSidebar from './ParentSidebar';
+import Cart from './Cart';
 import IndividualNewsParent from '../ParentNewsFeed/IndividualNewsParent';
 import '../../../styles/ParentStyles/dashboard.less';
 import { Layout, Col, Row, Card } from 'antd';
 import 'antd/dist/antd.css';
+import { Route, Switch } from 'react-router-dom';
 
 const ParentHome = () => {
   const { Content } = Layout;
@@ -19,8 +21,14 @@ const ParentHome = () => {
               <Row className="row">
                 <Card className="dashboard-card">
                   <Row className="row">
-                    <IndividualNewsParent />
-                    <IndividualNewsParent />
+                    <Switch>
+                      <Route
+                        exact
+                        path="/parent"
+                        component={IndividualNewsParent}
+                      />
+                      <Route exact path="/parent/cart" component={Cart} />
+                    </Switch>
                   </Row>
                 </Card>
               </Row>

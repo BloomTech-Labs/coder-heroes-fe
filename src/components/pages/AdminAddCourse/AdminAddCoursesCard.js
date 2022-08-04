@@ -1,8 +1,10 @@
-import { connect } from 'react-redux';
-import '../../../styles/AdminAddProgramStyles/AdminAddProgramsCard.less';
-import { Card, Button, Modal, Form, Input } from 'antd';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { delClass, editClass } from '../../../redux/actions/adminActions';
+
+// Styles
+import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesCard.less';
+import { Card, Button, Modal, Form, Input } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 let placeHolder = [];

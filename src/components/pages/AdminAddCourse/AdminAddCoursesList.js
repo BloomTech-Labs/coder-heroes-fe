@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../../styles/AdminAddProgramStyles/AdminAddProgramsList.less';
+import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesList.less';
 import { List } from 'antd';
-import AdminAddCoursesCard from './AdminAddProgramsCard';
+import AdminAddCoursesCard from './AdminAddCoursesCard';
 
-function adminCoursesList(props) {
+function AdminAddCoursesList(props) {
   const { program_list } = props;
 
   return (
@@ -38,4 +38,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(adminCoursesList);
+export default connect(mapStateToProps)(AdminAddCoursesList);

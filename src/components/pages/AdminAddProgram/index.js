@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminSidebar from '../AdminHome/AdminSidebar';
 import AdminAddCoursesPage from './AdminAddProgramsPage';
-import '../../../styles/index.less';
+import '../../../styles/AdminAddProgramStyles/index.less';
 
 export default function AdminAddCourses() {
   return (

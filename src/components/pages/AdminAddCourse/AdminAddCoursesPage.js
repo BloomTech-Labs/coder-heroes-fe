@@ -4,16 +4,13 @@ import { connect } from 'react-redux';
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 
 import AdminAddCoursesForm from './AdminAddCoursesForm';
-import AdminAddCoursesList from './AdminAddCoursesList';
+// import AdminAddCoursesList from './AdminAddCoursesList';
 
 function AdminAddCoursesPage(props) {
   return (
     <div className="admin-add-courses-page" style={{ display: 'flex' }}>
       <div className="admin-add-courses-left">
         <AdminAddCoursesForm editClass={props.changeClass} />
-      </div>
-      <div className="admin-add-courses-right">
-        <AdminAddCoursesList />
       </div>
     </div>
   );

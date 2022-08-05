@@ -31,10 +31,14 @@ export default function Banner() {
       return bannerContent('Achievements');
     case '/parent/tasks':
       return bannerContent('Tasks');
+    case '/student-tasks':
+      return bannerContent('My Tasks');
     case '/parent/resources':
       return bannerContent('Resources');
+    case '/student-resources':
+      return bannerContent('Resources');
     case '/student-portfolio':
-      return bannerContent('Portfolio +');
+      return bannerContent('Portfolio');
     case '/instructor-booking':
       return bannerContent('Apply to Course', 'Select Courses');
     case '/instructor-add-course':
@@ -59,6 +63,10 @@ export default function Banner() {
       return bannerContent('Cart', '');
     case '/parent/messages':
       return bannerContent('Messages', '');
+    case '/classroom':
+      return bannerContent('Classroom');
+    case '/student-achievements':
+      return bannerContent('Achievements');
     default: {
       bannerContent('Dashboard', 'Welcome back!');
     }

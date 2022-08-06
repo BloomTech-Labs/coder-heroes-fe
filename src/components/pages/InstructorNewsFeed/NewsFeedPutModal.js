@@ -25,8 +25,6 @@ function NewsFeedPutModal(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('NewsFeedPutModal formValues:', formValues);
-    console.log('NewsFeedPutModal props', postID, link, description, title);
     dispatch(getNewsFeed(idToken, postID));
   }, []);
 

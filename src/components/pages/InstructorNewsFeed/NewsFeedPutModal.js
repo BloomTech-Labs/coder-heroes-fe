@@ -12,19 +12,21 @@ import {
 } from '../../../redux/actions/instructorActions';
 
 function NewsFeedPutModal(props) {
-  const { postID } = props;
+  const { postID, link, description, title } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
   const [formValues, setFormValues] = useState({
-    link: '',
-    description: '',
-    title: '',
+    link: link,
+    description: description,
+    title: title,
   });
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('NewsFeedPutModal formValues:', formValues);
+    console.log('NewsFeedPutModal props', postID, link, description, title);
     dispatch(getNewsFeed(idToken, postID));
   }, []);
 
@@ -115,6 +117,9 @@ const mapStateToProps = state => {
     newsfeed: state.instructorReducer.newsfeed,
     postOptions: state.instructorReducer.postOptions,
     postID: state.instructorReducer.postID,
+    link: state.instructorReducer.link,
+    title: state.instructorReducer.title,
+    description: state.instructorReducer.description,
   };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

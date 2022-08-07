@@ -12,14 +12,14 @@ import {
 } from '../../../redux/actions/instructorActions';
 
 function NewsFeedPutModal(props) {
-  const { postID, link, description, title } = props;
+  const { postID, link, title, description } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
   const [formValues, setFormValues] = useState({
     link: link,
-    description: description,
     title: title,
+    description: description,
   });
 
   const dispatch = useDispatch();

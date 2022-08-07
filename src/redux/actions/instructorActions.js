@@ -279,18 +279,18 @@ export const getInstructor = (idToken, profile_id) => async dispatch => {
 };
 
 export const setPostID = (
-  postID,
+  newsfeed_id,
   link,
-  description,
-  title
+  title,
+  description
 ) => async dispatch => {
   dispatch({
     type: SET_POST_ID,
     payload: {
-      postID: postID,
+      postID: newsfeed_id,
       link: link,
-      description: description,
       title: title,
+      description: description,
     },
   });
 };

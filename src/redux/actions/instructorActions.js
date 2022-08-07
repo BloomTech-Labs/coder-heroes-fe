@@ -189,25 +189,6 @@ export const postNewsFeed = (idToken, values) => dispatch => {
   }
 };
 
-// export const putNewsFeed = (idToken, postID, values, post) => dispatch => {
-//     try {
-//         axiosWithAuth(idToken)
-//             .put(`/news/${postID}`, values)
-//             .then(resp => {
-//                 dispatch({
-//                     type: PUT_NEWSFEED,
-//                     payload: post,
-//                 });
-//             })
-//             .catch(err => console.log(err));
-//     } catch (error) {
-//         dispatch({
-//             type: ERROR_ACTION,
-//             payload: error.message,
-//         });
-//     }
-// };
-
 export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
   try {
     axiosWithAuth(idToken)

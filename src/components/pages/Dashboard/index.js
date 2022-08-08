@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'; // REMOVE MAYBE
 import '../../../styles/InstructorStyles/index.less';
 import { Layout } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
@@ -27,7 +27,7 @@ const InstructorDashboard = props => {
   switch (role_id) {
     case 1:
       return <AdminHome />;
-      break;
+      break; // REMOVE BREAKS;;
     case 2:
       return <InstructorHome />;
       break;
@@ -52,3 +52,5 @@ export default connect(mapStateToProps)(InstructorDashboard);
 //     </Content>
 //   </Layout>
 // </div>
+
+/// REMOVEEEE&&&&^^^^

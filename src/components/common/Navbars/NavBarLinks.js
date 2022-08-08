@@ -24,7 +24,7 @@ export default function NavBarLinks(props) {
   } else if (role_id === 3) {
     return (
       <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/instructor">
+        <NavLink className="navbar__navLink" to="/dashboard">
           DASHBOARD
         </NavLink>
         <NavLink className="navbar__navLink" to="/instructor-all-classes">

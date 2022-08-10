@@ -6,7 +6,7 @@ import IndividualNews from './IndividualNews';
 import { useOktaAuth } from '@okta/okta-react';
 
 function NewsContainer(props) {
-  const { newsfeed, dispatch, post } = props;
+  const { newsfeed, dispatch } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
@@ -17,7 +17,7 @@ function NewsContainer(props) {
   return (
     <div className="news-container">
       {newsfeed.map(news => {
-        const { title, link, description, newsfeed_id } = news;
+        const { title, link, description, newsfeed_id, posted_at } = news;
         return (
           <IndividualNews
             key={newsfeed_id}
@@ -25,6 +25,7 @@ function NewsContainer(props) {
             link={link}
             description={description}
             newsfeed_id={newsfeed_id}
+            posted_at={posted_at}
           />
         );
       })}

@@ -32,6 +32,7 @@ const initialState = {
   post: [],
   postOptions: 'newsFeed',
   postID: 0,
+  posted_at: null,
 };
 
 const instructorReducer = (state = initialState, action) => {
@@ -92,7 +93,6 @@ const instructorReducer = (state = initialState, action) => {
         ...state,
         newsfeed: payload,
       };
-
     case GET_NEWSFEED:
       return {
         ...state,
@@ -129,6 +129,7 @@ const instructorReducer = (state = initialState, action) => {
         link: payload.link,
         title: payload.title,
         description: payload.description,
+        posted_at: payload.posted_at,
       };
     case SET_POST_OPTIONS:
       return {

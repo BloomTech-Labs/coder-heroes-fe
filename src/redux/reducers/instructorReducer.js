@@ -129,7 +129,7 @@ const instructorReducer = (state = initialState, action) => {
         link: payload.link,
         title: payload.title,
         description: payload.description,
-        posted_at: payload.posted_at,
+        posted_at: new Date().toISOString(),
       };
     case SET_POST_OPTIONS:
       return {

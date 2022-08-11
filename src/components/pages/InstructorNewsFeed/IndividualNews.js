@@ -29,7 +29,6 @@ function IndividualNews(props) {
         <button
           className="edit-button"
           onClick={() => {
-            console.log('individual news posted_at:', posted_at);
             dispatch(
               setPostID(newsfeed_id, link, title, description, posted_at)
             );

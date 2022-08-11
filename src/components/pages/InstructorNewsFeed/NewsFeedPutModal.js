@@ -39,9 +39,8 @@ function NewsFeedPutModal(props) {
   const handleEdit = event => {
     setFormValues({
       ...formValues,
-      posted_at: new Date().toISOString(),
     });
-    console.log('put modal posted_at:', posted_at);
+
     dispatch(putNewsFeed(idToken, postID, formValues, posted_at));
 
     dispatch(setPostOptions('newsFeed'));

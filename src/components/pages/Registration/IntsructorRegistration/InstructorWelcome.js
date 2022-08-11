@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/registration.less';
+import '../../../../styles/registration.less';
 
 export default function InstructorWelcome() {
   return (
@@ -10,7 +10,7 @@ export default function InstructorWelcome() {
           You are steps away from sharing your superpowers with future
           CoderHeroes
         </p>
-        <button>CREATE ACCOUNT</button>
+        <a href="/instructor-register-2">CREATE INSTRUCTOR ACCOUNT</a>
       </div>
     </div>
   );

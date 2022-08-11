@@ -37,7 +37,7 @@ import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';
-import Footer from './components/common/Footer/Index';
+import Footer from './components/common/Footer';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';

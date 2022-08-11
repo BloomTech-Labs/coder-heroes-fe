@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../../../styles/registration.less';
 import RegistrationProgress from '../RegistrationProgress';
+import RegistrationProgress from '../RegistrationProgress';
 
 export default function InstructorWelcome() {
   return (
     <div className="reg-content-container">
-      <RegistrationProgress step_num={0} />
       <RegistrationProgress step_num={0} />
       <div className="content">
         <p className="color-one">Help Teach CoderHeroes!</p>

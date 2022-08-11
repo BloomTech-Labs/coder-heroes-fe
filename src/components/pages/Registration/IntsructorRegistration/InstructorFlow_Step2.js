@@ -4,8 +4,10 @@ import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
 import RegistrationProgress from '../RegistrationProgress';
 import { useHistory } from 'react-router-dom';
-// import axiosWithAuth from '../../../../utils/axiosWithAuth';
-// import { useOktaAuth } from '@okta/okta-react';
+import axiosWithAuth from '../../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
+import { connect, useDispatch } from 'react-redux';
+import { getCurrentUser } from '../../../../redux/actions/userActions';
 
 const initialValues = {
   name: '',
@@ -36,8 +38,19 @@ const InstrRegForm = () => {
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
-  // const { authState } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   // const { idToken } = authState;
+  const dispatch = useDispatch();
+
+  console.log(formValues);
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const validate = (name, value) => {
     yup
@@ -87,16 +100,22 @@ const InstrRegForm = () => {
 
     // TODO: remove this stub
 
-    // axiosWithAuth(idToken)
-    // .post('/instructor', formValues.InstrRegForm)
-    // .then(()=> {
-    //   history.push('/instructor-register-success');
-    // })
-    // .catch((err)=> {
-    //   console.error(err);
-    //   setFormWarning(err);
-    // });
-    history.push('/instructor-register-success');
+    axiosWithAuth(authState.idToken)
+      .post('/instructor/register', {
+        firstName: 'landon',
+        lastName: 'phillps',
+        email: 'landon@landon.com',
+        login: 'landon@landon.com',
+      })
+      .then(res => {
+        console.log(res);
+        history.push('/instructor-register-success');
+      })
+      .catch(err => {
+        console.error(err);
+        setFormWarning(err);
+      });
+    // history.push('/instructor-register-success');
   };
 
   const onChange = evt => {

@@ -33,6 +33,7 @@ const { Header } = Layout;
 
 function NavBar(props) {
   const [visible, setVisible] = useState(false);
+  const [logoutRender, setLogoutRender] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
   console.log(`inside Navbar role_id is: ${role_id}`);
@@ -41,6 +42,14 @@ function NavBar(props) {
     if (role_id === 5) setBgColor('#9FB222');
     else if (role_id < 5) setBgColor('#21C5B5');
     else setBgColor('#FEAD2A');
+  }, [role_id]);
+
+  useEffect(() => {
+    if (role_id <= 5) {
+      setLogoutRender(true);
+    } else if (role_id === undefined) {
+      setLogoutRender(false);
+    }
   }, [role_id]);
 
   const showDrawer = () => {
@@ -67,7 +76,7 @@ function NavBar(props) {
         </div>
         <NavBarLinks role_id={role_id} />
         <div className="navbar__btns">
-          {localStorage.getItem('okta-token-storage') ? (
+          {logoutRender ? (
             <NavLink to="/" onClick={handleLogout}>
               <button className="navbar__btn">LOGOUT</button>
             </NavLink>

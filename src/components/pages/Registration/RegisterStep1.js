@@ -12,10 +12,7 @@ export default function RegisterStep1() {
           You are steps away from unleashing your superpowers
         </p>
         <div className="profile-btns">
-          <a href="/register-2">CREATE A PROFILE</a>
-          {/* <p className="or">
-          Or
-        </p> */}
+          <a href="/register-2">CREATE PARENT PROFILE</a>
           <a href="/instructor-register-1">BECOME AN INSTRUCTOR</a>
         </div>
       </div>

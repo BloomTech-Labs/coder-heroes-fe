@@ -174,7 +174,7 @@
 .add-student-button {
   background-color: @btn__bg--orange;
   color: @text__color--white;
-  margin: 3%;
+  margin: 3%
 }
 
 .student-view-account-button {
@@ -423,11 +423,20 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .parent-view-account-button {
+    font-size: .75em;
+  }
+  .add-student-button{
+    font-size: .75em
+  }
+}
+
 @media screen and (max-width: 550px) {
   .parent-view-account-button {
-    font-size: 0.5em;
+    font-size: .5em;
   }
-  .add-student-button {
-    font-size: 0.5em;
+  .add-student-button{
+    font-size: .5em
   }
 }

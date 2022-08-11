@@ -6,7 +6,7 @@ import {
   setPostOptions,
 } from '../../../redux/actions/instructorActions';
 function IndividualNews(props) {
-  const { title, link, description, newsfeed_id } = props;
+  const { newsfeed_id, link, title, description } = props;
   const [showNewsFeedModal, setShowNewsFeedModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ function IndividualNews(props) {
         <button
           className="edit-button"
           onClick={() => {
-            dispatch(setPostID(newsfeed_id));
+            dispatch(setPostID(newsfeed_id, link, title, description));
             dispatch(setPostOptions('editDelete'));
           }}
         >

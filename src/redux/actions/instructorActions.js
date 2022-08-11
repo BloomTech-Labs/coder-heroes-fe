@@ -189,14 +189,14 @@ export const postNewsFeed = (idToken, values) => dispatch => {
   }
 };
 
-export const putNewsFeed = (idToken, postID, values, post) => dispatch => {
+export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
   try {
     axiosWithAuth(idToken)
-      .put(`/news/${postID}`, values)
+      .put(`/news/${postID}`, formValues)
       .then(resp => {
         dispatch({
           type: PUT_NEWSFEED,
-          payload: post,
+          payload: formValues,
         });
       })
       .catch(err => console.log(err));
@@ -259,10 +259,20 @@ export const getInstructor = (idToken, profile_id) => async dispatch => {
   }
 };
 
-export const setPostID = postID => async dispatch => {
+export const setPostID = (
+  newsfeed_id,
+  link,
+  title,
+  description
+) => async dispatch => {
   dispatch({
     type: SET_POST_ID,
-    payload: postID,
+    payload: {
+      postID: newsfeed_id,
+      link: link,
+      title: title,
+      description: description,
+    },
   });
 };
 

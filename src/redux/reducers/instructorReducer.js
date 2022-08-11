@@ -125,7 +125,10 @@ const instructorReducer = (state = initialState, action) => {
     case SET_POST_ID:
       return {
         ...state,
-        postID: payload,
+        postID: payload.postID,
+        link: payload.link,
+        title: payload.title,
+        description: payload.description,
       };
     case SET_POST_OPTIONS:
       return {

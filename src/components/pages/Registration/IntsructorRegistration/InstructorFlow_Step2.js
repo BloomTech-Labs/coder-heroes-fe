@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../../../styles/registration.less';
+import '../../../../styles/registration.less';
 import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
-import RegistrationProgress from './RegistrationProgress';
+import RegistrationProgress from '../RegistrationProgress';
 import { useHistory } from 'react-router-dom';
+// import axiosWithAuth from '../../../../utils/axiosWithAuth';
+// import { useOktaAuth } from '@okta/okta-react';
 
 const initialValues = {
   name: '',
@@ -34,6 +36,8 @@ const InstrRegForm = () => {
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
 
   const validate = (name, value) => {
     yup
@@ -82,6 +86,16 @@ const InstrRegForm = () => {
     // });
 
     // TODO: remove this stub
+
+    // axiosWithAuth(idToken)
+    // .post('/instructor', formValues.InstrRegForm)
+    // .then(()=> {
+    //   history.push('/instructor-register-success');
+    // })
+    // .catch((err)=> {
+    //   console.error(err);
+    //   setFormWarning(err);
+    // });
     history.push('/instructor-register-success');
   };
 

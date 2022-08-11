@@ -88,7 +88,7 @@ const InstrRegForm = () => {
     // TODO: remove this stub
 
     // axiosWithAuth(idToken)
-    // .post('/instructor', formValues.InstrRegForm)
+    // .post('/instructor/register', formValues.InstrRegForm)
     // .then(()=> {
     //   history.push('/instructor-register-success');
     // })

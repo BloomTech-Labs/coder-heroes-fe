@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../../styles/registration.less';
 import RegistrationProgress from '../RegistrationProgress';
+import RegistrationProgress from '../RegistrationProgress';
 
 export default function InstructorWelcome() {
   return (

@@ -33,11 +33,11 @@ import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome';
-import AdminAddCourses from './components/pages/AdminAddProgram';
+import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';
-import Footer from './components/common/Footer';
+import Footer from './components/common/Footer/Index';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
@@ -54,6 +54,7 @@ import ParentProgress from './components/pages/ParentHome/Progress';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
 import Cart from './components/pages/ParentHome/Cart';
+import SingleCourseBooking from './components/pages/SingleCourseBooking';
 import CourseDescription from './components/pages/CourseDescriptions';
 // eslint-disable-next-line
 import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
@@ -178,9 +179,12 @@ function App() {
           <SecureRoute path="/parent/messages" component={ParentMessages} />
           <SecureRoute path="/parent/tasks" component={ParentTasks} />
           <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent/cart" component={Cart} />
+          <SecureRoute path="/parent" component={ParentHome} />
           <SecureRoute path="/parent/progress" component={ParentProgress} />
-          <SecureRoute path="/parent-booking" component={CourseDescription} />
+          <SecureRoute
+            path="/parent-book-now"
+            component={SingleCourseBooking}
+          />
           <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />

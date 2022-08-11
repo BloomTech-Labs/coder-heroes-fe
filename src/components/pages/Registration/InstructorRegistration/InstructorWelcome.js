@@ -12,7 +12,7 @@ export default function InstructorWelcome() {
           You are steps away from sharing your superpowers with future
           CoderHeroes
         </p>
-        <a href="/instructor-register-2">CREATE INSTRUCTOR ACCOUNT</a>
+        <a href="/instructor-register-2">CREATE ACCOUNT</a>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import RegistrationProgress from '../RegistrationProgress';
 import { useHistory } from 'react-router-dom';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 
 const initialValues = {
@@ -39,10 +39,8 @@ const InstrRegForm = () => {
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
   const { authState, oktaAuth } = useOktaAuth();
-  // const { idToken } = authState;
   const dispatch = useDispatch();
 
-  console.log(formValues);
   useEffect(() => {
     if (authState !== null) {
       if (authState.isAuthenticated !== false) {
@@ -115,7 +113,6 @@ const InstrRegForm = () => {
         console.error(err);
         setFormWarning(err);
       });
-    // history.push('/instructor-register-success');
   };
 
   const onChange = evt => {

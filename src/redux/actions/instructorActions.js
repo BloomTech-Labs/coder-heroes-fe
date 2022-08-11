@@ -55,6 +55,7 @@ export const getCourses = idToken => async dispatch => {
       type: GET_INSTRUCTOR_COURSES,
       payload: courses,
     });
+    console.log(courses);
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,

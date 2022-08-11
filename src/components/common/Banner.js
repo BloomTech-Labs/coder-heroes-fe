@@ -59,8 +59,9 @@ export default function Banner() {
       return bannerContent('Newsfeed', '');
     case '/parent/family':
       return bannerContent('Choose a Profile', '');
-    case '/parent/cart':
-      return bannerContent('Cart', '');
+    // THIS IS COMMENTED OUT BECAUSE WE ARE TRYING OUT SingleCourseBookingComponent.js AND THE CART IS BEING USED AS A CONFIRMATION PAGE AS OF RIGHT NOW
+    // case '/parent/cart':
+    // return bannerContent('Cart', '');
     case '/parent/messages':
       return bannerContent('Messages', '');
     case '/classroom':

@@ -1,3 +1,5 @@
+// WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Card, Button } from 'antd';

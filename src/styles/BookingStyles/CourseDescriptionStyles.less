@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+.course-page {
+  display: flex;
+  flex-direction: column;
+  .modal-open {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .modal-component-container {
+      position: absolute;
+      display: flex;
+      visibility: visible;
+      height: 50%;
+      width: 50%;
+      background-color: white;
+      z-index: 1;
+    }
+  }
+  .modal-closed {
+    visibility: hidden;
+    display: none;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 5%;
+    height: 7vh;
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 7vh;
+      input {
+        width: 30%;
+        height: 7vh;
+        font-size: medium;
+      }
+      .advanced-search {
+        background: none;
+        border: none;
+        margin-left: 21%;
+        color: grey;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .page-title {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    height: 23vh;
+
+    .title-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      justify-content: center;
+
+      h1 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-family: 'Staatliches';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 93px;
+        text-decoration: underline;
+        align-items: center;
+      }
+    }
+
+    .image {
+      display: flex;
+      justify-content: flex-start;
+      position: absolute;
+      padding-left: 5%;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 2%;
+    padding-bottom: 5%;
+
+    .description-card {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      width: 369px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 3px 3px 3px -2px darkgray;
+
+      .card-details {
+        display: flex;
+        flex-direction: column;
+        row-gap: 80px;
+        .card-content {
+          padding: 1%;
+          p {
+            display: flex;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            color: #000000;
+          }
+
+          h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+          }
+          li {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

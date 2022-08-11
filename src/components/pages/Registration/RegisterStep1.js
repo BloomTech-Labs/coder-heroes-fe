@@ -11,8 +11,13 @@ export default function RegisterStep1() {
         <p className="color-two">
           You are steps away from unleashing your superpowers
         </p>
-        <a href="/register-2">CREATE PROFILES</a>
-        <a href="/instructor-register-1">BECOME AN INSTRUCTOR</a>
+        <div className="profile-btns">
+          <a href="/register-2">CREATE A PROFILE</a>
+          {/* <p className="or">
+          Or
+        </p> */}
+          <a href="/instructor-register-1">BECOME AN INSTRUCTOR</a>
+        </div>
       </div>
     </div>
   );

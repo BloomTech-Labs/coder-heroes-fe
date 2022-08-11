@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../styles/registration.less';
-import RegistrationProgress from './RegistrationProgress';
+import '../../../../styles/registration.less';
+import RegistrationProgress from '../RegistrationProgress';
 
 export default function SuccessfulSubmission() {
   return (

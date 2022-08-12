@@ -100,10 +100,13 @@ const InstrRegForm = () => {
 
     axiosWithAuth(authState.idToken)
       .post('/instructor/register', {
-        firstName: 'landon',
-        lastName: 'phillps',
-        email: 'landon@landon.com',
-        login: 'landon@landon.com',
+        name: formValues.name,
+        email: formValues.email,
+        location: formValues.location,
+        phone: formValues.phone,
+        education: formValues.education,
+        technical: formValues.tech,
+        notes: formValues.notes,
       })
       .then(res => {
         console.log(res);
@@ -136,7 +139,7 @@ const InstrRegForm = () => {
 
   return (
     <div className="reg-content-container">
-      <RegistrationProgress step_num={1} />
+      <RegistrationProgress step_num={2} />
 
       <div className="reg-form-title">
         <h1 className="form-title">Instructor Account Info</h1>

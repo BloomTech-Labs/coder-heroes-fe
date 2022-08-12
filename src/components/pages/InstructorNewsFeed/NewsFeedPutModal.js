@@ -12,7 +12,7 @@ import {
 } from '../../../redux/actions/instructorActions';
 
 function NewsFeedPutModal(props) {
-  const { postID, link, title, description } = props;
+  const { postID, link, title, description, posted_at } = props;
   const { authState } = useOktaAuth();
   const { idToken } = authState;
 
@@ -20,12 +20,13 @@ function NewsFeedPutModal(props) {
     link: link,
     title: title,
     description: description,
+    posted_at: posted_at,
   });
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getNewsFeed(idToken, postID));
+    dispatch(getNewsFeed(idToken, postID, posted_at));
   }, []);
 
   const handleChange = e => {
@@ -36,7 +37,11 @@ function NewsFeedPutModal(props) {
   };
 
   const handleEdit = event => {
-    dispatch(putNewsFeed(idToken, postID, formValues));
+    setFormValues({
+      ...formValues,
+    });
+
+    dispatch(putNewsFeed(idToken, postID, formValues, posted_at));
 
     dispatch(setPostOptions('newsFeed'));
     event.preventDefault();
@@ -120,6 +125,7 @@ const mapStateToProps = state => {
     link: state.instructorReducer.link,
     title: state.instructorReducer.title,
     description: state.instructorReducer.description,
+    posted_at: state.instructorReducer.posted_at,
   };
 };
 export default connect(mapStateToProps)(NewsFeedPutModal);

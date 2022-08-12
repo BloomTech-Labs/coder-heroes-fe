@@ -22,12 +22,14 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const GET_INSTRUCTOR = 'GET_INSTRUCTOR';
 export const SET_POST_ID = 'SET_POST_ID';
 export const SET_POST_OPTIONS = 'SET_POST_OPTIONS';
+
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
     payload: course,
   };
 };
+
 export const getUser = idToken => async dispatch => {
   axiosWithAuth(idToken)
     .get('/user')
@@ -44,6 +46,7 @@ export const getUser = idToken => async dispatch => {
       });
     });
 };
+
 export const getCourses = idToken => async dispatch => {
   try {
     const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
@@ -63,6 +66,7 @@ export const getCourses = idToken => async dispatch => {
     });
   }
 };
+
 export const getPrograms = idToken => async dispatch => {
   axiosWithAuth(idToken)
     .get('/programs')
@@ -79,6 +83,7 @@ export const getPrograms = idToken => async dispatch => {
       });
     });
 };
+
 export const getInbox = () => async dispatch => {
   try {
     const res = await axios.get(
@@ -95,6 +100,7 @@ export const getInbox = () => async dispatch => {
     });
   }
 };
+
 export const addCourse = () => async dispatch => {
   try {
     const res = await axios.post(``);
@@ -109,6 +115,7 @@ export const addCourse = () => async dispatch => {
     });
   }
 };
+
 export const addProgram = newProgram => {
   return dispatch => {
     dispatch(addNewProgram());
@@ -122,12 +129,14 @@ export const addProgram = newProgram => {
       });
   };
 };
+
 export const addNewProgram = programs => {
   return {
     type: ADD_NEW_PROGRAM,
     payload: programs,
   };
 };
+
 export const setError = error => {
   return { type: SET_ERROR };
 };
@@ -263,7 +272,8 @@ export const setPostID = (
   newsfeed_id,
   link,
   title,
-  description
+  description,
+  posted_at
 ) => async dispatch => {
   dispatch({
     type: SET_POST_ID,
@@ -272,6 +282,7 @@ export const setPostID = (
       link: link,
       title: title,
       description: description,
+      posted_at: posted_at,
     },
   });
 };

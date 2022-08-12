@@ -47,7 +47,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/browse-instructors">
           INSTRUCTORS
         </NavLink>
-        <NavLink className="navbar__navLink" to="/parent-booking">
+        <NavLink className="navbar__navLink" to="/parent-book-now">
           BOOKING
         </NavLink>
         <NavLink className="navbar__navLink last_navLink" to="/">
@@ -81,7 +81,7 @@ export default function NavBarLinks(props) {
         <NavLink className="navbar__navLink" to="/browse-instructors">
           INSTRUCTORS
         </NavLink>
-        <NavLink className="navbar__navLink" to="/parent/booking">
+        <NavLink className="navbar__navLink" to="/parent-book-now">
           BOOKING
         </NavLink>
         <NavLink className="navbar__navLink last_navLink" to="/">

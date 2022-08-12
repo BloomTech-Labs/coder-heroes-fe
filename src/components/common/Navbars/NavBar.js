@@ -149,7 +149,7 @@ function NavBar(props) {
                 <NavLink to="/browse-instructors">Instructors</NavLink>
               </Menu.Item>
               <Menu.Item key="6" icon={<FormOutlined />}>
-                <NavLink to="/parent/booking">Booking</NavLink>
+                <NavLink to="/parent-book-now">Booking</NavLink>
               </Menu.Item>
               <Menu.Item key="7" icon={<BankOutlined />}>
                 <NavLink to="/">Scholarships</NavLink>

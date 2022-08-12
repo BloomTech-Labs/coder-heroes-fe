@@ -62,9 +62,11 @@ export function SingleCourseBookingComponent() {
 
     <div className="content-container">
       <div className="heading-container">
-        <div className="button-container">
-          <button>Back</button>
-        </div>
+        {/* suggest removing back button */}
+        {/* <div className="button-container"> */}
+        {/* <button>Back</button> */}
+        {/* </div> */}
+
         <div className="title-container">
           <h1>BOOK NOW</h1>
         </div>

@@ -25,7 +25,7 @@ export default function ExplorePrograms() {
               ability to turn your passion into an app.
             </Text>
             <div className="pl__na__top__button__container">
-              <Link to="/parent/booking">
+              <Link to="/parent-book-now">
                 {/* {user.name} */}
                 <button className="pl__na__top__button" type="submit">
                   BOOK NOW

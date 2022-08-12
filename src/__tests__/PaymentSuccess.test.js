@@ -19,7 +19,7 @@ jest.mock('@okta/okta-react', () => ({
   },
 }));
 
-describe('PaymentSuccess />', () => {
+describe('<PaymentSuccess />', () => {
   test('it renders the PaymentSuccess component', () => {
     render(
       <Provider store={store}>

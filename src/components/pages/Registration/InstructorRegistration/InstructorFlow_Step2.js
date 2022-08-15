@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import '../../../../styles/registration.less';
-import InstructorFormSchema from './InstructorFormSchema';
-import * as yup from 'yup';
-import RegistrationProgress from '../RegistrationProgress';
-import { useHistory } from 'react-router-dom';
-import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useOktaAuth } from '@okta/okta-react';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
+import InstructorFormSchema from './InstructorFormSchema';
+import RegistrationProgress from '../RegistrationProgress';
+import axiosWithAuth from '../../../../utils/axiosWithAuth';
+import * as yup from 'yup';
+import '../../../../styles/registration.less';
 
 const initialValues = {
   name: '',
@@ -71,35 +71,9 @@ const InstrRegForm = () => {
   const onSubmit = evt => {
     evt.preventDefault();
 
-    // TODO: should look similar to this
-    // const data = {
-    //   firstName: formValues.name, // TODO
-    //   lastName: formValues.name, // TODO
-    //   email: formValues.email,
-    //   password: '123456', // TODO
-    //   role_id: 1 // TODO
-    // };
-
-    // fetch('/user/register', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    // .then(() => {
-    //   history.push('/instructor-register-success');
-    // })
-    // .catch(e => {
-    //   console.error(e);
-    //   setFormWarning(e);
-    // });
-
-    // TODO: remove this stub
-
+    // This form will be updated with location data will be sent for review
     axiosWithAuth(authState.idToken)
-      .post('/instructor/register', {
+      .post('/', {
         name: formValues.name,
         email: formValues.email,
         location: formValues.location,
@@ -109,7 +83,6 @@ const InstrRegForm = () => {
         notes: formValues.notes,
       })
       .then(res => {
-        console.log(res);
         history.push('/instructor-register-success');
       })
       .catch(err => {

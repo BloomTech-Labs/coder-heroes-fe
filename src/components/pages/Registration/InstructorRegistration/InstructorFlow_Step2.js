@@ -71,9 +71,8 @@ const InstrRegForm = () => {
   const onSubmit = evt => {
     evt.preventDefault();
 
-    // This form will be updated with location data will be sent for review
     axiosWithAuth(authState.idToken)
-      .post('/', {
+      .post('/instructors/register', {
         name: formValues.name,
         email: formValues.email,
         location: formValues.location,

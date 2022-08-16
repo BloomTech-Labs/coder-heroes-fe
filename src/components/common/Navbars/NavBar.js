@@ -62,7 +62,6 @@ function NavBar(props) {
   };
 
   if (firstLogin && role_id) {
-    console.log(role_id);
     history.push('/dashboard');
     setFirstLogin(false);
   }

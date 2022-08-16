@@ -37,8 +37,6 @@ const ParentFamilyHome = props => {
   const dispatch = useDispatch();
   const { user, children } = props;
 
-  console.log(props);
-
   useEffect(() => {
     dispatch(getChildren(idToken, user.profile_id));
   }, [dispatch, idToken, user.profile_id]);

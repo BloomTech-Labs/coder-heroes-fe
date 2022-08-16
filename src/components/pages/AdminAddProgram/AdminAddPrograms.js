@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
+import { useOktaAuth } from '@okta/okta-react';
+import { useDispatch } from 'react-redux';
+import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
 import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';
@@ -20,9 +23,42 @@ const initialFormValues = {
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
+  const { authState, oktaAuth } = useOktaAuth();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+  }, []);
+  console.log(authState.idToken);
   function handleSubmit(e) {
     e.preventDefault();
+    axiosWithAuth(authState.idToken.idToken)
+      .post('/courses', {
+        course_name: 'daddy daycare',
+        course_description: 'have to be a good daddy',
+        days_of_week: ['Monday'],
+        max_size: 20,
+        min_age: 2,
+        max_age: 21,
+        instructor_id: 3,
+        program_id: 3,
+        start_time: '08:00:00',
+        end_time: '09:00:00',
+        start_date: '2022-09-14',
+        end_date: '2022-10-14',
+        location: 'hemet',
+        number_of_sessions: 6,
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
+      });
 
     const merged = {
       ...formValues,

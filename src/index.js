@@ -235,8 +235,6 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
-          <SecureRoute path="/instructor-dashboard" component={DashBoard} />
-          // Rename Later ^
           <SecureRoute path="/dashboard" component={DashBoard} />
           <Route component={NotFoundPage} />
         </Switch>

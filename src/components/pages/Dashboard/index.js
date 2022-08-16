@@ -8,7 +8,7 @@ import ParentHome from '../ParentHome/ParentHome';
 
 import { connect, useDispatch } from 'react-redux';
 
-const InstructorDashboard = props => {
+const Dashboard = props => {
   const dispatch = useDispatch();
   const { authState, oktaAuth } = useOktaAuth();
   const { idToken } = authState;
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
   return { user: state.userReducer };
 };
 
-export default connect(mapStateToProps)(InstructorDashboard);
+export default connect(mapStateToProps)(Dashboard);

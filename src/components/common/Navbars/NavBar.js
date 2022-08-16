@@ -62,6 +62,10 @@ function NavBar(props) {
   };
 
   if (firstLogin && role_id) {
+<<<<<<< HEAD
+=======
+    console.log(role_id);
+>>>>>>> ef31f74 (Cleaned up unneeded code)
     history.push('/dashboard');
     setFirstLogin(false);
   }

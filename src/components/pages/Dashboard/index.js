@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom'; // REMOVE MAYBE
 import '../../../styles/InstructorStyles/index.less';
-import { Layout } from 'antd';
 import { useOktaAuth } from '@okta/okta-react';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import AdminHome from '../AdminHome/index';
@@ -9,8 +7,6 @@ import InstructorHome from '../InstructorHome/index';
 import ParentHome from '../ParentHome/ParentHome';
 
 import { connect, useDispatch } from 'react-redux';
-
-const { Content } = Layout;
 
 const InstructorDashboard = props => {
   const dispatch = useDispatch();
@@ -25,15 +21,18 @@ const InstructorDashboard = props => {
   }, [dispatch, idToken]);
 
   switch (role_id) {
-    case 1:
+    case 1: // SuperAdmin
       return <AdminHome />;
-      break; // REMOVE BREAKS;;
-    case 2:
+    case 2: // Admin
+      return <AdminHome />;
+    case 3: // instructor
       return <InstructorHome />;
-      break;
-    case 3:
+    case 4: // Parent
       return <ParentHome />;
-      break;
+    case 5: // Child
+      return <ParentHome />; // ChildHome does not exist
+    default:
+      return console.log('Role_ID not Found');
   }
 };
 
@@ -42,15 +41,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(InstructorDashboard);
-
-// <div>
-//   <Layout>
-//     <InstructorSidebar />
-//     <Content>
-//       <InstructorStats />
-//       {/* Other Dashboard Components */}
-//     </Content>
-//   </Layout>
-// </div>
-
-/// REMOVEEEE&&&&^^^^

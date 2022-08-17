@@ -4,8 +4,6 @@ import InstructorFormSchema from './InstructorFormSchema';
 import * as yup from 'yup';
 import RegistrationProgress from '../RegistrationProgress';
 import { useHistory } from 'react-router-dom';
-// import axiosWithAuth from '../../../../utils/axiosWithAuth';
-// import { useOktaAuth } from '@okta/okta-react';
 
 const initialValues = {
   name: '',

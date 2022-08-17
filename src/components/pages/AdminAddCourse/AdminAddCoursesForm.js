@@ -27,31 +27,18 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
   const { authState, oktaAuth } = useOktaAuth();
-<<<<<<< HEAD:src/components/pages/AdminAddCourse/AdminAddCoursesForm.js
-    const dispatch = useDispatch();
-
-
- useEffect(() => {
-=======
   const dispatch = useDispatch();
 
   useEffect(() => {
->>>>>>> 85e90f2dec7cfcdb0bccb22c6e2139672a9cddc3:src/components/pages/AdminAddProgram/AdminAddPrograms.js
     if (authState !== null) {
       if (authState.isAuthenticated !== false) {
         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
       }
     }
   }, []);
-<<<<<<< HEAD:src/components/pages/AdminAddCourse/AdminAddCoursesForm.js
 
   let history = useHistory();
 
-=======
-
-  let history = useHistory();
-
->>>>>>> 85e90f2dec7cfcdb0bccb22c6e2139672a9cddc3:src/components/pages/AdminAddProgram/AdminAddPrograms.js
   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin
   function handleSubmit(e) {
     e.preventDefault();
@@ -63,10 +50,6 @@ function AdminAddCoursesForm(props) {
       .catch(err => {
         console.error(err);
       });
-<<<<<<< HEAD:src/components/pages/AdminAddCourse/AdminAddCoursesForm.js
-=======
-
->>>>>>> 85e90f2dec7cfcdb0bccb22c6e2139672a9cddc3:src/components/pages/AdminAddProgram/AdminAddPrograms.js
     const merged = {
       ...formValues,
       prereq: placeHolder,
@@ -74,7 +57,7 @@ function AdminAddCoursesForm(props) {
     program_list.push(props.addClass(merged).payload);
     setFormValues(initialFormValues);
     clearPrereq();
-  };
+  }
 
   const handleChange = e => {
     if (e.target.name !== 'prereq') {
@@ -204,64 +187,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { addClass })(AdminAddCoursesForm);
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import axiosWithAuth from '../../../utils/axiosWithAuth';
-// import { useOktaAuth } from '@okta/okta-react';
-// import { useDispatch } from 'react-redux';
-// import { getCurrentUser } from '../../../redux/actions/userActions';
-// import { connect } from 'react-redux';
-// import { addClass } from '../../../redux/actions/adminActions';
-// import '../../../styles/index.less';
-// import { Input, Form, Card } from 'antd';
-// import TextArea from 'antd/lib/input/TextArea';
-// import { useHistory } from 'react-router-dom';
-
-// let placeHolder = [];
-// let array_string = '';
-// let program_list = [];
-// let formPrerequisite = '';
-
-// const initialFormValues = {
-//   class_name: '',
-//   class_subject: '',
-//   class_desc: '',
-// };
-
-// function AdminAddCoursesForm(props) {
-//   const [formValues, setFormValues] = useState(initialFormValues);
-//   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-//   const { authState, oktaAuth } = useOktaAuth();
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     if (authState !== null) {
-//       if (authState.isAuthenticated !== false) {
-//         dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-//       }
-//     }
-//   }, []);
-
-//   let history = useHistory();
-
-//   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     axiosWithAuth(authState.idToken.idToken)
-//       .post('/courses', formValues)
-//       .then(() => {
-//         history.push('/admin-courses');
-//       })
-//       .catch(err => {
-//         console.error(err);
-//       });
-
-//     const merged = {
-//       ...formValues,
-//       prereq: placeHolder,
-//     };
-

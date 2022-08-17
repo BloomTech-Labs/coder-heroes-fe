@@ -39,7 +39,7 @@ function AdminAddCoursesForm(props) {
 
   let history = useHistory();
 
-  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin
+  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
   function handleSubmit(e) {
     e.preventDefault();
     axiosWithAuth(authState.idToken.idToken)

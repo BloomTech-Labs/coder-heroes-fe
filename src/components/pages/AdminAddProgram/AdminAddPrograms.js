@@ -42,7 +42,7 @@ function AdminAddCoursesForm(props) {
     e.preventDefault();
     axiosWithAuth(authState.idToken.idToken)
       .post('/courses', formValues)
-      .then(res => {
+      .then(() => {
         history.push('/admin-courses');
       })
       .catch(err => {

@@ -8,6 +8,7 @@ import { addClass } from '../../../redux/actions/adminActions';
 import '../../../styles/index.less';
 import { Input, Form, Card } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+import { useHistory } from 'react-router-dom';
 
 let placeHolder = [];
 let array_string = '';
@@ -33,28 +34,16 @@ function AdminAddCoursesForm(props) {
       }
     }
   }, []);
-  console.log(authState.idToken);
+
+  let history = useHistory();
+
+  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin
   function handleSubmit(e) {
     e.preventDefault();
     axiosWithAuth(authState.idToken.idToken)
-      .post('/courses', {
-        course_name: 'daddy daycare',
-        course_description: 'have to be a good daddy',
-        days_of_week: ['Monday'],
-        max_size: 20,
-        min_age: 2,
-        max_age: 21,
-        instructor_id: 3,
-        program_id: 3,
-        start_time: '08:00:00',
-        end_time: '09:00:00',
-        start_date: '2022-09-14',
-        end_date: '2022-10-14',
-        location: 'hemet',
-        number_of_sessions: 6,
-      })
+      .post('/courses', formValues)
       .then(res => {
-        console.log(res);
+        history.push('/admin-courses');
       })
       .catch(err => {
         console.error(err);

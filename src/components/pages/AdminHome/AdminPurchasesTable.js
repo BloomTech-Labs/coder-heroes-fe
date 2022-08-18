@@ -1,0 +1,72 @@
+import { Table, Pagination } from 'antd';
+import React from 'react';
+
+const columns = [
+  {
+    key: 'purchase_date',
+    title: 'Purchase Date',
+    dataIndex: 'purchase_date',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.purchase_date - b.purchase_date,
+  },
+  {
+    key: 'parent_username',
+    title: 'Parent Name',
+    dataIndex: 'parent_username',
+    sorter: (a, b) => a.parent_username - b.parent_username,
+  },
+  {
+    key: 'program_name',
+    title: 'Program Name',
+    dataIndex: 'program_name',
+    filters: [
+      {
+        text: <span>CoderCamp</span>,
+        value: 'CoderCamp',
+      },
+      {
+        text: <span>CoderSitters</span>,
+        value: 'CoderSitters',
+      },
+      {
+        text: <span>CoderYoga</span>,
+        value: 'CoderYoga',
+      },
+    ],
+    onFilter: (value, record) => record.program_name.startsWith(value),
+    filterSearch: true,
+    sorter: (a, b) => a.program_name - b.program_name,
+  },
+  {
+    key: 'course_name',
+    title: 'Course Name',
+    dataIndex: 'course_name',
+    // tried to trick the sorter
+    sorter: (a, b) => Number(a.course_name[0]) - Number(b.course_name[0]),
+  },
+  {
+    key: 'seat_count',
+    title: 'Seat Count',
+    dataIndex: 'seat_count',
+    sorter: (a, b) => a.seat_count - b.seat_count,
+  },
+];
+
+const onChange = (pagination, filters, sorter, extra) => {
+  console.log('params', pagination, filters, sorter, extra);
+};
+
+const PurchasesTable = props => {
+  const { purchases } = props;
+  return (
+    <Table
+      columns={columns}
+      dataSource={purchases}
+      onChange={onChange}
+      pageSize={8}
+    />
+    // <Pagination onChange={onChange} defaultPageSize={8} />
+  );
+};
+
+export default PurchasesTable;

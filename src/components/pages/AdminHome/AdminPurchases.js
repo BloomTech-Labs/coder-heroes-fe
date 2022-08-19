@@ -18,6 +18,7 @@ const PurchasesList = () => {
       seat_count: 2,
       program_name: 'CoderYoga',
       course_name: 'JavaScript for Beginners',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220818,
@@ -25,6 +26,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderCamp',
       course_name: 'HTML How-To',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220815,
@@ -32,6 +34,7 @@ const PurchasesList = () => {
       seat_count: 3,
       program_name: 'CoderSitters',
       course_name: 'CSS Is Fun!',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220710,
@@ -39,6 +42,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderYoga',
       course_name: 'JavaScript for Beginners',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220630,
@@ -46,6 +50,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderCamp',
       course_name: 'HTML and Me!',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220813,
@@ -53,6 +58,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderSitters',
       course_name: 'CSS for Kids',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220820,
@@ -60,6 +66,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderYoga',
       course_name: 'HTML to the Oldies',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220822,
@@ -67,6 +74,7 @@ const PurchasesList = () => {
       seat_count: 3,
       program_name: 'CoderYoga',
       course_name: 'HTML for Fun',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220807,
@@ -74,6 +82,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderYoga',
       course_name: 'HTML to the Oldies',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220809,
@@ -81,6 +90,7 @@ const PurchasesList = () => {
       seat_count: 2,
       program_name: 'CoderCamp',
       course_name: 'CSS Is Fun!',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
     {
       purchase_date: 20220811,
@@ -88,6 +98,7 @@ const PurchasesList = () => {
       seat_count: 1,
       program_name: 'CoderCamp',
       course_name: 'JavaScript for Beginners',
+      payment_id: 'kdajsg!oei?tofg98netujn77v',
     },
   ]);
 

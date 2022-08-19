@@ -79,38 +79,34 @@ div.table-container{
   padding:3%;
 }
 // styles for admin-purchases-table
+// makes the rows alternating colors
 tr:nth-child(odd){
   background-color:#FDF2DD;
 }
 tr:nth-child(even){
   background-color:#fcdfaa;
 }
+tr:nth-child(odd) > td.ant-table-cell {
+  background-color:#FDF2DD;
+}
+tr:nth-child(even) > td.ant-table-cell {
+  background-color:#fcdfaa;
+}
+tr:first-child {
+  background-color:#263E47;
+}
+// adjusting styling on the column headers
+thead.ant-table-thead > tr > th.ant-table-cell, th.ant-table-column-sort {
+  background-color:#263E47;
+}
+thead.ant-table-thead > tr > th {
+  background-color:#263E47;
+}
 .ant-table-column-title{
   font-size:medium;
 }
-.ant-table-column-sorters{
-  color:black;
-}
-.ant-table-column-has-sorters{
-  color:#86C2BB;
-}
-// ant-table-cell ant-table-column-sort ant-table-column-has-sorters
-thead.ant-table-column-sort{
-  background-color:#86C2BB;
-}
-td.ant-table-column-sort{
-  background-color:#FDF2DD;
-}
-
-thead.ant-table-thead > tr > th.ant-table-column-sort {
-  background-color:#86C2BB;
-}
-thead.ant-table-thead > tr > th {
-  background-color:#86C2BB;
-}
-
 .ant-table-thead {
-  background-color:#86C2BB;
+  background-color:#263E47;
 }
 // makes the links black instead of blue
 .ant-table-cell a{
@@ -118,11 +114,15 @@ thead.ant-table-thead > tr > th {
 }
 // makes the sorters black & the filter black
 .ant-table-column-sorter-inner{
-  color:black;
+  color:white;
+}
+.ant-table-column-sorters{
+  color:white;
 }
 .anticon, .anticon-filter{
-  color:black;
+  color:white;
 }
+
 //media queries for submit new program
 
 @media screen and (max-width: 1200px) {

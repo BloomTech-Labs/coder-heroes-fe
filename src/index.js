@@ -87,6 +87,8 @@ import PressInquiries from './components/pages/About/PressInquiries';
 import Faq from './components/pages/Services/Faq';
 import SiteMap from './components/pages/Services/SiteMap';
 
+import AdminEditCourse from './components/pages/AdminDispCourse/index';
+
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
@@ -217,6 +219,7 @@ function App() {
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
+          <Route path="/admin-edit-course" component={AdminEditCourse} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute
             path="/admin-applications"

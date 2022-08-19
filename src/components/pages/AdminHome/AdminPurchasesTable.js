@@ -8,17 +8,31 @@ const columns = [
     dataIndex: 'purchase_date',
     defaultSortOrder: 'descend',
     sorter: (a, b) => a.purchase_date - b.purchase_date,
+    render: text => (
+      <a href="https://dashboard.stripe.com/payments/:id">{text}</a>
+    ),
   },
   {
     key: 'parent_username',
     title: 'Parent Name',
     dataIndex: 'parent_username',
-    sorter: (a, b) => a.parent_username - b.parent_username,
+    sorter: (a, b) =>
+      a.parent_username > b.parent_username
+        ? 1
+        : b.parent_username > a.parent_username
+        ? -1
+        : 0,
+    render: text => (
+      <a href="https://dashboard.stripe.com/payments/:id">{text}</a>
+    ),
   },
   {
     key: 'program_name',
     title: 'Program Name',
     dataIndex: 'program_name',
+    render: text => (
+      <a href="https://dashboard.stripe.com/payments/:id">{text}</a>
+    ),
     filters: [
       {
         text: <span>CoderCamp</span>,
@@ -35,20 +49,35 @@ const columns = [
     ],
     onFilter: (value, record) => record.program_name.startsWith(value),
     filterSearch: true,
-    sorter: (a, b) => a.program_name - b.program_name,
+    sorter: (a, b) =>
+      a.program_name > b.program_name
+        ? 1
+        : b.program_name > a.program_name
+        ? -1
+        : 0,
   },
   {
     key: 'course_name',
     title: 'Course Name',
     dataIndex: 'course_name',
-    // tried to trick the sorter
-    sorter: (a, b) => Number(a.course_name[0]) - Number(b.course_name[0]),
+    sorter: (a, b) =>
+      a.course_name > b.course_name
+        ? 1
+        : b.course_name > a.course_name
+        ? -1
+        : 0,
+    render: text => (
+      <a href="https://dashboard.stripe.com/payments/:id">{text}</a>
+    ),
   },
   {
     key: 'seat_count',
     title: 'Seat Count',
     dataIndex: 'seat_count',
     sorter: (a, b) => a.seat_count - b.seat_count,
+    render: text => (
+      <a href="https://dashboard.stripe.com/payments/:id">{text}</a>
+    ),
   },
 ];
 

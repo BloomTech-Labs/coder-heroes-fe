@@ -109,8 +109,9 @@ const PurchasesList = () => {
       <Content>
         <div class="table-container">
           <div class="header-container">
-            <h1 class="white">Purchases</h1>
+            <h1>Purchases</h1>
           </div>
+          {/* <div class="right">Click to download</div> */}
           <PurchasesTable purchases={purchases} />
         </div>
       </Content>

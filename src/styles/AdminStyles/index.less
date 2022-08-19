@@ -71,18 +71,57 @@
 }
 // styles for admin-purchases
 div.header-container{
-width: 100%;
-padding:1rem 1rem .5rem 1rem;
-background: #006C72;
-// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+padding-left: 1%;
+padding-bottom:1%;
 }
+
 div.table-container{
-  padding:1%;
+  padding:3%;
 }
-h1.white{
-  color: #FFFFFF;
-  vertical-align:center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+// styles for admin-purchases-table
+tr:nth-child(odd){
+  background-color:#FDF2DD;
+}
+tr:nth-child(even){
+  background-color:#fcdfaa;
+}
+.ant-table-column-title{
+  font-size:medium;
+}
+.ant-table-column-sorters{
+  color:black;
+}
+.ant-table-column-has-sorters{
+  color:#86C2BB;
+}
+// ant-table-cell ant-table-column-sort ant-table-column-has-sorters
+thead.ant-table-column-sort{
+  background-color:#86C2BB;
+}
+td.ant-table-column-sort{
+  background-color:#FDF2DD;
+}
+
+thead.ant-table-thead > tr > th.ant-table-column-sort {
+  background-color:#86C2BB;
+}
+thead.ant-table-thead > tr > th {
+  background-color:#86C2BB;
+}
+
+.ant-table-thead {
+  background-color:#86C2BB;
+}
+// makes the links black instead of blue
+.ant-table-cell a{
+  color:black;
+}
+// makes the sorters black & the filter black
+.ant-table-column-sorter-inner{
+  color:black;
+}
+.anticon, .anticon-filter{
+  color:black;
 }
 //media queries for submit new program
 

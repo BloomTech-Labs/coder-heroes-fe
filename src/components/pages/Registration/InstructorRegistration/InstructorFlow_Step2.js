@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import '../../../styles/registration.less';
-import InstructorFormSchema from './InstructorFormSchema';
-import * as yup from 'yup';
-import RegistrationProgress from './RegistrationProgress';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useOktaAuth } from '@okta/okta-react';
+import { getCurrentUser } from '../../../../redux/actions/userActions';
+import InstructorFormSchema from './InstructorFormSchema';
+import RegistrationProgress from '../RegistrationProgress';
+import axiosWithAuth from '../../../../utils/axiosWithAuth';
+import * as yup from 'yup';
+import '../../../../styles/registration.less';
 
 const initialValues = {
   name: '',
@@ -34,6 +38,17 @@ const InstrRegForm = () => {
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
+  const { authState, oktaAuth } = useOktaAuth();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const validate = (name, value) => {
     yup
@@ -56,33 +71,23 @@ const InstrRegForm = () => {
   const onSubmit = evt => {
     evt.preventDefault();
 
-    // TODO: should look similar to this
-    // const data = {
-    //   firstName: formValues.name, // TODO
-    //   lastName: formValues.name, // TODO
-    //   email: formValues.email,
-    //   password: '123456', // TODO
-    //   role_id: 1 // TODO
-    // };
-
-    // fetch('/user/register', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    // .then(() => {
-    //   history.push('/instructor-register-success');
-    // })
-    // .catch(e => {
-    //   console.error(e);
-    //   setFormWarning(e);
-    // });
-
-    // TODO: remove this stub
-    history.push('/instructor-register-success');
+    axiosWithAuth(authState.idToken)
+      .post('/instructors/register', {
+        name: formValues.name,
+        email: formValues.email,
+        location: formValues.location,
+        phone: formValues.phone,
+        education: formValues.education,
+        technical: formValues.tech,
+        notes: formValues.notes,
+      })
+      .then(res => {
+        history.push('/instructor-register-success');
+      })
+      .catch(err => {
+        console.error(err);
+        setFormWarning(err);
+      });
   };
 
   const onChange = evt => {
@@ -106,7 +111,7 @@ const InstrRegForm = () => {
 
   return (
     <div className="reg-content-container">
-      <RegistrationProgress step_num={1} />
+      <RegistrationProgress step_num={2} />
 
       <div className="reg-form-title">
         <h1 className="form-title">Instructor Account Info</h1>

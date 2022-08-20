@@ -4,8 +4,9 @@ import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
-import { Input, Form, Card } from 'antd';
+import { Input, Form, Card, Checkbox, InputNumber, DatePicker } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+const { RangePicker } = DatePicker;
 
 let placeHolder = [];
 let array_string = '';
@@ -16,6 +17,16 @@ const initialFormValues = {
   class_name: '',
   class_subject: '',
   class_desc: '',
+};
+
+//Config for date and time picker
+const rangeConfig = {
+  rules: [
+    {
+      type: 'array',
+      message: 'Please select time!',
+    },
+  ],
 };
 
 function AdminAddCoursesForm(props) {
@@ -70,23 +81,32 @@ function AdminAddCoursesForm(props) {
   };
 
   return (
-    <>
+    <div className="edit-course-disp">
       <div className="h1-container">
-        <h1>Edit Course:</h1>
+        <h1>Edit Course Details</h1>
       </div>
       <div className="edit-courses-form-container">
         <section className="form-items-container">
-          <Form wrapperCol={{ span: 50 }} layout="horizontal">
-            <Form.Item>
-              <label htmlFor="className">Course Name: </label>
+          <Form layout="vertical">
+            <Form.Item
+              label={<label style={{ color: '#096A70' }}>Course Name:</label>}
+              style={{ width: '65%' }}
+              className="input-label"
+            >
+              {/* <label style= {{ marginRight: '6.5%' }}></label> */}
               <Input
                 onChange={handleChange}
                 value={formValues.class_name}
                 name="class_name"
               />
             </Form.Item>
-            <Form.Item>
-              <label htmlFor="description">Course Description:</label>
+            <Form.Item
+              label={
+                <label style={{ color: '#096A70' }}>Course Description:</label>
+              }
+              style={{ width: '75%', color: '#096A70' }}
+              className="input-label"
+            >
               <TextArea
                 onChange={handleChange}
                 type="text"
@@ -96,94 +116,94 @@ function AdminAddCoursesForm(props) {
               />
             </Form.Item>
 
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Days of the Week:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Maximum Capacity:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Age Range:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Time:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Date:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Location:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
+            <Form.Item
+              label={
+                <label style={{ color: '#096A70' }}>Days of the Week:</label>
+              }
+              name="disabled"
+              valuePropName="checked"
+              style={{ width: '100%' }}
+            >
+              {/* <label style = {{ marginRight: '1.5%'}}></label> */}
+              <Checkbox className="day">Monday</Checkbox>
+              <Checkbox className="day">Tuesday</Checkbox>
+              <Checkbox className="day">Wednesday</Checkbox>
+              <Checkbox className="day">Thursday</Checkbox>
+              <Checkbox className="day">Friday</Checkbox>
+              <Checkbox className="day">Saturday</Checkbox>
+              <Checkbox className="day">Sunday</Checkbox>
             </Form.Item>
 
-            <Form.Item style={{ width: '80%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Number of Sessions:
-              </label>
+            <Form.Item
+              label={
+                <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
+              }
+              style={{ width: '65%' }}
+            >
+              {/* <label style={{ marginRight: '.5%'}} ></label> */}
+              <InputNumber />
+            </Form.Item>
+            <Form.Item
+              style={{ width: '65%' }}
+              label={<label style={{ color: '#096A70' }}>Minimum Age:</label>}
+            >
+              {/* <label style={{ marginRight: '6.75%' }}>Minimum Age: </label> */}
+              <InputNumber />
+              {/* <label style={{ marginLeft: '3%' }}>Maximum Age: </label> */}
+            </Form.Item>
+            <Form.Item
+              style={{ width: '65%' }}
+              label={<label style={{ color: '#096A70' }}>Maximum Age:</label>}
+            >
+              <InputNumber />
+            </Form.Item>
+            <Form.Item
+              name="range-time-picker"
+              {...rangeConfig}
+              label={<label style={{ color: '#096A70' }}>Date and Time:</label>}
+              style={{ width: '100%' }}
+            >
+              {/* <label style={{ marginRight: '4%' }}>Date and Time: </label> */}
+              <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            </Form.Item>
+            <Form.Item
+              label={<label style={{ color: '#096A70' }}>Location:</label>}
+              style={{ width: '65%' }}
+            >
+              {/* <label style={{ marginRight: '12%' }}></label> */}
               <Input
                 onChange={handleChange}
                 value={formPreReqs.prereq}
                 name="prereq"
               />
             </Form.Item>
-
-            <div className="submit-button-container">
-              <button className="submit-button" onClick={handleSubmit}>
-                SAVE
-              </button>
-              <button
-                className="cancel-button button-padding"
-                onClick={handleSubmit}
-              >
-                CANCEL
-              </button>
-            </div>
-            {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
+            <Form.Item
+              style={{ width: '80%' }}
+              label={
+                <label style={{ color: '#096A70' }}>Number of Sessions:</label>
+              }
+            >
+              {/* <label style={{ marginRight: '1%'}}>
+                Number of Sessions: 
+              </label> */}
+              <InputNumber />
+            </Form.Item>
           </Form>
         </section>
+        <div className="button-container">
+          <button className="submit-button" onClick={handleSubmit}>
+            SAVE
+          </button>
+          <button
+            className="cancel-button button-padding"
+            onClick={handleSubmit}
+          >
+            CANCEL
+          </button>
+          {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

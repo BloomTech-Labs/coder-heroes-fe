@@ -104,7 +104,6 @@ function AdminEditCoursesForm(props) {
               label={
                 <label style={{ color: '#096A70' }}>Days of the Week:</label>
               }
-              // name="course_days"
               valuePropName="checked"
               style={{ width: '100%' }}
             >

@@ -95,7 +95,6 @@ const PurchasesTable = props => {
       onChange={onChange}
       pageSize={8}
     />
-    // <Pagination onChange={onChange} defaultPageSize={8} />
   );
 };
 

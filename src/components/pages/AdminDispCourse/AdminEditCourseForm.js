@@ -107,25 +107,25 @@ function AdminEditCoursesForm(props) {
               valuePropName="checked"
               style={{ width: '100%' }}
             >
-              <Checkbox className="day" checked={checkDays('Monday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Monday')}>
                 Monday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Tuesday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Tuesday')}>
                 Tuesday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Wednesday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Wednesday')}>
                 Wednesday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Thursday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Thursday')}>
                 Thursday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Friday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Friday')}>
                 Friday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Saturday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Saturday')}>
                 Saturday
               </Checkbox>
-              <Checkbox className="day" checked={checkDays('Sunday')}>
+              <Checkbox className="day" defaultChecked={checkDays('Sunday')}>
                 Sunday
               </Checkbox>
             </Form.Item>

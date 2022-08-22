@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import '../../../styles/index.less';
 import { useOktaAuth } from '@okta/okta-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
-// import axios from 'axios';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import PurchasesTable from './AdminPurchasesTable';
 import '../../../styles/index.less';
+// import { DownloadOutlined } from '@ant-design/icons';
 
 const PurchasesList = () => {
   const { authState } = useOktaAuth();
@@ -122,7 +122,10 @@ const PurchasesList = () => {
           <div class="header-container">
             <h1>Purchases</h1>
           </div>
-          {/* <div class="right">Click to download</div> */}
+
+          {/* <div className="right"><DownloadOutlined /> Click to download</div> */}
+
+          <div></div>
           <PurchasesTable purchases={purchases} />
         </div>
       </Content>

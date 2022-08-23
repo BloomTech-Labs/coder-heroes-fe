@@ -170,6 +170,7 @@ function App() {
             path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
+          <Route path="/wip" component={AdminHome} />
           <SecureRoute
             path="/parent/achievements"
             component={ParentAchievements}

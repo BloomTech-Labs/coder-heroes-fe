@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../../../styles/index.less';
 import { useOktaAuth } from '@okta/okta-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import AdminSidebar from './AdminSidebar';

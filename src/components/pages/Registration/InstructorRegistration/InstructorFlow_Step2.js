@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
-import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 import InstructorFormSchema from './InstructorFormSchema';
 import RegistrationProgress from '../RegistrationProgress';

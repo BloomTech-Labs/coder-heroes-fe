@@ -32,7 +32,7 @@ import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import AdminHome from './components/pages/AdminHome';
+import AdminHome from './components/pages/AdminHome/index';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
@@ -170,6 +170,7 @@ function App() {
             path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
+          <Route path="/wip" component={AdminHome} />
           <SecureRoute
             path="/parent/achievements"
             component={ParentAchievements}

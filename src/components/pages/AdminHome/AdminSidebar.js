@@ -44,23 +44,19 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/admin">Dashboard</a>
+          <a href="/admin">Home</a>
         </Menu.Item>
 
         <Menu.Item key="3" icon={<BellOutlined />}>
-          <a href="!#">Notifications</a>
+          <a href="!#">Courses</a>
         </Menu.Item>
 
         <Menu.Item key="4" icon={<CalculatorOutlined />}>
-          <a href="!#">Analytics</a>
+          <a href="!#">Instructors</a>
         </Menu.Item>
 
         <Menu.Item key="5" icon={<DesktopOutlined />}>
-          <a href="/admin-add-course">Courses</a>
-        </Menu.Item>
-
-        <Menu.Item key="8" icon={<FolderOpenOutlined />}>
-          <a href="/admin-applications">Applications</a>
+          <a href="!#">Purchases</a>
         </Menu.Item>
       </Menu>
     </Sider>

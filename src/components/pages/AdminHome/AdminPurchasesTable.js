@@ -85,17 +85,11 @@ const PurchasesTable = props => {
   ];
 
   const onChange = (pagination, filters, sorter, extra) => {
+    // part of Ant table functionality
     console.log('params', pagination, filters, sorter, extra);
   };
 
-  return (
-    <Table
-      columns={columns}
-      dataSource={purchases}
-      onChange={onChange}
-      pageSize={8}
-    />
-  );
+  return <Table columns={columns} dataSource={purchases} onChange={onChange} />;
 };
 
 export default PurchasesTable;

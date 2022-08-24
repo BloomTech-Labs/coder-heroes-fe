@@ -21,6 +21,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
 
 const ParentFamilyHome = props => {
+  console.log(`the user is: ${JSON.stringify(props.user)}`);
   const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
@@ -32,14 +33,18 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  const { authState, oktaAuth } = useOktaAuth();
+
   const dispatch = useDispatch();
   const { user, children } = props;
 
   useEffect(() => {
-    dispatch(getChildren(idToken, user.profile_id));
-  }, [dispatch, idToken, user.profile_id]);
+    oktaAuth.token.getUserInfo().then(dataProfile => {
+      // console.log(dataProfile);
+      dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
+    });
+    // console.log(``);
+  }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

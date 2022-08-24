@@ -88,6 +88,7 @@ const InstrRegForm = () => {
         console.error(err);
         setFormWarning(err);
       });
+    history.push('/instructor-register-success');
   };
 
   const onChange = evt => {

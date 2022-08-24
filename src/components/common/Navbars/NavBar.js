@@ -19,7 +19,7 @@ import {
   ProfileIcon,
   HamburgerMenuIcon,
 } from '../../pages/LandingInstructor/Icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import NavBarLinks from './NavBarLinks';
 
@@ -32,10 +32,12 @@ const { SubMenu } = Menu;
 const { Header } = Layout;
 
 function NavBar(props) {
+  const [firstLogin, setFirstLogin] = useState(true);
   const [visible, setVisible] = useState(false);
   const [logoutRender, setLogoutRender] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
   const { role_id } = props.user.currentUser;
+  const history = useHistory();
   console.log(`inside Navbar role_id is: ${role_id}`);
 
   useEffect(() => {
@@ -58,6 +60,11 @@ function NavBar(props) {
   const onClose = () => {
     setVisible(false);
   };
+
+  if (firstLogin && role_id) {
+    history.push('/dashboard');
+    setFirstLogin(false);
+  }
 
   return (
     <Header

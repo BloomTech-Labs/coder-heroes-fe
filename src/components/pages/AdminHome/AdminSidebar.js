@@ -56,7 +56,15 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="5" icon={<DesktopOutlined />}>
-          <a href="/admin-add-course">Courses</a>
+          <a href="/admin-courses">Courses</a>
+        </Menu.Item>
+
+        <Menu.Item key="6" icon={<PlusOutlined />}>
+          <a href="/admin-add-course">Add Courses</a>
+        </Menu.Item>
+
+        <Menu.Item key="7" icon={<FormOutlined />}>
+          <a href="/admin-add-course">Edit Programs</a>
         </Menu.Item>
 
         <Menu.Item key="8" icon={<FolderOpenOutlined />}>

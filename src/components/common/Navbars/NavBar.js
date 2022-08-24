@@ -58,8 +58,7 @@ function NavBar(props) {
   const onClose = () => {
     setVisible(false);
   };
-  // added declaration for history
-  const history = useHistory();
+ 
   if (firstLogin && role_id) {
     history.push('/dashboard');
     setFirstLogin(false);

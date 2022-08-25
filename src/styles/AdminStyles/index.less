@@ -69,6 +69,69 @@
 .approvedBtn {
   margin: 5% 33%;
 }
+// styles for admin-purchases
+div.header-container{
+padding-left: 1%;
+padding-bottom:1%;
+}
+
+div.table-container{
+  padding:3%;
+}
+// styles for admin-purchases-table
+// makes the rows alternating colors
+tr:nth-child(odd){
+  background-color:#FDF2DD;
+}
+tr:nth-child(even){
+  background-color:#fcdfaa;
+}
+tr:nth-child(odd) > td.ant-table-cell {
+  background-color:#FDF2DD;
+}
+tr:nth-child(even) > td.ant-table-cell {
+  background-color:#fcdfaa;
+}
+tr:first-child {
+  background-color:#263E47;
+}
+// adjusting styling on the column headers
+thead.ant-table-thead > tr > th.ant-table-cell, th.ant-table-column-sort {
+  background-color:#263E47;
+}
+thead.ant-table-thead > tr > th {
+  background-color:#263E47;
+}
+.ant-table-column-title{
+  font-size:medium;
+}
+.ant-table-thead {
+  background-color:#263E47;
+}
+// makes the links black instead of blue
+.ant-table-cell a{
+  color:black;
+}
+// makes the sorters black & the filter black
+.ant-table-column-sorter-inner{
+  color:white;
+}
+.ant-table-column-sorters{
+  color:white;
+}
+.anticon, .anticon-filter{
+  color:white;
+}
+.anticon-download{
+  color:black;
+  font-size:large;
+}
+.right{
+  text-align:right;
+  padding-right:2%;
+  padding-bottom:1%;
+  font-size:large;
+}
 
 //media queries for submit new program
 

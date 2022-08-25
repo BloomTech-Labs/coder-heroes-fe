@@ -9,6 +9,7 @@ import {
   BellOutlined,
   CalculatorOutlined,
   UserOutlined,
+  DollarOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
 import { Link } from 'react-router-dom';
@@ -65,6 +66,9 @@ function AdminSidebar() {
 
         <Menu.Item key="7" icon={<PlusOutlined />}>
           <Link to="#">Add Courses</Link>
+        </Menu.Item>
+        <Menu.Item key="8" icon={<DollarOutlined />}>
+          <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
       </Menu>
     </Sider>

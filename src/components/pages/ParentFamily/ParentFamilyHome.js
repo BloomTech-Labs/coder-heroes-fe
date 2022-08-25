@@ -40,10 +40,8 @@ const ParentFamilyHome = props => {
 
   useEffect(() => {
     oktaAuth.token.getUserInfo().then(dataProfile => {
-      // console.log(dataProfile);
       dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
     });
-    // console.log(``);
   }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
 
   const showAddStudentModal = () => {

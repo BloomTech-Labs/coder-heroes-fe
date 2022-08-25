@@ -8,7 +8,7 @@ import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesStyles.less';
-import { Input, Form, Card } from 'antd';
+import { Input, Form, Card, Button } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { useHistory } from 'react-router-dom';
 
@@ -39,7 +39,6 @@ function AdminAddCoursesForm(props) {
 
   let history = useHistory();
 
-  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
   function handleSubmit(e) {
     e.preventDefault();
     axiosWithAuth(authState.idToken.idToken)
@@ -93,29 +92,31 @@ function AdminAddCoursesForm(props) {
     document.getElementById('prereq-render').innerHTML = arrayText;
   };
 
+  const onReset = () => {};
+
   return (
     <div className="add-courses-form-container">
       <div className="h1-container">
-        <h1>Submit New Program:</h1>
+        <h1>Add Course</h1>
       </div>
       <section className="form-items-container">
         <Form wrapperCol={{ span: 50 }} layout="horizontal">
           <Form.Item>
-            <label htmlFor="className">Class Name: </label>
+            <label htmlFor="className">Course Name: </label>
             <Input
               onChange={handleChange}
               value={formValues.class_name}
               name="class_name"
             />
           </Form.Item>
-          <Form.Item>
+          {/* <Form.Item>
             <label htmlFor="other">Subject: </label>
             <Input
               onChange={handleChange}
               value={formValues.class_subject}
               name="class_subject"
             />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item>
             <label htmlFor="description">Description:</label>
             <TextArea
@@ -126,7 +127,7 @@ function AdminAddCoursesForm(props) {
               name="class_desc"
             />
           </Form.Item>
-          <div
+          {/* <div
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -160,19 +161,23 @@ function AdminAddCoursesForm(props) {
                 Clear
               </button>
             </div>
-          </div>
-          <Card
+          </div> */}
+          {/* <Card
             style={{ width: '100%', marginBottom: '7.5%', maxHeight: '100%' }}
             bodyStyle={{ maxHeight: 100, overflow: 'auto' }}
           >
             <p id="prereq-render"></p>
-          </Card>
+          </Card> */}
 
-          <div className="submit-button-container">
-            <button className="submit-button" onClick={handleSubmit}>
-              Submit
-            </button>
-          </div>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+              Save
+            </Button>
+            <Button htmlType="button" onClick={onReset}>
+              Cancel
+            </Button>
+          </Form.Item>
+
           {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
         </Form>
       </section>

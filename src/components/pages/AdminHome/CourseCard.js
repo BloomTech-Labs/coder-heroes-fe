@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'antd';
+import { connect, useDispatch } from 'react-redux';
+import { getCourses } from '../../../redux/actions/coursesActions';
+import { useOktaAuth } from '@okta/okta-react';
 
-const initialCourse = [
-  {
-    subject: 'Javascript',
-    program: 'codesitters',
-    desc: 'Javascript course',
-  },
-  {
-    subject: 'Python',
-    program: 'codesitters',
-    desc: 'Javascript course',
-  },
-  {
-    subject: 'Java',
-    program: 'codesitters',
-    desc: 'Javascript course',
-  },
-];
+const CourseCard = props => {
+  const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
 
-const CourseCard = () => {
-  const [courses, SetCourses] = useState(initialCourse);
-  console.log(courses);
+  useEffect(() => {
+    if (!authState) return;
+    dispatch(getCourses(authState.idToken.idToken));
+    console.log(props.course);
+  }, [authState]);
 
-  return courses.map(course => {
+  const sorted = props.course.courses.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+  const firstTen = sorted.slice(0, 10);
+
+  return firstTen.map(course => {
     return (
       <Card
         style={{
@@ -39,11 +35,15 @@ const CourseCard = () => {
           Program: <span>{course.program}</span>
         </p>
         <p>
-          Program Description: <span>{course.desc}</span>
+          Course Description: <span>{course.desc}</span>
         </p>
       </Card>
     );
   });
 };
 
-export default CourseCard;
+const mapStateToProps = state => {
+  return { course: state.coursesReducer };
+};
+
+export default connect(mapStateToProps)(CourseCard);

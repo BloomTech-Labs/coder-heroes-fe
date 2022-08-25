@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 
-const initialApplications = [];
-
-const ApplicationCard = () => {
-  const [applications, SetApplications] = useState(initialApplications);
+const ApplicationCard = props => {
   const dispatch = useDispatch();
-  const { authState, oktaAuth } = useOktaAuth();
-  console.log(authState);
+  const { authState } = useOktaAuth();
 
   useEffect(() => {
-    dispatch(getInstructors(authState.idToken.idToken)).then(res => {
-      console.log(res);
-    });
-  }, []);
+    if (!authState) return;
+    dispatch(getInstructors(authState.idToken.idToken));
+  }, [authState]);
 
-  const sorted = applications.sort(
+  const sorted = props.instructor.instructors.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
   const firstTen = sorted.slice(0, 10);
@@ -36,7 +31,7 @@ const ApplicationCard = () => {
           Name: <span>{app.name}</span>
         </p>
         <p>
-          Date: <span>{app.date}</span>
+          Date: <span>{app.created_on}</span>
         </p>
         <p>
           Bio: <span>{app.bio}</span>
@@ -45,8 +40,9 @@ const ApplicationCard = () => {
     );
   });
 };
+
 const mapStateToProps = state => {
-  return { user: state.instructorReducer };
+  return { instructor: state.instructorReducer };
 };
 
 export default connect(mapStateToProps)(ApplicationCard);

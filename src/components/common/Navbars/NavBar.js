@@ -37,10 +37,7 @@ function NavBar(props) {
   const [logoutRender, setLogoutRender] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
-<<<<<<< HEAD
   const history = useHistory();
-=======
->>>>>>> 160b039 (implemented changes to authentication functionality)
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');

@@ -35,9 +35,10 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
+import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';
-import Footer from './components/common/Footer/Index';
+import Footer from './components/common/Footer/index';
 import InstructorApplyConfirm from './components/pages/InstructorBooking/InstructorApplyConfirm';
 import InstructorAddCourse from './components/pages/InstructorAddCourse';
 import NewsfeedPutModal from './components/pages/InstructorNewsFeed/NewsFeedPutModal';
@@ -70,10 +71,10 @@ import RegisterStep2 from './components/pages/Registration/RegisterStep2';
 import RegisterStep3 from './components/pages/Registration/RegisterStep3';
 import RegisterStep4 from './components/pages/Registration/RegisterStep4';
 import ConfirmEmail from './components/pages/Registration/ConfirmEmail';
-import SuccessfulSubmission from './components/pages/Registration/SuccessfulSubmission';
-import InstructorDashboard from './components/pages/Dashboard';
-import InstructorWelcome from './components/pages/Registration/InstructorWelcome';
-import InstructorFlow_Step2 from './components/pages/Registration/InstructorFlow_Step2';
+import SuccessfulSubmission from './components/pages/Registration/InstructorRegistration/SuccessfulSubmission';
+import InstructorWelcome from './components/pages/Registration/InstructorRegistration/InstructorWelcome';
+import InstructorFlow_Step2 from './components/pages/Registration/InstructorRegistration/InstructorFlow_Step2';
+import Dashboard from './components/pages/Dashboard/index';
 import AdminApplications from './components/pages/AdminApplications';
 import StudentTasks from './components/pages/StudentHome/StudentTasks';
 import StudentResourcesPage from './components/pages/StudentHome/StudentResources';
@@ -86,6 +87,8 @@ import TermsAndConditions from './components/pages/About/TermsAndConditions';
 import PressInquiries from './components/pages/About/PressInquiries';
 import Faq from './components/pages/Services/Faq';
 import SiteMap from './components/pages/Services/SiteMap';
+
+import AdminEditCourse from './components/pages/AdminDispCourse/index';
 
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 
@@ -217,7 +220,9 @@ function App() {
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
+          <Route path="/admin-edit-course" component={AdminEditCourse} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
+          <SecureRoute path="/admin-purchases" component={AdminPurchases} />
           <SecureRoute
             path="/admin-applications"
             component={AdminApplications}
@@ -235,10 +240,7 @@ function App() {
           <SecureRoute path="/profile-list" component={ProfileListPage} />
           <SecureRoute path="/datavis" component={ExampleDataViz} />
           <SecureRoute path="/instructor-all-classes" component={AllClasses} />
-          <SecureRoute
-            path="/instructor-dashboard"
-            component={InstructorDashboard}
-          />
+          <SecureRoute path="/dashboard" component={Dashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>

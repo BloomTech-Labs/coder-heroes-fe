@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../styles/registration.less';
-import RegistrationProgress from './RegistrationProgress';
+import '../../../../styles/registration.less';
+import RegistrationProgress from '../RegistrationProgress';
 
 export default function SuccessfulSubmission() {
   return (
@@ -17,7 +17,7 @@ export default function SuccessfulSubmission() {
         </div>
         <div className="link-container">
           {/* eslint-disable-next-line*/}
-          <a href="#">LEARN MORE</a>
+          <a href="/about-coderheroes">LEARN MORE</a>
           {/* update href after finding correct path from Okta */}
         </div>
       </div>

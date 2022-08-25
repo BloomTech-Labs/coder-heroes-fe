@@ -36,6 +36,7 @@ import AdminHome from './components/pages/AdminHome';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
+import AdminInstructors from './components/pages/AdminHome/AdminInstructors';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';
 import Footer from './components/common/Footer/index';
@@ -221,6 +222,7 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           <Route path="/admin-edit-course" component={AdminEditCourse} />
+          <SecureRoute path="/admin-instructors" component={AdminInstructors} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute path="/admin-purchases" component={AdminPurchases} />
           <SecureRoute

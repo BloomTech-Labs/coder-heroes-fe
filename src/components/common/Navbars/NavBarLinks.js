@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function NavBarLinks(props) {
   const { role_id } = props;
-
+  console.log(props);
   if (role_id === 1 || role_id === 2) {
     return (
       <div className="navbar__links">

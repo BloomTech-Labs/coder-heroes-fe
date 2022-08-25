@@ -1,67 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from 'antd';
-import axios from 'axios';
+import { connect, useDispatch } from 'react-redux';
+import { getInstructors } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 
-const initialApplications = [
-  {
-    name: 'John',
-    date: '05/23/2022',
-    bio: 'Hi im John',
-  },
-  {
-    name: 'Paul',
-    date: '08/25/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2019',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2021',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2022',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'James',
-    date: '08/15/2021',
-    bio: 'Javascript course',
-  },
-  {
-    name: 'Eleven',
-    date: '08/15/2020',
-    bio: 'Javascript course',
-  },
-];
+const initialApplications = [];
 
 const ApplicationCard = () => {
   const [applications, SetApplications] = useState(initialApplications);
+  const dispatch = useDispatch();
+  const { authState, oktaAuth } = useOktaAuth();
+  console.log(authState);
+
+  useEffect(() => {
+    dispatch(getInstructors(authState.idToken.idToken)).then(res => {
+      console.log(res);
+    });
+  }, []);
 
   const sorted = applications.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
@@ -90,5 +45,8 @@ const ApplicationCard = () => {
     );
   });
 };
+const mapStateToProps = state => {
+  return { user: state.instructorReducer };
+};
 
-export default ApplicationCard;
+export default connect(mapStateToProps)(ApplicationCard);

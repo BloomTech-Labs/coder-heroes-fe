@@ -8,7 +8,7 @@ import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesStyles.less';
-import { Input, Form, Card, Button } from 'antd';
+import { Input, InputNumber, Form, Button, Checkbox } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { useHistory } from 'react-router-dom';
 
@@ -92,7 +92,9 @@ function AdminAddCoursesForm(props) {
     document.getElementById('prereq-render').innerHTML = arrayText;
   };
 
-  const onReset = () => {};
+  const onReset = () => {
+    setFormValues(initialFormValues);
+  };
 
   return (
     <div className="add-courses-form-container">
@@ -100,25 +102,15 @@ function AdminAddCoursesForm(props) {
         <h1>Add Course</h1>
       </div>
       <section className="form-items-container">
-        <Form wrapperCol={{ span: 50 }} layout="horizontal">
-          <Form.Item>
-            <label htmlFor="className">Course Name: </label>
+        <Form onFinish={handleSubmit} layout="horizontal">
+          <Form.Item label="Course Name:">
             <Input
               onChange={handleChange}
               value={formValues.class_name}
               name="class_name"
             />
           </Form.Item>
-          {/* <Form.Item>
-            <label htmlFor="other">Subject: </label>
-            <Input
-              onChange={handleChange}
-              value={formValues.class_subject}
-              name="class_subject"
-            />
-          </Form.Item> */}
-          <Form.Item>
-            <label htmlFor="description">Description:</label>
+          <Form.Item label="Description">
             <TextArea
               onChange={handleChange}
               type="text"
@@ -127,53 +119,50 @@ function AdminAddCoursesForm(props) {
               name="class_desc"
             />
           </Form.Item>
-          {/* <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-            name="prereq-split-container"
-          >
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Prerequisites:
-              </label>
-              <Input
-                onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <div style={{ display: 'block' }} className="buttons_div">
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
-                onClick={addPrereq}
-              >
-                Add
-              </button>
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
-                onClick={clearPrereq}
-              >
-                Clear
-              </button>
-            </div>
-          </div> */}
-          {/* <Card
-            style={{ width: '100%', marginBottom: '7.5%', maxHeight: '100%' }}
-            bodyStyle={{ maxHeight: 100, overflow: 'auto' }}
-          >
-            <p id="prereq-render"></p>
-          </Card> */}
-
+          <Form.Item label="Days">
+            <Checkbox>Sunday</Checkbox>
+            <Checkbox>Monday</Checkbox>
+            <Checkbox>Tuesday</Checkbox>
+            <Checkbox>Wednesday</Checkbox>
+            <Checkbox>Thursday</Checkbox>
+            <Checkbox>Friday</Checkbox>
+            <Checkbox>Saturday</Checkbox>
+          </Form.Item>
+          <Form.Item label="Times:">
+            <Input />
+            <Input />
+            <Input />
+            <Input />
+            <Input />
+            <Input />
+            <Input />
+          </Form.Item>
+          <Form.Item label="Maximum Capacity:">
+            <InputNumber />
+          </Form.Item>
+          <Form.Item label="Minimum Age:">
+            <InputNumber />
+          </Form.Item>
+          <Form.Item label="Maximum Age:">
+            <InputNumber />
+          </Form.Item>
+          <Form.Item label="Instructor:">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Start and End Dates:">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Location:">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Number of Sessions">
+            <InputNumber />
+          </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+            <Button type="primary" size="small">
               Save
             </Button>
-            <Button htmlType="button" onClick={onReset}>
+            <Button onClick={onReset} size="small">
               Cancel
             </Button>
           </Form.Item>

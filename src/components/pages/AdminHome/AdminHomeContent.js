@@ -15,9 +15,11 @@ const AdminHomeContent = () => {
       <div class="AdminDashHeaders">
         <div class="container courses">
           <h2>Recent Courses</h2>
+          <a href="/courses">See All</a>
         </div>
         <div class="container applications">
           <h2>Instructor Applications</h2>
+          <a href="/instructors">See All</a>
         </div>
       </div>
       <div class="AdminDashContent">

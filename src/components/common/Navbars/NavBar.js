@@ -36,9 +36,9 @@ function NavBar(props) {
   const [visible, setVisible] = useState(false);
   const [logoutRender, setLogoutRender] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
-  const { role_id } = props.user.currentUser;
+  let { role_id } = props.user.currentUser;
   const history = useHistory();
-  console.log(`inside Navbar role_id is: ${role_id}`);
+
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');

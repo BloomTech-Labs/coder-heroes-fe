@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AdminSidebar from './AdminSidebar';
 import '../../../styles/index.less';
-import { useOktaAuth } from '@okta/okta-react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-
+import { connect } from 'react-redux';
 import CourseCard from './AdminCourseCard';
+import { useDispatch } from 'react-redux';
+import { getCourses } from '../../../redux/actions/coursesActions';
+import { useOktaAuth } from '@okta/okta-react';
 
 const initialCoursesState = [
   {
@@ -23,19 +24,15 @@ const initialCoursesState = [
   },
 ];
 
-export default function AdminCourses() {
+function AdminCourses(props) {
+  const { courses } = props;
+  const dispatch = useDispatch();
   const { authState } = useOktaAuth();
   const { idToken } = authState;
-  const [courses, setCourses] = useState(initialCoursesState);
 
   useEffect(() => {
-    axiosWithAuth(idToken)
-      .get(`${URL}/courses`)
-      .then(res => {
-        setCourses(res.data);
-      })
-      .catch(err => console.error(err));
-  }, []);
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
 
   return (
     <div className="admin-courses-container">
@@ -46,3 +43,11 @@ export default function AdminCourses() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    courses: state.coursesReducer.courses,
+  };
+};
+
+export default connect(mapStateToProps, {})(AdminCourses);

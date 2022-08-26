@@ -10,7 +10,15 @@ import {
 
 const initialState = {
   editing: false,
-  courses: [],
+  courses: [
+    {
+      course_id: 1,
+      course_name: 'Intro to JS',
+      instructor: 'John Doe',
+      program_name: 'CoderYoga',
+      date: '12/01/2023',
+    },
+  ],
   errorMessage: '',
   course_id: '',
   newCourses: [],

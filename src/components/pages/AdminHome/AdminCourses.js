@@ -8,14 +8,18 @@ import CourseCard from './AdminCourseCard';
 
 const initialCoursesState = [
   {
+    course_id: 1,
     course_name: 'Intro to JS',
     instructor: 'John Doe',
     program_name: 'CoderYoga',
+    date: '12/01/2023',
   },
   {
+    course_id: 2,
     course_name: 'Intro to Python',
     instructor: 'Jane Doe',
     program_name: 'CoderSitters',
+    date: '12/01/2023',
   },
 ];
 
@@ -37,7 +41,7 @@ export default function AdminCourses() {
     <div className="admin-courses-container">
       <AdminSidebar />
       {courses.map(item => (
-        <CourseCard key={Date.now()} course={item} />
+        <CourseCard key={item.course_id} course={item} />
       ))}
     </div>
   );

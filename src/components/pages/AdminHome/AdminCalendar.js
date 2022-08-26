@@ -102,6 +102,6 @@ const AdminCalendar = props => {
 };
 
 const mapStateToProps = state => {
-  return { instructor: state.instructorReducer };
+  return { instructor: state.instructorReducer.instructor };
 };
-export default connect(mapStateToProps, { setSelectedCourse })(AdminCalendar);
+export default connect(mapStateToProps, {})(AdminCalendar);

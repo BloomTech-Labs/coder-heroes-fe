@@ -32,10 +32,9 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
   const dispatch = useDispatch();
   const { user, children } = props;
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   useEffect(() => {
     dispatch(getChildren(idToken, user.profile_id));

@@ -27,8 +27,7 @@ const initialCoursesState = [
 function AdminCourses(props) {
   const { courses } = props;
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   useEffect(() => {
     dispatch(getCourses(idToken));

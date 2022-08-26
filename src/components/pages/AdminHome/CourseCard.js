@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
+import '../../../styles/AdminDashboardHome/index.less';
 
 const CourseCard = props => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   useEffect(() => {
-    if (!authState) return;
-    dispatch(getCourses(authState.idToken.idToken));
-    console.log(props.course);
-  }, [authState]);
+    if (!idToken) return;
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
+
+  const handleOnClick = id => {
+    history.push(`/course/${id}`); // Might have to change the route
+  };
 
   const sorted = props.course.courses.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
@@ -29,14 +35,17 @@ const CourseCard = props => {
         }}
       >
         <p>
-          Course Subject: <span>{course.subject}</span>
+          Course Subject: <span>{course.course_name}</span>
         </p>
         <p>
-          Program: <span>{course.program}</span>
+          Program: <span>{course.program_name}</span>
         </p>
         <p>
-          Course Description: <span>{course.desc}</span>
+          Course Description: <span>{course.course_description}</span>
         </p>
+        <button onClick={() => handleOnClick(course.course_id)}>
+          See More
+        </button>
       </Card>
     );
   });

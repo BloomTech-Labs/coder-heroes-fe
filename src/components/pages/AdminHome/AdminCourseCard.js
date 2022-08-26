@@ -10,7 +10,10 @@ export default function CourseCard(props) {
         Program Name: {course.program_name} <br />
         Instructor: {course.instructor}
         <br />
-        Date: <br />
+        Date: {course.date}
+        <br />
+        <button>EDIT COURSE</button>
+        <button>VIEW COURSE</button>
       </Card>
     </div>
   );

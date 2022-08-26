@@ -68,11 +68,11 @@ function AdminSidebar() {
           <a href="/admin-add-course">Edit Programs</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<DollarOutlined />}>
+        <Menu.Item key="8" icon={<DollarOutlined />}>
           <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
 
-        <Menu.Item key="8" icon={<FolderOpenOutlined />}>
+        <Menu.Item key="9" icon={<FolderOpenOutlined />}>
           <a href="/admin-applications">Applications</a>
         </Menu.Item>
       </Menu>

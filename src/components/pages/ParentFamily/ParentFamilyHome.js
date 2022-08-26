@@ -37,6 +37,7 @@ const ParentFamilyHome = props => {
 
   const dispatch = useDispatch();
   const { user, children } = props;
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   useEffect(() => {
     oktaAuth.token.getUserInfo().then(dataProfile => {

@@ -11,7 +11,7 @@ const initialFormValues = {
   course_id: '',
   course_name: '',
   course_desc: '',
-  course_days: '',
+  course_days: [],
   course_capacity: '',
   course_max_age: '',
   course_min_age: '',
@@ -22,6 +22,16 @@ const initialFormValues = {
   course_location: '',
   course_num_sessions: '',
 };
+
+const daysOfWeek = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
 
 //Config for date and time picker
 const rangeConfig = {
@@ -39,6 +49,7 @@ function AdminAddCoursesForm(props) {
 
   const handleSubmit = () => {
     handleOk(formValues);
+    setFormValues(initialFormValues);
   };
 
   const handleChange = e => {
@@ -48,7 +59,14 @@ function AdminAddCoursesForm(props) {
     });
   };
 
-  const checkDays = dayTBC => {};
+  const handleCheck = e => {
+    if (e.target.checked) {
+      setFormValues({
+        ...formValues,
+        course_days: [...formValues.course_days, e.target.value],
+      });
+    }
+  };
 
   return (
     <div className="edit-course-disp">
@@ -97,37 +115,13 @@ function AdminAddCoursesForm(props) {
                 }
                 valuePropName="checked"
                 style={{ width: '100%' }}
+                onChange={handleCheck}
               >
-                <Checkbox className="day" defaultChecked={checkDays('Monday')}>
-                  Monday
-                </Checkbox>
-                <Checkbox className="day" defaultChecked={checkDays('Tuesday')}>
-                  Tuesday
-                </Checkbox>
-                <Checkbox
-                  className="day"
-                  defaultChecked={checkDays('Wednesday')}
-                >
-                  Wednesday
-                </Checkbox>
-                <Checkbox
-                  className="day"
-                  defaultChecked={checkDays('Thursday')}
-                >
-                  Thursday
-                </Checkbox>
-                <Checkbox className="day" defaultChecked={checkDays('Friday')}>
-                  Friday
-                </Checkbox>
-                <Checkbox
-                  className="day"
-                  defaultChecked={checkDays('Saturday')}
-                >
-                  Saturday
-                </Checkbox>
-                <Checkbox className="day" defaultChecked={checkDays('Sunday')}>
-                  Sunday
-                </Checkbox>
+                {daysOfWeek.map(day => (
+                  <Checkbox value={`${day}`} className="day">
+                    {day}
+                  </Checkbox>
+                ))}
               </Form.Item>
 
               <Form.Item

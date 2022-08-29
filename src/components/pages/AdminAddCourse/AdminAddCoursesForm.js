@@ -1,175 +1,218 @@
-import React, { useState, useEffect } from 'react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
-import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addClass } from '../../../redux/actions/adminActions';
-
-// Styles
-import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesStyles.less';
-import { Input, InputNumber, Form, Button, Checkbox } from 'antd';
-import TextArea from 'antd/lib/input/TextArea';
 import { useHistory } from 'react-router-dom';
 
-let placeHolder = [];
-let array_string = '';
-let program_list = [];
-let formPrerequisite = '';
+// Styles
+import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
+import { Input, Form, Checkbox, InputNumber, DatePicker, Modal } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
+const { RangePicker } = DatePicker;
 
 const initialFormValues = {
-  class_name: '',
-  class_subject: '',
-  class_desc: '',
+  course_id: '',
+  course_name: '',
+  course_desc: '',
+  course_days: '',
+  course_capacity: '',
+  course_max_age: '',
+  course_min_age: '',
+  course_start_date: '',
+  course_end_date: '',
+  course_start_time: '',
+  course_end_time: '',
+  course_location: '',
+  course_num_sessions: '',
+};
+
+//Config for date and time picker
+const rangeConfig = {
+  rules: [
+    {
+      type: 'array',
+      message: 'Please select time!',
+    },
+  ],
 };
 
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-  const { authState, oktaAuth } = useOktaAuth();
-  const dispatch = useDispatch();
+  const { handleOk, handleCancel, isModalVisible } = props;
 
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-  }, []);
+  // const history = useHistory();
 
-  let history = useHistory();
+  const handleSubmit = () => {
+    handleOk(formValues);
+  };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    axiosWithAuth(authState.idToken.idToken)
-      .post('/courses', formValues)
-      .then(() => {
-        history.push('/admin-courses');
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    const merged = {
-      ...formValues,
-      prereq: placeHolder,
-    };
-    program_list.push(props.addClass(merged).payload);
-    setFormValues(initialFormValues);
-    clearPrereq();
-  }
+  // const handleCancel = e => {
+  //   history.push('/admin-course-details');
+  // };
 
   const handleChange = e => {
-    if (e.target.name !== 'prereq') {
-      setFormValues({
-        ...formValues,
-        [e.target.name]: e.target.value,
-      });
-    } else if (e.target.name === 'prereq') {
-      setFormPreReqs({
-        ...formPreReqs,
-        [e.target.name]: e.target.value,
-      });
-    }
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const addPrereq = () => {
-    if (formPreReqs.prereq.length !== 0) {
-      formPrerequisite = formPreReqs.prereq;
-      placeHolder.push(formPrerequisite);
-      buildString(formPrerequisite);
-    }
-  };
-
-  const clearPrereq = () => {
-    setFormPreReqs({ prereq: [] });
-    placeHolder = [];
-    array_string = '';
-    document.getElementById('prereq-render').innerHTML = array_string;
-  };
-
-  const buildString = () => {
-    let arrayText = placeHolder.join(', ');
-    document.getElementById('prereq-render').innerHTML = arrayText;
-  };
-
-  const onReset = () => {
-    setFormValues(initialFormValues);
+  const checkDays = dayTBC => {
+    // let exists = formValues.course_days.filter(day => day === dayTBC);
+    // if (exists.length === 1) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   };
 
   return (
-    <div className="add-courses-form-container">
-      <div className="h1-container">
-        <h1>Add Course</h1>
-      </div>
-      <section className="form-items-container">
-        <Form onFinish={handleSubmit} layout="horizontal">
-          <Form.Item label="Course Name:">
-            <Input
-              onChange={handleChange}
-              value={formValues.class_name}
-              name="class_name"
-            />
-          </Form.Item>
-          <Form.Item label="Description">
-            <TextArea
-              onChange={handleChange}
-              type="text"
-              style={{ height: 100, resize: 'none' }}
-              value={formValues.class_desc}
-              name="class_desc"
-            />
-          </Form.Item>
-          <Form.Item label="Days">
-            <Checkbox>Sunday</Checkbox>
-            <Checkbox>Monday</Checkbox>
-            <Checkbox>Tuesday</Checkbox>
-            <Checkbox>Wednesday</Checkbox>
-            <Checkbox>Thursday</Checkbox>
-            <Checkbox>Friday</Checkbox>
-            <Checkbox>Saturday</Checkbox>
-          </Form.Item>
-          <Form.Item label="Times:">
-            <Input />
-            <Input />
-            <Input />
-            <Input />
-            <Input />
-            <Input />
-            <Input />
-          </Form.Item>
-          <Form.Item label="Maximum Capacity:">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item label="Minimum Age:">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item label="Maximum Age:">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item label="Instructor:">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Start and End Dates:">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Location:">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Number of Sessions">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" size="small">
-              Save
-            </Button>
-            <Button onClick={onReset} size="small">
-              Cancel
-            </Button>
-          </Form.Item>
+    <div className="edit-course-disp">
+      <div className="edit-courses-form-container">
+        <section className="form-items-container">
+          <Modal
+            visible={isModalVisible}
+            title="Admin Add Class Form"
+            okText={!formValues.course_id ? 'Add Course' : 'Update Course'}
+            onOk={handleSubmit}
+            onCancel={handleCancel}
+          >
+            <Form layout="vertical">
+              <Form.Item
+                label={<label style={{ color: '#096A70' }}>Course Name:</label>}
+                style={{ width: '65%' }}
+                className="input-label"
+              >
+                <Input
+                  onChange={handleChange}
+                  value={formValues.course_name}
+                  name="course_name"
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70' }}>
+                    Course Description:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70' }}
+                className="input-label"
+                onChange={handleChange}
+                type="text"
+              >
+                <TextArea
+                  value={formValues.course_desc}
+                  name="course_desc"
+                  style={{ height: 100 }}
+                />
+              </Form.Item>
 
-          {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
-        </Form>
-      </section>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70' }}>Days of the Week:</label>
+                }
+                valuePropName="checked"
+                style={{ width: '100%' }}
+              >
+                <Checkbox className="day" defaultChecked={checkDays('Monday')}>
+                  Monday
+                </Checkbox>
+                <Checkbox className="day" defaultChecked={checkDays('Tuesday')}>
+                  Tuesday
+                </Checkbox>
+                <Checkbox
+                  className="day"
+                  defaultChecked={checkDays('Wednesday')}
+                >
+                  Wednesday
+                </Checkbox>
+                <Checkbox
+                  className="day"
+                  defaultChecked={checkDays('Thursday')}
+                >
+                  Thursday
+                </Checkbox>
+                <Checkbox className="day" defaultChecked={checkDays('Friday')}>
+                  Friday
+                </Checkbox>
+                <Checkbox
+                  className="day"
+                  defaultChecked={checkDays('Saturday')}
+                >
+                  Saturday
+                </Checkbox>
+                <Checkbox className="day" defaultChecked={checkDays('Sunday')}>
+                  Sunday
+                </Checkbox>
+              </Form.Item>
+
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
+                }
+                style={{ width: '65%' }}
+              >
+                <InputNumber
+                  value={formValues.course_capacity}
+                  name="course_capacity"
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%' }}
+                label={<label style={{ color: '#096A70' }}>Minimum Age:</label>}
+              >
+                <InputNumber
+                  value={formValues.course_min_age}
+                  name="course_min_age"
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%' }}
+                label={<label style={{ color: '#096A70' }}>Maximum Age:</label>}
+              >
+                <InputNumber
+                  value={formValues.course_max_age}
+                  name="course_max_age"
+                />
+              </Form.Item>
+              <Form.Item
+                {...rangeConfig}
+                label={
+                  <label style={{ color: '#096A70' }}>Date and Time:</label>
+                }
+                style={{ width: '100%' }}
+              >
+                <RangePicker
+                  showTime
+                  format="YYYY-MM-DD HH:mm:ss"
+                  name="course_date_time"
+                />
+              </Form.Item>
+              <Form.Item
+                label={<label style={{ color: '#096A70' }}>Location:</label>}
+                style={{ width: '65%' }}
+                onChange={handleChange}
+              >
+                <Input
+                  value={formValues.course_location}
+                  name="course_location"
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '80%' }}
+                label={
+                  <label style={{ color: '#096A70' }}>
+                    Number of Sessions:
+                  </label>
+                }
+              >
+                <InputNumber
+                  value={formValues.course_num_sessions}
+                  name="course_num_sessions"
+                />
+              </Form.Item>
+            </Form>
+          </Modal>
+        </section>
+      </div>
     </div>
   );
 }
@@ -180,4 +223,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addClass })(AdminAddCoursesForm);
+export default connect(mapStateToProps)(AdminAddCoursesForm);

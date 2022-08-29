@@ -43,7 +43,10 @@ const ApplicationCard = props => {
         <p>
           Bio: <span>{app.bio}</span>
         </p>
-        <button onClick={() => handleOnClick(app.instructor_id)}>
+        <button
+          class="card-button"
+          onClick={() => handleOnClick(app.instructor_id)}
+        >
           See More
         </button>
       </Card>

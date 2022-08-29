@@ -43,7 +43,10 @@ const CourseCard = props => {
         <p>
           Course Description: <span>{course.course_description}</span>
         </p>
-        <button onClick={() => handleOnClick(course.course_id)}>
+        <button
+          class="card-button"
+          onClick={() => handleOnClick(course.course_id)}
+        >
           See More
         </button>
       </Card>

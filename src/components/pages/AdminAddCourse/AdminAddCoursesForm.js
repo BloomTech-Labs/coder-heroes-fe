@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
@@ -38,15 +37,9 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { handleOk, handleCancel, isModalVisible } = props;
 
-  // const history = useHistory();
-
   const handleSubmit = () => {
     handleOk(formValues);
   };
-
-  // const handleCancel = e => {
-  //   history.push('/admin-course-details');
-  // };
 
   const handleChange = e => {
     setFormValues({
@@ -55,14 +48,7 @@ function AdminAddCoursesForm(props) {
     });
   };
 
-  const checkDays = dayTBC => {
-    // let exists = formValues.course_days.filter(day => day === dayTBC);
-    // if (exists.length === 1) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
-  };
+  const checkDays = dayTBC => {};
 
   return (
     <div className="edit-course-disp">
@@ -149,6 +135,7 @@ function AdminAddCoursesForm(props) {
                   <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
                 }
                 style={{ width: '65%' }}
+                onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_capacity}
@@ -158,6 +145,7 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 style={{ width: '65%' }}
                 label={<label style={{ color: '#096A70' }}>Minimum Age:</label>}
+                onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_min_age}
@@ -167,6 +155,7 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 style={{ width: '65%' }}
                 label={<label style={{ color: '#096A70' }}>Maximum Age:</label>}
+                onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_max_age}
@@ -179,6 +168,7 @@ function AdminAddCoursesForm(props) {
                   <label style={{ color: '#096A70' }}>Date and Time:</label>
                 }
                 style={{ width: '100%' }}
+                onChange={handleChange}
               >
                 <RangePicker
                   showTime
@@ -203,6 +193,7 @@ function AdminAddCoursesForm(props) {
                     Number of Sessions:
                   </label>
                 }
+                onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_num_sessions}

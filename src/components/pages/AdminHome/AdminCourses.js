@@ -1,77 +1,37 @@
-import React, { useState, useEffect } from 'react';
-// removed useHistory for now
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
 import '../../../styles/index.less';
-import { useOktaAuth } from '@okta/okta-react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { Layout } from 'antd';
+import { connect } from 'react-redux';
 import CourseCard from './AdminCourseCard';
-import AdminAddCourses from '../AdminAddCourse';
+import { useDispatch } from 'react-redux';
+import { getCourses } from '../../../redux/actions/coursesActions';
+import { useOktaAuth } from '@okta/okta-react';
+import { Layout, Input } from 'antd';
+const { Search } = Input;
+// leaving this import in to allow for the modal coming from add-course
+// import AdminAddCourses from '../AdminAddCourse';
 
-const initialCoursesState = [
-  {
-    course_id: 1,
-    course_name: 'Intro to JS',
-    instructor: 'John Doe',
-    program_name: 'CoderYoga',
-    date: '12/01/2023',
-  },
-  {
-    course_id: 2,
-    course_name: 'Intro to Python',
-    instructor: 'Jane Doe',
-    program_name: 'CoderSitters',
-    date: '12/01/2023',
-  },
-  {
-    course_id: 3,
-    course_name: 'Intro to CSS',
-    instructor: 'Mark Smith',
-    program_name: 'CoderSitters',
-    date: '12/01/2023',
-  },
-  {
-    course_id: 4,
-    course_name: 'Intro to HTML',
-    instructor: 'Jane Doe',
-    program_name: 'CoderCamp',
-    date: '12/01/2023',
-  },
-  {
-    course_id: 5,
-    course_name: 'Intro to HTML',
-    instructor: 'Another Person',
-    program_name: 'CoderYoga',
-    date: '12/01/2023',
-  },
-  {
-    course_id: 6,
-    course_name: 'Intro to React',
-    instructor: 'Jane Doe',
-    program_name: 'CoderSitters',
-    date: '12/01/2023',
-  },
-];
+// need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
 
-export default function AdminCourses() {
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
-  const [courses, setCourses] = useState(initialCoursesState);
+function AdminCourses(props) {
+  const { courses } = props;
+  const dispatch = useDispatch();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   useEffect(() => {
-    axiosWithAuth(idToken)
-      .get(`${URL}/courses`)
-      .then(res => {
-        setCourses(res.data);
-      })
-      .catch(err => console.error(err));
-  }, []);
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
 
-  // const history = useHistory();
+  const history = useHistory();
 
-  // const handleClick = () =>{
-  //   history.push('/admin-add-course');
-  // };
+  const handleClick = () => {
+    history.push('/admin-add-course');
+  };
+  const onSearch = searchTerm => {
+    console.log(searchTerm);
+    courses.find(item => item === searchTerm);
+  };
 
   const { Content } = Layout;
 
@@ -83,10 +43,24 @@ export default function AdminCourses() {
           <div class="header-container">
             <h1>Courses</h1>
           </div>
-          <div class="courses-right">
-            <button className="add-course">ADD COURSE</button>
+          <div className="courses-page-flex">
+            <div className="courses-left">
+              {/* placeholder for now - holding for universal component */}
+              <Search
+                placeholder="input search text"
+                allowClear
+                onSearch={onSearch}
+                style={{
+                  width: 250,
+                }}
+              />
+            </div>
+            <div className="courses-right">
+              <button className="add-course" onClick={handleClick}>
+                ADD COURSE
+              </button>
+            </div>
           </div>
-          {/*  onClick={<AdminAddCourses />} put back in button click */}
           <div className="admin-courses-container">
             {courses.map(item => (
               <CourseCard key={item.course_id} course={item} />
@@ -97,3 +71,10 @@ export default function AdminCourses() {
     </Layout>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    courses: state.coursesReducer.courses,
+  };
+};
+export default connect(mapStateToProps, {})(AdminCourses);

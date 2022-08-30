@@ -22,7 +22,8 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      dispatch(addCourse(idToken, course));
+      // dispatch(addCourse(idToken, course));
+      console.log(course);
     }
     if (course.course_id) {
       dispatch(editCourse(idToken, course));

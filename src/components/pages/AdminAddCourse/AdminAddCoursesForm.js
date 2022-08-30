@@ -118,11 +118,7 @@ function AdminAddCoursesForm(props) {
                 style={{ width: '100%' }}
                 onChange={handleCheck}
               >
-                {daysOfWeek.map(day => (
-                  <Checkbox value={`${day}`} className="day">
-                    {day}
-                  </Checkbox>
-                ))}
+                <Checkbox.Group options={daysOfWeek} />
               </Form.Item>
 
               <Form.Item

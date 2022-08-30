@@ -196,7 +196,7 @@ function AdminAddCoursesForm(props) {
                   </label>
                 }
                 valuePropName="checked"
-                style={{ width: '120%', fontSize: '1.1rem' }}
+                style={{ width: '100%', fontSize: '1.1rem' }}
                 onChange={handleCheck}
               >
                 <Checkbox.Group options={daysOfWeek} />
@@ -262,13 +262,12 @@ function AdminAddCoursesForm(props) {
                 />
               </Form.Item>
               <Form.Item
-                {...rangeConfig}
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Start and End Time:
                   </label>
                 }
-                style={{ width: '100%', fontSize: '1.1rem' }}
+                style={{ width: '60%', fontSize: '1.1rem' }}
               >
                 {formValues.course_days.map(day => (
                   <label key={`${day}`}>

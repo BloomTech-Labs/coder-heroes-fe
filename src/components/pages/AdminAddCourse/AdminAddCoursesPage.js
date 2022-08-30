@@ -36,9 +36,13 @@ function AdminAddCoursesPage(props) {
   };
 
   return (
-    <div className="admin-add-courses-page" style={{ display: 'flex' }}>
+    <div className="admin-add-courses-page">
       <div className="admin-add-courses-left">
-        <Button type="primary" onClick={showModal}>
+        <Button
+          type="primary"
+          onClick={showModal}
+          style={{ width: '140px', textAlign: 'center' }}
+        >
           Add New Course
         </Button>
         <AdminAddCoursesForm

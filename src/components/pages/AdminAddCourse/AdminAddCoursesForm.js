@@ -12,9 +12,7 @@ import {
   Modal,
   TimePicker,
 } from 'antd';
-import { Moment } from 'moment';
 import TextArea from 'antd/lib/input/TextArea';
-const { RangePicker } = DatePicker;
 
 const initialFormValues = {
   course_id: '',
@@ -181,12 +179,14 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 {...rangeConfig}
                 label={
-                  <label style={{ color: '#096A70' }}>Date and Time:</label>
+                  <label style={{ color: '#096A70' }}>
+                    Start and End Date:
+                  </label>
                 }
                 style={{ width: '100%' }}
               >
-                <RangePicker
-                  onChange={value => handleDateChange(value)}
+                <DatePicker.RangePicker
+                  onChange={handleDateChange}
                   format="YYYY-MM-DD"
                   name="course_date"
                 />
@@ -194,7 +194,9 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 {...rangeConfig}
                 label={
-                  <label style={{ color: '#096A70' }}>Date and Time:</label>
+                  <label style={{ color: '#096A70' }}>
+                    Start and End Time:
+                  </label>
                 }
                 style={{ width: '100%' }}
               >

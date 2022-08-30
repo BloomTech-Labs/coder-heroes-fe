@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { dummyData } from '../../../dummyData';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getInstructors } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 import AdminSidebar from './AdminSidebar';
-import { Layout } from 'antd';
+import { Layout, Input } from 'antd';
+import AdminPendingInstructors from './AdminPendingInstructors';
 import AdminActiveInstructors from './AdminActiveInstructors';
 
-const instructorData = dummyData.instructor_data;
-
-const initialInstructors = {
-  instructor_id: instructorData[0].instructor_id,
-  instructor_name: instructorData[0].instructor_name,
-  user_id: instructorData[0].user_id,
-  rating: instructorData[0].rating,
-  approved: instructorData[0].approved,
-  approved_by: instructorData[0].approved_by,
-  instructor_bio: instructorData[0].instructor_bio,
-  inbox: instructorData[0].inbox,
-};
-
-export default function InstructorsList() {
-  const [instructors, setInstructors] = useState(initialInstructors);
-
-  const history = useHistory();
+function AdminInstructors(props) {
+  const { instructors } = props;
+  const dispatch = useDispatch();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   const ToggleInstructors = () => {
-    setInstructors(!instructors);
+    dispatch(!instructors);
   };
+
+  useEffect(() => {
+    dispatch(getInstructors(idToken));
+  }, [dispatch, idToken]);
+
+  const history = useHistory();
 
   const { Content } = Layout;
 
@@ -41,7 +38,7 @@ export default function InstructorsList() {
               {!instructors ? 'Pending Instructors' : 'Active Instructors'}{' '}
             </button>
             {instructors ? (
-              <h1>Pending Instructors</h1>
+              <AdminPendingInstructors />
             ) : (
               <AdminActiveInstructors />
             )}
@@ -51,3 +48,11 @@ export default function InstructorsList() {
     </Layout>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    instructors: state.instructorReducer.instructors,
+  };
+};
+
+export default connect(mapStateToProps, {})(AdminInstructors);

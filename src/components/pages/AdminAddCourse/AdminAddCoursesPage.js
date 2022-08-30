@@ -8,7 +8,6 @@ import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 
 import AdminAddCoursesForm from './AdminAddCoursesForm';
 import { Button } from 'antd';
-// import AdminAddCoursesList from './AdminAddCoursesList';
 
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
@@ -22,8 +21,7 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      // dispatch(addCourse(idToken, course));
-      console.log(course);
+      dispatch(addCourse(idToken, course));
     }
     if (course.course_id) {
       dispatch(editCourse(idToken, course));

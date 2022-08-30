@@ -3,7 +3,16 @@ import { connect } from 'react-redux';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
-import { Input, Form, Checkbox, InputNumber, DatePicker, Modal } from 'antd';
+import {
+  Input,
+  Form,
+  Checkbox,
+  InputNumber,
+  DatePicker,
+  Modal,
+  TimePicker,
+} from 'antd';
+import { Moment } from 'moment';
 import TextArea from 'antd/lib/input/TextArea';
 const { RangePicker } = DatePicker;
 
@@ -67,6 +76,22 @@ function AdminAddCoursesForm(props) {
         course_days: [...formValues.course_days, e.target.value],
       });
     }
+  };
+
+  const handleDateChange = value => {
+    setFormValues({
+      ...formValues,
+      course_start_date: value[0].format('MM/DD/YYYY'),
+      course_end_date: value[1].format('MM/DD/YYYY'),
+    });
+  };
+
+  const handleTimeChange = value => {
+    setFormValues({
+      ...formValues,
+      course_start_time: value[0].format('hh:mm:ss'),
+      course_end_time: value[1].format('hh:mm:ss'),
+    });
   };
 
   return (
@@ -159,12 +184,25 @@ function AdminAddCoursesForm(props) {
                   <label style={{ color: '#096A70' }}>Date and Time:</label>
                 }
                 style={{ width: '100%' }}
-                onChange={handleChange}
               >
                 <RangePicker
-                  showTime
-                  format="YYYY-MM-DD HH:mm:ss"
-                  name="course_date_time"
+                  onChange={value => handleDateChange(value)}
+                  format="YYYY-MM-DD"
+                  name="course_date"
+                />
+              </Form.Item>
+              <Form.Item
+                {...rangeConfig}
+                label={
+                  <label style={{ color: '#096A70' }}>Date and Time:</label>
+                }
+                style={{ width: '100%' }}
+              >
+                <TimePicker.RangePicker
+                  onChange={handleTimeChange}
+                  use12Hours={true}
+                  format="HH:mm"
+                  name="course_time"
                 />
               </Form.Item>
               <Form.Item

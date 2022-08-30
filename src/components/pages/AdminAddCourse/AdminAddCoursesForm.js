@@ -118,7 +118,7 @@ function AdminAddCoursesForm(props) {
           <Modal
             visible={isModalVisible}
             title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
-            okText={!formValues.course_id ? 'Add Course' : 'Update Course'}
+            okText="Save"
             onOk={handleSubmit}
             onCancel={handleCancel}
           >
@@ -204,6 +204,41 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Start and End Time:
+                  </label>
+                }
+                style={{ width: '60%', fontSize: '1.1rem' }}
+              >
+                {formValues.course_days.map(day => (
+                  <label key={`${day}`}>
+                    {`${day}:`}
+                    <TimePicker.RangePicker
+                      onChange={handleTimeChange}
+                      use12Hours={true}
+                      format="HH:mm"
+                      name="course_time"
+                    />
+                  </label>
+                ))}
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Location:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <Input
+                  value={formValues.course_location}
+                  name="course_location"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Maximum Capacity:
                   </label>
                 }
@@ -259,41 +294,6 @@ function AdminAddCoursesForm(props) {
                   onChange={handleDateChange}
                   format="YYYY-MM-DD"
                   name="course_date"
-                />
-              </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Start and End Time:
-                  </label>
-                }
-                style={{ width: '60%', fontSize: '1.1rem' }}
-              >
-                {formValues.course_days.map(day => (
-                  <label key={`${day}`}>
-                    {`${day}:`}
-                    <TimePicker.RangePicker
-                      onChange={handleTimeChange}
-                      use12Hours={true}
-                      format="HH:mm"
-                      name="course_time"
-                    />
-                  </label>
-                ))}
-              </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Location:
-                  </label>
-                }
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                onChange={handleChange}
-              >
-                <Input
-                  value={formValues.course_location}
-                  name="course_location"
-                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item

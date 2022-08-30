@@ -113,23 +113,31 @@ function AdminAddCoursesForm(props) {
           >
             <Form layout="vertical">
               <Form.Item
-                label={<label style={{ color: '#096A70' }}>Course Name:</label>}
-                style={{ width: '65%' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Name:
+                  </label>
+                }
+                style={{
+                  width: '65%',
+                  fontSize: '1.1rem',
+                }}
                 className="input-label"
               >
                 <Input
                   onChange={handleChange}
                   value={formValues.course_name}
                   name="course_name"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Course Description:
                   </label>
                 }
-                style={{ width: '75%', color: '#096A70' }}
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
                 className="input-label"
                 onChange={handleChange}
                 type="text"
@@ -137,59 +145,74 @@ function AdminAddCoursesForm(props) {
                 <TextArea
                   value={formValues.course_desc}
                   name="course_desc"
-                  style={{ height: 100 }}
+                  style={{ height: 100, fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>Days of the Week:</label>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Days of the Week:
+                  </label>
                 }
                 valuePropName="checked"
-                style={{ width: '100%' }}
+                style={{ width: '120%', fontSize: '1.1rem' }}
                 onChange={handleCheck}
               >
                 <Checkbox.Group options={daysOfWeek} />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Capacity:
+                  </label>
                 }
-                style={{ width: '65%' }}
+                style={{ width: '65%', fontSize: '1.1rem' }}
                 onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_capacity}
                   name="course_capacity"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
-                style={{ width: '65%' }}
-                label={<label style={{ color: '#096A70' }}>Minimum Age:</label>}
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Minimum Age:
+                  </label>
+                }
                 onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_min_age}
                   name="course_min_age"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
-                style={{ width: '65%' }}
-                label={<label style={{ color: '#096A70' }}>Maximum Age:</label>}
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Age:
+                  </label>
+                }
                 onChange={handleChange}
               >
                 <InputNumber
                   value={formValues.course_max_age}
                   name="course_max_age"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
                 {...rangeConfig}
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Start and End Date:
                   </label>
                 }
-                style={{ width: '100%' }}
+                style={{ width: '100%', fontSize: '1.1rem' }}
               >
                 <DatePicker.RangePicker
                   onChange={handleDateChange}
@@ -200,15 +223,14 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 {...rangeConfig}
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Start and End Time:
                   </label>
                 }
-                style={{ width: '100%' }}
+                style={{ width: '100%', fontSize: '1.1rem' }}
               >
                 {formValues.course_days.map(day => (
                   <label key={`${day}`}>
-                    {' '}
                     {`${day}:`}
                     <TimePicker.RangePicker
                       onChange={handleTimeChange}
@@ -220,19 +242,24 @@ function AdminAddCoursesForm(props) {
                 ))}
               </Form.Item>
               <Form.Item
-                label={<label style={{ color: '#096A70' }}>Location:</label>}
-                style={{ width: '65%' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Location:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
                 onChange={handleChange}
               >
                 <Input
                   value={formValues.course_location}
                   name="course_location"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
-                style={{ width: '80%' }}
+                style={{ width: '80%', fontSize: '1.1rem' }}
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Number of Sessions:
                   </label>
                 }
@@ -241,6 +268,7 @@ function AdminAddCoursesForm(props) {
                 <InputNumber
                   value={formValues.course_num_sessions}
                   name="course_num_sessions"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
             </Form>

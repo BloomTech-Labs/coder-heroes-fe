@@ -74,6 +74,14 @@ function AdminAddCoursesForm(props) {
         course_days: [...formValues.course_days, e.target.value],
       });
     }
+    if (!e.target.checked) {
+      setFormValues({
+        ...formValues,
+        course_days: formValues.course_days.filter(
+          value => value !== e.target.value
+        ),
+      });
+    }
   };
 
   const handleDateChange = value => {
@@ -98,7 +106,7 @@ function AdminAddCoursesForm(props) {
         <section className="form-items-container">
           <Modal
             visible={isModalVisible}
-            title="Admin Add Class Form"
+            title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
             okText={!formValues.course_id ? 'Add Course' : 'Update Course'}
             onOk={handleSubmit}
             onCancel={handleCancel}
@@ -132,7 +140,6 @@ function AdminAddCoursesForm(props) {
                   style={{ height: 100 }}
                 />
               </Form.Item>
-
               <Form.Item
                 label={
                   <label style={{ color: '#096A70' }}>Days of the Week:</label>
@@ -143,7 +150,6 @@ function AdminAddCoursesForm(props) {
               >
                 <Checkbox.Group options={daysOfWeek} />
               </Form.Item>
-
               <Form.Item
                 label={
                   <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
@@ -200,12 +206,18 @@ function AdminAddCoursesForm(props) {
                 }
                 style={{ width: '100%' }}
               >
-                <TimePicker.RangePicker
-                  onChange={handleTimeChange}
-                  use12Hours={true}
-                  format="HH:mm"
-                  name="course_time"
-                />
+                {formValues.course_days.map(day => (
+                  <label key={`${day}`}>
+                    {' '}
+                    {`${day}:`}
+                    <TimePicker.RangePicker
+                      onChange={handleTimeChange}
+                      use12Hours={true}
+                      format="HH:mm"
+                      name="course_time"
+                    />
+                  </label>
+                ))}
               </Form.Item>
               <Form.Item
                 label={<label style={{ color: '#096A70' }}>Location:</label>}

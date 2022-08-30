@@ -11,13 +11,15 @@ import {
   DatePicker,
   Modal,
   TimePicker,
+  Select,
 } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+const { Option } = Select;
 
 const initialFormValues = {
   course_id: '',
   course_name: '',
-  course_desc: '',
+  course_description: '',
   course_days: [],
   course_capacity: '',
   course_max_age: '',
@@ -28,6 +30,8 @@ const initialFormValues = {
   course_end_time: '',
   course_location: '',
   course_num_sessions: '',
+  instructor_id: '',
+  program_id: '',
 };
 
 const daysOfWeek = [
@@ -100,6 +104,13 @@ function AdminAddCoursesForm(props) {
     });
   };
 
+  const handleProgramSelect = value => {
+    setFormValues({
+      ...formValues,
+      program_id: value,
+    });
+  };
+
   return (
     <div className="edit-course-disp">
       <div className="edit-courses-form-container">
@@ -139,13 +150,43 @@ function AdminAddCoursesForm(props) {
                 }
                 style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
                 className="input-label"
-                onChange={handleChange}
                 type="text"
+                onChange={handleChange}
               >
                 <TextArea
                   value={formValues.course_desc}
-                  name="course_desc"
+                  name="course_description"
                   style={{ height: 100, fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Program:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
+              >
+                <Select onChange={handleProgramSelect}>
+                  <Option value="">--Choose a Program--</Option>
+                  <Option value={1}>Codercamp</Option>
+                  <Option value={2}>Codersitters</Option>
+                  <Option value={3}>Coderyoga</Option>
+                </Select>
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Instructor ID:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.instructor_id}
+                  name="instructor_id"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item

@@ -21,11 +21,11 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      // dispatch(addCourse(idToken, course));
-      console.log(course);
+      dispatch(addCourse(idToken, course));
     }
     if (course.course_id) {
-      dispatch(editCourse(idToken, course));
+      // this will eventually be used for editing existing courses
+      // dispatch(editCourse(idToken, course));
     }
 
     setIsModalVisible(false);

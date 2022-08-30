@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { useDispatch } from 'react-redux';
+import { addCourse, editCourse } from '../../../redux/actions/coursesActions';
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 
 import AdminAddCoursesForm from './AdminAddCoursesForm';
-import { Button, Form } from 'antd';
+import { Button } from 'antd';
 // import AdminAddCoursesList from './AdminAddCoursesList';
 
 function AdminAddCoursesPage(props) {
+  const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -16,12 +22,10 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      //axios.post('/', course)
-      console.log('course posted', course);
+      dispatch(addCourse(idToken, course));
     }
     if (course.course_id) {
-      //axios.put(`/${course_id}`, course)
-      console.log('couse updated', course);
+      dispatch(editCourse(idToken, course));
     }
 
     setIsModalVisible(false);

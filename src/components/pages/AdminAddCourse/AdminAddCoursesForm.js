@@ -47,7 +47,8 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { handleOk, handleCancel, isModalVisible } = props;
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     handleOk(formValues);
     setFormValues(initialFormValues);
   };

@@ -37,6 +37,7 @@ function NavBar(props) {
   const [logoutRender, setLogoutRender] = useState(false);
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
+  const history = useHistory();
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
@@ -58,7 +59,7 @@ function NavBar(props) {
   const onClose = () => {
     setVisible(false);
   };
- 
+
   if (firstLogin && role_id) {
     history.push('/dashboard');
     setFirstLogin(false);

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
-import '../../../styles/index.less';
 import { connect } from 'react-redux';
 import CourseCard from './AdminCourseCard';
 import { useDispatch } from 'react-redux';
@@ -9,8 +8,6 @@ import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { Layout, Input } from 'antd';
 const { Search } = Input;
-// leaving this import in to allow for the modal coming from add-course
-// import AdminAddCourses from '../AdminAddCourse';
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
 
@@ -45,7 +42,7 @@ function AdminCourses(props) {
           </div>
           <div className="courses-page-flex">
             <div className="courses-left">
-              {/* placeholder for now - holding for universal component */}
+              {/* placeholder for now - holding for universal component 
               <Search
                 placeholder="input search text"
                 allowClear
@@ -53,7 +50,7 @@ function AdminCourses(props) {
                 style={{
                   width: 250,
                 }}
-              />
+              />*/}
             </div>
             <div className="courses-right">
               <button className="add-course" onClick={handleClick}>
@@ -77,4 +74,5 @@ const mapStateToProps = state => {
     courses: state.coursesReducer.courses,
   };
 };
+
 export default connect(mapStateToProps, {})(AdminCourses);

@@ -3,7 +3,6 @@
 @h1: 5rem;
 @h2: 3rem;
 @h3: 2.5rem;
-
 .admin-course-feed-container {
   border: 1px solid black;
   border-radius: 10px;
@@ -14,7 +13,6 @@
   margin-left: 2%;
   margin-bottom: 2%;
 }
-
 .submitted-course-container {
   border: 1px solid black;
   border-radius: 10px;
@@ -28,7 +26,6 @@
     color: @text__color--white;
   }
 }
-
 .cards {
   margin: 10%;
   display: flex;
@@ -37,35 +34,29 @@
   justify-content: space-around;
   align-items: center;
 }
-
 .pending-applications {
   margin-right: 5%;
   border: 5px solid black;
   border-radius: 4%;
 }
-
 .approved-applications {
   margin-left: 5%;
   border: 5px solid black;
   border-radius: 4%;
 }
-
 .icon {
   font-size: 10rem;
   padding: 5%;
-  color: #006c72;
+  color: #006C72;
 }
-
 .description {
   justify-content: center;
   padding: 5%;
 }
-
 .pendingBtn {
   margin: 5% 33%;
   padding: 0% 5.7%;
 }
-
 .approvedBtn {
   margin: 5% 33%;
 }
@@ -74,12 +65,12 @@ div.header-container{
 padding-left: 1%;
 padding-bottom:1%;
 }
-
 div.table-container{
   padding:3%;
 }
 // styles for admin-purchases-table
 // makes the rows alternating colors
+.table-container{
 tr:nth-child(odd){
   background-color:#FDF2DD;
 }
@@ -132,93 +123,69 @@ thead.ant-table-thead > tr > th {
   padding-bottom:1%;
   font-size:large;
 }
-// admin-search
-
-.ant-input-group-wrapper{
-  margin:0 0 0 3%;
 }
-.ant-input-search-button{
-  justify-content: center;
-  margin:0;
-  width:inherit;
+// styles for the admin add course modal and form
+.ant-modal-content{
+  width: 120%;
+  margin-top:-10%;
+  margin-left:-10%;
+  background-color:#FCDFAA;
+  border:#F1C461;
 }
-.anticon-search{
+.ant-modal-header{
+  background-color:#FCDFAA;
+  border-bottom:none;
+}
+.ant-modal-body{
+  border-top: 1px solid #096A70;
+}
+.ant-modal-title{
+  font-size:1.7rem;
+}
+.ant-modal-close-icon{
   color:black;
 }
-
-// admin-courses styling (cards)
-.ant-card-container{
-  width:100%;
+// attempted to apply font-size styles in this CSS sheet instead of inline. It was not responding to anything but inline styling.
+.ant-form-item-label {
+    font-weight: bold;
 }
-.courses-page-flex{
-  display:flex;
-  justify-content: space-between;
-}
-.ant-card{
-  background-color: #fcdfaa;
-  border: none;
-  margin:2%;
-}
-.admin-courses-container{
-  display:flex;
-  flex-flow:row wrap;
-}
-.admin-course-card-container{
-  width:45%;
-}
-.courses-button-container{
-display:flex;
-flex-direction:row;
-width:100%;
-justify-content: space-around;
-}
-.ant-input-search-button{
-  font-size:large;
-}
-.ant-input-group-addon{
-  width:5rem;
-}
-.ant-card-head{
-  border-bottom: 1px solid #096A70;
-}
-.ant-card-head-title{
+.ant-form-item-label > label{
   color: #096A70;
-  font-size:large;
-  font-weight:bold;
 }
-.ant-card-body > h3{
-  color: #096A70;
-  font-weight:bold;
+.ant-modal-footer{
+  display:flex;
+  justify-content: flex-end;
+  border-top: 1px solid #FCDFAA;
+  .ant-btn-default{
+    width:30%;
+    justify-content:center;
+    background-color:#21C5B5;
+    color:white;
+    font-weight:bold;
+    text-transform:uppercase;
+    border: none;
+    border-radius: 3%;
+    font-size:1rem;
+    padding-bottom:5px;
+    }
+    .ant-btn-primary{
+    width:30%;
+    justify-content:center;
+    background-color:#6A0C49;
+    color: white;
+    font-weight:bold;
+    text-transform:uppercase;
+    border: none;
+    border-radius: 3%;
+    font-size:1rem;
+    padding-bottom:5px;
+    }
 }
-.black{
-  color:black;
-  font-weight:normal;
-}
-button.courses-button{
-  background-color:white;
-  color:black;
-  border:none;
-  margin-top:2%;
-  border-radius: 3px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  
-}
-.courses-right{
-  margin-right:16%;
-  margin-bottom:2%;
-}
-.add-course{
-  background-color: #21C5B5;
-  border:none;
-  color:black;
-  font-size:small;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  padding: 2% 3%;
-  border-radius: 3px;
-  width:150%;
+
+.admin-add-courses-page{
+  font-size:1.5rem;
 }
 //media queries for submit new program
-
 @media screen and (max-width: 1200px) {
   .add-courses-form-container {
     width: 100%;
@@ -229,7 +196,6 @@ button.courses-button{
     }
   }
 }
-
 @media screen and (max-width: 768px) {
   .add-courses-form-container {
     width: 100%;
@@ -241,7 +207,6 @@ button.courses-button{
     }
   }
 }
-
 @media screen and (max-width: 576px) {
   .add-courses-form-container {
     width: 100%;

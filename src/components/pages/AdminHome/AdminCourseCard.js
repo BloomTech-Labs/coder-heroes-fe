@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
+import FormModal from '../AdminAddCourse/AdminAddCoursesForm';
 
 // Using AntD to pull in a card component to show course details. The course info comes from the parent component AdminCourses with course passed through props. Ability to go directly to course details or course edit from the card page.
 export default function CourseCard(props) {
@@ -34,9 +35,7 @@ export default function CourseCard(props) {
         </h3>
 
         <div className="courses-button-container">
-          <button className="courses-button" onClick={handleEditCourse}>
-            EDIT COURSE
-          </button>
+          <FormModal button_name={'Edit Course'} courseinfo={course} />
           <button className="courses-button" onClick={viewCourseDetails}>
             VIEW COURSE
           </button>

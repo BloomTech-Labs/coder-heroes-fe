@@ -21,11 +21,11 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      // dispatch(addCourse(idToken, course));
-      console.log(course);
+      dispatch(addCourse(idToken, course));
     }
     if (course.course_id) {
-      dispatch(editCourse(idToken, course));
+      // this will eventually be used for editing existing courses
+      // dispatch(editCourse(idToken, course));
     }
 
     setIsModalVisible(false);
@@ -36,9 +36,13 @@ function AdminAddCoursesPage(props) {
   };
 
   return (
-    <div className="admin-add-courses-page" style={{ display: 'flex' }}>
+    <div className="admin-add-courses-page">
       <div className="admin-add-courses-left">
-        <Button type="primary" onClick={showModal}>
+        <Button
+          type="primary"
+          onClick={showModal}
+          style={{ width: '140px', textAlign: 'center' }}
+        >
           Add New Course
         </Button>
         <AdminAddCoursesForm

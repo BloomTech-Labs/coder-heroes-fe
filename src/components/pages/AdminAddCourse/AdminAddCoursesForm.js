@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 // Styles
@@ -9,15 +9,18 @@ import {
   Checkbox,
   InputNumber,
   DatePicker,
+  Button,
   Modal,
   TimePicker,
+  Select,
 } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+const { Option } = Select;
 
 const initialFormValues = {
   course_id: '',
   course_name: '',
-  course_desc: '',
+  course_description: '',
   course_days: [],
   course_capacity: '',
   course_max_age: '',
@@ -28,6 +31,8 @@ const initialFormValues = {
   course_end_time: '',
   course_location: '',
   course_num_sessions: '',
+  instructor_id: '',
+  program_id: '',
 };
 
 const daysOfWeek = [
@@ -52,7 +57,36 @@ const rangeConfig = {
 
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const { handleOk, handleCancel, isModalVisible } = props;
+  const { handleOk, courseinfo } = props;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  useEffect(() => {
+    setFormValues({
+      course_id: '',
+      course_name: courseinfo.course_name,
+      course_description: courseinfo.course_description,
+      course_days: [],
+      course_capacity: courseinfo.max_size,
+      course_max_age: courseinfo.max_age,
+      course_min_age: courseinfo.min_age,
+      course_start_date: courseinfo.start_date.substr(0, 10),
+      course_end_date: '',
+      course_start_time: '',
+      course_end_time: '',
+      course_location: '',
+      course_num_sessions: courseinfo.number_of_sessions,
+      instructor_id: '',
+      program_id: '',
+    });
+  }, []);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleClose = () => {
+    setIsModalVisible(false);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -100,115 +134,116 @@ function AdminAddCoursesForm(props) {
     });
   };
 
+  const handleProgramSelect = value => {
+    setFormValues({
+      ...formValues,
+      program_id: value,
+    });
+  };
+
   return (
     <div className="edit-course-disp">
       <div className="edit-courses-form-container">
         <section className="form-items-container">
+          <Button type="primary" onClick={showModal}>
+            {props.button_name}
+          </Button>
           <Modal
             visible={isModalVisible}
             title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
-            okText={!formValues.course_id ? 'Add Course' : 'Update Course'}
+            okText="Save"
             onOk={handleSubmit}
-            onCancel={handleCancel}
+            onCancel={handleClose}
           >
             <Form layout="vertical">
               <Form.Item
-                label={<label style={{ color: '#096A70' }}>Course Name:</label>}
-                style={{ width: '65%' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Name:
+                  </label>
+                }
+                style={{
+                  width: '65%',
+                  fontSize: '1.1rem',
+                }}
                 className="input-label"
               >
                 <Input
                   onChange={handleChange}
                   value={formValues.course_name}
                   name="course_name"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Course Description:
                   </label>
                 }
-                style={{ width: '75%', color: '#096A70' }}
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
                 className="input-label"
-                onChange={handleChange}
                 type="text"
+                onChange={handleChange}
               >
                 <TextArea
-                  value={formValues.course_desc}
-                  name="course_desc"
-                  style={{ height: 100 }}
+                  value={formValues.course_description}
+                  name="course_description"
+                  style={{ height: 100, fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>Days of the Week:</label>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Program:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
+              >
+                <Select onChange={handleProgramSelect}>
+                  <Option value="">--Choose a Program--</Option>
+                  <Option value={1}>Codercamp</Option>
+                  <Option value={2}>Codersitters</Option>
+                  <Option value={3}>Coderyoga</Option>
+                </Select>
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Instructor ID:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.instructor_id}
+                  name="instructor_id"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Days of the Week:
+                  </label>
                 }
                 valuePropName="checked"
-                style={{ width: '100%' }}
+                style={{ width: '100%', fontSize: '1.1rem' }}
                 onChange={handleCheck}
               >
                 <Checkbox.Group options={daysOfWeek} />
               </Form.Item>
               <Form.Item
                 label={
-                  <label style={{ color: '#096A70' }}>Maximum Capacity:</label>
-                }
-                style={{ width: '65%' }}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_capacity}
-                  name="course_capacity"
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%' }}
-                label={<label style={{ color: '#096A70' }}>Minimum Age:</label>}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_min_age}
-                  name="course_min_age"
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%' }}
-                label={<label style={{ color: '#096A70' }}>Maximum Age:</label>}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_max_age}
-                  name="course_max_age"
-                />
-              </Form.Item>
-              <Form.Item
-                {...rangeConfig}
-                label={
-                  <label style={{ color: '#096A70' }}>
-                    Start and End Date:
-                  </label>
-                }
-                style={{ width: '100%' }}
-              >
-                <DatePicker.RangePicker
-                  onChange={handleDateChange}
-                  format="YYYY-MM-DD"
-                  name="course_date"
-                />
-              </Form.Item>
-              <Form.Item
-                {...rangeConfig}
-                label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Start and End Time:
                   </label>
                 }
-                style={{ width: '100%' }}
+                style={{ width: '60%', fontSize: '1.1rem' }}
               >
                 {formValues.course_days.map(day => (
                   <label key={`${day}`}>
-                    {' '}
                     {`${day}:`}
                     <TimePicker.RangePicker
                       onChange={handleTimeChange}
@@ -220,19 +255,88 @@ function AdminAddCoursesForm(props) {
                 ))}
               </Form.Item>
               <Form.Item
-                label={<label style={{ color: '#096A70' }}>Location:</label>}
-                style={{ width: '65%' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Location:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
                 onChange={handleChange}
               >
                 <Input
                   value={formValues.course_location}
                   name="course_location"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
-                style={{ width: '80%' }}
                 label={
-                  <label style={{ color: '#096A70' }}>
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Capacity:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.course_capacity}
+                  name="course_capacity"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Minimum Age:
+                  </label>
+                }
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.course_min_age}
+                  name="course_min_age"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Age:
+                  </label>
+                }
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.course_max_age}
+                  name="course_max_age"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                {...rangeConfig}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Start and End Date:
+                  </label>
+                }
+                style={{ width: '100%', fontSize: '1.1rem' }}
+              >
+                <DatePicker.RangePicker
+                  onChange={handleDateChange}
+                  format="YYYY-MM-DD"
+                  name="course_date"
+                />
+                <br></br>
+                {formValues.course_start_date
+                  ? 'Current Set Date: ' + formValues.course_start_date
+                  : null}
+              </Form.Item>
+              <Form.Item
+                style={{ width: '80%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
                     Number of Sessions:
                   </label>
                 }
@@ -241,6 +345,7 @@ function AdminAddCoursesForm(props) {
                 <InputNumber
                   value={formValues.course_num_sessions}
                   name="course_num_sessions"
+                  style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
             </Form>

@@ -4,8 +4,6 @@ import AdminSidebar from './AdminSidebar';
 import AdminHomeContent from './AdminHomeContent';
 import { Layout } from 'antd';
 
-const { Content } = Layout;
-
 const AdminHome = () => {
   return (
     <Layout>

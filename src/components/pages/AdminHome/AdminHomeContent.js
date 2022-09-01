@@ -1,7 +1,7 @@
 import React from 'react';
 import CourseCard from './CourseCard';
 import ApplicationCard from './ApplicationCard';
-import { Layout, Card } from 'antd';
+import { Layout } from 'antd';
 import '../../../styles/AdminDashboardHome/index.less';
 
 const { Content } = Layout;

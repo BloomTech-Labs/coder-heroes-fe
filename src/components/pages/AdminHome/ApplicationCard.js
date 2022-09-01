@@ -14,7 +14,7 @@ const ApplicationCard = props => {
   useEffect(() => {
     if (!authState) return;
     dispatch(getInstructors(authState.idToken.idToken));
-  }, [authState]);
+  }, [authState, dispatch]);
 
   const handleOnClick = id => {
     history.push(`/instructors/${id}`); // Might have to change the route.

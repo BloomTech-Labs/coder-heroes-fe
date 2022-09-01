@@ -48,27 +48,23 @@ function AdminSidebar() {
           <a href="/admin">Home</a>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<BellOutlined />}>
-          <a href="!#">Courses</a>
-        </Menu.Item>
-
-        <Menu.Item key="4" icon={<CalculatorOutlined />}>
+        <Menu.Item key="3" icon={<CalculatorOutlined />}>
           <a href="!#">Instructors</a>
         </Menu.Item>
 
-        <Menu.Item key="5" icon={<DesktopOutlined />}>
+        <Menu.Item key="4" icon={<DesktopOutlined />}>
           <a href="/admin-courses">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<PlusOutlined />}>
+        <Menu.Item key="5" icon={<PlusOutlined />}>
           <a href="/admin-add-course">Add Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="7" icon={<FormOutlined />}>
+        <Menu.Item key="6" icon={<FormOutlined />}>
           <a href="/admin-add-course">Edit Programs</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<DollarOutlined />}>
+        <Menu.Item key="7" icon={<DollarOutlined />}>
           <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
 

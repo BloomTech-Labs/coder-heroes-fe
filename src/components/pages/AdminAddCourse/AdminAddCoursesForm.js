@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
@@ -32,7 +33,8 @@ const initialFormValues = {
   course_location: '',
   course_num_sessions: '',
   instructor_id: '',
-  program_id: '',
+  program_name: '',
+  instructor_name: '',
 };
 
 const daysOfWeek = [
@@ -65,18 +67,19 @@ function AdminAddCoursesForm(props) {
       course_id: '',
       course_name: courseinfo.course_name,
       course_description: courseinfo.course_description,
-      course_days: [],
+      course_days: courseinfo.days_of_week,
       course_capacity: courseinfo.max_size,
       course_max_age: courseinfo.max_age,
       course_min_age: courseinfo.min_age,
       course_start_date: courseinfo.start_date.substr(0, 10),
-      course_end_date: '',
-      course_start_time: '',
-      course_end_time: '',
+      course_end_date: courseinfo.end_date.substr(0, 10),
+      course_start_time: courseinfo.start_time.substr(0, 5),
+      course_end_time: courseinfo.end_time.substr(0, 5),
       course_location: '',
       course_num_sessions: courseinfo.number_of_sessions,
       instructor_id: '',
-      program_id: '',
+      program_name: courseinfo.program_name,
+      instructor_name: courseinfo.instructor_name,
     });
   }, []);
 
@@ -200,7 +203,10 @@ function AdminAddCoursesForm(props) {
                 }
                 style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
               >
-                <Select onChange={handleProgramSelect}>
+                <Select
+                  defaultValue={formValues.program_name}
+                  onChange={handleProgramSelect}
+                >
                   <Option value="">--Choose a Program--</Option>
                   <Option value={1}>Codercamp</Option>
                   <Option value={2}>Codersitters</Option>
@@ -210,16 +216,16 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Instructor ID:
+                    Instructor Name:
                   </label>
                 }
                 style={{ width: '65%', fontSize: '1.1rem' }}
                 onChange={handleChange}
               >
                 <InputNumber
-                  value={formValues.instructor_id}
+                  value={formValues.instructor_name}
                   name="instructor_id"
-                  style={{ fontSize: '1.1rem' }}
+                  style={{ width: 'auto', fontSize: '1.1rem' }}
                 />
               </Form.Item>
               <Form.Item
@@ -232,8 +238,12 @@ function AdminAddCoursesForm(props) {
                 style={{ width: '100%', fontSize: '1.1rem' }}
                 onChange={handleCheck}
               >
-                <Checkbox.Group options={daysOfWeek} />
+                <Checkbox.Group
+                  options={daysOfWeek}
+                  defaultValue={formValues.course_days}
+                />
               </Form.Item>
+
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
@@ -245,12 +255,18 @@ function AdminAddCoursesForm(props) {
                 {formValues.course_days.map(day => (
                   <label key={`${day}`}>
                     {`${day}:`}
+                    <br></br>
                     <TimePicker.RangePicker
+                      defaultValue={[
+                        moment(formValues.course_start_time, 'HH:mm'),
+                        moment(formValues.course_end_time, 'HH:mm'),
+                      ]}
                       onChange={handleTimeChange}
                       use12Hours={true}
                       format="HH:mm"
                       name="course_time"
                     />
+                    <br></br>
                   </label>
                 ))}
               </Form.Item>
@@ -324,14 +340,14 @@ function AdminAddCoursesForm(props) {
                 style={{ width: '100%', fontSize: '1.1rem' }}
               >
                 <DatePicker.RangePicker
+                  defaultValue={[
+                    moment(formValues.course_start_date, 'YYYY-MM-DD'),
+                    moment(formValues.course_end_date, 'YYYY-MM-DD'),
+                  ]}
                   onChange={handleDateChange}
                   format="YYYY-MM-DD"
                   name="course_date"
                 />
-                <br></br>
-                {formValues.course_start_date
-                  ? 'Current Set Date: ' + formValues.course_start_date
-                  : null}
               </Form.Item>
               <Form.Item
                 style={{ width: '80%', fontSize: '1.1rem' }}

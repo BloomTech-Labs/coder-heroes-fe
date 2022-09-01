@@ -71,10 +71,10 @@ function AdminAddCoursesForm(props) {
       course_capacity: courseinfo.max_size,
       course_max_age: courseinfo.max_age,
       course_min_age: courseinfo.min_age,
-      course_start_date: courseinfo.start_date.substr(0, 10),
-      course_end_date: courseinfo.end_date.substr(0, 10),
-      course_start_time: courseinfo.start_time.substr(0, 5),
-      course_end_time: courseinfo.end_time.substr(0, 5),
+      course_start_date: courseinfo.start_date,
+      course_end_date: courseinfo.end_date,
+      course_start_time: courseinfo.start_time,
+      course_end_time: courseinfo.end_time,
       course_location: '',
       course_num_sessions: courseinfo.number_of_sessions,
       instructor_id: '',
@@ -252,23 +252,41 @@ function AdminAddCoursesForm(props) {
                 }
                 style={{ width: '60%', fontSize: '1.1rem' }}
               >
-                {formValues.course_days.map(day => (
-                  <label key={`${day}`}>
-                    {`${day}:`}
-                    <br></br>
-                    <TimePicker.RangePicker
-                      defaultValue={[
-                        moment(formValues.course_start_time, 'HH:mm'),
-                        moment(formValues.course_end_time, 'HH:mm'),
-                      ]}
-                      onChange={handleTimeChange}
-                      use12Hours={true}
-                      format="HH:mm"
-                      name="course_time"
-                    />
-                    <br></br>
-                  </label>
-                ))}
+                {props.button_name === 'Add Course'
+                  ? daysOfWeek.map(day => (
+                      <label key={`${day}`}>
+                        {`${day}:`}
+                        <br></br>
+                        <TimePicker.RangePicker
+                          defaultValue={[
+                            moment(formValues.course_start_time, 'HH:mm'),
+                            moment(formValues.course_end_time, 'HH:mm'),
+                          ]}
+                          onChange={handleTimeChange}
+                          use12Hours={true}
+                          format="HH:mm"
+                          name="course_time"
+                        />
+                        <br></br>
+                      </label>
+                    ))
+                  : formValues.course_days.map(day => (
+                      <label key={`${day}`}>
+                        {`${day}:`}
+                        <br></br>
+                        <TimePicker.RangePicker
+                          defaultValue={[
+                            moment(formValues.course_start_time, 'HH:mm'),
+                            moment(formValues.course_end_time, 'HH:mm'),
+                          ]}
+                          onChange={handleTimeChange}
+                          use12Hours={true}
+                          format="HH:mm"
+                          name="course_time"
+                        />
+                        <br></br>
+                      </label>
+                    ))}
               </Form.Item>
               <Form.Item
                 label={

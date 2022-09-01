@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { Layout, Input } from 'antd';
+import FormModal from '../AdminAddCourse/AdminAddCoursesForm';
 const { Search } = Input;
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
@@ -53,9 +54,7 @@ function AdminCourses(props) {
               />*/}
             </div>
             <div className="courses-right">
-              <button className="add-course" onClick={handleClick}>
-                ADD COURSE
-              </button>
+              <FormModal button_name={'Add Course'} courseinfo={courses} />
             </div>
           </div>
           <div className="admin-courses-container">

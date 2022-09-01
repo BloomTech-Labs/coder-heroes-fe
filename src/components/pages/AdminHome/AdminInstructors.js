@@ -12,7 +12,7 @@ const instructors = [];
 for (let i = 0; i < 10; i++) {
   instructors.push({
     name: `test${i}`,
-    bio: `test${i}`,
+    bio: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos consectetur in pariatur. Deserunt ipsam distinctio quos? Quidem, nihil deleniti mollitia enim explicabo aliquam hic dolore nam dicta? Minus, distinctio eos.`,
     status: `${i % 2 == 0 ? 'true' : 'false'}`,
   });
 }
@@ -48,12 +48,12 @@ function AdminInstructors(props) {
     <Layout>
       <AdminSidebar />
       <Content>
-        <div className="header-container">
-          <div className="button-container">
-            <button className="toggle-button" onClick={ToggleInstructors}>
+        <div className="instruct-header-container">
+          <div className="instructor-toggle-container">
+            <button className="button" onClick={ToggleInstructors}>
               {!pending ? 'Pending Instructors' : 'Active Instructors'}
             </button>
-            <div className="card-container">
+            <div className="instructor-card-container">
               {displayed.map(instructor => (
                 <AdminInstructorCard
                   name={instructor.name}

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 import AdminSidebar from './AdminSidebar';
-import { Layout, Input } from 'antd';
+import { Layout } from 'antd';
 import AdminPendingInstructors from './AdminPendingInstructors';
 import AdminActiveInstructors from './AdminActiveInstructors';
 
@@ -38,9 +38,9 @@ function AdminInstructors(props) {
               {!instructors ? 'Pending Instructors' : 'Active Instructors'}{' '}
             </button>
             {instructors ? (
-              <AdminPendingInstructors />
+              <AdminPendingInstructors instructors={instructors} />
             ) : (
-              <AdminActiveInstructors />
+              <AdminActiveInstructors instructors={instructors} />
             )}
           </div>
         </div>

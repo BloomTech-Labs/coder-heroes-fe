@@ -1,24 +1,11 @@
 import React from 'react';
 import AdminInstructorCard from './AdminInstructorCard';
 
-const dummyData = [
-  {
-    name: 'Mitch',
-    bio: 'Mitch is totally awesome in every way. That much is undeniable',
-    status: 'approved',
-  },
-  {
-    name: 'Ben',
-    bio: 'Ben is a pretty alright guy',
-    status: 'pending',
-  },
-];
+export default function AdminPendingInstructors({ instructors }) {
+  const pendingApps = instructors.filter(
+    instructor => instructor.status === 'false'
+  );
 
-const pendingApps = dummyData.filter(
-  instructor => instructor.status === 'pending'
-);
-
-export default function AdminPendingInstructors() {
   return (
     <div>
       <h1>Pending Instructors</h1>
@@ -26,7 +13,7 @@ export default function AdminPendingInstructors() {
         <AdminInstructorCard
           name={instructor.name}
           bio={instructor.bio}
-          status={instructor.status}
+          status={instructor.status === 'false' ? 'Pending' : 'Approved'}
         />
       ))}
     </div>

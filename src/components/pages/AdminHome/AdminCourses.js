@@ -27,7 +27,7 @@ function AdminCourses(props) {
   };
   const onSearch = searchTerm => {
     console.log(searchTerm);
-    courses.find(item => item === searchTerm);
+    courses.filter(item => item === searchTerm);
   };
 
   const { Content } = Layout;
@@ -48,7 +48,7 @@ function AdminCourses(props) {
                 allowClear
                 onSearch={onSearch}
                 style={{
-                  width: 250,
+                  width: 330,
                 }}
               />*/}
             </div>

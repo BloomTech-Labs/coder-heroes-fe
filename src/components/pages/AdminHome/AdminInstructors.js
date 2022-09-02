@@ -17,6 +17,10 @@ function AdminInstructors(props) {
   const dispatch = useDispatch();
   const idToken = useOktaAuth().oktaAuth.getIdToken();
 
+  useEffect(() => {
+    dispatch(getInstructors(idToken));
+  }, [dispatch, idToken]);
+
   const ToggleInstructors = () => {
     if (pending) {
       setDisplayed(instructors);
@@ -27,10 +31,6 @@ function AdminInstructors(props) {
       setPending(true);
     }
   };
-
-  useEffect(() => {
-    dispatch(getInstructors(idToken));
-  }, [dispatch, idToken]);
 
   const { Content } = Layout;
 
@@ -49,7 +49,8 @@ function AdminInstructors(props) {
               <AdminInstructorCard
                 key={instructor.instructor_id}
                 name={
-                  instructor.name /**currently no instructor name on the backend, this will probably need to change to instructor.instructor_name*/
+                  instructor.name
+                  /**currently no instructor name on the backend, this will probably need to change to instructor.instructor_name*/
                 }
                 bio={instructor.bio}
                 status={instructor.status}

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
-import { addCourse, editCourse } from '../../../redux/actions/coursesActions';
+import { addCourse } from '../../../redux/actions/coursesActions';
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 
 import AdminAddCoursesForm from './AdminAddCoursesForm';

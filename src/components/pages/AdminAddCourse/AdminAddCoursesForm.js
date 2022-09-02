@@ -58,6 +58,24 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { handleOk, handleCancel, isModalVisible } = props;
 
+  const numberFields = [
+    {
+      text: 'Maximum Capacity',
+      name: 'course_capacity',
+      value: formValues.course_capacity,
+    },
+    {
+      text: 'Maximum Age',
+      name: 'course_max_age',
+      value: formValues.course_max_age,
+    },
+    {
+      text: 'Minimum Age',
+      name: 'course_min_age',
+      value: formValues.course_min_age,
+    },
+  ];
+
   const handleSubmit = e => {
     e.preventDefault();
     handleOk(formValues);
@@ -236,51 +254,23 @@ function AdminAddCoursesForm(props) {
                   style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Capacity:
-                  </label>
-                }
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_capacity}
-                  name="course_capacity"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Minimum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_min_age}
-                  name="course_min_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.course_max_age}
-                  name="course_max_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
+              {numberFields.map(field => (
+                <Form.Item
+                  label={
+                    <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                      {`${field.text}:`}
+                    </label>
+                  }
+                  style={{ width: '65%', fontSize: '1.1rem' }}
+                  onChange={handleChange}
+                >
+                  <InputNumber
+                    value={field.value}
+                    name={`${field.name}`}
+                    style={{ fontSize: '1.1rem' }}
+                  />
+                </Form.Item>
+              ))}
               <Form.Item
                 {...rangeConfig}
                 label={

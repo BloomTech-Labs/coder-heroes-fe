@@ -224,16 +224,6 @@ function App() {
           <Route path="/admin-edit-course" component={AdminEditCourse} />
           <SecureRoute path="/admin-instructors" component={AdminInstructors} />
           <SecureRoute
-            path="/admin-active-instructors"
-            component={AdminActiveInstructors}
-          />
-          <SecureRoute
-            path="/admin-pending-instructors"
-            component={AdminPendingInstructors}
-          />
-          {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
-          <SecureRoute path="/admin-purchases" component={AdminPurchases} />
-          <SecureRoute
             path="/admin-applications"
             component={AdminApplications}
           />

@@ -49,21 +49,19 @@ function AdminInstructors(props) {
       <AdminSidebar />
       <Content>
         <div className="instruct-header-container">
-          <div className="instructor-toggle-container">
-            <button className="button" onClick={ToggleInstructors}>
-              {!pending ? 'Pending Instructors' : 'Active Instructors'}
+          <div className="button-container">
+            <button className="toggle-button" onClick={ToggleInstructors}>
+              {!pending ? 'View Pending Applications' : 'View All Instructors'}
             </button>
-            <div className="instructor-card-container">
-              {displayed.map(instructor => (
-                <AdminInstructorCard
-                  name={instructor.name}
-                  bio={instructor.bio}
-                  status={
-                    instructor.status === 'false' ? 'Pending' : 'Approved'
-                  }
-                />
-              ))}
-            </div>
+          </div>
+          <div className="instructor-card-container">
+            {displayed.map(instructor => (
+              <AdminInstructorCard
+                name={instructor.name}
+                bio={instructor.bio}
+                status={instructor.status}
+              />
+            ))}
           </div>
         </div>
       </Content>

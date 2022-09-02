@@ -10,11 +10,14 @@ function AdminInstructorCard(props) {
         Bio: <span className="black">{`${bio}`}</span>
       </h3>
       <h3>
-        Approval Status: <span className="black">{`${status}`}</span>
+        Approval Status:{' '}
+        <span className="black">
+          {status === 'false' ? 'Pending' : 'Approved'}
+        </span>
       </h3>
       <div className="instructor-button-container">
-        <button className="instructor-button">Edit</button>
-        <button className="instructor-button">View</button>
+        <button className="instructor-button">EDIT INSTRUCTOR</button>
+        <button className="instructor-button">VIEW INSTRUCTOR</button>
       </div>
     </Card>
   );

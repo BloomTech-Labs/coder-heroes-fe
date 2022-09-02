@@ -9,16 +9,8 @@ import AdminInstructorCard from './AdminInstructorCard';
 
 const instructors = [];
 
-for (let i = 0; i < 10; i++) {
-  instructors.push({
-    name: `test${i}`,
-    bio: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos consectetur in pariatur. Deserunt ipsam distinctio quos? Quidem, nihil deleniti mollitia enim explicabo aliquam hic dolore nam dicta? Minus, distinctio eos.`,
-    status: `${i % 2 == 0 ? 'true' : 'false'}`,
-  });
-}
-
 function AdminInstructors(props) {
-  // const { instructors } = props;
+  const { instructors } = props;
   const filtered = instructors.filter(
     instructor => instructor.status === 'false'
   );

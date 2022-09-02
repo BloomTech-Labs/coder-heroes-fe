@@ -39,14 +39,15 @@ function AdminInstructors(props) {
       <AdminSidebar />
       <Content>
         <div className="instruct-header-container">
-          <div className="button-container">
-            <button className="toggle-button" onClick={ToggleInstructors}>
+          <div className="tgl-container">
+            <button className="tgl-button" onClick={ToggleInstructors}>
               {!pending ? 'View Pending Applications' : 'View All Instructors'}
             </button>
           </div>
           <div className="instructor-card-container">
             {displayed.map(instructor => (
               <AdminInstructorCard
+                key={instructor.instructor_id}
                 name={
                   instructor.name /**currently no instructor name on the backend, this will probably need to change to instructor.instructor_name*/
                 }

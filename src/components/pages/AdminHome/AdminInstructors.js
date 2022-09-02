@@ -7,8 +7,6 @@ import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';
 
-const instructors = [];
-
 function AdminInstructors(props) {
   const { instructors } = props;
   const filtered = instructors.filter(
@@ -34,6 +32,10 @@ function AdminInstructors(props) {
     dispatch(getInstructors(idToken));
   }, [dispatch, idToken]);
 
+  useEffect(() => {
+    console.log(filtered);
+  });
+
   const { Content } = Layout;
 
   return (
@@ -49,7 +51,9 @@ function AdminInstructors(props) {
           <div className="instructor-card-container">
             {displayed.map(instructor => (
               <AdminInstructorCard
-                name={instructor.name}
+                name={
+                  instructor.name /**currently no instructor name on the backend, this will probably need to change to instructor.instructor_name*/
+                }
                 bio={instructor.bio}
                 status={instructor.status}
               />

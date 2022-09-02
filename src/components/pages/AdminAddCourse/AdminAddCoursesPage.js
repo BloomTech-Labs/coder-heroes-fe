@@ -9,6 +9,24 @@ import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 import AdminAddCoursesForm from './AdminAddCoursesForm';
 import { Button } from 'antd';
 
+const initialFormValues = {
+  course_id: '',
+  course_name: '',
+  course_description: '',
+  course_days: [],
+  course_capacity: '',
+  course_max_age: '',
+  course_min_age: '',
+  course_start_date: '',
+  course_end_date: '',
+  course_start_time: '',
+  course_end_time: '',
+  course_location: '',
+  course_num_sessions: '',
+  instructor_id: '',
+  program_id: '',
+};
+
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
   const { authState } = useOktaAuth();
@@ -49,6 +67,7 @@ function AdminAddCoursesPage(props) {
           handleOk={handleOk}
           handleCancel={handleCancel}
           isModalVisible={isModalVisible}
+          initialFormValues={initialFormValues}
         />
       </div>
     </div>

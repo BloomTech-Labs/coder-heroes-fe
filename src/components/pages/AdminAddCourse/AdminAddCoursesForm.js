@@ -16,24 +16,6 @@ import {
 import TextArea from 'antd/lib/input/TextArea';
 const { Option } = Select;
 
-const initialFormValues = {
-  course_id: '',
-  course_name: '',
-  course_description: '',
-  course_days: [],
-  course_capacity: '',
-  course_max_age: '',
-  course_min_age: '',
-  course_start_date: '',
-  course_end_date: '',
-  course_start_time: '',
-  course_end_time: '',
-  course_location: '',
-  course_num_sessions: '',
-  instructor_id: '',
-  program_id: '',
-};
-
 const daysOfWeek = [
   'Monday',
   'Tuesday',
@@ -55,8 +37,8 @@ const rangeConfig = {
 };
 
 function AdminAddCoursesForm(props) {
+  const { handleOk, handleCancel, isModalVisible, initialFormValues } = props;
   const [formValues, setFormValues] = useState(initialFormValues);
-  const { handleOk, handleCancel, isModalVisible } = props;
 
   const numberFields = [
     {

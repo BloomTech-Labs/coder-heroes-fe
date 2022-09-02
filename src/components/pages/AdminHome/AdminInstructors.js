@@ -32,10 +32,6 @@ function AdminInstructors(props) {
     dispatch(getInstructors(idToken));
   }, [dispatch, idToken]);
 
-  useEffect(() => {
-    console.log(filtered);
-  });
-
   const { Content } = Layout;
 
   return (

@@ -6,8 +6,7 @@ import CourseCard from './AdminCourseCard';
 import { useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
-import { Layout, Input } from 'antd';
-const { Search } = Input;
+import { Layout } from 'antd';
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
 
@@ -24,10 +23,6 @@ function AdminCourses(props) {
 
   const handleClick = () => {
     history.push('/admin-add-course');
-  };
-  const onSearch = searchTerm => {
-    console.log(searchTerm);
-    courses.filter(item => item === searchTerm);
   };
 
   const { Content } = Layout;

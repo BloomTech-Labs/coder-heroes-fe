@@ -7,6 +7,9 @@ import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';
 import LoadingComponent from '../../common/LoadingComponent';
+import PaginatePage from '../../common/PaginatePage';
+
+const { Content } = Layout;
 
 function AdminInstructors(props) {
   const { instructors } = props;
@@ -15,6 +18,8 @@ function AdminInstructors(props) {
   );
   const [pending, setPending] = useState(true);
   const [displayed, setDisplayed] = useState(filtered);
+  const [minValue, setMinValue] = useState(0);
+  const [maxValue, setMaxValue] = useState(10);
   const dispatch = useDispatch();
   const idToken = useOktaAuth().oktaAuth.getIdToken();
 
@@ -37,7 +42,10 @@ function AdminInstructors(props) {
     }
   };
 
-  const { Content } = Layout;
+  const handleChange = (minValue, maxValue) => {
+    setMinValue(minValue);
+    setMaxValue(maxValue);
+  };
 
   return (
     <Layout>
@@ -51,7 +59,7 @@ function AdminInstructors(props) {
           </div>
           <div className="instructor-card-container">
             {displayed.length > 0 ? (
-              displayed.map(instructor => (
+              displayed.slice(minValue, maxValue).map(instructor => (
                 <AdminInstructorCard
                   key={instructor.instructor_id}
                   name={
@@ -67,6 +75,13 @@ function AdminInstructors(props) {
               <LoadingComponent message={'Finding Instructors...'} />
             )}
           </div>
+          <PaginatePage
+            numPerPage={10}
+            minValue={minValue}
+            maxValue={maxValue}
+            onChange={handleChange}
+            data={displayed}
+          />
         </div>
       </Content>
     </Layout>

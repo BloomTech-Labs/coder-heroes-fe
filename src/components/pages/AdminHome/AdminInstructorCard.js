@@ -16,8 +16,8 @@ function AdminInstructorCard(props) {
         </span>
       </h3>
       <div className="instructor-button-container">
-        <button className="instructor-button">EDIT INSTRUCTOR</button>
-        <button className="instructor-button">VIEW INSTRUCTOR</button>
+        <button className="instructor-button">EDIT INSTRUCTOR DETAILS</button>
+        <button className="instructor-button">SEE MORE</button>
       </div>
     </Card>
   );

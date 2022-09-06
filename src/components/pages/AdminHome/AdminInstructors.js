@@ -6,6 +6,7 @@ import { useOktaAuth } from '@okta/okta-react';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';
+import LoadingComponent from '../../common/LoadingComponent';
 
 function AdminInstructors(props) {
   const { instructors } = props;
@@ -20,6 +21,10 @@ function AdminInstructors(props) {
   useEffect(() => {
     dispatch(getInstructors(idToken));
   }, [dispatch, idToken]);
+
+  useEffect(() => {
+    setDisplayed(filtered);
+  }, [instructors]);
 
   const ToggleInstructors = () => {
     if (pending) {
@@ -45,17 +50,22 @@ function AdminInstructors(props) {
             </button>
           </div>
           <div className="instructor-card-container">
-            {displayed.map(instructor => (
-              <AdminInstructorCard
-                key={instructor.instructor_id}
-                name={
-                  instructor.name
-                  /**currently no instructor name on the backend, this will probably need to change to instructor.instructor_name*/
-                }
-                bio={instructor.bio}
-                status={instructor.status}
-              />
-            ))}
+            {displayed.length > 0 ? (
+              displayed.map(instructor => (
+                <AdminInstructorCard
+                  key={instructor.instructor_id}
+                  name={
+                    instructor.name
+                    /**TODO: currently no instructor name on the backend,
+                     * this will probably need to change to instructor.instructor_name when that is added*/
+                  }
+                  bio={instructor.bio}
+                  status={instructor.status}
+                />
+              ))
+            ) : (
+              <LoadingComponent message={'Finding Instructors...'} />
+            )}
           </div>
         </div>
       </Content>

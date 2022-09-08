@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 //import moment from 'moment'; you may need this for auto-pop
 import { useDispatch } from 'react-redux';
@@ -62,7 +62,7 @@ const rangeConfig = {
 
 function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const { handleOk, courseinfo } = props;
+  const { courseinfo } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
   const idToken = useOktaAuth().oktaAuth.getIdToken();

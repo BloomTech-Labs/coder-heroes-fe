@@ -54,7 +54,7 @@ export const editCourse = (idToken, course) => async dispatch => {
     );
     dispatch({
       type: UPDATE_COURSE,
-      payload: res.data.course[0],
+      payload: res.data.course,
     });
   } catch (error) {
     dispatch({

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../../../styles/InstructorStyles/index.less';
 import InstructorSidebar from './InstructorSidebar';
 import { Layout } from 'antd';
@@ -7,10 +8,13 @@ import { useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
+//import AdminAddCoursesForm from '../AdminHome/AdminAddCoursesForm.js'
+//The above import will be used to add the add courses form, currently being developed in ticket BL-868
 
 const { Content } = Layout;
 const InstructorHome = props => {
   const { courses } = props;
+  const history = useHistory();
   const dispatch = useDispatch();
   const idToken = useOktaAuth().oktaAuth.getIdToken();
 
@@ -18,11 +22,18 @@ const InstructorHome = props => {
     dispatch(getCourses(idToken));
   }, [dispatch, idToken]);
 
+  const handleClick = () => {
+    history.push('/admin-add-course');
+  };
+
   return (
     <div>
       <Layout>
         <InstructorSidebar />
         <Content>
+          <button className="add-course" onClick={handleClick}>
+            ADD COURSE
+          </button>
           {courses.map(course => (
             <CourseCard key={course.course_id} course={course} />
           ))}

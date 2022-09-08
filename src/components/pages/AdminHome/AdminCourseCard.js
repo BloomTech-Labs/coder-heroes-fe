@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 
 // Using AntD to pull in a card component to show course details. The course info comes from the parent component AdminCourses with course passed through props. Ability to go directly to course details or course edit from the card page.
+// Styling for courses cards has been completed in ticket BL-855, but has not been merged with main yet
 export default function CourseCard(props) {
   const { course } = props;
   const history = useHistory();

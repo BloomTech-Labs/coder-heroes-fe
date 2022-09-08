@@ -6,7 +6,6 @@ import { Card } from 'antd';
 export default function CourseCard(props) {
   const { course } = props;
   const history = useHistory();
-  const headers = Object.keys(course);
 
   const handleEditCourse = () => {
     history.push(`/admin-edit-course/${course.course_id}`);
@@ -20,16 +19,14 @@ export default function CourseCard(props) {
     <div className="admin-course-card-container">
       <Card title={course.course_name}>
         <h3>
-          {headers[17].toUpperCase()}{' '}
-          <span className="black">{course.program_name}</span>
+          Program Name: <span className="black">{course.program_name}</span>
         </h3>
-        {/*<h3>
-          //waiting for BL-899 to be merged to implement
-          {headers[18].toUpperCase()} <span className="black">{course.instructor_name}</span>
-        </h3>*/}
+        <h3>
+          Instructor: <span className="black">{course.instructor_id}</span>
+        </h3>
 
         <h3>
-          {headers[12].toUpperCase() + ' '}
+          Start Date:{' '}
           <span className="black">{course.start_date.substr(0, 10)}</span>
         </h3>
 

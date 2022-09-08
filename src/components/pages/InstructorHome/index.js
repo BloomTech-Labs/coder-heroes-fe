@@ -4,7 +4,7 @@ import InstructorSidebar from './InstructorSidebar';
 import { Layout } from 'antd';
 import CourseCard from '../AdminHome/AdminCourseCard';
 import { useDispatch } from 'react-redux';
-import { getCourses } from '../../../redux/actions/coursesActions';
+import { getCourses } from '../../../redux/actions/instructorActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 
@@ -34,7 +34,7 @@ const InstructorHome = props => {
 
 const mapStateToProps = state => {
   return {
-    courses: state.coursesReducer.courses,
+    courses: state.instructorReducer.courses,
   };
 };
 export default connect(mapStateToProps, {})(InstructorHome);

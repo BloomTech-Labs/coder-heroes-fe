@@ -31,12 +31,20 @@ const InstructorHome = props => {
       <Layout>
         <InstructorSidebar />
         <Content>
-          <button className="add-course" onClick={handleClick}>
-            ADD COURSE
-          </button>
-          {courses.map(course => (
-            <CourseCard key={course.course_id} course={course} />
-          ))}
+          <div className="table-container">
+            <div className="courses-page-flex">
+              <div className="courses-right">
+                <button className="add-course" onClick={handleClick}>
+                  ADD COURSE
+                </button>
+              </div>
+            </div>
+            <div className="admin-courses-container">
+              {courses.map(course => (
+                <CourseCard key={course.course_id} course={course} />
+              ))}
+            </div>
+          </div>
         </Content>
       </Layout>
     </div>

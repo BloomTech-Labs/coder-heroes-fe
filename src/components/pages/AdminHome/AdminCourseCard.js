@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 
@@ -28,7 +28,11 @@ export default function CourseCard(props) {
           START DATE:{' '}
           <span className="black">{course.start_date.substr(0, 10)}</span>
         </h3>
-
+        <div className="syllabus-link-container">
+          <h3>
+            Syllabus: <a href={course.syllabus}>Click Here</a>
+          </h3>
+        </div>
         <div className="courses-button-container">
           <button className="courses-button" onClick={handleEditCourse}>
             EDIT COURSE

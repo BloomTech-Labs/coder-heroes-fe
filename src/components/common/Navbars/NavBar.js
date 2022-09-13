@@ -100,20 +100,21 @@ function NavBar(props) {
           )}
           <NavLink to="/login">
             <button
-              className={`navbar__btn navbar__login ${
-                localStorage.getItem('okta-token-storage') ? 'navbar__hide' : ''
-              }`}
+            // className={`navbar__btn navbar__login ${
+            //removed okta from getItem
+            // localStorage.getItem({}) ? 'navbar__hide' : ''
+            // }`}
             >
               LOGIN
             </button>
           </NavLink>
-          {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/parent/family">
-              <div className="navbar__profile">
-                <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
-              </div>
-            </NavLink>
-          )}
+          {/* {localStorage.getItem({}) && ( */}
+          <NavLink to="/parent/family">
+            <div className="navbar__profile">
+              <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+            </div>
+          </NavLink>
+          {/* )} */}
         </div>
         <div className="navbar__hamburgerMenu">
           <HamburgerMenuIcon style={{ color: 'white' }} onClick={showDrawer} />
@@ -127,16 +128,16 @@ function NavBar(props) {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
-              {!localStorage.getItem('okta-token-storage') && (
-                <Menu.Item key="3" icon={<LoginOutlined />}>
-                  <NavLink to="/login">Login</NavLink>
-                </Menu.Item>
-              )}
-              {localStorage.getItem('okta-token-storage') && (
-                <Menu.Item key="99" icon={<ProfileIcon />}>
-                  <NavLink to="/dev">My Dashboard</NavLink>
-                </Menu.Item>
-              )}
+              {/* {!localStorage.getItem({}) && ( */}
+              <Menu.Item key="3" icon={<LoginOutlined />}>
+                <NavLink to="/login">Login</NavLink>
+              </Menu.Item>
+              {/* )} */}
+              {/* {localStorage.getItem({}) && ( */}
+              <Menu.Item key="99" icon={<ProfileIcon />}>
+                <NavLink to="/dev">My Dashboard</NavLink>
+              </Menu.Item>
+              {/* )} */}
               <Menu.Item key="2" icon={<ContactsOutlined />}>
                 <NavLink
                   to="/"

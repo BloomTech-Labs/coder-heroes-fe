@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import {
@@ -27,25 +26,25 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
-  const { authState, oktaAuth } = useOktaAuth();
-  const { idToken } = authState;
+  //removing okta from line 30 and 33
+  // const { authState, oktaAuth } = useOktaAuth();
+  // const { idToken } = authState;
 
   // const token = oktaAuth.getIdToken();
 
-  useEffect(() => {
-    if (eventFlag) {
-      console.log(authState);
-      console.log(oktaAuth);
-      axiosWithAuth(idToken)
-        .get('/calendar-events/user')
-        .then(res => {
-          setEventsArr(res.data.events);
-        })
-        .catch(err => console.error(err));
-    }
-    setEventFlag(false);
-    // eslint-disable-next-line
-  }, [eventFlag, idToken]);
+  //TO-DO: Implement Auth0
+  // useEffect(() => {
+  //   if (eventFlag) {
+  //     axiosWithAuth(idToken)
+  //       .get('/calendar-events/user')
+  //       .then(res => {
+  //         setEventsArr(res.data.events);
+  //       })
+  //       .catch(err => console.error(err));
+  //   }
+  //   setEventFlag(false);
+  //   // eslint-disable-next-line
+  // }, [eventFlag, idToken]);
 
   useEffect(() => {
     if (event) {

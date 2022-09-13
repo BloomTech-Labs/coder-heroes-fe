@@ -14,33 +14,33 @@ const getExampleData = () => {
     .then(response => response.data);
 };
 
-const getAuthHeader = authState => {
-  if (!authState.isAuthenticated) {
-    throw new Error('Not authenticated');
-  }
-  return { Authorization: `Bearer ${authState.idToken}` };
-};
+// const getAuthHeader = authState => {
+//   if (!authState.isAuthenticated) {
+//     throw new Error('Not authenticated');
+//   }
+//   return 'hi';
+//TO-DO: Implement Auth0
+// };
 
-const getDSData = (url, authState) => {
+const getDSData = url => {
   // here's another way you can compose together your API calls.
   // Note the use of GetAuthHeader here is a little different than in the getProfileData call.
-  const headers = getAuthHeader(authState);
   if (!url) {
     throw new Error('No URL provided');
   }
   return axios
-    .get(url, { headers })
+    .get(url)
     .then(res => JSON.parse(res.data))
     .catch(err => err);
 };
 
-const apiAuthGet = authHeader => {
-  return axios.get(apiUrl, { headers: authHeader });
-};
+// const apiAuthGet = authHeader => {
+//   return axios.get(apiUrl, { headers: authHeader });
+// };
 
-const getProfileData = authState => {
+const getProfileData = () => {
   try {
-    return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
+    return 'Hi, need to Implement Auth0';
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -49,4 +49,4 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData, getAuthHeader };
+export { sleep, getExampleData, getProfileData, getDSData };

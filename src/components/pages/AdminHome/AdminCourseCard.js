@@ -19,14 +19,14 @@ export default function CourseCard(props) {
     <div className="admin-course-card-container">
       <Card title={course.course_name}>
         <h3>
-          Program Name: <span className="black">{course.program_name}</span>
+          PROGRAM NAME: <span className="black">{course.program_name}</span>
         </h3>
         <h3>
-          Instructor: <span className="black">{course.instructor_id}</span>
+          INSTRUCTOR: <span className="black">{course.instructor_id}</span>
         </h3>
 
         <h3>
-          Start Date:{' '}
+          START DATE:{' '}
           <span className="black">{course.start_date.substr(0, 10)}</span>
         </h3>
 

@@ -39,7 +39,6 @@ function NavBar(props) {
   let { role_id } = props.user.currentUser;
   const history = useHistory();
 
-
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
     else if (role_id < 5) setBgColor('#21C5B5');

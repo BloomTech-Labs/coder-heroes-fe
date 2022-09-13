@@ -26,18 +26,15 @@ const initialFormValues = {
   course_name: '',
   course_description: '',
   days_of_week: [],
-  course_capacity: '',
-  course_max_age: '',
-  course_min_age: '',
-  course_start_date: '',
-  course_end_date: '',
-  course_start_time: '',
-  course_end_time: '',
-  course_location: '',
-  course_num_sessions: '',
+  max_size: '',
+  max_age: '',
+  min_age: '',
+  start_date: '',
+  end_date: '',
+  start_time: '',
+  end_time: '',
+  number_of_sessions: '',
   instructor_id: '',
-  program_name: '',
-  instructor_name: '',
 };
 
 // may be necessary for auto-pop
@@ -72,21 +69,23 @@ function AdminAddCoursesForm(props) {
 
   const showModal = () => {
     setIsModalVisible(true);
-    setFormValues({
-      course_id: courseinfo.course_id,
-      course_name: courseinfo.course_name,
-      course_description: courseinfo.course_description,
-      days_of_week: courseinfo.days_of_week,
-      max_size: courseinfo.max_size,
-      max_age: courseinfo.max_age,
-      min_age: courseinfo.min_age,
-      start_date: courseinfo.start_date,
-      end_date: courseinfo.end_date,
-      start_time: courseinfo.start_time,
-      end_time: courseinfo.end_time,
-      number_of_sessions: courseinfo.number_of_sessions,
-      instructor_id: courseinfo.instructor_id,
-    });
+    if (props.button_name === 'Edit Course') {
+      setFormValues({
+        course_id: courseinfo.course_id,
+        course_name: courseinfo.course_name,
+        course_description: courseinfo.course_description,
+        days_of_week: courseinfo.days_of_week,
+        max_size: courseinfo.max_size,
+        max_age: courseinfo.max_age,
+        min_age: courseinfo.min_age,
+        start_date: courseinfo.start_date,
+        end_date: courseinfo.end_date,
+        start_time: courseinfo.start_time,
+        end_time: courseinfo.end_time,
+        number_of_sessions: courseinfo.number_of_sessions,
+        instructor_id: courseinfo.instructor_id,
+      });
+    }
   };
 
   const handleClose = () => {
@@ -113,12 +112,10 @@ function AdminAddCoursesForm(props) {
   };
 
   const handleCheck = e => {
-    console.log(e);
     daysOfWeek.push(e.target.value);
     const dow = daysOfWeek.map(day =>
       !daysOfWeek.includes(day) ? Array().push(day) : null
     );
-    console.log(dow);
   };
 
   const handleDateChange = value => {
@@ -153,7 +150,9 @@ function AdminAddCoursesForm(props) {
           </Button>
           <Modal
             visible={isModalVisible}
-            title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
+            title={
+              props.button_name === 'Add Course' ? 'Add Course' : 'Edit Course'
+            }
             okText="Save"
             onOk={handleSubmit}
             onCancel={handleClose}

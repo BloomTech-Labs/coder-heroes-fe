@@ -1,181 +1,292 @@
-import React, { useState, useEffect } from 'react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
-import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
-import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesStyles.less';
-import { Input, Form, Card } from 'antd';
+import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
+import {
+  Input,
+  Form,
+  Checkbox,
+  InputNumber,
+  DatePicker,
+  Modal,
+  TimePicker,
+  Select,
+} from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
-import { useHistory } from 'react-router-dom';
+const { Option } = Select;
 
-let placeHolder = [];
-let array_string = '';
-let program_list = [];
-let formPrerequisite = '';
+const daysOfWeek = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
 
-const initialFormValues = {
-  class_name: '',
-  class_subject: '',
-  class_desc: '',
+//Config for date and time picker
+const rangeConfig = {
+  rules: [
+    {
+      type: 'array',
+      message: 'Please select time!',
+    },
+  ],
 };
 
 function AdminAddCoursesForm(props) {
+  const { handleOk, handleCancel, isModalVisible, initialFormValues } = props;
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-  const { authState, oktaAuth } = useOktaAuth();
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-  }, []);
+  const numberFields = [
+    {
+      text: 'Maximum Capacity',
+      name: 'course_capacity',
+      value: formValues.course_capacity,
+    },
+    {
+      text: 'Maximum Age',
+      name: 'course_max_age',
+      value: formValues.course_max_age,
+    },
+    {
+      text: 'Minimum Age',
+      name: 'course_min_age',
+      value: formValues.course_min_age,
+    },
+  ];
 
-  let history = useHistory();
-
-  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
-  function handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
-    axiosWithAuth(authState.idToken.idToken)
-      .post('/courses', formValues)
-      .then(() => {
-        history.push('/admin-courses');
-      })
-      .catch(err => {
-        console.error(err);
-      });
-    const merged = {
-      ...formValues,
-      prereq: placeHolder,
-    };
-    program_list.push(props.addClass(merged).payload);
+    handleOk(formValues);
     setFormValues(initialFormValues);
-    clearPrereq();
-  }
+  };
 
   const handleChange = e => {
-    if (e.target.name !== 'prereq') {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleCheck = e => {
+    if (e.target.checked) {
       setFormValues({
         ...formValues,
-        [e.target.name]: e.target.value,
+        course_days: [...formValues.course_days, e.target.value],
       });
-    } else if (e.target.name === 'prereq') {
-      setFormPreReqs({
-        ...formPreReqs,
-        [e.target.name]: e.target.value,
+    }
+    if (!e.target.checked) {
+      setFormValues({
+        ...formValues,
+        course_days: formValues.course_days.filter(
+          value => value !== e.target.value
+        ),
       });
     }
   };
 
-  const addPrereq = () => {
-    if (formPreReqs.prereq.length !== 0) {
-      formPrerequisite = formPreReqs.prereq;
-      placeHolder.push(formPrerequisite);
-      buildString(formPrerequisite);
-    }
+  const handleDateChange = value => {
+    setFormValues({
+      ...formValues,
+      course_start_date: value[0].format('MM/DD/YYYY'),
+      course_end_date: value[1].format('MM/DD/YYYY'),
+    });
   };
 
-  const clearPrereq = () => {
-    setFormPreReqs({ prereq: [] });
-    placeHolder = [];
-    array_string = '';
-    document.getElementById('prereq-render').innerHTML = array_string;
+  const handleTimeChange = value => {
+    setFormValues({
+      ...formValues,
+      course_start_time: value[0].format('hh:mm:ss'),
+      course_end_time: value[1].format('hh:mm:ss'),
+    });
   };
 
-  const buildString = () => {
-    let arrayText = placeHolder.join(', ');
-    document.getElementById('prereq-render').innerHTML = arrayText;
+  const handleProgramSelect = value => {
+    setFormValues({
+      ...formValues,
+      program_id: value,
+    });
   };
 
   return (
-    <div className="add-courses-form-container">
-      <div className="h1-container">
-        <h1>Submit New Program:</h1>
-      </div>
-      <section className="form-items-container">
-        <Form wrapperCol={{ span: 50 }} layout="horizontal">
-          <Form.Item>
-            <label htmlFor="className">Class Name: </label>
-            <Input
-              onChange={handleChange}
-              value={formValues.class_name}
-              name="class_name"
-            />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="other">Subject: </label>
-            <Input
-              onChange={handleChange}
-              value={formValues.class_subject}
-              name="class_subject"
-            />
-          </Form.Item>
-          <Form.Item>
-            <label htmlFor="description">Description:</label>
-            <TextArea
-              onChange={handleChange}
-              type="text"
-              style={{ height: 100, resize: 'none' }}
-              value={formValues.class_desc}
-              name="class_desc"
-            />
-          </Form.Item>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-            name="prereq-split-container"
+    <div className="edit-course-disp">
+      <div className="edit-courses-form-container">
+        <section className="form-items-container">
+          <Modal
+            visible={isModalVisible}
+            title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
+            okText="Save"
+            onOk={handleSubmit}
+            onCancel={handleCancel}
           >
-            <Form.Item style={{ width: '65%' }}>
-              <label htmlFor="prereq" className="prereq">
-                Prerequisites:
-              </label>
-              <Input
+            <Form layout="vertical">
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Name:
+                  </label>
+                }
+                style={{
+                  width: '65%',
+                  fontSize: '1.1rem',
+                }}
+                className="input-label"
+              >
+                <Input
+                  onChange={handleChange}
+                  value={formValues.course_name}
+                  name="course_name"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Description:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
+                className="input-label"
+                type="text"
                 onChange={handleChange}
-                value={formPreReqs.prereq}
-                name="prereq"
-              />
-            </Form.Item>
-            <div style={{ display: 'block' }} className="buttons_div">
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
-                onClick={addPrereq}
               >
-                Add
-              </button>
-              <button
-                style={{ width: '50%', height: 25 }}
-                className="prereq_add_button"
-                onClick={clearPrereq}
+                <TextArea
+                  value={formValues.course_desc}
+                  name="course_description"
+                  style={{ height: 100, fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Program:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
               >
-                Clear
-              </button>
-            </div>
-          </div>
-          <Card
-            style={{ width: '100%', marginBottom: '7.5%', maxHeight: '100%' }}
-            bodyStyle={{ maxHeight: 100, overflow: 'auto' }}
-          >
-            <p id="prereq-render"></p>
-          </Card>
-
-          <div className="submit-button-container">
-            <button className="submit-button" onClick={handleSubmit}>
-              Submit
-            </button>
-          </div>
-          {/* {props.errorMessage && <div>Error: {props.errorMessage}</div>} */}
-        </Form>
-      </section>
+                <Select onChange={handleProgramSelect}>
+                  <Option value="">--Choose a Program--</Option>
+                  <Option value={1}>Codercamp</Option>
+                  <Option value={2}>Codersitters</Option>
+                  <Option value={3}>Coderyoga</Option>
+                </Select>
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Instructor ID:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.instructor_id}
+                  name="instructor_id"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Days of the Week:
+                  </label>
+                }
+                valuePropName="checked"
+                style={{ width: '100%', fontSize: '1.1rem' }}
+                onChange={handleCheck}
+              >
+                <Checkbox.Group options={daysOfWeek} />
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Start and End Time:
+                  </label>
+                }
+                style={{ width: '60%', fontSize: '1.1rem' }}
+              >
+                {formValues.course_days.map(day => (
+                  <label key={`${day}`}>
+                    {`${day}:`}
+                    <TimePicker.RangePicker
+                      onChange={handleTimeChange}
+                      use12Hours={true}
+                      format="HH:mm"
+                      name="course_time"
+                    />
+                  </label>
+                ))}
+              </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Location:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <Input
+                  value={formValues.course_location}
+                  name="course_location"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              {numberFields.map(field => (
+                <Form.Item
+                  label={
+                    <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                      {`${field.text}:`}
+                    </label>
+                  }
+                  style={{ width: '65%', fontSize: '1.1rem' }}
+                  onChange={handleChange}
+                >
+                  <InputNumber
+                    value={field.value}
+                    name={`${field.name}`}
+                    style={{ fontSize: '1.1rem' }}
+                  />
+                </Form.Item>
+              ))}
+              <Form.Item
+                {...rangeConfig}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Start and End Date:
+                  </label>
+                }
+                style={{ width: '100%', fontSize: '1.1rem' }}
+              >
+                <DatePicker.RangePicker
+                  onChange={handleDateChange}
+                  format="YYYY-MM-DD"
+                  name="course_date"
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '80%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Number of Sessions:
+                  </label>
+                }
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.course_num_sessions}
+                  name="course_num_sessions"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+            </Form>
+          </Modal>
+        </section>
+      </div>
     </div>
   );
 }
@@ -186,4 +297,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addClass })(AdminAddCoursesForm);
+export default connect(mapStateToProps)(AdminAddCoursesForm);

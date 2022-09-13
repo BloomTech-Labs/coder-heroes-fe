@@ -10,6 +10,7 @@ export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 
 export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
+  console.log(oktaAuth);
   if (oktaAuth.isAuthenticated) {
     oktaAuth
       .getUser()

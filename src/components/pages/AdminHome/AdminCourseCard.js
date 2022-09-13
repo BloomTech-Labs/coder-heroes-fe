@@ -22,9 +22,8 @@ export default function CourseCard(props) {
           PROGRAM NAME: <span className="black">{course.program_name}</span>
         </h3>
         <h3>
-          INSTRUCTOR: <span className="black">{course.instructor_id}</span>
+          INSTRUCTOR: <span className="black">{course.instructor_name}</span>
         </h3>
-
         <h3>
           START DATE:{' '}
           <span className="black">{course.start_date.substr(0, 10)}</span>

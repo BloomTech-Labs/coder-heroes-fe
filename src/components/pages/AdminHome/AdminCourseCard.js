@@ -31,7 +31,7 @@ export default function CourseCard(props) {
         <h3>
           Syllabus:{' '}
           <a href={course.syllabus} target="_blank" rel="noreferrer">
-            Click Here
+            Click to view syllabus
           </a>
         </h3>
         <div className="courses-button-container">

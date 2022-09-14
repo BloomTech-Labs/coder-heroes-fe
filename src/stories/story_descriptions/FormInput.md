@@ -7,7 +7,7 @@
 ```jsx
 import { FormInput } from '../components/common';
 
-<FormInput placeholder="Form Input" name="formInput" labelId="Form Input" />
+<FormInput placeholder="Form Input" name="formInput" labelId="Form Input" />;
 ```
 
 - Note that we are importing our component from `./components/common`. This is the directory where any of your custom reusable components should live.

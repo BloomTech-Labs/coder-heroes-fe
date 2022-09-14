@@ -7,7 +7,7 @@
 ```jsx
 import { LoadingComponent } from '../components/common';
 
-<LoadingComponent message="...loading" />
+<LoadingComponent message="...loading" />;
 ```
 
 - Note that we are importing our component from `./components/common`. This is the directory where any of your custom reusable components should live.
@@ -19,7 +19,7 @@ import { LoadingComponent } from '../components/common';
 ```jsx
 import { Spin } from 'antd';
 
-<Spin tip="Loading..." />
+<Spin tip="Loading..." />;
 ```
 
 - For more info on using the Ant Design `Spin` component check out the <a href="https://ant.design/components/spin/" target="_blank">Ant Design Docs</a>.

@@ -58,7 +58,7 @@ const YAML = require('yaml');
   // remove scaffold .git 😈
   fs.rmdirSync('./.git', { recursive: true });
   // copy the .env.sample file to .env
-  fs.copyFile('./.env.sample', './.env', (err) => {
+  fs.copyFile('./.env.sample', './.env', err => {
     if (err) throw err;
     console.log('.env.sample was copied to .env');
   });

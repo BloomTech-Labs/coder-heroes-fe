@@ -47,9 +47,9 @@ const ClassCard = ({ course }) => {
       course_name: course.course_name,
     });
   };
-  const handleDelete = () => {
-    dispatch(delCourse(idToken, course.course_id));
-  };
+  //const handleDelete = () => {
+  //dispatch(delCourse(idToken, course.course_id));
+  //};
 
   const handleEdit = () => {
     setEditing(!editing);

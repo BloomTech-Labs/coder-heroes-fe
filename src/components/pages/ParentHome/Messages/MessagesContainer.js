@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { /*useState,useLayoutEffect*/ useEffect } from 'react';
 import { Layout, Card } from 'antd';
 import 'antd/dist/antd.css';
 import Banner from '../../../common/Banner';

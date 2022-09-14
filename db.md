@@ -3,9 +3,9 @@
 ### PARENT CALENDAR
 
 - As a parent, he/she can see available sessions in calendar
-`METHOD GET [base_URL/api/sessions]`
+  `METHOD GET [base_URL/api/sessions]`
 - As a parent, he/she can book a session for the child
-`METHOD POST [base_URL/api/parents/:parent_id/bookings], newBooking`
+  `METHOD POST [base_URL/api/parents/:parent_id/bookings], newBooking`
 
 ```
     {
@@ -45,8 +45,9 @@
 ```
 
 ### PARENT BOOKING
+
 - As a logged in parent, he/she can see children's bookings
-`METHOD GET [base_URL/api/parents/:parent_id/bookings]`
+  `METHOD GET [base_URL/api/parents/:parent_id/bookings]`
 
 ```
 [
@@ -128,6 +129,3 @@
     },
 ]
 ```
-
-
-

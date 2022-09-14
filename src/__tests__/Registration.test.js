@@ -8,6 +8,7 @@ import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 // import  RegistrationPage  from '../components/pages/Registration/RegisterStep1';
 import InstructorWelcome from '../components/pages/Registration/InstructorWelcome';
+//import ColumnGroup from 'antd/lib/table/ColumnGroup';
 
 const store = createStore(rootReducers);
 
@@ -31,6 +32,7 @@ describe('<Instructor Welcome />', () => {
         </Router>
       </Provider>
     );
+    console.log(getByText);
     expect(screen.getByText(/welcome to CoderHeroes!/i)).toBeInTheDocument();
   });
 
@@ -42,6 +44,7 @@ describe('<Instructor Welcome />', () => {
         </Router>
       </Provider>
     );
+    console.log(getByText);
     const button = screen.getByText('CREATE ACCOUNT');
     expect(button).toBeInTheDocument();
   });
@@ -54,6 +57,7 @@ describe('<Instructor Welcome />', () => {
         </Router>
       </Provider>
     );
+    console.log(getByText);
     const history = createMemoryHistory();
     const button = screen.getByText('CREATE ACCOUNT');
     userEvent.click(button);

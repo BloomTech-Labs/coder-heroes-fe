@@ -5,6 +5,9 @@ import {
   ADD_CLASS,
   DELETE_CLASS,
   EDIT_CLASS,
+  GET_INSTRUCTORS,
+  DELETE_INSTRUCTORS,
+  UPDATE_INSTRUCTOR_INFO,
 } from '../actions/adminActions';
 
 export const initialState = {
@@ -65,6 +68,36 @@ const reducer = (state = initialState, action) => {
         ...state,
         class: state.class,
       };
+    case GET_INSTRUCTORS:
+      return {
+        ...state,
+        instructors_info: action.payload.instructorInfoObject,
+        test: {
+          instructor_id: action.payload.instructor_id,
+          name: action.payload.name,
+          phone_number: action.payload.phone_number,
+          location: action.payload.location,
+          email: action.payload.email,
+        },
+      };
+    case DELETE_INSTRUCTORS:
+      const instructorIndex = state.instructors_info.findIndex(
+        item => item.instructor_id === action.payload
+      );
+      state.instructors_info.splice(instructorIndex, 1);
+      return {
+        ...state,
+        instructors_info: state.instructors_info,
+      };
+    case UPDATE_INSTRUCTOR_INFO:
+      return {
+        ...state,
+        instructors: state.instructor.filter(
+          instructor =>
+            instructor.instructor_id !== action.payload.instructor_id
+        ),
+      };
+
     default:
       return state;
   }

@@ -7,7 +7,7 @@
 ```jsx
 import { FormButton } from './components/common';
 
-<FormButton buttonText="hello" />
+<FormButton buttonText="hello" />;
 ```
 
 - Note that we are importing our component from `./components/common`. This is the directory where any of your custom reusable components should live.

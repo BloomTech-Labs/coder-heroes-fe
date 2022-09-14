@@ -21,7 +21,7 @@ const ExampleList = () => (
   />
 );
 ```
-  
+
 - Note that we are importing our `List` & `LoadingComponent` components from `./components/common`. This is the directory where any of your custom reusable components should live.
 
 ```jsx
@@ -42,7 +42,7 @@ const RenderItems = props => (
 
 ### Ant Design List
 
-- Here's is an example of  using Ant Design's `List` component:
+- Here's is an example of using Ant Design's `List` component:
 
 ```jsx
 import { List } from 'antd';
@@ -57,8 +57,9 @@ const RenderMyList = ({ dataArray }) => {
       renderItem={RenderItem}
     />
   );
-}
+};
 ```
+
 - Note that we are following best practices here and receiving our data from props and passing it to our `List` component as props. This ensures that our `RenderMyList` component only does one thing: rendering our `List`.
 
 - For more info on using the Ant Design `List` component check out the <a href="https://ant.design/components/list/" target="_blank">Ant Design Docs</a>.
@@ -67,15 +68,15 @@ const RenderMyList = ({ dataArray }) => {
 // Here's an example of a RenderItem component implementation using Ant Design's Card component
 import { List, Card } from 'antd';
 
-const RenderItem = (item) => {
+const RenderItem = item => {
   return (
     <List.Item>
       <Card style={{ width: 240 }} cover={<img src={item.thumbnailUrl} />}>
         <Card.Meta title={item.title} />
       </Card>
     </List.Item>
-  )
-}
+  );
+};
 ```
 
 - For more info on using the Ant Design `Card` component check out the <a href="https://ant.design/components/card/" target="_blank">Ant Design Docs</a>.

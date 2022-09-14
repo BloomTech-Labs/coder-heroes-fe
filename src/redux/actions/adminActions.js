@@ -1,4 +1,7 @@
 import axios from 'axios'; // eslint-disable-line
+import axiosWithAuth from '../../utils/axiosWithAuth';
+import { connect, useDispatch } from 'react-redux';
+//import { GET_INSTRUCTORS } from './instructorActions';
 
 export const START_FETCH = 'START_FETCH';
 export const SUCCESS_FETCH = 'SUCESS_FETCH';
@@ -6,6 +9,11 @@ export const FAIL_FETCH = 'FAIL_FETCH';
 export const ADD_CLASS = 'ADD_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 export const EDIT_CLASS = 'EDIT_CLASS';
+export const UPDATE_INSTRUCTOR_INFO = 'UPDATE_INSTRUCTOR_INFO';
+export const DELETE_INSTRUCTORS = 'DELETE_INSTRUCTORS';
+export const GET_INSTRUCTORS = 'GET_INSTRUCTORS';
+
+//export const ERROR_ACTION = 'ERROR_ACTION'
 
 // waiting for backend to implement this and reducer / actions
 //
@@ -82,3 +90,39 @@ export const addClass = item => {
 
   return { type: ADD_CLASS, payload: item };
 };
+
+export const getInstructors = () => dispatch => {
+  axiosWithAuth()
+    .get('/admin_get_instructors')
+    .then(res => {
+      dispatch({ type: GET_INSTRUCTORS, payload: res.data.results });
+    });
+  //.catch(err => {
+  //dispatch({ type: ERROR_ACTION, payload: err });
+};
+//)
+//}
+
+export const deleteInstructor = () => dispatch => {
+  axiosWithAuth()
+    .delete('/admin_delete_instructors')
+    .then(res => {
+      dispatch({ type: DELETE_INSTRUCTORS, payload: res.data.results });
+    });
+  //.catch(err => {
+  //dispatch({ type: ERROR_ACTION, payload: err });
+};
+// )
+//}
+
+export const updateInstructorInfo = () => dispatch => {
+  axiosWithAuth()
+    .put('/:instructors_id', {})
+    .then(res => {
+      dispatch({ type: UPDATE_INSTRUCTOR_INFO, payload: res.data.results });
+    });
+  //.catch(err => {
+  //dispatch({ type: ERROR_ACTION, payload: err });
+};
+//)
+//}

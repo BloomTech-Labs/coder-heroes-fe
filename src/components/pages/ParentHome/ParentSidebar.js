@@ -12,7 +12,7 @@ import {
   ReadFilled,
   MessageFilled,
 } from '@ant-design/icons';
-import { FaShoppingCart } from 'react-icons/fa';
+//import { FaShoppingCart } from 'react-icons/fa';
 
 const { Sider } = Layout;
 

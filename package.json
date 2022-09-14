@@ -39,7 +39,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "coverage": "npm test -- --coverage --watchAll=false",
-    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "lint": "eslint \"**/*.+(js|jsx|css)\"",
     "format": "prettier --write 'src/**/*.{js,jsx,css,less}'",
     "storybook": "start-storybook",
     "deploy-storybook": "storybook-to-ghpages"

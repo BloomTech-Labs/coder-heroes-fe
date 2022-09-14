@@ -5,11 +5,12 @@ import {
   DesktopOutlined,
   HomeOutlined,
   ThunderboltOutlined,
-  PlusOutlined,
+  //PlusOutlined,
   BellOutlined,
   CalculatorOutlined,
   FormOutlined,
   DollarOutlined,
+  //FormOutlined,
   FolderOpenOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
@@ -68,11 +69,15 @@ function AdminSidebar() {
           <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
 
-        <Menu.Item key="6">
+        <Menu.Item key="8">
           <a href="/admin-instructors">Instructors</a>
         </Menu.Item>
 
-        <Menu.Item key="7" icon={<FolderOpenOutlined />}>
+        <Menu.Item key="9" icon={<DesktopOutlined />}>
+          <a href="/admin-edit-instructor">Instructors</a>
+        </Menu.Item>
+
+        <Menu.Item key="10" icon={<FolderOpenOutlined />}>
           <a href="/admin-applications">Applications</a>
         </Menu.Item>
       </Menu>

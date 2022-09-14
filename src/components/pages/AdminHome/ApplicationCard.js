@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
-import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/AdminDashboardHome/index.less';
 
 const ApplicationCard = props => {

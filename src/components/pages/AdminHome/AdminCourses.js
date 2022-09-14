@@ -4,7 +4,6 @@ import AdminSidebar from './AdminSidebar';
 import CourseCard from './AdminCourseCard';
 import { useDispatch, connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
-import { useOktaAuth } from '@okta/okta-react';
 import { Layout } from 'antd';
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)

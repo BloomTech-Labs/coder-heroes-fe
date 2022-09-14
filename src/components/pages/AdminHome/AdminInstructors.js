@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
-import { useOktaAuth } from '@okta/okta-react';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';

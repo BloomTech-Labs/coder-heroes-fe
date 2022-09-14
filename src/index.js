@@ -32,10 +32,11 @@ import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
-import AdminHome from './components/pages/AdminHome';
+import AdminHome from './components/pages/AdminHome/index';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
 import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
+import AdminInstructors from './components/pages/AdminHome/AdminInstructors';
 import ParentBooking from './components/pages/ParentBooking';
 import StudentHome from './components/pages/StudentHome/index';
 import Footer from './components/common/Footer/index';
@@ -87,7 +88,7 @@ import TermsAndConditions from './components/pages/About/TermsAndConditions';
 import PressInquiries from './components/pages/About/PressInquiries';
 import Faq from './components/pages/Services/Faq';
 import SiteMap from './components/pages/Services/SiteMap';
-
+import CourseDetails from './components/pages/AdminHome/CourseDetails';
 import AdminEditCourse from './components/pages/AdminDispCourse/index';
 
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
@@ -221,6 +222,8 @@ function App() {
           <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
           <SecureRoute path="/admin-courses" component={AdminCourses} />
           <Route path="/admin-edit-course" component={AdminEditCourse} />
+          <SecureRoute path="/admin-instructors" component={AdminInstructors} />
+          <SecureRoute path="/admin-course-details" component={CourseDetails} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
           <SecureRoute path="/admin-purchases" component={AdminPurchases} />
           <SecureRoute

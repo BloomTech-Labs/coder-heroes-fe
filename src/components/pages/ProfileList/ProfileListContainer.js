@@ -6,6 +6,7 @@ import { List } from '../../common';
 
 import RenderProfileListPage from './RenderProfileListPage';
 
+//TO-DO: Implement Auth0
 // Here is an example of using our reusable List component to display some list data to the UI.
 const ProfileList = () => {
   // const { authState } = useOktaAuth();

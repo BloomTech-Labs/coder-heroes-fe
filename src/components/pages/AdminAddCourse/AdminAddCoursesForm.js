@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-//import moment from 'moment'; you may need this for auto-pop
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
@@ -36,17 +35,6 @@ const initialFormValues = {
   number_of_sessions: '',
   instructor_id: '',
 };
-
-// may be necessary for auto-pop
-// const daysOfWeek = [
-//   'Monday',
-//   'Tuesday',
-//   'Wednesday',
-//   'Thursday',
-//   'Friday',
-//   'Saturday',
-//   'Sunday',
-// ];
 
 //Config for date and time picker
 const rangeConfig = {
@@ -194,6 +182,23 @@ function AdminAddCoursesForm(props) {
                   style={{ height: 100, fontSize: '1.1rem' }}
                 />
               </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Syllabus:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
+                className="input-label"
+                type="url"
+                onChange={handleChange}
+              >
+                <Input
+                  value={formValues.syllabus_link}
+                  name="syllabus_link"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
               {props.button_name === 'Add Course' ? (
                 <>
                   <Form.Item
@@ -231,6 +236,7 @@ function AdminAddCoursesForm(props) {
                   </Form.Item>
                 </>
               ) : null}
+             
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
@@ -268,38 +274,6 @@ function AdminAddCoursesForm(props) {
                   format="HH:mm"
                   name="course_time"
                 />
-                {/* vvv May be useful for auto-pop vvv */}
-                {/* {props.button_name === 'Add Course'
-                  ? daysOfWeek.forEach(day => (
-                      <label>
-                        {`${day}:`}
-                        <br></br>
-                        <TimePicker.RangePicker
-                          onChange={handleTimeChange}
-                          use12Hours={true}
-                          format="HH:mm"
-                          name="course_time"
-                        />
-                        <br></br>
-                      </label>
-                    ))
-                  : formValues.days_of_week.forEach(day => (
-                      <label key={`${day}`}>
-                        {`${day}:`}
-                        <br></br>
-                        <TimePicker.RangePicker
-                          defaultValue={[
-                            moment(formValues.start_time, 'HH:mm'),
-                            moment(formValues.end_time, 'HH:mm'),
-                          ]}
-                          onChange={handleTimeChange}
-                          use12Hours={true}
-                          format="HH:mm"
-                          name="course_time"
-                        />
-                        <br></br>
-                      </label>
-                    ))} */}
               </Form.Item>
               <Form.Item
                 label={

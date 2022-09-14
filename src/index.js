@@ -55,13 +55,13 @@ import ParentResources from './components/pages/ParentHome/ParentResources';
 import ParentProgress from './components/pages/ParentHome/Progress';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
-import Cart from './components/pages/ParentHome/Cart';
+// import Cart from './components/pages/ParentHome/Cart';
 import SingleCourseBooking from './components/pages/SingleCourseBooking';
-import CourseDescription from './components/pages/CourseDescriptions';
+// import CourseDescription from './components/pages/CourseDescriptions';
 // eslint-disable-next-line
-import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
+// import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
-import Progress from './components/pages/ParentHome/Progress';
+// import Progress from './components/pages/ParentHome/Progress';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';

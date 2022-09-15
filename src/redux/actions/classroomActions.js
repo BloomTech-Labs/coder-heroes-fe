@@ -10,6 +10,8 @@ export const GET_BADGES = 'GET_BADGES';
 export const ADD_BADGE_TO_STUDENT = 'ADD_BADGE_TO_STUDENT';
 export const REMOVE_BADGE_FROM_STUDENT = 'REMOVE_BADGE_FROM_STUDENT';
 
+// stubbed
+
 export const setCourseId = course_id => {
   return { type: SET_COURSE_ID, payload: course_id };
 };

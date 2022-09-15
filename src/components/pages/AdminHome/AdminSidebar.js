@@ -6,7 +6,7 @@ import {
   HomeOutlined,
   ThunderboltOutlined,
   PlusOutlined,
-  // BellOutlined,
+  BellOutlined,
   CalculatorOutlined,
   FormOutlined,
   DollarOutlined,

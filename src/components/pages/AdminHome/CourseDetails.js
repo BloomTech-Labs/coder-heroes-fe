@@ -17,10 +17,14 @@ const CourseDetails = props => {
             @ {course.start_time} - {course.end_time}
           </p>
           <p>
-            Syllabus:{' '}
-            <a href={course.syllabus} target="_blank" rel="noreferrer">
-              Click Here
-            </a>
+            Syllabus:
+            {!course.syllabus_link ? (
+              <span className="black">{' currently unavailable'}</span>
+            ) : (
+              <a href={course.syllabus_link} target="_blank" rel="noreferrer">
+                {' Click to view syllabus'}
+              </a>
+            )}
           </p>
           <p>more info here</p>
           <p>more info here</p>

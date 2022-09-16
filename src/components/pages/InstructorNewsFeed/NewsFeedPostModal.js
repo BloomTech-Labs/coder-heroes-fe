@@ -52,8 +52,7 @@ const NewsfeedPostModal = props => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // const { authState } = useOktaAuth();
+  
   // const { idToken } = authState;
 
   //removed idToken from postNewsFeed params

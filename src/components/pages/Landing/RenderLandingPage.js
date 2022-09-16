@@ -10,17 +10,17 @@ import Button from '../../common/Button';
 import '../../../styles/LandingPageStyles/index.less';
 import { Typography, Card } from 'antd';
 import { NavLink } from 'react-router-dom';
+//TO-DO: Implement Auth0
 
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-  // const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
 
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
   //   // eslint-disable-next-line

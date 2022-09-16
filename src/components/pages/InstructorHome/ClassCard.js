@@ -18,8 +18,6 @@ const ClassCard = ({ course }) => {
   const [state, setState] = useState({
     course_name: course.course_name,
   });
-
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
 
   const navigate = useHistory();

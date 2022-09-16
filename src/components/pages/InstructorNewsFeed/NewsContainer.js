@@ -7,10 +7,6 @@ import IndividualNews from './IndividualNews';
 //TO-DO: Implement Auth0
 function NewsContainer(props) {
   const { newsfeed, dispatch } = props;
-<<<<<<< HEAD
-=======
-  // const { authState } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
 
   // useEffect(() => {

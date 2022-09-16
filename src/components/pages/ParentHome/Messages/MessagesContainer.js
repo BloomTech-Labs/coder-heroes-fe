@@ -13,18 +13,10 @@ import { connect, useDispatch } from 'react-redux';
 function ParentMessages(props) {
   const { Content } = Layout;
   const dispatch = useDispatch();
-<<<<<<< HEAD
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
   //       dispatch(getCurrentUser(authState.idToken.idToken));
-=======
-  // const { authState, oktaAuth } = useOktaAuth();
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
->>>>>>> 8354499 (Removing instances of Okta)
   //     }
   //   }
   // }, []);

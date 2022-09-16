@@ -15,20 +15,11 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 const Classroom = props => {
-<<<<<<< HEAD
-  // const { idToken } = authState;
-  const dispatch = useDispatch();
-  useEffect(() => {
-    props.getStudents(idToken, props.course.course_id);
-  }, []);
-=======
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   props.getStudents(idToken, props.course.course_id);
   // }, []);
->>>>>>> 8354499 (Removing instances of Okta)
 
   const navigate = useHistory();
 

@@ -15,20 +15,12 @@ import { NavLink } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-<<<<<<< HEAD
-=======
-  // const { authState, oktaAuth } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   const dispatch = useDispatch();
 
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-<<<<<<< HEAD
   //       dispatch(getCurrentUser(authState.idToken.idToken));
-=======
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
->>>>>>> 8354499 (Removing instances of Okta)
   //     }
   //   }
   //   // eslint-disable-next-line

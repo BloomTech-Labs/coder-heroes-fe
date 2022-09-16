@@ -68,10 +68,6 @@ const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
-<<<<<<< HEAD
-=======
-  // const { authState } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
   const { programs, instructor } = props;
 

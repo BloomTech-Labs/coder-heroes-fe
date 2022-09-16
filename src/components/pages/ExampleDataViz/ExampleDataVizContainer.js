@@ -9,10 +9,6 @@ const { Option } = Select;
 function DataVizContainer() {
   const initialState = 'AL';
   const [stateCode, setStateCode] = useState(initialState);
-<<<<<<< HEAD
-=======
-  // const { authState } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   function handleSetStateCode(e) {
     e.preventDefault();
   }

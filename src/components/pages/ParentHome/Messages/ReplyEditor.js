@@ -31,7 +31,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
@@ -39,16 +38,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   //     }
   //   }
   // }, [authState, dispatch]);
-=======
-  // const { authState, oktaAuth } = useOktaAuth();
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-  //     }
-  //   }
-  // }, [authState, dispatch, oktaAuth]);
->>>>>>> 8354499 (Removing instances of Okta)
 
   useLayoutEffect(() => {}, [props]);
   const handleSubmit = () => {

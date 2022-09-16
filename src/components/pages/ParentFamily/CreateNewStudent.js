@@ -12,10 +12,6 @@ const CreateNewStudent = props => {
     wrapperCol: { span: 16 },
   };
 
-<<<<<<< HEAD
-=======
-  // const { authState } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
 
   const onFinish = values => {

@@ -14,10 +14,6 @@ const { Option } = Select;
 
 const SearchInstructors = props => {
   const dispatch = useDispatch();
-<<<<<<< HEAD
-=======
-  // const { authState } = useOktaAuth();
->>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
   const [searchTerm, setSearchTerm] = useState('');
 

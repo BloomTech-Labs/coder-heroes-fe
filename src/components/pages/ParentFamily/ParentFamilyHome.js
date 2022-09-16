@@ -33,9 +33,23 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
+<<<<<<< HEAD
   const dispatch = useDispatch();
   const { user, children } = props;
 
+=======
+  // const { authState, oktaAuth } = useOktaAuth();
+
+  const dispatch = useDispatch();
+  const { user, children } = props;
+
+  // useEffect(() => {
+  //   oktaAuth.token.getUserInfo().then(dataProfile => {
+  //     dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
+  //   });
+  // }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
+
+>>>>>>> 8354499 (Removing instances of Okta)
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
   };

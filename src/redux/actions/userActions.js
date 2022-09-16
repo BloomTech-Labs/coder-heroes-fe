@@ -10,6 +10,7 @@ export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 //TO-DO: Implement Auth0
 
+<<<<<<< HEAD
 export const getCurrentUser = idToken => async dispatch => {
   if ('Auth0 stub') {
     'Auth0 stub'
@@ -32,6 +33,32 @@ export const getCurrentUser = idToken => async dispatch => {
       });
   }
 };
+=======
+//TO-DO: Implement Auth0
+export const getCurrentUser = "Implement Auth0";
+// export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
+//   if (oktaAuth.isAuthenticated) {
+//     oktaAuth
+//       .getUser()
+//       .then(parsedJWT => {
+//         axiosWithAuth(idToken)
+//           .get(`/profiles/${parsedJWT.sub}`)
+//           .then(res => {
+//             dispatch({
+//               type: GET_CURRENT_USER,
+//               payload: res.data,
+//             });
+//           });
+//       })
+//       .catch(err => {
+//         dispatch({
+//           type: SET_ERROR,
+//           payload: err.message,
+//         });
+//       });
+//   }
+// };
+>>>>>>> 8354499 (Removing instances of Okta)
 
 export const getActiveConversation = activeConversation => {
   return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };

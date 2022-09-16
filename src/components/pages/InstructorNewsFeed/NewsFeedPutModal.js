@@ -13,6 +13,10 @@ import {
 //TO-DO: Implement Auth0
 function NewsFeedPutModal(props) {
   const { postID, link, title, description, posted_at } = props;
+<<<<<<< HEAD
+=======
+  // const { authState } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
 
   const [formValues, setFormValues] = useState({

@@ -15,6 +15,10 @@ const { Sider } = Layout;
 
 function InstructorSidebar() {
   const [collapsed, setCollapsed] = useState(false);
+<<<<<<< HEAD
+=======
+  // const { authService } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);

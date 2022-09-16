@@ -55,6 +55,12 @@ const NewsfeedPostModal = props => {
   
   // const { idToken } = authState;
 
+<<<<<<< HEAD
+=======
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
+
+>>>>>>> 8354499 (Removing instances of Okta)
   //removed idToken from postNewsFeed params
   const handleSubmit = () => {
     dispatch(postNewsFeed(formValues));

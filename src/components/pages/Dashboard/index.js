@@ -10,12 +10,20 @@ import { connect, useDispatch } from 'react-redux';
 
 const Dashboard = props => {
   const dispatch = useDispatch();
+<<<<<<< HEAD
+=======
+  // const { authState, oktaAuth } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
   const { role_id } = props.user.currentUser;
 
   // useEffect(() => {
   //   if (!role_id) {
+<<<<<<< HEAD
   //     dispatch(getCurrentUser(authState.idToken.idToken));
+=======
+  //     dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+>>>>>>> 8354499 (Removing instances of Okta)
   //   }
   // }, [dispatch, idToken]);
 

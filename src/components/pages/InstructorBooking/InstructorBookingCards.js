@@ -22,7 +22,13 @@ const InstructorBookingCards = props => {
   const [modalHidden, setModalHidden] = useState(true);
   const [currentCourses, setCurrentCourses] = useState();
 
+<<<<<<< HEAD
   // const dispatch = useDispatch();
+=======
+  //TO-DO: Implement Auth0
+  // const dispatch = useDispatch();
+  // const { authState } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
   // useEffect(() => {
   //   dispatch(getCourses(idToken));

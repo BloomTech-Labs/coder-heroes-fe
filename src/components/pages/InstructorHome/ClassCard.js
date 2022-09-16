@@ -18,6 +18,11 @@ const ClassCard = ({ course }) => {
   const [state, setState] = useState({
     course_name: course.course_name,
   });
+<<<<<<< HEAD
+=======
+
+  // const { authState } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
 
   const navigate = useHistory();

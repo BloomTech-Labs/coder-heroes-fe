@@ -9,6 +9,10 @@ const { Option } = Select;
 function DataVizContainer() {
   const initialState = 'AL';
   const [stateCode, setStateCode] = useState(initialState);
+<<<<<<< HEAD
+=======
+  // const { authState } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   function handleSetStateCode(e) {
     e.preventDefault();
   }
@@ -31,7 +35,7 @@ function DataVizContainer() {
         </Select>
       </form>
       <RenderDataViz
-        authState={authState}
+        // authState={authState}
         url={process.env.REACT_APP_API_URI + '/data/viz/' + stateCode}
       />
     </>

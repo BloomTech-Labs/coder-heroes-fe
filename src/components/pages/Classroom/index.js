@@ -15,19 +15,28 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 const Classroom = props => {
+<<<<<<< HEAD
   // const { idToken } = authState;
   const dispatch = useDispatch();
   useEffect(() => {
     props.getStudents(idToken, props.course.course_id);
   }, []);
+=======
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   props.getStudents(idToken, props.course.course_id);
+  // }, []);
+>>>>>>> 8354499 (Removing instances of Okta)
 
   const navigate = useHistory();
 
-  const handleNavigate = e => {
-    e.preventDefault();
-    dispatch(setCurrentStudentId(parseInt(e.target.parentElement.value)));
-    navigate.push('/feedback-badges');
-  };
+  // const handleNavigate = e => {
+  //   e.preventDefault();
+  //   dispatch(setCurrentStudentId(parseInt(e.target.parentElement.value)));
+  //   navigate.push('/feedback-badges');
+  // };
 
   return (
     <>
@@ -42,7 +51,7 @@ const Classroom = props => {
                 <Button
                   className="classroom_feedback__button"
                   value={student.child_id}
-                  onClick={handleNavigate}
+                  // onClick={handleNavigate}
                   key={Date.now()}
                 >
                   GIVE FEEDBACK

@@ -10,10 +10,15 @@ import { setEditing } from '../../../redux/actions/coursesActions';
 import { NavLink } from 'react-router-dom';
 //TO-DO: Implement Auth0
 
+//TO-DO: Implement Auth0
 const { Content } = Layout;
 const { Title } = Typography;
 
 const AllClasses = props => {
+<<<<<<< HEAD
+=======
+  // const { authState } = useOktaAuth();
+>>>>>>> 8354499 (Removing instances of Okta)
   // const { idToken } = authState;
   // const dispatch = useDispatch();
   // useEffect(() => {

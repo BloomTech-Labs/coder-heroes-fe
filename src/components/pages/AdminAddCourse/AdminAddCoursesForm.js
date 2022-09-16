@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+//import moment from 'moment'; you may need this for auto-pop
+import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
+import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
@@ -9,6 +13,7 @@ import {
   Checkbox,
   InputNumber,
   DatePicker,
+  Button,
   Modal,
   TimePicker,
   Select,
@@ -16,15 +21,32 @@ import {
 import TextArea from 'antd/lib/input/TextArea';
 const { Option } = Select;
 
-const daysOfWeek = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
-];
+const initialFormValues = {
+  course_id: '',
+  course_name: '',
+  course_description: '',
+  days_of_week: [],
+  max_size: '',
+  max_age: '',
+  min_age: '',
+  start_date: '',
+  end_date: '',
+  start_time: '',
+  end_time: '',
+  number_of_sessions: '',
+  instructor_id: '',
+};
+
+// may be necessary for auto-pop
+// const daysOfWeek = [
+//   'Monday',
+//   'Tuesday',
+//   'Wednesday',
+//   'Thursday',
+//   'Friday',
+//   'Saturday',
+//   'Sunday',
+// ];
 
 //Config for date and time picker
 const rangeConfig = {
@@ -37,31 +59,49 @@ const rangeConfig = {
 };
 
 function AdminAddCoursesForm(props) {
-  const { handleOk, handleCancel, isModalVisible, initialFormValues } = props;
   const [formValues, setFormValues] = useState(initialFormValues);
+  const { courseinfo } = props;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const dispatch = useDispatch();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
-  const numberFields = [
-    {
-      text: 'Maximum Capacity',
-      name: 'course_capacity',
-      value: formValues.course_capacity,
-    },
-    {
-      text: 'Maximum Age',
-      name: 'course_max_age',
-      value: formValues.course_max_age,
-    },
-    {
-      text: 'Minimum Age',
-      name: 'course_min_age',
-      value: formValues.course_min_age,
-    },
-  ];
+  const daysOfWeek = [];
+
+  const showModal = () => {
+    setIsModalVisible(true);
+    if (props.button_name === 'Edit Course') {
+      setFormValues({
+        course_id: courseinfo.course_id,
+        course_name: courseinfo.course_name,
+        course_description: courseinfo.course_description,
+        days_of_week: courseinfo.days_of_week,
+        max_size: courseinfo.max_size,
+        max_age: courseinfo.max_age,
+        min_age: courseinfo.min_age,
+        start_date: courseinfo.start_date,
+        end_date: courseinfo.end_date,
+        start_time: courseinfo.start_time,
+        end_time: courseinfo.end_time,
+        number_of_sessions: courseinfo.number_of_sessions,
+        instructor_id: courseinfo.instructor_id,
+      });
+    }
+  };
+
+  const handleClose = () => {
+    setIsModalVisible(false);
+  };
 
   const handleSubmit = e => {
-    e.preventDefault();
-    handleOk(formValues);
-    setFormValues(initialFormValues);
+    if (props.button_name === 'Add Course') {
+      dispatch(addCourse(idToken, formValues));
+    } else {
+      dispatch(editCourse(idToken, formValues));
+      alert('Edits Submitted!');
+    }
+
+    setIsModalVisible(false);
+    window.location.reload();
   };
 
   const handleChange = e => {
@@ -72,35 +112,25 @@ function AdminAddCoursesForm(props) {
   };
 
   const handleCheck = e => {
-    if (e.target.checked) {
-      setFormValues({
-        ...formValues,
-        course_days: [...formValues.course_days, e.target.value],
-      });
-    }
-    if (!e.target.checked) {
-      setFormValues({
-        ...formValues,
-        course_days: formValues.course_days.filter(
-          value => value !== e.target.value
-        ),
-      });
-    }
+    daysOfWeek.push(e.target.value);
+    const dow = daysOfWeek.map(day =>
+      !daysOfWeek.includes(day) ? Array().push(day) : null
+    );
   };
 
   const handleDateChange = value => {
     setFormValues({
       ...formValues,
-      course_start_date: value[0].format('MM/DD/YYYY'),
-      course_end_date: value[1].format('MM/DD/YYYY'),
+      start_date: value[0].format('MM/DD/YYYY'),
+      end_date: value[1].format('MM/DD/YYYY'),
     });
   };
 
   const handleTimeChange = value => {
     setFormValues({
       ...formValues,
-      course_start_time: value[0].format('hh:mm:ss'),
-      course_end_time: value[1].format('hh:mm:ss'),
+      start_time: value[0].format('hh:mm:ss'),
+      end_time: value[1].format('hh:mm:ss'),
     });
   };
 
@@ -115,12 +145,17 @@ function AdminAddCoursesForm(props) {
     <div className="edit-course-disp">
       <div className="edit-courses-form-container">
         <section className="form-items-container">
+          <Button type="primary" onClick={showModal}>
+            {props.button_name}
+          </Button>
           <Modal
             visible={isModalVisible}
-            title={!formValues.course_id ? 'Add Course' : 'Edit Course'}
+            title={
+              props.button_name === 'Add Course' ? 'Add Course' : 'Edit Course'
+            }
             okText="Save"
             onOk={handleSubmit}
-            onCancel={handleCancel}
+            onCancel={handleClose}
           >
             <Form layout="vertical">
               <Form.Item
@@ -154,41 +189,48 @@ function AdminAddCoursesForm(props) {
                 onChange={handleChange}
               >
                 <TextArea
-                  value={formValues.course_desc}
+                  value={formValues.course_description}
                   name="course_description"
                   style={{ height: 100, fontSize: '1.1rem' }}
                 />
               </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Program:
-                  </label>
-                }
-                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
-              >
-                <Select onChange={handleProgramSelect}>
-                  <Option value="">--Choose a Program--</Option>
-                  <Option value={1}>Codercamp</Option>
-                  <Option value={2}>Codersitters</Option>
-                  <Option value={3}>Coderyoga</Option>
-                </Select>
-              </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Instructor ID:
-                  </label>
-                }
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.instructor_id}
-                  name="instructor_id"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
+              {props.button_name === 'Add Course' ? (
+                <>
+                  <Form.Item
+                    label={
+                      <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                        Program:
+                      </label>
+                    }
+                    style={{
+                      width: '75%',
+                      color: '#096A70',
+                      fontSize: '1.1rem',
+                    }}
+                  >
+                    <Select onChange={handleProgramSelect}>
+                      <Option value="">--Choose a Program--</Option>
+                      <Option value={1}>Codercamp</Option>
+                      <Option value={2}>Codersitters</Option>
+                      <Option value={3}>Coderyoga</Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item
+                    label={
+                      <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                        Instructor Name:
+                      </label>
+                    }
+                    style={{ width: '65%', fontSize: '1.1rem' }}
+                    onChange={handleChange}
+                  >
+                    <InputNumber
+                      name="instructor_id"
+                      style={{ width: 'auto', fontSize: '1.1rem' }}
+                    />
+                  </Form.Item>
+                </>
+              ) : null}
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
@@ -199,8 +241,19 @@ function AdminAddCoursesForm(props) {
                 style={{ width: '100%', fontSize: '1.1rem' }}
                 onChange={handleCheck}
               >
-                <Checkbox.Group options={daysOfWeek} />
+                <Checkbox.Group
+                  options={[
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                    'Sunday',
+                  ]}
+                />
               </Form.Item>
+
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
@@ -209,17 +262,44 @@ function AdminAddCoursesForm(props) {
                 }
                 style={{ width: '60%', fontSize: '1.1rem' }}
               >
-                {formValues.course_days.map(day => (
-                  <label key={`${day}`}>
-                    {`${day}:`}
-                    <TimePicker.RangePicker
-                      onChange={handleTimeChange}
-                      use12Hours={true}
-                      format="HH:mm"
-                      name="course_time"
-                    />
-                  </label>
-                ))}
+                <TimePicker.RangePicker
+                  onChange={handleTimeChange}
+                  use12Hours={true}
+                  format="HH:mm"
+                  name="course_time"
+                />
+                {/* vvv May be useful for auto-pop vvv */}
+                {/* {props.button_name === 'Add Course'
+                  ? daysOfWeek.forEach(day => (
+                      <label>
+                        {`${day}:`}
+                        <br></br>
+                        <TimePicker.RangePicker
+                          onChange={handleTimeChange}
+                          use12Hours={true}
+                          format="HH:mm"
+                          name="course_time"
+                        />
+                        <br></br>
+                      </label>
+                    ))
+                  : formValues.days_of_week.forEach(day => (
+                      <label key={`${day}`}>
+                        {`${day}:`}
+                        <br></br>
+                        <TimePicker.RangePicker
+                          defaultValue={[
+                            moment(formValues.start_time, 'HH:mm'),
+                            moment(formValues.end_time, 'HH:mm'),
+                          ]}
+                          onChange={handleTimeChange}
+                          use12Hours={true}
+                          format="HH:mm"
+                          name="course_time"
+                        />
+                        <br></br>
+                      </label>
+                    ))} */}
               </Form.Item>
               <Form.Item
                 label={
@@ -236,23 +316,51 @@ function AdminAddCoursesForm(props) {
                   style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
-              {numberFields.map(field => (
-                <Form.Item
-                  label={
-                    <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                      {`${field.text}:`}
-                    </label>
-                  }
-                  style={{ width: '65%', fontSize: '1.1rem' }}
-                  onChange={handleChange}
-                >
-                  <InputNumber
-                    value={field.value}
-                    name={`${field.name}`}
-                    style={{ fontSize: '1.1rem' }}
-                  />
-                </Form.Item>
-              ))}
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Capacity:
+                  </label>
+                }
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.max_size}
+                  name="max_size"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Minimum Age:
+                  </label>
+                }
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.min_age}
+                  name="min_age"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
+              <Form.Item
+                style={{ width: '65%', fontSize: '1.1rem' }}
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Maximum Age:
+                  </label>
+                }
+                onChange={handleChange}
+              >
+                <InputNumber
+                  value={formValues.max_age}
+                  name="max_age"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
               <Form.Item
                 {...rangeConfig}
                 label={
@@ -278,8 +386,8 @@ function AdminAddCoursesForm(props) {
                 onChange={handleChange}
               >
                 <InputNumber
-                  value={formValues.course_num_sessions}
-                  name="course_num_sessions"
+                  value={formValues.number_of_sessions}
+                  name="number_of_sessions"
                   style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>

@@ -11,16 +11,16 @@ import { getCurrentUser } from '../../../../redux/actions/userActions';
 //TO-DO: Implement Auth0
 function ActiveMessage(props) {
   const dispatch = useDispatch();
-  // const { authState, oktaAuth } = useOktaAuth();
 
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
+  
   const sortByDate = arr => {
     return arr.sort((a, b) => {
       const dateA = new Date(a.sent_at);

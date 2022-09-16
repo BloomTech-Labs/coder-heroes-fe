@@ -10,7 +10,6 @@ import { getActiveConversation } from '../../../../redux/actions/userActions';
 //TO-DO: Implement Auth0
 const MessageList = props => {
   const currentUser = props.currentUser;
-  // const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
   const [currentConversation, setCurrentConversation] = useState('');
@@ -19,7 +18,7 @@ const MessageList = props => {
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
   //   // eslint-disable-next-line react-hooks/exhaustive-deps

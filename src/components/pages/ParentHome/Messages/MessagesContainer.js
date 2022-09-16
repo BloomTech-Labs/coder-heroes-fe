@@ -13,11 +13,10 @@ import { connect, useDispatch } from 'react-redux';
 function ParentMessages(props) {
   const { Content } = Layout;
   const dispatch = useDispatch();
-  // const { authState, oktaAuth } = useOktaAuth();
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
   // }, []);

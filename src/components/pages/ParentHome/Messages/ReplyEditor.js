@@ -31,14 +31,13 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
-  // const { authState, oktaAuth } = useOktaAuth();
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
-  // }, [authState, dispatch, oktaAuth]);
+  // }, [authState, dispatch]);
 
   useLayoutEffect(() => {}, [props]);
   const handleSubmit = () => {

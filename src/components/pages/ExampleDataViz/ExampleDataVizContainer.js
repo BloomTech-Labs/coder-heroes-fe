@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import RenderDataViz from './RenderDataViz';
-import { useOktaAuth } from '@okta/okta-react';
 import { Select } from 'antd';
 import states from './statedata.js';
 const { Option } = Select;
@@ -8,7 +7,7 @@ const { Option } = Select;
 function DataVizContainer() {
   const initialState = 'AL';
   const [stateCode, setStateCode] = useState(initialState);
-  const { authState } = useOktaAuth();
+  // const { authState } = useOktaAuth();
   function handleSetStateCode(e) {
     e.preventDefault();
   }
@@ -31,7 +30,7 @@ function DataVizContainer() {
         </Select>
       </form>
       <RenderDataViz
-        authState={authState}
+        // authState={authState}
         url={process.env.REACT_APP_API_URI + '/data/viz/' + stateCode}
       />
     </>

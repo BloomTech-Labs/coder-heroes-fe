@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 
 import { createRoot } from 'react-dom/client';
@@ -10,8 +8,6 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
-import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
-import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 
 import './styles/index.less';
 import 'antd/dist/antd.less';
@@ -28,7 +24,6 @@ import { LoginPage } from './components/pages/Login/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
-import config from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
 import InstructorHome from './components/pages/InstructorHome';
 import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
@@ -55,13 +50,8 @@ import ParentResources from './components/pages/ParentHome/ParentResources';
 import ParentProgress from './components/pages/ParentHome/Progress';
 import NavBar from './components/common/Navbars/NavBar';
 import PaymentSuccess from './components/pages/ParentHome/PaymentSuccess';
-import Cart from './components/pages/ParentHome/Cart';
 import SingleCourseBooking from './components/pages/SingleCourseBooking';
-import CourseDescription from './components/pages/CourseDescriptions';
-// eslint-disable-next-line
-import InstructorNavBar from './components/common/Navbars/InstructorNavBar';
 import AllClasses from './components/pages/InstructorHome/AllClassesView';
-import Progress from './components/pages/ParentHome/Progress';
 import Messages from './components/pages/Messages';
 import Classroom from './components/pages/Classroom';
 import FeedbackBadgePage from './components/pages/Classroom/FeedbackBadgePage';
@@ -124,28 +114,7 @@ function App() {
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
-  const authHandler = () => {
-    // We pass this to our <Security /> component that wraps our routes.
-    // It'll automatically check if userToken is available and push back to login if not :)
-    const previousAuthState = oktaAuth.authStateManager.getPreviousAuthState();
-    if (!previousAuthState || !previousAuthState.isAuthenticated) {
-      // App initialization stage
-      history.push('/login');
-    }
-  };
-
-  const oktaAuth = new OktaAuth(config);
-
-  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
-  };
-
   return (
-    <Security
-      oktaAuth={oktaAuth}
-      restoreOriginalUri={restoreOriginalUri}
-      onAuthRequired={authHandler}
-    >
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
@@ -171,25 +140,24 @@ function App() {
             path="/instructor-register-success"
             component={SuccessfulSubmission}
           />
-          <SecureRoute
+          <Route
             path="/parent/achievements"
             component={ParentAchievements}
           />
-          <SecureRoute exact path="/parent" component={ParentHome} />
-          <SecureRoute path="/parent/booking" component={ParentBooking} />
-          <SecureRoute path="/parent/calendar" component={ParentCalendar} />
-          <SecureRoute path="/parent/family" component={ParentFamilyHome} />
-          <SecureRoute path="/parent/newsfeed" component={ParentNewsFeed} />
-          <SecureRoute path="/parent/messages" component={ParentMessages} />
-          <SecureRoute path="/parent/tasks" component={ParentTasks} />
-          <SecureRoute path="/parent/resources" component={ParentResources} />
-          <SecureRoute path="/parent" component={ParentHome} />
-          <SecureRoute path="/parent/progress" component={ParentProgress} />
-          <SecureRoute
+          <Route exact path="/parent" component={ParentHome} />
+          <Route path="/parent/booking" component={ParentBooking} />
+          <Route path="/parent/calendar" component={ParentCalendar} />
+          <Route path="/parent/family" component={ParentFamilyHome} />
+          <Route path="/parent/newsfeed" component={ParentNewsFeed} />
+          <Route path="/parent/messages" component={ParentMessages} />
+          <Route path="/parent/tasks" component={ParentTasks} />
+          <Route path="/parent/resources" component={ParentResources} />
+          <Route path="/parent" component={ParentHome} />
+          <Route path="/parent/progress" component={ParentProgress} />
+          <Route
             path="/parent-book-now"
             component={SingleCourseBooking}
           />
-          <Route path="/implicit/callback" component={LoginCallback} />
           <Route path="/instructor" component={InstructorHome} />
           <Route path="/student" component={StudentHome} />
           <Route path="/student-tasks" component={StudentTasks} />
@@ -214,39 +182,38 @@ function App() {
           <Route path="/classroom" component={Classroom} />
           <Route path="/feedback-badges" component={FeedbackBadgePage} />
           {/* any of the routes you need secured should be registered as SecureRoutes */}
-          <SecureRoute
+          <Route
             path="/dev"
             component={() => <HomePage LoadingComponent={LoadingComponent} />}
           />
           {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
-          <SecureRoute path="/admin-add-course" component={AdminAddCourses} />
-          <SecureRoute path="/admin-courses" component={AdminCourses} />
+          <Route path="/admin-add-course" component={AdminAddCourses} />
+          <Route path="/admin-courses" component={AdminCourses} />
           <Route path="/admin-edit-course" component={AdminEditCourse} />
           <SecureRoute path="/admin-instructors" component={AdminInstructors} />
           <SecureRoute path="/admin-course-details" component={CourseDetails} />
           {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
-          <SecureRoute path="/admin-purchases" component={AdminPurchases} />
-          <SecureRoute
+          <Route path="/admin-purchases" component={AdminPurchases} />
+          <Route
             path="/admin-applications"
             component={AdminApplications}
           />
           {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
-          <SecureRoute path="/messages" component={Messages} />
-          <SecureRoute path="/edit-news" component={NewsfeedPutModal} />
-          <SecureRoute
+          <Route path="/messages" component={Messages} />
+          <Route path="/edit-news" component={NewsfeedPutModal} />
+          <Route
             path="/instructor-news-feed"
             component={InstructorNewsFeed}
           />
-          <SecureRoute path="/edit-news" component={NewsFeedPutModal} />
-          <SecureRoute path="/parent-news-feed" component={ParentNewsFeed} />
-          <SecureRoute path="/example-list" component={ExampleListPage} />
-          <SecureRoute path="/profile-list" component={ProfileListPage} />
-          <SecureRoute path="/datavis" component={ExampleDataViz} />
-          <SecureRoute path="/instructor-all-classes" component={AllClasses} />
-          <SecureRoute path="/dashboard" component={Dashboard} />
+          <Route path="/edit-news" component={NewsFeedPutModal} />
+          <Route path="/parent-news-feed" component={ParentNewsFeed} />
+          <Route path="/example-list" component={ExampleListPage} />
+          <Route path="/profile-list" component={ProfileListPage} />
+          <Route path="/datavis" component={ExampleDataViz} />
+          <Route path="/instructor-all-classes" component={AllClasses} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>
-    </Security>
   );
 }

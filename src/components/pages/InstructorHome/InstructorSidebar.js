@@ -9,13 +9,13 @@ import {
   ReadOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
 
+//TO-DO: Implement Auth0
 const { Sider } = Layout;
 
 function InstructorSidebar() {
   const [collapsed, setCollapsed] = useState(false);
-  const { authService } = useOktaAuth();
+  // const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);
@@ -57,7 +57,7 @@ function InstructorSidebar() {
         <Menu.Item
           key="logout"
           onClick={() => {
-            authService.logout();
+            // authService.logout();
           }}
           icon={<ExportOutlined fontSize="150px" />}
         >

@@ -3,12 +3,13 @@ import { Card, Avatar, Badge } from 'antd';
 import { useDispatch } from 'react-redux';
 import { delCourse, editCourse } from '../../../redux/actions/coursesActions';
 import { setCourseId } from '../../../redux/actions/classroomActions';
-import { useOktaAuth } from '@okta/okta-react';
+
 import { useHistory } from 'react-router-dom';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import '../../../styles/InstructorStyles/index.less';
 
+//TO-DO: Implement Auth0
 const { Meta } = Card;
 
 const ClassCard = ({ course }) => {
@@ -17,8 +18,9 @@ const ClassCard = ({ course }) => {
   const [state, setState] = useState({
     course_name: course.course_name,
   });
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
 
   const navigate = useHistory();
 
@@ -47,14 +49,16 @@ const ClassCard = ({ course }) => {
       course_name: course.course_name,
     });
   };
+  //removed idToken from delCourse(idToken, course.course_id)
   const handleDelete = () => {
-    dispatch(delCourse(idToken, course.course_id));
+    dispatch(delCourse(course.course_id));
   };
 
+  //removed idToken from editcourse(idToken, {etc..})
   const handleEdit = () => {
     setEditing(!editing);
     dispatch(
-      editCourse(idToken, { ...course, course_name: state.course_name })
+      editCourse({ ...course, course_name: state.course_name })
     );
   };
 

@@ -8,7 +8,6 @@ import {
   BarChartOutlined,
   StarOutlined,
 } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import {
   getInstructor,

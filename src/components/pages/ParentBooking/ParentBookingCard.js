@@ -6,9 +6,9 @@ import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
 import { addToCart } from '../../../redux/actions/parentActions';
 
+//TO-DO: Implement Auth0
 const ParentBookingCard = props => {
   const {
     child_name,
@@ -26,10 +26,11 @@ const ParentBookingCard = props => {
 
   const { addToCart } = props;
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
   const handleClick = e => {
-    axiosWithAuth(idToken)
+    //removed idToken from axiosWithAuth param
+    axiosWithAuth()
       .post(
         '/children/1/enrollments', // TODO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
         { child_id: 1, class_id: course_id, completed: true }

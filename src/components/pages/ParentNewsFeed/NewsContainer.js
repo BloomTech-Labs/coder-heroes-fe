@@ -3,7 +3,6 @@ import '../../../styles/index.less';
 import IndividualNewsParent from './IndividualNewsParent';
 import { connect } from 'react-redux';
 import { getNewsFeedsParent } from '../../../redux/actions/parentActions';
-import { useOktaAuth } from '@okta/okta-react';
 import { Layout } from 'antd';
 
 function NewsContainer(props) {

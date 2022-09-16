@@ -10,17 +10,7 @@ import { createMemoryHistory } from 'history';
 import InstructorWelcome from '../components/pages/Registration/InstructorWelcome';
 
 const store = createStore(rootReducers);
-
-jest.mock('@okta/okta-react', () => ({
-  useOktaAuth: () => {
-    return {
-      authState: {
-        isAuthenticated: true,
-      },
-      authService: {},
-    };
-  },
-}));
+//TO-DO: Implement mock for Auth0
 
 describe('<Instructor Welcome />', () => {
   test('it renders the instructorWelcome component', () => {

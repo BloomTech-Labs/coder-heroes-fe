@@ -8,6 +8,7 @@ import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 import AdminAddCoursesForm from './AdminAddCoursesForm';
 import { Button } from 'antd';
 
+//TO-DO: Implement Auth0
 const initialFormValues = {
   course_id: '',
   course_name: '',
@@ -29,7 +30,6 @@ const initialFormValues = {
 
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
   const { idToken } = authState;
   const [isModalVisible, setIsModalVisible] = useState(false);
 

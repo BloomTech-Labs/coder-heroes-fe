@@ -4,10 +4,10 @@ import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import PurchasesTable from './AdminPurchasesTable';
 import '../../../styles/index.less';
+//TO-DO: Implement Auth0
 
 const PurchasesList = () => {
-  //TO-DO: Implement Auth0
-  // const { authState } = useOktaAuth();
+  
   // const { idToken } = authState;
   const [purchases, setPurchases] = useState([
     {

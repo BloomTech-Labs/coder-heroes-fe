@@ -7,6 +7,7 @@ import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';
 import LoadingComponent from '../../common/LoadingComponent';
 import PaginatePage from '../../common/PaginatePage';
+//TO-DO: Implement Auth0
 
 const { Content } = Layout;
 
@@ -20,7 +21,7 @@ function AdminInstructors(props) {
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(10);
   const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
+  const idToken = 'To be replaced with Auth0'
 
   useEffect(() => {
     dispatch(getInstructors(idToken));

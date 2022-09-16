@@ -5,13 +5,14 @@ import CourseCard from './AdminCourseCard';
 import { useDispatch, connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { Layout } from 'antd';
+//TO-DO: Implement Auth0
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
 
 function AdminCourses(props) {
   const { courses } = props;
   const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
+  const idToken = 'To be replaced with Auth0'
 
   useEffect(() => {
     dispatch(getCourses(idToken));

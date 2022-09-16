@@ -4,11 +4,11 @@ import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
 import '../../../styles/AdminDashboardHome/index.less';
+//TO-DO: Implement Auth0
 
 const ApplicationCard = props => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
 
   useEffect(() => {
     if (!authState) return;

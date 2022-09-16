@@ -13,6 +13,7 @@ import schema from './InstructorAddCourseFormSchema';
 import { CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addCourse } from '../../../redux/actions/coursesActions';
+//TO-DO: Implement Auth0
 
 const { Option } = Select;
 const { Content } = Layout;
@@ -67,7 +68,6 @@ const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   const { programs, instructor } = props;
 

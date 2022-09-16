@@ -8,13 +8,12 @@ import { getCourses } from '../../../redux/actions/coursesActions';
 import { useDispatch } from 'react-redux';
 import { setEditing } from '../../../redux/actions/coursesActions';
 import { NavLink } from 'react-router-dom';
-
 //TO-DO: Implement Auth0
+
 const { Content } = Layout;
 const { Title } = Typography;
 
 const AllClasses = props => {
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   // const dispatch = useDispatch();
   // useEffect(() => {

@@ -28,6 +28,8 @@ import { connect } from 'react-redux';
 import navLogo from '../../../img/navbar-logo.png';
 import handleLogout from '../../../utils/logout.js';
 
+//TO-DO: Implement Auth0
+
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
@@ -101,7 +103,6 @@ function NavBar(props) {
           <NavLink to="/login">
             <button
             // className={`navbar__btn navbar__login ${
-            //removed okta from getItem
             // localStorage.getItem({}) ? 'navbar__hide' : ''
             // }`}
             >

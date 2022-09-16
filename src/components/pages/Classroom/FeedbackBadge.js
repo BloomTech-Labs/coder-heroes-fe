@@ -5,12 +5,13 @@ import {
   addBadgeToStudent,
   removeBadgeFromStudent,
 } from '../../../redux/actions/classroomActions';
+//TO-DO: Implement Auth0
+
 const { Meta } = Card;
 
 const FeedbackBadges = props => {
   const { badge, studentBadges } = props;
-  //TO-DO: Implement Auth0
-  // const { authState } = useOktaAuth();
+  
   // const { idToken } = authState;
 
   const dispatch = useDispatch();

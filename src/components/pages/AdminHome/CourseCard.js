@@ -4,11 +4,12 @@ import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import '../../../styles/AdminDashboardHome/index.less';
+//TO-DO: Implement Auth0
 
 const CourseCard = props => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
+  const idToken = 'To be stubbed out and replaced with auth0'
 
   useEffect(() => {
     if (!idToken) return;

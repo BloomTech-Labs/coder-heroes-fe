@@ -9,22 +9,19 @@ import {
   getBadgesById,
   getBadges,
 } from '../../../redux/actions/classroomActions';
+//TO-DO: Implement Auth0
 
 const { Content } = Layout;
 const FeedbackBadgesPage = props => {
   const dispatch = useDispatch();
-  //TO-DO: Implement Auth0
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   const { course } = props;
 
-  //TO-DO: Implement Auth0
   // useEffect(() => {
   //   dispatch(getBadgesById(idToken, course.currentStudentId));
   //   dispatch(getBadges(idToken));
   // }, []);
 
-  //TO-DO: Implement Auth0
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     dispatch(getBadgesById(idToken, course.currentStudentId));

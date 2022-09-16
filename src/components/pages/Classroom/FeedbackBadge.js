@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Avatar, Button } from 'antd';
-import { useOktaAuth } from '@okta/okta-react';
 import { connect, useDispatch } from 'react-redux';
 import {
   addBadgeToStudent,
@@ -10,8 +9,9 @@ const { Meta } = Card;
 
 const FeedbackBadges = props => {
   const { badge, studentBadges } = props;
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  //TO-DO: Implement Auth0
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
 
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const FeedbackBadges = props => {
     e.preventDefault();
     dispatch(
       addBadgeToStudent(
-        idToken,
+        // idToken,
         badgeValues.badge_id,
         badgeValues.student_id,
         badgeValues.badge
@@ -37,7 +37,7 @@ const FeedbackBadges = props => {
     e.preventDefault();
     dispatch(
       removeBadgeFromStudent(
-        idToken,
+        // idToken,
         badgeValues.badge_id,
         badgeValues.student_id,
         badgeValues.badge

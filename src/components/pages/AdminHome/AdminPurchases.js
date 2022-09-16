@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
@@ -7,8 +6,9 @@ import PurchasesTable from './AdminPurchasesTable';
 import '../../../styles/index.less';
 
 const PurchasesList = () => {
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  //TO-DO: Implement Auth0
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
   const [purchases, setPurchases] = useState([
     {
       purchase_date: 20220816,
@@ -21,14 +21,16 @@ const PurchasesList = () => {
   ]);
 
   // this is going out to an unspecified URL to gather the info - could be the backend, could be Stripe
-  useEffect(() => {
-    axiosWithAuth(idToken)
-      .get(`${URL}/admin-purchases`)
-      .then(res => {
-        setPurchases(res.data);
-      })
-      .catch(err => console.error(err));
-  }, []);
+
+  //TO-DO: Implement Auth0
+  // useEffect(() => {
+  //   axiosWithAuth(idToken)
+  //     .get(`${URL}/admin-purchases`)
+  //     .then(res => {
+  //       setPurchases(res.data);
+  //     })
+  //     .catch(err => console.error(err));
+  // }, []);
 
   const { Content } = Layout;
 

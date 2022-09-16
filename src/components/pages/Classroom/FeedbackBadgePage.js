@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import InstructorSidebar from '../InstructorHome/InstructorSidebar';
 import '../../../styles/ClassroomStyles/badges.less';
 import { Layout } from 'antd';
@@ -14,21 +13,24 @@ import {
 const { Content } = Layout;
 const FeedbackBadgesPage = props => {
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  //TO-DO: Implement Auth0
+  // const { authState } = useOktaAuth();
+  // const { idToken } = authState;
   const { course } = props;
 
-  useEffect(() => {
-    dispatch(getBadgesById(idToken, course.currentStudentId));
-    dispatch(getBadges(idToken));
-  }, []);
+  //TO-DO: Implement Auth0
+  // useEffect(() => {
+  //   dispatch(getBadgesById(idToken, course.currentStudentId));
+  //   dispatch(getBadges(idToken));
+  // }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(getBadgesById(idToken, course.currentStudentId));
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [course.badge_request]);
+  //TO-DO: Implement Auth0
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     dispatch(getBadgesById(idToken, course.currentStudentId));
+  //   }, 100);
+  //   return () => clearTimeout(timer);
+  // }, [course.badge_request]);
 
   return (
     <>

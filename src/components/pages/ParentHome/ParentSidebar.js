@@ -19,7 +19,6 @@ const { Sider } = Layout;
 const ParentSideBar = props => {
   const { cart, active, user } = props;
   const [collapsed, setCollapsed] = useState(false);
-  // const { authService } = useOktaAuth();
   const { role_id } = props.user.currentUser;
 
   console.log(`user role is ${role_id}`);

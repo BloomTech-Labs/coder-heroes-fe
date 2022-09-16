@@ -33,16 +33,8 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  // const { authState, oktaAuth } = useOktaAuth();
-
   const dispatch = useDispatch();
   const { user, children } = props;
-
-  // useEffect(() => {
-  //   oktaAuth.token.getUserInfo().then(dataProfile => {
-  //     dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
-  //   });
-  // }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

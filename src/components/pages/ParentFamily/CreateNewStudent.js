@@ -12,7 +12,6 @@ const CreateNewStudent = props => {
     wrapperCol: { span: 16 },
   };
 
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
 
   const onFinish = values => {

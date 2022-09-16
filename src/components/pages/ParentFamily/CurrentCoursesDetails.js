@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/childAction';
 import { useDispatch } from 'react-redux';
 import { Card, Button } from 'antd';
+//TO-DO: Implement Auth0
 
 const { Column } = Table;
 
 const CurrentCoursesDetails = props => {
-  const { authState } = useOktaAuth();
   const { idToken } = authState;
   const dispatch = useDispatch();
   const { courses, child_id } = props;

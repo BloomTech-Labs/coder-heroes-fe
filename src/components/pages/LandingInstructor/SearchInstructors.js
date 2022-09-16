@@ -14,13 +14,11 @@ const { Option } = Select;
 
 const SearchInstructors = props => {
   const dispatch = useDispatch();
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   const [searchTerm, setSearchTerm] = useState('');
 
-  //removed idToken from getInstructor params
   const handleSubmit = () => {
-    dispatch(getInstructor());
+    dispatch(getInstructor(idToken));
   };
 
   return (

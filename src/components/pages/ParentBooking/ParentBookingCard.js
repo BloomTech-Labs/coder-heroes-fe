@@ -26,7 +26,6 @@ const ParentBookingCard = props => {
 
   const { addToCart } = props;
 
-  // const { authState } = useOktaAuth();
   // const { idToken } = authState;
   const handleClick = e => {
     //removed idToken from axiosWithAuth param

@@ -19,7 +19,6 @@ const { Sider } = Layout;
 
 const StudentSideBar = props => {
   const [collapsed, setCollapsed] = useState(false);
-  // const { authService } = useOktaAuth();
   const onCollapse = () => {
     if (collapsed === true) {
       setCollapsed(false);

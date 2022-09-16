@@ -38,13 +38,12 @@ const InstrRegForm = () => {
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
-  // const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
 
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
   //   // eslint-disable-next-line react-hooks/exhaustive-deps

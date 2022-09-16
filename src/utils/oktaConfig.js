@@ -1,5 +1,5 @@
 const config = {
-  issuer: process.env.REACT_APP_OKTA_ISSUER_URI,
+  issuer: process.env /**TO-DO: Implement Auth0 */,
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: process.env.REACT_APP_CLIENT_ID,
   pkce: false,

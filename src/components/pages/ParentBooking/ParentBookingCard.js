@@ -1,14 +1,19 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Typography, Input, Select, Layout, Form, Calendar } from 'antd';
+import { Typography, Input, Select, Layout, Form } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useOktaAuth } from '@okta/okta-react';
 import { addToCart } from '../../../redux/actions/parentActions';
-import { dummyData } from '../../../dummyData';
+// import { dummyData } from '../../../dummyData';
+import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
+import BookingTimeBtn from './BookingTimeBtn';
+import '../../../styles/ParentStyles/booking.less';
+
+// console.log(Times);
 
 const ParentBookingCard = props => {
   const {
@@ -57,6 +62,17 @@ const ParentBookingCard = props => {
   //   { title: 'class size', text: size },
   // ];
 
+  // const [availableTime, setAvailableTime] = useState(Times);
+  const Times = [
+    ...new Set(parentDummyData.availableCourses.map(time => time.start_time)),
+  ];
+
+  const filterAvailableTimes = start_time => {
+    const filteredTimes = parentDummyData.availableCourses.filter(
+      course => course.start_time === start_time
+    );
+    return filteredTimes;
+  };
   const handleAddCourse = booking => {
     addToCart(booking);
   };
@@ -141,14 +157,19 @@ const ParentBookingCard = props => {
                       flex: '1',
                     }}
                   >
-                    <div
+                    <BookingTimeBtn
+                      filterAvailableTimes={filterAvailableTimes}
+                      availableTime={Times}
+                    />
+
+                    {/* <div
                       style={{
                         display: 'flex',
                         // flexWrap: 'wrap',
                         justifyContent: 'space-around',
                       }}
-                    >
-                      <button
+                      >
+                     <button
                         style={{
                           borderRadius: '10px',
                           padding: '10px 2px',
@@ -189,8 +210,8 @@ const ParentBookingCard = props => {
                         }}
                       >
                         11:00 AM
-                      </button>
-                    </div>
+                      </button> 
+                     </div> 
                     <div
                       style={{
                         display: 'flex',
@@ -288,7 +309,7 @@ const ParentBookingCard = props => {
                       >
                         5:00 PM
                       </button>
-                    </div>
+                    </div> */}
                     <div
                       style={{
                         backgroundColor: 'white',

@@ -3,6 +3,7 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 //import moment from 'moment'; you may need this for auto-pop
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
 
@@ -108,6 +109,7 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
+  const idToken = 'stub, remove and implement with state when auth0 is added';
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {
       dispatch(addCourse(idToken, formValues));

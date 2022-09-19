@@ -21,7 +21,7 @@ function AdminInstructors(props) {
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(10);
   const dispatch = useDispatch();
-  const idToken = 'To be replaced with Auth0'
+  const idToken = 'To be replaced with Auth0';
 
   useEffect(() => {
     dispatch(getInstructors(idToken));

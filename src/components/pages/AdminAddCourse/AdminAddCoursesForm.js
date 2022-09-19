@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
 //import moment from 'moment'; you may need this for auto-pop
-import { useDispatch } from 'react-redux';
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
 
 // Styles
@@ -75,7 +73,6 @@ function AdminAddCoursesForm(props) {
     },
   ];
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   if (authState !== null) {
@@ -133,24 +130,24 @@ function AdminAddCoursesForm(props) {
   let history = useHistory();
 
   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
-  function handleSubmit(e) {
-    e.preventDefault();
-    // axiosWithAuth(authState.idToken.idToken)
-    //   .post('/courses', formValues)
-    //   .then(() => {
-    //     history.push('/admin-courses');
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
-    const merged = {
-      ...formValues,
-      prereq: placeHolder,
-    };
-    program_list.push(props.addClass(merged).payload);
-    setFormValues(initialFormValues);
-    clearPrereq();
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   axiosWithAuth(authState.idToken.idToken)
+  //     .post('/courses', formValues)
+  //     .then(() => {
+  //       history.push('/admin-courses');
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  //   const merged = {
+  //     ...formValues,
+  //     prereq: placeHolder,
+  //   };
+  //   program_list.push(props.addClass(merged).payload);
+  //   setFormValues(initialFormValues);
+  //   clearPrereq();
+  // }
 
   const handleChange = e => {
     setFormValues({

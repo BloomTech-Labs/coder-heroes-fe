@@ -1,4 +1,5 @@
 import axios from 'axios';
+//TO-DO: Implement Auth0
 
 // we will define a bunch of API calls here.
 const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
@@ -19,7 +20,7 @@ const getExampleData = () => {
 //     throw new Error('Not authenticated');
 //   }
 //   return 'hi';
-//TO-DO: Implement Auth0
+
 // };
 
 const getDSData = url => {

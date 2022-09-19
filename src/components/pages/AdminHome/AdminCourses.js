@@ -12,7 +12,7 @@ import { Layout } from 'antd';
 function AdminCourses(props) {
   const { courses } = props;
   const dispatch = useDispatch();
-  const idToken = 'To be replaced with Auth0'
+  const idToken = 'To be replaced with Auth0';
 
   useEffect(() => {
     dispatch(getCourses(idToken));

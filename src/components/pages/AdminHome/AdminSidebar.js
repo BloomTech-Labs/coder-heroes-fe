@@ -1,16 +1,11 @@
 import { Menu } from 'antd';
-import React, { useState } from 'react';
-import '../../../styles/InstructorStyles/index.less';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import '../../../styles/AdminStyles/index.less';
 import {
-  DesktopOutlined,
-  HomeOutlined,
-  ThunderboltOutlined,
-  PlusOutlined,
-  BellOutlined,
-  CalculatorOutlined,
-  FormOutlined,
-  DollarOutlined,
-  FolderOpenOutlined,
+  DashboardOutlined,
+  TableOutlined,
+  ProfileOutlined,
 } from '@ant-design/icons';
 import { Layout } from 'antd';
 
@@ -18,6 +13,8 @@ const { Sider } = Layout;
 
 function AdminSidebar() {
   const [collapsed, setCollapsed] = useState(false);
+  let { location } = useHistory();
+  const [path, setPath] = useState(location.pathname);
 
   const onCollapse = () => {
     if (collapsed === true) {
@@ -26,6 +23,7 @@ function AdminSidebar() {
       setCollapsed(true);
     }
   };
+
   return (
     <Sider
       data-testid="sider"
@@ -35,45 +33,27 @@ function AdminSidebar() {
       onCollapse={onCollapse}
     >
       <div className="logo" />
-      <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item
-          key="1"
-          icon={<ThunderboltOutlined />}
-          className="dashboard-logo"
-        >
-          Coderheroes
+      <Menu theme="light" defaultSelectedKeys={[path]} mode="inline">
+        <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>
+          <Link to="/dashboard">Dashboard</Link>
         </Menu.Item>
 
-        <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/admin">Home</a>
-        </Menu.Item>
+        <Menu.SubMenu title={'Manage'} icon={<TableOutlined />}>
+          <Menu.Item key="/admin-instructors">
+            <Link to="/admin-instructors">Instructors</Link>
+          </Menu.Item>
 
-        <Menu.Item key="3" icon={<CalculatorOutlined />}>
-          <a href="!#">Instructors</a>
-        </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="!#">Parents/Students</Link>
+          </Menu.Item>
 
-        <Menu.Item key="4" icon={<DesktopOutlined />}>
-          <a href="/admin-courses">Courses</a>
-        </Menu.Item>
+          <Menu.Item key="4">
+            <Link to="!#">Programs</Link>
+          </Menu.Item>
+        </Menu.SubMenu>
 
-        <Menu.Item key="5" icon={<PlusOutlined />}>
-          <a href="/admin-add-course">Add Courses</a>
-        </Menu.Item>
-
-        <Menu.Item key="6" icon={<FormOutlined />}>
-          <a href="/admin-add-course">Edit Programs</a>
-        </Menu.Item>
-
-        <Menu.Item key="7" icon={<DollarOutlined />}>
-          <a href="/admin-purchases">Purchases</a>
-        </Menu.Item>
-
-        <Menu.Item key="6">
-          <a href="/admin-instructors">Instructors</a>
-        </Menu.Item>
-
-        <Menu.Item key="7" icon={<FolderOpenOutlined />}>
-          <a href="/admin-applications">Applications</a>
+        <Menu.Item key="5" icon={<ProfileOutlined />}>
+          <Link to="!#">Messages</Link>
         </Menu.Item>
       </Menu>
     </Sider>

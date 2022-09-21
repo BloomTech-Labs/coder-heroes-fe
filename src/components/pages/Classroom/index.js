@@ -14,8 +14,18 @@ import { useHistory } from 'react-router-dom';
 const { Content } = Layout;
 const { Title } = Typography;
 
+//let authstate = null until we implement auth0 then remove line below
+let authState = null;
+
 const Classroom = props => {
+  const { idToken } = authState;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    props.getStudents(idToken, props.course.course_id);
+  }, []);
+
   // const { idToken } = authState;
+
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   props.getStudents(idToken, props.course.course_id);

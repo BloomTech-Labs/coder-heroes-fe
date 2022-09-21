@@ -12,6 +12,7 @@ import { getCurrentUser } from '../../../../redux/actions/userActions';
 function ActiveMessage(props) {
   const dispatch = useDispatch();
 
+  // //CAN BE RE-USED WHEN AUTH0 IS IMPLEMENTED// //
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {

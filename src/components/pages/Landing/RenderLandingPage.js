@@ -17,13 +17,13 @@ const { Title, Paragraph } = Typography;
 function RenderLandingPage(props) {
   const dispatch = useDispatch();
 
+  // // WHEN AUTH0 IS IMPLEMENTED THIS CAN BE UN-COMMENTED OR RE-FACTORED TO BE USABLE// //
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {
   //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     }
   //   }
-  //   // eslint-disable-next-line
   // }, [dispatch, authState]);
 
   return (

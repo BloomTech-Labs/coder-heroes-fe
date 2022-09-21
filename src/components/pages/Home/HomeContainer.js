@@ -7,6 +7,8 @@ function HomeContainer() {
   return "Hi, Need to Implement Auth0";
 }
 
+// //Can be used as template when Auth0 is implemented// //
+
 // function HomeContainer({ LoadingComponent }) {
 //   const [userInfo, setUserInfo] = useState(null);
 //   // eslint-disable-next-line

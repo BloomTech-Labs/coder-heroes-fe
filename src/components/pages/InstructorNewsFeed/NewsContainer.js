@@ -7,6 +7,8 @@ import IndividualNews from './IndividualNews';
 //TO-DO: Implement Auth0
 function NewsContainer(props) {
   const { newsfeed, dispatch } = props;
+
+  //Should be able to un-comment these lines when Auth0 is implemented
   // const { idToken } = authState;
 
   // useEffect(() => {

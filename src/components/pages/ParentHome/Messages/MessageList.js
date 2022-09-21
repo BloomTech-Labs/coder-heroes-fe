@@ -15,6 +15,7 @@ const MessageList = props => {
   const [currentConversation, setCurrentConversation] = useState('');
   const [activeSenderId, setActiveSenderId] = useState(null);
 
+  // //REUSE WHEN AUTH0 IS IMPLEMENTED// //
   // useEffect(() => {
   //   if (authState !== null) {
   //     if (authState.isAuthenticated !== false) {

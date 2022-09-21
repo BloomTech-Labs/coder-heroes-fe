@@ -115,90 +115,6 @@ function App() {
   const history = useHistory();
 
   return (
-<<<<<<< HEAD
-    <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />;
-        <Route path="/register" component={RegisterStep1} />
-        <Route path="/confirm" component={ConfirmEmail} />
-        <Route path="/register-1" component={RegisterStep1} />
-        <Route path="/register-2" component={RegisterStep2} />
-        <Route path="/register-3" component={RegisterStep3} />
-        <Route path="/register-4" component={RegisterStep4} />
-        <Route path="/instructor-register-1" component={InstructorWelcome} />
-        <Route path="/about-coderheroes" component={AboutCoderHeroes} />
-        <Route path="/privacy-policy" component={PrivacyPolicy} />
-        <Route path="/terms-and-conditions" component={TermsAndConditions} />
-        <Route path="/press-inquiries" component={PressInquiries} />
-        <Route path="/faq" component={Faq} />
-        <Route path="/site-map" component={SiteMap} />
-        <Route path="/instructor-register-2" component={InstructorFlow_Step2} />
-        <Route
-          path="/instructor-register-success"
-          component={SuccessfulSubmission}
-        />
-        <Route path="/parent/achievements" component={ParentAchievements} />
-        <Route exact path="/parent" component={ParentHome} />
-        <Route path="/parent/booking" component={ParentBooking} />
-        <Route path="/parent/calendar" component={ParentCalendar} />
-        <Route path="/parent/family" component={ParentFamilyHome} />
-        <Route path="/parent/newsfeed" component={ParentNewsFeed} />
-        <Route path="/parent/messages" component={ParentMessages} />
-        <Route path="/parent/tasks" component={ParentTasks} />
-        <Route path="/parent/resources" component={ParentResources} />
-        <Route path="/parent" component={ParentHome} />
-        <Route path="/parent/progress" component={ParentProgress} />
-        <Route path="/parent-book-now" component={SingleCourseBooking} />
-        <Route path="/instructor" component={InstructorHome} />
-        <Route path="/student" component={StudentHome} />
-        <Route path="/student-tasks" component={StudentTasks} />
-        <Route path="/student-resources" component={StudentResourcesPage} />
-        <Route path="/student-messages" component={StudentMessages} />
-        <Route path="/student-achievements" component={StudentAchievements} />
-        <Route path="/student-portfolio" component={StudentPortfolio} />
-        <Route path="/student-progress" component={StudentProgress} />
-        <Route path="/admin" component={AdminHome} />
-        <Route path="/instructor-booking" component={InstructorBooking} />
-        <Route
-          path="/instructor-booking-confirm"
-          component={InstructorApplyConfirm}
-        />
-        <Route path="/instructor-add-course" component={InstructorAddCourse} />
-        <Route path="/payment-success" component={PaymentSuccess} />
-        <Route path="/browse-instructors" component={LandingInstructor} />
-        <Route path="/browse-programs" component={LandingPrograms} />
-        <Route path="/classroom" component={Classroom} />
-        <Route path="/feedback-badges" component={FeedbackBadgePage} />
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <Route
-          path="/dev"
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
-        />
-        {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
-        <Route path="/admin-add-course" component={AdminAddCourses} />
-        <Route path="/admin-courses" component={AdminCourses} />
-        <Route path="/admin-edit-course" component={AdminEditCourse} />
-        <Route path="/admin-instructors" component={AdminInstructors} />
-        <Route path="/admin-course-details" component={CourseDetails} />
-        {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
-        <Route path="/admin-purchases" component={AdminPurchases} />
-        <Route path="/admin-applications" component={AdminApplications} />
-        {/* The above route exists for developmental purposes, the admin applications route will be for the page leading to the instructor application */}
-        <Route path="/messages" component={Messages} />
-        <Route path="/edit-news" component={NewsfeedPutModal} />
-        <Route path="/instructor-news-feed" component={InstructorNewsFeed} />
-        <Route path="/edit-news" component={NewsFeedPutModal} />
-        <Route path="/parent-news-feed" component={ParentNewsFeed} />
-        <Route path="/example-list" component={ExampleListPage} />
-        <Route path="/profile-list" component={ProfileListPage} />
-        <Route path="/datavis" component={ExampleDataViz} />
-        <Route path="/instructor-all-classes" component={AllClasses} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </Layout.Content>
-=======
       <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
@@ -297,6 +213,5 @@ function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Layout.Content>
->>>>>>> 8354499 (Removing instances of Okta)
   );
 }

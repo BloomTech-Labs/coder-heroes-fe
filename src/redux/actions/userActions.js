@@ -9,28 +9,33 @@ export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
 export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 
-export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
-  console.log(oktaAuth);
-  if (oktaAuth.isAuthenticated) {
-    oktaAuth
-      .getUser()
-      .then(parsedJWT => {
-        axiosWithAuth(idToken)
-          .get(`/profiles/${parsedJWT.sub}`)
-          .then(res => {
-            dispatch({
-              type: GET_CURRENT_USER,
-              payload: res.data,
-            });
-          });
-      })
-      .catch(err => {
-        dispatch({
-          type: SET_ERROR,
-          payload: err.message,
-        });
-      });
-  }
+// api call; to be restored after BE overhaul
+// export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
+//   console.log(oktaAuth);
+//   if (oktaAuth.isAuthenticated) {
+//     oktaAuth
+//       .getUser()
+//       .then(parsedJWT => {
+//         axiosWithAuth(idToken)
+//           .get(`/profiles/${parsedJWT.sub}`)
+//           .then(res => {
+//             dispatch({
+//               type: GET_CURRENT_USER,
+//               payload: res.data,
+//             });
+//           });
+//       })
+//       .catch(err => {
+//         dispatch({
+//           type: SET_ERROR,
+//           payload: err.message,
+//         });
+//       });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getCurrentUser = () => {
+  return { type: 'GET_CURRENT_USER', payload: {} };
 };
 
 export const getActiveConversation = activeConversation => {
@@ -68,16 +73,21 @@ export const addMessage = (idToken, message, profile_id, title, sender_id) => {
   //     });
 };
 
-export const getInbox = dispatch => {
-  dispatch({ type: GET_INBOX_ACTION });
-  axios
-    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
-      crossdomain: true,
-    })
-    .then(res => {
-      dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
-    })
-    .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
-    });
+// api call; to be restored after BE overhaul
+// export const getInbox = dispatch => {
+//   dispatch({ type: GET_INBOX_ACTION });
+//   axios
+//     .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
+//       crossdomain: true,
+//     })
+//     .then(res => {
+//       dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
+//     })
+//     .catch(err => {
+//       dispatch({ type: ERROR_ACTION, payload: err });
+//     });
+// };
+// stubbed out version; remove after BE overhaul
+export const getInbox = () => {
+  return { type: 'GET_INBOX_ACTION', payload: [] };
 };

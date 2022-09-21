@@ -9,7 +9,7 @@ import '../../../styles/AdminDashboardHome/index.less';
 const CourseCard = props => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const idToken = 'To be stubbed out and replaced with auth0'
+  const idToken = 'To be stubbed out and replaced with auth0';
 
   useEffect(() => {
     if (!idToken) return;

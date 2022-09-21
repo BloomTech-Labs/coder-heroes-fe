@@ -15,7 +15,7 @@ const InstructorHome = props => {
   const { courses } = props;
   const history = useHistory();
   const dispatch = useDispatch();
-  const idToken = "stub";
+  const idToken = "delete this line once auth0 is implemented";
 
   useEffect(() => {
     dispatch(getCourses(idToken));

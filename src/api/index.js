@@ -15,13 +15,13 @@ const getExampleData = () => {
     .then(response => response.data);
 };
 
-// const getAuthHeader = authState => {
-//   if (!authState.isAuthenticated) {
-//     throw new Error('Not authenticated');
-//   }
-//   return 'hi';
+const getAuthHeader = authState => {
+  if (!authState.isAuthenticated) {
+    throw new Error('Not authenticated');
+  }
+  return 'hi';
 
-// };
+};
 
 const getDSData = url => {
   // here's another way you can compose together your API calls.
@@ -35,6 +35,7 @@ const getDSData = url => {
     .catch(err => err);
 };
 
+// Once auth0 is implemented these lines can be refactored or reused //
 // const apiAuthGet = authHeader => {
 //   return axios.get(apiUrl, { headers: authHeader });
 // };

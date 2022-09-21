@@ -28,19 +28,19 @@ function CalendarApp() {
 
   // const { idToken } = authState;
 
-  //TO-DO: Implement Auth0
-  // useEffect(() => {
-  //   if (eventFlag) {
-  //     axiosWithAuth(idToken)
-  //       .get('/calendar-events/user')
-  //       .then(res => {
-  //         setEventsArr(res.data.events);
-  //       })
-  //       .catch(err => console.error(err));
-  //   }
-  //   setEventFlag(false);
-  //   // eslint-disable-next-line
-  // }, [eventFlag, idToken]);
+  // TO-DO: Implement Auth0
+  useEffect(() => {
+    if (eventFlag) {
+      axiosWithAuth(idToken)
+        .get('/calendar-events/user')
+        .then(res => {
+          setEventsArr(res.data.events);
+        })
+        .catch(err => console.error(err));
+    }
+    setEventFlag(false);
+    // eslint-disable-next-line
+  }, [eventFlag, idToken]);
 
   useEffect(() => {
     if (event) {

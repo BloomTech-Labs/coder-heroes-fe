@@ -11,12 +11,6 @@ const { Meta } = Card;
 
 const FeedbackBadges = props => {
   const { badge, studentBadges } = props;
-<<<<<<< HEAD
-  
-=======
-  //TO-DO: Implement Auth0
-  // const { authState } = useOktaAuth();
->>>>>>> d80a9bb (Added To-do and commented out mentions of OktaAuth, idToken, and authState from the files)
   // const { idToken } = authState;
 
   const dispatch = useDispatch();

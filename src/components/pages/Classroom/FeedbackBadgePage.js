@@ -14,28 +14,16 @@ import {
 const { Content } = Layout;
 const FeedbackBadgesPage = props => {
   const dispatch = useDispatch();
-<<<<<<< HEAD
+
   // const { idToken } = authState;
   const { course } = props;
 
-=======
-  //TO-DO: Implement Auth0
-  // const { authState } = useOktaAuth();
-  // const { idToken } = authState;
-  const { course } = props;
-
-  //TO-DO: Implement Auth0
->>>>>>> d80a9bb (Added To-do and commented out mentions of OktaAuth, idToken, and authState from the files)
-  // //TO-DO: Implement Auth0
   // useEffect(() => {
   // //   dispatch(getBadgesById(idToken, course.currentStudentId));
   // //   dispatch(getBadges(idToken));
   // // }, []);
 
-<<<<<<< HEAD
-=======
-  //TO-DO: Implement Auth0
->>>>>>> d80a9bb (Added To-do and commented out mentions of OktaAuth, idToken, and authState from the files)
+
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     dispatch(getBadgesById(idToken, course.currentStudentId));

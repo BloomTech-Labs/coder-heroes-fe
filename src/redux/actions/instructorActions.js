@@ -30,242 +30,307 @@ export const setSelectedCourse = course => {
   };
 };
 
-export const getUser = idToken => async dispatch => {
-  axiosWithAuth(idToken)
-    .get('/user')
-    .then(res => {
-      dispatch({
-        type: GET_USER_ACTION,
-        payload: res.data,
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: ERROR_ACTION,
-        payload: err.message,
-      });
-    });
+// api call; to be restored after BE overhaul
+// export const getUser = idToken => async dispatch => {
+//   axiosWithAuth(idToken)
+//     .get('/user')
+//     .then(res => {
+//       dispatch({
+//         type: GET_USER_ACTION,
+//         payload: res.data,
+//       });
+//     })
+//     .catch(err => {
+//       dispatch({
+//         type: ERROR_ACTION,
+//         payload: err.message,
+//       });
+//     });
+// };
+// stubbed out version; remove after BE overhaul
+export const getUser = () => {
+  return { type: GET_USER_ACTION, payload: null };
 };
 
-export const getCourses = idToken => async dispatch => {
-  try {
-    const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
-    const courses = res.data.map(course => {
-      const now = Date.now();
-      return { ...course, active: now < new Date(course.end_date).getTime() };
-    });
-    dispatch({
-      type: GET_INSTRUCTOR_COURSES,
-      payload: courses,
-    });
-    console.log(courses);
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getCourses = idToken => async dispatch => {
+//   try {
+//     const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
+//     const courses = res.data.map(course => {
+//       const now = Date.now();
+//       return { ...course, active: now < new Date(course.end_date).getTime() };
+//     });
+//     dispatch({
+//       type: GET_INSTRUCTOR_COURSES,
+//       payload: courses,
+//     });
+//     console.log(courses);
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getCourses = () => {
+  return { type: 'GET_INSTRUCTOR_COURSES', payload: [] };
 };
 
-export const getPrograms = idToken => async dispatch => {
-  axiosWithAuth(idToken)
-    .get('/programs')
-    .then(res => {
-      dispatch({
-        type: GET_PROGRAMS,
-        payload: res.data,
-      });
-    })
-    .catch(err => {
-      dispatch({
-        type: ERROR_ACTION,
-        payload: err.message,
-      });
-    });
+// api call; to be restored after BE overhaul
+// export const getPrograms = idToken => async dispatch => {
+//   axiosWithAuth(idToken)
+//     .get('/programs')
+//     .then(res => {
+//       dispatch({
+//         type: GET_PROGRAMS,
+//         payload: res.data,
+//       });
+//     })
+//     .catch(err => {
+//       dispatch({
+//         type: ERROR_ACTION,
+//         payload: err.message,
+//       });
+//     });
+// };
+// stubbed out version; remove after BE overhaul
+export const getPrograms = () => {
+  return { type: 'GET_PROGRAMS', payload: [] };
 };
 
-export const getInbox = () => async dispatch => {
-  try {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URI}/inbox/:profile_id`
-    );
-    dispatch({
-      type: GET_INBOX_ACTION,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getInbox = () => async dispatch => {
+//   try {
+//     const res = await axios.get(
+//       `${process.env.REACT_APP_API_URI}/inbox/:profile_id`
+//     );
+//     dispatch({
+//       type: GET_INBOX_ACTION,
+//       payload: res.data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getInbox = () => {
+  return { type: 'GET_INBOX_ACTION', payload: null };
 };
 
-export const addCourse = () => async dispatch => {
-  try {
-    const res = await axios.post(``);
-    dispatch({
-      type: ADD_COURSE_ACTION,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const addCourse = () => async dispatch => {
+//   try {
+//     const res = await axios.post(``);
+//     dispatch({
+//       type: ADD_COURSE_ACTION,
+//       payload: res.data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const addCourse = () => {
+  return { type: 'ADD_COURSE_ACTION', payload: [] };
 };
 
-export const addProgram = newProgram => {
-  return dispatch => {
-    dispatch(addNewProgram());
-    axios
-      .post(`${process.env.REACT_APP_API_URI}/program`, newProgram)
-      .then(res => {
-        dispatch({ type: FETCH_SUCCESS, payload: res.data });
-      })
-      .catch(error => {
-        dispatch({ type: FETCH_FAIL, payload: error.response.data.Error });
-      });
-  };
+// api call; to be restored after BE overhaul
+// export const addProgram = newProgram => {
+//   return dispatch => {
+//     dispatch(addNewProgram());
+//     axios
+//       .post(`${process.env.REACT_APP_API_URI}/program`, newProgram)
+//       .then(res => {
+//         dispatch({ type: FETCH_SUCCESS, payload: res.data });
+//       })
+//       .catch(error => {
+//         dispatch({ type: FETCH_FAIL, payload: error.response.data.Error });
+//       });
+//   };
+// };
+// stubbed out version; remove after BE overhaul
+export const addProgram = () => {
+  return { type: 'ADD_NEW_PROGRAM', payload: [] };
 };
 
-export const addNewProgram = programs => {
-  return {
-    type: ADD_NEW_PROGRAM,
-    payload: programs,
-  };
-};
+// export const addNewProgram = programs => {
+//   return {
+//     type: ADD_NEW_PROGRAM,
+//     payload: programs,
+//   };
+// };
 
 export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = idToken => dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .get('/news')
-      .then(resp => {
-        dispatch({
-          type: GET_NEWSFEEDS,
-          payload: resp.data,
-        });
-      })
-      .catch(err => console.log(err));
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getNewsFeeds = idToken => dispatch => {
+//   try {
+//     axiosWithAuth(idToken)
+//       .get('/news')
+//       .then(resp => {
+//         dispatch({
+//           type: GET_NEWSFEEDS,
+//           payload: resp.data,
+//         });
+//       })
+//       .catch(err => console.log(err));
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getNewsFeeds = () => {
+  return { type: 'GET_NEWSFEEDS', payload: [] };
 };
 
-export const getNewsFeed = (idToken, postID) => dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .get(`/news/${postID}`)
-      .then(resp => {
-        dispatch({
-          type: GET_NEWSFEED,
-          payload: resp.data,
-        });
-      })
-      .catch(err => console.log(err));
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getNewsFeed = (idToken, postID) => dispatch => {
+//   try {
+//     axiosWithAuth(idToken)
+//       .get(`/news/${postID}`)
+//       .then(resp => {
+//         dispatch({
+//           type: GET_NEWSFEED,
+//           payload: resp.data,
+//         });
+//       })
+//       .catch(err => console.log(err));
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getNewsFeed = () => {
+  return { type: 'GET_NEWSFEED', payload: [] };
 };
 
-export const postNewsFeed = (idToken, values) => dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .post(`/news/`, values)
-      .then(resp => {
-        dispatch({
-          type: POST_NEWSFEED,
-          payload: resp.data,
-        });
-      })
-      .catch(err => console.log(err));
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const postNewsFeed = (idToken, values) => dispatch => {
+//   try {
+//     axiosWithAuth(idToken)
+//       .post(`/news/`, values)
+//       .then(resp => {
+//         dispatch({
+//           type: POST_NEWSFEED,
+//           payload: resp.data,
+//         });
+//       })
+//       .catch(err => console.log(err));
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const postNewsFeed = () => {
+  return { type: 'POST_NEWSFEED', payload: [] };
 };
 
-export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .put(`/news/${postID}`, formValues)
-      .then(resp => {
-        dispatch({
-          type: PUT_NEWSFEED,
-          payload: formValues,
-        });
-      })
-      .catch(err => console.log(err));
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
+//   try {
+//     axiosWithAuth(idToken)
+//       .put(`/news/${postID}`, formValues)
+//       .then(resp => {
+//         dispatch({
+//           type: PUT_NEWSFEED,
+//           payload: formValues,
+//         });
+//       })
+//       .catch(err => console.log(err));
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const putNewsFeed = () => {
+  return { type: 'PUT_NEWSFEED', payload: [] };
 };
 
-export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .delete(`/news/${postID}`)
-      .then(resp => {
-        dispatch({
-          type: DELETE_NEWSFEED,
-          payload: post,
-        });
-      })
-      .catch(err => console.log(err));
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
+//   try {
+//     axiosWithAuth(idToken)
+//       .delete(`/news/${postID}`)
+//       .then(resp => {
+//         dispatch({
+//           type: DELETE_NEWSFEED,
+//           payload: post,
+//         });
+//       })
+//       .catch(err => console.log(err));
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const deleteNewsFeed = () => {
+  return { type: 'DELETE_NEWSFEED', payload: [] };
 };
 
-export const getInstructors = idToken => async dispatch => {
-  try {
-    const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
-    dispatch({
-      type: GET_INSTRUCTORS,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getInstructors = idToken => async dispatch => {
+//   try {
+//     const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+//     dispatch({
+//       type: GET_INSTRUCTORS,
+//       payload: res.data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getInstructors = () => {
+  return { type: 'GET_INSTRUCTORS', payload: [] };
 };
 
-export const getInstructor = (idToken, profile_id) => async dispatch => {
-  try {
-    const res = await axiosWithAuth(idToken).get(
-      `instructor/profile/${profile_id}`
-    );
-    dispatch({
-      type: GET_INSTRUCTOR,
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
-    });
-  }
+// api call; to be restored after BE overhaul
+// export const getInstructor = (idToken, profile_id) => async dispatch => {
+//   try {
+//     const res = await axiosWithAuth(idToken).get(
+//       `instructor/profile/${profile_id}`
+//     );
+//     dispatch({
+//       type: GET_INSTRUCTOR,
+//       payload: res.data,
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: ERROR_ACTION,
+//       payload: error.message,
+//     });
+//   }
+// };
+// stubbed out version; remove after BE overhaul
+export const getInstructor = () => {
+  return { type: 'GET_INSTRUCTOR', payload: '' };
 };
 
 export const setPostID = (

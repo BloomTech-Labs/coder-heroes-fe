@@ -13,6 +13,7 @@ const initialFormValues = {
   course_id: '',
   course_name: '',
   course_description: '',
+  syllabus_link: '',
   course_days: [],
   course_capacity: '',
   course_max_age: '',

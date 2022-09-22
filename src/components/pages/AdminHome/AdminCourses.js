@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
-import { connect } from 'react-redux';
 import CourseCard from './AdminCourseCard';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
 import { useOktaAuth } from '@okta/okta-react';
 import { Layout } from 'antd';
@@ -31,8 +30,8 @@ function AdminCourses(props) {
     <Layout>
       <AdminSidebar />
       <Content>
-        <div class="table-container">
-          <div class="header-container">
+        <div className="table-container">
+          <div className="header-container">
             <h1>Courses</h1>
           </div>
           <div className="courses-page-flex">

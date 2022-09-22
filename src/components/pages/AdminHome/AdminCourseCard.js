@@ -28,7 +28,16 @@ export default function CourseCard(props) {
           START DATE:{' '}
           <span className="black">{course.start_date.substr(0, 10)}</span>
         </h3>
-
+        <h3>
+          Syllabus:
+          {!course.syllabus_link ? (
+            <span className="black">{' currently unavailable'}</span>
+          ) : (
+            <a href={course.syllabus_link} target="_blank" rel="noreferrer">
+              {' Click to view syllabus'}
+            </a>
+          )}
+        </h3>
         <div className="courses-button-container">
           <button className="courses-button" onClick={handleEditCourse}>
             EDIT COURSE

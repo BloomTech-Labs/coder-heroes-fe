@@ -70,7 +70,7 @@ function NavBar(props) {
       style={{
         backgroundColor: bgColor,
         minHeight: '98px',
-        lineHeight: '0',
+        lineHeight: '0px',
         padding: '0',
       }}
     >

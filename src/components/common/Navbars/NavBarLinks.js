@@ -6,7 +6,7 @@ export default function NavBarLinks(props) {
   if (role_id === 1 || role_id === 2) {
     return (
       <div className="navbar__links">
-        <NavLink className="navbar__navLink" to="/">
+        <NavLink className="navbar__navLink" to="/dashboard">
           DASHBOARD
         </NavLink>
         <NavLink className="navbar__navLink" to="/admin-courses">

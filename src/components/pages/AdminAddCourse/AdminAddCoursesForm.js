@@ -53,7 +53,23 @@ function AdminAddCoursesForm(props) {
   const dispatch = useDispatch();
   const idToken = useOktaAuth().oktaAuth.getIdToken();
 
-  const daysOfWeek = [];
+  const numberFields = [
+    {
+      text: 'Maximum Capacity',
+      name: 'max_size',
+      value: formValues.course_capacity,
+    },
+    {
+      text: 'Maximum Age',
+      name: 'max_age',
+      value: formValues.course_max_age,
+    },
+    {
+      text: 'Minimum Age',
+      name: 'min_age',
+      value: formValues.course_min_age,
+    },
+  ];
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -100,10 +116,19 @@ function AdminAddCoursesForm(props) {
   };
 
   const handleCheck = e => {
-    daysOfWeek.push(e.target.value);
-    const dow = daysOfWeek.map(day =>
-      !daysOfWeek.includes(day) ? Array().push(day) : null
-    );
+    if (e.target.checked) {
+      setFormValues({
+        ...formValues,
+        days_of_week: [...formValues.days_of_week, e.target.value],
+      });
+    } else {
+      setFormValues({
+        ...formValues,
+        days_of_week: formValues.days_of_week.filter(
+          value => value !== e.target.value
+        ),
+      });
+    }
   };
 
   const handleDateChange = value => {
@@ -236,7 +261,6 @@ function AdminAddCoursesForm(props) {
                   </Form.Item>
                 </>
               ) : null}
-             
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
@@ -290,51 +314,23 @@ function AdminAddCoursesForm(props) {
                   style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Capacity:
-                  </label>
-                }
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.max_size}
-                  name="max_size"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Minimum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.min_age}
-                  name="min_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.max_age}
-                  name="max_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
+              {numberFields.map(field => (
+                <Form.Item
+                  label={
+                    <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                      {`${field.text}:`}
+                    </label>
+                  }
+                  style={{ width: '65%', fontSize: '1.1rem' }}
+                  onChange={handleChange}
+                >
+                  <InputNumber
+                    value={field.value}
+                    name={`${field.name}`}
+                    style={{ fontSize: '1.1rem' }}
+                  />
+                </Form.Item>
+              ))}
               <Form.Item
                 {...rangeConfig}
                 label={

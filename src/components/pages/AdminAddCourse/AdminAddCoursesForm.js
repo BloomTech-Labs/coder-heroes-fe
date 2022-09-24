@@ -102,9 +102,11 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
+  const { dispatch } = useDispatch;
+
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {
-      dispatch(addCourse( formValues));
+      dispatch(addCourse(formValues));
     } else {
       dispatch(editCourse(formValues));
       alert('Edits Submitted!');
@@ -113,10 +115,9 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
     window.location.reload();
   };
- 
 
   let history = useHistory();
-  
+
   //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.

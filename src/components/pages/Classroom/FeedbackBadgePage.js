@@ -26,10 +26,11 @@ const FeedbackBadgesPage = props => {
 
   //TO-DO: Implement Auth0
 >>>>>>> d80a9bb (Added To-do and commented out mentions of OktaAuth, idToken, and authState from the files)
+  // //TO-DO: Implement Auth0
   // useEffect(() => {
-  //   dispatch(getBadgesById(idToken, course.currentStudentId));
-  //   dispatch(getBadges(idToken));
-  // }, []);
+  // //   dispatch(getBadgesById(idToken, course.currentStudentId));
+  // //   dispatch(getBadges(idToken));
+  // // }, []);
 
 <<<<<<< HEAD
 =======

@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
+import { connect } from 'react-redux';
+import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
@@ -75,6 +77,7 @@ function AdminAddCoursesForm(props) {
       value: formValues.course_min_age,
     },
   ];
+  const daysOfWeek = [];
 
   const showModal = () => {
     setIsModalVisible(true);

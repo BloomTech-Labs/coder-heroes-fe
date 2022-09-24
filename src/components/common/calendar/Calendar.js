@@ -26,17 +26,8 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
-<<<<<<< HEAD
   // const { idToken } = authState;
 
-=======
-  //removing okta from line 30 and 33
-  // const { authState, oktaAuth } = useOktaAuth();
-  // const { idToken } = authState;
-
-  // const token = oktaAuth.getIdToken();
-
->>>>>>> b7ab519 (Added To-do and removed mentions of OktaAuth, idToken, and authState from the file)
   //TO-DO: Implement Auth0
   // useEffect(() => {
   //   if (eventFlag) {

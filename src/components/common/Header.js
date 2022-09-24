@@ -3,10 +3,7 @@ import { Menu } from 'antd';
 
 export default function MainHeader() {
   //TO-DO: Implement Auth0
-<<<<<<< HEAD
-=======
   // const { authService, authState } = useOktaAuth();
->>>>>>> b7ab519 (Added To-do and removed mentions of OktaAuth, idToken, and authState from the file)
   return (
     <div>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>

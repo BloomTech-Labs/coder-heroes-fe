@@ -103,10 +103,6 @@ function NavBar(props) {
           <NavLink to="/login">
             <button
             // className={`navbar__btn navbar__login ${
-<<<<<<< HEAD
-=======
-            //removed okta from getItem
->>>>>>> b7ab519 (Added To-do and removed mentions of OktaAuth, idToken, and authState from the file)
             // localStorage.getItem({}) ? 'navbar__hide' : ''
             // }`}
             >

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 export const ERROR_ACTION = 'ERROR';
 export const GET_CHILDREN_ACTION = 'GET_CHILDREN';
 export const GET_CHILDREN_SUCCESS = 'GET_CHILDREN_SUCCESS';
@@ -20,7 +20,7 @@ export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
-export const getChildren = (profile_id) => async dispatch => {
+export const getChildren = profile_id => async dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
   axios(profile_id)
     .get(`/parent/${profile_id}/children`)

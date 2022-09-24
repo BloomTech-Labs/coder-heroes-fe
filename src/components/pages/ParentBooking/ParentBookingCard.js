@@ -6,7 +6,7 @@ import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
 import axios from 'axios';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { addToCart } from '../../../redux/actions/parentActions';
 
 //TO-DO: Implement Auth0

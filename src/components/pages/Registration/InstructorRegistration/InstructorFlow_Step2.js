@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 import InstructorFormSchema from './InstructorFormSchema';
 import RegistrationProgress from '../RegistrationProgress';
 import axios from 'axios';
-import axiosWithAuth from '../../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import * as yup from 'yup';
 import '../../../../styles/registration.less';
 

@@ -13,7 +13,8 @@ import {
 } from 'antd';
 import moment from 'moment';
 import CalendarModal from './CalendarModal';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axios from 'axios';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 function CalendarApp() {
   const [isModalVisible, setIsModalVisible] = useState(false);

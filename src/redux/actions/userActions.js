@@ -1,4 +1,4 @@
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 import axios from 'axios';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';

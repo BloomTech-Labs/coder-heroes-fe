@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import PurchasesTable from './AdminPurchasesTable';

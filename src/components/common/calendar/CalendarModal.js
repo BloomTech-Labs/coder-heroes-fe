@@ -1,14 +1,13 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axios from 'axios';
 //TO-DO: Implement Auth0
 
 export default function CalendarModal(props) {
   const { isModalVisible, setIsModalVisible, setEventFlag } = props;
 
   const [form] = Form.useForm();
-
-  
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -21,7 +20,7 @@ export default function CalendarModal(props) {
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    
+
     //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
     axios
       .post('/calendar-events', newEvent)

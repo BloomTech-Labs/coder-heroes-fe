@@ -1,6 +1,6 @@
 // Declare Actions
 import axios from 'axios';
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 
 export const GET_INSTRUCTORS = 'GET_INSTRUCTORS';
 export const ERROR_ACTION = 'ERROR';
@@ -253,11 +253,9 @@ export const getInstructors = profile_id => async dispatch => {
   }
 };
 
-export const getInstructor = (profile_id) => async dispatch => {
+export const getInstructor = profile_id => async dispatch => {
   try {
-    const res = await axios(profile_id).get(
-      `instructor/profile/${profile_id}`
-    );
+    const res = await axios(profile_id).get(`instructor/profile/${profile_id}`);
     dispatch({
       type: GET_INSTRUCTOR,
       payload: res.data,

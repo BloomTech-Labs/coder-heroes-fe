@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
 

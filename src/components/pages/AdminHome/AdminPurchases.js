@@ -20,9 +20,9 @@ const PurchasesList = () => {
 
   // this is going out to an unspecified URL to gather the info - could be the backend, could be Stripe
 
-  //TO-DO: Implement Auth0
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   // useEffect(() => {
-  //   axiosWithAuth()
+  //   axios
   //     .get(`${URL}/admin-purchases`)
   //     .then(res => {
   //       setPurchases(res.data);

@@ -23,6 +23,8 @@ export const GET_INSTRUCTOR = 'GET_INSTRUCTOR';
 export const SET_POST_ID = 'SET_POST_ID';
 export const SET_POST_OPTIONS = 'SET_POST_OPTIONS';
 
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
@@ -31,7 +33,7 @@ export const setSelectedCourse = course => {
 };
 
 export const getUser = profile_id => async dispatch => {
-  axiosWithAuth(profile_id)
+  axios(profile_id)
     .get('/user')
     .then(res => {
       dispatch({
@@ -49,7 +51,7 @@ export const getUser = profile_id => async dispatch => {
 
 export const getCourses = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(profile_id).get(`/instructor/courses`);
+    const res = await axios(profile_id).get(`/instructor/courses`);
     const courses = res.data.map(course => {
       const now = Date.now();
       return { ...course, active: now < new Date(course.end_date).getTime() };
@@ -68,7 +70,7 @@ export const getCourses = profile_id => async dispatch => {
 };
 
 export const getPrograms = profile_id => async dispatch => {
-  axiosWithAuth(profile_id)
+  axios(profile_id)
     .get('/programs')
     .then(res => {
       dispatch({
@@ -143,7 +145,7 @@ export const setError = error => {
 
 export const getNewsFeeds = profile_id => dispatch => {
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .get('/news')
       .then(resp => {
         dispatch({
@@ -162,7 +164,7 @@ export const getNewsFeeds = profile_id => dispatch => {
 
 export const getNewsFeed = (profile_id, postID) => dispatch => {
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .get(`/news/${postID}`)
       .then(resp => {
         dispatch({
@@ -181,7 +183,7 @@ export const getNewsFeed = (profile_id, postID) => dispatch => {
 
 export const postNewsFeed = (profile_id, values) => dispatch => {
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .post(`/news/`, values)
       .then(resp => {
         dispatch({
@@ -200,7 +202,7 @@ export const postNewsFeed = (profile_id, values) => dispatch => {
 
 export const putNewsFeed = (profile_id, postID, formValues) => dispatch => {
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .put(`/news/${postID}`, formValues)
       .then(resp => {
         dispatch({
@@ -219,7 +221,7 @@ export const putNewsFeed = (profile_id, postID, formValues) => dispatch => {
 
 export const deleteNewsFeed = (profile_id, postID, post) => dispatch => {
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .delete(`/news/${postID}`)
       .then(resp => {
         dispatch({
@@ -238,7 +240,7 @@ export const deleteNewsFeed = (profile_id, postID, post) => dispatch => {
 
 export const getInstructors = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(profile_id).get(`profiles/role/3`);
+    const res = await axios(profile_id).get(`profiles/role/3`);
     dispatch({
       type: GET_INSTRUCTORS,
       payload: res.data,
@@ -253,7 +255,7 @@ export const getInstructors = profile_id => async dispatch => {
 
 export const getInstructor = (profile_id) => async dispatch => {
   try {
-    const res = await axiosWithAuth(profile_id).get(
+    const res = await axios(profile_id).get(
       `instructor/profile/${profile_id}`
     );
     dispatch({

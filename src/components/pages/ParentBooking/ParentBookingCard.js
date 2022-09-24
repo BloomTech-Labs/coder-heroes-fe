@@ -26,8 +26,9 @@ const ParentBookingCard = props => {
 
   const { addToCart } = props;
 
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const handleClick = e => {
-    axiosWithAuth()
+    axios
       .post(
         '/children/1/enrollments', // TO-DO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
         { child_id: 1, class_id: course_id, completed: true }

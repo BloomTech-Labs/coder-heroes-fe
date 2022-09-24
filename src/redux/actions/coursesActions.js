@@ -8,6 +8,8 @@ export const DELETE_COURSE = 'DELETE_COURSE';
 export const CANCEL_EDIT = 'CANCEL_EDIT';
 export const ERROR = 'ERROR';
 
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+
 export const setEditing = id => {
   return { type: EDITING, payload: id };
 };
@@ -18,7 +20,7 @@ export const cancelEdit = () => {
 
 export const getCourses = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(profile_id).get(`/courses`);
+    const res = await axios(profile_id).get(`/courses`);
     dispatch({
       type: GET_COURSES,
       payload: res.data,
@@ -33,7 +35,7 @@ export const getCourses = profile_id => async dispatch => {
 
 export const delCourse = (profile_id, id) => async dispatch => {
   try {
-    await axiosWithAuth(profile_id).delete(`/courses/${id}`);
+    await axios(profile_id).delete(`/courses/${id}`);
     dispatch({
       type: DELETE_COURSE,
       payload: id,
@@ -48,7 +50,7 @@ export const delCourse = (profile_id, id) => async dispatch => {
 
 export const editCourse = (profile_id, course) => async dispatch => {
   try {
-    const res = await axiosWithAuth(profile_id).put(
+    const res = await axios(profile_id).put(
       `/courses/${course.course_id}`,
       course
     );
@@ -65,7 +67,7 @@ export const editCourse = (profile_id, course) => async dispatch => {
 };
 
 export const addCourse = (profile_id, course) => async dispatch => {
-  axiosWithAuth(profile_id)
+  axios(profile_id)
     .post('/course', course)
     .then(res => {
       dispatch({

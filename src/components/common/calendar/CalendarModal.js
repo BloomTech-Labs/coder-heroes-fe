@@ -21,8 +21,9 @@ export default function CalendarModal(props) {
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    //TO-DO: Implement Auth0
-    axiosWithAuth('hi')
+    
+    //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+    axios
       .post('/calendar-events', newEvent)
       .then(() => setEventFlag(true))
       .catch(err => console.error(err));

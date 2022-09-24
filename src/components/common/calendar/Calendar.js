@@ -29,8 +29,8 @@ function CalendarApp() {
   // TO-DO: Implement Auth0
   useEffect(() => {
     if (eventFlag) {
-      //
-      axiosWithAuth()
+      //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+      axios
         .get('/calendar-events/user')
         .then(res => {
           setEventsArr(res.data.events);
@@ -72,7 +72,8 @@ function CalendarApp() {
 
   // edit event form submission handler
   const onFinish = values => {
-    axiosWithAuth()
+    //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+    axios
       .put(`/calendar-events/${event.event_id}`, {
         ...values,
         type: 'success',
@@ -89,7 +90,8 @@ function CalendarApp() {
   };
 
   const handleDelete = () => {
-    axiosWithAuth()
+    //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+    axios
       .delete(`/calendar-events/${event.event_id}`)
       .then(() => {
         setEventFlag(true);

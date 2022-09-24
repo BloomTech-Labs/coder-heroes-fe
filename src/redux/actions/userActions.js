@@ -9,13 +9,14 @@ export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
 export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 //TO-DO: Implement Auth0
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
 export const getCurrentUser = profile_id => async dispatch => {
   if (profile_id) {
     axios
       .getUser()
       .then(parsedJWT => {
-        axiosWithAuth(profile_id)
+        axios(profile_id)
           .get(`/profiles/${parsedJWT.sub}`)
           .then(res => {
             dispatch({

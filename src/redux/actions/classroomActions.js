@@ -10,6 +10,8 @@ export const GET_BADGES = 'GET_BADGES';
 export const ADD_BADGE_TO_STUDENT = 'ADD_BADGE_TO_STUDENT';
 export const REMOVE_BADGE_FROM_STUDENT = 'REMOVE_BADGE_FROM_STUDENT';
 
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+
 export const setCourseId = course_id => {
   return { type: SET_COURSE_ID, payload: course_id };
 };
@@ -24,7 +26,7 @@ export const getStudents = (profile_id, course_id) => async dispatch => {
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(profile_id).get(
+    const res = await axios(profile_id).get(
       `/classroom/students/${course_id}`
     );
     dispatch({
@@ -44,7 +46,7 @@ export const getBadges = profile_id => async dispatch => {
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(profile_id).get(`/classroom/badges/`);
+    const res = await axios(profile_id).get(`/classroom/badges/`);
     dispatch({
       type: GET_BADGES,
       payload: res.data,
@@ -63,7 +65,7 @@ export const getBadgesById = (profile_id, student_id) => async dispatch => {
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(profile_id).get(
+    const res = await axios(profile_id).get(
       `/classroom/badges/${student_id}`
     );
     dispatch({
@@ -87,7 +89,7 @@ export const addBadgeToStudent = (
     type: FETCHING,
     payload: true,
   });
-  axiosWithAuth(profile_id)
+  axios(profile_id)
     .post(`/classroom/assign`, {
       badge_id: badge_id,
       child_id: student_id,
@@ -116,7 +118,7 @@ export const removeBadgeFromStudent = (
     payload: true,
   });
   try {
-    axiosWithAuth(profile_id)
+    axios(profile_id)
       .delete(`/classroom/remove/${badge_id}/${student_id}`)
       .then(() => {
         dispatch({

@@ -116,11 +116,13 @@ function AdminAddCoursesForm(props) {
  
 
   let history = useHistory();
+  
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
   // function handleSubmit(e) {
   //   e.preventDefault();
-  //   axiosWithAuth()
+  //   axios
   //     .post('/courses', formValues)
   //     .then(() => {
   //       history.push('/admin-courses');

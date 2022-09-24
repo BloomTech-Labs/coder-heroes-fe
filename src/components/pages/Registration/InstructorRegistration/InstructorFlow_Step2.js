@@ -57,10 +57,10 @@ const InstrRegForm = () => {
 
   let history = useHistory();
 
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const onSubmit = evt => {
     evt.preventDefault();
-
-    axiosWithAuth()
+    axios
       .post('/instructors/register', {
         name: formValues.name,
         email: formValues.email,

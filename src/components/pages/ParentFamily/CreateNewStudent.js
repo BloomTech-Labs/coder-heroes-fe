@@ -12,8 +12,9 @@ const CreateNewStudent = props => {
     wrapperCol: { span: 16 },
   };
 
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const onFinish = values => {
-    axiosWithAuth()
+    axios
       .post('/children', values.student)
       .then(resp => {
         setAddStudentVisible(false);

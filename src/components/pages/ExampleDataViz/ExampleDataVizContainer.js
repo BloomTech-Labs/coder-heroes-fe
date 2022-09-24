@@ -31,7 +31,6 @@ function DataVizContainer() {
         </Select>
       </form>
       <RenderDataViz
-        // authState={authState}
         url={process.env.REACT_APP_API_URI + '/data/viz/' + stateCode}
       />
     </>

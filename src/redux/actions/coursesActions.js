@@ -1,4 +1,5 @@
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import axios from 'axios';
 
 export const EDITING = 'EDITING';
 export const ADD_COURSE = 'ADD_COURSE';

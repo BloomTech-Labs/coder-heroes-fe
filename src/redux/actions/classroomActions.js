@@ -1,4 +1,5 @@
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import axios from 'axios';
 
 export const SET_COURSE_ID = 'SET_COURSE_ID';
 export const GET_STUDENTS = 'GET_STUDENTS';
@@ -26,9 +27,7 @@ export const getStudents = (profile_id, course_id) => async dispatch => {
     payload: true,
   });
   try {
-    const res = await axios(profile_id).get(
-      `/classroom/students/${course_id}`
-    );
+    const res = await axios(profile_id).get(`/classroom/students/${course_id}`);
     dispatch({
       type: GET_STUDENTS,
       payload: res.data,
@@ -65,9 +64,7 @@ export const getBadgesById = (profile_id, student_id) => async dispatch => {
     payload: true,
   });
   try {
-    const res = await axios(profile_id).get(
-      `/classroom/badges/${student_id}`
-    );
+    const res = await axios(profile_id).get(`/classroom/badges/${student_id}`);
     dispatch({
       type: GET_BADGES_BY_ID,
       payload: res.data,
@@ -81,6 +78,7 @@ export const getBadgesById = (profile_id, student_id) => async dispatch => {
 };
 
 export const addBadgeToStudent = (
+  profile_id,
   badge_id,
   student_id,
   badge
@@ -109,6 +107,7 @@ export const addBadgeToStudent = (
 };
 
 export const removeBadgeFromStudent = (
+  profile_id,
   badge_id,
   student_id,
   badge

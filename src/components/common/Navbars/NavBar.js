@@ -101,13 +101,7 @@ function NavBar(props) {
             </NavLink>
           )}
           <NavLink to="/login">
-            <button
-            // className={`navbar__btn navbar__login ${
-            // localStorage.getItem({}) ? 'navbar__hide' : ''
-            // }`}
-            >
-              LOGIN
-            </button>
+            <button>LOGIN</button>
           </NavLink>
           {/* {localStorage.getItem({}) && ( */}
           <NavLink to="/parent/family">
@@ -129,16 +123,12 @@ function NavBar(props) {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
-              {/* {!localStorage.getItem({}) && ( */}
               <Menu.Item key="3" icon={<LoginOutlined />}>
                 <NavLink to="/login">Login</NavLink>
               </Menu.Item>
-              {/* )} */}
-              {/* {localStorage.getItem({}) && ( */}
               <Menu.Item key="99" icon={<ProfileIcon />}>
                 <NavLink to="/dev">My Dashboard</NavLink>
               </Menu.Item>
-              {/* )} */}
               <Menu.Item key="2" icon={<ContactsOutlined />}>
                 <NavLink
                   to="/"

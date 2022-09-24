@@ -28,9 +28,6 @@ const initialFormValues = {
   program_id: '',
 };
 
-//until use of Auth0 is in place where we can get a working token
-let authState = null;
-
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);

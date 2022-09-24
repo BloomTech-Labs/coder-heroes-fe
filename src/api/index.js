@@ -2,6 +2,7 @@ import axios from 'axios';
 //TO-DO: Implement Auth0
 
 // we will define a bunch of API calls here.
+//NOTE: apiUrl will be used below once auth0 is implemented //
 const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
 
 const sleep = time =>
@@ -13,14 +14,6 @@ const getExampleData = () => {
   return axios
     .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
     .then(response => response.data);
-};
-
-const getAuthHeader = authState => {
-  if (!authState.isAuthenticated) {
-    throw new Error('Not authenticated');
-  }
-  return 'hi';
-
 };
 
 const getDSData = url => {
@@ -35,7 +28,7 @@ const getDSData = url => {
     .catch(err => err);
 };
 
-// Once auth0 is implemented these lines can be refactored or reused //
+// NOTE: Once auth0 is implemented these lines can be refactored or reused //
 // const apiAuthGet = authHeader => {
 //   return axios.get(apiUrl, { headers: authHeader });
 // };

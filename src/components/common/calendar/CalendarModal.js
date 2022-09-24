@@ -8,6 +8,10 @@ export default function CalendarModal(props) {
   const [form] = Form.useForm();
 
   //TO-DO: Implement Auth0
+<<<<<<< HEAD
+=======
+  // const { authState } = useOktaAuth();
+>>>>>>> d80a9bb (Added To-do and commented out mentions of OktaAuth, idToken, and authState from the files)
   // const { idToken } = authState;
 
   const handleCancel = () => {

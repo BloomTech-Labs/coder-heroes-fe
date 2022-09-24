@@ -80,8 +80,8 @@ import Faq from './components/pages/Services/Faq';
 import SiteMap from './components/pages/Services/SiteMap';
 import CourseDetails from './components/pages/AdminHome/CourseDetails';
 import AdminEditCourse from './components/pages/AdminDispCourse/index';
-
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
+//TO-DO: IMPLEMENT AUTH0 ADD SECURE ROUTES
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.

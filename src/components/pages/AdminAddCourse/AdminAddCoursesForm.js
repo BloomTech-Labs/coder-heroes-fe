@@ -4,11 +4,9 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
+//import moment from 'moment'; you may need this for auto-pop
 import { useDispatch } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
-import { connect } from 'react-redux';
-import { addClass } from '../../../redux/actions/adminActions';
 
 // Styles
 import '../../../styles/AdminStyles/AdminEditCourseFormStyles.less';
@@ -58,7 +56,6 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { courseinfo } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const dispatch = useDispatch();
 
   const numberFields = [
     {
@@ -77,6 +74,16 @@ function AdminAddCoursesForm(props) {
       value: formValues.course_min_age,
     },
   ];
+  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (authState !== null) {
+  //     // if (authState.isAuthenticated !== false) {
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
+  //     // }
+  //   }
+  // }, []);
   const daysOfWeek = [];
 
   const showModal = () => {
@@ -118,7 +125,7 @@ function AdminAddCoursesForm(props) {
   // useEffect(() => {
   //   if (authState !== null) {
   //     // if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+  //       dispatch(getCurrentUser(authState.idToken.idToken));
   //     // }
   //   }
   // }, []);

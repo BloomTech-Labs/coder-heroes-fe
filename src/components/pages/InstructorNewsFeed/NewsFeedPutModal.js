@@ -13,7 +13,6 @@ import {
 //TO-DO: Implement Auth0
 function NewsFeedPutModal(props) {
   const { postID, link, title, description, posted_at } = props;
-  // const { idToken } = authState;
 
   const [formValues, setFormValues] = useState({
     link: link,
@@ -24,7 +23,7 @@ function NewsFeedPutModal(props) {
 
   const dispatch = useDispatch();
 
-  //removed idToken from getNewsFeed params
+//TO-DO: Implement Auth0 - getNewsFeed
   useEffect(() => {
     dispatch(getNewsFeed(postID, posted_at));
   }, []);
@@ -41,14 +40,14 @@ function NewsFeedPutModal(props) {
       ...formValues,
     });
 
-    //removed idToken from putNewsFeed params
+    //TO-DO: Implement Auth0 - putNewsFeed
     dispatch(putNewsFeed(postID, formValues, posted_at));
 
     dispatch(setPostOptions('newsFeed'));
     event.preventDefault();
   };
 
-  //removed idToken from deleteNewsFeed params
+ //TO-DO: Implement Auth0 - deleteNewsFeed
   const handleDelete = event => {
     dispatch(deleteNewsFeed(postID));
 

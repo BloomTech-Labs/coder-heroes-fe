@@ -16,9 +16,9 @@ export const cancelEdit = () => {
   return { type: CANCEL_EDIT };
 };
 
-export const getCourses = idToken => async dispatch => {
+export const getCourses = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`/courses`);
+    const res = await axiosWithAuth(profile_id).get(`/courses`);
     dispatch({
       type: GET_COURSES,
       payload: res.data,
@@ -31,9 +31,9 @@ export const getCourses = idToken => async dispatch => {
   }
 };
 
-export const delCourse = (idToken, id) => async dispatch => {
+export const delCourse = (profile_id, id) => async dispatch => {
   try {
-    await axiosWithAuth(idToken).delete(`/courses/${id}`);
+    await axiosWithAuth(profile_id).delete(`/courses/${id}`);
     dispatch({
       type: DELETE_COURSE,
       payload: id,
@@ -46,9 +46,9 @@ export const delCourse = (idToken, id) => async dispatch => {
   }
 };
 
-export const editCourse = (idToken, course) => async dispatch => {
+export const editCourse = (profile_id, course) => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).put(
+    const res = await axiosWithAuth(profile_id).put(
       `/courses/${course.course_id}`,
       course
     );
@@ -64,8 +64,8 @@ export const editCourse = (idToken, course) => async dispatch => {
   }
 };
 
-export const addCourse = (idToken, course) => async dispatch => {
-  axiosWithAuth(idToken)
+export const addCourse = (profile_id, course) => async dispatch => {
+  axiosWithAuth(profile_id)
     .post('/course', course)
     .then(res => {
       dispatch({

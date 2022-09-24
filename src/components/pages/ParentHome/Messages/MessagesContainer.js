@@ -7,19 +7,12 @@ import ActiveMessage from './ActiveMessage';
 import MessageList from './MessageList';
 import '../../../../styles/ParentStyles/messages.less';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 //TO-DO: Implement Auth0
 function ParentMessages(props) {
   const { Content } = Layout;
-  const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken));
-  //     }
-  //   }
-  // }, []);
+
   return (
     <Layout>
       <ParentSidebar />

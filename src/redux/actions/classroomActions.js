@@ -18,13 +18,13 @@ export const setCurrentStudentId = student_id => {
   return { type: SET_CURRENT_STUDENT_ID, payload: student_id };
 };
 
-export const getStudents = (idToken, course_id) => async dispatch => {
+export const getStudents = (profile_id, course_id) => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(idToken).get(
+    const res = await axiosWithAuth(profile_id).get(
       `/classroom/students/${course_id}`
     );
     dispatch({
@@ -38,13 +38,13 @@ export const getStudents = (idToken, course_id) => async dispatch => {
     });
   }
 };
-export const getBadges = idToken => async dispatch => {
+export const getBadges = profile_id => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(idToken).get(`/classroom/badges/`);
+    const res = await axiosWithAuth(profile_id).get(`/classroom/badges/`);
     dispatch({
       type: GET_BADGES,
       payload: res.data,
@@ -57,13 +57,13 @@ export const getBadges = idToken => async dispatch => {
   }
 };
 
-export const getBadgesById = (idToken, student_id) => async dispatch => {
+export const getBadgesById = (profile_id, student_id) => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
   });
   try {
-    const res = await axiosWithAuth(idToken).get(
+    const res = await axiosWithAuth(profile_id).get(
       `/classroom/badges/${student_id}`
     );
     dispatch({
@@ -79,7 +79,6 @@ export const getBadgesById = (idToken, student_id) => async dispatch => {
 };
 
 export const addBadgeToStudent = (
-  idToken,
   badge_id,
   student_id,
   badge
@@ -88,7 +87,7 @@ export const addBadgeToStudent = (
     type: FETCHING,
     payload: true,
   });
-  axiosWithAuth(idToken)
+  axiosWithAuth(profile_id)
     .post(`/classroom/assign`, {
       badge_id: badge_id,
       child_id: student_id,
@@ -108,7 +107,6 @@ export const addBadgeToStudent = (
 };
 
 export const removeBadgeFromStudent = (
-  idToken,
   badge_id,
   student_id,
   badge
@@ -118,7 +116,7 @@ export const removeBadgeFromStudent = (
     payload: true,
   });
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .delete(`/classroom/remove/${badge_id}/${student_id}`)
       .then(() => {
         dispatch({

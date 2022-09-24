@@ -18,17 +18,14 @@ const { Title } = Typography;
 let authState = null;
 
 const Classroom = props => {
-  const { idToken } = authState;
   const dispatch = useDispatch();
   useEffect(() => {
-    props.getStudents(idToken, props.course.course_id);
+    props.getStudents(props.course.course_id);
   }, []);
-
-  // const { idToken } = authState;
 
   // const dispatch = useDispatch();
   // useEffect(() => {
-  //   props.getStudents(idToken, props.course.course_id);
+  //   props.getStudents(props.course.course_id);
   // }, []);
 
   const navigate = useHistory();

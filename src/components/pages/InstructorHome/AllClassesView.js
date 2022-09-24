@@ -15,11 +15,6 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 const AllClasses = props => {
-  // const { idToken } = authState;
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getCourses(idToken));
-  // }, [dispatch, idToken]);
 
   const handleEditSelect = id => {
     setEditing(id);

@@ -11,7 +11,6 @@ const { Meta } = Card;
 
 const FeedbackBadges = props => {
   const { badge, studentBadges } = props;
-  // const { idToken } = authState;
 
   const dispatch = useDispatch();
 
@@ -25,7 +24,6 @@ const FeedbackBadges = props => {
     e.preventDefault();
     dispatch(
       addBadgeToStudent(
-        // idToken,
         badgeValues.badge_id,
         badgeValues.student_id,
         badgeValues.badge
@@ -37,7 +35,6 @@ const FeedbackBadges = props => {
     e.preventDefault();
     dispatch(
       removeBadgeFromStudent(
-        // idToken,
         badgeValues.badge_id,
         badgeValues.student_id,
         badgeValues.badge

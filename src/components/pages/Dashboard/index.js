@@ -9,15 +9,13 @@ import { connect, useDispatch } from 'react-redux';
 //TO-DO: Implement Auth0
 
 const Dashboard = props => {
-  const dispatch = useDispatch();
-  // const { idToken } = authState;
   const { role_id } = props.user.currentUser;
 
   // useEffect(() => {
   //   if (!role_id) {
-  //     dispatch(getCurrentUser(authState.idToken.idToken));
+  //     dispatch(getCurrentUser());
   //   }
-  // }, [dispatch, idToken]);
+  // }, [dispatch]);
 
   switch (role_id) {
     case 1: // SuperAdmin

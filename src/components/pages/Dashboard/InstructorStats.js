@@ -22,23 +22,22 @@ const initialValues = {
   totalCourse: 0,
 };
 function InstructorStats(props) {
-  // const { idToken } = authState;
   const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {
     if (!props.user.name) {
-      dispatch(getCurrentUser(idToken, authState, authService));
+      dispatch(getCurrentUser());
     }
-  }, [dispatch, idToken]);
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getInstructor(idToken, props.user.profile_id));
-  }, [dispatch, idToken, props.user.profile_id]);
+    dispatch(getInstructor(props.user.profile_id));
+  }, [dispatch, props.user.profile_id]);
 
   useEffect(() => {
-    dispatch(getCourses(idToken));
-  }, [dispatch, idToken]);
+    dispatch(getCourses(props.user.profile_id));
+  }, [dispatch]);
 
   useEffect(() => {
     let completed = 0;

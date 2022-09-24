@@ -15,18 +15,17 @@ const { Content } = Layout;
 const FeedbackBadgesPage = props => {
   const dispatch = useDispatch();
 
-  // const { idToken } = authState;
   const { course } = props;
 
   // useEffect(() => {
-  // //   dispatch(getBadgesById(idToken, course.currentStudentId));
-  // //   dispatch(getBadges(idToken));
-  // // }, []);
+  // //   dispatch(getBadgesById(course.currentStudentId));
+  // //   dispatch(getBadges(profile.id));
+  // // }, [])
 
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
-  //     dispatch(getBadgesById(idToken, course.currentStudentId));
+  //     dispatch(getBadgesById(course.currentStudentId));
   //   }, 100);
   //   return () => clearTimeout(timer);
   // }, [course.badge_request]);

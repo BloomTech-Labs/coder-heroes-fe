@@ -14,12 +14,6 @@ const { Content } = Layout;
 const InstructorHome = props => {
   const { courses } = props;
   const history = useHistory();
-  const dispatch = useDispatch();
-  const idToken = "delete this line once auth0 is implemented";
-
-  useEffect(() => {
-    dispatch(getCourses(idToken));
-  }, [dispatch, idToken]);
 
   const handleClick = () => {
     history.push('/admin-add-course');

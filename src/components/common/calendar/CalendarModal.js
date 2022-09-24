@@ -1,15 +1,14 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
+//TO-DO: Implement Auth0
 
 export default function CalendarModal(props) {
   const { isModalVisible, setIsModalVisible, setEventFlag } = props;
 
   const [form] = Form.useForm();
 
-  //TO-DO: Implement Auth0
-
-  // const { idToken } = authState;
+  
 
   const handleCancel = () => {
     setIsModalVisible(false);

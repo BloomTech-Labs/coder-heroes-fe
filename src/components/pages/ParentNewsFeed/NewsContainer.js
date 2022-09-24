@@ -9,10 +9,11 @@ import { Layout } from 'antd';
 function NewsContainer(props) {
   const { Content } = props;
   const { newsfeed, dispatch } = props;
-  const { idToken } = authState;
+
+  //TO-DO: Implement Auth0 - getNewsFeedParent
   useEffect(() => {
-    dispatch(getNewsFeedsParent(idToken));
-  }, [dispatch, idToken]);
+    dispatch(getNewsFeedsParent());
+  }, [dispatch]);
 
   return (
     <Layout className="news-container">

@@ -22,12 +22,6 @@ const InstructorBookingCards = props => {
   const [modalHidden, setModalHidden] = useState(true);
   const [currentCourses, setCurrentCourses] = useState();
 
-  // const dispatch = useDispatch();
-  // const { idToken } = authState;
-  // useEffect(() => {
-  //   dispatch(getCourses(idToken));
-  // }, [dispatch, idToken]);
-
   useEffect(() => {
     setCurrentCourses(instructor.course_schedule);
   }, [instructor.course_schedule]);

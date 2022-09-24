@@ -10,12 +10,12 @@ export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 //TO-DO: Implement Auth0
 
-export const getCurrentUser = idToken => async dispatch => {
-  if ('Auth0 stub') {
-    'Auth0 stub'
+export const getCurrentUser = profile_id => async dispatch => {
+  if (profile_id) {
+    axios
       .getUser()
       .then(parsedJWT => {
-        axiosWithAuth(idToken)
+        axiosWithAuth(profile_id)
           .get(`/profiles/${parsedJWT.sub}`)
           .then(res => {
             dispatch({
@@ -37,7 +37,7 @@ export const getActiveConversation = activeConversation => {
   return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };
 };
 
-export const addMessage = (idToken, message, profile_id, title, sender_id) => {
+export const addMessage = (message, profile_id, title, sender_id) => {
   return {
     type: POST_INBOX_ACTION,
     payload: {

@@ -26,12 +26,11 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
-  // const { idToken } = authState;
-
   // TO-DO: Implement Auth0
   useEffect(() => {
     if (eventFlag) {
-      axiosWithAuth(idToken)
+      //
+      axiosWithAuth()
         .get('/calendar-events/user')
         .then(res => {
           setEventsArr(res.data.events);
@@ -40,7 +39,7 @@ function CalendarApp() {
     }
     setEventFlag(false);
     // eslint-disable-next-line
-  }, [eventFlag, idToken]);
+  }, [eventFlag]);
 
   useEffect(() => {
     if (event) {

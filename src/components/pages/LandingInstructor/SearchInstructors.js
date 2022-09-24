@@ -14,10 +14,9 @@ const { Option } = Select;
 
 const SearchInstructors = props => {
   const dispatch = useDispatch();
-  // const { idToken } = authState;
   const [searchTerm, setSearchTerm] = useState('');
 
-  //removed idToken from getInstructor params
+ //TO-DO: Implement Auth0 - getInstructor
   const handleSubmit = () => {
     dispatch(getInstructor());
   };

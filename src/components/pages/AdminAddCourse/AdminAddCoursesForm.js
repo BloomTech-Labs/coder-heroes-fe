@@ -75,13 +75,6 @@ function AdminAddCoursesForm(props) {
   ];
   const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
 
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     // if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken));
-  //     // }
-  //   }
-  // }, []);
   const daysOfWeek = [];
 
   const showModal = () => {
@@ -109,32 +102,25 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
-  const idToken = 'stub, remove and implement with state when auth0 is added';
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {
-      dispatch(addCourse(idToken, formValues));
+      dispatch(addCourse( formValues));
     } else {
-      dispatch(editCourse(idToken, formValues));
+      dispatch(editCourse(formValues));
       alert('Edits Submitted!');
     }
 
     setIsModalVisible(false);
     window.location.reload();
   };
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     // if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken));
-  //     // }
-  //   }
-  // }, []);
+ 
 
   let history = useHistory();
 
   //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
   // function handleSubmit(e) {
   //   e.preventDefault();
-  //   axiosWithAuth(authState.idToken.idToken)
+  //   axiosWithAuth()
   //     .post('/courses', formValues)
   //     .then(() => {
   //       history.push('/admin-courses');

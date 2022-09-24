@@ -30,8 +30,8 @@ export const setSelectedCourse = course => {
   };
 };
 
-export const getUser = idToken => async dispatch => {
-  axiosWithAuth(idToken)
+export const getUser = profile_id => async dispatch => {
+  axiosWithAuth(profile_id)
     .get('/user')
     .then(res => {
       dispatch({
@@ -47,9 +47,9 @@ export const getUser = idToken => async dispatch => {
     });
 };
 
-export const getCourses = idToken => async dispatch => {
+export const getCourses = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
+    const res = await axiosWithAuth(profile_id).get(`/instructor/courses`);
     const courses = res.data.map(course => {
       const now = Date.now();
       return { ...course, active: now < new Date(course.end_date).getTime() };
@@ -67,8 +67,8 @@ export const getCourses = idToken => async dispatch => {
   }
 };
 
-export const getPrograms = idToken => async dispatch => {
-  axiosWithAuth(idToken)
+export const getPrograms = profile_id => async dispatch => {
+  axiosWithAuth(profile_id)
     .get('/programs')
     .then(res => {
       dispatch({
@@ -141,9 +141,9 @@ export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = idToken => dispatch => {
+export const getNewsFeeds = profile_id => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .get('/news')
       .then(resp => {
         dispatch({
@@ -160,9 +160,9 @@ export const getNewsFeeds = idToken => dispatch => {
   }
 };
 
-export const getNewsFeed = (idToken, postID) => dispatch => {
+export const getNewsFeed = (profile_id, postID) => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .get(`/news/${postID}`)
       .then(resp => {
         dispatch({
@@ -179,9 +179,9 @@ export const getNewsFeed = (idToken, postID) => dispatch => {
   }
 };
 
-export const postNewsFeed = (idToken, values) => dispatch => {
+export const postNewsFeed = (profile_id, values) => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .post(`/news/`, values)
       .then(resp => {
         dispatch({
@@ -198,9 +198,9 @@ export const postNewsFeed = (idToken, values) => dispatch => {
   }
 };
 
-export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
+export const putNewsFeed = (profile_id, postID, formValues) => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .put(`/news/${postID}`, formValues)
       .then(resp => {
         dispatch({
@@ -217,9 +217,9 @@ export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
   }
 };
 
-export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
+export const deleteNewsFeed = (profile_id, postID, post) => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .delete(`/news/${postID}`)
       .then(resp => {
         dispatch({
@@ -236,9 +236,9 @@ export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
   }
 };
 
-export const getInstructors = idToken => async dispatch => {
+export const getInstructors = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+    const res = await axiosWithAuth(profile_id).get(`profiles/role/3`);
     dispatch({
       type: GET_INSTRUCTORS,
       payload: res.data,
@@ -251,9 +251,9 @@ export const getInstructors = idToken => async dispatch => {
   }
 };
 
-export const getInstructor = (idToken, profile_id) => async dispatch => {
+export const getInstructor = (profile_id) => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(
+    const res = await axiosWithAuth(profile_id).get(
       `instructor/profile/${profile_id}`
     );
     dispatch({

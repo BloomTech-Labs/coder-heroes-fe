@@ -53,9 +53,7 @@ const NewsfeedPostModal = props => {
     });
   };
   
-  // const { idToken } = authState;
-
-  //removed idToken from postNewsFeed params
+ //TO-DO: Implement Auth0 - handleSubmit
   const handleSubmit = () => {
     dispatch(postNewsFeed(formValues));
 

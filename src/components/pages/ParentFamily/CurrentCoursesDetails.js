@@ -10,13 +10,13 @@ import { Card, Button } from 'antd';
 const { Column } = Table;
 
 const CurrentCoursesDetails = props => {
-  const { idToken } = authState;
   const dispatch = useDispatch();
   const { courses, child_id } = props;
 
+  //TO-DO: Implement Auth0 - getCourses
   useEffect(() => {
-    dispatch(getCourses(idToken, child_id));
-  }, [dispatch, idToken, child_id]);
+    dispatch(getCourses(child_id));
+  }, [dispatch, child_id]);
 
   return (
     <div className="current-courses-details-container">

@@ -33,7 +33,6 @@ let authState = null;
 
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
-  const { idToken } = authState;
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -42,11 +41,11 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      dispatch(addCourse(idToken, course));
+      dispatch(addCourse(course));
     }
     if (course.course_id) {
       // this will eventually be used for editing existing courses
-      // dispatch(editCourse(idToken, course));
+      // dispatch(editCourse(course));
     }
 
     setIsModalVisible(false);

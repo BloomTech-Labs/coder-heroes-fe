@@ -18,7 +18,6 @@ const ClassCard = ({ course }) => {
   const [state, setState] = useState({
     course_name: course.course_name,
   });
-  // const { idToken } = authState;
 
   const navigate = useHistory();
 
@@ -47,12 +46,13 @@ const ClassCard = ({ course }) => {
       course_name: course.course_name,
     });
   };
-  //removed idToken from delCourse(idToken, course.course_id)
+
+  //TO-DO: Implement Auth0 - handleDelete
   const handleDelete = () => {
     dispatch(delCourse(course.course_id));
   };
 
-  //removed idToken from editcourse(idToken, {etc..})
+  //TO-DO: Implement Auth0 - handleEdit
   const handleEdit = () => {
     setEditing(!editing);
     dispatch(

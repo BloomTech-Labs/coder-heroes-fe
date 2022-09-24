@@ -19,9 +19,9 @@ export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 
-export const getChildren = (idToken, profile_id) => async dispatch => {
+export const getChildren = (profile_id) => async dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
-  axiosWithAuth(idToken)
+  axiosWithAuth(profile_id)
     .get(`/parent/${profile_id}/children`)
     .then(res => {
       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
@@ -76,9 +76,9 @@ export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
 };
 
-export const getNewsFeedsParent = idToken => dispatch => {
+export const getNewsFeedsParent = profile_id => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axiosWithAuth(profile_id)
       .get('/news')
       .then(resp => {
         dispatch({

@@ -7,7 +7,6 @@ import '../../../styles/index.less';
 //TO-DO: Implement Auth0
 
 const PurchasesList = () => {
-  // const { idToken } = authState;
   const [purchases, setPurchases] = useState([
     {
       purchase_date: 20220816,
@@ -23,7 +22,7 @@ const PurchasesList = () => {
 
   //TO-DO: Implement Auth0
   // useEffect(() => {
-  //   axiosWithAuth(idToken)
+  //   axiosWithAuth()
   //     .get(`${URL}/admin-purchases`)
   //     .then(res => {
   //       setPurchases(res.data);

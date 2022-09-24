@@ -12,10 +12,7 @@ const CreateNewStudent = props => {
     wrapperCol: { span: 16 },
   };
 
-  // const { idToken } = authState;
-
   const onFinish = values => {
-    //removed idToken from axiosWithAuth params
     axiosWithAuth()
       .post('/children', values.student)
       .then(resp => {

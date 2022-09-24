@@ -31,14 +31,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken));
-  //     }
-  //   }
-  // }, [authState, dispatch]);
-
   useLayoutEffect(() => {}, [props]);
   const handleSubmit = () => {
     if (!value) {
@@ -49,7 +41,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
     setValue('');
     dispatch(
       addMessage(
-        // authState.idToken,
         value,
         props.getActiveConversation
           ? props.getActiveConversation[0].sender_id !==

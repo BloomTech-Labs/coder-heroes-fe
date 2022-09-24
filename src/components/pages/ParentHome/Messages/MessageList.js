@@ -15,16 +15,6 @@ const MessageList = props => {
   const [currentConversation, setCurrentConversation] = useState('');
   const [activeSenderId, setActiveSenderId] = useState(null);
 
-  // //REUSE WHEN AUTH0 IS IMPLEMENTED// //
-  // useEffect(() => {
-  //   if (authState !== null) {
-  //     if (authState.isAuthenticated !== false) {
-  //       dispatch(getCurrentUser(authState.idToken.idToken));
-  //     }
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   useEffect(() => {
     if (activeSenderId) {
       const currentConversation = filteredConversations.filter(

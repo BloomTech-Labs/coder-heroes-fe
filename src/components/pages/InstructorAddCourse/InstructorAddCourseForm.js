@@ -68,13 +68,7 @@ const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
-  // const { idToken } = authState;
   const { programs, instructor } = props;
-
-  // useEffect(() => {
-  //   dispatch(getPrograms(idToken));
-  //   dispatch(getUser(idToken));
-  // }, [dispatch, idToken]);
 
   useEffect(() => {
     setClassData({
@@ -115,7 +109,6 @@ const InstructorAddCourseForm = props => {
   };
 
   //TO-DO: Implement Auth0
-  //removed idToken from "dispatch(addCourse(idToken, classData));"
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(addCourse(classData));

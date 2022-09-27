@@ -1,80 +1,111 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { Typography, Input, Select, Layout, Form } from 'antd';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
-import { addToCart } from '../../../redux/actions/parentActions';
-// import { dummyData } from '../../../dummyData';
+import React, { useEffect, useState, useRef } from 'react';
+import { Typography, Input, Layout, Form, Radio } from 'antd';
 import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
-import BookingTimeBtn from './BookingTimeBtn';
+import PreferredCourseOptions from './PreferredCourseOptions.js';
 import '../../../styles/ParentStyles/booking.less';
+import BookingProgram from './BookingProgram';
+import SelectedCourseDetails from './SelectedCourseDetails';
 
-// console.log(Times);
+const courseDetails = {
+  instructor_name: '',
+  size: '',
+  subject: '',
+  description: '',
+  start_date: '',
+  end_date: '',
+  start_time: '',
+  end_time: '',
+  price: '',
+};
 
-const ParentBookingCard = props => {
-  const {
-    course_name,
-    course_description,
-    start_date,
-    end_date,
-    start_time,
-    end_time,
-    number_of_sessions,
-    location,
-    days_of_week,
-    size,
-    min_age,
-    max_age,
-  } = props.booking;
+const ParentBookingCard = () => {
+  // course_id: 1,
+  // instructor_id: 1,
+  // instructor_name: 'Test003',
+  // size: 15,
+  // subject: 'CS101',
+  // description: 'Computer Science fundamentals',
+  // prereqs: [],
+  // start_date: '01/19/2022',
+  // end_date: '02/10/2022',
+  // start_time: '17:00:00',
+  // end_time: '18:00:00',
+  // location: 'https://zoom.us/my/john123',
+  // price: 1000,
 
   const { Content } = Layout;
-  const { addToCart } = props;
   const { Item } = Form;
-  const { button } = Select;
   const { Title } = Typography;
+  const [searchResults, setSearchResults] = useState([]);
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  const [show, setShow] = useState(true);
+  const [disabled, setDisabled] = useState(false);
+  const [render, setRender] = useState(false);
+  const [clickable, setClickable] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(courseDetails);
 
-  const handleClick = e => {
-    axiosWithAuth(idToken)
-      .post()
-      .then(res => console.log(res)) // TODO: Let's perform some action with this result.
-      .catch(err => console.log(`message: ${err.message}`));
+  let valuesObject = {};
+  let program;
+  let date = 'no date selected';
+  let newArray = [];
+  let resultArray = [];
+
+  const toggleDisabled = () => {
+    setDisabled(!disabled);
   };
 
-  // const data = [
-  //   { title: 'student name', text: child_name },
-  //   { title: 'course', text: subject },
-  //   { title: 'description', text: description },
-  //   { title: 'first day of class', text: dateConverter(start_date) },
-  //   { title: 'last day of class', text: dateConverter(end_date) },
-  //   {
-  //     title: 'time',
-  //     text: `${timeConverter(start_time)} - ${timeConverter(end_time)}`,
-  //   },
-  //   { title: 'location', text: location },
-  //   { title: 'instructor', text: instructor_name },
-  //   { title: 'class size', text: size },
-  // ];
+  const handleRadioClick = e => {
+    program = e.target.value;
+    valuesObject.program = program;
+  };
 
-  // const [availableTime, setAvailableTime] = useState(Times);
-  const Times = [
-    ...new Set(parentDummyData.availableCourses.map(time => time.start_time)),
-  ];
+  const handleCalendarClick = value => {
+    date = value.format('MM/DD/YYYY');
+    valuesObject.date = date;
+  };
 
-  const filterAvailableTimes = start_time => {
-    const filteredTimes = parentDummyData.availableCourses.filter(
-      course => course.start_time === start_time
+  const handleAvailability = e => {
+    e.preventDefault();
+
+    newArray = parentDummyData.availableCourses.filter((course, index) => {
+      let programDate = course.start_date;
+      let selectedDate = valuesObject.date;
+      let programMonth = programDate.substring(0, 2);
+      let selectedMonth = selectedDate.substring(0, 2);
+      let programYear = programDate.substring(6);
+      let selectedYear = selectedDate.substring(6);
+
+      return parseInt(programMonth) >= parseInt(selectedMonth) &&
+        programYear === selectedYear
+        ? course
+        : null;
+    });
+
+    resultArray = newArray.filter(
+      course => course.subject === valuesObject.program
     );
-    return filteredTimes;
+    resultArray.unshift('-- Select a Course --');
+    setSearchResults(resultArray);
+    setSelectedOption(resultArray[0]);
+    if (valuesObject.program && valuesObject.date) {
+      setShow(!show);
+    }
+
+    toggleDisabled();
   };
-  const handleAddCourse = booking => {
-    addToCart(booking);
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
+  const handleSelecteCourse = () => {
+    setRender(!render);
+  };
+
+  const updateSelection = (inputName, inputValue) => {
+    setSelectedOption({ ...selectedOption, [inputName]: inputValue });
   };
 
   return (
@@ -91,11 +122,13 @@ const ParentBookingCard = props => {
               <br />
               LEARN MORE THAN JUST CODE!
             </Title>
-            <Form className="il__top__form" size={'large'} layout="inline">
-              <Input.Group
-                compact
-                // style={{ display: 'flex', flexDirection: 'column' }}
-              >
+            <Form
+              className="il__top__form"
+              size={'large'}
+              layout="inline"
+              style={{ textAlign: 'left' }}
+            >
+              <Input.Group compact>
                 <div>
                   <div
                     style={{
@@ -107,17 +140,10 @@ const ParentBookingCard = props => {
                     Select Program
                   </div>
                   <Item name={'speciality'}>
-                    <Select
-                      style={{
-                        border: '1px solid #9DA7AB',
-                        margin: '5px 0 20px 0',
-                      }}
-                      placeholder="Choose a Program"
-                      allowClear
-                    >
-                      <button value="JavaScriptB">JavaScriptB</button>
-                      <button value="'CS101'">CS101</button>
-                    </Select>
+                    <BookingProgram
+                      handleRadioClick={handleRadioClick}
+                      disabled={disabled}
+                    />
                   </Item>
 
                   <div
@@ -128,7 +154,21 @@ const ParentBookingCard = props => {
                       margin: ' 20px 0 15px 0',
                     }}
                   >
-                    Select Time
+                    Select Date
+                    {/* <div
+                      // placeholder="no date selected"
+                      // readOnly="readonly"
+                      // value={date}
+                      style={{
+                        marginLeft: '30px',
+                        border: '2px solid black',
+                        height: '30px',
+                        margin: '20px',
+                        maxWidth: '200px',
+                      }}
+                    >
+                      {date}
+                    </div> */}
                   </div>
                 </div>
                 <div
@@ -137,13 +177,9 @@ const ParentBookingCard = props => {
                     flexWrap: 'wrap',
                   }}
                 >
-                  <Item style={{ flex: '3', paddingBottom: '30px' }}>
+                  <Item style={{ paddingBottom: '30px', flex: '1' }}>
                     <BookingCalendar
-                      style={{
-                        width: '300px',
-                        border: '1px solid #f0f0f0',
-                        borderRadius: '2px',
-                      }}
+                      handleCalendarClick={handleCalendarClick}
                     />
                   </Item>
 
@@ -151,205 +187,125 @@ const ParentBookingCard = props => {
                     name={'availability'}
                     style={{
                       display: 'flex',
-                      // flexWrap: 'wrap',
-                      minWidth: '450px',
+                      minWidth: '525px',
                       flexDirection: 'column',
                       flex: '1',
                     }}
                   >
-                    <BookingTimeBtn
-                      filterAvailableTimes={filterAvailableTimes}
-                      availableTime={Times}
-                    />
-
-                    {/* <div
-                      style={{
-                        display: 'flex',
-                        // flexWrap: 'wrap',
-                        justifyContent: 'space-around',
-                      }}
-                      >
-                     <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        9:00 AM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        10:00 AM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        11:00 AM
-                      </button> 
-                     </div> 
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                      }}
-                    >
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        12:00 PM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        1:00 PM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        2:00 PM
-                      </button>
-                    </div>
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                      }}
-                    >
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        3:00 PM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        4:00 PM
-                      </button>
-                      <button
-                        style={{
-                          borderRadius: '10px',
-                          padding: '10px 2px',
-                          margin: '6px',
-                          flex: '1',
-                          backgroundColor: '#3BC9B5',
-                          fontSize: '16px',
-                          fontWeight: 'bold',
-                          color: '#680049',
-                        }}
-                      >
-                        5:00 PM
-                      </button>
-                    </div> */}
-                    <div
-                      style={{
-                        backgroundColor: 'white',
-                        borderRadius: '5px',
-                        margin: '6px',
-                      }}
-                    >
-                      <p
-                        style={{
-                          color: '#6E4964',
-                          fontSize: '16px',
-                          margin: '6px',
-                          padding: '7px 0',
-                          textAlign: 'center',
-                        }}
-                      >
-                        All times are in Central Standard Time (US & Canada)
-                      </p>
-                    </div>
                     <div
                       style={{
                         display: 'flex',
                         flex: '1',
+                        flexDirection: 'column',
                       }}
                     >
-                      <button
-                        className="il__top__formBtn"
-                        type="submit"
-                        style={{
-                          backgroundColor: '#680049',
-                          color: 'white',
-                          flex: '1',
-                          margin: '6px',
-                          fontSize: '16px',
-                          padding: '7px 0',
-                        }}
-                        // onClick={handleSubmit}
-                      >
-                        CONTINUE BOOKING
-                      </button>
+                      {!show && !render && (
+                        <div
+                          style={{
+                            backgroundColor: 'white',
+                            borderRadius: '5px',
+                            margin: '6px 6px 10px 6px',
+                          }}
+                        >
+                          <p
+                            style={{
+                              color: '#6E4964',
+                              fontSize: '16px',
+                              margin: '6px',
+                              padding: '3px 0',
+                              textAlign: 'center',
+                            }}
+                          >
+                            All times are in Central Standard Time (US & Canada)
+                          </p>
+                        </div>
+                      )}
+
+                      {!show && !render && (
+                        <PreferredCourseOptions
+                          updateSelection={updateSelection}
+                          searchResults={searchResults}
+                          selectedOption={selectedOption}
+                        />
+                      )}
+                      <div style={{ display: 'flex' }}>
+                        {show && !clickable && (
+                          <button
+                            className="il__top__formBtn"
+                            type="submit"
+                            style={{
+                              backgroundColor: '#680049',
+                              color: 'white',
+                              flex: '1',
+                              margin: '150px 6px 6px 6px',
+                              fontSize: '16px',
+                              padding: '7px 0',
+                              textTransform: 'uppercase',
+                            }}
+                            onClick={handleAvailability}
+                          >
+                            Show Availability
+                          </button>
+                        )}
+                        {render && (
+                          <SelectedCourseDetails
+                            selectedOption={selectedOption}
+                          />
+                        )}
+                        {!show && !render && (
+                          <button
+                            className="il__top__formBtn"
+                            type="submit"
+                            style={{
+                              backgroundColor: '#680049',
+                              color: 'white',
+                              flex: '1',
+                              margin: '150px 6px 6px 6px',
+                              fontSize: '16px',
+                              padding: '7px 0',
+                              textTransform: 'uppercase',
+                            }}
+                            onClick={handleSelecteCourse}
+                          >
+                            View Selection Details
+                          </button>
+                        )}
+                        {!show && render && (
+                          <button
+                            className="il__top__formBtn"
+                            type="submit"
+                            style={{
+                              backgroundColor: '#680049',
+                              color: 'white',
+                              flex: '1',
+                              margin: '150px 6px 6px 6px',
+                              fontSize: '16px',
+                              padding: '7px 0',
+                              textTransform: 'uppercase',
+                            }}
+                          >
+                            Book Now
+                          </button>
+                        )}
+                        {!show && (
+                          <button
+                            className="il__top__formBtn"
+                            type="submit"
+                            style={{
+                              backgroundColor: '#680049',
+                              color: 'white',
+                              flex: '1',
+                              margin: '150px 6px 6px 6px',
+                              fontSize: '16px',
+                              padding: '7px 0',
+                              textTransform: 'uppercase',
+                            }}
+                            onClick={handleRefresh}
+                          >
+                            Edit
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </Item>
                 </div>
@@ -362,11 +318,4 @@ const ParentBookingCard = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  cart: state.parentReducer.cart,
-  bookings: state.parentReducer.bookings,
-});
-
-export default connect(mapStateToProps, {
-  addToCart,
-})(ParentBookingCard);
+export default ParentBookingCard;

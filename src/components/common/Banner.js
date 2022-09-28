@@ -17,6 +17,7 @@ function bannerContent(title, content) {
 
 export default function Banner() {
   const path = window.location.pathname;
+  console.log(path);
   switch (path) {
     case '/instructor':
       return bannerContent('Dashboard', 'welcome back!');

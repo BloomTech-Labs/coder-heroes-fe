@@ -102,7 +102,7 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
-  const { dispatch } = useDispatch;
+  const { dispatch } = useDispatch();
 
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {

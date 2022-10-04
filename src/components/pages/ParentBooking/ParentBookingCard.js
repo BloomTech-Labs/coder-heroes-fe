@@ -1,6 +1,6 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
-import React, { useEffect, useState, useRef } from 'react';
-import { Typography, Input, Layout, Form, Radio } from 'antd';
+import React, { useState } from 'react';
+import { Typography, Input, Layout, Form } from 'antd';
 import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
 import PreferredCourseOptions from './PreferredCourseOptions.js';
@@ -21,20 +21,6 @@ const courseDetails = {
 };
 
 const ParentBookingCard = () => {
-  // course_id: 1,
-  // instructor_id: 1,
-  // instructor_name: 'Test003',
-  // size: 15,
-  // subject: 'CS101',
-  // description: 'Computer Science fundamentals',
-  // prereqs: [],
-  // start_date: '01/19/2022',
-  // end_date: '02/10/2022',
-  // start_time: '17:00:00',
-  // end_time: '18:00:00',
-  // location: 'https://zoom.us/my/john123',
-  // price: 1000,
-
   const { Content } = Layout;
   const { Item } = Form;
   const { Title } = Typography;
@@ -43,12 +29,10 @@ const ParentBookingCard = () => {
   const [show, setShow] = useState(true);
   const [disabled, setDisabled] = useState(false);
   const [render, setRender] = useState(false);
-  const [clickable, setClickable] = useState(false);
   const [selectedOption, setSelectedOption] = useState(courseDetails);
 
   let valuesObject = {};
-  let program;
-  let date = 'no date selected';
+
   let newArray = [];
   let resultArray = [];
 
@@ -57,19 +41,17 @@ const ParentBookingCard = () => {
   };
 
   const handleRadioClick = e => {
-    program = e.target.value;
+    let program = e.target.value;
     valuesObject.program = program;
   };
 
   const handleCalendarClick = value => {
-    date = value.format('MM/DD/YYYY');
+    let date = value.format('MM/DD/YYYY');
     valuesObject.date = date;
   };
 
   const handleAvailability = e => {
-    e.preventDefault();
-
-    newArray = parentDummyData.availableCourses.filter((course, index) => {
+    newArray = parentDummyData.availableCourses.filter(course => {
       let programDate = course.start_date;
       let selectedDate = valuesObject.date;
       let programMonth = programDate.substring(0, 2);
@@ -86,7 +68,6 @@ const ParentBookingCard = () => {
     resultArray = newArray.filter(
       course => course.subject === valuesObject.program
     );
-    resultArray.unshift('-- Select a Course --');
     setSearchResults(resultArray);
     setSelectedOption(resultArray[0]);
     if (valuesObject.program && valuesObject.date) {
@@ -100,7 +81,7 @@ const ParentBookingCard = () => {
     window.location.reload();
   };
 
-  const handleSelecteCourse = () => {
+  const handleSelectedCourse = () => {
     setRender(!render);
   };
 
@@ -139,7 +120,7 @@ const ParentBookingCard = () => {
                   >
                     Select Program
                   </div>
-                  <Item name={'speciality'}>
+                  <Item name={'specialty'}>
                     <BookingProgram
                       handleRadioClick={handleRadioClick}
                       disabled={disabled}
@@ -155,20 +136,6 @@ const ParentBookingCard = () => {
                     }}
                   >
                     Select Date
-                    {/* <div
-                      // placeholder="no date selected"
-                      // readOnly="readonly"
-                      // value={date}
-                      style={{
-                        marginLeft: '30px',
-                        border: '2px solid black',
-                        height: '30px',
-                        margin: '20px',
-                        maxWidth: '200px',
-                      }}
-                    >
-                      {date}
-                    </div> */}
                   </div>
                 </div>
                 <div
@@ -225,11 +192,10 @@ const ParentBookingCard = () => {
                         <PreferredCourseOptions
                           updateSelection={updateSelection}
                           searchResults={searchResults}
-                          selectedOption={selectedOption}
                         />
                       )}
                       <div style={{ display: 'flex' }}>
-                        {show && !clickable && (
+                        {show && (
                           <button
                             className="il__top__formBtn"
                             type="submit"
@@ -242,7 +208,11 @@ const ParentBookingCard = () => {
                               padding: '7px 0',
                               textTransform: 'uppercase',
                             }}
-                            onClick={handleAvailability}
+                            onClick={() => {
+                              if (valuesObject.program && valuesObject.date) {
+                                handleAvailability();
+                              }
+                            }}
                           >
                             Show Availability
                           </button>
@@ -265,7 +235,7 @@ const ParentBookingCard = () => {
                               padding: '7px 0',
                               textTransform: 'uppercase',
                             }}
-                            onClick={handleSelecteCourse}
+                            onClick={handleSelectedCourse}
                           >
                             View Selection Details
                           </button>

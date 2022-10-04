@@ -1,18 +1,6 @@
 import React from 'react';
 
 const SelectedCourseDetails = ({ selectedOption }) => {
-  // const courseDetails = {
-  //   instructor_name: '',
-  //   size: '',
-  //   subject: '',
-  //   description: '',
-  //   start_date: '',
-  //   end_date: '',
-  //   start_time: '',
-  //   end_time: '',
-  //   price: '',
-  // };
-
   return (
     <div>
       <p>Course Details:</p>

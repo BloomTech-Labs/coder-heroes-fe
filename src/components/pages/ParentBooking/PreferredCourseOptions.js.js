@@ -1,21 +1,15 @@
-import { Result } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
 import { timeConverter } from '../../common/timeHelpers';
 
-const PreferredCourseOptions = ({
-  searchResults,
-  selectedOption,
-  updateSelection,
-}) => {
+const PreferredCourseOptions = ({ searchResults, updateSelection }) => {
   const onChange = e => {
-    const name = e.target.name;
     const { value } = e.target;
-    updateSelection(name, value);
+    updateSelection(value);
   };
-  let choice;
 
   return (
     <select
+      defaultValue=""
       className="drop-down-container"
       style={{
         fontSize: '20px',
@@ -28,24 +22,17 @@ const PreferredCourseOptions = ({
         textAlign: 'center',
       }}
       onChange={onChange}
-      value={selectedOption}
-      name="available"
-      // onChange={e => {
-      //   setSelectedOption(e.target.value);
-      // }}
-      // value={selectedOption}
     >
+      <option value="" disabled>
+        --Select Course--
+      </option>
       {searchResults.map((result, index) => {
-        if (index === 0) {
-          return <option className="drop-down">{result}</option>;
-        } else {
-          return (
-            <option className="drop-down" onChange={onChange}>
-              {`${result.subject} begins ${result.start_date} at
+        return (
+          <option key={index} className="drop-down" onChange={onChange}>
+            {`${result.subject} begins ${result.start_date} at
           ${timeConverter(result.start_time)}`}
-            </option>
-          );
-        }
+          </option>
+        );
       })}
       ;
     </select>

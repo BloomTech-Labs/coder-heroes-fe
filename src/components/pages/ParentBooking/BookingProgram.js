@@ -3,18 +3,11 @@ import { useState, useEffect } from 'react';
 import { parentDummyData } from '../../../parentDummyData';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
-// const defaultValues = {
-//   program: '',
-//   course: '',
-//   date: '',
-// };
 const BookingProgram = ({ handleRadioClick, disabled }) => {
   const [index, setIndex] = useState(0);
-  // const [userChoice, setUserChoice] = useState(defaultValues);
-  // const [disabled, setDisabled] = useState(false);
-  // const toggleDisabled = () => {
-  //   setDisabled(!disabled);
-  // };
+
+  // we used set to remove the duplicate courses in the dummy data but when it is connected to the backend it shouldn't have duplicates
+  // remove set when connected
 
   const subjectsArray = [
     ...new Set(
@@ -35,20 +28,6 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
       setIndex(0);
     }
   }, [index, subjectsArray]);
-
-  // const handleRadioClick = e => {
-  //   setUserChoice({ program: e.target.value });
-  //   console.log(userChoice);
-  // };
-  // const handleCalendarClick = e => {
-  //   setUserChoice({ date: e.target.value });
-  //   console.log(userChoice);
-  // };
-
-  // const handleTime = e => {
-  //   setUserChoice({ time: e.target.value });
-  //   console.log(userChoice);
-  // };
 
   return (
     <>
@@ -76,6 +55,7 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
             {selectProgramArray.map((subject, index) => {
               return (
                 <Card
+                  key={index}
                   style={{
                     padding: '5px 0 5px 5px',
                     background: '#f35f24',
@@ -119,30 +99,3 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
 };
 
 export default BookingProgram;
-
-// const startTimes = parentDummyData.availableCourses.map(
-//   time => time.start_time
-// );
-
-// const endTimes = parentDummyData.availableCourses.map(time => time.end_time);
-// let durationArr = [];
-// let duration = '';
-// const [durations, setDurations] = useState([]);
-// const generateDurationArr = () => {
-//   for (let i = 0; i < endTimes.length; i++) {
-//     let difference =
-//       parseInt(endTimes[i][0] + endTimes[i][1]) -
-//       parseInt(startTimes[i][0] + startTimes[i][1]);
-//     duration += difference;
-//     if (endTimes[i][3] !== '0' || startTimes[i][3] !== '0') {
-//       duration += ' - ' + (difference + 1);
-//     }
-//     duration += ' hour(s)';
-//     durationArr.push(duration);
-//     duration = '';
-//   }
-//   setDurations(durationArr);
-// };
-// useEffect(() => {
-//   generateDurationArr();
-// }, [durationArr, endTimes, startTimes]);

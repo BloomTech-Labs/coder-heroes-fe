@@ -70,6 +70,10 @@ function AdminSidebar() {
         <Menu.Item key="8" icon={<DollarOutlined />}>
           <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
+
+        <Menu.Item key="8">
+          <a href="/admin-instructors">Instructors</a>
+        </Menu.Item>
       </Menu>
     </Sider>
   );

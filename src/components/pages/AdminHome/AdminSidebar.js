@@ -45,34 +45,34 @@ function AdminSidebar() {
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>
-          <a href="/admin">Dashboard</a>
+          <a href="/admin">Home</a>
         </Menu.Item>
 
-        <Menu.Item key="3" icon={<BellOutlined />}>
-          <a href="!#">Notifications</a>
+        <Menu.Item key="3" icon={<CalculatorOutlined />}>
+          <a href="!#">Instructors</a>
         </Menu.Item>
 
-        <Menu.Item key="4" icon={<CalculatorOutlined />}>
-          <a href="!#">Analytics</a>
-        </Menu.Item>
-
-        <Menu.Item key="5" icon={<DesktopOutlined />}>
+        <Menu.Item key="4" icon={<DesktopOutlined />}>
           <a href="/admin-courses">Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<PlusOutlined />}>
+        <Menu.Item key="5" icon={<PlusOutlined />}>
           <a href="/admin-add-course">Add Courses</a>
         </Menu.Item>
 
-        <Menu.Item key="7" icon={<FormOutlined />}>
+        <Menu.Item key="6" icon={<FormOutlined />}>
           <a href="/admin-add-course">Edit Programs</a>
         </Menu.Item>
 
-        <Menu.Item key="6" icon={<DollarOutlined />}>
+        <Menu.Item key="7" icon={<DollarOutlined />}>
           <a href="/admin-purchases">Purchases</a>
         </Menu.Item>
 
-        <Menu.Item key="8" icon={<FolderOpenOutlined />}>
+        <Menu.Item key="8">
+          <a href="/admin-instructors">Instructors</a>
+        </Menu.Item>
+
+        <Menu.Item key="9" icon={<FolderOpenOutlined />}>
           <a href="/admin-applications">Applications</a>
         </Menu.Item>
       </Menu>

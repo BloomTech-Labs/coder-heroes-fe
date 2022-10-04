@@ -28,7 +28,7 @@ const removeCartItem = (cart, booking) => {
   return cart;
 };
 
-const reducer = (state = parentDummyData, action) => {
+const parentReducer = (state = parentDummyData, action) => {
   switch (action.type) {
     case GET_COURSES_ACTION:
       return {
@@ -114,4 +114,4 @@ const reducer = (state = parentDummyData, action) => {
   }
 };
 
-export default reducer;
+export default parentReducer;

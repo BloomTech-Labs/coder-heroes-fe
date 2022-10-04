@@ -52,7 +52,7 @@ export const startFetch = () => {
 };
 
 export const successFetch = aClass => {
-  console.log('SuccessfulFetch Test:', aClass);
+  //console.log('SuccessfulFetch Test:', aClass);
   return { type: SUCCESS_FETCH, payload: aClass };
 };
 

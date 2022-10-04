@@ -41,7 +41,6 @@ function AdminAddCoursesCard(props) {
       class_prereq_list: placeHolder,
       class_id: program.class_id,
     };
-    console.log(props.program_list);
 
     document.getElementById('pnum1_' + program.class_id).innerHTML =
       'Class Name: ' + merged.class_name;

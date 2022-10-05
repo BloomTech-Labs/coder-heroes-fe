@@ -8,7 +8,7 @@ import { useOktaAuth } from '@okta/okta-react';
 function NewsContainer(props) {
   const { newsfeed, dispatch } = props;
   const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  const { idToken } = authState.idToken;
 
   useEffect(() => {
     dispatch(getNewsFeeds(idToken));

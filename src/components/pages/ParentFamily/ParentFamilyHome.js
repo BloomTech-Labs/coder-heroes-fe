@@ -21,7 +21,6 @@ import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
 
 const ParentFamilyHome = props => {
-  console.log(`the user is: ${JSON.stringify(props.user)}`);
   const { Meta } = Card;
   const { Content } = Layout;
   const { Text } = Typography;
@@ -33,16 +32,16 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  const { authState, oktaAuth } = useOktaAuth();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState.idToken;
 
   const dispatch = useDispatch();
   const { user, children } = props;
 
   useEffect(() => {
-    oktaAuth.token.getUserInfo().then(dataProfile => {
-      dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
-    });
-  }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
+    // In the following line, "4" is hardcoded instead of profile_id because currently profile_id is not being passed along in props.user . profile_id 4 exists in our seeds, so it has been hardcoded to display the existing seeded child. currentUser is initializing as empty object {} and is not being updated. When this is fixed, change the hardcoded "4" to "profile_id" and it should work.
+    dispatch(getChildren(idToken, 4));
+  }, [dispatch, idToken]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);
@@ -154,6 +153,7 @@ const ParentFamilyHome = props => {
 };
 
 const mapStateToProps = state => {
+  console.log('state:', state.userReducer.currentUser);
   return {
     user: state.userReducer.currentUser,
     children: state.parentReducer.children,

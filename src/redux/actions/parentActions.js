@@ -20,27 +20,21 @@ export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 
 export const getChildren = (idToken, profile_id) => async dispatch => {
-  try {
-    axiosWithAuth(idToken)
-      .get(`/parent/${profile_id}/children`)
-      .then(res => {
-        dispatch({
-          type: GET_CHILDREN_SUCCESS,
-          payload: res.data,
-        });
-      })
-      .catch(err => {
-        dispatch({
-          type: ERROR_ACTION,
-          payload: err,
-        });
+  console.log('getChildren profile_id:', profile_id);
+  axiosWithAuth(idToken)
+    .get(`/parent/${profile_id}/children`)
+    .then(res => {
+      dispatch({
+        type: GET_CHILDREN_SUCCESS,
+        payload: res.data,
       });
-  } catch (error) {
-    dispatch({
-      type: ERROR_ACTION,
-      payload: error.message,
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR_ACTION,
+        payload: err.message,
+      });
     });
-  }
 };
 export const getCourses = dispatch => {
   dispatch({ type: GET_COURSES_ACTION });

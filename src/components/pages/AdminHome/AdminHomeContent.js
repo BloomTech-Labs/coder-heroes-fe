@@ -16,11 +16,16 @@ const AdminHomeContent = () => {
       <div class="AdminDashHeaders">
         <div class="container courses">
           <h2>Recent Courses</h2>
-          <Link to="/admin-courses">See All</Link>
+          {/* 'see-all' class name is a temporary solution. */}
+          <Link className="see-all" to="/admin-courses">
+            See All
+          </Link>
         </div>
         <div class="container applications">
           <h2>Instructor Applications</h2>
-          <Link to="/admin-instructors">See All</Link>
+          <Link className="see-all" to="/admin-instructors">
+            See All
+          </Link>
         </div>
       </div>
       <div class="AdminDashContent">

@@ -1,6 +1,6 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
 import React, { useState } from 'react';
-import { Typography, Input, Layout, Form } from 'antd';
+import { Typography, Input, Layout, Form, Button } from 'antd';
 import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
 import PreferredCourseOptions from './PreferredCourseOptions.js';
@@ -90,12 +90,12 @@ const ParentBookingCard = () => {
   };
 
   return (
-    <Layout className="il__top">
+    <Layout className="il__top, layout-container">
       <Content className="il__top__topContent">
         <div className="il__top__topContent__container">
           <div className="il__top__topContent__main">
             <Title
-              className="il__heading il__top__topContent__heading"
+              className="il__heading il__top__topContent__heading, title"
               level={2}
               style={{ color: '#3a072c', textAlign: 'center' }}
             >
@@ -104,19 +104,20 @@ const ParentBookingCard = () => {
               LEARN MORE THAN JUST CODE!
             </Title>
             <Form
-              className="il__top__form"
+              className="il__top__form, form-container"
               size={'large'}
               layout="inline"
-              style={{ textAlign: 'left' }}
+              // style={{ textAlign: 'left' }}
             >
               <Input.Group compact>
-                <div>
+                <div className="heading-container">
                   <div
-                    style={{
-                      color: '#3a072c',
-                      fontSize: '21px',
-                      fontWeight: 'bold',
-                    }}
+                    className="sub-heading-one"
+                    // style={{
+                    //   color: '#3a072c',
+                    //   fontSize: '21px',
+                    //   fontWeight: 'bold',
+                    // }}
                   >
                     Select Program
                   </div>
@@ -128,23 +129,28 @@ const ParentBookingCard = () => {
                   </Item>
 
                   <div
-                    style={{
-                      color: '#3a072c',
-                      fontSize: '21px',
-                      fontWeight: 'bold',
-                      margin: ' 20px 0 15px 0',
-                    }}
+                    className="sub-heading-two"
+                    // style={{
+                    //   color: '#3a072c',
+                    //   fontSize: '21px',
+                    //   fontWeight: 'bold',
+                    //   margin: ' 20px 0 15px 0',
+                    // }}
                   >
                     Select Date
                   </div>
                 </div>
                 <div
+                  className="course-availability-container"
                   style={{
                     display: 'flex',
                     flexWrap: 'wrap',
                   }}
                 >
-                  <Item style={{ paddingBottom: '30px', flex: '1' }}>
+                  <Item
+                    className="booking-calendar-container"
+                    style={{ paddingBottom: '30px', flex: '1' }}
+                  >
                     <BookingCalendar
                       handleCalendarClick={handleCalendarClick}
                     />
@@ -152,36 +158,40 @@ const ParentBookingCard = () => {
 
                   <Item
                     name={'availability'}
-                    style={{
-                      display: 'flex',
-                      minWidth: '525px',
-                      flexDirection: 'column',
-                      flex: '1',
-                    }}
+                    className="btn-drop-down-container"
+                    // style={{
+                    //   display: 'flex',
+                    //   minWidth: '525px',
+                    //   flexDirection: 'column',
+                    //   flex: '1',
+                    // }}
                   >
                     <div
-                      style={{
-                        display: 'flex',
-                        flex: '1',
-                        flexDirection: 'column',
-                      }}
+                      className="time-zone-container"
+                      // style={{
+                      //   display: 'flex',
+                      //   flex: '1',
+                      //   flexDirection: 'column',
+                      // }}
                     >
                       {!show && !render && (
                         <div
-                          style={{
-                            backgroundColor: 'white',
-                            borderRadius: '5px',
-                            margin: '6px 6px 10px 6px',
-                          }}
+                          className="time-zone-card"
+                          // style={{
+                          //   backgroundColor: 'white',
+                          //   borderRadius: '5px',
+                          //   margin: '6px 6px 10px 6px',
+                          // }}
                         >
                           <p
-                            style={{
-                              color: '#6E4964',
-                              fontSize: '16px',
-                              margin: '6px',
-                              padding: '3px 0',
-                              textAlign: 'center',
-                            }}
+                            className="time-zone"
+                            // style={{
+                            //   color: '#6E4964',
+                            //   fontSize: '16px',
+                            //   margin: '6px',
+                            //   padding: '3px 0',
+                            //   textAlign: 'center',
+                            // }}
                           >
                             All times are in Central Standard Time (US & Canada)
                           </p>
@@ -194,20 +204,23 @@ const ParentBookingCard = () => {
                           searchResults={searchResults}
                         />
                       )}
-                      <div style={{ display: 'flex' }}>
+                      <div
+                        className="booking-card-btns-container"
+                        style={{ display: 'flex' }}
+                      >
                         {show && (
-                          <button
-                            className="il__top__formBtn"
+                          <Button
+                            className="show-availability-btn"
                             type="submit"
-                            style={{
-                              backgroundColor: '#680049',
-                              color: 'white',
-                              flex: '1',
-                              margin: '150px 6px 6px 6px',
-                              fontSize: '16px',
-                              padding: '7px 0',
-                              textTransform: 'uppercase',
-                            }}
+                            // style={{
+                            //   backgroundColor: '#680049',
+                            //   color: 'white',
+                            //   flex: '1',
+                            //   margin: '150px 6px 6px 6px',
+                            //   fontSize: '16px',
+                            //   padding: '7px 0',
+                            //   textTransform: 'uppercase',
+                            // }}
                             onClick={() => {
                               if (valuesObject.program && valuesObject.date) {
                                 handleAvailability();
@@ -215,7 +228,7 @@ const ParentBookingCard = () => {
                             }}
                           >
                             Show Availability
-                          </button>
+                          </Button>
                         )}
                         {render && (
                           <SelectedCourseDetails
@@ -223,57 +236,57 @@ const ParentBookingCard = () => {
                           />
                         )}
                         {!show && !render && (
-                          <button
-                            className="il__top__formBtn"
+                          <Button
+                            className="booking-card-btns"
                             type="submit"
-                            style={{
-                              backgroundColor: '#680049',
-                              color: 'white',
-                              flex: '1',
-                              margin: '150px 6px 6px 6px',
-                              fontSize: '16px',
-                              padding: '7px 0',
-                              textTransform: 'uppercase',
-                            }}
+                            // style={{
+                            //   backgroundColor: '#680049',
+                            //   color: 'white',
+                            //   flex: '1',
+                            //   margin: '150px 6px 6px 6px',
+                            //   fontSize: '16px',
+                            //   padding: '7px 0',
+                            //   textTransform: 'uppercase',
+                            // }}
                             onClick={handleSelectedCourse}
                           >
                             View Selection Details
-                          </button>
+                          </Button>
                         )}
                         {!show && render && (
-                          <button
-                            className="il__top__formBtn"
+                          <Button
+                            className="il__top__formBtn, booking-card-btns"
                             type="submit"
-                            style={{
-                              backgroundColor: '#680049',
-                              color: 'white',
-                              flex: '1',
-                              margin: '150px 6px 6px 6px',
-                              fontSize: '16px',
-                              padding: '7px 0',
-                              textTransform: 'uppercase',
-                            }}
+                            // style={{
+                            //   backgroundColor: '#680049',
+                            //   color: 'white',
+                            //   flex: '1',
+                            //   margin: '150px 6px 6px 6px',
+                            //   fontSize: '16px',
+                            //   padding: '7px 0',
+                            //   textTransform: 'uppercase',
+                            // }}
                           >
                             Book Now
-                          </button>
+                          </Button>
                         )}
                         {!show && (
-                          <button
-                            className="il__top__formBtn"
+                          <Button
+                            className="il__top__formBtn, booking-card-btns"
                             type="submit"
-                            style={{
-                              backgroundColor: '#680049',
-                              color: 'white',
-                              flex: '1',
-                              margin: '150px 6px 6px 6px',
-                              fontSize: '16px',
-                              padding: '7px 0',
-                              textTransform: 'uppercase',
-                            }}
+                            // style={{
+                            //   backgroundColor: '#680049',
+                            //   color: 'white',
+                            //   flex: '1',
+                            //   margin: '150px 6px 6px 6px',
+                            //   fontSize: '16px',
+                            //   padding: '7px 0',
+                            //   textTransform: 'uppercase',
+                            // }}
                             onClick={handleRefresh}
                           >
                             Edit
-                          </button>
+                          </Button>
                         )}
                       </div>
                     </div>

@@ -23,15 +23,17 @@ const BookingCalendar = ({ handleCalendarClick }) => {
       }}
     >
       <Alert
+        className="booking-calendar"
         style={{ minWidth: '600px', maxWidth: '800px' }}
         message={`You selected date: ${selectedValue &&
           selectedValue.format('MM/DD/YYYY')}`}
       />
       <Calendar
+        className="booking-calendar"
         value={value}
         onSelect={onSelect}
         onPanelChange={onPanelChange}
-        style={{ minWidth: '600px', maxWidth: '800px' }}
+        // style={{ minWidth: '600px', maxWidth: '800px' }}
         fullscreen={false}
         onChange={handleCalendarClick}
       />

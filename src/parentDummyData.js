@@ -330,7 +330,8 @@ export const parentDummyData = {
       instructor_name: 'Mark',
       size: 20,
       subject: 'App Building Fundamentals',
-      description: 'Computer Science fundamentals',
+      description:
+        'A month/long course where students with design, build, and deploy an app from beginning to end!',
       prereqs: ['JavaScript', 'HTML', 'CSS'],
       start_date: '10/30/2022',
       end_date: '11/28/2022',
@@ -346,7 +347,8 @@ export const parentDummyData = {
       instructor_name: 'Mark',
       size: 20,
       subject: 'App Building Fundamentals',
-      description: 'Computer Science fundamentals',
+      description:
+        'A month/long course where students with design, build, and deploy an app from beginning to end!',
       prereqs: ['JavaScript', 'HTML', 'CSS'],
       start_date: '05/12/2022',
       end_date: '06/28/2022',
@@ -410,8 +412,7 @@ export const parentDummyData = {
       instructor_name: 'Test013',
       size: 16,
       subject: 'Intro to HTML',
-      description:
-        ' A course where students with design, build, and deploy an app from beginning to end!',
+      description: 'Welcome to HTML!',
       prereqs: [''],
       start_date: '08/15/2022',
       end_date: '09/25/2022',
@@ -427,8 +428,7 @@ export const parentDummyData = {
       instructor_name: 'Test013',
       size: 16,
       subject: 'Intro to HTML',
-      description:
-        ' A course where students with design, build, and deploy an app from beginning to end!',
+      description: 'Welcome to HTML!',
       prereqs: [''],
       start_date: '12/03/2022',
       end_date: '12/18/2022',
@@ -444,8 +444,7 @@ export const parentDummyData = {
       instructor_name: 'Test013',
       size: 16,
       subject: 'Intro to HTML',
-      description:
-        ' A course where students with design, build, and deploy an app from beginning to end!',
+      description: 'Welcome to HTML!',
       prereqs: [''],
       start_date: '03/15/2022',
       end_date: '04/25/2022',
@@ -461,8 +460,7 @@ export const parentDummyData = {
       instructor_name: 'Test013',
       size: 16,
       subject: 'Intro to HTML',
-      description:
-        ' A course where students with design, build, and deploy an app from beginning to end!',
+      description: 'Welcome to HTML!',
       prereqs: [''],
       start_date: '07/10/2022',
       end_date: '07/26/2022',

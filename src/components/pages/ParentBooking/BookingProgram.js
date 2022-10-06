@@ -31,8 +31,9 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
 
   return (
     <>
-      <div style={{ display: 'flex' }}>
+      <div className="select-program-container" style={{ display: 'flex' }}>
         <button
+          className="arrow-btns"
           style={{ background: 'none' }}
           onClick={() => {
             if (index > 0) {
@@ -42,10 +43,11 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
             }
           }}
         >
-          <LeftOutlined style={{ color: '#4a1e3c' }} />
+          <LeftOutlined className="arrows-icon" style={{ color: '#4a1e3c' }} />
         </button>
 
         <Radio.Group
+          className="radio-group"
           style={{
             width: '60vw',
             backgroundColor: '#eeedd9',
@@ -56,6 +58,7 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
               return (
                 <Card
                   key={index}
+                  className="select-program-cards"
                   style={{
                     padding: '5px 0 5px 5px',
                     background: '#f35f24',
@@ -66,6 +69,7 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
                   }}
                 >
                   <Radio
+                    className="radio-btn"
                     onChange={handleRadioClick}
                     disabled={disabled}
                     value={subject}
@@ -82,6 +86,7 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
         </Radio.Group>
 
         <button
+          className="arrow-btns"
           style={{ background: 'none' }}
           onClick={() => {
             if (index !== subjectsArray.length - 3) {
@@ -91,7 +96,10 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
             }
           }}
         >
-          <RightOutlined style={{ color: '#4a1e3c', fontWeight: 'bold' }} />
+          <RightOutlined
+            className="arrows-icon"
+            // style={{ color: '#4a1e3c', fontWeight: 'bold' }}
+          />
         </button>
       </div>
     </>

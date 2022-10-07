@@ -42,18 +42,18 @@ function AdminSidebar() {
           <Menu.Item key="/admin-instructors">
             <Link to="/admin-instructors">Instructors</Link>
           </Menu.Item>
-
+          {/* TODO Needs clarification on which menu items should link to where below */}
           <Menu.Item key="3">
             <Link to="!#">Parents/Students</Link>
           </Menu.Item>
 
           <Menu.Item key="4">
-            <Link to="!#">Programs</Link>
+            <Link to="/admin-courses">Programs</Link>
           </Menu.Item>
         </Menu.SubMenu>
 
         <Menu.Item key="5" icon={<ProfileOutlined />}>
-          <Link to="!#">Messages</Link>
+          <Link to="/messages">Messages</Link>
         </Menu.Item>
       </Menu>
     </Sider>

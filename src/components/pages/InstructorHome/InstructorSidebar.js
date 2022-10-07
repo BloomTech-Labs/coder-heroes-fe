@@ -35,7 +35,7 @@ function InstructorSidebar() {
       <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
         {/* need to add the route to instructor dashboard but instructor-dashboard is psuedo code for now */}
         <Menu.Item key="1" icon={<HomeOutlined />}>
-          <Link to="/instructor-dashboard">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </Menu.Item>
 
         <Menu.Item key="2" icon={<HomeOutlined />}>

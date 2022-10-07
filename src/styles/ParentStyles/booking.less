@@ -1,35 +1,58 @@
+@import 'antd/dist/antd.css';
+
 .image {
   max-width: 100%;
 }
 
-.layout-container .title {
-  color: #3a072c;
-  text-align: center;
-}
+.main-container {
+  display: flex;
 
-.form-container {
-  text-align: left;
-
-  .sub-heading-one {
-    color: #3a072c;
-    font-size: 21px;
-    font-weight: bold;
+  .title {
+    margin: 30px 0 40px 0;
+    p {
+      width: 735px;
+      text-align: center;
+      color: #3a072c;
+      margin-left: 600px;
+      font-family: 'Staatliches', 'cursive';
+    }
   }
 
-  .sub-heading-two {
-    color: #3a072c;
-    font-size: 21px;
-    font-weight: bold;
-    margin: 20px 0 15px 0;
-  }
+  .form-container {
+    text-align: left;
+    justify-content: center;
+    margin-left: 155px;
 
-  .course-availability-container {
-    display: flex;
-    flex-wrap: wrap;
+    .sub-heading {
+      color: #3a072c;
+      font-size: 21px;
+      font-weight: bold;
+      margin: 20px 0 15px 0;
+    }
+
+    .sub-heading {
+      color: #3a072c;
+      font-size: 21px;
+      font-weight: bold;
+      margin: 20px 0 15px 0;
+    }
+
+    .course-availability-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
     .booking-calendar-container {
       padding-bottom: 30px;
       flex: 1;
+
+      .booking-calendar {
+        min-width: 600px;
+        max-width: 800px;
+      }
+      .calendar-text {
+        padding: 15px;
+      }
     }
 
     .btn-drop-down-container {
@@ -58,35 +81,70 @@
         }
       }
 
-      .booking-card-btns-container {
+      .booking-card-container {
         display: flex;
-      }
+        flex-direction: column;
+        max-width: 500px;
 
-      .show-availability-btn {
-        background-color: #680049;
-        color: white;
-        flex: 1;
-        margin: 150px 6px 6px 6px;
-        font-size: 16px;
-        padding: 7px 0;
-        text-transform: uppercase;
-      }
-      .booking-card-btns {
-        background-color: #680049;
-        color: white;
-        flex: 1;
-        margin: 150px 6px 6px 6px;
-        font-size: 16px;
-        padding: 7px 0;
-        text-transform: uppercase;
+        .selected-course-details {
+          border: 2px solid black;
+          margin-left: 100px;
+          background-color: paleturquoise;
+          border-radius: 5px;
+          padding: 45px 45px 30px 45px;
+          min-width: 500px;
+          p {
+            color: black;
+            font-size: 16px;
+          }
+        }
+
+        .show-availability-btn {
+          background-color: #680049;
+          margin: 150px 6px 6px 150px;
+          font-size: 16px;
+          padding: 7px 0;
+          text-transform: uppercase;
+          justify-content: center;
+          border-radius: 5px;
+
+          p {
+            color: #eeedd9;
+            margin: 0;
+          }
+        }
+
+        .booking-card-btns {
+          display: flex;
+          min-width: 500px;
+
+          .booking-card-btn:nth-child(1) {
+            margin-left: 40px;
+          }
+          .booking-card-btn:nth-child(2) {
+            margin-right: 40px;
+          }
+
+          .booking-card-btn {
+            background-color: #680049;
+            color: white;
+            margin: 20px 6px 6px 6px;
+            font-size: 16px;
+            padding: 7px 0;
+            text-transform: uppercase;
+            border-radius: 5px;
+            min-width: 300px;
+            justify-content: center;
+
+            p {
+              color: #eeedd9;
+              margin: 0;
+            }
+          }
+        }
       }
     }
   }
-}
-
-.booking-calendar {
-  min-width: 600px;
-  max-width: 800px;
 }
 
 .select-program-container {

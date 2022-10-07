@@ -8,21 +8,7 @@ const PreferredCourseOptions = ({ searchResults, updateSelection }) => {
   };
 
   return (
-    <select
-      defaultValue=""
-      className="drop-down-container"
-      // style={{
-      //   fontSize: '20px',
-      //   width: 'auto',
-      //   padding: '10px',
-      //   margin: '6px',
-      //   borderRadius: '15px',
-      //   backgroundColor: 'rgba(58,201,176,0.8)',
-      //   color: '#680049',
-      //   textAlign: 'center',
-      // }}
-      onChange={onChange}
-    >
+    <select defaultValue="" className="drop-down-container" onChange={onChange}>
       <option value="" disabled>
         --Select Course--
       </option>

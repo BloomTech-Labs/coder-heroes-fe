@@ -31,10 +31,9 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
 
   return (
     <>
-      <div className="select-program-container" style={{ display: 'flex' }}>
+      <div className="select-program-container">
         <button
           className="arrow-btns"
-          style={{ background: 'none' }}
           onClick={() => {
             if (index > 0) {
               setIndex(index - 1);
@@ -43,31 +42,14 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
             }
           }}
         >
-          <LeftOutlined className="arrows-icon" style={{ color: '#4a1e3c' }} />
+          <LeftOutlined className="arrows-icon" />
         </button>
 
-        <Radio.Group
-          className="radio-group"
-          style={{
-            width: '60vw',
-            backgroundColor: '#eeedd9',
-          }}
-        >
+        <Radio.Group className="radio-group">
           <div style={{ display: 'flex', overflow: 'hidden' }}>
             {selectProgramArray.map((subject, index) => {
               return (
-                <Card
-                  key={index}
-                  className="select-program-cards"
-                  style={{
-                    padding: '5px 0 5px 5px',
-                    background: '#f35f24',
-                    alignItems: 'center',
-                    minWidth: '250px',
-                    flex: '1 ',
-                    margin: '0 10px',
-                  }}
-                >
+                <Card key={index} className="select-program-cards">
                   <Radio
                     className="radio-btn"
                     onChange={handleRadioClick}
@@ -75,7 +57,6 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
                     value={subject}
                     key={index}
                     name="program"
-                    style={{ fontSize: '20px' }}
                   >
                     {subject}
                   </Radio>
@@ -87,7 +68,6 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
 
         <button
           className="arrow-btns"
-          style={{ background: 'none' }}
           onClick={() => {
             if (index !== subjectsArray.length - 3) {
               setIndex(index + 1);
@@ -96,10 +76,7 @@ const BookingProgram = ({ handleRadioClick, disabled }) => {
             }
           }}
         >
-          <RightOutlined
-            className="arrows-icon"
-            // style={{ color: '#4a1e3c', fontWeight: 'bold' }}
-          />
+          <RightOutlined className="arrows-icon" />
         </button>
       </div>
     </>

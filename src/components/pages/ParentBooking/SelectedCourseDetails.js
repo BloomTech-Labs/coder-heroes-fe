@@ -2,7 +2,7 @@ import React from 'react';
 
 const SelectedCourseDetails = ({ selectedOption }) => {
   return (
-    <div>
+    <div className="selected-course-details">
       <p>Course Details:</p>
       <p>Instructor: {selectedOption.instructor_name}</p>
       <p>Size: {selectedOption.size}</p>

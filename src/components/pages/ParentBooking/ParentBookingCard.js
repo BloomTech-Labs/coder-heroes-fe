@@ -1,6 +1,6 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
 import React, { useState } from 'react';
-import { Typography, Input, Layout, Form, Button } from 'antd';
+import { Typography, Layout, Form, Button } from 'antd';
 import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
 import PreferredCourseOptions from './PreferredCourseOptions.js';
@@ -90,212 +90,95 @@ const ParentBookingCard = () => {
   };
 
   return (
-    <Layout className="il__top, layout-container">
-      <Content className="il__top__topContent">
-        <div className="il__top__topContent__container">
-          <div className="il__top__topContent__main">
-            <Title
-              className="il__heading il__top__topContent__heading, title"
-              level={2}
-              style={{ color: '#3a072c', textAlign: 'center' }}
-            >
-              BOOK WITH US.
-              <br />
-              LEARN MORE THAN JUST CODE!
-            </Title>
-            <Form
-              className="il__top__form, form-container"
-              size={'large'}
-              layout="inline"
-              // style={{ textAlign: 'left' }}
-            >
-              <Input.Group compact>
-                <div className="heading-container">
-                  <div
-                    className="sub-heading-one"
-                    // style={{
-                    //   color: '#3a072c',
-                    //   fontSize: '21px',
-                    //   fontWeight: 'bold',
-                    // }}
-                  >
-                    Select Program
-                  </div>
-                  <Item name={'specialty'}>
-                    <BookingProgram
-                      handleRadioClick={handleRadioClick}
-                      disabled={disabled}
-                    />
-                  </Item>
+    <Layout>
+      <Content className="main-container">
+        <Title className="title">
+          <p>
+            BOOK WITH US.
+            <br />
+            LEARN MORE THAN JUST CODE!
+          </p>
+        </Title>
+        <Form className="form-container" size={'large'} layout="inline">
+          <div>
+            <div className="sub-heading">Select Program</div>
+            <Item name={'specialty'}>
+              <BookingProgram
+                handleRadioClick={handleRadioClick}
+                disabled={disabled}
+              />
+            </Item>
 
-                  <div
-                    className="sub-heading-two"
-                    // style={{
-                    //   color: '#3a072c',
-                    //   fontSize: '21px',
-                    //   fontWeight: 'bold',
-                    //   margin: ' 20px 0 15px 0',
-                    // }}
-                  >
-                    Select Date
-                  </div>
-                </div>
-                <div
-                  className="course-availability-container"
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <Item
-                    className="booking-calendar-container"
-                    style={{ paddingBottom: '30px', flex: '1' }}
-                  >
-                    <BookingCalendar
-                      handleCalendarClick={handleCalendarClick}
-                    />
-                  </Item>
-
-                  <Item
-                    name={'availability'}
-                    className="btn-drop-down-container"
-                    // style={{
-                    //   display: 'flex',
-                    //   minWidth: '525px',
-                    //   flexDirection: 'column',
-                    //   flex: '1',
-                    // }}
-                  >
-                    <div
-                      className="time-zone-container"
-                      // style={{
-                      //   display: 'flex',
-                      //   flex: '1',
-                      //   flexDirection: 'column',
-                      // }}
-                    >
-                      {!show && !render && (
-                        <div
-                          className="time-zone-card"
-                          // style={{
-                          //   backgroundColor: 'white',
-                          //   borderRadius: '5px',
-                          //   margin: '6px 6px 10px 6px',
-                          // }}
-                        >
-                          <p
-                            className="time-zone"
-                            // style={{
-                            //   color: '#6E4964',
-                            //   fontSize: '16px',
-                            //   margin: '6px',
-                            //   padding: '3px 0',
-                            //   textAlign: 'center',
-                            // }}
-                          >
-                            All times are in Central Standard Time (US & Canada)
-                          </p>
-                        </div>
-                      )}
-
-                      {!show && !render && (
-                        <PreferredCourseOptions
-                          updateSelection={updateSelection}
-                          searchResults={searchResults}
-                        />
-                      )}
-                      <div
-                        className="booking-card-btns-container"
-                        style={{ display: 'flex' }}
-                      >
-                        {show && (
-                          <Button
-                            className="show-availability-btn"
-                            type="submit"
-                            // style={{
-                            //   backgroundColor: '#680049',
-                            //   color: 'white',
-                            //   flex: '1',
-                            //   margin: '150px 6px 6px 6px',
-                            //   fontSize: '16px',
-                            //   padding: '7px 0',
-                            //   textTransform: 'uppercase',
-                            // }}
-                            onClick={() => {
-                              if (valuesObject.program && valuesObject.date) {
-                                handleAvailability();
-                              }
-                            }}
-                          >
-                            Show Availability
-                          </Button>
-                        )}
-                        {render && (
-                          <SelectedCourseDetails
-                            selectedOption={selectedOption}
-                          />
-                        )}
-                        {!show && !render && (
-                          <Button
-                            className="booking-card-btns"
-                            type="submit"
-                            // style={{
-                            //   backgroundColor: '#680049',
-                            //   color: 'white',
-                            //   flex: '1',
-                            //   margin: '150px 6px 6px 6px',
-                            //   fontSize: '16px',
-                            //   padding: '7px 0',
-                            //   textTransform: 'uppercase',
-                            // }}
-                            onClick={handleSelectedCourse}
-                          >
-                            View Selection Details
-                          </Button>
-                        )}
-                        {!show && render && (
-                          <Button
-                            className="il__top__formBtn, booking-card-btns"
-                            type="submit"
-                            // style={{
-                            //   backgroundColor: '#680049',
-                            //   color: 'white',
-                            //   flex: '1',
-                            //   margin: '150px 6px 6px 6px',
-                            //   fontSize: '16px',
-                            //   padding: '7px 0',
-                            //   textTransform: 'uppercase',
-                            // }}
-                          >
-                            Book Now
-                          </Button>
-                        )}
-                        {!show && (
-                          <Button
-                            className="il__top__formBtn, booking-card-btns"
-                            type="submit"
-                            // style={{
-                            //   backgroundColor: '#680049',
-                            //   color: 'white',
-                            //   flex: '1',
-                            //   margin: '150px 6px 6px 6px',
-                            //   fontSize: '16px',
-                            //   padding: '7px 0',
-                            //   textTransform: 'uppercase',
-                            // }}
-                            onClick={handleRefresh}
-                          >
-                            Edit
-                          </Button>
-                        )}
-                      </div>
-                    </div>
-                  </Item>
-                </div>
-              </Input.Group>
-            </Form>
+            <div className="sub-heading">Select Date</div>
           </div>
-        </div>
+          <div className="course-availability-container">
+            <Item className="booking-calendar-container">
+              <BookingCalendar handleCalendarClick={handleCalendarClick} />
+            </Item>
+
+            <Item name={'availability'} className="btn-drop-down-container">
+              <div className="time-zone-container">
+                {!show && !render && (
+                  <div className="time-zone-card">
+                    <p className="time-zone">
+                      All times are in Central Standard Time (US & Canada)
+                    </p>
+                  </div>
+                )}
+
+                {!show && !render && (
+                  <PreferredCourseOptions
+                    updateSelection={updateSelection}
+                    searchResults={searchResults}
+                  />
+                )}
+                <div className="booking-card-container">
+                  {show && (
+                    <Button
+                      className="show-availability-btn"
+                      type="submit"
+                      onClick={() => {
+                        if (valuesObject.program && valuesObject.date) {
+                          handleAvailability();
+                        }
+                      }}
+                    >
+                      <p>Show Availability</p>
+                    </Button>
+                  )}
+                  {render && (
+                    <SelectedCourseDetails selectedOption={selectedOption} />
+                  )}
+                  <div className="booking-card-btns">
+                    {!show && !render && (
+                      <Button
+                        className="booking-card-btn"
+                        type="submit"
+                        onClick={handleSelectedCourse}
+                      >
+                        <p>View Selection Details</p>
+                      </Button>
+                    )}
+                    {!show && render && (
+                      <Button className="booking-card-btn" type="submit">
+                        <p>Book Now</p>
+                      </Button>
+                    )}
+                    {!show && (
+                      <Button
+                        className="booking-card-btn"
+                        type="submit"
+                        onClick={handleRefresh}
+                      >
+                        <p>Edit</p>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Item>
+          </div>
+        </Form>
       </Content>
     </Layout>
   );

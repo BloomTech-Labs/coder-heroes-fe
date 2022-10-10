@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 export const ERROR_ACTION = 'ERROR';
 export const GET_CHILDREN_ACTION = 'GET_CHILDREN';
 export const GET_CHILDREN_SUCCESS = 'GET_CHILDREN_SUCCESS';
@@ -18,10 +18,11 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
-export const getChildren = (idToken, profile_id) => async dispatch => {
+export const getChildren = profile_id => async dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
-  axiosWithAuth(idToken)
+  axios(profile_id)
     .get(`/parent/${profile_id}/children`)
     .then(res => {
       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
@@ -76,9 +77,9 @@ export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
 };
 
-export const getNewsFeedsParent = idToken => dispatch => {
+export const getNewsFeedsParent = profile_id => dispatch => {
   try {
-    axiosWithAuth(idToken)
+    axios(profile_id)
       .get('/news')
       .then(resp => {
         dispatch({

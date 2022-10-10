@@ -17,9 +17,9 @@ import 'antd/dist/antd.css';
 import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
 
+//TO-DO: Implement Auth0
 const ParentFamilyHome = props => {
   console.log(`the user is: ${JSON.stringify(props.user)}`);
   const { Meta } = Card;
@@ -33,16 +33,8 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  const { authState, oktaAuth } = useOktaAuth();
-
   const dispatch = useDispatch();
   const { user, children } = props;
-
-  useEffect(() => {
-    oktaAuth.token.getUserInfo().then(dataProfile => {
-      dispatch(getChildren(authState.idToken.idToken, dataProfile.sub));
-    });
-  }, [dispatch, oktaAuth.token, authState.idToken.idToken]);
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

@@ -7,20 +7,12 @@ import ActiveMessage from './ActiveMessage';
 import MessageList from './MessageList';
 import '../../../../styles/ParentStyles/messages.less';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
-import { useOktaAuth } from '@okta/okta-react';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
+//TO-DO: Implement Auth0
 function ParentMessages(props) {
   const { Content } = Layout;
-  const dispatch = useDispatch();
-  const { authState, oktaAuth } = useOktaAuth();
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-  }, []);
+
   return (
     <Layout>
       <ParentSidebar />

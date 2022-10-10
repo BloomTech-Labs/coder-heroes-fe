@@ -6,26 +6,15 @@ import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
 import gcloud from '../../../img/bg-green-cloud.svg';
 import profile from '../../../img/profile-img-brianne-caplan.png';
-import { useOktaAuth } from '@okta/okta-react';
 import Button from '../../common/Button';
 import '../../../styles/LandingPageStyles/index.less';
 import { Typography, Card } from 'antd';
 import { NavLink } from 'react-router-dom';
+//TO-DO: Implement Auth0
 
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-  const { authState, oktaAuth } = useOktaAuth();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-    // eslint-disable-next-line
-  }, [dispatch, authState]);
 
   return (
     <div className="landing-container">

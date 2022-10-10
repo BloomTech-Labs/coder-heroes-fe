@@ -6,10 +6,11 @@ export const FAIL_FETCH = 'FAIL_FETCH';
 export const ADD_CLASS = 'ADD_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 export const EDIT_CLASS = 'EDIT_CLASS';
+//TO-DO: Implement Auth0
 
 // waiting for backend to implement this and reducer / actions
 //
-// const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+// const token = JSON.parse(localStorage.getItem('Auth0 token storage'));
 // const config = {
 //   headers: { Authorization: `Bearer ${token.idToken.value}` },
 // };

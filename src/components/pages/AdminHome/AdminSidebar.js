@@ -1,5 +1,5 @@
 import { Menu } from 'antd';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../../../styles/AdminStyles/index.less';
 import {
@@ -14,14 +14,10 @@ const { Sider } = Layout;
 function AdminSidebar() {
   const [collapsed, setCollapsed] = useState(false);
   let { location } = useHistory();
-  const [path, setPath] = useState(location.pathname);
+  const path = location.pathname;
 
   const onCollapse = () => {
-    if (collapsed === true) {
-      setCollapsed(false);
-    } else {
-      setCollapsed(true);
-    }
+    setCollapsed(collapsed ? false : true);
   };
 
   return (

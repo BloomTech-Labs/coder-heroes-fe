@@ -1,4 +1,4 @@
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 import axios from 'axios';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
@@ -8,14 +8,15 @@ export const ERROR_ACTION = 'ERROR';
 export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
 export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
+//TO-DO: Implement Auth0
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
-export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
-  console.log(oktaAuth);
-  if (oktaAuth.isAuthenticated) {
-    oktaAuth
+export const getCurrentUser = profile_id => async dispatch => {
+  if (profile_id) {
+    axios
       .getUser()
       .then(parsedJWT => {
-        axiosWithAuth(idToken)
+        axios(profile_id)
           .get(`/profiles/${parsedJWT.sub}`)
           .then(res => {
             dispatch({
@@ -37,7 +38,7 @@ export const getActiveConversation = activeConversation => {
   return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };
 };
 
-export const addMessage = (idToken, message, profile_id, title, sender_id) => {
+export const addMessage = (message, profile_id, title, sender_id) => {
   return {
     type: POST_INBOX_ACTION,
     payload: {

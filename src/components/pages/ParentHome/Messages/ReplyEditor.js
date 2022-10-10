@@ -2,9 +2,10 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Comment, Form, Button, Input } from 'antd';
 import '../../../../styles/ParentStyles/messages.less';
 import { useDispatch, connect } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { addMessage } from '../../../../redux/actions/userActions';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
+
+//TO-DO: Implement Auth0
 const { TextArea } = Input;
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
@@ -30,15 +31,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
-  const { authState, oktaAuth } = useOktaAuth();
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-  }, [authState, dispatch, oktaAuth]);
-
   useLayoutEffect(() => {}, [props]);
   const handleSubmit = () => {
     if (!value) {
@@ -49,7 +41,6 @@ const ReplyEditor = (props, { onChange, onSubmit }) => {
     setValue('');
     dispatch(
       addMessage(
-        authState.idToken,
         value,
         props.getActiveConversation
           ? props.getActiveConversation[0].sender_id !==

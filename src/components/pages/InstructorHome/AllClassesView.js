@@ -5,21 +5,16 @@ import '../../../styles/InstructorStyles/index.less';
 import { Layout, Typography } from 'antd';
 import { connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
-import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
 import { setEditing } from '../../../redux/actions/coursesActions';
 import { NavLink } from 'react-router-dom';
+//TO-DO: Implement Auth0
 
+//TO-DO: Implement Auth0
 const { Content } = Layout;
 const { Title } = Typography;
 
 const AllClasses = props => {
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCourses(idToken));
-  }, [dispatch, idToken]);
 
   const handleEditSelect = id => {
     setEditing(id);

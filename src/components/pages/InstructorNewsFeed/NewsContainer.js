@@ -3,16 +3,10 @@ import { connect } from 'react-redux';
 import '../../../styles/index.less';
 import { getNewsFeeds } from '../../../redux/actions/instructorActions';
 import IndividualNews from './IndividualNews';
-import { useOktaAuth } from '@okta/okta-react';
 
+//TO-DO: Implement Auth0
 function NewsContainer(props) {
   const { newsfeed, dispatch } = props;
-  const { authState } = useOktaAuth();
-  const { idToken } = authState.idToken;
-
-  useEffect(() => {
-    dispatch(getNewsFeeds(idToken));
-  }, []);
 
   return (
     <div className="news-container">

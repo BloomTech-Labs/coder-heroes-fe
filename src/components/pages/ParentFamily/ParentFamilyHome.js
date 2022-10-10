@@ -17,9 +17,9 @@ import 'antd/dist/antd.css';
 import cloudbg from '../../../img/Assets/beige-faded-clouds.png';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { getChildren } from '../../../redux/actions/parentActions';
 
+//TO-DO: Implement Auth0
 const ParentFamilyHome = props => {
   const { Meta } = Card;
   const { Content } = Layout;
@@ -32,16 +32,13 @@ const ParentFamilyHome = props => {
   );
   const [alertMsg, setAlertMsg] = useState(0);
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState.idToken;
-
-  const dispatch = useDispatch();
-  const { user, children } = props;
-
-  useEffect(() => {
+  // useEffect(() => {
     // TODO: In the following line, "4" is hardcoded instead of profile_id because currently profile_id is not being passed along in props.user . profile_id 4 exists in our seeds, so it has been hardcoded to display the existing seeded child. currentUser is initializing as empty object {} and is not being updated. When this is fixed, change the hardcoded "4" to "profile_id" and it should work.
     dispatch(getChildren(idToken, 4));
   }, [dispatch, idToken]);
+
+  const dispatch = useDispatch();
+  const { user, children } = props;
 
   const showAddStudentModal = () => {
     setAddStudentVisible(true);

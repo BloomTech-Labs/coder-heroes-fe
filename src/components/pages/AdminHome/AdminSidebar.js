@@ -17,7 +17,7 @@ function AdminSidebar() {
   const path = location.pathname;
 
   const onCollapse = () => {
-    setCollapsed(collapsed ? false : true);
+    setCollapsed(!collapsed);
   };
 
   return (

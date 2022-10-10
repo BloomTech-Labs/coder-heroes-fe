@@ -35,8 +35,8 @@ const ParentFamilyHome = props => {
 
   // useEffect(() => {
     // TODO: In the following line, "4" is hardcoded instead of profile_id because currently profile_id is not being passed along in props.user . profile_id 4 exists in our seeds, so it has been hardcoded to display the existing seeded child. currentUser is initializing as empty object {} and is not being updated. When this is fixed, change the hardcoded "4" to "profile_id" and it should work.
-    dispatch(getChildren(idToken, 4));
-  }, [dispatch, idToken]);
+    // dispatch(getChildren(idToken, 4));
+  // }, [dispatch, idToken]);
 
   const { user, children } = props;
 

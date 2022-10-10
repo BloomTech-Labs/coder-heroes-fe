@@ -43,11 +43,6 @@ function AdminSidebar() {
             <Link to="/admin-instructors">Instructors</Link>
           </Menu.Item>
 
-          {/* TODO see if this is actually a needed Link
-          <Menu.Item key="3">
-            <Link to="!#">Parents/Students</Link>
-          </Menu.Item> */}
-
           <Menu.Item key="4">
             <Link to="/admin-courses">Programs</Link>
           </Menu.Item>

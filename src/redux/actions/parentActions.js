@@ -25,10 +25,16 @@ export const getChildren = profile_id => async dispatch => {
   axios(profile_id)
     .get(`/parent/${profile_id}/children`)
     .then(res => {
-      dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
+      dispatch({
+        type: GET_CHILDREN_SUCCESS,
+        payload: res.data,
+      });
     })
     .catch(err => {
-      dispatch({ type: ERROR_ACTION, payload: err });
+      dispatch({
+        type: ERROR_ACTION,
+        payload: err.message,
+      });
     });
 };
 export const getCourses = dispatch => {

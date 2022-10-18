@@ -33,10 +33,22 @@ const getDSData = (url, authState) => {
   if (!url) {
     throw new Error('No URL provided');
   }
-  return axios
-    .get(url, { headers })
-    .then(res => JSON.parse(res.data))
-    .catch(err => err);
+  return Promise.resolve({
+    data: [],
+    layout: {},
+    frames: [],
+    config: {
+      displaylogo: false,
+      displayModeBar: false,
+    },
+  }).then(value => {
+    axios
+      .get(url, { headers })
+      .then(res => JSON.parse(res.data))
+      .catch(err => {
+        return value;
+      });
+  });
 };
 
 const apiAuthGet = authHeader => {

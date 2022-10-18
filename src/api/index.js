@@ -9,9 +9,14 @@ const sleep = time =>
   });
 
 const getExampleData = () => {
-  return axios
-    .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
-    .then(response => response.data);
+  return Promise.resolve([]).then(value => {
+    return axios
+      .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
+      .then(response => response.data)
+      .catch(err => {
+        return value;
+      });
+  });
 };
 
 const getAuthHeader = authState => {

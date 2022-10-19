@@ -52,7 +52,11 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = authHeader => {
-  return axios.get(apiUrl, { headers: authHeader });
+  return Promise.resolve([]).then(value => {
+    axios.get(apiUrl, { headers: authHeader }).catch(err => {
+      return value;
+    });
+  });
 };
 
 const getProfileData = authState => {

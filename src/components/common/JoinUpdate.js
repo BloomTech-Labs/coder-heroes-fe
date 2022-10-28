@@ -18,34 +18,49 @@ const Form = props => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    axios
-      .post(
-        'https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201',
+    Promise.resolve({
+      records: [
         {
-          records: [
-            {
-              fields: {
-                'Email Address': `${value['Email Address']}`,
-                'First Name': `${value['First Name']}`,
-                'Last Name': `${value['Last Name']}`,
-                Role: `${value['Role']}`,
-                Notes: `${value['Notes']}`,
-              },
-            },
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+          fields: {
+            'First Name': '',
+            'Last Name': '',
+            'Email Address': '',
+            Role: 'Parent',
+            Notes: '',
           },
-        }
-      )
-      .then(res => {
-        console.log(res.data.records[0].fields);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        },
+      ],
+    }).then(value => {
+      axios
+        .post(
+          'https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201',
+          {
+            records: [
+              {
+                fields: {
+                  'Email Address': `${value['Email Address']}`,
+                  'First Name': `${value['First Name']}`,
+                  'Last Name': `${value['Last Name']}`,
+                  Role: `${value['Role']}`,
+                  Notes: `${value['Notes']}`,
+                },
+              },
+            ],
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+            },
+          }
+        )
+        .then(res => {
+          console.log(res.data.records[0].fields);
+        })
+        .catch(err => {
+          console.log(err);
+          return value;
+        });
+    });
     setValues({
       'First Name': '',
       'Last Name': '',

@@ -26,22 +26,22 @@ export const setCurrentStudentId = student_id => {
 //     type: FETCHING,
 //     payload: true,
 //   });
-//   try {
-//     const res = await axiosWithAuth(idToken).get(
-//       `/classroom/students/${course_id}`
-//     );
-//     dispatch({
-//       type: GET_STUDENTS,
-//       payload: ['Dummy Dummerson', 'Dummy Dummfy']
-//       // payload: res.data,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
-//       payload: true,
-//     });
-//   }
-// };
+//   Promise.resolve([]).then(value=>{
+//     axiosWithAuth(idToken)
+//     .get(`/classroom/students/${course_id}`)
+//     .then(res=>{
+//       dispatch({
+//         type: GET_STUDENTS,
+//         payload: res.data || value,
+//       })
+//     })
+//     .catch(err=>{
+//       dispatch({
+//         type: ERROR,
+//         payload: true,
+//       });
+//     })
+//   });
 
 // temporary stubbed version; remove after
 export const getStudents = () => {
@@ -50,22 +50,26 @@ export const getStudents = () => {
 
 //async version to be restored after stubbing
 // export const getBadges = idToken => async dispatch => {
-//   dispatch({
-//     type: FETCHING,
-//     payload: true,
-//   });
-//   try {
-//     const res = await axiosWithAuth(idToken).get(`/classroom/badges/`);
+//   Promise.resolve([]).then(value=>{
 //     dispatch({
-//       type: GET_BADGES,
-//       payload: res.data,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
-//       payload: true,
-//     });
-//   }
+//         type: FETCHING,
+//         payload: true,
+//       });
+//     axiosWithAuth(idToken)
+//     .get(`/classroom/badges/`)
+//     .then(res=>{
+//       dispatch({
+//         type: GET_BADGES,
+//         payload: res.data,
+//       })
+//     })
+//     .catch(err=>{
+//       dispatch({
+//         type: ERROR,
+//         payload: true,
+//       });
+//     })
+//   })
 // };
 
 // stubbed version, to be removed after
@@ -75,24 +79,26 @@ export const getBadges = () => {
 
 //async version to restored later
 // export const getBadgesById = (idToken, student_id) => async dispatch => {
-//   dispatch({
-//     type: FETCHING,
-//     payload: true,
-//   });
-//   try {
-//     const res = await axiosWithAuth(idToken).get(
-//       `/classroom/badges/${student_id}`
-//     );
+//   Promise.resolve([]).then(value=>{
 //     dispatch({
-//       type: GET_BADGES_BY_ID,
-//       payload: res.data,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
+//       type: FETCHING,
 //       payload: true,
-//     });
-//   }
+//     })
+//     axiosWithAuth(idToken)
+//     .get(`/classroom/badges/${student_id}`)
+//     .then(res=>{
+//       dispatch({
+//         type: GET_BADGES_BY_ID,
+//         payload: res.data,
+//       });
+//     })
+//     .catch(err=>{
+//       dispatch({
+//         type: ERROR,
+//         payload: true,
+//       });
+//     })
+//   })
 // };
 
 //stubbed version, to be removed after
@@ -101,12 +107,7 @@ export const getBadgesById = () => {
 };
 
 // async version to be restored after
-// export const addBadgeToStudent = (
-//   idToken,
-//   badge_id,
-//   student_id,
-//   badge
-// ) => async dispatch => {
+// export const addBadgeToStudent = (idToken,badge_id,student_id,badge) => async dispatch => {
 //   dispatch({
 //     type: FETCHING,
 //     payload: true,

@@ -14,11 +14,10 @@ const List = ({ LoadingComponent, RenderItems, getItemsData }) => {
     Promise.resolve([]).then(value => {
       getItemsData()
         .then(items => {
-          setItems(items);
+          setItems(items || value);
         })
         .catch(error => {
           console.error(error);
-          setItems(value);
           // Be sure to add functionality that displays errors to your UI here.
           // We want our users to know whether something has gone wrong with our request.
         })

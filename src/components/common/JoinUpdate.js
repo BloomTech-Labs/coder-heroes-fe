@@ -18,49 +18,35 @@ const Form = props => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    Promise.resolve({
-      records: [
+    axios
+      .post(
+        'https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201',
         {
-          fields: {
-            'First Name': '',
-            'Last Name': '',
-            'Email Address': '',
-            Role: 'Parent',
-            Notes: '',
-          },
-        },
-      ],
-    }).then(value => {
-      axios
-        .post(
-          'https://api.airtable.com/v0/app4rHdRcowslAwKp/Table%201',
-          {
-            records: [
-              {
-                fields: {
-                  'Email Address': `${value['Email Address']}`,
-                  'First Name': `${value['First Name']}`,
-                  'Last Name': `${value['Last Name']}`,
-                  Role: `${value['Role']}`,
-                  Notes: `${value['Notes']}`,
-                },
+          records: [
+            {
+              fields: {
+                'Email Address': `${value['Email Address']}`,
+                'First Name': `${value['First Name']}`,
+                'Last Name': `${value['Last Name']}`,
+                Role: `${value['Role']}`,
+                Notes: `${value['Notes']}`,
               },
-            ],
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
             },
-          }
-        )
-        .then(res => {
-          console.log(res.data.records[0].fields);
-        })
-        .catch(err => {
-          console.log(err);
-          return value;
-        });
-    });
+          ],
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+          },
+        }
+      )
+      .then(res => {
+        console.log(res.data.records[0].fields);
+      })
+      .catch(err => {
+        console.log(err);
+        return value;
+      });
     setValues({
       'First Name': '',
       'Last Name': '',

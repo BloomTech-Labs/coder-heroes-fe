@@ -11,18 +11,21 @@ const List = ({ LoadingComponent, RenderItems, getItemsData }) => {
   useEffect(() => {
     // Here we are performing our GET request through the use of our
     // Axios helper function that we will receive through props
-    getItemsData()
-      .then(items => {
-        setItems(items);
-      })
-      .catch(error => {
-        console.error(error);
-        // Be sure to add functionality that displays errors to your UI here.
-        // We want our users to know whether something has gone wrong with our request.
-      })
-      .finally(() => {
-        setFetching(false);
-      });
+    Promise.resolve([]).then(value => {
+      getItemsData()
+        .then(items => {
+          setItems(items);
+        })
+        .catch(error => {
+          console.error(error);
+          setItems(value);
+          // Be sure to add functionality that displays errors to your UI here.
+          // We want our users to know whether something has gone wrong with our request.
+        })
+        .finally(() => {
+          setFetching(false);
+        });
+    });
   }, [getItemsData]);
 
   // Here we return a loading component while our request is fetching

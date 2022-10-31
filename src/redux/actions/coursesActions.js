@@ -18,18 +18,21 @@ export const cancelEdit = () => {
 
 // api call; to be restored after BE overhaul
 // export const getCourses = idToken => async dispatch => {
-//   try {
-//     const res = await axiosWithAuth(idToken).get(`/courses`);
-//     dispatch({
-//       type: GET_COURSES,
-//       payload: res.data,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
-//       payload: error.message,
-//     });
-//   }
+//   Promise.resolve().then(value=>{
+//     axiosWithAuth(idToken).get(`/courses`)
+//     .then(res=>{
+//       dispatch({
+//         type: GET_COURSES,
+//         payload: res.data,
+//       });
+//     })
+//     .catch(err=>{
+//       dispatch({
+//         type: ERROR,
+//         payload: error.message,
+//       });
+//     })
+//   })
 // };
 
 // stubbed out version; remove after BE overhaul

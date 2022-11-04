@@ -19,74 +19,58 @@ export const CANCEL_CART_ITEM = 'CANCEL_CART_ITEM';
 export const CLEAR_CART = 'CLEAR_CART';
 export const GET_NEWSFEEDS_PARENT = 'GET_NEWSFEEDS_PARENT';
 
-// api call; to be restored after BE overhaul
-// export const getChildren = (idToken, profile_id) => async dispatch => {
-//   dispatch({ type: GET_CHILDREN_ACTION });
-//   axiosWithAuth(idToken)
-//     .get(`/parent/${profile_id}/children`)
-//     .then(res => {
-//       dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
-//     })
-//     .catch(err => {
-//       dispatch({ type: ERROR_ACTION, payload: err });
-//     });
-// };
-// stubbed out version; remove after BE overhaul
-export const getChildren = () => {
-  return { type: 'GET_CHILDREN_ACTION', payload: [] };
+export const getChildren = (idToken, profile_id) => async dispatch => {
+  dispatch({ type: GET_CHILDREN_ACTION });
+  // axiosWithAuth(idToken)
+  //   .get(`/parent/${profile_id}/children`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };
 
-// api call; to be restored after BE overhaul
-// export const getCourses = dispatch => {
-//   dispatch({ type: GET_COURSES_ACTION });
-//   axios
-//     .get(`${process.env.REACT_APP_API_URI}/course`)
-//     .then(res => {
-//       dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
-//     })
-//     .catch(err => {
-//       dispatch({ type: ERROR_ACTION, payload: err });
-//     });
-// };
-// stubbed out version; remove after BE overhaul
-export const getCourses = () => {
-  return { type: 'GET_COURSES_ACTION', payload: [] };
+export const getCourses = dispatch => {
+  dispatch({ type: GET_COURSES_ACTION });
+  // axios
+  //   .get(`${process.env.REACT_APP_API_URI}/course`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: GET_COURSES_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };
 
-// api call; to be restored after BE overhaul
-// export const signupForCourse = () => dispatch => {
-//   dispatch({ type: SIGNUP_COURSE_ACTION });
-//   axios
-//     .get(`${process.env.REACT_APP_API_URI}/children/:id/enrollments}`, {
-//       crossdomain: true,
-//     })
-//     .then(res => {
-//       dispatch({ type: SIGNUP_COURSE_ACTION, payload: res.data });
-//     })
-//     .catch(err => {
-//       dispatch({ type: ERROR_ACTION, payload: err });
-//     });
-// };
-// stubbed out version; remove after BE overhaul
-export const signupForCourse = () => {
-  return { type: 'SIGNUP_COURSE_ACTION', payload: [] };
+export const signupForCourse = () => dispatch => {
+  dispatch({ type: SIGNUP_COURSE_ACTION });
+  // axios
+  //   .get(`${process.env.REACT_APP_API_URI}/children/:id/enrollments}`, {
+  //     crossdomain: true,
+  //   })
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: SIGNUP_COURSE_ACTION, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };
 
-// api call; to be restored after BE overhaul
-// export const fetchBookings = () => dispatch => {
-//   dispatch({ type: FETCH_BOOKINGS_START });
-//   axios
-//     .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/schedules`)
-//     .then(res => {
-//       dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
-//     })
-//     .catch(err => {
-//       dispatch({ type: FETCH_BOOKINGS_FAILURE, payload: err });
-//     });
-// };
-// stubbed out version; remove after BE overhaul
-export const fetchBookings = () => {
-  return { type: 'FETCH_BOOKINGS_SUCCESS', payload: [] };
+export const fetchBookings = () => dispatch => {
+  dispatch({ type: FETCH_BOOKINGS_START });
+  // axios
+  //   .get(`${process.env.REACT_APP_API_URI}/parent/:profile_id/schedules`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: FETCH_BOOKINGS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: FETCH_BOOKINGS_FAILURE, payload: err });
+    });
 };
 
 export const addToCart = booking => dispatch => {
@@ -99,26 +83,22 @@ export const clearCart = () => dispatch => {
   return dispatch({ type: CLEAR_CART });
 };
 
-// api call; to be restored after BE overhaul
-// export const getNewsFeedsParent = idToken => dispatch => {
-//   try {
-//     axiosWithAuth(idToken)
-//       .get('/news')
-//       .then(resp => {
-//         dispatch({
-//           type: GET_NEWSFEEDS_PARENT,
-//           payload: resp.data,
-//         });
-//       })
-//       .catch(err => console.log(err));
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR_ACTION,
-//       payload: console.log(error),
-//     });
-//   }
-// };
-// stubbed out version; remove after BE overhaul
-export const getNewsFeedsParent = () => {
-  return { type: 'GET_NEWSFEED_PARENT', payload: [] };
+export const getNewsFeedsParent = idToken => dispatch => {
+  try {
+    // axiosWithAuth(idToken)
+    //   .get('/news')
+    Promise.resolve({ data: [], message: '' })
+      .then(resp => {
+        dispatch({
+          type: GET_NEWSFEEDS_PARENT,
+          payload: resp.data,
+        });
+      })
+      .catch(err => console.log(err));
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: console.log(error),
+    });
+  }
 };

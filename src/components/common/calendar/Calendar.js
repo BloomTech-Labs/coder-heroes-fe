@@ -77,13 +77,14 @@ function CalendarApp() {
 
   // edit event form submission handler
   const onFinish = values => {
-    axiosWithAuth()
-      .put(`/calendar-events/${event.event_id}`, {
-        ...values,
-        type: 'success',
-        date: values.date.format('MM/DD/YYYY'),
-        time: values.time.format('h:mm A'),
-      })
+    // axiosWithAuth()
+    //   .put(`/calendar-events/${event.event_id}`, {
+    //     ...values,
+    //     type: 'success',
+    //     date: values.date.format('MM/DD/YYYY'),
+    //     time: values.time.format('h:mm A'),
+    //   })
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);
@@ -94,8 +95,9 @@ function CalendarApp() {
   };
 
   const handleDelete = () => {
-    axiosWithAuth()
-      .delete(`/calendar-events/${event.event_id}`)
+    // axiosWithAuth()
+    //   .delete(`/calendar-events/${event.event_id}`)
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);

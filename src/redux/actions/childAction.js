@@ -9,37 +9,26 @@ export const GET_COURSES_SUCCESS = 'GET_COURSES_SUCCESS';
 
 export const getChildren = idToken => dispatch => {
   dispatch({ type: GET_CHILDREN_ACTION });
-  // Promise.resolve({
-  //   child: {
-  //     child_id: 0,
-  //     profile_id: 0,
-  //     username: '',
-  //     age: 0,
-  //     parent_id: 0,
-  //   },
-  // })
-  // .then(value=>{
-  //   axiosWithAuth(idToken)
+  // axiosWithAuth(idToken)
   //   .get(`${process.env.REACT_APP_API_URI}/children`)
-  //   .then(res => {
-  //     dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data || value});
-  //   })
-  //   .catch(err => {
-  //     dispatch({ type: ERROR_ACTION, payload: err });
-  //   });
-  // })
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: GET_CHILDREN_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };
 
 export const getCourses = (idToken, child_id) => dispatch => {
   dispatch({ type: GET_COURSES_ACTION });
-  // Promise.resolve({ courses: {} }).then(value=>{
-  //   axiosWithAuth(idToken)
-  //   .get(`/children/${child_id}/enrollments`)
-  //   .then(res => {
-  //     dispatch({ type: GET_COURSES_SUCCESS, payload: res.data.enrollments || value});
-  //   })
-  //   .catch(err => {
-  //     dispatch({ type: ERROR_ACTION, payload: err });
-  //   });
-  // });
+  // axiosWithAuth(idToken)
+  // .get(`/children/${child_id}/enrollments`)
+  Promise.resolve({ data: { enrollments: [] }, message: '' })
+    .then(res => {
+      dispatch({ type: GET_COURSES_SUCCESS, payload: res.data.enrollments });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };

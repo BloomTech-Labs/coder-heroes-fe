@@ -34,16 +34,15 @@ function CalendarApp() {
 
   useEffect(() => {
     if (eventFlag) {
-      Promise.resolve([]).then(value => {
-        axiosWithAuth(idToken)
-          .get('/calendar-events/user')
-          .then(res => {
-            setEventsArr(res.data.events);
-          })
-          .catch(err => console.error(err));
-        setEventFlag(false);
-        // eslint-disable-next-line
-      });
+      // axiosWithAuth(idToken)
+      //   .get('/calendar-events/user')
+      Promise.resolve({ data: { events: [] }, message: '' })
+        .then(res => {
+          setEventsArr(res.data.events);
+        })
+        .catch(err => console.error(err));
+      setEventFlag(false);
+      // eslint-disable-next-line
     }
   }, [eventFlag, idToken]);
 

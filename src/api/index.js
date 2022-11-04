@@ -9,14 +9,9 @@ const sleep = time =>
   });
 
 const getExampleData = () => {
-  return Promise.resolve([]).then(value => {
-    return axios
-      .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
-      .then(response => response.data)
-      .catch(err => {
-        return value;
-      });
-  });
+  return axios
+    .get(`https://jsonplaceholder.typicode.com/photos?albumId=1`)
+    .then(response => response.data);
 };
 
 const getAuthHeader = authState => {
@@ -52,11 +47,7 @@ const getDSData = (url, authState) => {
 };
 
 const apiAuthGet = authHeader => {
-  return Promise.resolve([]).then(value => {
-    axios.get(apiUrl, { headers: authHeader }).catch(err => {
-      return value;
-    });
-  });
+  return axios.get(apiUrl, { headers: authHeader });
 };
 
 const getProfileData = authState => {

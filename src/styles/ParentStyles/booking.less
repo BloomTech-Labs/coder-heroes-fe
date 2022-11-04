@@ -88,8 +88,9 @@
 
         .selected-course-details {
           border: 2px solid black;
-          margin-left: 100px;
-          background-color: paleturquoise;
+          // margin-left: 100px;
+          margin-left: 20px;
+          background-color: rgb(224, 227, 209);
           border-radius: 5px;
           padding: 45px 45px 30px 45px;
           min-width: 500px;
@@ -101,14 +102,15 @@
 
         .show-availability-btn {
           background-color: #680049;
-          margin: 150px 6px 6px 150px;
+          // margin: 150px 6px 6px 150px;
+          margin: 150px 6px 6px 65px;
           font-size: 16px;
           padding: 7px 0;
           text-transform: uppercase;
           justify-content: center;
           border-radius: 5px;
 
-          p {
+          span {
             color: #eeedd9;
             margin: 0;
           }
@@ -118,11 +120,17 @@
           display: flex;
           min-width: 500px;
 
+          // .booking-card-btn:nth-child(1) {
+          //   margin-left: 40px;
+          // }
+          // .booking-card-btn:nth-child(2) {
+          //   margin-right: 40px;
+          // }
           .booking-card-btn:nth-child(1) {
-            margin-left: 40px;
+            margin-left: 10px;
           }
           .booking-card-btn:nth-child(2) {
-            margin-right: 40px;
+            margin-right: 10px;
           }
 
           .booking-card-btn {
@@ -133,10 +141,11 @@
             padding: 7px 0;
             text-transform: uppercase;
             border-radius: 5px;
-            min-width: 300px;
+            // min-width: 300px;
+            min-width: 255px;
             justify-content: center;
 
-            p {
+            span {
               color: #eeedd9;
               margin: 0;
             }
@@ -187,4 +196,57 @@
   background-color: rgba(58, 201, 176, 0.8);
   color: #680049;
   text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    display: flex;
+
+    .title {
+      p {
+        margin-left: 130px;
+      }
+    }
+
+    .form-container {
+      margin-left: 100px;
+
+      .booking-card-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 40px;
+      }
+      .booking-card-btn:nth-child(1) {
+        margin-left: 10px;
+      }
+      .booking-card-btn:nth-child(2) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main-container {
+    display: flex;
+
+    .title {
+      p {
+        margin-left: 340px;
+      }
+    }
+    .form-container {
+      margin-left: 125px;
+
+      .booking-calendar-container {
+        width: 500px;
+        .booking-calendar {
+          min-width: 500px;
+          max-width: 400px;
+          margin-left: 10px;
+        }
+        
+      }
+    }
+  }
 }

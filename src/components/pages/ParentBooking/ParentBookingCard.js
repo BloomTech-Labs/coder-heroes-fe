@@ -143,7 +143,7 @@ const ParentBookingCard = () => {
                         }
                       }}
                     >
-                      <p>Show Availability</p>
+                      <span>Show Availability</span>
                     </Button>
                   )}
                   {render && (
@@ -156,12 +156,12 @@ const ParentBookingCard = () => {
                         type="submit"
                         onClick={handleSelectedCourse}
                       >
-                        <p>View Selection Details</p>
+                        <span>View Selection Details</span>
                       </Button>
                     )}
                     {!show && render && (
                       <Button className="booking-card-btn" type="submit">
-                        <p>Book Now</p>
+                        <span>Book Now</span>
                       </Button>
                     )}
                     {!show && (
@@ -170,7 +170,7 @@ const ParentBookingCard = () => {
                         type="submit"
                         onClick={handleRefresh}
                       >
-                        <p>Edit</p>
+                        <span>Edit</span>
                       </Button>
                     )}
                   </div>

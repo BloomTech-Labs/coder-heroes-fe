@@ -15,13 +15,7 @@ const BookingCalendar = ({ handleCalendarClick }) => {
   };
 
   return (
-    <div
-      className="site-calendar-demo-card"
-      style={{
-        border: '1px solid #f0f0f0',
-        borderRadius: '2px',
-      }}
-    >
+    <div className="site-calendar-demo-card">
       <Alert
         className="booking-calendar"
         message={`You selected date: ${selectedValue &&

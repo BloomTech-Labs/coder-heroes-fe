@@ -34,77 +34,57 @@ export const getCourses = idToken => async dispatch => {
     });
 };
 
-// api call; to be restored after BE overhaul
-// export const delCourse = (idToken, id) => async dispatch => {
-//   try {
-//     await axiosWithAuth(idToken).delete(`/courses/${id}`);
-//     dispatch({
-//       type: DELETE_COURSE,
-//       payload: id,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
-//       payload: error.message,
-//     });
-//   }
-// };
-
-// stubbed out version; remove after BE overhaul
-export const delCourse = () => {
-  return {
-    type: ERROR,
-    payload: 'Please be patient while we overhaul the BE.',
-  };
+export const delCourse = (idToken, id) => async dispatch => {
+  try {
+    // await axiosWithAuth(idToken).delete(`/courses/${id}`);
+    Promise.resolve({ data: { id: '' }, message: '' }).then(res => {
+      dispatch({
+        type: DELETE_COURSE,
+        payload: res.data.id,
+      });
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.message,
+    });
+  }
 };
 
-// api call; to be restored after BE overhaul
-// export const editCourse = (idToken, course) => async dispatch => {
-//   try {
-//     const res = await axiosWithAuth(idToken).put(
-//       `/courses/${course.course_id}`,
-//       course
-//     );
-//     dispatch({
-//       type: UPDATE_COURSE,
-//       payload: res.data.course[0],
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: ERROR,
-//       payload: error.message,
-//     });
-//   }
-// };
-// stubbed out version; remove after BE overhaul
-export const editCourse = () => {
-  return {
-    type: ERROR,
-    payload: 'Please be patient while we overhaul the BE.',
-  };
+export const editCourse = (idToken, course) => async dispatch => {
+  try {
+    // const res = await axiosWithAuth(idToken).put(
+    //   `/courses/${course.course_id}`,
+    //   course
+    // );
+    Promise.resolve({ data: { course: [] }, message: '' }).then(res => {
+      dispatch({
+        type: UPDATE_COURSE,
+        payload: res.data.course[0],
+      });
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: error.message,
+    });
+  }
 };
 
-// api call; to be restored after BE overhaul
-// export const addCourse = (idToken, course) => async dispatch => {
-//   axiosWithAuth(idToken)
-//     .post('/course', course)
-//     .then(res => {
-//       dispatch({
-//         type: ADD_COURSE,
-//         payload: res.data.created_course,
-//       });
-//     })
-//     .catch(err => {
-//       dispatch({
-//         type: ERROR,
-//         payload: err.message,
-//       });
-//     });
-// };
-// stubbed out version; remove after BE overhaul
-export const addCourse = () => {
-  return {
-    type: ERROR,
-    payload: 'Please be patient while we overhaul the BE.',
-  };
+export const addCourse = (idToken, course) => async dispatch => {
+  // axiosWithAuth(idToken)
+  //   .post('/course', course)
+  Promise.resolve({ data: { created_course: '' }, message: '' })
+    .then(res => {
+      dispatch({
+        type: ADD_COURSE,
+        payload: res.data.created_course,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err.message,
+      });
+    });
 };

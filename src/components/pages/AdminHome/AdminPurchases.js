@@ -22,17 +22,15 @@ const PurchasesList = () => {
 
   // this is going out to an unspecified URL to gather the info - could be the backend, could be Stripe
   useEffect(() => {
-    Promise.resolve(purchases).then(value => {
-      axiosWithAuth(idToken)
-        .get(`${URL}/admin-purchases`)
-        .then(res => {
-          setPurchases(res.data);
-        })
-        .catch(err => {
-          console.error(err);
-          setPurchases(value);
-        });
-    });
+    // axiosWithAuth(idToken)
+    //   .get(`${URL}/admin-purchases`)
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
+        setPurchases(res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }, []);
 
   const { Content } = Layout;

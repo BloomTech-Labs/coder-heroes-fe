@@ -16,28 +16,22 @@ export const cancelEdit = () => {
   return { type: CANCEL_EDIT };
 };
 
-// api call; to be restored after BE overhaul
-// export const getCourses = idToken => async dispatch => {
-//   Promise.resolve().then(value=>{
-//     axiosWithAuth(idToken).get(`/courses`)
-//     .then(res=>{
-//       dispatch({
-//         type: GET_COURSES,
-//         payload: res.data,
-//       });
-//     })
-//     .catch(err=>{
-//       dispatch({
-//         type: ERROR,
-//         payload: error.message,
-//       });
-//     })
-//   })
-// };
-
-// stubbed out version; remove after BE overhaul
-export const getCourses = () => {
-  return { type: GET_COURSES, payload: [] };
+export const getCourses = idToken => async dispatch => {
+  // axiosWithAuth(idToken)
+  // .get(`/courses`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({
+        type: GET_COURSES,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err.message,
+      });
+    });
 };
 
 // api call; to be restored after BE overhaul

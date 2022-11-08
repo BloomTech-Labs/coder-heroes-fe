@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { useOktaAuth } from '@okta/okta-react';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 import InstructorFormSchema from './InstructorFormSchema';
 import RegistrationProgress from '../RegistrationProgress';
-import axiosWithAuth from '../../../../utils/axiosWithAuth';
+import axios from 'axios';
+// import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import * as yup from 'yup';
 import '../../../../styles/registration.less';
 
+//TO-DO: Implement Auth0
 const initialValues = {
   name: '',
   email: '',
@@ -38,17 +38,6 @@ const InstrRegForm = () => {
   const [formErrors, setFormErrors] = useState(initialErrors);
   const [disabled, setDisabled] = useState(initialSaveDisabled);
   const [formWarning, setFormWarning] = useState(initialWarning);
-  const { authState, oktaAuth } = useOktaAuth();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (authState !== null) {
-      if (authState.isAuthenticated !== false) {
-        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const validate = (name, value) => {
     yup
@@ -68,9 +57,9 @@ const InstrRegForm = () => {
 
   let history = useHistory();
 
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const onSubmit = evt => {
     evt.preventDefault();
-
     // axiosWithAuth(authState.idToken)
     //   .post('/instructors/register', {
     //     name: formValues.name,

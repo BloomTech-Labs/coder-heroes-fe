@@ -10,15 +10,6 @@ import { LandingPage } from '../components/pages/Landing';
 
 const store = createStore(rootReducers);
 
-jest.mock('@okta/okta-react', () => ({
-  useOktaAuth: () => {
-    return {
-      authState: null,
-      authService: {},
-    };
-  },
-}));
-
 beforeEach(() => {
   render(
     <Provider store={store}>

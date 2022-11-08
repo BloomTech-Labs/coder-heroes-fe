@@ -1,4 +1,4 @@
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 import axios from 'axios';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const SET_ERROR = 'SET_ERROR';
@@ -8,6 +8,8 @@ export const ERROR_ACTION = 'ERROR';
 export const POST_INBOX_ACTION = 'POST_INBOX_ACTION';
 export const POST_INBOX_SUCCESS = 'POST_INBOX_SUCCESS';
 export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
+//TO-DO: Implement Auth0
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
 export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
   if (oktaAuth.isAuthenticated) {

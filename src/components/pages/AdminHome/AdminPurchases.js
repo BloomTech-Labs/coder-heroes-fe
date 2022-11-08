@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import PurchasesTable from './AdminPurchasesTable';
 import '../../../styles/index.less';
+//TO-DO: Implement Auth0
 
 const PurchasesList = () => {
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
   const [purchases, setPurchases] = useState([
     {
       purchase_date: 20220816,

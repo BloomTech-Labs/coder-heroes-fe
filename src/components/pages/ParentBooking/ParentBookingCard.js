@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import { Card, Button } from 'antd';
 import { dateConverter } from '../../common/dateHelpers';
 import { timeConverter } from '../../common/timeHelpers';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
+import axios from 'axios';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { addToCart } from '../../../redux/actions/parentActions';
 
+//TO-DO: Implement Auth0
 const ParentBookingCard = props => {
   const {
     child_name,
@@ -26,8 +27,7 @@ const ParentBookingCard = props => {
 
   const { addToCart } = props;
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const handleClick = e => {
     // axiosWithAuth(idToken)
     //   .post(

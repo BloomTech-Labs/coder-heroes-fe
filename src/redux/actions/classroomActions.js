@@ -1,4 +1,5 @@
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
+import axios from 'axios';
 
 export const SET_COURSE_ID = 'SET_COURSE_ID';
 export const GET_STUDENTS = 'GET_STUDENTS';
@@ -20,7 +21,7 @@ export const setCurrentStudentId = student_id => {
   return { type: SET_CURRENT_STUDENT_ID, payload: student_id };
 };
 
-export const getStudents = (idToken, course_id) => async dispatch => {
+export const getStudents = (profile_id, course_id) => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
@@ -64,7 +65,7 @@ export const getBadges = idToken => async dispatch => {
     });
 };
 
-export const getBadgesById = (idToken, student_id) => async dispatch => {
+export const getBadgesById = (profile_id, student_id) => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
@@ -87,7 +88,7 @@ export const getBadgesById = (idToken, student_id) => async dispatch => {
 };
 
 export const addBadgeToStudent = (
-  idToken,
+  profile_id,
   badge_id,
   student_id,
   badge
@@ -117,7 +118,7 @@ export const addBadgeToStudent = (
 };
 
 export const removeBadgeFromStudent = (
-  idToken,
+  profile_id,
   badge_id,
   student_id,
   badge

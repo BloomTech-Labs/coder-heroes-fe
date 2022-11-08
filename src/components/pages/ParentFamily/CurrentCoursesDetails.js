@@ -4,20 +4,19 @@ import '../../../styles/ParentStyles/index.less';
 import { connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/childAction';
 import { useDispatch } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { Card, Button } from 'antd';
+//TO-DO: Implement Auth0
 
 const { Column } = Table;
 
 const CurrentCoursesDetails = props => {
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
   const dispatch = useDispatch();
   const { courses, child_id } = props;
 
+  //TO-DO: Implement Auth0 - getCourses
   useEffect(() => {
-    dispatch(getCourses(idToken, child_id));
-  }, [dispatch, idToken, child_id]);
+    dispatch(getCourses(child_id));
+  }, [dispatch, child_id]);
 
   return (
     <div className="current-courses-details-container">

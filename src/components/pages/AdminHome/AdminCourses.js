@@ -1,23 +1,16 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
-import { connect } from 'react-redux';
 import CourseCard from './AdminCourseCard';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
-import { useOktaAuth } from '@okta/okta-react';
 import { Layout } from 'antd';
+//TO-DO: Implement Auth0
 
 // need to upgrade the courses router/modal to get the instructor name (2 seconds update in modal)
 
 function AdminCourses(props) {
   const { courses } = props;
-  const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
-
-  useEffect(() => {
-    dispatch(getCourses(idToken));
-  }, [dispatch, idToken]);
 
   const history = useHistory();
 
@@ -31,8 +24,8 @@ function AdminCourses(props) {
     <Layout>
       <AdminSidebar />
       <Content>
-        <div class="table-container">
-          <div class="header-container">
+        <div className="table-container">
+          <div className="header-container">
             <h1>Courses</h1>
           </div>
           <div className="courses-page-flex">

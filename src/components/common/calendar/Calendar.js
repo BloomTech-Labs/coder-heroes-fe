@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import {
@@ -14,7 +13,8 @@ import {
 } from 'antd';
 import moment from 'moment';
 import CalendarModal from './CalendarModal';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axios from 'axios';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 function CalendarApp() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -27,11 +27,7 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
-  const { authState, oktaAuth } = useOktaAuth();
-  const { idToken } = authState;
-
-  // const token = oktaAuth.getIdToken();
-
+  // TO-DO: Implement Auth0
   useEffect(() => {
     if (eventFlag) {
       // axiosWithAuth(idToken)
@@ -44,7 +40,7 @@ function CalendarApp() {
       setEventFlag(false);
       // eslint-disable-next-line
     }
-  }, [eventFlag, idToken]);
+  }, [eventFlag]);
 
   useEffect(() => {
     if (event) {

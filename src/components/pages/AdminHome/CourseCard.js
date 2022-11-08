@@ -3,18 +3,11 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'antd';
 import { connect, useDispatch } from 'react-redux';
 import { getCourses } from '../../../redux/actions/coursesActions';
-import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/AdminDashboardHome/index.less';
+//TO-DO: Implement Auth0
 
 const CourseCard = props => {
   const history = useHistory();
-  const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
-
-  useEffect(() => {
-    if (!idToken) return;
-    dispatch(getCourses(idToken));
-  }, [dispatch, idToken]);
 
   const handleOnClick = id => {
     history.push(`/course/${id}`); // Might have to change the route

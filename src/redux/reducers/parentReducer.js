@@ -1,4 +1,3 @@
-import { parentDummyData } from '../../parentDummyData';
 import {
   ADD_TO_CART,
   CANCEL_CART_ITEM,
@@ -15,6 +14,17 @@ import {
   GET_NEWSFEEDS_PARENT,
 } from '../actions/parentActions';
 
+const initialState = {
+  availableCourses: [],
+  bookings: null,
+  cart: [],
+  children: [],
+  courses: [],
+  inbox: [],
+  newsfeed: [],
+  sessions: [],
+};
+
 const removeCartItem = (cart, booking) => {
   for (let i = 0; i < cart.length; i++) {
     if (
@@ -28,7 +38,7 @@ const removeCartItem = (cart, booking) => {
   return cart;
 };
 
-const reducer = (state = parentDummyData, action) => {
+const parentReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COURSES_ACTION:
       return {
@@ -55,7 +65,6 @@ const reducer = (state = parentDummyData, action) => {
         ...state,
         inbox: action.payload,
       };
-
     case SIGNUP_COURSE_ACTION:
       return {
         ...state,
@@ -114,4 +123,4 @@ const reducer = (state = parentDummyData, action) => {
   }
 };
 
-export default reducer;
+export default parentReducer;

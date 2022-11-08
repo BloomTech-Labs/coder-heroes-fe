@@ -28,7 +28,7 @@ const getDSData = (url, authState) => {
   if (!url) {
     throw new Error('No URL provided');
   }
-  axios
+  return axios
     .get(url, { headers })
     .then(res => JSON.parse(res.data))
     .catch(err => {

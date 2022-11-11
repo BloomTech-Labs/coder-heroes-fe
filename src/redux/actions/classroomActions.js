@@ -11,7 +11,7 @@ export const GET_BADGES = 'GET_BADGES';
 export const ADD_BADGE_TO_STUDENT = 'ADD_BADGE_TO_STUDENT';
 export const REMOVE_BADGE_FROM_STUDENT = 'REMOVE_BADGE_FROM_STUDENT';
 
-//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+// stubbed
 
 export const setCourseId = course_id => {
   return { type: SET_COURSE_ID, payload: course_id };
@@ -26,36 +26,43 @@ export const getStudents = (profile_id, course_id) => async dispatch => {
     type: FETCHING,
     payload: true,
   });
-  try {
-    const res = await axios(profile_id).get(`/classroom/students/${course_id}`);
-    dispatch({
-      type: GET_STUDENTS,
-      payload: res.data,
+  // axiosWithAuth(idToken)
+  // .get(`/classroom/students/${course_id}`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({
+        type: GET_STUDENTS,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: true,
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: true,
-    });
-  }
 };
-export const getBadges = profile_id => async dispatch => {
+
+export const getBadges = idToken => async dispatch => {
   dispatch({
     type: FETCHING,
     payload: true,
   });
-  try {
-    const res = await axios(profile_id).get(`/classroom/badges/`);
-    dispatch({
-      type: GET_BADGES,
-      payload: res.data,
+  // axiosWithAuth(idToken)
+  // .get(`/classroom/badges/`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({
+        type: GET_BADGES,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: true,
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: true,
-    });
-  }
 };
 
 export const getBadgesById = (profile_id, student_id) => async dispatch => {
@@ -63,18 +70,21 @@ export const getBadgesById = (profile_id, student_id) => async dispatch => {
     type: FETCHING,
     payload: true,
   });
-  try {
-    const res = await axios(profile_id).get(`/classroom/badges/${student_id}`);
-    dispatch({
-      type: GET_BADGES_BY_ID,
-      payload: res.data,
+  // axiosWithAuth(idToken)
+  // .get(`/classroom/badges/${student_id}`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({
+        type: GET_BADGES_BY_ID,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: true,
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: true,
-    });
-  }
 };
 
 export const addBadgeToStudent = (
@@ -87,18 +97,19 @@ export const addBadgeToStudent = (
     type: FETCHING,
     payload: true,
   });
-  axios(profile_id)
-    .post(`/classroom/assign`, {
-      badge_id: badge_id,
-      child_id: student_id,
-    })
-    .then(() => {
+  // axiosWithAuth(idToken)
+  //   .post(`/classroom/assign`, {
+  //     badge_id: badge_id,
+  //     child_id: student_id,
+  //   })
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
       dispatch({
         type: ADD_BADGE_TO_STUDENT,
-        payload: badge,
+        payload: res.data,
       });
     })
-    .catch(() => {
+    .catch(err => {
       dispatch({
         type: ERROR,
         payload: true,
@@ -117,14 +128,14 @@ export const removeBadgeFromStudent = (
     payload: true,
   });
   try {
-    axios(profile_id)
-      .delete(`/classroom/remove/${badge_id}/${student_id}`)
-      .then(() => {
-        dispatch({
-          type: REMOVE_BADGE_FROM_STUDENT,
-          payload: badge,
-        });
+    // axiosWithAuth(idToken)
+    //   .delete(`/classroom/remove/${badge_id}/${student_id}`)
+    Promise.resolve({ data: [], message: '' }).then(res => {
+      dispatch({
+        type: REMOVE_BADGE_FROM_STUDENT,
+        payload: res.data,
       });
+    });
   } catch (error) {
     dispatch({
       type: ERROR,

@@ -52,8 +52,8 @@ const NewsfeedPostModal = props => {
       [e.target.name]: e.target.value,
     });
   };
-  
- //TO-DO: Implement Auth0 - handleSubmit
+
+  //TO-DO: Implement Auth0 - handleSubmit
   const handleSubmit = () => {
     dispatch(postNewsFeed(formValues));
 

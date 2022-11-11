@@ -19,27 +19,32 @@ export const cancelEdit = () => {
   return { type: CANCEL_EDIT };
 };
 
-export const getCourses = profile_id => async dispatch => {
-  try {
-    const res = await axios(profile_id).get(`/courses`);
-    dispatch({
-      type: GET_COURSES,
-      payload: res.data,
+export const getCourses = idToken => async dispatch => {
+  // axiosWithAuth(idToken)
+  // .get(`/courses`)
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({
+        type: GET_COURSES,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err.message,
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: error.message,
-    });
-  }
 };
 
 export const delCourse = (profile_id, id) => async dispatch => {
   try {
-    await axios(profile_id).delete(`/courses/${id}`);
-    dispatch({
-      type: DELETE_COURSE,
-      payload: id,
+    // await axiosWithAuth(idToken).delete(`/courses/${id}`);
+    Promise.resolve({ data: { id: '' }, message: '' }).then(res => {
+      dispatch({
+        type: DELETE_COURSE,
+        payload: res.data.id,
+      });
     });
   } catch (error) {
     dispatch({
@@ -51,13 +56,15 @@ export const delCourse = (profile_id, id) => async dispatch => {
 
 export const editCourse = (profile_id, course) => async dispatch => {
   try {
-    const res = await axios(profile_id).put(
-      `/courses/${course.course_id}`,
-      course
-    );
-    dispatch({
-      type: UPDATE_COURSE,
-      payload: res.data.course[0],
+    // const res = await axiosWithAuth(idToken).put(
+    //   `/courses/${course.course_id}`,
+    //   course
+    // );
+    Promise.resolve({ data: { course: [] }, message: '' }).then(res => {
+      dispatch({
+        type: UPDATE_COURSE,
+        payload: res.data.course[0],
+      });
     });
   } catch (error) {
     dispatch({
@@ -67,9 +74,10 @@ export const editCourse = (profile_id, course) => async dispatch => {
   }
 };
 
-export const addCourse = (profile_id, course) => async dispatch => {
-  axios(profile_id)
-    .post('/course', course)
+export const addCourse = (idToken, course) => async dispatch => {
+  // axiosWithAuth(idToken)
+  //   .post('/course', course)
+  Promise.resolve({ data: { created_course: '' }, message: '' })
     .then(res => {
       dispatch({
         type: ADD_COURSE,

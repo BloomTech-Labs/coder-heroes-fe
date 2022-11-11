@@ -23,7 +23,7 @@ function NewsFeedPutModal(props) {
 
   const dispatch = useDispatch();
 
-//TO-DO: Implement Auth0 - getNewsFeed
+  //TO-DO: Implement Auth0 - getNewsFeed
   useEffect(() => {
     dispatch(getNewsFeed(postID, posted_at));
   }, []);
@@ -47,7 +47,7 @@ function NewsFeedPutModal(props) {
     event.preventDefault();
   };
 
- //TO-DO: Implement Auth0 - deleteNewsFeed
+  //TO-DO: Implement Auth0 - deleteNewsFeed
   const handleDelete = event => {
     dispatch(deleteNewsFeed(postID));
 

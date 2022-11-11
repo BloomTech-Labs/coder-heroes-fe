@@ -25,7 +25,9 @@ const getDSData = url => {
   return axios
     .get(url)
     .then(res => JSON.parse(res.data))
-    .catch(err => err);
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 // NOTE: Once auth0 is implemented these lines can be refactored or reused //

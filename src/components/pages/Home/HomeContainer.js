@@ -4,7 +4,7 @@ import RenderHomePage from './RenderHomePage';
 
 //TO-DO: Implement Auth0
 function HomeContainer() {
-  return "Hi, Need to Implement Auth0";
+  return 'Hi, Need to Implement Auth0';
 }
 
 // //Can be used as template when Auth0 is implemented// //

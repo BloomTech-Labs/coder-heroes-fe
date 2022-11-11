@@ -15,7 +15,6 @@ import { NavLink } from 'react-router-dom';
 const { Title, Paragraph } = Typography;
 
 function RenderLandingPage(props) {
-
   return (
     <div className="landing-container">
       {/* Main text container */}

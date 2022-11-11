@@ -10,7 +10,6 @@ import { getCurrentUser } from '../../../../redux/actions/userActions';
 
 //TO-DO: Implement Auth0
 function ActiveMessage(props) {
-  
   const sortByDate = arr => {
     return arr.sort((a, b) => {
       const dateA = new Date(a.sent_at);

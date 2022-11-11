@@ -16,7 +16,7 @@ const SearchInstructors = props => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
- //TO-DO: Implement Auth0 - getInstructor
+  //TO-DO: Implement Auth0 - getInstructor
   const handleSubmit = () => {
     dispatch(getInstructor());
   };

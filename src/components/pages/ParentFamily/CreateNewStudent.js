@@ -15,8 +15,9 @@ const CreateNewStudent = props => {
 
   //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const onFinish = values => {
-    axios
-      .post('/children', values.student)
+    // axiosWithAuth(idToken)
+    //   .post('/children', values.student)
+    Promise.resolve({ data: [], message: '' })
       .then(resp => {
         setAddStudentVisible(false);
         setAlertMsg(1);

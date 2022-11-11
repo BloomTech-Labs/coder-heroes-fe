@@ -55,9 +55,7 @@ const ClassCard = ({ course }) => {
   //TO-DO: Implement Auth0 - handleEdit
   const handleEdit = () => {
     setEditing(!editing);
-    dispatch(
-      editCourse({ ...course, course_name: state.course_name })
-    );
+    dispatch(editCourse({ ...course, course_name: state.course_name }));
   };
 
   const myStyle = {

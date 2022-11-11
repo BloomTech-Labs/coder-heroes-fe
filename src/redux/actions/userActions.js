@@ -11,19 +11,19 @@ export const SET_ACTIVE_CONVERSATION = 'SET_ACTIVE_CONVERSATION';
 //TO-DO: Implement Auth0
 //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
 
-export const getCurrentUser = profile_id => async dispatch => {
-  if (profile_id) {
-    axios
+export const getCurrentUser = (idToken, oktaAuth) => async dispatch => {
+  if (oktaAuth.isAuthenticated) {
+    oktaAuth
       .getUser()
       .then(parsedJWT => {
-        axios(profile_id)
-          .get(`/profiles/${parsedJWT.sub}`)
-          .then(res => {
-            dispatch({
-              type: GET_CURRENT_USER,
-              payload: res.data,
-            });
+        // axiosWithAuth(idToken)
+        //   .get(`/profiles/${parsedJWT.sub}`)
+        Promise.resolve({ data: [], message: '' }).then(res => {
+          dispatch({
+            type: GET_CURRENT_USER,
+            payload: res.data,
           });
+        });
       })
       .catch(err => {
         dispatch({
@@ -38,43 +38,39 @@ export const getActiveConversation = activeConversation => {
   return { type: SET_ACTIVE_CONVERSATION, payload: activeConversation };
 };
 
-export const addMessage = (message, profile_id, title, sender_id) => {
-  return {
-    type: POST_INBOX_ACTION,
-    payload: {
-      message,
-      sender_id: sender_id,
-      title,
-      profile_id: profile_id,
-      sent_at: new Date(),
-      read: false,
-    },
-  };
-  // This endpoint is not working/not built yet
-  //   axios
-  //     .post(`${process.env.REACT_APP_API_URI}/conversation_id/messages/`, {
-  //       message,
-  //       sent_at: date.toISOString(),
-  //       sender_id: profile_id,
-  //       title: title,
-  //       inbox_id: recipient,
-  //       read: false,
-  //       crossdomain: true,
-  //     })
-  //     .then(res => {
-  //       dispatch({ type: POST_INBOX_SUCCESS, payload: res.data });
-  //     })
-  //     .catch(err => {
-  //       dispatch({ type: ERROR_ACTION, payload: err });
-  //     });
+export const addMessage = (
+  idToken,
+  message,
+  profile_id,
+  title,
+  sender_id
+) => dispatch => {
+  // axios
+  //   .post(`${process.env.REACT_APP_API_URI}/conversation_id/messages/`, {
+  //     message,
+  //     sent_at: date.toISOString(),
+  //     sender_id: profile_id,
+  //     title: title,
+  //     inbox_id: recipient,
+  //     read: false,
+  //     crossdomain: true,
+  //   })
+  Promise.resolve({ data: [], message: '' })
+    .then(res => {
+      dispatch({ type: POST_INBOX_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR_ACTION, payload: err });
+    });
 };
 
 export const getInbox = dispatch => {
   dispatch({ type: GET_INBOX_ACTION });
-  axios
-    .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
-      crossdomain: true,
-    })
+  // axios
+  //   .get(`${process.env.REACT_APP_API_URI}/inbox/:profile_id`, {
+  //     crossdomain: true,
+  //   })
+  Promise.resolve({ data: [], message: '' })
     .then(res => {
       dispatch({ type: GET_INBOX_SUCCESS, payload: res.data });
     })

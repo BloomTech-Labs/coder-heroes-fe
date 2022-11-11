@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 
 export default function MainHeader() {
   //TO-DO: Implement Auth0
-    // const { authService, authState } = 'Update the hook with auth0';
+  // const { authService, authState } = 'Update the hook with auth0';
   return (
     <div>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>

@@ -29,12 +29,13 @@ const ParentBookingCard = props => {
 
   //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const handleClick = e => {
-    axios
-      .post(
-        '/children/1/enrollments', // TO-DO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
-        { child_id: 1, class_id: course_id, completed: true }
-      )
-      .then(res => console.log(res)) // TO-DO: Let's perform some action with this result.
+    // axiosWithAuth(idToken)
+    //   .post(
+    //     '/children/1/enrollments', // TODO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
+    //     { child_id: 1, class_id: course_id, completed: true }
+    //   )
+    Promise.resolve({ data: [], message: '' })
+      .then(res => console.log(res)) // TODO: Let's perform some action with this result.
       .catch(err => console.log(`message: ${err.message}`));
   };
 

@@ -60,16 +60,17 @@ const InstrRegForm = () => {
   //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
   const onSubmit = evt => {
     evt.preventDefault();
-    axios
-      .post('/instructors/register', {
-        name: formValues.name,
-        email: formValues.email,
-        location: formValues.location,
-        phone: formValues.phone,
-        education: formValues.education,
-        technical: formValues.tech,
-        notes: formValues.notes,
-      })
+    // axiosWithAuth(authState.idToken)
+    //   .post('/instructors/register', {
+    //     name: formValues.name,
+    //     email: formValues.email,
+    //     location: formValues.location,
+    //     phone: formValues.phone,
+    //     education: formValues.education,
+    //     technical: formValues.tech,
+    //     notes: formValues.notes,
+    //   })
+    Promise.resolve({ data: [], message: '' })
       .then(res => {
         history.push('/instructor-register-success');
       })

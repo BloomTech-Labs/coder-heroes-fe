@@ -30,16 +30,16 @@ function CalendarApp() {
   // TO-DO: Implement Auth0
   useEffect(() => {
     if (eventFlag) {
-      //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
-      axios
-        .get('/calendar-events/user')
+      // axiosWithAuth(idToken)
+      //   .get('/calendar-events/user')
+      Promise.resolve({ data: { events: [] }, message: '' })
         .then(res => {
           setEventsArr(res.data.events);
         })
         .catch(err => console.error(err));
+      setEventFlag(false);
+      // eslint-disable-next-line
     }
-    setEventFlag(false);
-    // eslint-disable-next-line
   }, [eventFlag]);
 
   useEffect(() => {
@@ -73,14 +73,14 @@ function CalendarApp() {
 
   // edit event form submission handler
   const onFinish = values => {
-    //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
-    axios
-      .put(`/calendar-events/${event.event_id}`, {
-        ...values,
-        type: 'success',
-        date: values.date.format('MM/DD/YYYY'),
-        time: values.time.format('h:mm A'),
-      })
+    // axiosWithAuth()
+    //   .put(`/calendar-events/${event.event_id}`, {
+    //     ...values,
+    //     type: 'success',
+    //     date: values.date.format('MM/DD/YYYY'),
+    //     time: values.time.format('h:mm A'),
+    //   })
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);
@@ -91,9 +91,9 @@ function CalendarApp() {
   };
 
   const handleDelete = () => {
-    //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
-    axios
-      .delete(`/calendar-events/${event.event_id}`)
+    // axiosWithAuth()
+    //   .delete(`/calendar-events/${event.event_id}`)
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);

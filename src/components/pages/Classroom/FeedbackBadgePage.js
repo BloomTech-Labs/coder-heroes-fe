@@ -22,7 +22,6 @@ const FeedbackBadgesPage = props => {
   // //   dispatch(getBadges(profile.id));
   // // }, [])
 
-
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     dispatch(getBadgesById(course.currentStudentId));

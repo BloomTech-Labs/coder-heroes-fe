@@ -15,7 +15,6 @@ const { Content } = Layout;
 const { Title } = Typography;
 
 const AllClasses = props => {
-
   const handleEditSelect = id => {
     setEditing(id);
   };

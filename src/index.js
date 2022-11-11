@@ -30,6 +30,7 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome/index';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
+import AdminPrograms from './components/pages/AdminHome/AdminPrograms';
 import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
 import AdminInstructors from './components/pages/AdminHome/AdminInstructors';
 import ParentBooking from './components/pages/ParentBooking';
@@ -177,6 +178,7 @@ function App() {
         {/* The above route exists for developmental purposes, but the "/" path will be for the home page ("/landing") in the deployed version */}
         <Route path="/admin-add-course" component={AdminAddCourses} />
         <Route path="/admin-courses" component={AdminCourses} />
+        <Route path="/admin-programs" component={AdminPrograms} />
         <Route path="/admin-edit-course" component={AdminEditCourse} />
         {/* The above route exists for developmental purposes, The dashboard should be determined by the role logging in */}
         <Route path="/admin-purchases" component={AdminPurchases} />

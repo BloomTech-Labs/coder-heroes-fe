@@ -246,11 +246,24 @@ button.instructor-button{
 // Admin Programs
 #programs-header {
   background-color: @instuctor-calendar-style__bg--blue-lagoon;
-  padding: 0 1%;
+  padding: 0 3% 0 1.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: @text__font-family;
 }
-#programs-header>h3 {
+#programs-header h3 {
   font-size: 1.88rem;
   color: white;
+  margin-bottom: 0;
+}
+#programs-header button {
+  justify-self: flex-end;
+  width: min-content;
+}
+.ant-scroll-number.ant-badge-count {
+  background-color: #EC2C4E;
 }
 
 //media queries for submit new program

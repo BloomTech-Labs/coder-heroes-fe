@@ -15,7 +15,9 @@ export const dummyData = {
       number_of_sessions: '7',
       location: 'zoom.us',
       instructor_id: '1',
+      instructor_name: 'Adam Johnson',
       program_id: '1',
+      program_name: 'Redux for Dummies',
     },
     {
       course_id: 3,
@@ -32,7 +34,9 @@ export const dummyData = {
       number_of_sessions: '7',
       location: 'zoom.us',
       instructor_id: '2',
+      instructor_name: 'Samantha Corwin',
       program_id: '1',
+      program_name: 'Redux for Dummies',
     },
   ],
 

@@ -40,6 +40,7 @@ function AdminPrograms(props) {
         onOk={hideModal}
         onCancel={hideModal}
         centered={true}
+        width={1000}
       >
         <input type="text" placeholder="Search..." />
         <button>Filter</button>
@@ -47,9 +48,9 @@ function AdminPrograms(props) {
           return (
             <div className="course-modal-item">
               <p>{item.course_name} </p>
-              <p>{item.program_id} </p>
+              <p>{item.program_name} </p>
               <p>{item.max_size} </p>
-              <p>{item.instructor_id} </p>
+              <p>{item.instructor_name} </p>
             </div>
           );
         })}

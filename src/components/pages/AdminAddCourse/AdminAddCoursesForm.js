@@ -33,6 +33,7 @@ const initialFormValues = {
   end_date: '',
   start_time: '',
   end_time: '',
+  location_URL: '',
   number_of_sessions: '',
   instructor_id: '',
 };
@@ -82,6 +83,7 @@ function AdminAddCoursesForm(props) {
         end_date: courseinfo.end_date,
         start_time: courseinfo.start_time,
         end_time: courseinfo.end_time,
+        location_URL: courseinfo.location_URL,
         number_of_sessions: courseinfo.number_of_sessions,
         instructor_id: courseinfo.instructor_id,
       });

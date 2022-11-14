@@ -26,7 +26,7 @@ function AdminPrograms() {
 
       {/* Depending on whether showing "pending" or "approved" -> change title to reflect that */}
       <Modal
-        title="Courses"
+        title={'Courses'}
         visible={showCourses}
         open={true}
         onOk={hideModal}

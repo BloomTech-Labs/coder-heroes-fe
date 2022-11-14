@@ -30,7 +30,7 @@ import ParentFamilyHome from './components/pages/ParentFamily/ParentFamilyHome';
 import AdminHome from './components/pages/AdminHome/index';
 import AdminAddCourses from './components/pages/AdminAddCourse';
 import AdminCourses from './components/pages/AdminHome/AdminCourses';
-import AdminPrograms from './components/pages/AdminHome/AdminPrograms';
+import AdminPrograms from './components/pages/AdminPrograms/AdminPrograms';
 import AdminPurchases from './components/pages/AdminHome/AdminPurchases';
 import AdminInstructors from './components/pages/AdminHome/AdminInstructors';
 import ParentBooking from './components/pages/ParentBooking';

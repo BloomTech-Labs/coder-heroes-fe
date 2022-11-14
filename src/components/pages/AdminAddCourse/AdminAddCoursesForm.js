@@ -23,6 +23,7 @@ const { Option } = Select;
 
 const initialFormValues = {
   course_id: '',
+  course_location: '',
   course_name: '',
   course_description: '',
   days_of_week: [],
@@ -33,7 +34,6 @@ const initialFormValues = {
   end_date: '',
   start_time: '',
   end_time: '',
-  location_URL: '',
   number_of_sessions: '',
   instructor_id: '',
 };
@@ -73,6 +73,7 @@ function AdminAddCoursesForm(props) {
     if (props.button_name === 'Edit Course') {
       setFormValues({
         course_id: courseinfo.course_id,
+        course_location: courseinfo.course_location,
         course_name: courseinfo.course_name,
         course_description: courseinfo.course_description,
         days_of_week: courseinfo.days_of_week,
@@ -83,7 +84,6 @@ function AdminAddCoursesForm(props) {
         end_date: courseinfo.end_date,
         start_time: courseinfo.start_time,
         end_time: courseinfo.end_time,
-        location_URL: courseinfo.location_URL,
         number_of_sessions: courseinfo.number_of_sessions,
         instructor_id: courseinfo.instructor_id,
       });

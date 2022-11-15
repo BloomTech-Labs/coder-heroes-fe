@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Layout, Button, Badge, Modal } from 'antd';
 import { FileDoneOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import AdminSidebar from '../AdminHome/AdminSidebar';
-import AdminCoursesModal from './AdminCoursesModal';
+import ModalHeader from './CoursesModalHeader';
 
 import '../../../styles/AdminDashboardHome/index.less';
 
@@ -16,9 +16,6 @@ function AdminPrograms(props) {
   const hideModal = () => setShowCourses(false);
 
   const { Content } = Layout;
-  useEffect(() => {
-    console.log(courses);
-  }, []);
 
   return (
     <Layout>
@@ -34,7 +31,7 @@ function AdminPrograms(props) {
         </div>
       </Content>
       <Modal
-        title={'Pending'}
+        title={<ModalHeader />}
         visible={showCourses}
         open={true}
         onOk={hideModal}
@@ -42,8 +39,6 @@ function AdminPrograms(props) {
         centered={true}
         width={1000}
       >
-        <input type="text" placeholder="Search..." />
-        <button>Filter</button>
         {courses.map(item => {
           return (
             <div className="course-modal-item">

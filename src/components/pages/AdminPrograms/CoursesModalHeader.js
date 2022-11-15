@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Drawer, Checkbox } from 'antd';
+import { Drawer, Checkbox, Button } from 'antd';
+import { FilterOutlined, SearchOutlined } from '@ant-design/icons';
 
 function ModalHeader() {
   const [open, setOpen] = useState(false);
@@ -14,10 +15,22 @@ function ModalHeader() {
   return (
     <div id="modal-header">
       <h3>Pending</h3>
-      <form onSubmit={handleSubmit}>
+      <form class="courses-search-form" onSubmit={handleSubmit}>
         <input type="text" placeholder="Search..." />
+        <button id="filter-search-button">
+          <SearchOutlined />
+        </button>
       </form>
-      <button onClick={openDrawer}>Filter</button>
+      <div id="modal-button-holder">
+        <Button
+          size={'large'}
+          icon={<FilterOutlined />}
+          onClick={openDrawer}
+          block={true}
+        >
+          Filter
+        </Button>
+      </div>
       <Drawer
         title="Filters"
         placement={'left'}

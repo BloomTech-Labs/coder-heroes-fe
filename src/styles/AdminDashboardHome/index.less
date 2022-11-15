@@ -113,7 +113,32 @@ p {
 .ant-modal-header {
   background-color: @header__bg;
   border: none;
+}
 
+.ant-modal-title, #modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  margin-right: 10%;
+}
+
+.courses-search-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+#filter-search-button {
+  border-radius: 0.3rem;
+  border-color: white;
+  background-color: white;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ant-modal-body {
@@ -123,4 +148,7 @@ p {
 #modal-header h3{
   font-size: 2.4rem;
   font-weight: 400;
+  margin-right: auto;
+  align-items: center;
+  align-self: flex-start;
 }

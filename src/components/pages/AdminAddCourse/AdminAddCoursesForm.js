@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-//import moment from 'moment'; you may need this for auto-pop
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
+import { getCurrentUser } from '../../../redux/actions/userActions';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+//import moment from 'moment'; you may need this for auto-pop
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
 
 // Styles
@@ -19,6 +21,8 @@ import {
   Select,
 } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
+
+//TO-DO: Implement Auth0
 const { Option } = Select;
 
 const initialFormValues = {
@@ -37,17 +41,6 @@ const initialFormValues = {
   instructor_id: '',
 };
 
-// may be necessary for auto-pop
-// const daysOfWeek = [
-//   'Monday',
-//   'Tuesday',
-//   'Wednesday',
-//   'Thursday',
-//   'Friday',
-//   'Saturday',
-//   'Sunday',
-// ];
-
 //Config for date and time picker
 const rangeConfig = {
   rules: [
@@ -62,8 +55,25 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { courseinfo } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const dispatch = useDispatch();
-  const idToken = useOktaAuth().oktaAuth.getIdToken();
+
+  const numberFields = [
+    {
+      text: 'Maximum Capacity',
+      name: 'max_size',
+      value: formValues.course_capacity,
+    },
+    {
+      text: 'Maximum Age',
+      name: 'max_age',
+      value: formValues.course_max_age,
+    },
+    {
+      text: 'Minimum Age',
+      name: 'min_age',
+      value: formValues.course_min_age,
+    },
+  ];
+  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
 
   const daysOfWeek = [];
 
@@ -92,17 +102,43 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
+  const { dispatch } = useDispatch();
+
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {
-      dispatch(addCourse(idToken, formValues));
+      dispatch(addCourse(formValues));
     } else {
-      dispatch(editCourse(idToken, formValues));
+      dispatch(editCourse(formValues));
       alert('Edits Submitted!');
     }
 
     setIsModalVisible(false);
     window.location.reload();
   };
+
+  let history = useHistory();
+
+  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+
+  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   axios
+  //     .post('/courses', formValues)
+  //     .then(() => {
+  //       history.push('/admin-courses');
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  //   const merged = {
+  //     ...formValues,
+  //     prereq: placeHolder,
+  //   };
+  //   program_list.push(props.addClass(merged).payload);
+  //   setFormValues(initialFormValues);
+  //   clearPrereq();
+  // }
 
   const handleChange = e => {
     setFormValues({
@@ -112,10 +148,19 @@ function AdminAddCoursesForm(props) {
   };
 
   const handleCheck = e => {
-    daysOfWeek.push(e.target.value);
-    const dow = daysOfWeek.map(day =>
-      !daysOfWeek.includes(day) ? Array().push(day) : null
-    );
+    if (e.target.checked) {
+      setFormValues({
+        ...formValues,
+        days_of_week: [...formValues.days_of_week, e.target.value],
+      });
+    } else {
+      setFormValues({
+        ...formValues,
+        days_of_week: formValues.days_of_week.filter(
+          value => value !== e.target.value
+        ),
+      });
+    }
   };
 
   const handleDateChange = value => {
@@ -194,6 +239,23 @@ function AdminAddCoursesForm(props) {
                   style={{ height: 100, fontSize: '1.1rem' }}
                 />
               </Form.Item>
+              <Form.Item
+                label={
+                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                    Course Syllabus:
+                  </label>
+                }
+                style={{ width: '75%', color: '#096A70', fontSize: '1.1rem' }}
+                className="input-label"
+                type="url"
+                onChange={handleChange}
+              >
+                <Input
+                  value={formValues.syllabus_link}
+                  name="syllabus_link"
+                  style={{ fontSize: '1.1rem' }}
+                />
+              </Form.Item>
               {props.button_name === 'Add Course' ? (
                 <>
                   <Form.Item
@@ -268,38 +330,6 @@ function AdminAddCoursesForm(props) {
                   format="HH:mm"
                   name="course_time"
                 />
-                {/* vvv May be useful for auto-pop vvv */}
-                {/* {props.button_name === 'Add Course'
-                  ? daysOfWeek.forEach(day => (
-                      <label>
-                        {`${day}:`}
-                        <br></br>
-                        <TimePicker.RangePicker
-                          onChange={handleTimeChange}
-                          use12Hours={true}
-                          format="HH:mm"
-                          name="course_time"
-                        />
-                        <br></br>
-                      </label>
-                    ))
-                  : formValues.days_of_week.forEach(day => (
-                      <label key={`${day}`}>
-                        {`${day}:`}
-                        <br></br>
-                        <TimePicker.RangePicker
-                          defaultValue={[
-                            moment(formValues.start_time, 'HH:mm'),
-                            moment(formValues.end_time, 'HH:mm'),
-                          ]}
-                          onChange={handleTimeChange}
-                          use12Hours={true}
-                          format="HH:mm"
-                          name="course_time"
-                        />
-                        <br></br>
-                      </label>
-                    ))} */}
               </Form.Item>
               <Form.Item
                 label={
@@ -316,51 +346,23 @@ function AdminAddCoursesForm(props) {
                   style={{ fontSize: '1.1rem' }}
                 />
               </Form.Item>
-              <Form.Item
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Capacity:
-                  </label>
-                }
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.max_size}
-                  name="max_size"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Minimum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.min_age}
-                  name="min_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
-              <Form.Item
-                style={{ width: '65%', fontSize: '1.1rem' }}
-                label={
-                  <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Maximum Age:
-                  </label>
-                }
-                onChange={handleChange}
-              >
-                <InputNumber
-                  value={formValues.max_age}
-                  name="max_age"
-                  style={{ fontSize: '1.1rem' }}
-                />
-              </Form.Item>
+              {numberFields.map(field => (
+                <Form.Item
+                  label={
+                    <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
+                      {`${field.text}:`}
+                    </label>
+                  }
+                  style={{ width: '65%', fontSize: '1.1rem' }}
+                  onChange={handleChange}
+                >
+                  <InputNumber
+                    value={field.value}
+                    name={`${field.name}`}
+                    style={{ fontSize: '1.1rem' }}
+                  />
+                </Form.Item>
+              ))}
               <Form.Item
                 {...rangeConfig}
                 label={

@@ -3,12 +3,12 @@ import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
 import {
   postNewsFeed,
   setPostOptions,
 } from '../../../redux/actions/instructorActions';
 
+//TO-DO: Implement Auth0
 const NewsfeedPostModal = props => {
   const [formValues, setFormValues] = useState({
     link: '',
@@ -53,11 +53,9 @@ const NewsfeedPostModal = props => {
     });
   };
 
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
-
+  //TO-DO: Implement Auth0 - handleSubmit
   const handleSubmit = () => {
-    dispatch(postNewsFeed(idToken, formValues));
+    dispatch(postNewsFeed(formValues));
 
     dispatch(setPostOptions('newsFeed'));
   };

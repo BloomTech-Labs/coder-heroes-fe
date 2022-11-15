@@ -11,9 +11,9 @@ import '../../../styles/index.less';
 import { Select, Input, Form, Button, Layout, Typography, Modal } from 'antd';
 import schema from './InstructorAddCourseFormSchema';
 import { CalendarOutlined, ClockCircleOutlined } from '@ant-design/icons';
-import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
 import { addCourse } from '../../../redux/actions/coursesActions';
+//TO-DO: Implement Auth0
 
 const { Option } = Select;
 const { Content } = Layout;
@@ -68,14 +68,7 @@ const InstructorAddCourseForm = props => {
   const [classData, setClassData] = useState(initialClassDataState);
   const [formErrors, setFormErrors] = useState(initialClassDataStateFormErrors);
   const [disabled, setDisabled] = useState(true);
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
   const { programs, instructor } = props;
-
-  useEffect(() => {
-    dispatch(getPrograms(idToken));
-    dispatch(getUser(idToken));
-  }, [dispatch, idToken]);
 
   useEffect(() => {
     setClassData({
@@ -115,9 +108,10 @@ const InstructorAddCourseForm = props => {
     });
   };
 
+  //TO-DO: Implement Auth0
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addCourse(idToken, classData));
+    dispatch(addCourse(classData));
     setClassData(initialClassDataState);
     success();
   };

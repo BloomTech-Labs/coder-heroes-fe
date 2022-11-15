@@ -1,6 +1,6 @@
 // Declare Actions
 import axios from 'axios';
-import axiosWithAuth from '../../utils/axiosWithAuth';
+// import axiosWithAuth from '../../utils/axiosWithAuth';
 
 export const GET_INSTRUCTORS = 'GET_INSTRUCTORS';
 export const ERROR_ACTION = 'ERROR';
@@ -23,6 +23,8 @@ export const GET_INSTRUCTOR = 'GET_INSTRUCTOR';
 export const SET_POST_ID = 'SET_POST_ID';
 export const SET_POST_OPTIONS = 'SET_POST_OPTIONS';
 
+//TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+
 export const setSelectedCourse = course => {
   return {
     type: SET_SELECTED_COURSE,
@@ -31,8 +33,9 @@ export const setSelectedCourse = course => {
 };
 
 export const getUser = idToken => async dispatch => {
-  axiosWithAuth(idToken)
-    .get('/user')
+  //   axiosWithAuth(idToken)
+  //     .get('/user')
+  Promise.resolve({ data: [], message: '' })
     .then(res => {
       dispatch({
         type: GET_USER_ACTION,
@@ -47,9 +50,10 @@ export const getUser = idToken => async dispatch => {
     });
 };
 
-export const getCourses = idToken => async dispatch => {
+export const getCourses = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
+    //const res = await axiosWithAuth(idToken).get(`/instructor/courses`);
+    const res = Promise.resolve({ data: [], message: '' });
     const courses = res.data.map(course => {
       const now = Date.now();
       return { ...course, active: now < new Date(course.end_date).getTime() };
@@ -58,7 +62,6 @@ export const getCourses = idToken => async dispatch => {
       type: GET_INSTRUCTOR_COURSES,
       payload: courses,
     });
-    console.log(courses);
   } catch (error) {
     dispatch({
       type: ERROR_ACTION,
@@ -68,8 +71,9 @@ export const getCourses = idToken => async dispatch => {
 };
 
 export const getPrograms = idToken => async dispatch => {
-  axiosWithAuth(idToken)
-    .get('/programs')
+  // axiosWithAuth(idToken)
+  //   .get('/programs')
+  Promise.resolve({ data: [], message: '' })
     .then(res => {
       dispatch({
         type: GET_PROGRAMS,
@@ -86,9 +90,10 @@ export const getPrograms = idToken => async dispatch => {
 
 export const getInbox = () => async dispatch => {
   try {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URI}/inbox/:profile_id`
-    );
+    // const res = await axios.get(
+    //   `${process.env.REACT_APP_API_URI}/inbox/:profile_id`
+    // );
+    const res = Promise.resolve({ data: [], message: '' });
     dispatch({
       type: GET_INBOX_ACTION,
       payload: res.data,
@@ -103,7 +108,8 @@ export const getInbox = () => async dispatch => {
 
 export const addCourse = () => async dispatch => {
   try {
-    const res = await axios.post(``);
+    // const res = await axios.post(``);
+    const res = Promise.resolve({ data: [], message: '' });
     dispatch({
       type: ADD_COURSE_ACTION,
       payload: res.data,
@@ -116,39 +122,37 @@ export const addCourse = () => async dispatch => {
   }
 };
 
-export const addProgram = newProgram => {
-  return dispatch => {
-    dispatch(addNewProgram());
-    axios
-      .post(`${process.env.REACT_APP_API_URI}/program`, newProgram)
-      .then(res => {
-        dispatch({ type: FETCH_SUCCESS, payload: res.data });
-      })
-      .catch(error => {
-        dispatch({ type: FETCH_FAIL, payload: error.response.data.Error });
+export const addProgram = () => async dispatch => {
+  try {
+    //  axios
+    //    .post(`${process.env.REACT_APP_API_URI}/program`, newProgram)
+    Promise.resolve({ data: [], message: '' }).then(res => {
+      dispatch({
+        type: ADD_NEW_PROGRAM,
+        payload: res.data,
       });
-  };
-};
-
-export const addNewProgram = programs => {
-  return {
-    type: ADD_NEW_PROGRAM,
-    payload: programs,
-  };
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR_ACTION,
+      payload: error.message,
+    });
+  }
 };
 
 export const setError = error => {
   return { type: SET_ERROR };
 };
 
-export const getNewsFeeds = idToken => dispatch => {
+export const getNewsFeeds = profile_id => dispatch => {
   try {
-    axiosWithAuth(idToken)
-      .get('/news')
-      .then(resp => {
+    // axiosWithAuth(idToken)
+    //   .get('/news')
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
         dispatch({
           type: GET_NEWSFEEDS,
-          payload: resp.data,
+          payload: res.data,
         });
       })
       .catch(err => console.log(err));
@@ -160,14 +164,15 @@ export const getNewsFeeds = idToken => dispatch => {
   }
 };
 
-export const getNewsFeed = (idToken, postID) => dispatch => {
+export const getNewsFeed = (profile_id, postID) => dispatch => {
   try {
-    axiosWithAuth(idToken)
-      .get(`/news/${postID}`)
-      .then(resp => {
+    // axiosWithAuth(idToken)
+    //   .get(`/news/${postID}`)
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
         dispatch({
           type: GET_NEWSFEED,
-          payload: resp.data,
+          payload: res.data,
         });
       })
       .catch(err => console.log(err));
@@ -179,14 +184,15 @@ export const getNewsFeed = (idToken, postID) => dispatch => {
   }
 };
 
-export const postNewsFeed = (idToken, values) => dispatch => {
+export const postNewsFeed = (profile_id, values) => dispatch => {
   try {
-    axiosWithAuth(idToken)
-      .post(`/news/`, values)
-      .then(resp => {
+    // axiosWithAuth(idToken)
+    //   .post(`/news/`, values)
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
         dispatch({
           type: POST_NEWSFEED,
-          payload: resp.data,
+          payload: res.data,
         });
       })
       .catch(err => console.log(err));
@@ -198,14 +204,15 @@ export const postNewsFeed = (idToken, values) => dispatch => {
   }
 };
 
-export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
+export const putNewsFeed = (profile_id, postID, formValues) => dispatch => {
   try {
-    axiosWithAuth(idToken)
-      .put(`/news/${postID}`, formValues)
-      .then(resp => {
+    // axiosWithAuth(idToken)
+    //   .put(`/news/${postID}`, formValues)
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
         dispatch({
           type: PUT_NEWSFEED,
-          payload: formValues,
+          payload: res.data,
         });
       })
       .catch(err => console.log(err));
@@ -217,14 +224,15 @@ export const putNewsFeed = (idToken, postID, formValues) => dispatch => {
   }
 };
 
-export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
+export const deleteNewsFeed = (profile_id, postID, post) => dispatch => {
   try {
-    axiosWithAuth(idToken)
-      .delete(`/news/${postID}`)
-      .then(resp => {
+    // axiosWithAuth(idToken)
+    //   .delete(`/news/${postID}`)
+    Promise.resolve({ data: [], message: '' })
+      .then(res => {
         dispatch({
           type: DELETE_NEWSFEED,
-          payload: post,
+          payload: res.data,
         });
       })
       .catch(err => console.log(err));
@@ -236,9 +244,10 @@ export const deleteNewsFeed = (idToken, postID, post) => dispatch => {
   }
 };
 
-export const getInstructors = idToken => async dispatch => {
+export const getInstructors = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+    // const res = await axiosWithAuth(idToken).get(`profiles/role/3`);
+    const res = Promise.resolve({ data: [], message: '' });
     dispatch({
       type: GET_INSTRUCTORS,
       payload: res.data,
@@ -251,11 +260,12 @@ export const getInstructors = idToken => async dispatch => {
   }
 };
 
-export const getInstructor = (idToken, profile_id) => async dispatch => {
+export const getInstructor = profile_id => async dispatch => {
   try {
-    const res = await axiosWithAuth(idToken).get(
-      `instructor/profile/${profile_id}`
-    );
+    // const res = await axiosWithAuth(idToken).get(
+    //   `instructor/profile/${profile_id}`
+    // );
+    const res = Promise.resolve({ data: [], message: '' });
     dispatch({
       type: GET_INSTRUCTOR,
       payload: res.data,

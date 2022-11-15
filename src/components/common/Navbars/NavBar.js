@@ -28,6 +28,8 @@ import { connect } from 'react-redux';
 import navLogo from '../../../img/navbar-logo.png';
 import handleLogout from '../../../utils/logout.js';
 
+//TO-DO: Implement Auth0
+
 const { SubMenu } = Menu;
 const { Header } = Layout;
 
@@ -99,21 +101,15 @@ function NavBar(props) {
             </NavLink>
           )}
           <NavLink to="/login">
-            <button
-              className={`navbar__btn navbar__login ${
-                localStorage.getItem('okta-token-storage') ? 'navbar__hide' : ''
-              }`}
-            >
-              LOGIN
-            </button>
+            <button>LOGIN</button>
           </NavLink>
-          {localStorage.getItem('okta-token-storage') && (
-            <NavLink to="/parent/family">
-              <div className="navbar__profile">
-                <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
-              </div>
-            </NavLink>
-          )}
+          {/* {localStorage.getItem({}) && ( */}
+          <NavLink to="/parent/family">
+            <div className="navbar__profile">
+              <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+            </div>
+          </NavLink>
+          {/* )} */}
         </div>
         <div className="navbar__hamburgerMenu">
           <HamburgerMenuIcon style={{ color: 'white' }} onClick={showDrawer} />
@@ -127,16 +123,12 @@ function NavBar(props) {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
-              {!localStorage.getItem('okta-token-storage') && (
-                <Menu.Item key="3" icon={<LoginOutlined />}>
-                  <NavLink to="/login">Login</NavLink>
-                </Menu.Item>
-              )}
-              {localStorage.getItem('okta-token-storage') && (
-                <Menu.Item key="99" icon={<ProfileIcon />}>
-                  <NavLink to="/dev">My Dashboard</NavLink>
-                </Menu.Item>
-              )}
+              <Menu.Item key="3" icon={<LoginOutlined />}>
+                <NavLink to="/login">Login</NavLink>
+              </Menu.Item>
+              <Menu.Item key="99" icon={<ProfileIcon />}>
+                <NavLink to="/dev">My Dashboard</NavLink>
+              </Menu.Item>
               <Menu.Item key="2" icon={<ContactsOutlined />}>
                 <NavLink
                   to="/"

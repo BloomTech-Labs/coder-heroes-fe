@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
 import '../../../styles/calendar.less';
 import 'antd/dist/antd.css';
 import {
@@ -14,7 +13,8 @@ import {
 } from 'antd';
 import moment from 'moment';
 import CalendarModal from './CalendarModal';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axios from 'axios';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 function CalendarApp() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -27,25 +27,20 @@ function CalendarApp() {
   const [eventFlag, setEventFlag] = useState(true);
   const [form] = Form.useForm();
 
-  const { authState, oktaAuth } = useOktaAuth();
-  const { idToken } = authState;
-
-  // const token = oktaAuth.getIdToken();
-
+  // TO-DO: Implement Auth0
   useEffect(() => {
     if (eventFlag) {
-      console.log(authState);
-      console.log(oktaAuth);
-      axiosWithAuth(idToken)
-        .get('/calendar-events/user')
+      // axiosWithAuth(idToken)
+      //   .get('/calendar-events/user')
+      Promise.resolve({ data: { events: [] }, message: '' })
         .then(res => {
           setEventsArr(res.data.events);
         })
         .catch(err => console.error(err));
+      setEventFlag(false);
+      // eslint-disable-next-line
     }
-    setEventFlag(false);
-    // eslint-disable-next-line
-  }, [eventFlag, idToken]);
+  }, [eventFlag]);
 
   useEffect(() => {
     if (event) {
@@ -78,13 +73,14 @@ function CalendarApp() {
 
   // edit event form submission handler
   const onFinish = values => {
-    axiosWithAuth()
-      .put(`/calendar-events/${event.event_id}`, {
-        ...values,
-        type: 'success',
-        date: values.date.format('MM/DD/YYYY'),
-        time: values.time.format('h:mm A'),
-      })
+    // axiosWithAuth()
+    //   .put(`/calendar-events/${event.event_id}`, {
+    //     ...values,
+    //     type: 'success',
+    //     date: values.date.format('MM/DD/YYYY'),
+    //     time: values.time.format('h:mm A'),
+    //   })
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);
@@ -95,8 +91,9 @@ function CalendarApp() {
   };
 
   const handleDelete = () => {
-    axiosWithAuth()
-      .delete(`/calendar-events/${event.event_id}`)
+    // axiosWithAuth()
+    //   .delete(`/calendar-events/${event.event_id}`)
+    Promise.resolve({ data: [], message: '' })
       .then(() => {
         setEventFlag(true);
         setIsModalVisible(false);

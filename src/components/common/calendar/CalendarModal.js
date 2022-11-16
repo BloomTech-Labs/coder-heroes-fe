@@ -1,15 +1,13 @@
 import React from 'react';
 import { Modal, Form, Input, Button, DatePicker, TimePicker } from 'antd';
-import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useOktaAuth } from '@okta/okta-react';
+// import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axios from 'axios';
+//TO-DO: Implement Auth0
 
 export default function CalendarModal(props) {
   const { isModalVisible, setIsModalVisible, setEventFlag } = props;
 
   const [form] = Form.useForm();
-
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -22,8 +20,9 @@ export default function CalendarModal(props) {
       time: values.time.format('h:mm A'),
       type: 'success',
     };
-    axiosWithAuth(idToken)
-      .post('/calendar-events', newEvent)
+    // axiosWithAuth(idToken)
+    //   .post('/calendar-events', newEvent)
+    Promise.resolve({ data: [], message: '' })
       .then(() => setEventFlag(true))
       .catch(err => console.error(err));
     setIsModalVisible(false);

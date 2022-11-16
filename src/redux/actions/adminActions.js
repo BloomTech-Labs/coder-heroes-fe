@@ -6,10 +6,11 @@ export const FAIL_FETCH = 'FAIL_FETCH';
 export const ADD_CLASS = 'ADD_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 export const EDIT_CLASS = 'EDIT_CLASS';
+//TO-DO: Implement Auth0
 
 // waiting for backend to implement this and reducer / actions
 //
-// const token = JSON.parse(localStorage.getItem('okta-token-storage'));
+// const token = JSON.parse(localStorage.getItem('Auth0 token storage'));
 // const config = {
 //   headers: { Authorization: `Bearer ${token.idToken.value}` },
 // };
@@ -25,6 +26,7 @@ export const EDIT_CLASS = 'EDIT_CLASS';
 //
 // axios
 //   .post(`https://coder-heroes-api.herokuapp.com/course_types`, body, config)
+// Promise.resolve({ data: [], message: '' })
 //   .then(resp => {
 //     console.log('axiosCall', resp);
 //   })
@@ -38,13 +40,14 @@ export const fetchClasses = () => dispatch => {
   dispatch(startFetch());
 
   // waiting for backend to implement this and reducer / actions
-  // axios.get('backend...')
-  //     .then(resp => {
-  //         dispatch(successFetch(resp.data));
-  //     })
-  //     .catch(err => {
-  //         dispatch(failFetch(setError));
-  //     });
+  // Promise.resolve({ data: [], message: '' })
+  //   .then(resp => {
+  //       dispatch(successFetch(resp.data));
+  //   })
+  //   .catch(err => {
+  //       dispatch(failFetch(setError));
+  //   });
+  // })
 };
 
 export const startFetch = () => {
@@ -72,6 +75,7 @@ export const addClass = item => {
   // waiting for backend to implement this and reducer / actions
   //
   // axios.post("backend...", item)
+  // Promise.resolve({ data: [], message: '' })
   //     .then (resp =>{
   //         console.log('post success', resp);
   //     })

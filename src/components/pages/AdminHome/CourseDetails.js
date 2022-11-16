@@ -16,6 +16,16 @@ const CourseDetails = props => {
             {course.start_date.split('-')[0]}/{course.start_date.split('-')[1]}{' '}
             @ {course.start_time} - {course.end_time}
           </p>
+          <p>
+            Syllabus:
+            {!course.syllabus_link ? (
+              <span className="black">{' currently unavailable'}</span>
+            ) : (
+              <a href={course.syllabus_link} target="_blank" rel="noreferrer">
+                {' Click to view syllabus'}
+              </a>
+            )}
+          </p>
           <p>more info here</p>
           <p>more info here</p>
           <button id="manage-courses-button">Manage Course Resources</button>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
-import { useOktaAuth } from '@okta/okta-react';
 import { useDispatch } from 'react-redux';
 import { addCourse } from '../../../redux/actions/coursesActions';
 import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
@@ -9,10 +8,12 @@ import '../../../styles/AdminAddCoursesStyles/AdminAddCoursesPage.less';
 import AdminAddCoursesForm from './AdminAddCoursesForm';
 import { Button } from 'antd';
 
+//TO-DO: Implement Auth0
 const initialFormValues = {
   course_id: '',
   course_name: '',
   course_description: '',
+  syllabus_link: '',
   course_days: [],
   course_capacity: '',
   course_max_age: '',
@@ -29,8 +30,6 @@ const initialFormValues = {
 
 function AdminAddCoursesPage(props) {
   const dispatch = useDispatch();
-  const { authState } = useOktaAuth();
-  const { idToken } = authState;
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -39,11 +38,11 @@ function AdminAddCoursesPage(props) {
 
   const handleOk = course => {
     if (!course.course_id) {
-      dispatch(addCourse(idToken, course));
+      dispatch(addCourse(course));
     }
     if (course.course_id) {
       // this will eventually be used for editing existing courses
-      // dispatch(editCourse(idToken, course));
+      // dispatch(editCourse(course));
     }
 
     setIsModalVisible(false);

@@ -1,5 +1,5 @@
+////TO-DO: Implement Auth0
 const handleLogout = () => {
-  localStorage.removeItem('okta-token-storage');
   window.location.reload();
 };
 

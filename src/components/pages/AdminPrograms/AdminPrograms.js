@@ -30,6 +30,7 @@ function AdminPrograms(props) {
           </Badge>
         </div>
       </Content>
+      {/* TODO - Height for modal */}
       <Modal
         title={<ModalHeader />}
         visible={showCourses}
@@ -40,24 +41,37 @@ function AdminPrograms(props) {
         width={1000}
         footer={null}
       >
+        {/* TODO - Tabs formatting, styling, and refactoring courses map */}
         <Tabs tabPosition={'bottom'} type="card">
           <Tabs.TabPane key="1" tab="Approved">
-            Approved
+            {courses.map(item => {
+              if (item.status.approval === 'accepted') {
+                return (
+                  <div className="course-modal-item">
+                    <p>{item.course_name} </p>
+                    <p>{item.program_name} </p>
+                    <p>{item.max_size} </p>
+                    <p>{item.instructor_name} </p>
+                  </div>
+                );
+              }
+            })}
           </Tabs.TabPane>
           <Tabs.TabPane key="2" tab="Pending">
-            Pending
+            {courses.map(item => {
+              if (item.status.approval === 'pending') {
+                return (
+                  <div className="course-modal-item">
+                    <p>{item.course_name} </p>
+                    <p>{item.program_name} </p>
+                    <p>{item.max_size} </p>
+                    <p>{item.instructor_name} </p>
+                  </div>
+                );
+              }
+            })}
           </Tabs.TabPane>
         </Tabs>
-        {courses.map(item => {
-          return (
-            <div className="course-modal-item">
-              <p>{item.course_name} </p>
-              <p>{item.program_name} </p>
-              <p>{item.max_size} </p>
-              <p>{item.instructor_name} </p>
-            </div>
-          );
-        })}
       </Modal>
     </Layout>
   );

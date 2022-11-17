@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Button, Badge, Modal } from 'antd';
+import { Layout, Button, Badge, Modal, Tabs } from 'antd';
 import { FileDoneOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import AdminSidebar from '../AdminHome/AdminSidebar';
@@ -38,7 +38,16 @@ function AdminPrograms(props) {
         onCancel={hideModal}
         centered={true}
         width={1000}
+        footer={null}
       >
+        <Tabs tabPosition={'bottom'} type="card">
+          <Tabs.TabPane key="1" tab="Approved">
+            Approved
+          </Tabs.TabPane>
+          <Tabs.TabPane key="2" tab="Pending">
+            Pending
+          </Tabs.TabPane>
+        </Tabs>
         {courses.map(item => {
           return (
             <div className="course-modal-item">

@@ -14,15 +14,10 @@ function ModalHeader() {
 
   return (
     <div id="modal-header">
-      <h3>Pending</h3>
+      <h3 className="modal-header-title">Pending</h3>
       <form class="courses-search-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Search..." />
-        <button id="filter-search-button">
-          <SearchOutlined />
-        </button>
-      </form>
-      <div id="modal-button-holder">
         <Button
+          id="filter-button"
           size={'large'}
           icon={<FilterOutlined />}
           onClick={openDrawer}
@@ -30,7 +25,16 @@ function ModalHeader() {
         >
           Filter
         </Button>
-      </div>
+        <input
+          className="courses-search-bar"
+          type="text"
+          placeholder="Search..."
+        />
+        <button id="courses-search-button">
+          <SearchOutlined />
+        </button>
+      </form>
+      <div id="modal-button-holder"></div>
       <Drawer
         title="Filters"
         placement={'left'}

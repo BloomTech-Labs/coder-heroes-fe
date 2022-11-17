@@ -121,16 +121,17 @@ p {
   justify-content: flex-end;
   width: 100%;
   height: 100%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 .courses-search-form {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  gap: 2%;
 }
 
-#filter-search-button {
+#courses-search-button {
   border-radius: 0.3rem;
   border-color: white;
   background-color: white;
@@ -141,14 +142,36 @@ p {
   justify-content: center;
 }
 
+#filter-button, 
+.courses-search-form input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+#filter-button {
+  margin-right: 2%;
+  width: 7rem;
+}
+
+.courses-search-bar {
+  padding: 0.3rem;
+  font-size: 0.75em;
+  border: none;
+  width: 30rem;
+}
+
 .ant-modal-body {
   border: none;
 }
 
-#modal-header h3{
+#modal-header h3.modal-header-title {
   font-size: 2.4rem;
   font-weight: 400;
   margin-right: auto;
   align-items: center;
   align-self: flex-start;
+}
+
+#modal-header {
+  height: 2rem;
 }

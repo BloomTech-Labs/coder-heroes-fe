@@ -3,7 +3,8 @@ export const dummyData = {
     {
       course_id: 1,
       course_name: 'Some cheese',
-      course_description: 'A course description goes here and I could really just put lorem ipsum but I really just feel like typing stream of consciousness style here.',
+      course_description:
+        'A course description goes here and I could really just put lorem ipsum but I really just feel like typing stream of consciousness style here.',
       days_of_week: ['Monday'],
       max_size: 20,
       enrolled_students: 2,
@@ -21,14 +22,15 @@ export const dummyData = {
       syllabus_link: 'https://docs.google.com',
       status: {
         approval: 'pending',
-        feedback: null
-      }
+        feedback: null,
+      },
     },
     {
       course_id: 2,
       course_name: 'App alphabet soup',
-      course_description: 'It is pretty easy and simple to understand I mean an app going into soup just makes sense intrensically and I dont think anyone should think twice about that whatsoever.',
-      days_of_week: ['Monday','Wednesday', 'Friday'],
+      course_description:
+        'It is pretty easy and simple to understand I mean an app going into soup just makes sense intrensically and I dont think anyone should think twice about that whatsoever.',
+      days_of_week: ['Monday', 'Wednesday', 'Friday'],
       max_size: 30,
       enrolled_students: 14,
       min_age: 7,
@@ -42,16 +44,17 @@ export const dummyData = {
       number_of_sessions: 6,
       difficulty: 'Hard',
       session_type: 'Group',
-      syllabus_link: 'https://docs.google.com/something-ig', 
+      syllabus_link: 'https://docs.google.com/something-ig',
       status: {
         approval: 'pending',
-        feedback: null
-      } 
+        feedback: null,
+      },
     },
     {
       course_id: 3,
       course_name: 'Coding Jumping Jacks',
-      course_description: 'If youre going to code you should at least be able to do it while exercising, otherwise are you really a programmer? thought not.',
+      course_description:
+        'If youre going to code you should at least be able to do it while exercising, otherwise are you really a programmer? thought not.',
       days_of_week: ['Monday', 'Friday'],
       max_size: 100,
       enrolled_students: 60,
@@ -68,15 +71,17 @@ export const dummyData = {
       session_type: 'Group',
       syllabus_link: 'https://docs.google.com/something-else-ig',
       status: {
-        approval: 'accepted',
-        feedback: 'Good job picking the most confusing combination of topics! Maybe next time just do a good job.'
-      }  
+        approval: 'approved',
+        feedback:
+          'Good job picking the most confusing combination of topics! Maybe next time just do a good job.',
+      },
     },
     {
       course_id: 4,
       course_name: 'Phoning things in',
-      course_description: 'This course will show you the ropes of procrastinating and doing a barely good enough job on your projects, the pastime of most programmers.',
-      days_of_week: ['Monday','Tuesday','Wednesday','Thursdays','Friday'],
+      course_description:
+        'This course will show you the ropes of procrastinating and doing a barely good enough job on your projects, the pastime of most programmers.',
+      days_of_week: ['Monday', 'Tuesday', 'Wednesday', 'Thursdays', 'Friday'],
       max_size: 15,
       enrolled_students: 15,
       min_age: 7,
@@ -93,14 +98,15 @@ export const dummyData = {
       syllabus_link: 'https://docs.google.com/something-else-again-ig',
       status: {
         approval: 'pending',
-        feedback: null
-      }  
+        feedback: null,
+      },
     },
     {
       course_id: 5,
       course_name: 'This one works',
-      course_description: 'This course will be accepted because I decided so while making the mock data, not as if this is a good course idea. Its just late and I would like to get this over with.',
-      days_of_week: ['Monday','Thursdays','Friday'],
+      course_description:
+        'This course will be accepted because I decided so while making the mock data, not as if this is a good course idea. Its just late and I would like to get this over with.',
+      days_of_week: ['Monday', 'Thursdays', 'Friday'],
       max_size: 15,
       enrolled_students: 9,
       min_age: 7,
@@ -116,10 +122,11 @@ export const dummyData = {
       session_type: '1-on-1',
       syllabus_link: 'https://docs.google.com/something-else-again-ig',
       status: {
-        approval: 'accepted',
-        feedback: 'Honestly whoever made this mock data is really pulling the leg of whoever reads it, apologies.'
-      }  
-    }
+        approval: 'approved',
+        feedback:
+          'Honestly whoever made this mock data is really pulling the leg of whoever reads it, apologies.',
+      },
+    },
   ],
 
   instructor: {},

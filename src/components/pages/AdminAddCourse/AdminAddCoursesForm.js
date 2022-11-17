@@ -336,7 +336,7 @@ function AdminAddCoursesForm(props) {
               <Form.Item
                 label={
                   <label style={{ color: '#096A70', fontSize: '1.1rem' }}>
-                    Location:
+                    Location: Add zoom link here
                   </label>
                 }
                 style={{ width: '65%', fontSize: '1.1rem' }}

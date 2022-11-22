@@ -101,28 +101,7 @@ function NavBar(props) {
             </NavLink>
           )}
           <NavLink to="/login">
-            <button
-              style={{
-                // button css
-                padding: '6.4px 15px',
-                gap: '10px',
-                margin: '6.4px',
-
-                width: '121px',
-                height: '36.8px',
-                left: '20px',
-                top: '20px',
-
-                background: '#FE5C01',
-                'box-shadow': '0px 2px 0px rgba(0, 0, 0, 0.043)',
-                'border-radius': '6px',
-
-                // text css
-                color: 'rgba(0, 0, 0, 0.85)',
-              }}
-            >
-              LOGIN
-            </button>
+            <button className="navbar__btn navbar__login">LOGIN</button>
           </NavLink>
           {/* {localStorage.getItem({}) && ( */}
           <NavLink to="/parent/family">

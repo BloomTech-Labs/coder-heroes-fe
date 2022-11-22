@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
+// BELOW: THE GETCURRENTUSER77 WILL LIKELY BE USED WHEN WE ADD AUTHENTICATION BACK INTO THE APP.
+// import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 //import moment from 'moment'; you may need this for auto-pop

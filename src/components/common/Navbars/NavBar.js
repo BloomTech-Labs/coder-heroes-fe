@@ -140,18 +140,6 @@ function NavBar(props) {
                   Contact Us
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="4" icon={<SnippetsOutlined />}>
-                <NavLink to="/">Programs</NavLink>
-              </Menu.Item>
-              <Menu.Item key="5" icon={<UserSwitchOutlined />}>
-                <NavLink to="/browse-instructors">Instructors</NavLink>
-              </Menu.Item>
-              <Menu.Item key="6" icon={<FormOutlined />}>
-                <NavLink to="/parent/booking">Booking</NavLink>
-              </Menu.Item>
-              <Menu.Item key="7" icon={<BankOutlined />}>
-                <NavLink to="/">Scholarships</NavLink>
-              </Menu.Item>
               <SubMenu
                 key="sub1"
                 icon={<AliwangwangOutlined />}

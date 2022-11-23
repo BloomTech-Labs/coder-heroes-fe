@@ -6,6 +6,7 @@
   "proxy": "http://localhost:8080",
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@craco/craco": "^6.4.3",
     "antd": "^4.20.1",
     "axios": "^0.21.1",

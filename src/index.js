@@ -82,6 +82,7 @@ import CourseDetails from './components/pages/AdminHome/CourseDetails';
 import AdminEditCourse from './components/pages/AdminDispCourse/index';
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 //TO-DO: IMPLEMENT AUTH0 ADD SECURE ROUTES
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
@@ -93,17 +94,23 @@ root.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Layout
-          style={{
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
+        <Auth0Provider
+          domain="dev-aaucjuidwn3zohx5.us.auth0.com"
+          clientId="nUORWBATYehjnPTw3Y6iyQYzglWwT5eR"
+          redirectUri={window.location.origin}
         >
-          <NavBar />
-          <App />
-          <Footer />
-        </Layout>
+          <Layout
+            style={{
+              minHeight: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <NavBar />
+            <App />
+            <Footer />
+          </Layout>
+        </Auth0Provider>
       </React.StrictMode>
     </Router>
   </Provider>

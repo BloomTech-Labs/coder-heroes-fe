@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
+import React from 'react';
 import logo from '../../../img/coderheroes-logo.svg';
 import ocloud from '../../../img/bg-orange-cloud.svg';
 import students from '../../../img/class-imge-left.jpg';
@@ -14,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 
 const { Title, Paragraph } = Typography;
 
-function RenderLandingPage(props) {
+function RenderLandingPage() {
   return (
     <div className="landing-container">
       {/* Main text container */}

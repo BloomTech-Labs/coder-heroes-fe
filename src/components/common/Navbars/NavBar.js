@@ -28,7 +28,7 @@ import { connect } from 'react-redux';
 import navLogo from '../../../img/navbar-logo.png';
 import handleLogout from '../../../utils/logout.js';
 
-//TO-DO: Implement Auth0
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -40,6 +40,7 @@ function NavBar(props) {
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
   const history = useHistory();
+  const { user, isAuthenticated, logout } = useAuth0();
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
@@ -101,12 +102,25 @@ function NavBar(props) {
             </NavLink>
           )}
           <NavLink to="/login">
-            <button className="navbar__btn navbar__login">LOGIN</button>
+            {isAuthenticated ? (
+              <button
+                onClick={() => logout({ returnTo: window.location.origin })}
+                className="navbar__btn"
+              >
+                LOGOUT
+              </button>
+            ) : (
+              <button className="navbar__btn navbar__login">LOGIN</button>
+            )}
           </NavLink>
           {/* {localStorage.getItem({}) && ( */}
           <NavLink to="/parent/family">
             <div className="navbar__profile">
-              <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+              {!isAuthenticated ? (
+                <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+              ) : (
+                <img src={user.picture} alt={user.name} />
+              )}
             </div>
           </NavLink>
           {/* )} */}

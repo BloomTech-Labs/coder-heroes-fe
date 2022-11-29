@@ -60,21 +60,31 @@
 .approvedBtn {
   margin: 5% 33%;
 }
-// styles for admin-purchases
-div.header-container{
-padding-left: 1%;
-padding-bottom:1%;
+// styles for admin SideNav
+aside.ant-layout-sider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-div.table-container{
+div.ant-layout-sider-trigger {
+  margin-top: auto;
+  justify-self: flex-end;
+}
+// styles for admin-purchases
+  div.header-container {
+  padding-left: 1%;
+  padding-bottom:1%;
+}
+div.table-container {
   padding:3%;
 }
 // styles for admin-purchases-table
 // makes the rows alternating colors
-.table-container{
-tr:nth-child(odd){
+.table-container {
+tr:nth-child(odd) {
   background-color:#FDF2DD;
 }
-tr:nth-child(even){
+tr:nth-child(even) {
   background-color:#fcdfaa;
 }
 tr:nth-child(odd) > td.ant-table-cell {
@@ -93,31 +103,31 @@ thead.ant-table-thead > tr > th.ant-table-cell, th.ant-table-column-sort {
 thead.ant-table-thead > tr > th {
   background-color:#263E47;
 }
-.ant-table-column-title{
+.ant-table-column-title {
   font-size:medium;
 }
 .ant-table-thead {
   background-color:#263E47;
 }
 // makes the links black instead of blue
-.ant-table-cell a{
+.ant-table-cell a {
   color:black;
 }
 // makes the sorters black & the filter black
-.ant-table-column-sorter-inner{
+.ant-table-column-sorter-inner {
   color:white;
 }
-.ant-table-column-sorters{
+.ant-table-column-sorters {
   color:white;
 }
-.anticon, .anticon-filter{
+.anticon, .anticon-filter {
   color:white;
 }
-.anticon-download{
+.anticon-download {
   color:black;
   font-size:large;
 }
-.right{
+.right {
   text-align:right;
   padding-right:2%;
   padding-bottom:1%;
@@ -125,38 +135,38 @@ thead.ant-table-thead > tr > th {
 }
 }
 // styles for the admin add course modal and form
-.ant-modal-content{
+.ant-modal-content {
   width: 120%;
   margin-top:-10%;
   margin-left:-10%;
   background-color:#FCDFAA;
   border:#F1C461;
 }
-.ant-modal-header{
+.ant-modal-header {
   background-color:#FCDFAA;
   border-bottom:none;
 }
-.ant-modal-body{
+.ant-modal-body {
   border-top: 1px solid #096A70;
 }
-.ant-modal-title{
+.ant-modal-title {
   font-size:1.7rem;
 }
-.ant-modal-close-icon{
+.ant-modal-close-icon {
   color:black;
 }
 // attempted to apply font-size styles in this CSS sheet instead of inline. It was not responding to anything but inline styling.
 .ant-form-item-label {
     font-weight: bold;
 }
-.ant-form-item-label > label{
+.ant-form-item-label > label {
   color: #096A70;
 }
-.ant-modal-footer{
+.ant-modal-footer {
   display:flex;
   justify-content: flex-end;
   border-top: 1px solid #FCDFAA;
-  .ant-btn-default{
+  .ant-btn-default {
     width:30%;
     justify-content:center;
     background-color:#21C5B5;
@@ -168,7 +178,7 @@ thead.ant-table-thead > tr > th {
     font-size:1rem;
     padding-bottom:5px;
     }
-    .ant-btn-primary{
+    .ant-btn-primary {
     width:30%;
     justify-content:center;
     background-color:#6A0C49;
@@ -183,21 +193,21 @@ thead.ant-table-thead > tr > th {
 }
 
 //Admin view instructor styles
-.ant-card-container{
+.ant-card-container {
   width:100%;
 }
-.ant-card{
+.ant-card {
   background-color: #fcdfaa;
   border: none;
   margin:2%;
 }
-.instructor-card-container{
+.instructor-card-container {
   max-width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.tgl-container{
+.tgl-container {
   width: 100%;
   text-align: right;
 }
@@ -212,29 +222,29 @@ thead.ant-table-thead > tr > th {
     width: 15%;
 }
 
-div.instructor-button-container{
+div.instructor-button-container {
   display:flex;
   flex-direction:row;
   width:100%;
   justify-content: space-around;
 }
-.ant-card-head{
+.ant-card-head {
   border-bottom: 1px solid #096A70;
 }
-.ant-card-head-title{
+.ant-card-head-title {
   color: #096A70;
   font-size:large;
   font-weight:bold;
 }
-.ant-card-body > h3{
+.ant-card-body > h3 {
   color: #096A70;
   font-weight:bold;
 }
-.black{
+.black {
   color:black;
   font-weight:normal;
 }
-button.instructor-button{
+button.instructor-button {
   background-color:white;
   color:black;
   border:none;
@@ -244,72 +254,72 @@ button.instructor-button{
 }
 
 //media queries for submit new program
-.admin-add-courses-page{
+.admin-add-courses-page {
   font-size:1.5rem;
 }
 // admin-search
 
-.ant-input-group-wrapper{
+.ant-input-group-wrapper {
   margin:0 0 0 3%;
 }
-.ant-input-search-button{
+.ant-input-search-button {
   justify-content: center;
   margin:0;
   width:inherit;
 }
-.anticon-search{
+.anticon-search {
   color:black;
 }
 
 // admin-courses styling (cards)
-.ant-card-container{
+.ant-card-container {
   width:100%;
 }
-.courses-page-flex{
+.courses-page-flex {
   display:flex;
   justify-content: space-between;
 }
-.ant-card{
+.ant-card {
   background-color: #fcdfaa;
   border: none;
   margin:2%;
 }
-.admin-courses-container{
+.admin-courses-container {
   display:flex;
   flex-flow:row wrap;
 }
-.admin-course-card-container{
+.admin-course-card-container {
   width:45%;
 }
-.courses-button-container{
+.courses-button-container {
 display:flex;
 flex-direction:row;
 width:100%;
 justify-content: space-around;
 }
-.ant-input-search-button{
+.ant-input-search-button {
   font-size:large;
 }
-.ant-input-group-addon{
+.ant-input-group-addon {
   width:5rem;
 }
 .ant-card-head{
   border-bottom: 1px solid #096A70;
 }
-.ant-card-head-title{
+.ant-card-head-title {
   color: #096A70;
   font-size:large;
   font-weight:bold;
 }
-.ant-card-body > h3{
+.ant-card-body > h3 {
   color: #096A70;
   font-weight:bold;
 }
-.black{
+.black {
   color:black;
   font-weight:normal;
 }
-button.courses-button{
+button.courses-button {
   background-color:white;
   color:black;
   border:none;
@@ -318,11 +328,11 @@ button.courses-button{
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   
 }
-.courses-right{
+.courses-right {
   margin-right:16%;
   margin-bottom:2%;
 }
-.add-course{
+.add-course {
   background-color: #21C5B5;
   border:none;
   color:black;

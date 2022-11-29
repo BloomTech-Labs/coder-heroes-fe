@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CourseCard from './CourseCard';
 import ApplicationCard from './ApplicationCard';
 import { Layout } from 'antd';
@@ -15,11 +16,15 @@ const AdminHomeContent = () => {
       <div class="AdminDashHeaders">
         <div class="container courses">
           <h2>Recent Courses</h2>
-          <a href="/courses">See All</a>
+          <Link className="see-all-link" to="/admin-courses">
+            See All
+          </Link>
         </div>
         <div class="container applications">
           <h2>Instructor Applications</h2>
-          <a href="/instructors">See All</a>
+          <Link className="see-all-link" to="/admin-instructors">
+            See All
+          </Link>
         </div>
       </div>
       <div class="AdminDashContent">

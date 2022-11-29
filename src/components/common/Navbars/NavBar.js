@@ -43,7 +43,7 @@ function NavBar(props) {
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
-    else if (role_id < 5) setBgColor('#21C5B5');
+    else if (role_id < 5 && role_id > 2) setBgColor('#21C5B5');
     else setBgColor('#FEAD2A');
   }, [role_id]);
 
@@ -72,7 +72,7 @@ function NavBar(props) {
       style={{
         backgroundColor: bgColor,
         minHeight: '98px',
-        lineHeight: '0',
+        lineHeight: '0px',
         padding: '0',
       }}
     >

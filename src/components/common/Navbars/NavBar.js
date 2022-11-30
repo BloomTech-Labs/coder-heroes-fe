@@ -37,8 +37,7 @@ function NavBar(props) {
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
   const history = useHistory();
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  // console.log("user.name", user.name);
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');

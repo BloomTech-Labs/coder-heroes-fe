@@ -98,6 +98,8 @@ root.render(
         <Auth0Provider
           domain="dev-aaucjuidwn3zohx5.us.auth0.com"
           clientId="nUORWBATYehjnPTw3Y6iyQYzglWwT5eR"
+          // domain={process.env.AUTH0_DOMAIN}
+          // clientId={process.env.AUTH0_CLIENT_ID}
           redirectUri={window.location.origin}
         >
           <Layout

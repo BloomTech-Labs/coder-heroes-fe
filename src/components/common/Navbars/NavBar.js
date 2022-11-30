@@ -11,7 +11,7 @@ import {
   ContactsOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
-// import LogoutPage from '../../pages/Login/LogoutContainer';
+
 import {
   ProfileIcon,
   HamburgerMenuIcon,

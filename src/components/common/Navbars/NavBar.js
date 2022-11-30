@@ -107,7 +107,6 @@ function NavBar(props) {
               <button className="navbar__btn navbar__login">LOGIN</button>
             </NavLink>
           )}
-          {/* {localStorage.getItem({}) && ( */}
           <NavLink to="/parent/family">
             <div className="navbar__profile">
               {!isAuthenticated ? (
@@ -124,7 +123,6 @@ function NavBar(props) {
               )}
             </div>
           </NavLink>
-          {/* )} */}
         </div>
         <div className="navbar__hamburgerMenu">
           <HamburgerMenuIcon style={{ color: 'white' }} onClick={showDrawer} />

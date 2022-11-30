@@ -146,7 +146,23 @@ function NavBar(props) {
                   <NavLink to="/login">Login</NavLink>
                 </Menu.Item>
               )}
-              <Menu.Item key="99" icon={<ProfileIcon />}>
+              <Menu.Item
+                key="99"
+                icon={
+                  !isAuthenticated ? (
+                    <ProfileIcon />
+                  ) : (
+                    <img
+                      src={user.picture}
+                      alt={user.name}
+                      style={{
+                        borderRadius: '100px',
+                        width: '15px',
+                      }}
+                    />
+                  )
+                }
+              >
                 <NavLink to="/dev">My Dashboard</NavLink>
               </Menu.Item>
               <Menu.Item key="2" icon={<ContactsOutlined />}>

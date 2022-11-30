@@ -6,15 +6,12 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
   HomeOutlined,
-  SnippetsOutlined,
   AliwangwangOutlined,
-  FormOutlined,
-  BankOutlined,
-  UserSwitchOutlined,
   LoginOutlined,
   ContactsOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
+// import LogoutPage from '../../pages/Login/LogoutContainer';
 import {
   ProfileIcon,
   HamburgerMenuIcon,
@@ -40,7 +37,8 @@ function NavBar(props) {
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
   const history = useHistory();
-  const { user, isAuthenticated, logout } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  // console.log("user.name", user.name);
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
@@ -101,25 +99,29 @@ function NavBar(props) {
               </button>
             </NavLink>
           )}
-          <NavLink to="/login">
-            {isAuthenticated ? (
-              <button
-                onClick={() => logout({ returnTo: window.location.origin })}
-                className="navbar__btn"
-              >
-                LOGOUT
-              </button>
-            ) : (
+          {isAuthenticated ? (
+            <NavLink to="/logout">
+              <button className="navbar__btn navbar__login">LOGOUT</button>
+            </NavLink>
+          ) : (
+            <NavLink to="/login">
               <button className="navbar__btn navbar__login">LOGIN</button>
-            )}
-          </NavLink>
+            </NavLink>
+          )}
           {/* {localStorage.getItem({}) && ( */}
           <NavLink to="/parent/family">
             <div className="navbar__profile">
               {!isAuthenticated ? (
                 <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
               ) : (
-                <img src={user.picture} alt={user.name} />
+                <img
+                  src={user.picture}
+                  alt={user.name}
+                  style={{
+                    borderRadius: '100px',
+                    width: '40px',
+                  }}
+                />
               )}
             </div>
           </NavLink>

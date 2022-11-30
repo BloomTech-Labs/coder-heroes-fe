@@ -21,6 +21,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login/index';
+import { LogoutPage } from './components/pages/Logout/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -126,7 +127,8 @@ function App() {
     <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />;
+        <Route path="/login" component={LoginPage} />
+        <Route path="/logout" component={LogoutPage} />
         <Route path="/register" component={RegisterStep1} />
         <Route path="/confirm" component={ConfirmEmail} />
         <Route path="/register-1" component={RegisterStep1} />

@@ -8,6 +8,7 @@ import {
   HomeOutlined,
   AliwangwangOutlined,
   LoginOutlined,
+  LogoutOutlined,
   ContactsOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
@@ -136,9 +137,15 @@ function NavBar(props) {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
-              <Menu.Item key="3" icon={<LoginOutlined />}>
-                <NavLink to="/login">Login</NavLink>
-              </Menu.Item>
+              {isAuthenticated ? (
+                <Menu.Item key="3" icon={<LogoutOutlined />}>
+                  <NavLink to="/logout">Logout</NavLink>
+                </Menu.Item>
+              ) : (
+                <Menu.Item key="3" icon={<LoginOutlined />}>
+                  <NavLink to="/login">Login</NavLink>
+                </Menu.Item>
+              )}
               <Menu.Item key="99" icon={<ProfileIcon />}>
                 <NavLink to="/dev">My Dashboard</NavLink>
               </Menu.Item>

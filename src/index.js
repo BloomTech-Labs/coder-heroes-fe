@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { createRoot } from 'react-dom/client';
 import { Layout } from 'antd';
 import {
   BrowserRouter as Router,
@@ -83,13 +81,15 @@ import AdminEditCourse from './components/pages/AdminDispCourse/index';
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 //TO-DO: IMPLEMENT AUTH0 ADD SECURE ROUTES
 
+import { Auth0Provider } from '@auth0/auth0-react';
+import ReactDOM from 'react-dom';
 const store = createStore(rootReducers, applyMiddleware(thunk));
 window.store = store; // Remove before full deployment. In here for development purposes.
 
-const app = document.getElementById('root');
-const root = createRoot(app);
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-root.render(
+ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
@@ -101,12 +101,19 @@ root.render(
           }}
         >
           <NavBar />
-          <App />
+          <Auth0Provider
+            domain={domain}
+            clientId={clientId}
+            redirectUri={window.location.origin}
+          >
+            <App />
+          </Auth0Provider>
           <Footer />
         </Layout>
       </React.StrictMode>
     </Router>
-  </Provider>
+  </Provider>,
+  document.getElementById('root')
 );
 
 function App() {

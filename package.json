@@ -6,6 +6,7 @@
   "proxy": "http://localhost:8080",
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@craco/craco": "^6.4.3",
     "antd": "^4.20.1",
     "axios": "^0.21.1",
@@ -31,7 +32,7 @@
   "scripts": {
     "start": "node start.js",
     "build": " SKIP_PREFLIGHT_CHECK=true npx craco --max_old_space_size=4096 build",
-    "test": "craco test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "coverage": "npm test -- --coverage --watchAll=false",

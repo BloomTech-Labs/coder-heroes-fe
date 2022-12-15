@@ -5,11 +5,22 @@ import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/index.less';
 import '../../../../styles/ParentStyles/messages.less';
 import { connect, useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 
-//TO-DO: Implement Auth0
 function ActiveMessage(props) {
+  const dispatch = useDispatch();
+  const { authState, oktaAuth } = useOktaAuth();
+
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const sortByDate = arr => {
     return arr.sort((a, b) => {
       const dateA = new Date(a.sent_at);

@@ -1,5 +1,5 @@
 const config = {
-  //TO-DO: IMPLEMENT AUTH0//
+  issuer: process.env.REACT_APP_OKTA_ISSUER_URI,
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: process.env.REACT_APP_CLIENT_ID,
   pkce: false,

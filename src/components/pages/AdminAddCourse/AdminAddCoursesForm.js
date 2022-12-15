@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-// import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-//import moment from 'moment'; you may need this for auto-pop
+import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 import { editCourse, addCourse } from '../../../redux/actions/coursesActions';
 
 // Styles
@@ -21,8 +18,6 @@ import {
   Select,
 } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
-
-//TO-DO: Implement Auth0
 const { Option } = Select;
 
 const initialFormValues = {
@@ -55,6 +50,8 @@ function AdminAddCoursesForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { courseinfo } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const dispatch = useDispatch();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
 
   const numberFields = [
     {
@@ -73,9 +70,6 @@ function AdminAddCoursesForm(props) {
       value: formValues.course_min_age,
     },
   ];
-  const [formPreReqs, setFormPreReqs] = useState({ prereq: '' });
-
-  const daysOfWeek = [];
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -102,43 +96,17 @@ function AdminAddCoursesForm(props) {
     setIsModalVisible(false);
   };
 
-  const { dispatch } = useDispatch();
-
   const handleSubmit = e => {
     if (props.button_name === 'Add Course') {
-      dispatch(addCourse(formValues));
+      dispatch(addCourse(idToken, formValues));
     } else {
-      dispatch(editCourse(formValues));
+      dispatch(editCourse(idToken, formValues));
       alert('Edits Submitted!');
     }
 
     setIsModalVisible(false);
     window.location.reload();
   };
-
-  let history = useHistory();
-
-  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
-
-  //currently being blocked from the BE due to only a instructor can add courses.. BE middleware will need to be added for admin.
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   axios
-  //     .post('/courses', formValues)
-  //     .then(() => {
-  //       history.push('/admin-courses');
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  //   const merged = {
-  //     ...formValues,
-  //     prereq: placeHolder,
-  //   };
-  //   program_list.push(props.addClass(merged).payload);
-  //   setFormValues(initialFormValues);
-  //   clearPrereq();
-  // }
 
   const handleChange = e => {
     setFormValues({

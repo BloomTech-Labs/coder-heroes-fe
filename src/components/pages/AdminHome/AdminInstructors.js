@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getInstructors } from '../../../redux/actions/instructorActions';
+import { useOktaAuth } from '@okta/okta-react';
 import AdminSidebar from './AdminSidebar';
 import { Layout } from 'antd';
 import AdminInstructorCard from './AdminInstructorCard';
 import LoadingComponent from '../../common/LoadingComponent';
 import PaginatePage from '../../common/PaginatePage';
-//TO-DO: Implement Auth0
 
 const { Content } = Layout;
 
@@ -20,6 +20,12 @@ function AdminInstructors(props) {
   const [displayed, setDisplayed] = useState(filtered);
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(10);
+  const dispatch = useDispatch();
+  const idToken = useOktaAuth().oktaAuth.getIdToken();
+
+  useEffect(() => {
+    dispatch(getInstructors(idToken));
+  }, [dispatch, idToken]);
 
   useEffect(() => {
     setDisplayed(filtered);

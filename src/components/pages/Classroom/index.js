@@ -8,25 +8,27 @@ import {
   getStudents,
   setCurrentStudentId,
 } from '../../../redux/actions/classroomActions';
+import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
-//TO-DO: Implement Auth0
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 const Classroom = props => {
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const dispatch = useDispatch();
   useEffect(() => {
-    props.getStudents(props.course.course_id);
+    props.getStudents(idToken, props.course.course_id);
   }, []);
 
   const navigate = useHistory();
 
-  // const handleNavigate = e => {
-  //   e.preventDefault();
-  //   dispatch(setCurrentStudentId(parseInt(e.target.parentElement.value)));
-  //   navigate.push('/feedback-badges');
-  // };
+  const handleNavigate = e => {
+    e.preventDefault();
+    dispatch(setCurrentStudentId(parseInt(e.target.parentElement.value)));
+    navigate.push('/feedback-badges');
+  };
 
   return (
     <>
@@ -41,7 +43,7 @@ const Classroom = props => {
                 <Button
                   className="classroom_feedback__button"
                   value={student.child_id}
-                  // onClick={handleNavigate}
+                  onClick={handleNavigate}
                   key={Date.now()}
                 >
                   GIVE FEEDBACK

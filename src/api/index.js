@@ -1,8 +1,6 @@
 import axios from 'axios';
-//TO-DO: Implement Auth0
 
 // we will define a bunch of API calls here.
-//NOTE: apiUrl will be used below once auth0 is implemented //
 const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
 
 const sleep = time =>
@@ -16,28 +14,33 @@ const getExampleData = () => {
     .then(response => response.data);
 };
 
-const getDSData = url => {
+const getAuthHeader = authState => {
+  if (!authState.isAuthenticated) {
+    throw new Error('Not authenticated');
+  }
+  return { Authorization: `Bearer ${authState.idToken}` };
+};
+
+const getDSData = (url, authState) => {
   // here's another way you can compose together your API calls.
   // Note the use of GetAuthHeader here is a little different than in the getProfileData call.
+  const headers = getAuthHeader(authState);
   if (!url) {
     throw new Error('No URL provided');
   }
   return axios
-    .get(url)
+    .get(url, { headers })
     .then(res => JSON.parse(res.data))
-    .catch(err => {
-      console.log(err);
-    });
+    .catch(err => err);
 };
 
-// NOTE: Once auth0 is implemented these lines can be refactored or reused //
-// const apiAuthGet = authHeader => {
-//   return axios.get(apiUrl, { headers: authHeader });
-// };
+const apiAuthGet = authHeader => {
+  return axios.get(apiUrl, { headers: authHeader });
+};
 
-const getProfileData = () => {
+const getProfileData = authState => {
   try {
-    return 'Hi, need to Implement Auth0';
+    return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
   } catch (error) {
     return new Promise(() => {
       console.log(error);
@@ -46,4 +49,4 @@ const getProfileData = () => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+export { sleep, getExampleData, getProfileData, getDSData, getAuthHeader };

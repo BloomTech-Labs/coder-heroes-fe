@@ -25,7 +25,7 @@ function DataViz(props) {
 
   useEffect(() => {
     function fetchDSData() {
-      getDSData(props.url)
+      getDSData(props.url, props.authState)
         .then(res => {
           setData(res);
         })
@@ -34,7 +34,7 @@ function DataViz(props) {
         });
     }
     fetchDSData();
-  }, [props.url]);
+  }, [props.url, props.authState]);
 
   return (
     <Plot

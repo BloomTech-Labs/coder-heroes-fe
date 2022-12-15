@@ -7,7 +7,17 @@ import rootReducers from '../redux/reducers/index';
 import PaymentSuccess from '../components/pages/ParentHome/PaymentSuccess';
 
 const store = createStore(rootReducers);
-//TO-DO: Implement mock for Auth0
+
+jest.mock('@okta/okta-react', () => ({
+  useOktaAuth: () => {
+    return {
+      authState: {
+        isAuthenticated: true,
+      },
+      authService: {},
+    };
+  },
+}));
 
 describe('<PaymentSuccess />', () => {
   test('it renders the PaymentSuccess component', () => {

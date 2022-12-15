@@ -9,10 +9,10 @@ import {
   isDateToday,
   isOneToOneSession,
 } from '../../common/dateHelpers';
-//TO-DO: Implement Auth0
 
 import { getCourses } from '../../../redux/actions/instructorActions';
 import { useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 
 const { TabPane } = Tabs;
 
@@ -21,6 +21,13 @@ const InstructorBookingCards = props => {
   const [currentModalProps, setCurrentModalProps] = useState(false);
   const [modalHidden, setModalHidden] = useState(true);
   const [currentCourses, setCurrentCourses] = useState();
+
+  const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+  useEffect(() => {
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
 
   useEffect(() => {
     setCurrentCourses(instructor.course_schedule);

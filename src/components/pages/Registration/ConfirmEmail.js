@@ -15,7 +15,7 @@ const ConfirmEmail = props => {
         </p>
         <div className="link-container">
           <button>Resend Link</button>
-          {/* update href after finding correct path from "Auth0" */}
+          {/* update href after finding correct path from Okta */}
         </div>
       </div>
     </div>

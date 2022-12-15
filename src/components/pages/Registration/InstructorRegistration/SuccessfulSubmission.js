@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../../../styles/registration.less';
 import RegistrationProgress from '../RegistrationProgress';
-//TO-DO: Implement Auth0
 
 export default function SuccessfulSubmission() {
   return (
@@ -19,7 +18,7 @@ export default function SuccessfulSubmission() {
         <div className="link-container">
           {/* eslint-disable-next-line*/}
           <a href="/about-coderheroes">LEARN MORE</a>
-          {/* update href after finding correct path from "Auth0" */}
+          {/* update href after finding correct path from Okta */}
         </div>
       </div>
     </div>

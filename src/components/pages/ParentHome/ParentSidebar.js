@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Menu, Layout } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
 import 'antd/dist/antd.css';
 import {
   HomeFilled,
@@ -13,12 +14,12 @@ import {
 } from '@ant-design/icons';
 import { FaShoppingCart } from 'react-icons/fa';
 
-//TO-DO: Implement Auth0
 const { Sider } = Layout;
 
 const ParentSideBar = props => {
   const { cart, active, user } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const { authService } = useOktaAuth();
   const { role_id } = props.user.currentUser;
 
   console.log(`user role is ${role_id}`);

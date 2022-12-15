@@ -1,4 +1,190 @@
+@import 'antd/dist/antd.css';
 
-.image{
-    max-width: 100%;
+.image {
+  max-width: 100%;
+}
+
+.main-container {
+  display: flex;
+
+  .title {
+    margin: 30px 0 40px 0;
+    p {
+      width: 735px;
+      text-align: center;
+      color: #3a072c;
+      margin-left: 600px;
+      font-family: 'Staatliches', 'cursive';
+    }
+  }
+
+  .form-container {
+    text-align: left;
+    justify-content: center;
+    margin-left: 155px;
+
+    .sub-heading {
+      color: #3a072c;
+      font-size: 21px;
+      font-weight: bold;
+      margin: 20px 0 15px 0;
+    }
+
+    .sub-heading {
+      color: #3a072c;
+      font-size: 21px;
+      font-weight: bold;
+      margin: 20px 0 15px 0;
+    }
+
+    .course-availability-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .booking-calendar-container {
+      padding-bottom: 30px;
+      flex: 1;
+
+      .booking-calendar {
+        min-width: 600px;
+        max-width: 800px;
+      }
+      .calendar-text {
+        padding: 15px;
+      }
+    }
+
+    .btn-drop-down-container {
+      display: flex;
+      min-width: 525px;
+      flex-direction: column;
+      flex: 1;
+
+      .time-zone-container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        .time-zone-card {
+          background-color: white;
+          border-radius: 5px;
+          margin: 6px 6px 10px 6px;
+        }
+
+        .time-zone {
+          color: #6e4964;
+          font-size: 16px;
+          margin: 6px;
+          padding: 3px 0;
+          text-align: center;
+        }
+      }
+
+      .booking-card-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+
+        .selected-course-details {
+          border: 2px solid black;
+          margin-left: 100px;
+          background-color: rgb(224, 227, 209);
+          border-radius: 5px;
+          padding: 45px 45px 30px 45px;
+          min-width: 500px;
+          p {
+            color: black;
+            font-size: 16px;
+          }
+        }
+
+        .show-availability-btn {
+          background-color: #680049;
+          margin: 150px 6px 6px 150px;
+          font-size: 16px;
+          padding: 7px 0;
+          text-transform: uppercase;
+          justify-content: center;
+          border-radius: 5px;
+
+          span {
+            color: #eeedd9;
+            margin: 0;
+          }
+        }
+
+        .booking-card-btns {
+          display: flex;
+          min-width: 500px;
+
+          .booking-card-btn:nth-child(1) {
+            margin-left: 40px;
+          }
+          .booking-card-btn:nth-child(2) {
+            margin-right: 40px;
+          }
+
+          .booking-card-btn {
+            background-color: #680049;
+            color: white;
+            margin: 20px 6px 6px 6px;
+            font-size: 16px;
+            padding: 7px 0;
+            text-transform: uppercase;
+            border-radius: 5px;
+            min-width: 255px;
+            justify-content: center;
+
+            span {
+              color: #eeedd9;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.select-program-container {
+  display: flex;
+
+  .arrows-icon {
+    color: #4a1e3c;
+    font-weight: bold;
+  }
+
+  .radio-group {
+    width: 60vw;
+    background-color: #eeedd9;
+
+    .select-program-cards {
+      padding: 5px 0 5px 5px;
+      background: #f35f24;
+      align-items: center;
+      min-width: 250px;
+      flex: 1;
+      margin: 0 10px;
+
+      .radio-btn {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .arrow-btns {
+    background: none;
+  }
+}
+
+.drop-down-container {
+  font-size: 20px;
+  width: auto;
+  padding: 10px;
+  margin: 6px;
+  border-radius: 15px;
+  background-color: rgba(58, 201, 176, 0.8);
+  color: #680049;
+  text-align: center;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
-import axios from 'axios';
-// import axiosWithAuth from '../../../utils/axiosWithAuth';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { Form, Input, Button, InputNumber } from 'antd';
 import '../../../styles/ParentStyles/index.less';
+import { useOktaAuth } from '@okta/okta-react';
 
-//TO-DO: Implement Auth0
 const CreateNewStudent = props => {
   const { setAddStudentVisible, setAlertMsg } = props;
 
@@ -13,11 +12,12 @@ const CreateNewStudent = props => {
     wrapperCol: { span: 16 },
   };
 
-  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
+
   const onFinish = values => {
-    // axiosWithAuth(idToken)
-    //   .post('/children', values.student)
-    Promise.resolve({ data: [], message: '' })
+    axiosWithAuth(idToken)
+      .post('/children', values.student)
       .then(resp => {
         setAddStudentVisible(false);
         setAlertMsg(1);

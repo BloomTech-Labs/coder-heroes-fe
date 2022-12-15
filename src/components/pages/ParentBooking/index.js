@@ -13,7 +13,6 @@ function ParentBooking() {
       <ParentSidebar active="courses" />
       <Content>
         <Banner />
-
         <ParentBookingContainer className="booking-container" />
       </Content>
     </Layout>

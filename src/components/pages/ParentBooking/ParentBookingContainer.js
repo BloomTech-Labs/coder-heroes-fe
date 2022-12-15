@@ -55,14 +55,14 @@ const ParentBookingContainer = props => {
         <Tabs animated="true" tabPosition="top" onChange={renderTab} centered>
           {tabs.map((item, index) => (
             <TabPane tab={item.title} key={index} className="tab_container">
-              {currentTab &&
+              {/* {currentTab &&
                 currentTab.map((item, idx) => {
                   return (
-                    <div>
-                      <ParentBookingCard key={idx} booking={item} />
-                    </div>
+                    <div> */}
+              <ParentBookingCard booking={item} />
+              {/* </div>
                   );
-                })}
+                })} */}
             </TabPane>
           ))}
           <TabPane tab="My Courses" key="3">

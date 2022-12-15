@@ -1,9 +1,9 @@
 import React from 'react';
 import { Menu } from 'antd';
+import { useOktaAuth } from '@okta/okta-react';
 
 export default function MainHeader() {
-  //TO-DO: Implement Auth0
-  // const { authService, authState } = 'Update the hook with auth0';
+  const { authService, authState } = useOktaAuth();
   return (
     <div>
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -12,7 +12,7 @@ export default function MainHeader() {
         <Menu.Item key="3">Booking</Menu.Item>
         <Menu.Item key="4">Scholarships</Menu.Item>
         <Menu.Item key="5">Contact Us (button)</Menu.Item>
-        {/* {authState.isAuthenticated ? (
+        {authState.isAuthenticated ? (
           <Menu.Item
             key="6"
             onClick={() => {
@@ -23,7 +23,7 @@ export default function MainHeader() {
           </Menu.Item>
         ) : (
           <></>
-        )} */}
+        )}
       </Menu>
     </div>
   );

@@ -8,13 +8,20 @@ const StripeCheckoutButton = ({ price }) => {
     'pk_test_51KW2lbBKjoE9XTUg0egVFw0BOv1qLHRAalJAI0tzcCrPQZiuT33aJjmlKJkDp0FrfvbcY6JR2Pl7I2tSukYUyQTk00OSmOo3M2';
 
   const onToken = token => {
-    // axios.post(`/payments/payments`,{ amount: priceForStripe, token })
-    Promise.resolve({ data: [], message: '' })
+    axios({
+      url: `payments/payments`,
+      method: 'post',
+      data: {
+        amount: priceForStripe,
+        token,
+      },
+    })
       .then(response => {
         alert(
           'Payment successful ,you will receive a receipt in your email',
           response.data
         );
+        console.log(response.data);
       })
       .catch(error => {
         console.log('payment error:', error.message);

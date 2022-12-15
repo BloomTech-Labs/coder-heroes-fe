@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import { useOktaAuth } from '@okta/okta-react';
 import { List, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import '../../../../styles/ParentStyles/messages.less';
@@ -7,13 +8,22 @@ import '../../../../styles/ParentStyles/index.less';
 import { getCurrentUser } from '../../../../redux/actions/userActions';
 import { getActiveConversation } from '../../../../redux/actions/userActions';
 
-//TO-DO: Implement Auth0
 const MessageList = props => {
   const currentUser = props.currentUser;
+  const { authState, oktaAuth } = useOktaAuth();
   const dispatch = useDispatch();
   const [filteredConversations, setFilteredConversations] = useState([[]]);
   const [currentConversation, setCurrentConversation] = useState('');
   const [activeSenderId, setActiveSenderId] = useState(null);
+
+  useEffect(() => {
+    if (authState !== null) {
+      if (authState.isAuthenticated !== false) {
+        dispatch(getCurrentUser(authState.idToken.idToken, oktaAuth));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (activeSenderId) {

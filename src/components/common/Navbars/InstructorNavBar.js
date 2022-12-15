@@ -4,6 +4,7 @@ import { ThunderboltFilled } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line
+import { useOktaAuth } from '@okta/okta-react';
 import { ProfileIcon } from '../../pages/LandingInstructor/Icons';
 
 const { Header } = Layout;

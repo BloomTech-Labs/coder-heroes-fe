@@ -8,12 +8,12 @@ import {
   BarChartOutlined,
   StarOutlined,
 } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
 import { getCurrentUser } from '../../../redux/actions/userActions';
 import {
   getInstructor,
   getCourses,
 } from '../../../redux/actions/instructorActions';
-//TO-DO: Implement Auth0
 
 const initialValues = {
   students: 0,
@@ -22,22 +22,25 @@ const initialValues = {
   totalCourse: 0,
 };
 function InstructorStats(props) {
+  const { authState, authService } = useOktaAuth();
+  const { idToken } = authState;
   const dispatch = useDispatch();
   const [stats, setStats] = useState(initialValues);
 
   useEffect(() => {
     if (!props.user.name) {
-      dispatch(getCurrentUser());
+      dispatch(getCurrentUser(idToken, authState, authService));
     }
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, [dispatch, idToken]);
 
   useEffect(() => {
-    dispatch(getInstructor(props.user.profile_id));
-  }, [dispatch, props.user.profile_id]);
+    dispatch(getInstructor(idToken, props.user.profile_id));
+  }, [dispatch, idToken, props.user.profile_id]);
 
   useEffect(() => {
-    dispatch(getCourses(props.user.profile_id));
-  }, [dispatch]);
+    dispatch(getCourses(idToken));
+  }, [dispatch, idToken]);
 
   useEffect(() => {
     let completed = 0;

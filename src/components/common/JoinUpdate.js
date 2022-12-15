@@ -45,7 +45,6 @@ const Form = props => {
       })
       .catch(err => {
         console.log(err);
-        return value;
       });
     setValues({
       'First Name': '',

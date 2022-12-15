@@ -42,24 +42,28 @@
   .navbar__links {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 65%;
 
     .navbar__navLink {
       height: 55px;
+      width: 25%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: @text__color--maroon;
       font-size: 1rem;
       font-weight: 600;
-      transition: 100ms all ease-in-out;
+      border-right: 2px solid #3b0e2b;
+      transition: 250ms all ease-in-out;
     }
     .last_navLink {
       border: none;
     }
     .navbar__navLink:hover {
-      border-bottom: 3px solid @text__color--maroon;
+      color: @text__color--white;
+      text-decoration: underline;
+      text-decoration-thickness: 10px;
     }
     @media screen and (max-width: 1220px) {
       .navbar__navLink {

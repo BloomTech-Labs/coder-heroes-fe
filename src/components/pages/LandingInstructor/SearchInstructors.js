@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Row, Col, Typography, Input, Select, Layout, Form } from 'antd';
 import '../../../styles/index.less';
+import { useOktaAuth } from '@okta/okta-react';
 import { StudentIcon, TeacherIcon, CalendarIcon } from './Icons';
 import { getInstructor } from '../../../redux/actions/instructorActions';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
-//TO-DO: Implement Auth0
 const { Content } = Layout;
 const { Title, Text } = Typography;
 const { Item } = Form;
@@ -14,11 +14,12 @@ const { Option } = Select;
 
 const SearchInstructors = props => {
   const dispatch = useDispatch();
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
   const [searchTerm, setSearchTerm] = useState('');
 
-  //TO-DO: Implement Auth0 - getInstructor
   const handleSubmit = () => {
-    dispatch(getInstructor());
+    dispatch(getInstructor(idToken));
   };
 
   return (

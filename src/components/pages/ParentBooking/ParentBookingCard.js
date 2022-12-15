@@ -1,90 +1,187 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
+import React, { useState } from 'react';
+import { Typography, Layout, Form, Button } from 'antd';
+import { parentDummyData } from '../../../parentDummyData';
+import BookingCalendar from './BookingCalendar';
+import PreferredCourseOptions from './PreferredCourseOptions.js';
+import '../../../styles/ParentStyles/booking.less';
+import BookingProgram from './BookingProgram';
+import SelectedCourseDetails from './SelectedCourseDetails';
 
-import React from 'react';
-import { connect } from 'react-redux';
-import { Card, Button } from 'antd';
-import { dateConverter } from '../../common/dateHelpers';
-import { timeConverter } from '../../common/timeHelpers';
-import axios from 'axios';
-// import axiosWithAuth from '../../../utils/axiosWithAuth';
-import { addToCart } from '../../../redux/actions/parentActions';
+const courseDetails = {
+  instructor_name: '',
+  size: '',
+  subject: '',
+  description: '',
+  start_date: '',
+  end_date: '',
+  start_time: '',
+  end_time: '',
+  price: '',
+};
 
-//TO-DO: Implement Auth0
-const ParentBookingCard = props => {
-  const {
-    child_name,
-    subject,
-    description,
-    start_date,
-    end_date,
-    start_time,
-    end_time,
-    location,
-    instructor_name,
-    size,
-    course_id,
-  } = props.booking;
+const ParentBookingCard = () => {
+  const { Content } = Layout;
+  const { Item } = Form;
+  const { Title } = Typography;
+  const [searchResults, setSearchResults] = useState([]);
 
-  const { addToCart } = props;
+  const [show, setShow] = useState(true);
+  const [disabled, setDisabled] = useState(false);
+  const [render, setRender] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(courseDetails);
 
-  //TO-DO: Implement axiosWithAuth once we've adjusted it to work with Auth0
-  const handleClick = e => {
-    // axiosWithAuth(idToken)
-    //   .post(
-    //     '/children/1/enrollments', // TODO: Hook this request up to pass the ID of the parent/child involved once we have this data in state.
-    //     { child_id: 1, class_id: course_id, completed: true }
-    //   )
-    Promise.resolve({ data: [], message: '' })
-      .then(res => console.log(res)) // TODO: Let's perform some action with this result.
-      .catch(err => console.log(`message: ${err.message}`));
+  let valuesObject = {};
+
+  let newArray = [];
+  let resultArray = [];
+
+  const toggleDisabled = () => {
+    setDisabled(!disabled);
   };
 
-  const data = [
-    { title: 'student name', text: child_name },
-    { title: 'course', text: subject },
-    { title: 'description', text: description },
-    { title: 'first day of class', text: dateConverter(start_date) },
-    { title: 'last day of class', text: dateConverter(end_date) },
-    {
-      title: 'time',
-      text: `${timeConverter(start_time)} - ${timeConverter(end_time)}`,
-    },
-    { title: 'location', text: location },
-    { title: 'instructor', text: instructor_name },
-    { title: 'class size', text: size },
-  ];
+  const handleRadioClick = e => {
+    let program = e.target.value;
+    valuesObject.program = program;
+  };
 
-  const handleAddCourse = booking => {
-    addToCart(booking);
+  const handleCalendarClick = value => {
+    let date = value.format('MM/DD/YYYY');
+    valuesObject.date = date;
+  };
+
+  const handleAvailability = e => {
+    newArray = parentDummyData.availableCourses.filter(course => {
+      let programDate = course.start_date;
+      let selectedDate = valuesObject.date;
+      let programMonth = programDate.substring(0, 2);
+      let selectedMonth = selectedDate.substring(0, 2);
+      let programYear = programDate.substring(6);
+      let selectedYear = selectedDate.substring(6);
+
+      return parseInt(programMonth) >= parseInt(selectedMonth) &&
+        programYear === selectedYear
+        ? course
+        : null;
+    });
+
+    resultArray = newArray.filter(
+      course => course.subject === valuesObject.program
+    );
+    setSearchResults(resultArray);
+    setSelectedOption(resultArray[0]);
+    if (valuesObject.program && valuesObject.date) {
+      setShow(!show);
+    }
+
+    toggleDisabled();
+  };
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
+  const handleSelectedCourse = () => {
+    setRender(!render);
+  };
+
+  const updateSelection = (inputName, inputValue) => {
+    setSelectedOption({ ...selectedOption, [inputName]: inputValue });
   };
 
   return (
-    <Card title={subject} style={{ width: 280 }} hoverable="true">
-      {data.map((itm, idx) => {
-        return (
-          <div key={idx}>
-            {itm.title}: {itm.text}
+    <Layout>
+      <Content className="main-container">
+        <Title className="title">
+          <p>
+            BOOK WITH US.
+            <br />
+            LEARN MORE THAN JUST CODE!
+          </p>
+        </Title>
+        <Form className="form-container" size={'large'} layout="inline">
+          <div>
+            <div className="sub-heading">Select Program</div>
+            <Item name={'specialty'}>
+              <BookingProgram
+                handleRadioClick={handleRadioClick}
+                disabled={disabled}
+              />
+            </Item>
+
+            <div className="sub-heading">Select Date</div>
           </div>
-        );
-      })}
-      <Button
-        type="primary"
-        style={{ background: '#006C72', color: 'white' }}
-        block
-        onClick={() => handleAddCourse(data)}
-      >
-        {' '}
-        ADD{'  '}
-      </Button>
-    </Card>
+
+          <div className="course-availability-container">
+            <Item className="booking-calendar-container">
+              <BookingCalendar handleCalendarClick={handleCalendarClick} />
+            </Item>
+            <Item name={'availability'} className="btn-drop-down-container">
+              <div className="booking-card-container">
+                {show && (
+                  <Button
+                    className="show-availability-btn"
+                    type="submit"
+                    onClick={() => {
+                      if (valuesObject.program && valuesObject.date) {
+                        handleAvailability();
+                      }
+                    }}
+                  >
+                    <span>Show Availability</span>
+                  </Button>
+                )}
+                <div className="booking-card-btns">
+                  {!show && !render && (
+                    <Button
+                      className="booking-card-btn"
+                      type="submit"
+                      onClick={handleSelectedCourse}
+                    >
+                      <span>View Selection Details</span>
+                    </Button>
+                  )}
+
+                  {!show && render && (
+                    <Button className="booking-card-btn" type="submit">
+                      <span>Book Now</span>
+                    </Button>
+                  )}
+                  {!show && (
+                    <Button
+                      className="booking-card-btn"
+                      type="submit"
+                      onClick={handleRefresh}
+                    >
+                      <span>Edit</span>
+                    </Button>
+                  )}
+                </div>
+                {render && (
+                  <SelectedCourseDetails selectedOption={selectedOption} />
+                )}
+              </div>
+              {!show && !render && (
+                <PreferredCourseOptions
+                  updateSelection={updateSelection}
+                  searchResults={searchResults}
+                />
+              )}
+              <div className="time-zone-container">
+                {!show && !render && (
+                  <div className="time-zone-card">
+                    <p className="time-zone">
+                      All times are in Central Standard Time (US & Canada)
+                    </p>
+                  </div>
+                )}
+              </div>
+            </Item>
+          </div>
+        </Form>
+      </Content>
+    </Layout>
   );
 };
 
-const mapStateToProps = state => ({
-  cart: state.parentReducer.cart,
-  bookings: state.parentReducer.bookings,
-});
-
-export default connect(mapStateToProps, {
-  addToCart,
-})(ParentBookingCard);
+export default ParentBookingCard;

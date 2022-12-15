@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import '../../../styles/index.less';
 import { CloseOutlined } from '@ant-design/icons';
+import { useOktaAuth } from '@okta/okta-react';
 import {
   getNewsFeed,
   putNewsFeed,
@@ -10,9 +11,10 @@ import {
   setPostOptions,
 } from '../../../redux/actions/instructorActions';
 
-//TO-DO: Implement Auth0
 function NewsFeedPutModal(props) {
   const { postID, link, title, description, posted_at } = props;
+  const { authState } = useOktaAuth();
+  const { idToken } = authState;
 
   const [formValues, setFormValues] = useState({
     link: link,
@@ -23,9 +25,8 @@ function NewsFeedPutModal(props) {
 
   const dispatch = useDispatch();
 
-  //TO-DO: Implement Auth0 - getNewsFeed
   useEffect(() => {
-    dispatch(getNewsFeed(postID, posted_at));
+    dispatch(getNewsFeed(idToken, postID, posted_at));
   }, []);
 
   const handleChange = e => {
@@ -40,16 +41,14 @@ function NewsFeedPutModal(props) {
       ...formValues,
     });
 
-    //TO-DO: Implement Auth0 - putNewsFeed
-    dispatch(putNewsFeed(postID, formValues, posted_at));
+    dispatch(putNewsFeed(idToken, postID, formValues, posted_at));
 
     dispatch(setPostOptions('newsFeed'));
     event.preventDefault();
   };
 
-  //TO-DO: Implement Auth0 - deleteNewsFeed
   const handleDelete = event => {
-    dispatch(deleteNewsFeed(postID));
+    dispatch(deleteNewsFeed(idToken, postID));
 
     dispatch(setPostOptions('newsFeed'));
     event.preventDefault();

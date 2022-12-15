@@ -1,6 +1,6 @@
 // WE ARE CURRENTLY TRYING OUT THE SingleBookingComponent.js PLEASE REFER TO THAT COMPONENT FOR BOOKING FOR NOW
 import React, { useState } from 'react';
-import { Typography, Layout, Form, Button, Col, Row } from 'antd';
+import { Typography, Layout, Form, Button } from 'antd';
 import { parentDummyData } from '../../../parentDummyData';
 import BookingCalendar from './BookingCalendar';
 import PreferredCourseOptions from './PreferredCourseOptions.js';
@@ -91,138 +91,95 @@ const ParentBookingCard = () => {
 
   return (
     <Layout>
-      <Row>
-        <Col>
-          <Content className="main-container">
-            <Col span={24}>
-              <Title className="title">
-                <p>
-                  BOOK WITH US.
-                  <br />
-                  LEARN MORE THAN JUST CODE!
-                </p>
-              </Title>
-            </Col>
+      <Content className="main-container">
+        <Title className="title">
+          <p>
+            BOOK WITH US.
+            <br />
+            LEARN MORE THAN JUST CODE!
+          </p>
+        </Title>
+        <Form className="form-container" size={'large'} layout="inline">
+          <div>
+            <div className="sub-heading">Select Program</div>
+            <Item name={'specialty'}>
+              <BookingProgram
+                handleRadioClick={handleRadioClick}
+                disabled={disabled}
+              />
+            </Item>
 
-            <Form className="form-container" size={'large'} layout="inline">
-              <Col span={24}>
-                <div>
-                  <div className="sub-heading">Select Program</div>
-                  <Item name={'specialty'}>
-                    <BookingProgram
-                      handleRadioClick={handleRadioClick}
-                      disabled={disabled}
-                    />
-                  </Item>
+            <div className="sub-heading">Select Date</div>
+          </div>
 
-                  <div className="sub-heading">Select Date</div>
-                </div>
-              </Col>
-
-              <div className="course-availability-container">
-                <Col span={12}>
-                  <Item className="booking-calendar-container">
-                    <BookingCalendar
-                      handleCalendarClick={handleCalendarClick}
-                    />
-                  </Item>
-                </Col>
-
-                <Col span={12}>
-                  <Item
-                    name={'availability'}
-                    className="btn-drop-down-container"
+          <div className="course-availability-container">
+            <Item className="booking-calendar-container">
+              <BookingCalendar handleCalendarClick={handleCalendarClick} />
+            </Item>
+            <Item name={'availability'} className="btn-drop-down-container">
+              <div className="booking-card-container">
+                {show && (
+                  <Button
+                    className="show-availability-btn"
+                    type="submit"
+                    onClick={() => {
+                      if (valuesObject.program && valuesObject.date) {
+                        handleAvailability();
+                      }
+                    }}
                   >
-                    <div className="booking-card-container">
-                      <Col span={24}>
-                        {show && (
-                          <Button
-                            className="show-availability-btn"
-                            type="submit"
-                            onClick={() => {
-                              if (valuesObject.program && valuesObject.date) {
-                                handleAvailability();
-                              }
-                            }}
-                          >
-                            <span>Show Availability</span>
-                          </Button>
-                        )}
-                      </Col>
+                    <span>Show Availability</span>
+                  </Button>
+                )}
+                <div className="booking-card-btns">
+                  {!show && !render && (
+                    <Button
+                      className="booking-card-btn"
+                      type="submit"
+                      onClick={handleSelectedCourse}
+                    >
+                      <span>View Selection Details</span>
+                    </Button>
+                  )}
 
-                      <div className="booking-card-btns">
-                        <Col span={12}>
-                          {!show && !render && (
-                            <Button
-                              className="booking-card-btn"
-                              type="submit"
-                              onClick={handleSelectedCourse}
-                            >
-                              <span>View Selection Details</span>
-                            </Button>
-                          )}
-                        </Col>
-
-                        <Col span={12}>
-                          {!show && render && (
-                            <Button className="booking-card-btn" type="submit">
-                              <span>Book Now</span>
-                            </Button>
-                          )}
-                        </Col>
-
-                        <Col span={12}>
-                          {!show && (
-                            <Button
-                              className="booking-card-btn"
-                              type="submit"
-                              onClick={handleRefresh}
-                            >
-                              <span>Edit</span>
-                            </Button>
-                          )}
-                        </Col>
-                      </div>
-
-                      <Col span={24}>
-                        {render && (
-                          <SelectedCourseDetails
-                            selectedOption={selectedOption}
-                          />
-                        )}
-                      </Col>
-                    </div>
-
-                    <Col span={24}>
-                      {!show && !render && (
-                        <PreferredCourseOptions
-                          updateSelection={updateSelection}
-                          searchResults={searchResults}
-                        />
-                      )}
-                    </Col>
-
-                    <Col span={24}>
-                      <div className="time-zone-container">
-                        {!show && !render && (
-                          <div className="time-zone-card">
-                            <p className="time-zone">
-                              All times are in Central Standard Time (US &
-                              Canada)
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </Col>
-
-                    {/* </div> */}
-                  </Item>
-                </Col>
+                  {!show && render && (
+                    <Button className="booking-card-btn" type="submit">
+                      <span>Book Now</span>
+                    </Button>
+                  )}
+                  {!show && (
+                    <Button
+                      className="booking-card-btn"
+                      type="submit"
+                      onClick={handleRefresh}
+                    >
+                      <span>Edit</span>
+                    </Button>
+                  )}
+                </div>
+                {render && (
+                  <SelectedCourseDetails selectedOption={selectedOption} />
+                )}
               </div>
-            </Form>
-          </Content>
-        </Col>
-      </Row>
+              {!show && !render && (
+                <PreferredCourseOptions
+                  updateSelection={updateSelection}
+                  searchResults={searchResults}
+                />
+              )}
+              <div className="time-zone-container">
+                {!show && !render && (
+                  <div className="time-zone-card">
+                    <p className="time-zone">
+                      All times are in Central Standard Time (US & Canada)
+                    </p>
+                  </div>
+                )}
+              </div>
+            </Item>
+          </div>
+        </Form>
+      </Content>
     </Layout>
   );
 };

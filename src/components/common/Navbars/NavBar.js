@@ -181,7 +181,7 @@ function NavBar(props) {
                 icon={<AliwangwangOutlined />}
                 title="Social Links"
               >
-                <Menu.Item key="8" icon={<FacebookOutlined />}>
+                <Menu.Item key="7" icon={<FacebookOutlined />}>
                   <a
                     href="https://www.facebook.com/coderheroes"
                     className="navbar__socialLink"

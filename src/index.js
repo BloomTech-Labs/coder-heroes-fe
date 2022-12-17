@@ -96,10 +96,8 @@ root.render(
     <Router>
       <React.StrictMode>
         <Auth0Provider
-          domain="dev-aaucjuidwn3zohx5.us.auth0.com"
-          clientId="nUORWBATYehjnPTw3Y6iyQYzglWwT5eR"
-          // domain={process.env.AUTH0_DOMAIN}
-          // clientId={process.env.AUTH0_CLIENT_ID}
+          domain={process.env.AUTH0_DOMAIN}
+          clientId={process.env.AUTH0_CLIENT_ID}
           redirectUri={window.location.origin}
         >
           <Layout
@@ -130,7 +128,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/logout" component={LogoutPage} />
+        {/* <Route path="/logout" component={LogoutPage} /> */}
         <Route path="/register" component={RegisterStep1} />
         <Route path="/confirm" component={ConfirmEmail} />
         <Route path="/register-1" component={RegisterStep1} />

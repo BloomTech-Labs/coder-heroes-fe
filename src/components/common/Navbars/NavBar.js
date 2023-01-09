@@ -6,15 +6,13 @@ import {
   YoutubeOutlined,
   LinkedinOutlined,
   HomeOutlined,
-  SnippetsOutlined,
   AliwangwangOutlined,
-  FormOutlined,
-  BankOutlined,
-  UserSwitchOutlined,
   LoginOutlined,
+  LogoutOutlined,
   ContactsOutlined,
 } from '@ant-design/icons';
 import { Drawer, Menu, Layout } from 'antd';
+
 import {
   ProfileIcon,
   HamburgerMenuIcon,
@@ -28,7 +26,7 @@ import { connect } from 'react-redux';
 import navLogo from '../../../img/navbar-logo.png';
 import handleLogout from '../../../utils/logout.js';
 
-//TO-DO: Implement Auth0
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { SubMenu } = Menu;
 const { Header } = Layout;
@@ -40,6 +38,7 @@ function NavBar(props) {
   const [bgColor, setBgColor] = useState('#21c5b5');
   let { role_id } = props.user.currentUser;
   const history = useHistory();
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     if (role_id === 5) setBgColor('#9FB222');
@@ -100,16 +99,31 @@ function NavBar(props) {
               </button>
             </NavLink>
           )}
-          <NavLink to="/login">
-            <button>LOGIN</button>
-          </NavLink>
-          {/* {localStorage.getItem({}) && ( */}
+          {isAuthenticated ? (
+            <NavLink to="/logout">
+              <button className="navbar__btn navbar__login">LOGOUT</button>
+            </NavLink>
+          ) : (
+            <NavLink to="/login">
+              <button className="navbar__btn navbar__login">LOGIN</button>
+            </NavLink>
+          )}
           <NavLink to="/parent/family">
             <div className="navbar__profile">
-              <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+              {!isAuthenticated ? (
+                <ProfileIcon style={{ color: 'black', fontSize: 30 }} />
+              ) : (
+                <img
+                  src={user.picture}
+                  alt={user.name}
+                  style={{
+                    borderRadius: '100px',
+                    width: '40px',
+                  }}
+                />
+              )}
             </div>
           </NavLink>
-          {/* )} */}
         </div>
         <div className="navbar__hamburgerMenu">
           <HamburgerMenuIcon style={{ color: 'white' }} onClick={showDrawer} />
@@ -123,10 +137,32 @@ function NavBar(props) {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <NavLink to="/">Home</NavLink>
               </Menu.Item>
-              <Menu.Item key="3" icon={<LoginOutlined />}>
-                <NavLink to="/login">Login</NavLink>
-              </Menu.Item>
-              <Menu.Item key="99" icon={<ProfileIcon />}>
+              {isAuthenticated ? (
+                <Menu.Item key="3" icon={<LogoutOutlined />}>
+                  <NavLink to="/logout">Logout</NavLink>
+                </Menu.Item>
+              ) : (
+                <Menu.Item key="3" icon={<LoginOutlined />}>
+                  <NavLink to="/login">Login</NavLink>
+                </Menu.Item>
+              )}
+              <Menu.Item
+                key="99"
+                icon={
+                  !isAuthenticated ? (
+                    <ProfileIcon />
+                  ) : (
+                    <img
+                      src={user.picture}
+                      alt={user.name}
+                      style={{
+                        borderRadius: '100px',
+                        width: '15px',
+                      }}
+                    />
+                  )
+                }
+              >
                 <NavLink to="/dev">My Dashboard</NavLink>
               </Menu.Item>
               <Menu.Item key="2" icon={<ContactsOutlined />}>
@@ -140,24 +176,12 @@ function NavBar(props) {
                   Contact Us
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="4" icon={<SnippetsOutlined />}>
-                <NavLink to="/">Programs</NavLink>
-              </Menu.Item>
-              <Menu.Item key="5" icon={<UserSwitchOutlined />}>
-                <NavLink to="/browse-instructors">Instructors</NavLink>
-              </Menu.Item>
-              <Menu.Item key="6" icon={<FormOutlined />}>
-                <NavLink to="/parent/booking">Booking</NavLink>
-              </Menu.Item>
-              <Menu.Item key="7" icon={<BankOutlined />}>
-                <NavLink to="/">Scholarships</NavLink>
-              </Menu.Item>
               <SubMenu
                 key="sub1"
                 icon={<AliwangwangOutlined />}
                 title="Social Links"
               >
-                <Menu.Item key="8" icon={<FacebookOutlined />}>
+                <Menu.Item key="7" icon={<FacebookOutlined />}>
                   <a
                     href="https://www.facebook.com/coderheroes"
                     className="navbar__socialLink"

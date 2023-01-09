@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // we will define a bunch of API calls here.
 //NOTE: apiUrl will be used below once auth0 is implemented //
-const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
+// const apiUrl = `${process.env.REACT_APP_API_URI}/profiles`;
 
 const sleep = time =>
   new Promise(resolve => {

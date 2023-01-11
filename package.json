@@ -32,7 +32,7 @@
   "scripts": {
     "start": "node start.js",
     "build": " SKIP_PREFLIGHT_CHECK=true npx craco --max_old_space_size=4096 build",
-    "test": "craco test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "coverage": "npm test -- --coverage --watchAll=false",

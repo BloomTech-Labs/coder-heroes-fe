@@ -170,15 +170,24 @@ function AdminEditCoursesForm(props) {
                 name="course_date_time"
               />
             </Form.Item>
+            {/* // Added a place for an admin to put a 'zoom' link for the class so that it is accessible directly from the class card. // */}
             <Form.Item
-              label={<label style={{ color: '#096A70' }}>Location:</label>}
+              label={<label style={{ color: '#096A70' }}>Location: </label>}
               style={{ width: '65%' }}
               onChange={handleChange}
             >
-              <Input
-                value={formValues.course_location}
-                name="course_location"
-              />
+              <Form.Item
+                label={
+                  <label style={{ fontSize: '1.0rem' }}>
+                    Place your class link here
+                  </label>
+                }
+              >
+                <Input
+                  value={formValues.course_location}
+                  name="course_location"
+                />
+              </Form.Item>
             </Form.Item>
             <Form.Item
               style={{ width: '80%' }}

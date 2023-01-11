@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { useDispatch } from 'react-redux';
-import { getCurrentUser } from '../../../redux/actions/userActions';
+// BELOW: THE GETCURRENTUSER77 WILL LIKELY BE USED WHEN WE ADD AUTHENTICATION BACK INTO THE APP.
+// import { getCurrentUser } from '../../../redux/actions/userActions';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 //import moment from 'moment'; you may need this for auto-pop
@@ -27,6 +28,7 @@ const { Option } = Select;
 
 const initialFormValues = {
   course_id: '',
+  course_location: '',
   course_name: '',
   course_description: '',
   days_of_week: [],
@@ -82,6 +84,7 @@ function AdminAddCoursesForm(props) {
     if (props.button_name === 'Edit Course') {
       setFormValues({
         course_id: courseinfo.course_id,
+        course_location: courseinfo.course_location,
         course_name: courseinfo.course_name,
         course_description: courseinfo.course_description,
         days_of_week: courseinfo.days_of_week,

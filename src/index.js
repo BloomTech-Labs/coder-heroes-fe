@@ -19,6 +19,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
 import { LoginPage } from './components/pages/Login/index';
+import { LogoutPage } from './components/pages/Logout/index';
 import { HomePage } from './components/pages/Home';
 import { LandingPage } from './components/pages/Landing';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -80,6 +81,7 @@ import CourseDetails from './components/pages/AdminHome/CourseDetails';
 import AdminEditCourse from './components/pages/AdminDispCourse/index';
 import StudentMessages from './components/pages/StudentHome/messages/MessagesContainer';
 //TO-DO: IMPLEMENT AUTH0 ADD SECURE ROUTES
+import { Auth0Provider } from '@auth0/auth0-react';
 
 import { Auth0Provider } from '@auth0/auth0-react';
 import ReactDOM from 'react-dom';
@@ -93,12 +95,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <React.StrictMode>
-        <Layout
-          style={{
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
+        <Auth0Provider
+          domain={process.env.AUTH0_DOMAIN}
+          clientId={process.env.AUTH0_CLIENT_ID}
+          redirectUri={window.location.origin}
         >
           <NavBar />
           <Auth0Provider
@@ -119,13 +119,14 @@ ReactDOM.render(
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <Layout.Content style={{ display: 'flex', justifyContent: 'center' }}>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />;
+        <Route path="/login" component={LoginPage} />
+        {/* <Route path="/logout" component={LogoutPage} /> */}
         <Route path="/register" component={RegisterStep1} />
         <Route path="/confirm" component={ConfirmEmail} />
         <Route path="/register-1" component={RegisterStep1} />

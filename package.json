@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "license": "MIT",
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8090",
   "repository": "github:Lambda-School-Labs/labs-spa-starter",
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",

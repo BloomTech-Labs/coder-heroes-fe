@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -10,7 +11,5 @@ const LoginPage = () => {
     )
   );
 };
-
-//TO-DO: Implement Auth0
 
 export default LoginPage;

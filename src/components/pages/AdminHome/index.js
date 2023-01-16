@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/InstructorStyles/index.less';
+import '../../../styles/AdminStyles/index.less';
 import AdminSidebar from './AdminSidebar';
 import AdminHomeContent from './AdminHomeContent';
 import { Layout } from 'antd';

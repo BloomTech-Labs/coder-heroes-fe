@@ -93,3 +93,103 @@ p {
   left: 50%;
   font-size: 20px;
 }
+
+.course-modal-item {
+  padding: .5%;
+  display: flex;
+  background-color: white;
+}
+
+.course-modal-item p {
+  width: 20%;
+  color: black;
+  font-family: @text__font-family;
+}
+
+.course-modal-item:nth-child(even){
+  background-color: rgb(197, 192, 192);
+}
+
+.ant-modal-header, .ant-modal-content {
+  border-top-left-radius: 0.5rem;
+}
+
+.ant-modal-close {
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem 0.5rem 0.25rem 0.25rem;
+  margin-right: -0.25rem;
+  margin-top: -0.25rem;
+  box-shadow: -0.25rem .25rem;
+}
+
+.ant-modal-header {
+  background-color: @header__bg;
+  border: none;
+  border-top-left-radius: 0.5rem;
+}
+
+.ant-modal-title, #modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  margin-right: 5%;
+}
+
+.courses-search-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2%;
+}
+
+#courses-search-button {
+  border-radius: 0.3rem;
+  border-color: white;
+  background-color: white;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#filter-button, 
+.courses-search-form input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+#filter-button {
+  margin-right: 2%;
+  width: 7rem;
+}
+
+.courses-search-bar {
+  padding: 0.3rem;
+  font-size: 0.75em;
+  border: none;
+  width: 30rem;
+}
+
+.ant-modal-body {
+  border: none;
+}
+
+#modal-header h3.modal-header-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-right: auto;
+  align-items: center;
+  align-self: flex-start;
+}
+
+#modal-header {
+  height: 2rem;
+}
